@@ -14,27 +14,28 @@ MAX_CURVATURE = 1.0 ; %最大曲率 [1/m]
 MAX_ROAD_WIDTH =3 ; % 最大道路宽度 [m]
 D_ROAD_W = 0.2 ; % 道路宽度采样间隔 [m]
 DT = 1 ; % Delta T [s]
-MAXT = 15;% 最大预测 [s]
+MAXT = 14;% 最大预测 [s]
 MINT = 4; % 最小预测 [s]
 TARGET_SPEED = 12.0 / 3.6 ; % 目标速度（即纵向的速度保持） [m/s]
 D_T_S = 5.0 / 3.6 ; % 目标速度采样间隔 [m/s]
 N_S_SAMPLE = 1 ; % sampling number of target speed
-ROBOT_RADIUS = 1.2; % robot radius [m]
-predict =15;
+ROBOT_RADIUS = 1.0; % robot radius [m]
+predict =22;
 % 损失函数权重
 KJ = 0.1;
-KT = 1;
-KD = 10;
+KT = 0.1;
+KD = 1;
 KLAT = 1.0;
 KLON = 1.0;
 
-wx = [0.0, 10.0, 20.5, 30.0, 40.5, 50.0, 60.0];
-wy = [0.0, -4.0, 1.0, 6.5, 8.0, 10.0, 6.0];
+wx = [0.0, 10.0, 20.5, 30.0, 40.5, 50.0, 60.0,70.0,80.0];
+wy = [0.0, -4.0, 1.0, 6.5, 8.0, 10.0, 6.0,5,4];
+ob = [0,-10];
 ob = [4.2, -4.4; 20.0, 10.0; 30.0, 6.0; 35.0, 7.0;
-      30.0, 5.0;  36, 7.5; 38, 7.6; 50.0, 12.0; 14, -3];
+      30.0, 5.0;  36, 7.5; 38, 7.6;  14, -3];
 % ob = [ 22,2.4;20.0, 10.0;20.0, 9.0; 30.0, 6.0;35.0, 7.0;30.0, 5.0;36,7.5;38,7.6;50.0, 12.0;14,-3];
 [xt, yt,YAW] = cubic_spline(wx,wy,MAX_ROAD_WIDTH);
-
+axis equal
 plot(ob(:,1),ob(:,2),'ko')
 plot(ob(:,1),ob(:,2),'ks')
 plot(ob(:,1),ob(:,2),'k*')
@@ -305,8 +306,8 @@ for di = 0: D_ROAD_W: MAX_ROAD_WIDTH
 %         JP= sum(d_ddd.^2);
        cost_T(j) = 1/Ti;
         cost_D(j) = abs(di);
-        cost_T = regularization(cost_T);
-        cost_D = regularization(cost_D);
+%         cost_T = regularization(cost_T);
+%         cost_D = regularization(cost_D);
         cost_total = KD * cost_D +  KT * cost_T;
         
         T(j) = Ti;
