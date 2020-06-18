@@ -15,10 +15,6 @@
 % 20181101 ：增加画出障碍物的大小，更直观的看到障碍物和机器人之间的位置关系
 % -------------------------------------------------------------------------
  
-
-
-
-
 function [] = dwa_V_1_0()
 
 close all;
@@ -112,7 +108,7 @@ MD_W_RESOLUTION  = 6;%  转速分辨率[rad/s]]
 
 % 评价函数参数 [heading,dist,velocity,predictDT]
 % 航向得分的比重、距离得分的比重、速度得分的比重、向前模拟轨迹的时间
-evalParam = [0.02, 0.2 ,0.1, 1.0];
+evalParam = [0.02, 0.1 ,0.1, 3.0];
 % evalParam = [2, 0.2 ,0.2, 3.0];
 area      = [-3 14 -3 14];% 模拟区域范围 [xmin xmax ymin ymax]
 
@@ -120,7 +116,7 @@ area      = [-3 14 -3 14];% 模拟区域范围 [xmin xmax ymin ymax]
 result.x=[];   %累积存储走过的轨迹点的状态值 
 tic; % 估算程序运行时间开始
 
-% movcount=0;
+%  movcount=0;
 %% Main loop   循环运行 5000次 指导达到目的地 或者 5000次运行结束
 for i = 1:5000  
     % DWA参数输入 返回控制量 u = [v(m/s),w(rad/s)] 和 轨迹
@@ -163,11 +159,11 @@ for i = 1:5000
     axis(area); %根据area设置当前图形的坐标范围，分别为x轴的最小、最大值，y轴的最小最大值
     grid on;
     drawnow limitrate;  %刷新屏幕. 当代码执行时间长，需要反复执行plot时，Matlab程序不会马上把图像画到figure上，这时，要想实时看到图像的每一步变化情况，需要使用这个语句。
-    %movcount = movcount+1;
-    %mov(movcount) = getframe(gcf);%  记录动画帧
+%     movcount = movcount+1;
+%     mov(movcount) = getframe(gcf);%  记录动画帧
 end
 toc  %输出程序运行时间  形式：时间已过 ** 秒。
-%movie2avi(mov,'movie.avi');  %录制过程动画 保存为 movie.avi 文件
+% VideoWriter(mov,'movie.avi');  %录制过程动画 保存为 movie.avi 文件
 
 %% 绘制所有障碍物位置
 % 输入参数：obstacle 所有障碍物的坐标   obstacleR 障碍物的半径
