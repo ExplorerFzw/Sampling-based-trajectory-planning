@@ -5,10 +5,13 @@ Mobile robot motion planning sample with Dynamic Window Approach
 
 import math
 import numpy as np
+import matplotlib as mpl
+mpl.use('TKAgg')
 import matplotlib.pyplot as plt
 
 show_animation = True  # real time drawing
 start = 0  # go through point
+
 
 class Config(object):
     """
@@ -30,7 +33,7 @@ class Config(object):
         self.to_goal_cost = 5  # Target cost gain
         self.speed_cost = 10  # Target cost reduction
         self.obstacle_cost = 1.0
-        self.heading_cost = 1.0
+        self.heading_cost = 30.0
         self.robot_radius = 1.0  # [m]  # robor radius
 
 
@@ -99,7 +102,7 @@ def calc_trajectory(x_init, v, w, config):
         x = motion(x, [v, w], config.dt)
         trajectory = np.vstack((trajectory, x))  # vertical
         time += config.dt
-    traj_len = len(trajectory)
+        # traj_len = len(trajectory)
         # print(trajectory)
     return trajectory
 
@@ -117,9 +120,10 @@ def calc_to_goal_cost(trajectory, goal):
     dx = goal[0] - trajectory[-1, 0]
     dy = goal[1] - trajectory[-1, 1]
     goal_dis = math.sqrt(dx ** 2 + dy ** 2)
-    cost =  goal_dis
+    cost = goal_dis
 
     return cost
+
 
 def calc_obstacle_cost(traj, ob, config):
     """
@@ -142,27 +146,30 @@ def calc_obstacle_cost(traj, ob, config):
 
             r = math.sqrt(dx ** 2 + dy ** 2)
             if r <= config.robot_radius:
-                return float("Inf")  # collision
+                return -1  # collision
 
             if min_r >= r:
                 min_r = r
 
     return 1.0 / min_r  #
 
-def calc_speed_cost(trajectory,config):
-    speed_cost =  config.max_speed - trajectory[1, 3]
+
+def calc_speed_cost(trajectory, config):
+    speed_cost = config.max_speed - trajectory[1, 3]
     return speed_cost
 
-def calc_breaking_dist_cost(v,config):
-    stopDist = 1/(v**2/(2*abs(config.max_accel)))
+
+def calc_breaking_dist_cost(v, config):
+    stopDist = 1 / (v ** 2 / (2 * abs(config.max_accel)))
     # while abs(v) > 0:
     #     stopDist = stopDist + v * config.dt
     #     v = v - np.sign(v) * config.max_accel * config.dt
 
     return stopDist
 
-def cal_heading_cost(trajectory,goal):
-    heading_cost = abs(trajectory[-1,2] - goal[2])
+
+def cal_heading_cost(trajectory, goal):
+    heading_cost = abs(trajectory[-1, 2] - goal[2])
     return heading_cost
 
 
@@ -177,8 +184,8 @@ def evaluation(x, u, vr, config, goal, ob):
     :return:
     """
     x_init = x[:]
-    min_cost = 10000.0
-    min_u = u
+    # min_cost = 10000.0
+    # min_u = u
     eval = []
     traj = np.ones([31, 5])
     traj = np.array(traj)
@@ -188,31 +195,35 @@ def evaluation(x, u, vr, config, goal, ob):
         for w in np.arange(vr[2], vr[3], config.yawrate_reso):
 
             trajectory = calc_trajectory(x_init, v, w, config)
+            ob_cost = calc_obstacle_cost(trajectory, ob, config)
+            if ob_cost == -1:
+                continue
             # calc cost
             to_goal_cost = calc_to_goal_cost(trajectory, goal)
-            speed_cost = calc_speed_cost(trajectory,config)
-            ob_cost = calc_obstacle_cost(trajectory, ob, config)
-            stopDist_cost = calc_breaking_dist_cost(v,config)
-            heading_cost = cal_heading_cost(trajectory,goal)
+            speed_cost = calc_speed_cost(trajectory, config)
+
+            stopDist_cost = calc_breaking_dist_cost(v, config)
+            heading_cost = cal_heading_cost(trajectory, goal)
             #  print(ob_cost)
             eval_cost = [v, w, to_goal_cost, speed_cost, ob_cost, heading_cost]
             eval.append(eval_cost)
 
             trajectory = np.array(trajectory)
-            traj = np.hstack((traj,trajectory))
-    eval = np.array(eval)# search minimum trajectory
-
+            traj = np.hstack((traj, trajectory))
+    eval = np.array(eval)  # search minimum trajectory
 
     # print(min_u)
     #  input()
 
     return eval, traj
 
+
 def NormalizeEval(eval):
-    for i in range(2,6):
-        if sum(eval[:,i]) != 0:
-            eval[:,i] = eval[:,i]/sum(eval[:,i])
+    for i in range(2, 6):
+        if sum(eval[:, i]) != 0:
+            eval[:, i] = eval[:, i] / sum(eval[:, i])
     return eval
+
 
 def dwa_control(x, u, config, goal, ob):
     """
@@ -231,27 +242,27 @@ def dwa_control(x, u, config, goal, ob):
     eval, trajectory = evaluation(x, u, vr, config, goal, ob)
 
     # eval = NormalizeEval(eval)
-    eval[:,2] = config.to_goal_cost * eval[:,2]
+    eval[:, 2] = config.to_goal_cost * eval[:, 2]
     eval[:, 3] = config.speed_cost * eval[:, 3]
-    eval[:, 4] =  config.obstacle_cost * eval[:, 4]
+    eval[:, 4] = config.obstacle_cost * eval[:, 4]
     eval[:, 5] = config.heading_cost * eval[:, 5]
     feval = []
     for i in range(len(eval)):
-        value = sum(eval[i,2:-1])
+        value = sum(eval[i, 2:-1])
 
         feval.append(value)
     feval = np.array(feval)
     index_list = np.argsort(feval)
     index = index_list[0]
 
-    u = eval[index,0:2]
-    trajectory = trajectory[:,(index+1)*5:((index+1)*5 + 2)]
+    u = eval[index, 0:2]
+    trajectory = trajectory[:, (index + 1) * 5:((index + 1) * 5 + 2)]
     # print('traj is ',trajectory)
-    print('u is',u)
+    print('u is', u)
     return u, trajectory
 
 
-def plot_arrow(x, y, yaw, length=0.5, width=0.1):
+def plot_arrow(x, y, yaw, length=1.0, width=0.5):
     """
 
     :param x:
@@ -277,8 +288,8 @@ def main():
     #
     x = np.array([0.0, 0.0, math.pi / 2.0, 0.2, 0.0])
 
-    goal = np.array([10, 3, 0])
-    goal2 = np.array([7.5, 10, -math.pi / 2.0 ])
+    goal = np.array([12, 3, -math.pi / 3.0])
+    goal2 = np.array([8, 14, -math.pi / 2.0])
 
     #
     # ob = np.matrix([[-1, -1],
@@ -296,18 +307,18 @@ def main():
     u = np.array([2, 0.0])
     config = Config()
     trajectory = np.array(x)
-
+    plt.figure(1)
     for i in range(1000):
         # if start == 0:
         u, best_trajectory = dwa_control(x, u, config, goal, ob)
         # if start == 1:
         #     u, best_trajectory = dwa_control(x, u, config, goal2, ob)
-        print(u[0])
+
         x = motion(x, u, config.dt)
-        print('heading is:',x[2]) # print(x)
+        print('heading is:', x[2])  # print(x)
 
         trajectory = np.vstack((trajectory, x))  # store state history
-
+        draw_path(trajectory, goal, ob, x)
         # if show_animation and start == 0:
         draw_dynamic_search(best_trajectory, x, goal, ob)
         # if start == 1 and show_animation:
@@ -317,9 +328,9 @@ def main():
         if math.sqrt((x[0] - goal[0]) ** 2 + (x[1] - goal[1]) ** 2) <= config.robot_radius:
             print("Goal1!")
             start = 1
-        #     #
-        # if math.sqrt((x[0] - goal2[0]) ** 2 + (x[1] - goal2[1]) ** 2) <= config.robot_radius:
-        #     print("Goal2!")
+            #     #
+            # if math.sqrt((x[0] - goal2[0]) ** 2 + (x[1] - goal2[1]) ** 2) <= config.robot_radius:
+            #     print("Goal2!")
             break
 
     x = np.array([x[0], x[1], x[2], -0.2, x[4]])
@@ -328,12 +339,12 @@ def main():
         u, best_trajectory = dwa_control(x, u, config, goal2, ob)
         # if start == 1:
         #     u, best_trajectory = dwa_control(x, u, config, goal2, ob)
-        #print(u[0])
+        # print(u[0])
         x = motion(x, u, config.dt)
-        print('heading is:',x[2])
+        print('heading is:', x[2])
 
         trajectory = np.vstack((trajectory, x))  # store state history
-
+        draw_path(trajectory, goal, ob, x)
         # if show_animation and start == 0:
         draw_dynamic_search(best_trajectory, x, goal2, ob)
         # if start == 1 and show_animation:
@@ -343,11 +354,11 @@ def main():
         if math.sqrt((x[0] - goal2[0]) ** 2 + (x[1] - goal2[1]) ** 2) <= config.robot_radius:
             print("Goal1!")
             start = 1
-        #     #
-        # if math.sqrt((x[0] - goal2[0]) ** 2 + (x[1] - goal2[1]) ** 2) <= config.robot_radius:
-        #     print("Goal2!")
+            #     #
+            # if math.sqrt((x[0] - goal2[0]) ** 2 + (x[1] - goal2[1]) ** 2) <= config.robot_radius:
+            #     print("Goal2!")
             break
-
+    plt.show()
     print("Done")
 
     # draw_path(trajectory, goal, ob, x)
@@ -359,7 +370,7 @@ def draw_dynamic_search(best_trajectory, x, goal, ob):
 
     :return:
     """
-    plt.cla()  #
+    # plt.cla()  #
     plt.plot(best_trajectory[:, 0], best_trajectory[:, 1], "-g")
     plt.plot(x[0], x[1], "xr")
     plt.plot(0, 0, "og")
@@ -369,6 +380,7 @@ def draw_dynamic_search(best_trajectory, x, goal, ob):
     plt.axis("equal")
     plt.grid(True)
     plt.pause(0.0001)
+    # plt.show()
 
 
 def draw_path(trajectory, goal, ob, x):
@@ -386,7 +398,7 @@ def draw_path(trajectory, goal, ob, x):
     plt.axis("equal")
     plt.grid(True)
     plt.plot(trajectory[:, 0], trajectory[:, 1], 'r')
-    plt.show()
+    # plt.show()
 
 
 if __name__ == '__main__':
