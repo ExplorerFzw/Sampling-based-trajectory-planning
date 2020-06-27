@@ -1,3 +1,4 @@
+%copy right @ jiangyuncheng
 clc
 clear all
 obs = [4.5, 0.5; 5.5,0.5];
