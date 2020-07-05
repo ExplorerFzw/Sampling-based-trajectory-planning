@@ -1,7 +1,7 @@
 from numpy import *
-n = 5
-m = 3
-lastPoint = 0
-for i in arange(1,n):
-    lastPoint = (lastPoint + m) % n - 1
-print(lastPoint)
+n = 10
+m = 17
+lastpoint = 0
+for i in arange(2,n+1):
+    lastpoint = (lastpoint + m) % i
+print(lastpoint)
