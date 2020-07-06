@@ -1,0 +1,21 @@
+Reference:
+For Hybrid_A_Star:
+   https://zhuanlan.zhihu.com/p/40776683
+For Reeds_Shepp curve:
+   https://zhuanlan.zhihu.com/p/38940994
+
+
+How to run?
+   1. python3 hybrid_a_star.py  # we can change the goal position to park in difference parking-lot
+   2. python3 A_Start.py  # the original A_Star
+   3. python3 reeds_shepp_path_planning.py  # Reeds-shepp curve for path planning
+
+视频展示:
+   GoogleDrive:
+     https://drive.google.com/open?id=1oOVXamLPcY_3Ay5giM4vPmJS6glpkrg1
+     https://drive.google.com/open?id=1wHm-Xy8jcabZHTmnouG0R0eF8Y-_HLUD
+   云盘:
+     https://www.jianguoyun.com/p/DQrKfz8QvsmaCBisp_UC
+     https://www.jianguoyun.com/p/DRPtFeQQvsmaCBivp_UC
+
+    
