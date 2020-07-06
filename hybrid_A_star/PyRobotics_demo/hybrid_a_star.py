@@ -431,7 +431,7 @@ def main():
     # goal = [46.5, 3, np.deg2rad(90)]
 
     # 停进车位 3
-    start = [2.5, 48.0, np.deg2rad(0)]
+    start = [30.0, 48.0, np.deg2rad(-30)]
     goal = [46.5, 56, np.deg2rad(-90)]
 
     plt.plot(ox, oy, ".k")

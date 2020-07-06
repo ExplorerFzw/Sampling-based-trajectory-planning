@@ -7,6 +7,8 @@ author Atsushi Sakai(@Atsushi_twi)
 """
 import math
 
+import matplotlib as mpl
+mpl.use('TKAgg')
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -363,11 +365,11 @@ def main():
 
     start_x = -1.0  # [m]
     start_y = -4.0  # [m]
-    start_yaw = np.deg2rad(-20.0)  # [rad]
+    start_yaw = np.deg2rad(0.0)  # [rad]
 
     end_x = 5.0  # [m]
     end_y = 5.0  # [m]
-    end_yaw = np.deg2rad(25.0)  # [rad]
+    end_yaw = np.deg2rad(-180.0)  # [rad]
 
     curvature = 1.0
     step_size = 0.1
