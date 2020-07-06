@@ -7,6 +7,8 @@ author Atsushi Sakai(@Atsushi_twi)
 """
 import numpy as np
 import math
+import matplotlib as mpl
+mpl.use('TKAgg')
 import matplotlib.pyplot as plt
 
 
@@ -25,7 +27,7 @@ class Path:
         self.directions = []
 
 
-def plot_arrow(x, y, yaw, length=1.0, width=0.5, fc="r", ec="k"):
+def plot_arrow(x, y, yaw, length=0.2, width=0.1, fc="r", ec="k"):
     """
     Plot arrow
     """
@@ -416,13 +418,13 @@ def test():
 def main():
     print("Reeds Shepp path planner sample start!!")
 
-    start_x = -1.0  # [m]
-    start_y = -4.0  # [m]
-    start_yaw = np.deg2rad(-20.0)  # [rad]
+    start_x = 0.0  # [m]
+    start_y = 0.0  # [m]
+    start_yaw = np.deg2rad(0.0)  # [rad]
 
-    end_x = 5.0  # [m]
-    end_y = 5.0  # [m]
-    end_yaw = np.deg2rad(25.0)  # [rad]
+    end_x = 1.0  # [m]
+    end_y = 1.0  # [m]
+    end_yaw = np.deg2rad(180.0)  # [rad]
 
     curvature = 1.0
     step_size = 0.1
@@ -433,7 +435,7 @@ def main():
     if show_animation:  # pragma: no cover
         plt.cla()
         plt.plot(px, py, label="final course " + str(mode))
-
+        print("px is",np.array(px))
         # plotting
         plot_arrow(start_x, start_y, start_yaw)
         plot_arrow(end_x, end_y, end_yaw)
@@ -448,5 +450,5 @@ def main():
 
 
 if __name__ == '__main__':
-    test()
+    # test()
     main()
