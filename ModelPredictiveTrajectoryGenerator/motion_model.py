@@ -36,8 +36,8 @@ def generate_trajectory(s, km, kf, k0):
 
     n = s / ds
     time = s / v  # [s]
-    tk = np.array([0.0, time / 2.0, time])
-    kk = np.array([k0, km, kf])
+    tk = np.array([0.0, time / 2.0, time]).astype(float)
+    kk = np.array([k0, km, kf]).astype(float)
     t = np.arange(0.0, time, time / n)
     fkp = scipy.interpolate.interp1d(tk, kk, kind="quadratic")
     kp = [fkp(ti) for ti in t]
