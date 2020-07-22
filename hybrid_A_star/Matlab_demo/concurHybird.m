@@ -28,7 +28,7 @@ for i = 1:300
     plot(refpath.States(:,1),refpath.States(:,2),'bo')
     drawnow limitrate
     hold off
-    i
+    i;
 end
 hold on
 plot(traj(:,1),traj(:,2),'r*')
