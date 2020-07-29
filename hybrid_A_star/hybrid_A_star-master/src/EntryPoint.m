@@ -72,7 +72,7 @@ Configure.H_COST = 10; % Heuristic cost
 % End = [0, 13, pi];
 
 Start = [22, 12, pi];
-End = [7, 13, -pi/2];
+End = [5, 3, pi/2];
 
 % 使用完整约束有障碍情况下用A*搜索的最短路径最为hybrid A*的启发值
 ObstMap = GridAStar(Configure.ObstList,End,Configure.XY_GRID_RESOLUTION);
