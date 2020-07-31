@@ -1,6 +1,6 @@
 function VehicleAnimation(x,y,theta,cfg,veh)
     sz=get(0,'screensize');
-    figure('outerposition',sz);
+%     figure('outerposition',sz);
     videoFWriter = VideoWriter('Parking.mp4','MPEG-4');
     open(videoFWriter);
     ObstList = cfg.ObstList;
@@ -14,7 +14,7 @@ function VehicleAnimation(x,y,theta,cfg,veh)
     py = y(1);
     pth = theta(1);
     [vehx,vehy] = getVehTran(px,py,pth,veh); % 根据后轴中心的位姿计算车辆边框的位姿
-    h1 = plot(vehx,vehy,'k'); % 车辆边框
+    h1 = plot(vehx,vehy,'k','LineWidth',0.05); % 车辆边框
     h2 = plot(px,px,'rx','MarkerSize',10); % 车辆后轴中心
     img = getframe(gcf);
     writeVideo(videoFWriter,img);
