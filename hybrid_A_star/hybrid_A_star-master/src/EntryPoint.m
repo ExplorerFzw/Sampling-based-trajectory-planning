@@ -71,24 +71,17 @@ Configure.H_COST = 10; % Heuristic cost
 % Start = [-15, 13, 0];
 % End = [0, 13, pi];
 
-Start = [22, 12, pi];
-End = [5, 3, pi/2];
+Start = [-22, 12, 0];
+End = [7, 2, pi/2];
 
 % 使用完整约束有障碍情况下用A*搜索的最短路径最为hybrid A*的启发值
 ObstMap = GridAStar(Configure.ObstList,End,Configure.XY_GRID_RESOLUTION);
 Configure.ObstMap = ObstMap;
 cla %  从当前坐标区删除包含可见句柄的所有图形对象。
-prediction = 5;
-figure
-while norm(Start(1:2) -End(1:2))>0.1
-    [x,y,th,D,delta] = HybridAStar(Start,End,Vehicle,Configure);
-    % GridAStar(ObstList,End,2);
-
-    if isempty(x)
-        disp("Failed to find path!")
-    else
-        VehicleAnimation(x(1:prediction),y(1:prediction),th(1:prediction),Configure,Vehicle)
-        hold on
-    end
-    Start = [x(prediction)+randn(1)/10, y(10) + randn(1)/10, th(10)];
+[x,y,th,D,delta] = HybridAStar(Start,End,Vehicle,Configure);
+% GridAStar(ObstList,End,2);
+if isempty(x)
+    disp("Failed to find path!")
+else
+    VehicleAnimation(x,y,th,Configure,Vehicle)
 end
