@@ -17,11 +17,14 @@ MAX_Y = 10;
 % MAX_X = 20;
 % MAX_Y = 20;
 map = obstacle_map(xStart, yStart, xTarget, yTarget, MAX_X, MAX_Y);
-
+t1 = tic;
 path = A_star_search(map, MAX_X,MAX_Y,xTarget, yTarget);
-
+t2 = toc;
+ t =t2 - t1;
+ fprintf("planning time is: ",t)
+ tic;
 visualize_map(map, path,MAX_X);
-
+toc;
 function path = A_star_search(map,MAX_X,MAX_Y,xTarget, yTarget)
 %%
 %This part is about map/obstacle/and other settings
@@ -179,6 +182,7 @@ for i = 1:length(traj)
         path(k+1,:) = [pin(3), pin(4)];
          k = k+1;
          pin = traj(i,:);
+         break;
     end
 end
   if pin(1)== traj(1,1) &&pin(2) ==traj(1,2)
@@ -186,6 +190,7 @@ end
   end
  end
  path = [[xTarget, yTarget];path(1:end,:)]
+ 
 end
 
 function dist = distance(x1,y1,x2,y2)
