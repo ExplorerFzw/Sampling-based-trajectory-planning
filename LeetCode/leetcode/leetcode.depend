@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1596207746 source:e:\jiangyunchenggit\leetcode\leetcode\offer14.cpp
+	"offer14.h"
+	<math.h>
+
+1596206817 e:\jiangyunchenggit\leetcode\leetcode\offer14.h
+	<iostream>
+
