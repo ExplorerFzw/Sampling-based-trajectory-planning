@@ -9,13 +9,13 @@ function [] = reference_generation(trajs_local, p_store)
         end
         theta = atan(trajs_local[i,2] / trajs_local[i,1]);
         if (theta>-pi/2 && theta <0)
-            x = trajs_local[i,1] - d * sin(theta);
-            y = trajs_local[i,2] + d * cos(theta);
+            x = trajs_local(i,1) - d * sin(theta);
+            y = trajs_local(i,2) + d * cos(theta);
             trajs_new = [trajs_new ; [x,y]];
         elseif (theta>0 && theta < pi/2)
-            x = trajs_local[i,1] + d * sin(theta);
-            y = trajs_local[i,2] + d * cos(theta);
-            trajs_new = [trajs_new ; [x,y]];
+            x = trajs_local(i,1) + d * sin(theta);
+            y = trajs_local(i,2) + d * cos(theta);
+            trajs_new = [trajs_new ; [x,y]];nj     
         else
            fprintf("it seems that the reference line is unacceptable!");
         end
