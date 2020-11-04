@@ -1,4 +1,4 @@
-function [] = reference_generation(trajs_local, p_store)
+function [trajs_new] = reference_generation(trajs_local, p_store)
     % here the trajs_local is a vector<vector<double>>,with its dimension
     %n by 2, the p_store store the information of Bezier curve generaion
     %function creates, which are longitudinal s and lateral offset.
@@ -15,7 +15,7 @@ function [] = reference_generation(trajs_local, p_store)
         elseif (theta>0 && theta < pi/2)
             x = trajs_local(i,1) + d * sin(theta);
             y = trajs_local(i,2) + d * cos(theta);
-            trajs_new = [trajs_new ; [x,y]];nj     
+            trajs_new = [trajs_new ; [x,y]];    
         else
            fprintf("it seems that the reference line is unacceptable!");
         end

@@ -5,19 +5,23 @@ clc
 clear all
 close all
 reference = [[],[]];
+LEN = 80;
 for i = 1:10
     reference = [reference;[i+1,i*1.2]]
 end
     
     line_a = [[],[]];
     line_b = [[],[]];
-for i = 0:50
-    y = 1 + 0.1* i + 0.001 *i^2 + 0.0002 *i^3;
+    
+a0 = 3; a1 = 0.1; a2 = 0.001; a3 = 0.0001;
+b0 = -3; b1 = 0.1; b2 = 0.001; b3 = 0.00008;
+for i = 0:LEN
+    y = a0 +a1 * i + a2 *i^2 + a3 *i^3;
     line_a = [line_a; [i,y]];
 end
 
-for i = 0:50
-    y = -3 + 0.1* i + 0.001 *i^2 + 0.0001 *i^3;
+for i = 0:LEN
+    y = b0 + b1 * i + b2 * i^2 + b3 * i^3;
     line_b = [line_b; [i,y]];
 end
 
@@ -25,16 +29,37 @@ plot(line_a(:,1), line_a(:,2))
 legend('ref on left');
 hold on
 plot(line_b(:,1), line_b(:,2))
+legend('ref on right');
 hold on
-a0 = 1; a1 = 0.1; a2 = 0.001; a3 = 0.0002;
-b0 = -3; b1 = 0.1; b2 = 0.001; b3 = 0.0001;
-LEN = 50;
+
+LEN = 80;
 reference_1 = reference_line_generator(a0,a1,a2,a3, b0,b1,b2,b3, LEN);
 reference_2 = reference_line_generator_frenet(a0,a1,a2,a3, b0,b1,b2,b3, LEN);
 plot(reference_1(:,1),reference_1(:,2),'--b')
-
+legend('ref in Cartisian');
 plot(reference_2(:,1),reference_2(:,2),'^r')
+legend('ref in Frenet');
+hold on
 
+S = 0;
+D0 = 0;
+Ti = LEN;
+Di = 6;
+ref_bezier = [[],[]];
+index =1;
+while S < Ti
+    p = Bezierfrenet_5(D0, Ti, Di,S);
+    ref_bezier =[ref_bezier; p];
+    S = S + sqrt((reference_1(index+1,1)-reference_1(index,1))^2 + ...
+        (reference_1(index+1,2)-reference_1(index,2))^2);
+    index = index + 1;
+end
+
+trajs_new = reference_generation(reference_1, ref_bezier);
+plot(trajs_new(:,1),trajs_new(:,2),'--r');
+
+figure
+plot(ref_bezier(:,1),ref_bezier(:,2))
 
 function [reference] = reference_line_generator(a0,a1,a2,a3, b0,b1,b2,b3, LEN)
 %% in this function, we use the left and right lane polynomials to generate
@@ -92,4 +117,49 @@ while S < LEN
     S = S + RESOLUTION;
     reference = [reference; [0.5*(x_a + x_b), 0.5*(y_a + y_b) ]];
 end
+end
+
+function [p] = Bezierfrenet_5(D0, Ti, Di,t)
+ 
+    p0 = [ 0, D0];
+    p1 = [0.25 * Ti, D0];
+    p2= [0.5 *Ti, D0];
+    p3 =[ 0.5 * Ti, Di];
+    p4 =[ 0.75 * Ti, Di];
+    p5 = [Ti, Di];
+  %generate a fifth order bezier curve
+
+    p= (1-(t)/Ti)^5*p0 + 5*(1-(t)/Ti)^4*((t)/Ti)*p1 + 10*(1-(t)/Ti)^3*((t)/Ti)^2*p2 +...
+     10*(1-(t)/Ti)^2*((t)/Ti)^3*p3 +5*(1-(t)/Ti)*((t)/Ti)^4*p4 + ((t)/Ti)^5*p5;
+
+end
+ 
+function [trajs_new] = reference_generation(trajs_local, p_store)
+    % here the trajs_local is a vector<vector<double>>,with its dimension
+    %n by 2, the p_store store the information of Bezier curve generaion
+    %function creates, which are longitudinal s and lateral offset.
+    trajs_new = [[ ],[ ]];
+    for i = 1: min(length(p_store), length(trajs_local))
+%         if (i + current_index) > length(waypoint)
+%             break;
+%         end
+        d = p_store(i,2);
+        if trajs_local(i,1) == 0
+            theta = 0;
+        else
+            theta = atan(trajs_local(i,2) / trajs_local(i,1));
+        end
+        
+        if (theta>-pi/2 && theta <=0)
+            x = trajs_local(i,1) - d * sin(theta);
+            y = trajs_local(i,2) + d * cos(theta);
+            trajs_new = [trajs_new ; [x,y]];
+        elseif (theta>0 && theta < pi/2)
+            x = trajs_local(i,1) - d * sin(theta);
+            y = trajs_local(i,2) + d * cos(theta);
+            trajs_new = [trajs_new ; [x,y]];    
+        else
+           fprintf("it seems that the reference line is unacceptable!");
+        end
+    end
 end
