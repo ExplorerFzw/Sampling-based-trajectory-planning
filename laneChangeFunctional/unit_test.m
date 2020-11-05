@@ -47,7 +47,7 @@ toc;
 fprintf('reference_2 generation time is: %f ms \r',(1000*toc))
 plot(reference_1(:,1),reference_1(:,2),'--b')
 
-plot(reference_2(:,1),reference_2(:,2),'^r')
+plot(reference_2(:,1),reference_2(:,2),'^r','MarkerSize',2)
 
 hold on
 
@@ -68,8 +68,26 @@ end
 trajs_new = reference_generation(reference_1, ref_bezier);
 plot(trajs_new(:,1),trajs_new(:,2),'--r');
 legend('ref on left','ref on right','ref in Cartisian','ref in Frenet','changing lane');
-figure
-plot(ref_bezier(:,1),ref_bezier(:,2))
+
+% figure
+% plot(ref_bezier(:,1),ref_bezier(:,2))
+
+[delta_heading_rad] = calculat_delta_heading(reference_1, trajs_new);
+delta_heading_deg = rad_to_deg(delta_heading_rad);
+
+function [delta_heading] = calculat_delta_heading(center_line, traj_new)
+    LEN = min(length(center_line), length(traj_new));
+    delta_heading = [0];
+    for i = 1: LEN-1
+        x1 = center_line(i+1,1) - center_line(i,1);
+        y1 = center_line(i+1,2) - center_line(i,2);
+        x2 = traj_new(i+1,1) - traj_new(i,1);
+        y2 = traj_new(i+1,2) - traj_new(i,2);
+        delta_theta =  (x1 * x2 + y1 * y2) / (sqrt(x1^2 + y1^2) * sqrt(x2^2 + y2^2));
+        delta_heading =  [delta_heading; acos(delta_theta)];
+        i = i+1;
+    end
+end
 
 function [reference] = reference_line_generator(a0,a1,a2,a3, b0,b1,b2,b3, LEN)
 %% in this function, we use the left and right lane polynomials to generate
