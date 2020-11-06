@@ -74,6 +74,10 @@ legend('ref on left','ref on right','ref in Cartisian','ref in Frenet','changing
 
 [delta_heading_rad] = calculat_delta_heading(reference_1, trajs_new);
 delta_heading_deg = rad_to_deg(delta_heading_rad);
+kappa = calculate_kappa(trajs_new);
+
+
+
 
 function [delta_heading] = calculat_delta_heading(center_line, traj_new)
     LEN = min(length(center_line), length(traj_new));
@@ -171,9 +175,15 @@ function [p] = Bezierfrenet_5(D0, Ti, Di,t)
 end
  
 function [trajs_new] = reference_generation(trajs_local, p_store)
-    % here the trajs_local is a vector<vector<double>>,with its dimension
-    %n by 2, the p_store store the information Bezier curve generaion
-    %function creates, which are longitudinal 's' and 'lateral offset'.
+%% this function provides method of generating changing lane discrete positions.    
+% inputs: here the trajs_local is a vector<vector<double>>,with its dimension
+%n by 2, the p_store store the information Bezier curve generaion
+%function creates, which are longitudinal 's' and 'lateral offset', which
+%is also in dimension of n by 2. 
+%output: with the two inputs info, we are able to generate under vehicle
+%coordinate the changing lane positions by doing position shift, based on
+%the original trajs_local, in frenet direction with offset info provided by
+%p_store.
     trajs_new = [[ ],[ ]];
     for i = 1: min(length(p_store), length(trajs_local))
 %         if (i + current_index) > length(waypoint)
@@ -197,5 +207,35 @@ function [trajs_new] = reference_generation(trajs_local, p_store)
         else
            fprintf("it seems that the reference line is unacceptable!");
         end
+    end
+end
+
+function [kappa] = calculate_kappa(trajs_new)
+
+%% this function provide the method of generating a sequence of curvature(kappa) 
+% input: a sequence of discrete points with position x and y.
+% output: a sequence of kappa on each point.
+% notice: vehicle turning right has negative curvature, and vice versa.
+
+
+    % calculate the first derivatives
+    pd = zeros(length(trajs_new),1);
+    pdd = zeros(length(trajs_new),1);
+    kappa = zeros(length(trajs_new),1);
+    
+    for i = 1:length(trajs_new)-1
+        pd(i) = (trajs_new(i+1,2)-trajs_new(i,2))/(trajs_new(i+1,1)-trajs_new(i,1));
+        pd(length(trajs_new)) = 0;
+    end
+    % calculate the second derivatives
+    for i =2: length(trajs_new)-1
+        pdd(1) = 0;
+        pdd(length(trajs_new)) = 0;
+        pdd(i) = (trajs_new(i+1,2)-2*trajs_new(i,2) +...
+            trajs_new(i-1,2))/(0.5*(-trajs_new(i-1,1)+trajs_new(i+1,1)))^2;
+    end
+    
+    for i  = 1:length(trajs_new)
+        kappa(i) = (pdd(i))/((1+pd(i)^2)^(1.5));
     end
 end
