@@ -251,3 +251,15 @@ function [kappa] = calculate_kappa(trajs_new)
         kappa(i) = (pdd(i))/((1+pd(i)^2)^(1.5));
     end
 end
+
+function [trajs_new] = update_trajs(velocity,trajs_new,delta_t)
+    S = velocity * delta_t;
+    s = 0;
+    for i = 1: length(trajs_new)
+        s = s + sqrt((trajs_new(i+1,1) - trajs_new(i,1))^2 + ...
+            (trajs_new(i+1,2) - trajs_new(i,2))^2);
+        if s>= S
+            break;
+        end
+    end
+end
