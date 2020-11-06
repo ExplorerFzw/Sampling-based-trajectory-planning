@@ -10,14 +10,19 @@ lane_quality_left = 4;
 lane_quality_right = 4;
 LKA_status = 1;
 safe_dist = 40;
-LEN = 80;
+velocity = 
+LEN = calculateLEN(velocity);
 
 FLAG = functionisOK(lane_type, lane_quality_left, lane_quality_right, ...
     LKA_status,safe_dist,a0,a1,a2,a3, b0,b1,b2,b3,LEN)
 %%====================================================================
 
+function LEN = calculateLEN(velocity)
+    LEN = velocity;
+end
+
 function Flag = functionisOK(lane_type, lane_quality_left, lane_quality_right, ...
-    LKA_status,safe_dist,a0,a1,a2,a3, b0,b1,b2,b3,LEN)
+    LKA_status,safe_dist,a1,a2,a3, b0,b1,b2,b3,LEN)
 %% this function provides a status check method, only when the status check Flag = 1, 
 % can the lane change method is activated. 
 % we consider the follow 5 terms to demtermine whether the method can be
