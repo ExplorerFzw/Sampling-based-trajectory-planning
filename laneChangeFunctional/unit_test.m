@@ -55,15 +55,7 @@ S = 0;
 D0 = 0;
 Ti = LEN;
 Di = -6;
-ref_bezier = [[],[]];
-index =1;
-while S < Ti
-    p = Bezierfrenet_5(D0, Ti, Di,S);
-    ref_bezier =[ref_bezier; p];
-    S = S + sqrt((reference_1(index+1,1)-reference_1(index,1))^2 + ...
-        (reference_1(index+1,2)-reference_1(index,2))^2);
-    index = index + 1;
-end
+[ref_bezier] = ref_bezier_generation(reference_1, D0,Ti,Di);
 
 trajs_new = reference_generation(reference_1, ref_bezier);
 plot(trajs_new(:,1),trajs_new(:,2),'--r');
@@ -88,7 +80,18 @@ legend('kappa');
 
 
 
-
+function [ref_bezier] = ref_bezier_generation(reference_1, D0, Ti, Di)
+    S = 0;
+    ref_bezier = [[],[]];
+    index =1;
+    while S < Ti
+        p = Bezierfrenet_5(D0, Ti, Di,S);
+        ref_bezier =[ref_bezier; p];
+        S = S + sqrt((reference_1(index+1,1)-reference_1(index,1))^2 + ...
+            (reference_1(index+1,2)-reference_1(index,2))^2);
+        index = index + 1;
+    end
+end
 
 function [delta_heading] = calculat_delta_heading(center_line, traj_new)
     LEN = min(length(center_line), length(traj_new));

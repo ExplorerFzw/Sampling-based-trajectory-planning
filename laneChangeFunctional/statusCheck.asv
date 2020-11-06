@@ -1,4 +1,4 @@
-%% this section is a test on the functionisOK function./=============
+
 clc
 clear all
 close all
@@ -14,26 +14,21 @@ LEN = 80;
 
 FLAG = functionisOK(lane_type, lane_quality_left, lane_quality_right, ...
     LKA_status,safe_dist,a0,a1,a2,a3, b0,b1,b2,b3,LEN)
-%%====================================================================
+
 
 function Flag = functionisOK(lane_type, lane_quality_left, lane_quality_right, ...
     LKA_status,safe_dist,a0,a1,a2,a3, b0,b1,b2,b3,LEN)
 %% this function provides a status check method, only when the status check Flag = 1, 
 % can the lane change method is activated. 
 % we consider the follow 5 terms to demtermine whether the method can be
-% activated;
+% activated. 
 % 1. lane type, we can only change lane when the type is dashed line
 %2, lane quality, we only allow lane change when left and right lane
-%quality is ok;
+%quality is ok.
 % 3. LKA status is the pre-requisite that lane changing method can be
-% activated;
+% activated.
 % 4. safe_dist comes from ACC module, we only allow lane change when the
-% front vehicle safety distance is big enough to ensure safety space for
-% lane changing;
-% 5. kappa is the both the left and right lane curvature, which means only
-% when the kappa is big enough, very close to straight line, can we
-% activate lane changing method;
-
+% front vehicle safety distance is big enough to aa
     lane_type_flag = 0;
     lane_quality_flag = 0;
     LKA_status_flag = 0;
