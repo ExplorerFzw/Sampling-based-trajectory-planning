@@ -72,9 +72,20 @@ legend('ref on left','ref on right','ref in Cartisian','ref in Frenet','changing
 % figure
 % plot(ref_bezier(:,1),ref_bezier(:,2))
 
-[delta_heading_rad] = calculat_delta_heading(reference_1, trajs_new);
+delta_heading_rad = calculat_delta_heading(reference_1, trajs_new);
 delta_heading_deg = rad_to_deg(delta_heading_rad);
 kappa = calculate_kappa(trajs_new);
+
+output = [ref_bezier,delta_heading_rad,kappa];
+
+figure
+plot(1:length(delta_heading_deg),delta_heading_deg,'-r');
+legend('delta heading in deg');
+
+figure
+plot(1:length(kappa),kappa,'-r');
+legend('kappa');
+
 
 
 
@@ -224,16 +235,17 @@ function [kappa] = calculate_kappa(trajs_new)
     kappa = zeros(length(trajs_new),1);
     
     for i = 1:length(trajs_new)-1
-        pd(i) = (trajs_new(i+1,2)-trajs_new(i,2))/(trajs_new(i+1,1)-trajs_new(i,1));
-        pd(length(trajs_new)) = 0;
+        pd(i) = (trajs_new(i+1,2)-trajs_new(i,2))/(trajs_new(i+1,1)-trajs_new(i,1));   
     end
+    pd(length(trajs_new)) = pd(length(trajs_new)-1);
     % calculate the second derivatives
+    pdd(1) = 0;
     for i =2: length(trajs_new)-1
-        pdd(1) = 0;
-        pdd(length(trajs_new)) = 0;
+        
         pdd(i) = (trajs_new(i+1,2)-2*trajs_new(i,2) +...
             trajs_new(i-1,2))/(0.5*(-trajs_new(i-1,1)+trajs_new(i+1,1)))^2;
     end
+    pdd(length(trajs_new)) = pdd(length(trajs_new)-1);
     
     for i  = 1:length(trajs_new)
         kappa(i) = (pdd(i))/((1+pd(i)^2)^(1.5));
