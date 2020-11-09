@@ -10,11 +10,11 @@ lane_quality_left = 4;
 lane_quality_right = 4;
 LKA_status = 1;
 safe_dist = 40;
-velocity = 
-LEN = calculateLEN(velocity);
+velocity = 40;
+
 
 FLAG = functionisOK(lane_type, lane_quality_left, lane_quality_right, ...
-    LKA_status,safe_dist,a0,a1,a2,a3, b0,b1,b2,b3,LEN)
+    LKA_status,safe_dist,a0,a1,a2,a3, b0,b1,b2,b3,velocity)
 %%====================================================================
 
 function LEN = calculateLEN(velocity)
@@ -22,7 +22,7 @@ function LEN = calculateLEN(velocity)
 end
 
 function Flag = functionisOK(lane_type, lane_quality_left, lane_quality_right, ...
-    LKA_status,safe_dist,a1,a2,a3, b0,b1,b2,b3,LEN)
+    LKA_status,safe_dist,a0,a1,a2,a3, b0,b1,b2,b3,velocity)
 %% this function provides a status check method, only when the status check Flag = 1, 
 % can the lane change method is activated. 
 % we consider the follow 5 terms to demtermine whether the method can be
@@ -38,7 +38,7 @@ function Flag = functionisOK(lane_type, lane_quality_left, lane_quality_right, .
 % 5. kappa is the both the left and right lane curvature, which means only
 % when the kappa is big enough, very close to straight line, can we
 % activate lane changing method;
-
+    LEN = calculateLEN(velocity)
     lane_type_flag = 0;
     lane_quality_flag = 0;
     LKA_status_flag = 0;
