@@ -18,7 +18,7 @@ p1 = [20,0];
  p3 =[40,8];
  p4 =[60,8];
  p5 = [80,8];
-  %calculate the first derivatives
+  %try a specific polynomial to test
   i =1;
  for u =0: 0.01:1
  p(i,:)= (1-u)^5*p0 + 5*(1-u)^4*u*p1 + 10*(1-u)^3*u^2*p2 +...
