@@ -15,7 +15,8 @@ plot(p(:,1),p(:,2),'--b')
 hold on;
 path2 = curve_smoother(p);
 plot(path2(:,1),path2(:,2),'-r');
-
+hold on 
+plot(path2(50,1),path2(50,2),'-bo',path2(100,1),path2(100,2),'-bo')
 
 function [p] = Bezierfrenet_5(D0, Ti, Di,t)
  
@@ -41,6 +42,9 @@ function path = curve_smoother(path)
     while(iterations < maxIterations)
         
         for i = 3: length(path)-2
+            if i == 50 || i == 100
+                continue;
+            end
             correction = [0,0];
             xim2 = path(i-2,:);
             xim1 = path(i-1,:);
