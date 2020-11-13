@@ -77,7 +77,7 @@ end
 
 function gradient = smoothnessTerm(xim2, xim1, xi, xip1, xip2)
     wSmoothness = 0.8;
-    gradient = 2 * wSmoothness .* (xim2 - 4 .* xim1 ...
+    gradient =  wSmoothness .* (xim2 - 4 .* xim1 ...
         + 6 .* xi  - 4 .* xip1 + xip2);
 end
 
@@ -130,5 +130,7 @@ function y = ort(a,b)
     y = a - a * b' .* b ./ (norm(b)^2);
     
 end
+
+
 
     
