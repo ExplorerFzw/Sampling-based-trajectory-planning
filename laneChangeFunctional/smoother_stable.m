@@ -55,43 +55,54 @@ for i = 0.01%0.1:0.1:0.5
     for j = 0.5%0.05:0.05:0.2
     alpha = i;
     beta = j;
-    optPath=PathSmoothing(path,alpha, beta);
-   
-    plot(path(:,1),path(:,2),'-b');hold on;
-    plot(optPath(:,1),optPath(:,2),'--r');hold on;
-%     axis([-1 7 -2 6])
+    optPath=PathSmoothing(path, alpha, beta);
+    end
+end
+    plot(path(:,1),path(:,2),'-r');
+    hold on;
+    plot(path(619,1),path(619,2),'or');
+    hold on;
+    plot(optPath(:,1),optPath(:,2),'--b');
+    hold on;
+    plot(optPath(619,1),optPath(619,2),'ob');
+    
     legend('Before','After');
     title('Path Smoothing');
     grid on;
-    hold on;
-    end
-end
-hold off
+    hold off;
 
 
-function optPath=PathSmoothing(path,alpha, beta)
+function optPath=PathSmoothing(path, alpha, beta)
     optPath=path;%
-    torelance=0.0001;
-    change=torelance;
+    TOL = 0.7;
     iter = 0;
     COND = 1;
     while COND == 1 
-        change=0;
+%         change=0;
         for ip=2:(length(path(:,1))-1) 
-            prePath=optPath(ip,:);
-            optPath(ip,:)=optPath(ip,:)-alpha*(optPath(ip,:)-path(ip,:));
-            optPath(ip,:)=optPath(ip,:)-beta*(2*optPath(ip,:)-optPath(ip-1,:)-optPath(ip+1,:));
-            change=change+norm(optPath(ip,:)-prePath);
+%           optPath(ip,:)=optPath(ip,:)-alpha*(optPath(ip,:)-path(ip,:));
+            term_dx_1 = 2*optPath(ip,:)-optPath(ip-1,:)-optPath(ip+1,:);
+%             term_dx_2 = optPath(ip-2,:) - 4*optPath(ip-1,:) + 6 * optPath(ip,:)...
+%                 -4 * optPath(ip+1,:) - optPath(ip+2,:);
+            optPath(ip,:) = optPath(ip,:)-beta * term_dx_1;
+%           change=change+norm(optPath(ip,:)-prePath);
         end
         kappa = calculate_kappa(optPath);
+        
         iter = iter + 1
         
-        if abs(change) <= torelance
-            COND = 0;
+        change = zeros(1,length(optPath));
+        for i = 1:length(optPath)
+            change(i) = norm(optPath(i,:)-path(i,:));
+            if max(abs(change)) >= TOL
+                COND = 2
+                 [value, loc] = max(abs(change))
+                break;
+            end
         end
         
         if iter > 10000
-            COND = 0;
+            COND = 3;
         end
         
         sum = 0;
@@ -102,7 +113,7 @@ function optPath=PathSmoothing(path,alpha, beta)
         end
         
         if sum == 0
-            COND = 0;
+            COND = 4
         end
                    
     end
