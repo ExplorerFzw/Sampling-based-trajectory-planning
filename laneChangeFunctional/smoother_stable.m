@@ -80,7 +80,7 @@ function optPath=PathSmoothing(path, alpha, beta)
     while COND == 1 
 %         change=0;
         for ip=2:(length(path(:,1))-1) 
-%           optPath(ip,:)=optPath(ip,:)-alpha*(optPath(ip,:)-path(ip,:));
+          optPath(ip,:)=optPath(ip,:)-alpha*(optPath(ip,:)-path(ip,:));
             term_dx_1 = 2*optPath(ip,:)-optPath(ip-1,:)-optPath(ip+1,:);
 %             term_dx_2 = optPath(ip-2,:) - 4*optPath(ip-1,:) + 6 * optPath(ip,:)...
 %                 -4 * optPath(ip+1,:) - optPath(ip+2,:);

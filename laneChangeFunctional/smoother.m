@@ -2,7 +2,7 @@ clc
 clear all 
 close all
 D0 = 0;
-Ti = 60;
+Ti = 5;
 Di = 3.5;
 p = [];
 for i = 0:0.1:Ti
@@ -41,7 +41,7 @@ function [path, aver_kappa] = curve_smoother(path)
     iterations = 0;
     maxIterations = 1000;
     totalWeight = 1;
-    alpha = 0.2;
+    alpha = 0.05;
     aver_kappa =[];
     while(iterations < maxIterations)
         mean_kappa = 0;
@@ -61,8 +61,8 @@ function [path, aver_kappa] = curve_smoother(path)
             [gradient_kappa, kappa] = curvatureTerm(xim1, xi, xip1);
             correction = correction - gradient_kappa;
             if i == 68
-            a = curvatureTerm(xim1, xi, xip1)
-            b =  smoothnessTerm(xim2, xim1, xi, xip1, xip2)
+            a = curvatureTerm(xim1, xi, xip1);
+            b =  smoothnessTerm(xim2, xim1, xi, xip1, xip2);
             end
             xi = xi + alpha .* correction ./ totalWeight;
             path(i,:) = xi;
@@ -76,13 +76,13 @@ function [path, aver_kappa] = curve_smoother(path)
 end
 
 function gradient = smoothnessTerm(xim2, xim1, xi, xip1, xip2)
-    wSmoothness = 0.8;
+    wSmoothness = 0.5;
     gradient =  wSmoothness .* (xim2 - 4 .* xim1 ...
         + 6 .* xi  - 4 .* xip1 + xip2);
 end
 
 function [gradient, kappa] = curvatureTerm(xim1, xi, xip1)
-    wCurvature = 0.2;
+    wCurvature = 0.5;
     kappaMax = 1.0/ 5;
     Dxi = xi - xim1; % 1 by 2
     Dxip1 = xip1 - xi; % 1 by 2
@@ -106,13 +106,13 @@ function [gradient, kappa] = curvatureTerm(xim1, xi, xip1)
 %             kim1 = u .* p2 - (s * ones(1,2));
 %             kip1 = u .* p1;
             ki = -u .* (-p1 - p2) - s * ones(1,2);
-            ki = ki ./ (2*norm(ki)) ;
+%             ki = ki ./ (2*norm(ki)) ;
             
             kim1 = -u .* p2 + (s * ones(1,2));
-            kim1 = kim1 ./ (2*norm(kim1));
+%             kim1 = kim1 ./ (2*norm(kim1));
             
             kip1 = -u .* p1;
-            kip1 = kip1 ./ (2*norm(kip1));
+%             kip1 = kip1 ./ (2*norm(kip1));
             
             gradient = wCurvature * (0.25 .* kim1 + 0.5 .* ki + 0.25 .* kip1);
         end
