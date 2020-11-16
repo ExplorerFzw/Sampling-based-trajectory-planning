@@ -1,8 +1,9 @@
+
 clc
 clear all 
 close all
 D0 = 0;
-Ti = 80;
+Ti = 50;
 Di = 3.5;
 path = [];
 for i = 0:0.1:Ti
@@ -11,48 +12,10 @@ for i = 0:0.1:Ti
 end
 path(:,2) = path(:,2);%+ rand(length(p),1)/10;
 p = path;
-% calculate the first derivatives
- for i = 1:length(p)-1
- pd(i) = (p(i+1,2)-p(i,2))/(p(i+1,1)-p(i,1));
- pd(length(p)) = 0;
- end
-% calculate the second derivatives
- for i =2: length(p)-1
-     pdd(1) = 0;
-     pdd(length(p)) = 0;
-     pdd(i) = (p(i+1,2)-2*p(i,2) + p(i-1,2))/(0.5*(-p(i-1,1)+p(i+1,1)))^2;
-%    pdd(i) = (p(i+1,2)-2*p(i,2) + p(i-1,2))/(-p(i,1)+p(i+1,1))^2;
- end
- 
- for i  = 1:length(p)
-     k(i) = (pdd(i))/((1+pd(i)^2)^(1.5));
- end
 
-kappa = zeros(1,length(p));
-for i = 2 : length(p) - 1
-    xi = p(i,:);
-    xim1 = p(i-1,:);
-    xip1 = p(i+1,:);
-    Dxi = xi - xim1; % 1 by 2
-    Dxip1 = xip1 - xi; % 1 by 2
-    absDxi = norm(Dxi); % 1
-    absDxip1 = norm(Dxip1); % 1 
-    gradient = [0,0]; % 1 by 2
-
-    Dphi = acos(clamp((Dxi * Dxip1' / (absDxi * absDxip1)),-1,1)); % 1 
-    kappa(i) = Dphi / absDxi; % 1
-end
-figure
-plot(1:length(p),k(1:length(p)),'-b')
-hold on
-plot(1:length(p),kappa(1:length(p)),'--r')
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% above parts provide a comparison between to difference curvature
-% calculation, while we decide to trust the first one
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 figure
 for i = 0.01%0.1:0.1:0.5
-    for j = 0.5%0.05:0.05:0.2
+    for j = 0.7%0.05:0.05:0.2
     alpha = i;
     beta = j;
     optPath=PathSmoothing(path, alpha, beta);
@@ -60,11 +23,11 @@ for i = 0.01%0.1:0.1:0.5
 end
     plot(path(:,1),path(:,2),'-r');
     hold on;
-    plot(path(619,1),path(619,2),'or');
+%     plot(path(619,1),path(619,2),'or');
     hold on;
     plot(optPath(:,1),optPath(:,2),'--b');
     hold on;
-    plot(optPath(619,1),optPath(619,2),'ob');
+%     plot(optPath(619,1),optPath(619,2),'ob');
     
     legend('Before','After');
     title('Path Smoothing');
