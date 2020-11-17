@@ -12,8 +12,8 @@ L = 2.8  ;% [m] wheel base of vehicle
 MAX_SPEED = 50.0 / 3.6;  % 最大速度 [m/s]
 MAX_ACCEL = 1.0 ; % 最大加速度[m/ss]
 MAX_CURVATURE = 1.0 ; %最大曲率 [1/m]
-MAX_ROAD_WIDTH =1.5 ; % 最大道路宽度 [m]
-D_ROAD_W = 0.2 ; % 道路宽度采样间隔 [m]
+MAX_ROAD_WIDTH =2.5 ; % 最大道路宽度 [m]
+D_ROAD_W = 0.1 ; % 道路宽度采样间隔 [m]
 DT = 1 ; % Delta T [s]
 MAXT = 8;% 最大预测 [s]
 MINT = 4; % 最小预测 [s]
@@ -23,11 +23,13 @@ N_S_SAMPLE = 1 ; % sampling number of target speed
 ROBOT_RADIUS = 0.4; % robot radius [m]
 predict = 14;
 % 
-KJ = 0.1;
+KJ = 1;
 KT = 0.1;
-KD = 10;
-KLAT = 1.0;
-KLON = 1.0;
+KD = 2;
+KK = 1;
+KKD = 1;
+KO = 13;
+
 
 wx = [0.0, 10.0, 20.5, 30.0, 40.5, 50.0, 60.0];
 wy1 = [0.0, -4.0, 1.0, 6.5, 8.0, 10.0, 6.0];
@@ -42,7 +44,7 @@ plot(ob(:,1),ob(:,2),'ks')
 plot(ob(:,1),ob(:,2),'k*')
 
 for i = 1: size(ob,1)
-    alpha=0:pi/40:2*pi;
+    alpha=0 : pi/40 : 2 * pi;
     r=ROBOT_RADIUS;
     x=ob(i,1) +r*cos(alpha);
     y=ob(i,2) + r*sin(alpha);
@@ -61,50 +63,48 @@ time = 0;
 % Lf = k * v + Lfc; %some constant parameters we set for the vehicle  
 waypoints = [xt,yt];
 
-cx1 = waypoints(:,1);
-cy1 = waypoints(:,2);
+cx = waypoints(:,1);
+cy = waypoints(:,2);
 YAW = YAW';
 
-plot(cx1,cy1,'b')
+plot(cx,cy,'b')
 hold on;
 
 %%
 while T > time 
    
     %find the current location using reference line index to indicate.
-   [lat2, current_ind2]= calc_current_index(x,y,cx2,cy2); 
-   
-%     Flag = collision_checking(x,y,ob)
+    tic;
+    [lat, current_ind]= calc_current_index(x,y,cx,cy); 
     
-   
-    reference = waypoints2;
-    current_ind = current_ind2
-    D0 = lat2; Ti = 12; Di = 0;
+    lateral_offset = lat;
+    
+    [cost_graph] = calc_frenet_paths(cx,cy,YAW,ob,current_ind,lateral_offset, MAX_ROAD_WIDTH,...
+        D_ROAD_W, MINT,DT,MAXT,KJ,KD,KT,KK,KKD,KO);
+    
+    [val] = collision_checking(lateral_offset,cost_graph,ROBOT_RADIUS, ob,cx,cy,YAW,current_ind );
+
+    D0 = lateral_offset; 
+    Ti = cost_graph(val,2);
+    Di =cost_graph(val,3);
 
     i = 1;
-    S= current_ind;
     d = []; 
     steer = [];
     location_ind = [];
-    s = 0;
-
-     while  s<= Ti
-        p(i,:)= Bezierfrenet(D0, Ti, Di, s);
-        location_ind(i) = S;
-        s = s + sqrt((cx2(S+1)-cx2(S))^2 + (cy2(S+1)-cy2(S))^2);
-        S = S+1;
-        i = i+1;
-     end
+    
+    [p,location_ind] = bezier_ref_generation(D0, Ti, Di,cx,cy,current_ind);
      
-    waypoint_global = frenet_to_global(cx2, cy2,YAW2, location_ind,p);
+    waypoint_global = frenet_to_global(cx,cy,YAW, location_ind,p);
     ref =  waypoint_global (1:2,:)';
     path_x = ref(:,1);
     path_y = ref(:,2);
-    plot(path_x,path_y,'-b','MarkerSize',2)
-   
     ai = PIDcontrol(target_speed, v,Kp,MAX_ACCEL); % calculate the PID controller output;
-    
     delta = pure_pursuit_control(x,y,yaw,v,path_x,path_y,k,Lfc,L,predict) ;% pure pursuit controller will give desired steering angle;
+    toc;
+    fprintf('smooth line generation time is: %f ms \r',(1000*toc));
+    
+    plot(path_x,path_y,'-b','MarkerSize',2)
     fprintf('delta = %f \r',delta);
     [x,y,yaw,v] = update(x,y,yaw,v, ai, delta,dt,L); % update the vehicle states;
     
@@ -112,11 +112,11 @@ while T > time
     %     pause(0.1)
     plot(x,y,'rs')
     hold on
-    plot(path_x,path_y,'bs','Markersize',1)
+    plot(path_x,path_y,'bs','Markersize',0.5)
     hold on
     %,cx((target_ind-10):target_ind),cy((target_ind-10):target_ind),'g-o'
     drawnow 
-    pause(0.1);
+%     pause(0.1);
     hold on
 end
 %%
@@ -176,7 +176,7 @@ function [lat,current_ind]= calc_current_index(x,y, cx,cy)
 N =  length(cx);
 Distance = zeros(N,1);
 for i = 1:N
-Distance(i) =  sqrt((cx(i)-x)^2 + (cy(i)-y)^2);
+    Distance(i) =  sqrt((cx(i)-x)^2 + (cy(i)-y)^2);
 end
 [value, location]= min(Distance);
 current_ind = location;
@@ -200,53 +200,197 @@ end
 end
 
 
-function [frenet_paths] = calc_frenet_paths(c_d, c_d_d, c_d_dd,MAX_ROAD_WIDTH,...
-    D_ROAD_W, MINT,DT,MAXT,KJ,KD,KT)
-    frenet_paths = [];
-    j = 1;
-    for di = -MAX_ROAD_WIDTH: D_ROAD_W: MAX_ROAD_WIDTH
-        for Ti =  MINT: DT: MAXT
-            cost_T(j) = 1/Ti;
-            cost_D(j) = abs(di);
-    %         cost_T = regularization(cost_T);
-    %         cost_D = regularization(cost_D);
-            cost_total(j) = KD * cost_D +  KT * cost_T;
+function [cost_graph] = calc_frenet_paths(cx,cy,YAW,ob,current_ind,lateral_offset, MAX_ROAD_WIDTH,...
+    D_ROAD_W, MINT,DT,MAXT,KJ,KD,KT,KK,KKD,KO)
+% KJ is the cost weight of the jerk;
+% KD is the cost weight of lateral offset with respect to the reference
+% line;
+% KT is the cost weight of the longitudinal distance 
+% KK is the cost weight of curvature
+% KKD is the cost weight of the derivative of curvature
+% KO is the cost weight of ostacle distance
 
-            T(j) = Ti;
-            D(j) = di;
-            j = j+1;
+    frenet_paths = [];
+    cost_graph = []; 
+    % we store all candicates' cost info in this matrix for review,
+    % but remember that it is not necessary when the parameters are well turned.
+    j = 1;
+    for di = 0: D_ROAD_W: MAX_ROAD_WIDTH
+        for Ti =  MINT: DT: MAXT
+            p = [];
+            for t = 0:0.1:Ti
+                p = [p; Bezierfrenet_3(lateral_offset, Ti, di,t)];
+            end
+            [pd] = calculate_pd(p);
+            [pdd] = calculate_pdd(p);
+            [k] = calculate_kappa(p,pd,pdd);
+            [kappa_d] = calculate_kappa_d(p,k);
+            [val] = obstacle_term_calculation(lateral_offset,Ti,di,current_ind,cx,cy,YAW,ob);
+            
+            cost_J = mean(abs(pdd));
+            cost_D = mean(abs(p(:,2)));
+            cost_T = Ti;
+            cost_K = mean(abs(k));
+            cost_KD = mean(abs(kappa_d));
+            cost_O = val;
+            cost_total = KJ * cost_J + KD * cost_D + cost_T * KT + cost_K* KK + KKD * cost_KD + KO * cost_O;
+            cost_graph = [cost_graph;[cost_total,Ti,di,cost_J,cost_D,cost_T,cost_K,cost_KD,cost_O]];
+            
+%         cost_T = regularization(cost_T);
+%         cost_D = regularization(cost_D);
+
+        end
+    end
+        cost_graph = sortrows(cost_graph);
+end
+     
+function [val] = obstacle_term_calculation(lateral_offset,Ti,Di,current_ind,cx,cy,YAW,ob)
+	obs_thread = 5;
+    D0 = lateral_offset;
+    i = 1;
+    S= current_ind;
+    location_ind = [];
+    s = 0;
+
+    while  s<= Ti
+        p(i,:)= Bezierfrenet_3(D0, Ti, Di,s);
+        location_ind(i) = S;
+        if S+1<=length(cx)
+            s = s + sqrt((cx(S+1)-cx(S))^2 +  (cy(S+1)-cy(S))^2);
+            S = S+1;
+            i = i+1;
+        else
+            break;
         end
     end
 
-        frenet_paths = [cost_total',T',D'];
-        frenet_paths = sortrows(frenet_paths);
+    waypoint_global = frenet_to_global (cx, cy,YAW, location_ind,p);    
+    checkline=  waypoint_global (1:2,:)';
 
+    for j =1:size(ob,1)
+        for k = 1: length(checkline)
+           dist(j,k) = obs_thread - min(obs_thread, ...
+               sqrt((ob(j,1)-checkline(k,1))^2 + ((ob(j,2)-checkline(k,2))^2)));
+        end
+    end
+    for i = 1: size(dist,1)
+        summation = mean(dist(i,:));
+    end
+        val = summation / size(dist,1);
 end
-     
 
-function [Flag] = collision_checking(x,y,ob)
+function [val] = collision_checking(lateral_offset,frenet_paths,ROBOT_RADIUS, ob,cx,cy,YAW,current_ind )
     Flag =0;
-    dist = 10;
-    for i = 1:length(ob)
-        distance = sqrt((ob(i,1) - x)^2 + (ob(i,2) - y)^2);
-        if distance < dist
-            Flag = 1;
+    val = 1;
+    D0 = lateral_offset;
+    
+while Flag == 0
+    Ti = frenet_paths(val,2);
+    Di = frenet_paths(val,3);
+    
+    i = 1;
+    S= current_ind;
+    location_ind = [];
+    s = 0;
+    n= 1;
+    while  s<= Ti
+        p(i,:)= Bezierfrenet_3(D0, Ti, Di,s);
+        location_ind(i) = S;
+        if S+1<=length(cx)
+            s = s + sqrt((cx(S+1)-cx(S))^2 +  (cy(S+1)-cy(S))^2);
+            S = S+1;
+            i = i+1;
+        else
             break;
         end
-    end         
+    end
+
+    waypoint_global = frenet_to_global (cx, cy,YAW, location_ind,p);    
+    checkline=  waypoint_global (1:2,:)';
+
+    for j =1:size(ob,1)
+        for k = 1: length(checkline)
+           dist(n) = sqrt((ob(j,1)-checkline(k,1))^2 + ((ob(j,2)-checkline(k,2))^2));
+           n = n+1;
+        end
+    end
+    
+    if min(dist) > ROBOT_RADIUS 
+        Flag = 1;
+    else
+        val = val + 1;
+    end
+
+    if val == length(frenet_paths)
+        Flag = 1;
+        fprintf('no accessible way!')
+    end
 end
-    
-    
-function [p] = Bezierfrenet(D0, Ti, Di,t)
-    p0 = [ 0 , D0];
-    p1 = [Ti/2, 2/3* D0 + Di*1/3]; %p1 = [Ti/2, D0];
-    p2= [Ti/2, 1/3* D0 + Di*2/3]; 
-%     p1 = [Ti/2,  D0]; 
-%     p2= [Ti/2,  Di]; 
-    p3 = [Ti, Di];
-    p= (1-(t)/Ti)^3*p0 + 3*(1-(t)/Ti)^2*(t)/Ti*p1 +...
+
+end
+
+function [p,location_ind] = bezier_ref_generation(D0, Ti, Di,cx,cy,current_ind)
+    s = 0;
+    p = [];
+    location_ind = [];
+    S = current_ind;
+    i = 1;
+    while  s<= Ti
+        p = [p;Bezierfrenet_3(D0, Ti, Di, s)];
+        location_ind(i) = S;
+        s = s + sqrt((cx(S+1)-cx(S))^2 + (cy(S+1)-cy(S))^2);
+        S = S+1;
+        i = i+1;
+    end
+end
+ 
+function [p] = Bezierfrenet_3(D0, Ti, Di,t)
+ % D0 initial lateral offset, which is current vehicle lateral offset with
+ % respect to center line of current lane 
+ % Ti:  the longitudinal position of the desired target
+ % Di the lateral position of the desired target
+ % t sampling step in discretization
+ 
+%set the four control point
+ p0 = [0, D0];
+ p1 = [Ti/2, D0];
+ p2 = [Ti/2, Di];
+ p3 = [Ti, Di];
+
+ p = (1-(t)/Ti)^3*p0 + 3*(1-(t)/Ti)^2*(t)/Ti*p1 + ...
      3*(1-(t)/Ti)*((t)/Ti)^2*p2 + ((t)/Ti)^3*p3;
  end
+
+function [k] = calculate_kappa(p,pd,pdd) 
+     for i  = 1:length(p)
+         k(i) = (pdd(i))/((1+pd(i)^2)^(1.5));
+     end
+end
+
+function [pd] = calculate_pd(p)
+    % calculate the first derivatives
+    pd = zeros(length(p),1);
+    for i = 1:length(p)-1
+     pd(i) = (p(i+1,2)-p(i,2))/(p(i+1,1)-p(i,1));
+    end
+end
+
+function [pdd] = calculate_pdd(p)
+    % calculate the second derivatives
+     pdd = zeros(length(p),1);
+     for i =2: length(p)-1
+         pdd(i) = (p(i+1,2)-2*p(i,2) + p(i-1,2))/(0.5*(-p(i-1,1)+p(i+1,1)))^2;
+    %    pdd(i) = (p(i+1,2)-2*p(i,2) + p(i-1,2))/(-p(i,1)+p(i+1,1))^2;
+     end
+end
+
+function [kappa_d] = calculate_kappa_d(p,k)
+    kappa_d = zeros(length(p),1);
+    kappa_d(1) = 0;
+    for i = 2: length(p)
+        kappa_d(i) = (k(i)-k(i-1))/norm(p(i,:)- p(i-1,:));
+    end
+end
 
 function [Px,Py,YAW] = cubic_spline(x,y,MAX_ROAD_WIDTH)
     
