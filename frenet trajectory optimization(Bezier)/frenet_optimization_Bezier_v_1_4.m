@@ -304,7 +304,7 @@ for di = 0: D_ROAD_W: MAX_ROAD_WIDTH
 %         end
         
 %         JP= sum(d_ddd.^2);
-       cost_T(j) = 1/Ti;
+        cost_T(j) = 1/Ti;
         cost_D(j) = abs(di);
 %         cost_T = regularization(cost_T);
 %         cost_D = regularization(cost_D);
