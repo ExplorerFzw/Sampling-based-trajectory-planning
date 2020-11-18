@@ -28,8 +28,8 @@ KT = 0.1;
 KD = 2;
 KK = 1;
 KKD = 1;
-KO = 13;
-
+KO = 15;
+KC = 1;
 
 wx = [0.0, 10.0, 20.5, 30.0, 40.5, 50.0, 60.0];
 wy1 = [0.0, -4.0, 1.0, 6.5, 8.0, 10.0, 6.0];
@@ -67,7 +67,9 @@ cx = waypoints(:,1);
 cy = waypoints(:,2);
 YAW = YAW';
 
-plot(cx,cy,'b')
+history_TD = [];
+
+plot(cx,cy,'r')
 hold on;
 
 %%
@@ -80,14 +82,15 @@ while T > time
     lateral_offset = lat;
     
     [cost_graph] = calc_frenet_paths(cx,cy,YAW,ob,current_ind,lateral_offset, MAX_ROAD_WIDTH,...
-        D_ROAD_W, MINT,DT,MAXT,KJ,KD,KT,KK,KKD,KO);
+        D_ROAD_W, MINT,DT,MAXT,history_TD,KJ,KD,KT,KK,KKD,KO,KC);
     
     [val] = collision_checking(lateral_offset,cost_graph,ROBOT_RADIUS, ob,cx,cy,YAW,current_ind );
 
     D0 = lateral_offset; 
     Ti = cost_graph(val,2);
     Di =cost_graph(val,3);
-
+    history_TD = [Ti,Di];
+    
     i = 1;
     d = []; 
     steer = [];
@@ -201,7 +204,7 @@ end
 
 
 function [cost_graph] = calc_frenet_paths(cx,cy,YAW,ob,current_ind,lateral_offset, MAX_ROAD_WIDTH,...
-    D_ROAD_W, MINT,DT,MAXT,KJ,KD,KT,KK,KKD,KO)
+    D_ROAD_W, MINT,DT,MAXT,history_TD,KJ,KD,KT,KK,KKD,KO,KC)
 % KJ is the cost weight of the jerk;
 % KD is the cost weight of lateral offset with respect to the reference
 % line;
@@ -215,7 +218,7 @@ function [cost_graph] = calc_frenet_paths(cx,cy,YAW,ob,current_ind,lateral_offse
     % we store all candicates' cost info in this matrix for review,
     % but remember that it is not necessary when the parameters are well turned.
     j = 1;
-    for di = 0: D_ROAD_W: MAX_ROAD_WIDTH
+    for di = -MAX_ROAD_WIDTH: D_ROAD_W: MAX_ROAD_WIDTH
         for Ti =  MINT: DT: MAXT
             p = [];
             for t = 0:0.1:Ti
@@ -225,15 +228,17 @@ function [cost_graph] = calc_frenet_paths(cx,cy,YAW,ob,current_ind,lateral_offse
             [pdd] = calculate_pdd(p);
             [k] = calculate_kappa(p,pd,pdd);
             [kappa_d] = calculate_kappa_d(p,k);
-            [val] = obstacle_term_calculation(lateral_offset,Ti,di,current_ind,cx,cy,YAW,ob);
-            
+            [obs_val] = obstacle_term_calculation(lateral_offset,Ti,di,current_ind,cx,cy,YAW,ob);
+            [consecutivity] = consec_term_calculation(history_TD,Ti,di,lateral_offset);
             cost_J = mean(abs(pdd));
             cost_D = mean(abs(p(:,2)));
             cost_T = Ti;
             cost_K = mean(abs(k));
             cost_KD = mean(abs(kappa_d));
-            cost_O = val;
-            cost_total = KJ * cost_J + KD * cost_D + cost_T * KT + cost_K* KK + KKD * cost_KD + KO * cost_O;
+            cost_O = obs_val;
+            cost_consec = consecutivity;
+            cost_total = KJ * cost_J + KD * cost_D + cost_T * KT +...
+                cost_K* KK + KKD * cost_KD + KO * cost_O + KC * cost_consec;
             cost_graph = [cost_graph;[cost_total,Ti,di,cost_J,cost_D,cost_T,cost_K,cost_KD,cost_O]];
             
 %         cost_T = regularization(cost_T);
@@ -279,6 +284,28 @@ function [val] = obstacle_term_calculation(lateral_offset,Ti,Di,current_ind,cx,c
         val = summation / size(dist,1);
 end
 
+function [consecutivity] = consec_term_calculation(history_TD,Ti,di,D0)
+    if isempty(history_TD)
+        consecutivity = 0;
+    else
+
+        p_history = [];
+        p_new = [];
+        D_his = history_TD(2);
+        T_his = history_TD(1);
+        for t = 0:0.1:T_his
+            p_history = [ p_history; Bezierfrenet_3(D0, T_his, D_his,t)];
+        end
+
+        for t = 0:0.1:T_his
+            p_new = [ p_new; Bezierfrenet_3(D0, Ti, di,t)];
+        end
+        
+        consecutivity = mean(abs(p_history(:,2) - p_new(:,2)));
+    end
+end
+    
+
 function [val] = collision_checking(lateral_offset,frenet_paths,ROBOT_RADIUS, ob,cx,cy,YAW,current_ind )
     Flag =0;
     val = 1;
@@ -305,7 +332,7 @@ while Flag == 0
         end
     end
 
-    waypoint_global = frenet_to_global (cx, cy,YAW, location_ind,p);    
+    waypoint_global = frenet_to_global(cx, cy,YAW, location_ind,p);    
     checkline=  waypoint_global (1:2,:)';
 
     for j =1:size(ob,1)
