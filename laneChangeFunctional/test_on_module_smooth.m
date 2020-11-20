@@ -20,7 +20,7 @@ P_MAX_KAPPA = 0.002;
 
 %% the main function, which is used to generate changing lane curve dynamically    
 tic;    
-if Flag ~= 1
+if Flag ~= 1 
         output = [];
         return;
 end
