@@ -1,0 +1,107 @@
+clc
+clear all
+close all
+
+xs = 0;
+vxs = 8.3333;
+axs = 0;
+
+sa0 = 0;
+sb0 = 50;
+va0 = 8.3333;
+vb0 = 8.3333;
+
+T = 10;
+sa = sa0 + va0 * T;
+sb = sb0 + vb0 * T;
+xe = 1/2 * (sb + sa);
+LEN = xe;
+vxe = 1/2 * (va0 +vb0);
+axe = 0;
+
+[a0, a1, a2, a3, a4,a5] = quintic_polynomial(xs, ...
+    vxs, axs, xe, vxe, axe,T);
+xt = [];
+for t = 0:0.05:T
+   xt = [xt,calc_point(a0,a1,a2,a3,a4,a5,t)];
+end
+
+plot(0:0.05:T,xt,'--b')
+title('test on long-poly-t');
+
+
+
+vt = [];
+for t = 0:0.05:T
+   [vt] =[vt,calc_first_derivative(a1,a2,a3,a4,a5,t)];
+end
+figure
+plot(0:0.05:T,vt,'--b')
+title('test on long-poly-t');
+
+v_profile = [];
+for s = 0:0.2:LEN
+    v = intepolation_v(xt,vt,s,a1,a2,a3,a4,a5,LEN);
+    v_profile = [v_profile,v];
+end
+
+figure
+plot(1:length(v_profile),v_profile);
+
+function v = intepolation_v(xt,vt,s,a1,a2,a3,a4,a5,LEN)
+if s > LEN
+    v = vt(end);
+else
+    for i = 2:length(xt)
+        if xt(i) >= s
+            range = [xt(i-1),xt(i)];
+            iter = i;
+            break;
+        end
+    end
+   t = 0.05 * (i-1) + 0.05 * (s - range(1))/(range(2)-range(1));
+   v = calc_first_derivative(a1,a2,a3,a4,a5,t);
+end
+
+end
+
+function [a0, a1, a2, a3, a4,a5] = quintic_polynomial(xs, ...
+    vxs, axs, xe, vxe, axe,T)
+% A = [0,0,0,0,0,1; T^5,T^4,T^3,T^2,T,1;...
+%     0,0,0,0,1,0 ; 5*T^4  4*T^3 3*T^2 2*T 1 0 ; ...
+%     0 0 0 2 0 0; 20*T^3 12*T^2 6*T 2 0 0];
+% b = [xs, xe, vxs, vxe, axs, 0]';
+% x = A\b;
+% a5 = x(1);
+% a4 = x(2);
+% a3 = x(3);
+% a2 = x(4);
+% a1 = x(5);
+% a0 = x(6);
+A = [T^3 T^4 T^5; 3*T^2 4*T^3 5*T^4; 6*T 12*T^2 20*T^3];
+b = [(xe - xs  - vxs*T - 0.5*axs*T^2); (vxe- vxs - axs*T ); (axe - axs)];
+x = A\b;
+a0 = xs;
+a1 = vxs;
+a2 = axs/2;
+
+a3 = x(1);
+a4 = x(2);
+a5 = x(3);
+end
+
+function [xt] = calc_point(a0,a1,a2,a3,a4,a5,t)
+xt = a0 + a1 * t + a2 * t ^2 + a3 * t^3 + a4 * t^4 + a5 * t^5;
+end
+
+function [xt] =calc_first_derivative(a1,a2,a3,a4,a5,t)
+xt = a1 + 2 * a2 * t + 3 * a3 * t^2 + 4 * a4 * t^3  +  5 * a5 * t^4;
+end
+
+function [xt]  = calc_second_derivative(a2,a3,a4,a5,t)
+xt = 2* a2 + 6* a3 * t + 12 * a4 * t^2 + 20* a5 *t^3;
+end
+
+function [xt] = calc_third_derivative(a3,a4,a5,t)
+xt =6 * a3 + 24 * a4 * t + a5 * t^2;
+end
