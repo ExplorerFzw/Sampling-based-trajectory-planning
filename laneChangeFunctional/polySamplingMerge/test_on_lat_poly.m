@@ -2,67 +2,28 @@ clc
 clear all
 close all
 
-xs = 0;
-vxs = 8.3333;
+xs = 3.5;
+vxs = 0;
 axs = 0;
 
-sa0 = 0;
-sb0 = 21;
-va0 = 8.3333;
-vb0 = 8.3333;
-
 T = 10;
-sa = sa0 + va0 * T;
-sb = sb0 + vb0 * T;
-xe = 1/2 * (sb + sa);
-LEN = xe;
-vxe = 1/2 * (va0 +vb0);
+xe = 0;
+
+vxe = 0;
 axe = 0;
 
 [a0, a1, a2, a3, a4,a5] = quintic_polynomial(xs, ...
     vxs, axs, xe, vxe, axe,T);
 xt = [];
+
 for t = 0:0.05:T
    xt = [xt,calc_point(a0,a1,a2,a3,a4,a5,t)];
 end
 
 plot(0:0.05:T,xt,'--b')
-title('s(t)');
+title('d(t)');
 
-vt = [];
-for t = 0:0.05:T
-   [vt] =[vt,calc_first_derivative(a1,a2,a3,a4,a5,t)];
-end
-figure
-plot(0:0.05:T,vt,'--b')
-title('v(t)');
 
-v_profile = [];
-for s = 0:0.2:LEN
-    v = intepolation_v(xt,vt,s,a1,a2,a3,a4,a5,LEN);
-    v_profile = [v_profile,v];
-end
-
-figure
-plot(1:length(v_profile),v_profile,'--b');
-title('v profile');
-
-function v = intepolation_v(xt,vt,s,a1,a2,a3,a4,a5,LEN)
-if s > LEN
-    v = vt(end);
-else
-    for i = 2:length(xt)
-        if xt(i) >= s
-            range = [xt(i-1),xt(i)];
-            iter = i;
-            break;
-        end
-    end
-   t = 0.05 * (i-1) + 0.05 * (s - range(1))/(range(2)-range(1));
-   v = calc_first_derivative(a1,a2,a3,a4,a5,t);
-end
-
-end
 
 function [a0, a1, a2, a3, a4,a5] = quintic_polynomial(xs, ...
     vxs, axs, xe, vxe, axe,T)
