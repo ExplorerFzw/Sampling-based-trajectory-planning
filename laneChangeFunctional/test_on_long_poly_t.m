@@ -7,7 +7,7 @@ vxs = 8.3333;
 axs = 0;
 
 sa0 = 0;
-sb0 = 50;
+sb0 = 21;
 va0 = 8.3333;
 vb0 = 8.3333;
 
@@ -27,7 +27,7 @@ for t = 0:0.05:T
 end
 
 plot(0:0.05:T,xt,'--b')
-title('test on long-poly-t');
+title('s(t)');
 
 
 
@@ -37,7 +37,7 @@ for t = 0:0.05:T
 end
 figure
 plot(0:0.05:T,vt,'--b')
-title('test on long-poly-t');
+title('v(t)');
 
 v_profile = [];
 for s = 0:0.2:LEN
@@ -46,7 +46,8 @@ for s = 0:0.2:LEN
 end
 
 figure
-plot(1:length(v_profile),v_profile);
+plot(1:length(v_profile),v_profile,'--b');
+title('v profile');
 
 function v = intepolation_v(xt,vt,s,a1,a2,a3,a4,a5,LEN)
 if s > LEN
