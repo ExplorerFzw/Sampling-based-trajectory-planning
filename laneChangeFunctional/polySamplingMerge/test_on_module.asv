@@ -28,17 +28,24 @@ sa0 = 0;
 va0 = 10;
 sb0 = 15;
 vb0 = 10; 
-
+tic;
 cost_graph = cal_lat_frenet_paths();
 frenet_data = check_status(cost_graph);
 cost_total = frenet_data(1);
 Te = frenet_data(2);
 de = frenet_data(3);
 se = frenet_data(4);
-for i = 5:10
-    a(i-4) = frenet_data(i);
-    b(i-4) = frenet_data(i+6);
-end
+[p_of_v] = conbination(frenet_data);
+toc;
+tiem
+fprintf("the calculation time = %d ms \r",1000*(toc-tic));
+
+figure
+plot(p_of_v(:,1),p_of_v(:,2));
+title("y of x");
+figure
+plot(p_of_v(:,1),p_of_v(:,3));
+title("p of v");
 
 
     
@@ -50,20 +57,25 @@ function [p_of_v] = conbination(frenet_data)
         b(i-4) = frenet_data(i+6);
     end
     
-    xt=  [];
+    xt = [];
     yt = [];
-    
+    vxt = [];
+    vyt = [];
     for t = 0:0.05:Te
         a0 = a(1); a1 = a(2); a2 = a(3); a3 = a(4);
         a4 = a(5); a5 = a(6); b0 = b(1); b1 = b(2);
         b2 = b(3); b3 = b(4); b4 = b(5); b5 = b(6);
-        [xt] = [xt,calc_point(a0,a1,a2,a3,a4,a5,t)];
-        
-        [yt] = [yt,calc_point(b0,b1,b2,b3,b4,b5,t)];
-        
-        
+        [yt] = [yt,calc_point(a0,a1,a2,a3,a4,a5,t)];
+        [vxt] =[vxt, calc_first_derivative(a1,a2,a3,a4,a5,t)];
+        [xt] = [xt,calc_point(b0,b1,b2,b3,b4,b5,t)];
+        [vyt] =[ vyt, calc_first_derivative(b1,b2,b3,b4,b5,t)];
+    end
     
+    velocity = sqrt(vxt.^2 + vyt.^2);
+    p_of_v = [xt',yt',velocity'];
+        
 end
+
 function [cost_graph] = cal_lat_frenet_paths()
     global MAX_ROAD_WIDTH D_ROAD_W D_ROAD_LON MINT  DT MAXT KJ KD KT KLD KLAT KLON;
     global merge_dir lat_offset current_velocity current_acceleration;

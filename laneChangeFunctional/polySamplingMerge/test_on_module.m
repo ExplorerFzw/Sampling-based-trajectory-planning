@@ -28,7 +28,7 @@ sa0 = 0;
 va0 = 10;
 sb0 = 15;
 vb0 = 10; 
-
+tic;
 cost_graph = cal_lat_frenet_paths();
 frenet_data = check_status(cost_graph);
 cost_total = frenet_data(1);
@@ -36,6 +36,10 @@ Te = frenet_data(2);
 de = frenet_data(3);
 se = frenet_data(4);
 [p_of_v] = conbination(frenet_data);
+toc; 
+
+fprintf("the calculation time = %f  ms \r",1000*toc);
+
 figure
 plot(p_of_v(:,1),p_of_v(:,2));
 title("y of x");
