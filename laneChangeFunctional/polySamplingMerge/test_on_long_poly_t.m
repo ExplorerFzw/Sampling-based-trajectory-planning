@@ -15,6 +15,9 @@ T = 10;
 sa = sa0 + va0 * T;
 sb = sb0 + vb0 * T;
 % xe = 1/2 * (sb + sa); 
+% in real cases, we find that ego vehicle that is closer
+% to front car can be more reasonable. Therefore, we choose
+% to use the following xe calculation form.
 xe = sa + 2/3 * (sb - sa);
 LEN = xe;
 vxe = 1/2 * (va0 +vb0);
@@ -78,6 +81,11 @@ function [a0, a1, a2, a3, a4,a5] = quintic_polynomial(xs, ...
 % a2 = x(4);
 % a1 = x(5);
 % a0 = x(6);
+% using this method to give a one-shot matrix inverse
+% calculation is correct but not reasonable. As it is 
+%computationally unefficient. Instead, we calculate a0,
+% a1,a2 directly, and use matrix of dimension three to 
+% reduce computation efforts.
 A = [T^3 T^4 T^5; 3*T^2 4*T^3 5*T^4; 6*T 12*T^2 20*T^3];
 b = [(xe - xs  - vxs*T - 0.5*axs*T^2); (vxe- vxs - axs*T ); (axe - axs)];
 x = A\b;
