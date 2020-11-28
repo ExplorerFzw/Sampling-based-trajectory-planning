@@ -14,31 +14,14 @@ axe = 0; % we default that we should have zero lateral a at the end
 
 [a0, a1, a2, a3, a4,a5] = quintic_polynomial(xs, ...
     vxs, axs, xe, vxe, axe,T);
-
 xt = [];
-vt = [];
-at = [];
 
 for t = 0:0.05:T
    xt = [xt,calc_point(a0,a1,a2,a3,a4,a5,t)];
 end
 
-for t = 0:0.05:T
-    [vt] =[vt,calc_first_derivative(a1,a2,a3,a4,a5,t)];
-end
-for t = 0:0.05:T
-    [at]  = [at, calc_second_derivative(a2,a3,a4,a5,t)];
-end
-
 plot(0:0.05:T,xt,'--b')
 title('d(t)');
-figure
-plot(0:0.05:T,vt,'--r')
-title('v(t)');
-figure
-plot(0:0.05:T,at,'--g')
-title('a(t)');
-
 %% combine some different boundary conditions
 % together to see its relations
 %% In this section, we only give freedom to lateral velocity 
@@ -69,7 +52,6 @@ for vxs = -0.5:0.1:0.5
     end
     xt_max = [xt_max, max(xt)];
     plot(0:0.05:T,xt,'--')
-    plot(0:0.05:T,vt,'--')
     legend('vxs=-0.5','vxs=-0.4','vxs=-0.3','vxs=-0.2',...
         'vxs=-0.1','vxs=0','vxs=0.1','vxs=0.2','vxs=0.3',...
         'vxs=0.4','vxs=0.5')
@@ -85,7 +67,7 @@ xs = 3.5; % initial lateral offset w.r.t reference line
 vxs = 0.3; % intial lateral velocity
 axs = 0; % initial lateral acceleration
 
-T = []; % sampling time T
+T =[]; % sampling time T
 xe = 0; % sampling lateral offset at end point
 
 vxe = 0; % we default that we should have zero lateral v at the end
@@ -111,38 +93,7 @@ end
 title('d(t)');
 
 
-%% in this section, we give a small initial lateral velocity
-% and only give freedom to terminal lateral offset xe
-
-xs = 3.5; % initial lateral offset w.r.t reference line
-vxs = 0.3; % intial lateral velocity
-axs = 0; % initial lateral acceleration
-
-T = 8; % sampling time T
-xe = []; % sampling lateral offset at end point
-
-vxe = 0; % we default that we should have zero lateral v at the end
-axe = 0; % we default that we should have zero lateral a at the end
-
-
-xt = [];
-xt_max = [];
-for xe = 0:0.4:2
-    [a0, a1, a2, a3, a4,a5] = quintic_polynomial(xs, ...
-        vxs, axs, xe, vxe, axe,T);
-    xt = [];
-    
-    for t = 0:0.05:T
-        xt = [xt,calc_point(a0,a1,a2,a3,a4,a5,t)];
-        
-    end
-    xt_max = [xt_max, max(xt)];
-    plot(0:0.05:T,xt,'--')
-    legend('xe = 0','xe = 0.4','xe = 0.8','xe = 1.2',...
-        'xe = 1.6','xe = 2')
-    hold on
-end
-title('d(t)');
+%%
 
 
 %%
