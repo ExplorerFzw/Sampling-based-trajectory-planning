@@ -1,7 +1,7 @@
 clc
 clear all
 close all
-
+%% this section gives a simple test with fixed boundary conditions
 xs = 0;
 vxs = 8.3333;
 axs = 0;
@@ -50,6 +50,70 @@ end
 figure
 plot(1:length(v_profile),v_profile,'--b');
 title('v profile');
+
+
+%% in this section, we sample on T
+clc
+clear all
+close all
+
+xs = 0;
+vxs = 8.3333;
+axs = 0;
+
+sa0 = 0;
+sb0 = 21;
+va0 = 8.3333;
+vb0 = 8.3333;
+
+for T = 6:12
+    sa = sa0 + va0 * T;
+    sb = sb0 + vb0 * T;
+    xe = sa + 2/3 * (sb - sa);
+    vxe = 1/2 * (va0 + vb0);
+    axe = 0;
+
+    [a0, a1, a2, a3, a4,a5] = quintic_polynomial(xs, ...
+        vxs, axs, xe, vxe, axe,T);
+    xt = [];
+    vt = [];
+    at = [];
+    for t = 0:0.05:T
+       [xt] = [xt,calc_point(a0,a1,a2,a3,a4,a5,t)];
+    end
+    
+    for t = 0:0.05:T
+       [vt] =[vt,calc_first_derivative(a1,a2,a3,a4,a5,t)];
+    end
+    
+    for t = 0:0.05:T
+        [at]  = [at,calc_second_derivative(a2,a3,a4,a5,t)];
+    end
+    
+%     plot(0:0.05:T,xt,'-b');
+%     hold on;
+%     plot(0:0.05:T,vt,'--r');
+%     hold on;
+    plot(0:0.05:T,at,'--g');
+    hold on;
+end
+title('s(t), d(t), a(t)');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function v = intepolation_v(xt,vt,s,a1,a2,a3,a4,a5,LEN)
 if s > LEN
