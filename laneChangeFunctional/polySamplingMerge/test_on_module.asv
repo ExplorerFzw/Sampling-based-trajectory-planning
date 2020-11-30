@@ -3,7 +3,7 @@ clear all
 close all
 
 global MAX_ROAD_WIDTH D_ROAD_W D_ROAD_LON MINT  DT MAXT KJ KD KT KLD KLAT KLON KK KKD;
-global merge_dir lat_offset vel_lon acc_lon vel_lat acc_lat ; 
+global merge_dir lat_offset vel_lon acc_lon vel_lat acc_lat lateral_offset; 
 global sa0 va0 sb0 vb0 
 global a0 a1 a2 a3 b0 b1 b2 b3
 global LEN caseNum
@@ -25,11 +25,12 @@ KK = 1;
 KKD = 1;
 
 merge_dir = 1;
+lat_offset = -3.5;
 vel_lon = 10;
 acc_lon = 0;
 vel_lat = 0;
 acc_lat = 0;
-lat_offset = -6;
+lateral_offset = -6;
 
 sa0 = 0;
 va0 = 10;
@@ -42,13 +43,10 @@ b0 = 3; b1 = -0.1; b2 = -0.001; b3 = -0.00008;
 LEN = 80;
 caseNum = 4;
 
-%% the test for caseNum == 4, which a free lane changing.
+
 tic;
 
 [output,reference] = dynamic_planning()
-toc; 
-
-fprintf("the calculation time = %f  ms \r",1000*toc);
     
  line_a = [[],[]];
     line_b = [[],[]];
@@ -62,20 +60,15 @@ for i = 0:LEN
     line_b = [line_b; [i,y]];
 end
 
-figure
 
 plot(line_a(:,1), line_a(:,2));
 hold on
 plot(line_b(:,1), line_b(:,2));
-
 hold on
 plot(reference(:,1),reference(:,2),'--b')
-
 hold on
 plot(output(:,1),output(:,2));
-title("planned traj in one loop");
-legend("lane a","lane b","lane reference","planned traj in one loop");
-%%
+
 % frenet_data = check_status(cost_graph);
 % cost_total = frenet_data(1);
 % Te = frenet_data(2);
@@ -100,7 +93,7 @@ legend("lane a","lane b","lane reference","planned traj in one loop");
 function [output,reference] = dynamic_planning()
     
     global MAX_ROAD_WIDTH D_ROAD_W D_ROAD_LON MINT  DT MAXT KJ KD KT KLD KLAT KLON KK KKD;
-    global merge_dir lat_offset vel_lon acc_lon vel_lat acc_lat ;
+    global merge_dir lat_offset vel_lon acc_lon vel_lat acc_lat lateral_offset;
     global sa0 va0 sb0 vb0 
     global a0 a1 a2 a3 b0 b1 b2 b3
     global LEN caseNum
@@ -111,7 +104,7 @@ function [output,reference] = dynamic_planning()
     if caseNum == 4
         % do simplified lane changing
         [cost_graph] = calc_frenet_paths_free();
-        D0 = lat_offset;
+        D0 = lateral_offset;
         Ti = cost_graph(1,2);
         Di =cost_graph(1,3);
         [ref_bezier] = ref_bezier_generation(reference, D0,Ti,Di);
@@ -129,7 +122,7 @@ function [output,reference] = dynamic_planning()
         %the other side is negative;
         % 5 cols: delta_heading of matched point vectors between reference
         % line and planned trajs, anti-clock wise from reference to planned
-        % trajs is positive;
+        % trajs is positive
         % 6 cols: planned trajs kappa, vehicle turing left is positive and
         % turning right is negative;
     else
@@ -263,7 +256,7 @@ end
 function [cost_graph] = calc_frenet_paths_free()
 
     global MAX_ROAD_WIDTH D_ROAD_W D_ROAD_LON MINT  DT MAXT KJ KD KT KLD KLAT KLON KK KKD;
-    global merge_dir lat_offset vel_lon acc_lon vel_lat acc_lat ;
+    global merge_dir lat_offset vel_lon acc_lon vel_lat acc_lat lateral_offset;
     global sa0 va0 sb0 vb0 
     global a0 a1 a2 a3 b0 b1 b2 b3
     global LEN caseNum
@@ -278,7 +271,7 @@ function [cost_graph] = calc_frenet_paths_free()
 % KKD is the cost weight of the derivative of curvature
 % KO is the cost weight of ostacle distance
 
-    D0 = lat_offset; % 0.5 * (a0 + b0) is also lateral_offset in lane keeping system;
+    D0 = lateral_offset; % 0.5 * (a0 + b0) is also lateral_offset in lane keeping system;
     frenet_paths = [];
     cost_graph = []; 
     % we store all candicates' cost info in this matrix for review,

@@ -90,14 +90,16 @@ for T = 6:12
         [at]  = [at,calc_second_derivative(a2,a3,a4,a5,t)];
     end
     
-%     plot(0:0.05:T,xt,'-b');
-%     hold on;
+% %     plot(0:0.05:T,xt,'-b');
+% %     hold on;
+%    
 %     plot(0:0.05:T,vt,'--r');
 %     hold on;
+
     plot(0:0.05:T,at,'--g');
     hold on;
 end
-title('s(t), d(t), a(t)');
+title('s(t), v(t), a(t)');
 
 
 

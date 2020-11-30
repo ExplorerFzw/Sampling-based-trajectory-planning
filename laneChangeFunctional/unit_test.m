@@ -47,7 +47,7 @@ toc;
 fprintf('reference_2 generation time is: %f ms \r',(1000*toc))
 plot(reference_1(:,1),reference_1(:,2),'--b')
 
-plot(reference_2(:,1),reference_2(:,2),'--r','MarkerSize',2)
+plot(reference_2(:,1),reference_2(:,2),'^-r','MarkerSize',2)
 
 hold on
 
