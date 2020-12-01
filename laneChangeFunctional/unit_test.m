@@ -79,7 +79,6 @@ plot(1:length(kappa),kappa,'-r');
 legend('kappa');
 
 
-
 function [ref_bezier] = ref_bezier_generation(reference_1, D0, Ti, Di)
     S = 0;
     ref_bezier = [[],[]];

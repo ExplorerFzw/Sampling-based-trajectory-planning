@@ -2,19 +2,22 @@ clc
 clear all
 close all
 
-global MAX_ROAD_WIDTH D_ROAD_W D_ROAD_LON MINT  DT MAXT KJ KD KT KLD KLAT KLON KK KKD;
+global MAX_ROAD_WIDTH D_ROAD_W D_ROAD_LON MINT MIND DT DD MAXT MAXD KJ KD KT KLD KLAT KLON KK KKD KD_constrain KT_constrain;
 global merge_dir lat_offset vel_lon acc_lon vel_lat acc_lat ; 
 global sa0 va0 sb0 vb0 
-global a0 a1 a2 a3 b0 b1 b2 b3
+global A0 A1 A2 A3 B0 B1 B2 B3
 global LEN caseNum
+global speed_limit curvature_limit MAX_ACC MIN_ACC
 
-
-MAX_ROAD_WIDTH =2.5 ; %  [m]
-D_ROAD_W = 0.1 ; %  [m]
+MAX_ROAD_WIDTH = 3 ; %  [m]
+D_ROAD_W = 0.5 ; %  [m]
 D_ROAD_LON = 0.5;
 DT = 1 ; % Delta T [s]
-MAXT = 80;% [s]
-MINT = 60; % [s]
+MAXT = 10;% [s]
+MINT = 5; % [s]
+DD = 1 ; % Delta T [s]
+MAXD = 80;% [s]
+MIND = 40; % [s]
 KJ = 0.1;
 KT = 0.1;
 KD = 1;
@@ -23,6 +26,8 @@ KLAT = 1;
 KLON = 1;
 KK = 1;
 KKD = 1;
+KD_constrain = 0.1;
+KT_constrain = 1;
 
 merge_dir = 1;
 vel_lon = 10;
@@ -36,16 +41,22 @@ va0 = 10;
 sb0 = 15;
 vb0 = 10; 
 
-a0 = -3; a1 = -0.1; a2 = -0.001; a3 = -0.0001;
-b0 = 3; b1 = -0.1; b2 = -0.001; b3 = -0.00008;
+A0 = -3; A1 = -0.1; A2 = -0.001; A3 = -0.0001;
+B0 = 3; B1 = -0.1; B2 = -0.001; B3 = -0.00008;
 
 LEN = 80;
-caseNum = 4;
+caseNum = 1;
+speed_limit = 33.3; % which is 120kph;
+curvature_limit = 1/50;
+MAX_ACC = 4;
+MIN_ACC = -4;
 
-%% the test for caseNum == 4, which a free lane changing.
+
+%% the test declare that when caseNum == 4, it is a free lane changing.
+% when caseNum != 4, it is merging lane changing.
 tic;
 
-[output,reference] = dynamic_planning()
+[output,reference] = dynamic_planning();
 toc; 
 
 fprintf("the calculation time = %f  ms \r",1000*toc);
@@ -53,17 +64,16 @@ fprintf("the calculation time = %f  ms \r",1000*toc);
  line_a = [[],[]];
     line_b = [[],[]];
 for i = 0:LEN
-    y = a0 +a1 * i + a2 *i^2 + a3 *i^3;
+    y = A0 +A1 * i + A2 *i^2 + A3 *i^3;
     line_a = [line_a; [i,y]];
 end
 
 for i = 0:LEN
-    y = b0 + b1 * i + b2 * i^2 + b3 * i^3;
+    y = B0 + B1 * i + B2 * i^2 + B3 * i^3;
     line_b = [line_b; [i,y]];
 end
 
 figure
-
 plot(line_a(:,1), line_a(:,2));
 hold on
 plot(line_b(:,1), line_b(:,2));
@@ -75,6 +85,11 @@ hold on
 plot(output(:,1),output(:,2));
 title("planned traj in one loop");
 legend("lane a","lane b","lane reference","planned traj in one loop");
+%% figure plot for merging lane changing
+
+
+
+
 %%
 % frenet_data = check_status(cost_graph);
 % cost_total = frenet_data(1);
@@ -98,20 +113,25 @@ legend("lane a","lane b","lane reference","planned traj in one loop");
 
 %%
 function [output,reference] = dynamic_planning()
+    %% this function discrriminate two different sampling methods.
+    % if caseNum ==4, it means this is simple lane changing, we change lane
+    % without considering of velocity planning
+    % if caseNum != 4, it means this is merging lane changing, we apply
+    % x(t)-y(t) method to plan spatially and temporally. 
     
-    global MAX_ROAD_WIDTH D_ROAD_W D_ROAD_LON MINT  DT MAXT KJ KD KT KLD KLAT KLON KK KKD;
+    global MAX_ROAD_WIDTH D_ROAD_W D_ROAD_LON MINT MIND DT DD MAXT MAXD KJ KD KT KLD KLAT KLON KK KKD KD_constrain KT_constrain;
     global merge_dir lat_offset vel_lon acc_lon vel_lat acc_lat ;
     global sa0 va0 sb0 vb0 
-    global a0 a1 a2 a3 b0 b1 b2 b3
+    global A0 A1 A2 A3 B0 B1 B2 B3
     global LEN caseNum
+    global speed_limit curvature_limit MAX_ACC MIN_ACC
     
-    
-    [reference] = reference_line_generator(a0,a1,a2,a3, b0,b1,b2,b3, LEN);
+    [reference] = reference_line_generator(A0,A1,A2,A3, B0,B1,B2,B3, LEN);
    
     if caseNum == 4
         % do simplified lane changing
         [cost_graph] = calc_frenet_paths_free();
-        D0 = lat_offset;
+        D0 = lat_offset; % how to determine D0 is still a problem??? calculate using correct 1/2*(A0 + B0)??
         Ti = cost_graph(1,2);
         Di =cost_graph(1,3);
         [ref_bezier] = ref_bezier_generation(reference, D0,Ti,Di);
@@ -135,10 +155,18 @@ function [output,reference] = dynamic_planning()
     else
         % do merging method lane changing
         output =  [];
-
-
-
-
+        [cost_graph] = calc_frenet_paths_constraint();
+        cost_graph_optimal = check_status(cost_graph);
+        [y_of_x,p_of_v,p_of_a] = conbination(cost_graph_optimal);
+        Ti = cost_graph_optimal(2);
+        
+        [ref_poly] = ref_poly_generation(reference, y_of_x,Ti);
+        trajs_new_origin = reference_generation(reference, ref_poly);% 
+        delta_heading_rad = calculat_delta_heading(reference, trajs_new_origin);
+        delta_heading_deg = rad_to_deg(delta_heading_rad); % If you need 
+        kappa = calculate_kappa_oneshot(trajs_new_origin);
+        output = [trajs_new_origin,ref_poly,delta_heading_rad,kappa];
+       
 
     end
 end
@@ -154,7 +182,7 @@ function [ref_bezier] = ref_bezier_generation(reference_1, D0, Ti, Di)
 S = 0;
     ref_bezier = [[],[]];
     index =1;
-    while S < Ti
+    while S < Ti && (index+1) <= length(reference)
         p = Bezierfrenet_5(D0, Ti, Di,S);
         ref_bezier =[ref_bezier; p];
         S = S + sqrt((reference_1(index+1,1)-reference_1(index,1))^2 + ...
@@ -162,6 +190,30 @@ S = 0;
         index = index + 1;
     end
 end
+
+%%
+function [ref_poly] = ref_poly_generation(reference, y_of_x, Ti)
+%% this function generate polynomial curve informaion
+
+S = 0;
+    ref_poly = [[],[]];
+    index =1;
+    X = y_of_x(:,1);
+    Y = y_of_x(:,2);
+    while S <= X(end) && (index+1) <= length(reference)
+        
+        p = [S,interp1(X,Y,S,'spline')];
+        
+        ref_poly =[ref_poly; p];
+        S = S + sqrt((reference(index+1,1)-reference(index,1))^2 + ...
+            (reference(index+1,2)-reference(index,2))^2);
+        index = index + 1;
+    end
+end
+
+
+
+
 
 %%
 function [y_of_x,p_of_v,p_of_a] = conbination(frenet_data)
@@ -197,18 +249,100 @@ function [y_of_x,p_of_v,p_of_a] = conbination(frenet_data)
     p_of_a = [xt',yt',acceleration'];
         
 end
-%%
-function [cost_graph] = cal_lat_frenet_paths_constraint()
 
+%%
+function cost_graph_optimal = check_status(cost_graph)
+
+    global MAX_ROAD_WIDTH D_ROAD_W D_ROAD_LON MINT MIND DT DD MAXT MAXD KJ KD KT KLD KLAT KLON KK KKD KD_constrain KT_constrain;
+    global merge_dir lat_offset vel_lon acc_lon vel_lat acc_lat ;
+    global sa0 va0 sb0 vb0 
+    global A0 A1 A2 A3 B0 B1 B2 B3
+    global LEN caseNum
+    global speed_limit curvature_limit MAX_ACC MIN_ACC   
     
-    frenet_paths =[];
-    cost_graph = [];
+    i = 1;
+    COND = 1;
+    while COND == 1
+        frenet_data = cost_graph(i,:);
+        Te = frenet_data(2);        
+        for i = 5:10
+            a(i-4) = frenet_data(i);
+            b(i-4) = frenet_data(i+6);
+        end
+    
+        xt = [];
+        yt = [];
+        vxt = [];
+        vyt = [];
+        axt = [];
+        ayt = [];
+
+        for t = 0:0.1:Te
+            a0 = a(1); a1 = a(2); a2 = a(3); a3 = a(4);
+            a4 = a(5); a5 = a(6); b0 = b(1); b1 = b(2);
+            b2 = b(3); b3 = b(4); b4 = b(5); b5 = b(6);
+            [yt] = [yt,calc_point(a0,a1,a2,a3,a4,a5,t)];
+            [vyt] = [vyt, calc_first_derivative(a1,a2,a3,a4,a5,t)];
+            [ayt] = [ayt, calc_second_derivative(a2,a3,a4,a5,t)];
+            [xt] = [xt, calc_point(b0,b1,b2,b3,b4,b5,t)];
+            [vxt] =[ vxt, calc_first_derivative(b1,b2,b3,b4,b5,t)];
+            [axt] = [axt, calc_second_derivative(b2,b3,b4,b5,t)];
+        end
+        
+        trajs = [xt',yt'];
+        velocity = sqrt(vxt.^2 + vyt.^2);
+        acceleration = sign(axt) .* sqrt(axt.^2 + ayt.^2);
+        kappa = calculate_kappa_oneshot(trajs);
+        
+        if ((max(abs(velocity))<= speed_limit) && (max(acceleration)<=MAX_ACC)...
+                && (min(acceleration) >= MIN_ACC) && (max(abs(kappa)) < curvature_limit))
+            cost_graph_optimal = cost_graph(i,:);
+            COND = 2;
+        end
+        
+        i = i+1;
+        
+        if  i > size(cost_graph,1)
+            COND = 2;
+            cost_graph_optimal = cost_graph(1,:);
+        end
+    end
+        
+        
+end
+%%
+function [cost_graph] = calc_frenet_paths_constraint()
+
+% @breif this is the function to sample all possible candidate in cases of
+    % constrained merging scenarios. it uses x(t)-y(t) method, which means it
+    % outputs spatial and temporal profiles.
+
+% input: 
+    % directly call all global data
+    
+% output:
+    % cost graph maintains all sampled candidate information, which is as
+    % follow: The first col is the total cost. The second col is Ti, which
+    % is time T. The third col is di, which is terminal lateral offset. The
+    % fourth col is si, which is terminal longitudinal distance.
+    
+    
+    global MAX_ROAD_WIDTH D_ROAD_W D_ROAD_LON MINT MIND DT DD MAXT MAXD KJ KD KT KLD KLAT KLON KK KKD KD_constrain KT_constrain;
+    global merge_dir lat_offset vel_lon acc_lon vel_lat acc_lat ;
+    global sa0 va0 sb0 vb0 
+    global A0 A1 A2 A3 B0 B1 B2 B3
+    global LEN caseNum
+    global speed_limit curvature_limit MAX_ACC MIN_ACC
+    
+    frenet_paths =[]; % initiate it with empty
+    cost_graph = []; % initiate it with empty
+    
     if merge_dir == 1 % merging to left lane
-        lower_bound = -MAX_ROAD_WIDTH;
+        lower_bound = -MAX_ROAD_WIDTH / 2;
         upper_bound = 0;
     else % merging to right lane
         lower_bound = 0;
-        upper_bound = MAX_ROAD_WIDTH;
+        upper_bound = MAX_ROAD_WIDTH / 2;
     end
     
     for Ti = MINT : DT : MAXT
@@ -224,19 +358,16 @@ function [cost_graph] = cal_lat_frenet_paths_constraint()
                 vxs, axs, xe, vxe, axe,Ti);
             [jerk_bar_lat] = cal_j_bar(a3,a4,a5,Ti);
             [d_bar_lat] = calc_d_bar(a0,a1,a2,a3,a4,a5,Ti);
-            cost_total_lat = KJ * jerk_bar_lat + KD * d_bar_lat + KT * Ti;
+            cost_total_lat = KJ * jerk_bar_lat + KD_constrain * d_bar_lat + KT_constrain * Ti;
             
             
             xs = 0;
             vxs = vel_lon;
             axs = acc_lon;
 
-%             sa = sa0 + va0 * Ti; % a_vehicle: the nearest adjacent vehicle;
-%             sb = sb0 + vb0 * Ti; % b_vehilce: the second nearest adjacent vehicle that is in front of the a_vehicle
-%             xe = sa + (sb - sa) * 2/3;% 1/2 * (sb + sa);
-            [xe,sa,sb] = cal_xe(caseNum, sa0,sb0,va0,vb0,T);
+            [xe,sa,sb] = cal_xe(caseNum, sa0,sb0,va0,vb0,Ti); % go to function definition for details
             
-            delta_s = 1/10 * (sb - sa); % how to determine ???
+            delta_s = 1/4 * (sb - sa); % how to determine ??? we still have not make sure 
             
             vxe = 1/2 * (va0 + vb0);
             axe = 0;
@@ -248,7 +379,7 @@ function [cost_graph] = cal_lat_frenet_paths_constraint()
                 [jerk_bar_lon] = cal_j_bar(b3,b4,b5,Ti);
                 delta_d = abs(si - xe);
 
-                cost_total_lon = KJ * jerk_bar_lon + KLD * delta_d + KT * Ti;
+                cost_total_lon = KJ * jerk_bar_lon + KLD * delta_d + KT_constrain * Ti;
                
                 cost_total = KLAT * cost_total_lat + KLON * cost_total_lon;
                 cost_graph = [cost_graph;[cost_total, Ti, di, si,...
@@ -262,11 +393,12 @@ end
 %%
 function [cost_graph] = calc_frenet_paths_free()
 
-    global MAX_ROAD_WIDTH D_ROAD_W D_ROAD_LON MINT  DT MAXT KJ KD KT KLD KLAT KLON KK KKD;
+    global MAX_ROAD_WIDTH D_ROAD_W D_ROAD_LON MINT MIND DT DD MAXT MAXD KJ KD KT KLD KLAT KLON KK KKD;
     global merge_dir lat_offset vel_lon acc_lon vel_lat acc_lat ;
     global sa0 va0 sb0 vb0 
-    global a0 a1 a2 a3 b0 b1 b2 b3
+    global A0 A1 A2 A3 B0 B1 B2 B3
     global LEN caseNum
+    global speed_limit
 % lateral_offset, MAX_ROAD_WIDTH,...
     %D_ROAD_W, MINT,DT,MAXT,KJ,KD,KT,KK,KKD
     
@@ -284,16 +416,16 @@ function [cost_graph] = calc_frenet_paths_free()
     % we store all candicates' cost info in this matrix for review,
     % but remember that it is not necessary when the parameters are well turned.
     if merge_dir == 1 % merging to left lane
-        lower_bound = -MAX_ROAD_WIDTH;
+        lower_bound = -MAX_ROAD_WIDTH / 2;
         upper_bound = 0;
     else % merging to right lane
         lower_bound = 0;
-        upper_bound = MAX_ROAD_WIDTH;
+        upper_bound = MAX_ROAD_WIDTH / 2;
     end
     
     j = 1;
     for di = lower_bound : D_ROAD_W : upper_bound
-        for Ti =  MINT: DT: MAXT
+        for Ti =  MIND: DD: MAXD
             p = [];
             for t = 0:0.1:Ti
                 p = [p; Bezierfrenet_3(D0, Ti, di,t)];
@@ -325,9 +457,6 @@ end
 
 %%
 
-function frenet_data = check_status(cost_graph) 
-    frenet_data = cost_graph(1,:);
-end
 
 
 function [a0, a1, a2, a3, a4,a5] = quintic_polynomial(xs, ...
@@ -370,25 +499,25 @@ end
 function [jerk_bar] = cal_j_bar(a3,a4,a5,T)
     jt = [];
     for t =0 : 0.1 : T
-        jt = [jt, calc_third_derivative(a3,a4,a5,t)];
+        jt = [jt, calc_third_derivative(a3,a4, a5,t)];
     end
     jerk_bar = mean(abs(jt));
 end
 
-function [xe,sa,sb] = cal_xe(caseNum, sa0,sb0,va0,vb0,T)
+function [xe,sa,sb] = cal_xe(caseNum, sa0,sb0,va0,vb0,Ti)
     CONST =60; % It remains uncertain how how to choose a properiate distance CONST.    
     switch caseNum
         case 1 % in this case, we have vehicle a and vehilce b;
             sa = sa0 + va0 * Ti; % a_vehicle: the nearest adjacent vehicle which is declared as rear vehicle;
             sb = sb0 + vb0 * Ti; % b_vehilce: the nearest adjacent vehicle that is in front of the a_vehicle(front vehicle);
             xe = sa + (sb - sa) * 2/3;% 1/2 * (sb + sa);
-        case 2
+        case 2 % in this case, we have only vehicle a;
            sa = sa0 + va0 * Ti;
-           sb = sa + CONST;
+           sb = sa + CONST; % the distance between two vehicles is CONST
            xe = sa + (sb - sa) * 2/3;% 1/2 * (sb + sa);
-        otherwise
+        otherwise % in this case, we only have vehicle b;
            sb = sb0 + vb0 * Ti;
-           sa =  sb - CONST;
+           sa =  sb - CONST; % the distance between two vehicles is CONST
            xe = sa + (sb - sa) * 2/3;% 1/2 * (sb + sa);
     end              
 end
