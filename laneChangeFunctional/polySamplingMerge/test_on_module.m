@@ -143,7 +143,7 @@ function [output,reference] = dynamic_planning()
         kappa = calculate_kappa_oneshot(trajs_new_origin);
         adding = zeros(length(kappa),2)-1;
         output = [trajs_new_origin,ref_bezier,delta_heading_rad,kappa,adding];
-
+%         output = transition_to_BUS(output);
         % the output contains infomation as follow: 
         %1,2 cols: under vehicle coordinate, the x,y positions of planned
         %trajectories;
@@ -170,7 +170,7 @@ function [output,reference] = dynamic_planning()
         delta_heading_deg = rad_to_deg(delta_heading_rad); % If you need 
         kappa = calculate_kappa_oneshot(trajs_new_origin);
         output = [trajs_new_origin,ref_poly,delta_heading_rad,kappa,v_profile,a_profile];
-       
+%         output = transition_to_BUS(output);
 
     end
 end
@@ -863,6 +863,39 @@ end
         kappa(i) = (pdd(i))/((1+pd(i)^2)^(1.5));
     end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
