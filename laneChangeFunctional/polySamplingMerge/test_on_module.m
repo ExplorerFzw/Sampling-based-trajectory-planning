@@ -13,8 +13,8 @@ MAX_ROAD_WIDTH = 3 ; %  [m]
 D_ROAD_W = 0.5 ; %  [m]
 D_ROAD_LON = 0.5;
 DT = 1 ; % Delta T [s]
-MAXT = 10;% [s]
-MINT = 5; % [s]
+MAXT = 6;% [s]
+MINT = 3; % [s]
 DD = 1 ; % Delta T [s]
 MAXD = 80;% [s]
 MIND = 40; % [s]
@@ -45,7 +45,7 @@ A0 = -3; A1 = -0.1; A2 = -0.001; A3 = -0.0001;
 B0 = 3; B1 = -0.1; B2 = -0.001; B3 = -0.00008;
 
 LEN = 80;
-caseNum = 1;
+caseNum = 2;
 speed_limit = 33.3; % which is 120kph;
 curvature_limit = 1/50;
 MAX_ACC = 4;
@@ -128,18 +128,21 @@ function [output,reference] = dynamic_planning()
     
     [reference] = reference_line_generator(A0,A1,A2,A3, B0,B1,B2,B3, LEN);
    
-    if caseNum == 4
-        % do simplified lane changing
+    if caseNum == 4 || caseNum == 2
+        % Case4 does simplified lane changing, while Case2 does lane
+        % changing without front vehicles
         [cost_graph] = calc_frenet_paths_free();
         D0 = lat_offset; % how to determine D0 is still a problem??? calculate using correct 1/2*(A0 + B0)??
         Ti = cost_graph(1,2);
         Di =cost_graph(1,3);
         [ref_bezier] = ref_bezier_generation(reference, D0,Ti,Di);
         trajs_new_origin = reference_generation(reference, ref_bezier);% 
+        
         delta_heading_rad = calculat_delta_heading(reference, trajs_new_origin);
         delta_heading_deg = rad_to_deg(delta_heading_rad); % If you need 
         kappa = calculate_kappa_oneshot(trajs_new_origin);
-        output = [trajs_new_origin,ref_bezier,delta_heading_rad,kappa];
+        adding = zeros(length(kappa),2)-1;
+        output = [trajs_new_origin,ref_bezier,delta_heading_rad,kappa,adding];
 
         % the output contains infomation as follow: 
         %1,2 cols: under vehicle coordinate, the x,y positions of planned
@@ -159,13 +162,14 @@ function [output,reference] = dynamic_planning()
         cost_graph_optimal = check_status(cost_graph);
         [y_of_x,p_of_v,p_of_a] = conbination(cost_graph_optimal);
         Ti = cost_graph_optimal(2);
-        
-        [ref_poly] = ref_poly_generation(reference, y_of_x,Ti);
+        [ref_poly] = ref_poly_generation(reference, y_of_x);
         trajs_new_origin = reference_generation(reference, ref_poly);% 
+        [v_profile] = velocity_intepolation(p_of_v,reference);
+        [a_profile] = acc_intepolation(p_of_a,reference);
         delta_heading_rad = calculat_delta_heading(reference, trajs_new_origin);
         delta_heading_deg = rad_to_deg(delta_heading_rad); % If you need 
         kappa = calculate_kappa_oneshot(trajs_new_origin);
-        output = [trajs_new_origin,ref_poly,delta_heading_rad,kappa];
+        output = [trajs_new_origin,ref_poly,delta_heading_rad,kappa,v_profile,a_profile];
        
 
     end
@@ -182,7 +186,7 @@ function [ref_bezier] = ref_bezier_generation(reference_1, D0, Ti, Di)
 S = 0;
     ref_bezier = [[],[]];
     index =1;
-    while S < Ti && (index+1) <= length(reference)
+    while S < Ti && (index+1) <= length(reference_1)
         p = Bezierfrenet_5(D0, Ti, Di,S);
         ref_bezier =[ref_bezier; p];
         S = S + sqrt((reference_1(index+1,1)-reference_1(index,1))^2 + ...
@@ -192,15 +196,63 @@ S = 0;
 end
 
 %%
-function [ref_poly] = ref_poly_generation(reference, y_of_x, Ti)
+function [v_profile] = velocity_intepolation(p_of_v,reference)
+    
+S = 0;
+    v_profile = [];
+    index =1;
+    X = p_of_v(:,1);
+    V = p_of_v(:,3);
+    XMAX = min(reference(end,1),X(end));
+    
+    while S <= XMAX && (index+1) <= length(reference)
+        
+        v = [S,interp1(X,V,S,'spline')];
+        
+        v_profile =[v_profile; v];
+        S = S + sqrt((reference(index+1,1)-reference(index,1))^2 + ...
+            (reference(index+1,2)-reference(index,2))^2);
+        index = index + 1;
+    end
+
+
+end
+
+
+function [a_profile] = acc_intepolation(p_of_a,reference)
+    
+    S = 0;
+    a_profile = [];
+    index =1;
+    X = p_of_a(:,1);
+    A = p_of_a(:,3);
+    XMAX = min(reference(end,1),X(end));
+    
+    while S <= XMAX && (index+1) <= length(reference)
+        
+        a = [S,interp1(X,A,S,'spline')];
+        
+        a_profile =[a_profile; a];
+        S = S + sqrt((reference(index+1,1)-reference(index,1))^2 + ...
+            (reference(index+1,2)-reference(index,2))^2);
+        index = index + 1;
+    end
+
+
+
+end
+%%
+function [ref_poly] = ref_poly_generation(reference, y_of_x)
 %% this function generate polynomial curve informaion
 
-S = 0;
+    S = 0;
     ref_poly = [[],[]];
     index =1;
     X = y_of_x(:,1);
     Y = y_of_x(:,2);
-    while S <= X(end) && (index+1) <= length(reference)
+    XMAX = min(reference(end,1),X(end));
+    
+    while S <= XMAX && (index+1) <= length(reference)
         
         p = [S,interp1(X,Y,S,'spline')];
         
