@@ -1,27 +1,18 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%compiled functions are as follows:
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+BezierSamplingMethod 提供了本车道的静态障碍物避障功能
 
-module.slx： is the simulink module that contains both state machine and lane changing function blocks.
+carmakerPara 仿真参数
 
-module_smooth.slx: is based on module.slx, and it is extended by an additional curve smoother.
+documents 各类文档
 
-test_on_module_smooth.m is a test function to ensure the performance of module_smooth.slx;
+integration 用于集成autobox的各类被修改适配的模块，暂未维护
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+manualLaneChange 拨杆变道功能
+
+polySamplingMerge 自动变道功能
+
+somefunctions 某些单独提取出来进行测试的功能函数
+
+testing 对各类功能的局部或全局测试
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% induvidual functions are as follows, if you do not care about the inside of the alg, neglect it.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-kappa_calculation.m provides a comparison between two difference kappa calculation methods.
-
-Bezierfrenet.m: is the function of how to generate a Bezier curve.
-
-LineGeneration.m: is the main function of module_smooth.m, which go through all process to generate a changing lane.
-
-calculateLEN: based on current velocity, this function calculate a longitudinal length of the changing lane.
-
-ref_bezier_generation: this function provides, when given control points information, the lateral offset of Bezier 
-curve with respect to longitudinal distance along the reference path.
 
