@@ -5,12 +5,17 @@ close all
 
 a0 = -3; a1 = -0.1; a2 = -0.001; a3 = -0.0001;
 b0 = 3; b1 = -0.1; b2 = -0.001; b3 = -0.00008;
+
+a0 = 3; a1 = 0.1; a2 = 0.001; a3 = 0.0001;
+b0 = -3; b1 = 0.1; b2 = 0.001; b3 = 0.00008;
+
+
 velocity = 50;
-indicator = 1;
+indicator = -1;
 Flag = 1;
 P_alpha = 0.01;
 P_beta = 0.7;
-P_lateral_offset = 3.5;
+P_lateral_offset = 6;
 P_MAX_ITER = 10000;
 P_TOL = 0.7;
 P_MAX_KAPPA = 0.002;
@@ -106,7 +111,7 @@ function [delta_heading] = calculat_delta_heading(center_line, traj_new)
         y1 = center_line(i+1,2) - center_line(i,2);
         x2 = traj_new(i+1,1) - traj_new(i,1);
         y2 = traj_new(i+1,2) - traj_new(i,2);
-        delta_theta =  (x1 * x2 + y1 * y2) / (sqrt(x1^2 + y1^2) * sqrt(x2^2 + y2^2));
+        delta_theta =  sign(y2 - y1) * (x1 * x2 + y1 * y2) / (sqrt(x1^2 + y1^2) * sqrt(x2^2 + y2^2));
         delta_heading =  [delta_heading; acos(delta_theta)];
     end
 end
