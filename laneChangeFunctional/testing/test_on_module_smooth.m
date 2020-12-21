@@ -66,6 +66,9 @@ plot(reference_1(:,1),reference_1(:,2),'--b')
 hold on
 plot(trajs_new(:,1),trajs_new(:,2),'--r');
 legend('ref on left','ref on right','ref in Cartisian','smoothed changing lane');
+
+figure 
+plot(1:length(trajs_new),kappa)
 %%
 function LEN = calculateLEN(velocity)
     LEN = velocity;
