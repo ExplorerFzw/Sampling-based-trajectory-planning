@@ -27,8 +27,13 @@ clc
 clear all 
 close all
 
-a0 = -3; a1 = -0.1; a2 = -0.001; a3 = -0.0001;
-b0 = 3; b1 = -0.1; b2 = -0.001; b3 = -0.00008;
+% a0 = -3; a1 = -0.1; a2 = -0.001; a3 = -0.0001;
+% b0 = 3; b1 = -0.1; b2 = -0.001; b3 = -0.00008;
+
+a0 = -3; a1 = 0; a2 = 0; a3 = 0;
+b0 = 3; b1 = 0; b2 = 0; b3 = 0;
+
+
 velocity = 80;
 indicator = 1;
 Flag = 1;
@@ -37,7 +42,7 @@ long_S = 13;
 output = [];
 
 for long_S = 0:86
-    [search_latoff,search_theta,search_kappa,valid_len,OUTPUT] = LineGeneration(a0,a1,a2,a3, b0,b1,b2,b3,velocity,indicator,Flag,P_lateral_offset,long_S)
+    [search_pd,search_pdd,search_latoff,search_theta,search_kappa,valid_len,OUTPUT] = LineGeneration(a0,a1,a2,a3, b0,b1,b2,b3,velocity,indicator,Flag,P_lateral_offset,long_S);
     output=  [output; [search_latoff,search_theta,search_kappa]];
 end
 
@@ -58,6 +63,22 @@ title("theta")
 figure
 plot(1:length(reference_1),reference_1(:,3),'-b')
 title("kappa")
+%%
+trajs_new = OUTPUT(:,1:2);
+
+[kappa,pd,pdd] = calculate_kappa(trajs_new);
+
+figure
+plot(OUTPUT(:,3),pd,'-ob')
+title("pd")
+
+figure
+plot(OUTPUT(:,3),pdd,'-ob')
+title("pdd")
+
+figure
+plot(OUTPUT(:,1),OUTPUT(:,2))
+title("position")
 % figure
 % V= []; Y = [];
 % for v = 0:0.5:100
@@ -66,7 +87,7 @@ title("kappa")
 % end
 % plot(V,Y)
 
-function [search_latoff,search_theta,search_kappa,valid_len,Output] = LineGeneration(a0,a1,a2,a3, b0,b1,b2,b3,velocity,indicator,Flag,P_lateral_offset,long_S)
+function [search_pd,search_pdd,search_latoff,search_theta,search_kappa,valid_len,Output] = LineGeneration(a0,a1,a2,a3, b0,b1,b2,b3,velocity,indicator,Flag,P_lateral_offset,long_S)
    %% the main function, which is used to generate changing lane curve dynamically    
     output = zeros(400,8);
     
@@ -92,7 +113,7 @@ function [search_latoff,search_theta,search_kappa,valid_len,Output] = LineGenera
         trajs_new = trajs_new_origin;
         delta_heading_rad = calculat_delta_heading(reference_1, trajs_new);
         delta_heading_deg = rad_to_deg(delta_heading_rad);
-        kappa = calculate_kappa(trajs_new);
+        [kappa,pd,pdd] = calculate_kappa(trajs_new);
         adding = zeros(400,2)-1;
         output = [trajs_new,ref_bezier,delta_heading_rad,kappa,adding];
         [max_ref, valid_len] = calculate_max_ref(output);
@@ -106,6 +127,8 @@ function [search_latoff,search_theta,search_kappa,valid_len,Output] = LineGenera
         search_latoff = LinearInterpolation(ref_S,ref_latoff,long_S);
         search_theta = LinearInterpolation(ref_S,ref_theta,long_S);
         search_kappa = LinearInterpolation(ref_S,ref_kappa,long_S);
+        search_pd = LinearInterpolation(ref_S,pd,long_S);
+        search_pdd = LinearInterpolation(ref_S,pdd,long_S);
         Output = output;
 %         Output = transition_to_BUS(output);
     end
@@ -344,10 +367,10 @@ function [p] = Bezierfrenet_5(D0, Ti, Di,t)
 % when given control points information, it can generate y values based on
 % given x values.
     p0 = [ 0, D0];
-    p1 = [0.25 * Ti, D0];
-    p2= [0.5 *Ti, D0];
-    p3 =[ 0.5 * Ti, Di];
-    p4 =[ 0.75 * Ti, Di];
+    p1 = [0.15 * Ti, D0];
+    p2= [0.5 *Ti, 2/5 * Di + 3/5 * D0];
+    p3 =[ 0.5 * Ti, 2/5 * D0 + 3/5 * Di];
+    p4 =[ 0.85 * Ti, Di];
     p5 = [Ti, Di];
   %generate a fifth order bezier curve
 
@@ -458,7 +481,7 @@ function optPath = PathSmoothing(path, alpha, beta,P_MAX_ITER,P_TOL, P_MAX_KAPPA
 end
 
 
-function [kappa] = calculate_kappa(trajs_new)
+function [kappa,pd,pdd] = calculate_kappa(trajs_new)
 
 %% this function provide the method of generating a sequence of curvature(kappa) 
 % input: a sequence of discrete points with position x and y.
@@ -479,8 +502,8 @@ end
     
     for i = 1:length(trajs_new)-1
         
-        if (trajs_new(i+1,1)-trajs_new(i,1)) == 0
-            denominator_pd = 0.001;
+        if (trajs_new(i+1,1)-trajs_new(i,1)) <= 0.0001
+            denominator_pd = 0.0001;
         else
             denominator_pd = trajs_new(i+1,1)-trajs_new(i,1);
         end
@@ -492,13 +515,13 @@ end
     pdd(1) = 0;
     for i =2: length(trajs_new)-1
         
-        if (0.5*(-trajs_new(i-1,1)+trajs_new(i+1,1)))^2 == 0
-            denominator_pdd = 0.001;
+        if (0.5*(-trajs_new(i-1,1)+trajs_new(i+1,1)))^2 <= 0.0001
+            denominator_pdd = 0.0001;
         else
-            denominator_pdd = 0.5*(-trajs_new(i-1,1)+trajs_new(i+1,1))^2;
+            denominator_pdd = (0.5*(-trajs_new(i-1,1)+trajs_new(i+1,1)))^2;
         end
         
-        pdd(i) = (trajs_new(i+1,2)-2*trajs_new(i,2) +...
+        pdd(i) = (trajs_new(i+1,2)-2*trajs_new(i,2) + ...
             trajs_new(i-1,2))/denominator_pdd;
     end
     pdd(length(trajs_new)) = pdd(length(trajs_new)-1);

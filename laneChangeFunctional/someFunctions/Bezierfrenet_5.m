@@ -77,10 +77,10 @@ function [p] = Bezierfrenet_5_2(D0, Ti, Di,t)
 % when given control points information, it can generate y values based on
 % given x values.
     p0 = [ 0, D0];
-    p1 = [0.25 * Ti, 1/4 * Di + 3/4 * D0];
+    p1 = [0.25 * Ti, 1/5 * Di + 4/5 * D0];
     p2= [0.5 *Ti, 1/3 * Di + 2/3 * D0];
     p3 =[ 0.5 * Ti, 1/3 * D0 + 2/3 * Di];
-    p4 =[ 0.75 * Ti, 1/4 * D0 + 3/4 * Di];
+    p4 =[ 0.75 * Ti, 1/5 * D0 + 4/5 * Di];
     p5 = [Ti, Di];
   %generate a fifth order bezier curve
 
