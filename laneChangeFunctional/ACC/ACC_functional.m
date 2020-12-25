@@ -27,7 +27,7 @@ figure
 plot(t_data,v_of_t,'-b')
 title("v of t")
 
-function [s_of_t, v_of_t,t_data,a_des] = acc_planning(v_f,a_f,dist,v_ego,a_ego,KJ,KT,KDS,speed_limit,MAX_ACC, MIN_ACC)
+function [s_of_t, v_of_t,t_data,a_des,cost_optimal] = acc_planning(v_f,a_f,dist,v_ego,a_ego,KJ,KT,KDS,speed_limit,MAX_ACC, MIN_ACC)
 
     DT = 1 ; % Delta T [s]
     MAXT = 5;% [s]
@@ -35,21 +35,30 @@ function [s_of_t, v_of_t,t_data,a_des] = acc_planning(v_f,a_f,dist,v_ego,a_ego,K
     DS = 0.5;
     D0 = 5;
     TTC = 3;
+    s_of_t = 0;
+    v_of_t = 0;
+    t_data = 0; 
+    a_des = 0;
+    cost_optimal = zeros(1,12);
     
     if dist > 100
         a_des = 0;
-    else
+    elseif dist > 0 && dist < 100
         
-        cost_graph = cal_distance_control(MINT,DT,MAXT,v_f,a_f,dist,D0,TTC,DS,v_ego,a_ego,KJ,KT,KDS);
+        cost_graph = cal_distance_control(MINT,DT,MAXT,v_f,a_f,dist,D0,TTC,DS,v_ego,a_ego,KJ,KT,KDS)
         cost_optimal = check_status(cost_graph,speed_limit, MAX_ACC, MIN_ACC);
         [s_of_t, v_of_t,t_data] = combination(cost_optimal);
-        a_des = PID_control(v_of_t,v_ego);
+        a_des = PID_control_a(v_of_t,v_ego);
     end
 end
 
 
-function a_des = PID_control(v_of_t,v_ego)
+function a_des = PID_control_a(v_of_t,v_ego)
     a_des = 0.2 * (v_of_t(2) - v_ego);
+end
+
+function v_des = PID_control_v(v_of_t,v_ego)
+    v_des = 1 * (v_of_t(2) - v_ego);
 end
 
 
@@ -88,8 +97,8 @@ end
 
 function [cost_graph] = cal_distance_control(MINT,DT,MAXT,v_f,a_f,dist,D0,TTC,DS,v_ego,a_ego,KJ,KT,KDS)
     
-    cost_graph = []; 
-    
+    cost_graph = ones(400,12)* 500; 
+    index = 1;
     for Ti = MINT : DT : MAXT
         v_f_t = cal_v_f_t(v_f, a_f, Ti);
         dist_t = cal_dist_t(dist,v_f,a_f,Ti);
@@ -114,8 +123,10 @@ function [cost_graph] = cal_distance_control(MINT,DT,MAXT,v_f,a_f,dist,D0,TTC,DS
             cost_T = Ti;
             cost_DS = abs(s_target - Si);
             cost_total = KJ * cost_J + KT * cost_T + KDS * cost_DS;
-            cost_graph = [cost_graph;[cost_total,Ti,Si,cost_J,cost_T,cost_DS,...
-                a0, a1, a2, a3, a4, a5]];
+            cost_graph(index,:) = [cost_total,Ti,Si,cost_J,cost_T,cost_DS,...
+                a0, a1, a2, a3, a4, a5];
+            
+            index = index + 1;
         end
     end
     cost_graph = sortrows(cost_graph);
@@ -125,16 +136,17 @@ end
 function [cost_optimal] = check_status(cost_graph,speed_limit, MAX_ACC, MIN_ACC)
     i = 1;
     COND = 1;
+    cost_optimal = zeros(1,12);
     if isempty(cost_graph)
-        cost_graph_optimal=  [];
+        cost_optimal=  zeros(1,12);
         fprintf("error in cost graph.");
         return;
     end
     
-    cost_graph_optimal = cost_graph(i,:);
+    
     
     while COND == 1
-        poly_para = zeros(1,6); 
+         
         vt = [];
         at = [];
         
@@ -147,7 +159,7 @@ function [cost_optimal] = check_status(cost_graph,speed_limit, MAX_ACC, MIN_ACC)
         
         
         
-        for t = 0:0.1:Te
+        for t = 0:0.5:Te
             vt = [vt, calc_first_derivative(a1,a2,a3,a4,a5,t)];
             at = [at, calc_second_derivative(a2,a3,a4,a5,t)];
         end

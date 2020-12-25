@@ -1,0 +1,8 @@
+#include "__cf_test_on_module_eng_w_lokuptable_dynamic_bezier.h"
+#ifndef RTW_HEADER_test_on_module_eng_w_lokuptable_dynamic_bezier_capi_h
+#define RTW_HEADER_test_on_module_eng_w_lokuptable_dynamic_bezier_capi_h
+#include "test_on_module_eng_w_lokuptable_dynamic_bezier.h"
+extern void
+test_on_module_eng_w_lokuptable_dynamic_bezier_InitializeDataMapInfo ( void )
+;
+#endif

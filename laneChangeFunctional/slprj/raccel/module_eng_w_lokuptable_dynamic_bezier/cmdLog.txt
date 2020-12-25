@@ -1,0 +1,8 @@
+The argument '-tgtconn_server_info_file' passed to rtiostream_tcpip is not valid and will be ignored.
+The argument 'C:\Users\lenovo\AppData\Local\Temp\tgtconnp88da17ed_3411_4b92_bb86_22c7456aa16c.info' passed to rtiostream_tcpip is not valid and will be ignored.
+The argument '-tgtconn_port' passed to rtiostream_tcpip is not valid and will be ignored.
+The argument '0' passed to rtiostream_tcpip is not valid and will be ignored.
+*** Using a default buffer of size 1024 for logging variable tout
+少御: Model stop time is set to infinity. Simulation may run forever.
+少御: SAXParseException fatal error at line 0 of : unable to open primary document entity 'D:\Matlab2019bSW\toolbox\shared\sl_async_streaming\BlockRegistration.xml'
+少御: The XML file 'D:\Matlab2019bSW\toolbox\shared\sl_async_streaming\BlockRegistration.xml' will be ignored due to previous errors.

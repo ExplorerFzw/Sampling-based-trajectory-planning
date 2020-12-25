@@ -30,39 +30,45 @@ close all
 % a0 = -3; a1 = -0.1; a2 = -0.001; a3 = -0.0001;
 % b0 = 3; b1 = -0.1; b2 = -0.001; b3 = -0.00008;
 
-a0 = -3; a1 = 0; a2 = 0; a3 = 0;
+c0 = 1; c1 = 0; c2 = 0; c3 = 0;
 b0 = 3; b1 = 0; b2 = 0; b3 = 0;
 
 
-velocity = 80;
+velocity = 40;
 indicator = 1;
 Flag = 1;
 P_lateral_offset = 3.5;
 long_S = 13;
 output = [];
-
-for long_S = 0:86
-    [search_pd,search_pdd,search_latoff,search_theta,search_kappa,valid_len,OUTPUT] = LineGeneration(a0,a1,a2,a3, b0,b1,b2,b3,velocity,indicator,Flag,P_lateral_offset,long_S);
-    output=  [output; [search_latoff,search_theta,search_kappa]];
+TIME = 6;
+kappa_lot = [];
+for long_S = 0:80
+   [search_latoff,search_theta,search_kappa,trajs_new] = LineGeneration(c0,c1,c2,c3,velocity,...
+    indicator,Flag,P_lateral_offset,long_S,TIME);
+   kappa_lot = [kappa_lot,search_kappa];
 end
 
 
 reference_1 = output;
 
 
-
+figure
+plot(trajs_new(:,1), trajs_new(:,2),'-ob')
 
 figure
-plot(1:length(reference_1),reference_1(:,1),'-b')
-title("lataral offset")
-
-figure
-plot(1:length(reference_1),reference_1(:,2),'-b')
-title("theta")
-
-figure
-plot(1:length(reference_1),reference_1(:,3),'-b')
-title("kappa")
+plot(1:length(kappa_lot), kappa_lot,'-ob')
+% 
+% figure
+% plot(1:length(reference_1),reference_1(:,1),'-b')
+% title("lataral offset")
+% 
+% figure
+% plot(1:length(reference_1),reference_1(:,2),'-b')
+% title("theta")
+% 
+% figure
+% plot(1:length(reference_1),reference_1(:,3),'-b')
+% title("kappa")
 %%
 trajs_new = OUTPUT(:,1:2);
 
@@ -87,52 +93,67 @@ title("position")
 % end
 % plot(V,Y)
 
-function [search_pd,search_pdd,search_latoff,search_theta,search_kappa,valid_len,Output] = LineGeneration(a0,a1,a2,a3, b0,b1,b2,b3,velocity,indicator,Flag,P_lateral_offset,long_S)
+function [search_latoff,search_theta,search_kappa,trajs_new] = LineGeneration(c0,c1,c2,c3,velocity,...
+    indicator,Flag,P_lateral_offset,long_S,TIME)
    %% the main function, which is used to generate changing lane curve dynamically    
-    output = zeros(400,8);
     
-    if Flag ~= 1
+    search_latoff = 0;
+    search_theta = 0;
+    search_kappa = 0;
+    velocity_ms = velocity /3.6 ;
+    
+   
+    % main function: where we do loop calculation 
+        LEN = calculateLEN(velocity,TIME);
+%         reference_1 = reference_line_generator(,a1,a2,a3, b0,b1,b2,b3,LEN);
         
+%         S = 0;
+        D0 = c0;
+        Te = TIME;
+        Di = D0 + abs(P_lateral_offset) * indicator;% indicator signal should be positive when turning left, and vice versa.
+        heading = atan(c1);
         
-        for i  = 1: 400      
-            output(i,:) = i  ;
-        end
+        xs = D0;
+        vxs = velocity_ms * sin(heading);
+        vxs = min(max(vxs, -0.8),0.8);
+        axs = 0;
+        %Ti is sampling on T
+        xe = Di; % sampling on lateral offset
+        vxe = 0;
+        axe = 0;
         
-        Output = transition_to_BUS(output);
-    else
-       
-        LEN = calculateLEN(velocity);
-        reference_1 = reference_line_generator(a0,a1,a2,a3, b0,b1,b2,b3,LEN);
-        S = 0;
-        D0 = 0.5 * (a0 + b0);
-        Ti = LEN;
-        Di = abs(P_lateral_offset) * indicator;% indicator signal should be positive when turning left, and vice versa.
-        [ref_bezier] = ref_bezier_generation(reference_1, D0,Ti,Di);
-        trajs_new_origin = reference_generation(reference_1, ref_bezier);
-%         trajs_new = PathSmoothing(trajs_new_origin, P_alpha, P_beta,P_MAX_ITER,P_TOL, P_MAX_KAPPA);
+%         [a0, a1, a2, a3, a4,a5] = quintic_polynomial(xs, ...
+%                 vxs, axs, xe, vxe, axe,Te);
+%         [ref_poly] = combination(a0, a1, a2, a3, a4, a5, Te, velocity_ms);
+
+        [reference] = reference_generator_oneshot(c0,c1,c2,c3,LEN);
+        ref_len_valid = find_valid_ref_max_len(reference);
+        [ref_bezier] = ref_bezier_generation(reference, D0,LEN,Di);
+        trajs_new_origin = reference_generation(reference, ref_bezier,ref_len_valid);
+        
+%         
+%         trajs_new_origin = reference_generation(reference_1, ref_bezier);
+%     %         trajs_new = PathSmoothing(trajs_new_origin, P_alpha, P_beta,P_MAX_ITER,P_TOL, P_MAX_KAPPA);
         trajs_new = trajs_new_origin;
-        delta_heading_rad = calculat_delta_heading(reference_1, trajs_new);
+        
+        delta_heading_rad = calculat_delta_heading(reference, trajs_new,ref_len_valid);
         delta_heading_deg = rad_to_deg(delta_heading_rad);
-        [kappa,pd,pdd] = calculate_kappa(trajs_new);
+        [kappa] = calculate_kappa(trajs_new,ref_len_valid);
         adding = zeros(400,2)-1;
         output = [trajs_new,ref_bezier,delta_heading_rad,kappa,adding];
         [max_ref, valid_len] = calculate_max_ref(output);
-        output = Reshape(output,max_ref);
-
-        ref_S = output(:,3);
-        ref_latoff = output(:,4);
-        ref_theta = output(:,5);
-        ref_kappa = output(:,6);
+        output = Reshape(output,max_ref,c2);
         
-        search_latoff = LinearInterpolation(ref_S,ref_latoff,long_S);
-        search_theta = LinearInterpolation(ref_S,ref_theta,long_S);
-        search_kappa = LinearInterpolation(ref_S,ref_kappa,long_S);
-        search_pd = LinearInterpolation(ref_S,pd,long_S);
-        search_pdd = LinearInterpolation(ref_S,pdd,long_S);
-        Output = output;
-%         Output = transition_to_BUS(output);
+        [search_latoff,search_theta,search_kappa] = post_processing(output,long_S);
+        
+        
+  
     end
-
+   
+    
+        
+       
+       
 %             the output contains infomation as follow: 
 %             1,2 cols: under vehicle coordinate, the x,y positions of planned
 %             trajectories;
@@ -146,10 +167,86 @@ function [search_pd,search_pdd,search_latoff,search_theta,search_kappa,valid_len
 %             turning right is negative;
 %             7 cols: velocity profile along the planned trajectory.
 %             8 cols: acceleration profile along the planned trajectory.    
+
+        
+%         Output = output;
+%         Output = transition_to_BUS(output);
+
+
+function [reference] = reference_generator_oneshot(c0,c1,c2,c3,LEN)
+    reference = zeros(400,2);
+    index = 1;
+    
+    for t = 0:0.5:LEN
+        yt = c0 + c1 * t + c2 * t^2 + c3 * t^3;
+        
+        reference(index,1:2) = [t, yt];
+        index = index + 1;
+    end
+    
+end
+
+function [ref_poly] = combination(a0, a1, a2, a3, a4, a5, Te, velocity)
+    
+    ref_poly = zeros(400,2);
+    index = 1;
+    
+    for t = 0:0.025:Te
+        yt = calc_point(a0,a1,a2,a3,a4,a5,t);
+        xt = velocity * t;
+        ref_poly(index,1:2) = [xt, yt];
+        index = index + 1;
+    end
+end
+
+function [xt] = calc_point(a0,a1,a2,a3,a4,a5,t)
+xt = a0 + a1 * t + a2 * t ^2 + a3 * t^3 + a4 * t^4+a5 * t^5;
+end
+
+
+function [xt] =calc_first_derivative(a1,a2,a3,a4,a5,t)
+    xt = a1 + 2 * a2 * t + 3 * a3 * t^2 + 4 * a4 * t^3  +  5 * a5 * t^4;
+end
+
+
+function [a0, a1, a2, a3, a4,a5] = quintic_polynomial(xs, ...
+    vxs, axs, xe, vxe, axe,T)
+    % A = [0,0,0,0,0,1; T^5,T^4,T^3,T^2,T,1;...
+    %     0,0,0,0,1,0 ; 5*T^4  4*T^3 3*T^2 2*T 1 0 ; ...
+    %     0 0 0 2 0 0; 20*T^3 12*T^2 6*T 2 0 0];
+    % b = [xs, xe, vxs, vxe, axs, 0]';
+    % x = A\b;
+    % a5 = x(1);
+    % a4 = x(2);
+    % a3 = x(3);
+    % a2 = x(4);
+    % a1 = x(5);
+    % a0 = x(6);
+    A = [T^3 T^4 T^5; 3*T^2 4*T^3 5*T^4; 6*T 12*T^2 20*T^3];
+    b = [(xe - xs  - vxs*T - 0.5*axs*T^2); (vxe- vxs - axs*T ); (axe - axs)];
+    x = pinv(A) * b;
+    a0 = xs;
+    a1 = vxs;
+    a2 = axs/2;
+
+    a3 = x(1);
+    a4 = x(2);
+    a5 = x(3);
+end
+
+function [search_latoff,search_theta,search_kappa] = post_processing(output,long_S)
+    ref_S = output(:,3);
+    ref_latoff = output(:,4);
+    ref_theta = output(:,5);
+    ref_kappa = output(:,6);
+
+    search_latoff = LinearInterpolation(ref_S,ref_latoff,long_S);
+    search_theta = LinearInterpolation(ref_S,ref_theta,long_S);
+    search_kappa = LinearInterpolation(ref_S,ref_kappa,long_S);
 end
 
 function [y] = LinearInterpolation(X,Y,x)
-y = [];    
+y = 0;    
     if isempty(X)
             y = 0;
     end
@@ -157,12 +254,12 @@ y = [];
     low = 1;
     high = length(X);
     
-    if x == X(low) 
+    if x <= X(low) 
         y = Y(low);
         return;
     end
     
-    if x == X(high)
+    if x >= X(high)
         y = Y(high);
         return;
     end
@@ -191,13 +288,20 @@ y = [];
     
 end
 
-function output = Reshape(output,max_ref)
+function output = Reshape(output,max_ref,c2)
 if max_ref < length(output)        
     for i = 1: 8
-        output(max_ref+1:end, i) = output(max_ref, i);
+        output(max_ref+1:end, i) = output(max_ref, i); 
     end
+    output(max_ref+1:end, 6) = c2 * 2;
 end
 
+end
+
+function [len_valid] = find_valid_ref_max_len(reference)
+    pos = find(reference(:,1)==0 & reference(:,2) == 0);
+    len_valid = pos(2) - 3;
+    
 end
 
 function [max_ref, valid_len] = calculate_max_ref(output)
@@ -208,19 +312,19 @@ function [max_ref, valid_len] = calculate_max_ref(output)
         valid_len = reference_1(end,3);
     else
         max_ref = pos(2)-2;
-        valid_len = reference_1(pos(2)-2,3);
+        valid_len = reference_1(max_ref,3);
     end
     
 end
 
 
-function LEN = calculateLEN(velocity)
+function LEN = calculateLEN(velocity,TIME)
     v = velocity;
-    
-    LEN =  0.0080 * v^2 + 0.0562 * v + 20.943; % at the unit of kph
+    LEN = v / 3.6 * TIME;
+%     LEN =  0.0080 * v^2 + 0.0562 * v + 20.943; % at the unit of kph
     
     LEN = round(LEN);
-    LEN = min(LEN,80);
+%     LEN = max(66,min(LEN,160));
     
     if LEN == 0
         fprintf('LEN calculation error. \r')
@@ -246,8 +350,8 @@ S = 0.0;
     end
 end
 
-function [delta_heading] = calculat_delta_heading(center_line, traj_new)
-    LEN = min(length(center_line), length(traj_new));
+function [delta_heading] = calculat_delta_heading(center_line, traj_new,ref_len_valid)
+    LEN = ref_len_valid;
     delta_heading = zeros(400,1);
     for i = 1: LEN-1
         x1 = center_line(i+1,1) - center_line(i,1);
@@ -261,11 +365,14 @@ function [delta_heading] = calculat_delta_heading(center_line, traj_new)
         if square_term_1 == 0 && square_term_2 == 0
             delta_theta = 0;
         else
-        
-            delta_theta =  (x1 * x2 + y1 * y2) / (sqrt(square_term_1) * sqrt(square_term_2));
+            
+            delta_theta = (x1 * x2 + y1 * y2) / abs(square_term_1 * square_term_2 + 0.00001);
+            
         end
-        delta_heading(i) =   acos(delta_theta);
+        symbo = sign(traj_new(i+1,2) - center_line(i+1,2));
+        delta_heading(i) =   symbo * acos(delta_theta);
     end
+        delta_heading(LEN) = delta_heading(LEN - 1);    
 end
 
 function [reference] = reference_line_generator(a0,a1,a2,a3, b0,b1,b2,b3, LEN)
@@ -279,11 +386,11 @@ if LEN == 0
     return;
 end
 i = 0.0;
-NUM = LEN /0.2;
+NUM = LEN / 0.5;
 NUM  = round(NUM);
 
 for i = 0:1:NUM
-    iter = i/5;
+    iter = i/2;
     y = 0.5 * ( (a0 + a1 * iter + a2 * iter^2 + a3 * iter^3) + (b0 + b1 * iter + b2 * iter^2 + b3 * iter^3));
     reference(i+1,:) = [iter,y];
 %     reference =  [reference; [iter,y]];
@@ -366,12 +473,34 @@ function [p] = Bezierfrenet_5(D0, Ti, Di,t)
 %% this function provides the bezier curve information. 
 % when given control points information, it can generate y values based on
 % given x values.
+% 2/3 method %%%%%%%%%%%%%%%%%%%%
+    
+%     p0 = [ 0, D0];
+%     p1 = [0.25 * Ti, D0];
+%     p2= [0.5 *Ti, 1/3 * Di + 2/3 * D0];
+%     p3 =[ 0.5 * Ti, 1/3 * D0 + 2/3 * Di];
+%     p4 =[ 0.75 * Ti, Di];
+%     p5 = [Ti, Di];
+
+% 2/5 method %%%%%%%%%%%%%%%%%%%%
+
     p0 = [ 0, D0];
     p1 = [0.15 * Ti, D0];
     p2= [0.5 *Ti, 2/5 * Di + 3/5 * D0];
     p3 =[ 0.5 * Ti, 2/5 * D0 + 3/5 * Di];
     p4 =[ 0.85 * Ti, Di];
     p5 = [Ti, Di];
+    
+%2/3 + 1/5 method%%%%%%%%%%%%%%%%%
+
+%     p0 = [ 0, D0];
+%     p1 = [0.25 * Ti, 1/5 * Di + 4/5 * D0];
+%     p2= [0.5 *Ti, 1/3 * Di + 2/3 * D0];
+%     p3 =[ 0.5 * Ti, 1/3 * D0 + 2/3 * Di];
+%     p4 =[ 0.75 * Ti, 1/5 * D0 + 4/5 * Di];
+%     p5 = [Ti, Di];
+%     
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   %generate a fifth order bezier curve
 
     p= (1-(t)/Ti)^5*p0 + 5*(1-(t)/Ti)^4*((t)/Ti)*p1 + 10*(1-(t)/Ti)^3*((t)/Ti)^2*p2 +...
@@ -379,7 +508,7 @@ function [p] = Bezierfrenet_5(D0, Ti, Di,t)
 
 end
  
-function [trajs_new] = reference_generation(trajs_local, p_store)
+function [trajs_new] = reference_generation(trajs_local, p_store,ref_len_valid)
 %% this function provides method of generating changing lane discrete positions.    
 % inputs: here the trajs_local is a vector<vector<double>>,with its dimension
 %n by 2, the p_store store the information Bezier curve generaion
@@ -402,15 +531,17 @@ if isempty(p_store) || (length(p_store) == 0)
 end
 
     trajs_new = zeros(400,2);
-    for i = 1: min(length(p_store), length(trajs_local))
+    for i = 1: ref_len_valid 
 %         if (i + current_index) > length(waypoint)
 %             break;
 %         end
         d = p_store(i,2);
-        if trajs_local(i,1) == 0
+        if trajs_local(i,1) <= 0.0001
             theta = 0;
         elseif (i == 1)
             theta = atan(trajs_local(i,2) / trajs_local(i,1));
+        elseif (trajs_local(i,1) - trajs_local(i-1,1)) <= 0.0001
+            theta = 0;
         else
             theta = atan((trajs_local(i,2) - trajs_local(i-1,2)) / (trajs_local(i,1) - trajs_local(i-1,1)));
         end
@@ -481,7 +612,7 @@ function optPath = PathSmoothing(path, alpha, beta,P_MAX_ITER,P_TOL, P_MAX_KAPPA
 end
 
 
-function [kappa,pd,pdd] = calculate_kappa(trajs_new)
+function [kappa] = calculate_kappa(trajs_new,ref_len_valid)
 
 %% this function provide the method of generating a sequence of curvature(kappa) 
 % input: a sequence of discrete points with position x and y.
@@ -500,7 +631,7 @@ end
     
     % calculate the first derivatives
     
-    for i = 1:length(trajs_new)-1
+    for i = 1:(ref_len_valid - 1)
         
         if (trajs_new(i+1,1)-trajs_new(i,1)) <= 0.0001
             denominator_pd = 0.0001;
@@ -511,22 +642,35 @@ end
         pd(i) = (trajs_new(i+1,2)-trajs_new(i,2))/denominator_pd;   
     end
     pd(length(trajs_new)) = pd(length(trajs_new)-1);
-    % calculate the second derivatives
-    pdd(1) = 0;
-    for i =2: length(trajs_new)-1
-        
-        if (0.5*(-trajs_new(i-1,1)+trajs_new(i+1,1)))^2 <= 0.0001
-            denominator_pdd = 0.0001;
+    % calculate the second derivatives, central difference
+%     pdd(1) = 0;
+%     for i =2: length(trajs_new)-1
+%         
+%         if (0.5*(-trajs_new(i-1,1)+trajs_new(i+1,1)))^2 <= 0.0001
+%             denominator_pdd = 0.0001;
+%         else
+%             denominator_pdd = (0.5*(-trajs_new(i-1,1)+trajs_new(i+1,1)))^2;
+%         end
+%         
+%         pdd(i) = (trajs_new(i+1,2)-2*trajs_new(i,2) +...
+%             trajs_new(i-1,2))/denominator_pdd;
+%     end
+% calculate the second derivatives, forward difference
+    for i =1: ref_len_valid-2
+        if (0.5*(trajs_new(i+1,1) - trajs_new(i,1)))^2 <= 0.001
+            denominator_pdd = 0.001;
         else
-            denominator_pdd = (0.5*(-trajs_new(i-1,1)+trajs_new(i+1,1)))^2;
+            denominator_pdd = (0.5*(trajs_new(i+1,1) - trajs_new(i,1)))^2;
         end
         
-        pdd(i) = (trajs_new(i+1,2)-2*trajs_new(i,2) + ...
-            trajs_new(i-1,2))/denominator_pdd;
+        pdd(i) = (trajs_new(i+2,2)-2*trajs_new(i+1,2) +...
+            trajs_new(i,2))/denominator_pdd;
     end
-    pdd(length(trajs_new)) = pdd(length(trajs_new)-1);
     
-    for i  = 1:length(trajs_new)
+    pdd(length(trajs_new)-1) = pdd(length(trajs_new)-2);
+    pdd(length(trajs_new)) = pdd(length(trajs_new)-2);
+    
+    for i  = 1:ref_len_valid
         kappa(i) = (pdd(i))/((1+pd(i)^2)^(1.5));
     end
 end

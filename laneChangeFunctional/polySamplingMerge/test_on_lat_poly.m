@@ -2,11 +2,11 @@ clc
 clear all
 close all
 %% some single test with specified boundary conditions
-xs = 3.5; % initial lateral offset w.r.t reference line
-vxs = 0; % intial lateral velocity
+xs = 0.5; % initial lateral offset w.r.t reference line
+vxs = -0.6; % intial lateral velocity
 axs = 0; % initial lateral acceleration
 
-T = 10; % sampling time T
+T = 1; % sampling time T
 xe = 0; % sampling lateral offset at end point
 
 vxe = 0; % we default that we should have zero lateral v at the end
@@ -166,7 +166,7 @@ function [a0, a1, a2, a3, a4,a5] = quintic_polynomial(xs, ...
 % using 
 A = [T^3 T^4 T^5; 3*T^2 4*T^3 5*T^4; 6*T 12*T^2 20*T^3];
 b = [(xe - xs  - vxs*T - 0.5*axs*T^2); (vxe- vxs - axs*T ); (axe - axs)];
-x = A\b;
+x = pinv(A) * b;
 a0 = xs;
 a1 = vxs;
 a2 = axs/2;

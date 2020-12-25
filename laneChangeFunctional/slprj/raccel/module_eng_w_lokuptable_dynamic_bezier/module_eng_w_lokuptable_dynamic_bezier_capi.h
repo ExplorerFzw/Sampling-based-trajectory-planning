@@ -1,0 +1,7 @@
+#include "__cf_module_eng_w_lokuptable_dynamic_bezier.h"
+#ifndef RTW_HEADER_module_eng_w_lokuptable_dynamic_bezier_capi_h
+#define RTW_HEADER_module_eng_w_lokuptable_dynamic_bezier_capi_h
+#include "module_eng_w_lokuptable_dynamic_bezier.h"
+extern void module_eng_w_lokuptable_dynamic_bezier_InitializeDataMapInfo (
+void ) ;
+#endif
