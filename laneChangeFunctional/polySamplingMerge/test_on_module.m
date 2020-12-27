@@ -9,8 +9,8 @@ global A0 A1 A2 A3 B0 B1 B2 B3
 global LEN caseNum
 global speed_limit curvature_limit MAX_ACC MIN_ACC
 
-MAX_ROAD_WIDTH = 3 ; %  [m]
-D_ROAD_W = 0.5 ; %  [m]
+MAX_ROAD_WIDTH = 3 ; % [m]
+D_ROAD_W = 0.5 ; % [m]
 D_ROAD_LON = 0.5;
 DT = 1 ; % Delta T [s]
 MAXT = 6;% [s]

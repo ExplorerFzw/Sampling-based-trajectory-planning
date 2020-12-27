@@ -30,14 +30,14 @@ close all
 % a0 = -3; a1 = -0.1; a2 = -0.001; a3 = -0.0001;
 % b0 = 3; b1 = -0.1; b2 = -0.001; b3 = -0.00008;
 
-c0 = 1; c1 = 0; c2 = 0; c3 = 0;
+c0 = -1.5; c1 = 0; c2 = 0; c3 = 0;
 b0 = 3; b1 = 0; b2 = 0; b3 = 0;
 
 
-velocity = 40;
+velocity = 45;
 indicator = 1;
 Flag = 1;
-P_lateral_offset = 3.5;
+P_lateral_offset = 1.5;
 long_S = 13;
 output = [];
 TIME = 6;
@@ -177,7 +177,7 @@ function [reference] = reference_generator_oneshot(c0,c1,c2,c3,LEN)
     reference = zeros(400,2);
     index = 1;
     
-    for t = 0:0.5:LEN
+    for t = 0:0.50:LEN
         yt = c0 + c1 * t + c2 * t^2 + c3 * t^3;
         
         reference(index,1:2) = [t, yt];
@@ -300,7 +300,14 @@ end
 
 function [len_valid] = find_valid_ref_max_len(reference)
     pos = find(reference(:,1)==0 & reference(:,2) == 0);
-    len_valid = pos(2) - 3;
+    
+    if length(pos) == 1
+        len_valid = length(reference);
+        
+    else
+        
+        len_valid = pos(2) - 3;
+    end
     
 end
 
@@ -311,7 +318,7 @@ function [max_ref, valid_len] = calculate_max_ref(output)
         max_ref = length(output);
         valid_len = reference_1(end,3);
     else
-        max_ref = pos(2)-2;
+        max_ref = pos(2)-3;
         valid_len = reference_1(max_ref,3);
     end
     
@@ -319,8 +326,8 @@ end
 
 
 function LEN = calculateLEN(velocity,TIME)
-    v = velocity;
-    LEN = v / 3.6 * TIME;
+    v = velocity; 
+    LEN = v / 3.6 * TIME + 0.1 ;
 %     LEN =  0.0080 * v^2 + 0.0562 * v + 20.943; % at the unit of kph
     
     LEN = round(LEN);
@@ -369,7 +376,7 @@ function [delta_heading] = calculat_delta_heading(center_line, traj_new,ref_len_
             delta_theta = (x1 * x2 + y1 * y2) / abs(square_term_1 * square_term_2 + 0.00001);
             
         end
-        symbo = sign(traj_new(i+1,2) - center_line(i+1,2));
+        symbo = sign(x1 * x2 + y1 * y2);
         delta_heading(i) =   symbo * acos(delta_theta);
     end
         delta_heading(LEN) = delta_heading(LEN - 1);    
@@ -536,11 +543,11 @@ end
 %             break;
 %         end
         d = p_store(i,2);
-        if trajs_local(i,1) <= 0.0001
+        if abs(trajs_local(i,1)) <= 0.0001
             theta = 0;
         elseif (i == 1)
             theta = atan(trajs_local(i,2) / trajs_local(i,1));
-        elseif (trajs_local(i,1) - trajs_local(i-1,1)) <= 0.0001
+        elseif abs(trajs_local(i,1) - trajs_local(i-1,1)) <= 0.0001
             theta = 0;
         else
             theta = atan((trajs_local(i,2) - trajs_local(i-1,2)) / (trajs_local(i,1) - trajs_local(i-1,1)));
@@ -633,7 +640,7 @@ end
     
     for i = 1:(ref_len_valid - 1)
         
-        if (trajs_new(i+1,1)-trajs_new(i,1)) <= 0.0001
+        if abs(trajs_new(i+1,1)-trajs_new(i,1)) <= 0.0001
             denominator_pd = 0.0001;
         else
             denominator_pd = trajs_new(i+1,1)-trajs_new(i,1);
@@ -667,9 +674,17 @@ end
             trajs_new(i,2))/denominator_pdd;
     end
     
+
+    
     pdd(length(trajs_new)-1) = pdd(length(trajs_new)-2);
     pdd(length(trajs_new)) = pdd(length(trajs_new)-2);
     
+%     figure
+%         plot(1:length(pd),pd,'-ob');
+%      
+%     figure
+%         plot(1:length(pdd),pdd,'-ob');
+%     
     for i  = 1:ref_len_valid
         kappa(i) = (pdd(i))/((1+pd(i)^2)^(1.5));
     end
