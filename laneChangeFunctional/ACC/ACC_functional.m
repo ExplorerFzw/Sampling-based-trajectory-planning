@@ -37,22 +37,22 @@ function [s_of_t, v_of_t,t_data,a_des,cost_optimal] = acc_planning(v_f,a_f,dist,
     DT = 1 ; % Delta T [s]
     MAXT = 5;% [s]
     MINT = 2; % [s]
-    MINT_V = 2;
+    MINT_V = 8;
     MAXT_V = 10;
-    
+    cost_optimal = zeros(1,12);
     
     DS = 0.5;
-    DV = 0.5;
+    DV = 1;
     
     D0 = 5;
     TTC = 3;
-    s_of_t = 0;
-    v_of_t = 0;
-    t_data = 0; 
+    s_of_t = zeros(200,1);
+    v_of_t = zeros(200,1);
+    t_data = zeros(200,1); 
     a_des = 0;
-    cost_optimal = zeros(1,12);
     
-    if dist > 100
+    
+    if dist >= 100
         [cost_graph] = cal_velocity_control(MINT_V,DT,MAXT_V, SET_SPEED,DV,v_ego, a_ego,KJV, KTV, KDSV);
         [cost_optimal] = check_quantic_status(cost_graph,speed_limit, MAX_ACC, MIN_ACC);
         [s_of_t, v_of_t,t_data] = combination_quantic(cost_optimal);
@@ -149,31 +149,31 @@ function [cost_graph] = cal_distance_control(MINT,DT,MAXT,v_f,a_f,dist,D0,TTC,DS
 end
 
 function [cost_graph] = cal_velocity_control(MINT_V,DT,MAXT_V, SET_SPEED,DV,v_ego, a_ego,KJV, KTV, KDSV)
-    
-index = 1;
-delta_v = 0.1 * SET_SPEED;
+    cost_graph = ones(400,11)* 500;    
+    index = 1;
+    delta_v = 0.1 * SET_SPEED;
 
-for Ti = MINT_V : DT : MAXT_V
-    for Ve = SET_SPEED - delta_v : DV : SET_SPEED + delta_v 
-        s0 = 0;
-        v0 = v_ego;
-        a0 = a_ego;
-        ve = Ve;
-        ae = 0;
-        [a0, a1, a2, a3, a4] = quantic_polynomial(s0, ...
-            v0, a0, ve, ae,Ti)
-        [jerk] = cal_quantic_jerk(a3,a4,Ti);
-        cost_J = mean(abs(jerk));
-        cost_T = Ti;
-        cost_DV = sqrt((SET_SPEED - Ve)^2);
-        cost_total = KJV * cost_J + KTV * cost_T + KDSV * cost_DV;
-        cost_graph(index,:) = [cost_total,Ti,Ve,cost_J,cost_T,cost_DV,...
-            a0, a1, a2, a3, a4];
-            
-        index = index + 1;
+    for Ti = MINT_V : DT : MAXT_V
+        for Ve = SET_SPEED - 3 : DV : SET_SPEED + 3
+            s0 = 0;
+            v0 = v_ego;
+            a0 = a_ego;
+            ve = Ve;
+            ae = 0;
+            [a0, a1, a2, a3, a4] = quantic_polynomial(s0, ...
+                v0, a0, ve, ae,Ti);
+            [jerk] = cal_quantic_jerk(a3,a4,Ti);
+            cost_J = mean(abs(jerk));
+            cost_T = Ti;
+            cost_DV = sqrt((SET_SPEED - Ve)^2);
+            cost_total = KJV * cost_J + KTV * cost_T + KDSV * cost_DV;
+            cost_graph(index,:) = [cost_total,Ti,Ve,cost_J,cost_T,cost_DV,...
+                a0, a1, a2, a3, a4];
+
+            index = index + 1;
+        end
     end
-end
-    cost_graph = sortrows(cost_graph);
+        cost_graph = sortrows(cost_graph);
 end
 
 
@@ -234,17 +234,15 @@ function [cost_optimal] = check_quantic_status(cost_graph,speed_limit, MAX_ACC, 
     
   
     while COND == 1
-         
-        vt = [];
-        at = [];
-        
+
         
         poly_para = cost_graph(i,7:11);
         a0 = poly_para(1); a1 = poly_para(2); a2 = poly_para(3); 
         a3 = poly_para(4); a4 = poly_para(5); 
         
         Te = cost_graph(i,2);
-        
+        vt = [];
+        at = [];        
         
         
         for t = 0:0.5:Te
@@ -253,7 +251,7 @@ function [cost_optimal] = check_quantic_status(cost_graph,speed_limit, MAX_ACC, 
         end
         
         if (max(abs(vt)) <= speed_limit && max(at) <= MAX_ACC && min(at) >= MIN_ACC)
-            cost_optimal = cost_graph(i,:);
+            cost_optimal(1:11) = cost_graph(i,:);
             COND = 2;
         end
         
@@ -261,7 +259,7 @@ function [cost_optimal] = check_quantic_status(cost_graph,speed_limit, MAX_ACC, 
         
         if i > size(cost_graph,1)
             COND = 2;
-            cost_optimal  = cost_graph(1,:);
+            cost_optimal(1:11)  = cost_graph(1,:);
         end
     end
 end
@@ -269,32 +267,38 @@ end
 
 function [s_of_t, v_of_t,t_data] = combination(cost_optimal)
     if isempty(cost_optimal)
-        s_of_t = zeros(1,400);
-        v_of_t = zeros(1,400);
-        t_data = zeros(1,400);
+       s_of_t = zeros(200,1);
+        v_of_t = zeros(200,1);
+        t_data = zeros(200,1);
         fprintf("error in optimal cost graph.");
         return;
     end
 
+    index = 1;
     Te = cost_optimal(2);
     poly_para = cost_optimal(7:12);
     a0 = poly_para(1); a1 = poly_para(2); a2 = poly_para(3); 
     a3 = poly_para(4); a4 = poly_para(5); a5 = poly_para(6);
-    s_of_t = zeros(1,400);
-    v_of_t = zeros(1,400);
-    t_data = zeros(1,400);
-    for t = 0 : 0.1 : Te
-        s_of_t = [s_of_t,calc_point(a0,a1,a2,a3,a4,a5,t)];
-        v_of_t = [v_of_t,calc_first_derivative(a1,a2,a3,a4,a5,t)];
-        t_data = [t_data,t];
+    s_of_t = zeros(200,1);
+    v_of_t = zeros(200,1);
+    t_data = zeros(200,1);
+    
+    index = 1;
+    seg = Te / 0.1 - 1;
+    
+    for i = 0 : seg
+        t = i * 0.1;
+        s_of_t(index) = calc_point(a0,a1,a2,a3,a4,a5,t);
+        v_of_t(index) = calc_first_derivative(a1,a2,a3,a4,a5,t);
+        t_data(index) = t;
     end
 end
 
 function [s_of_t, v_of_t,t_data] = combination_quantic(cost_optimal)
     if isempty(cost_optimal)
-        s_of_t = zeros(1,400);
-        v_of_t = zeros(1,400);
-        t_data = zeros(1,400);
+        s_of_t = zeros(200,1);
+        v_of_t = zeros(200,1);
+        t_data = zeros(200,1);
         fprintf("error in optimal cost graph.");
         return;
     end
@@ -303,13 +307,19 @@ function [s_of_t, v_of_t,t_data] = combination_quantic(cost_optimal)
     poly_para = cost_optimal(7:11);
     a0 = poly_para(1); a1 = poly_para(2); a2 = poly_para(3); 
     a3 = poly_para(4); a4 = poly_para(5); 
-    s_of_t = zeros(1,400);
-    v_of_t = zeros(1,400);
-    t_data = zeros(1,400);
-    for t = 0 : 0.1 : Te
-        s_of_t = [s_of_t,cal_quantic_point(a0,a1,a2,a3,a4,t)];
-        v_of_t = [v_of_t,calc_quantic_first_derivative(a1,a2,a3,a4,t)];
-        t_data = [t_data,t];
+    s_of_t = zeros(200,1);
+    v_of_t = zeros(200,1);
+    t_data = zeros(200,1);
+    
+    index = 1;
+    seg = Te / 0.1 - 1;
+    
+    for i = 0 : seg
+        t = i * 0.1;
+        s_of_t(index) = cal_quantic_point(a0,a1,a2,a3,a4,t);
+        v_of_t(index) = calc_quantic_first_derivative(a1,a2,a3,a4,t);
+        t_data(index) = t;
+        index = index + 1;
     end
 end
 
@@ -344,16 +354,26 @@ xt =6 * a3 + 24 * a4 * t + a5 * t^2;
 end
 
 function [jerk] = cal_jerk(a3,a4,a5,Ti)
-    jerk = [];
-    for i = 0:0.1:Ti
-        jerk = [jerk,  6* a3  + 24 * a4 * i + 60* a5 *i^2];
+    seg = Ti / 0.1;
+    index = 1;
+    jerk = zeros(1,seg);
+    
+    for k = 1:seg
+        i  = k * 0.1;
+        jerk(index) =  6* a3  + 24 * a4 * i + 60* a5 *i^2;
+        index = index + 1;
     end
 end
 
 function [jerk] = cal_quantic_jerk(a3,a4,Ti)
-    jerk = [];
-    for i = 0:0.1:Ti
-        jerk = [jerk,  6* a3 + 24 * a4 * i];
+    seg = Ti / 0.1 + 1;
+    index = 1;
+    jerk = zeros(1,seg);
+    
+    for k = 1:seg
+        i  = k * 0.1;
+        jerk(index) =  6* a3 + 24 * a4 * i;
+        index = index + 1;
     end
 end
 
@@ -428,4 +448,3 @@ function [a0, a1, a2, a3, a4] = quantic_polynomial(xs, ...
     a3 = x(4);
     a4 = x(5);
 end
-
