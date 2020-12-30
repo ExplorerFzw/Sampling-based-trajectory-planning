@@ -6,8 +6,8 @@ close all
 a0 = -3; a1 = -0.1; a2 = -0.001; a3 = -0.0001;
 b0 = 3; b1 = -0.1; b2 = -0.001; b3 = -0.00008;
 
-a0 = 3; a1 = 0.1; a2 = 0.001; a3 = 0.0001;
-b0 = -3; b1 = 0.1; b2 = 0.001; b3 = 0.00008;
+a0 = 1.5; a1 = 0; a2 = 0; a3 = 0;
+b0 = -1.5; b1 =0 ; b2 = 0; b3 = 0;
 
 
 velocity = 50;
@@ -39,7 +39,10 @@ Di = abs(P_lateral_offset) * indicator;% indicator signal should be positive whe
 [ref_bezier] = ref_bezier_generation(reference_1, D0,Ti,Di);
 trajs_new_origin = reference_generation(reference_1, ref_bezier);
 % trajs_new = trajs_new_origin;
+kappa_origin = calculate_kappa(trajs_new_origin);
+
 trajs_new = PathSmoothing(trajs_new_origin, P_alpha, P_beta,P_MAX_ITER,P_TOL, P_MAX_KAPPA);
+
 delta_heading_rad = calculat_delta_heading(reference_1, trajs_new);
 delta_heading_deg = rad_to_deg(delta_heading_rad);
 kappa = calculate_kappa(trajs_new);
@@ -62,18 +65,20 @@ for i = 0:LEN
     line_b = [line_b; [i,y]];
 end
 
-
-plot(line_a(:,1), line_a(:,2));
-hold on
-plot(line_b(:,1), line_b(:,2));
-hold on
-plot(reference_1(:,1),reference_1(:,2),'--b')
+figure
+% plot(line_a(:,1), line_a(:,2));
+% hold on
+% plot(line_b(:,1), line_b(:,2));
+% hold on
+plot(trajs_new_origin(:,1),trajs_new_origin(:,2),'--b')
 hold on
 plot(trajs_new(:,1),trajs_new(:,2),'--r');
 legend('ref on left','ref on right','ref in Cartisian','smoothed changing lane');
 
 figure 
 plot(1:length(trajs_new),kappa)
+hold on 
+plot(1:length(trajs_new),kappa_origin)
 %%
 function LEN = calculateLEN(velocity)
     LEN = velocity;
