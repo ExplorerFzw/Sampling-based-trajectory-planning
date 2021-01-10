@@ -21,6 +21,11 @@ function [v_des,dist] = intesec_cross(ACC_MODE, traf_sign, velocity, dist, time,
     % output: desired velocity for ACC module, in unit of kph;
     %         dist is distance(m) to front cross;
     
+    if time == 2
+        a_des = 0;
+         v_des = 0;
+    end
+        
     green = 0;
     red = 1;
     yellow = 2;
@@ -53,7 +58,7 @@ function [v_des,dist] = intesec_cross(ACC_MODE, traf_sign, velocity, dist, time,
             end
                           
         case red
-            T = time + 2;
+            T = time + 1;
             a = 2 * (dist - v * T) / T^2;
             v_temp = v + a * T;
             if (a < 0)
