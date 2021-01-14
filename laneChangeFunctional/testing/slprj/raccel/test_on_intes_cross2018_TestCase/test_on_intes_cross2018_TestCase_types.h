@@ -1,0 +1,4 @@
+#include "__cf_test_on_intes_cross2018_TestCase.h"
+#ifndef RTW_HEADER_test_on_intes_cross2018_TestCase_types_h_
+#define RTW_HEADER_test_on_intes_cross2018_TestCase_types_h_
+#endif

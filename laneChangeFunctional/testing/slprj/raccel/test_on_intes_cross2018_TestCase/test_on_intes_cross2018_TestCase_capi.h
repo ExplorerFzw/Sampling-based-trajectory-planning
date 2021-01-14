@@ -1,0 +1,6 @@
+#include "__cf_test_on_intes_cross2018_TestCase.h"
+#ifndef RTW_HEADER_test_on_intes_cross2018_TestCase_capi_h
+#define RTW_HEADER_test_on_intes_cross2018_TestCase_capi_h
+#include "test_on_intes_cross2018_TestCase.h"
+extern void test_on_intes_cross2018_TestCase_InitializeDataMapInfo ( void ) ;
+#endif

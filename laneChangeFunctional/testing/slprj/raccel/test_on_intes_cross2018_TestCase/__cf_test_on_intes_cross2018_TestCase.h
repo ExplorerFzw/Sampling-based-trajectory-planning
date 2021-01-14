@@ -1,0 +1,3 @@
+#ifndef CF_test_on_intes_cross2018_TestCase_H__
+#define CF_test_on_intes_cross2018_TestCase_H__
+#endif
