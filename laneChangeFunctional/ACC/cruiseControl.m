@@ -1,21 +1,68 @@
 clc
 clear all 
+close all
+
 
 MINT_V = 5;
 DT = 1;
 MAXT_V = 8;
 SET_SPEED = 80 / 3.6; 
-DV = 0.5;
+DV = 0.1;
 v_ego = 20 / 3.6;
 a_ego = 1;
 KJV = 1;
 KTV = 1;
 KDSV = 10;
+speed_limit = 120 / 3.6;
+MAX_ACC = 3;
+MIN_ACC = -2;
+
+IND = 1;
+T = 0;
+figure
+while T < 500
+    
+    if mod(IND,10) == 0
+        SET_SPEED = SET_SPEED + round(10 * (rand(1) - 0.5));
+        SET_SPEED =max(5,min(50,SET_SPEED));
+    end
+T
+    
+    [cost_graph] = cal_velocity_control(MINT_V,DT,MAXT_V, SET_SPEED,DV,v_ego, a_ego,KJV, KTV, KDSV); 
+    [cost_optimal] = check_quantic_status(cost_graph,speed_limit, MAX_ACC, MIN_ACC); 
+    [s_of_t, v_of_t,a_of_t,t_data] = combination_quantic(cost_optimal); 
+
+    a = min(max(a_of_t(2),-2),3);
+    x = s_of_t(1);
+    [v_new, x_new] = update_state(v_ego, x, a);
+
+    v_ego = v_new;
+    a_ego = a;
+    
+    T = T + 0.1;
+    IND = IND + 1;
+    
+    subplot(3,1,1)
+    plot(t_data,s_of_t,'o')
+    axis([0 10 0 150])
+    title("s of t")
+    subplot(3,1,2)
+    plot(t_data,v_of_t,'o',t_data,SET_SPEED * ones(length(t_data),1))
+%     hold on
+%     plot(t_data,SET_SPEED * ones(length(t_data),1))
+    axis([0 10 0 50])
+    title("v of t")
+    subplot(3,1,3)
+    plot(t_data,a_of_t,'o')
+    axis([0 10 -4 4])
+    title("a of t")
+
+    drawnow
+%     pause(0.1)
+   
+end
 
 
-[cost_graph] = cal_velocity_control(MINT_V,DT,MAXT_V, SET_SPEED,DV,v_ego, a_ego,KJV, KTV, KDSV);
-[cost_optimal] = check_quantic_status(cost_graph,speed_limit, MAX_ACC, MIN_ACC);
-[s_of_t, v_of_t,t_data] = combination_quantic(cost_optimal);
 
 
 
@@ -70,9 +117,19 @@ function [cost_optimal] = check_quantic_status(cost_graph,speed_limit, MAX_ACC, 
         at = [];        
         
         
-        for t = 0:0.5:Te
-            vt = [vt, calc_quantic_first_derivative(a1,a2,a3,a4,t)];
-            at = [at, calc_quantic_second_derivative(a2,a3,a4,t)];
+%         for t = 0:0.2:Te
+%             vt = [vt, calc_quantic_first_derivative(a1,a2,a3,a4,t)];
+%             at = [at, calc_quantic_second_derivative(a2,a3,a4,t)];
+%         end
+%         
+        LEN_T = Te * 5 + 1
+        vt = zeros(LEN_T,1);
+        at = zeros(LEN_T,1);
+        
+        for j = 1: LEN_T
+            t = (j-1) * 0.2;
+            vt(j) = calc_quantic_first_derivative(a1,a2,a3,a4,t);
+            at(j) = calc_quantic_second_derivative(a2,a3,a4,t);
         end
         
         if (max(abs(vt)) <= speed_limit && max(at) <= MAX_ACC && min(at) >= MIN_ACC)
@@ -84,7 +141,9 @@ function [cost_optimal] = check_quantic_status(cost_graph,speed_limit, MAX_ACC, 
         
         if i > size(cost_graph,1)
             COND = 2;
-            cost_optimal(1:11)  = cost_graph(1,:);
+            POS = find(cost_graph(:,2));
+            POS_first = POS(1); % find the first combination with longest T; 
+            cost_optimal(1:11)  = cost_graph(POS_first,:);
         end
     end
 end
@@ -131,10 +190,11 @@ function [jerk] = cal_quantic_jerk(a3,a4,Ti)
     end
 end
 
-function [s_of_t, v_of_t,t_data] = combination_quantic(cost_optimal)
+function [s_of_t, v_of_t,a_of_t,t_data] = combination_quantic(cost_optimal)
     if isempty(cost_optimal)
         s_of_t = zeros(200,1);
         v_of_t = zeros(200,1);
+        a_of_t = zeros(200,1);
         t_data = zeros(200,1);
         fprintf("error in optimal cost graph.");
         return;
@@ -146,6 +206,7 @@ function [s_of_t, v_of_t,t_data] = combination_quantic(cost_optimal)
     a3 = poly_para(4); a4 = poly_para(5); 
     s_of_t = zeros(200,1);
     v_of_t = zeros(200,1);
+    a_of_t = zeros(200,1);
     t_data = zeros(200,1);
     
     index = 1;
@@ -155,6 +216,7 @@ function [s_of_t, v_of_t,t_data] = combination_quantic(cost_optimal)
         t = i * 0.1;
         s_of_t(index) = cal_quantic_point(a0,a1,a2,a3,a4,t);
         v_of_t(index) = calc_quantic_first_derivative(a1,a2,a3,a4,t);
+        a_of_t(index) = calc_quantic_second_derivative(a2,a3,a4,t);
         t_data(index) = t;
         index = index + 1;
     end
@@ -166,4 +228,19 @@ end
 
 function [xt] =calc_quantic_first_derivative(a1,a2,a3,a4,t)
 xt = a1 + 2 * a2 * t + 3 * a3 * t^2 + 4 * a4 * t^3;
+end
+
+function [xt]  = calc_quantic_second_derivative(a2,a3,a4,t)
+xt = 2* a2 + 6* a3 * t + 12 * a4 * t^2;
+end
+
+function [v_new, x_new] = update_state(v, x, a)
+    
+    delta_t = 0.1;
+    A = [1,0; delta_t, 1];
+    B = [delta_t; 0.5 * delta_t^2];
+    state_new = A * [v;x] + B * a;
+    v_new = state_new(1);
+    x_new = state_new(2);
+
 end
