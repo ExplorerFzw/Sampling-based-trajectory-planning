@@ -23,7 +23,7 @@ function theta_rad = deg2rad(theta_deg)
     theta_rad = theta_deg / 180 * pi;
 end
 
-function a = cal_tripoly(s0, se,theta0,thetae,s)
+function a = cal_tripoly(s0, theta0,se,thetae,s)
     A = [1,0,0,0;1,s,s^2,s^3;0,1,0,0;0,1,2*s,3*s^2];
     B = [s0;se;theta0;thetae];
     a = A\B;
