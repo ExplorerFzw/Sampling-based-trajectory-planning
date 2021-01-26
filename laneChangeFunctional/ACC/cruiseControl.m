@@ -6,9 +6,9 @@ close all
 MINT_V = 5;
 DT = 1;
 MAXT_V = 8;
-SET_SPEED = 80 / 3.6; 
+SET_SPEED = 40 / 3.6; 
 DV = 0.1;
-v_ego = 20 / 3.6;
+v_ego = 30 / 3.6;
 a_ego = 1;
 KJV = 1;
 KTV = 1;
@@ -22,17 +22,18 @@ T = 0;
 figure
 while T < 500
     
-    if mod(IND,10) == 0
+    if mod(IND,30) == 0
         SET_SPEED = SET_SPEED + round(10 * (rand(1) - 0.5));
         SET_SPEED =max(5,min(50,SET_SPEED));
     end
-T
+    
+    T
     
     [cost_graph] = cal_velocity_control(MINT_V,DT,MAXT_V, SET_SPEED,DV,v_ego, a_ego,KJV, KTV, KDSV); 
     [cost_optimal] = check_quantic_status(cost_graph,speed_limit, MAX_ACC, MIN_ACC); 
     [s_of_t, v_of_t,a_of_t,t_data] = combination_quantic(cost_optimal); 
 
-    a = min(max(a_of_t(2),-2),3);
+    a = min(max(a_of_t(10),-2),3);
     x = s_of_t(1);
     [v_new, x_new] = update_state(v_ego, x, a);
 
@@ -185,7 +186,7 @@ function [jerk] = cal_quantic_jerk(a3,a4,Ti)
     
     for k = 1:seg
         i  = k * 0.1;
-        jerk(index) =  6* a3 + 24 * a4 * i;
+                                                                                                                                                                                                                                                        jerk(index) =  6* a3 + 24 * a4 * i;
         index = index + 1;
     end
 end
