@@ -41,7 +41,7 @@ x = 0;
 a = a_ego;
 v_pre = v_ego;
 a_pre = a_ego;
-COND = 1;
+COND = 2;
 
 % figure
 while T < 25
@@ -79,15 +79,15 @@ while T < 25
 
     T = T + 0.1
     subplot(3,1,1)
-    plot(T,a_ego,'-ro');
+    plot(T,a_ego,'-g>');
     drawnow
     hold on 
     subplot(3,1,2)
-    plot(T,v_ego,'-ro');
+    plot(T,v_ego,'-g>');
     drawnow
     hold on 
     subplot(3,1,3)
-    plot(T,dist,'-ro');
+    plot(T,dist,'-g>');
     
     drawnow
     hold on 

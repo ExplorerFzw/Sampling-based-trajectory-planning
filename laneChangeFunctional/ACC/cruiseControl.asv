@@ -57,7 +57,7 @@ while T < 50
     v_pre = v_new;
     a_pre = a_new;
     a = a_new;
-    v_ego = v_new;
+
     
     T = T + 0.1;
     IND = IND + 1;
@@ -161,7 +161,7 @@ function [cost_optimal] = check_quantic_status(cost_graph,speed_limit, MAX_ACC, 
         
         if i > size(cost_graph,1)
             COND = 2;
-            POS = find(cost_graph(:,2) == MAXT_V);
+            POS = find(cost_graph(:,2));
             POS_first = POS(1); % find the first combination with longest T; 
             cost_optimal(1:11)  = cost_graph(POS_first,:);
         end
@@ -269,7 +269,7 @@ function [v_new, x_new, a_new] = update_state3(v,x,a,a_des)
 
 delta_t = 0.1;
 KL = 1;
-TL = 0.5;
+TL = 0.2;
 
 A = [1,0,0;delta_t,1,0; 0,0 delta_t/TL];
 B = [delta_t; 0.5 * delta_t^2; 1-delta_t/TL];
