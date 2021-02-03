@@ -67,8 +67,8 @@ end
 
 
 x=graph(:,1);y=graph(:,2);z=graph(:,3); z2 = graph(:,4);
-xtemp=linspace(min(x),max(x),10);
-ytemp=linspace(min(y),max(y),10);
+xtemp=linspace(min(x),max(x),20);
+ytemp=linspace(min(y),max(y),20);
 [X,Y]=meshgrid(xtemp,ytemp);
 Z=griddata(x,y,z,X,Y,'v4');
 surf(Y,X,Z,'FaceAlpha',0.5)
@@ -77,8 +77,8 @@ colorbar
 
 figure
 x=graph(:,1);y=graph(:,2);z=graph(:,3); z2 = graph(:,4);
-xtemp=linspace(min(x),max(x),10);
-ytemp=linspace(min(y),max(y),10);
+xtemp=linspace(min(x),max(x),20);
+ytemp=linspace(min(y),max(y),20);
 [X,Y]=meshgrid(xtemp,ytemp);
 Z=griddata(x,y,z2,X,Y,'v4');
 surf(Y,X,Z,'FaceAlpha',0.5)

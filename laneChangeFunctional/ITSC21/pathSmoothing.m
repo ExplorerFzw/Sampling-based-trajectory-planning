@@ -25,7 +25,7 @@
 
 clc
 clear all 
-close all
+
 
 % a0 = -3; a1 = -0.1; a2 = -0.001; a3 = -0.0001;
 % b0 = 3; b1 = -0.1; b2 = -0.001; b3 = -0.00008;
@@ -33,11 +33,11 @@ close all
 c0 = 0; c1 = 0; c2 = 0; c3 = 0;
 b0 = 3; b1 = 0; b2 = 0; b3 = 0;
 
-P_alpha = 0.1;
+P_alpha = 0.2;
 P_beta = 0.1;
-P_MAX_ITER = 200;
-P_TOL = 0.4;
-P_MAX_KAPPA = 0.003;
+P_MAX_ITER = 400;
+P_TOL = 0.3;
+P_MAX_KAPPA = 0.002;
 velocity = 40;
 indicator = 1;
 Flag = 1;
@@ -47,22 +47,31 @@ output = [];
 TIME = 6;
 kappa_lot = [];
 
+
 for long_S = 80
+    
+    
+tic;
+
    [output,search_latoff,search_theta,search_kappa,trajs_new_origin,trajs_new,theta,ref_len_valid] = LineGeneration(c0,c1,c2,c3,velocity,...
     indicator,Flag,P_lateral_offset,long_S,TIME,P_alpha,P_beta,P_MAX_ITER,P_TOL,P_MAX_KAPPA);
    kappa_lot = [kappa_lot,search_kappa];
 end
 
 
+
 reference_1 = output;
 
 
 figure
-plot(trajs_new_origin(1:ref_len_valid,1), trajs_new_origin(1:ref_len_valid,2),'-r')
+plot(trajs_new_origin(1:ref_len_valid,1), trajs_new_origin(1:ref_len_valid,2),'->r')
 hold on 
-plot(trajs_new(1:ref_len_valid,1), trajs_new(1:ref_len_valid,2),'-b')
-title("trajectory smoothing");
-legend("original trajectory","smoothed trajectory");
+plot(trajs_new(1:ref_len_valid,1), trajs_new(1:ref_len_valid,2),'-ob')
+hold on
+plot(trajs_new_origin(1:ref_len_valid,1), trajs_new_origin(1:ref_len_valid,2)+P_TOL,'--r')
+plot(trajs_new_origin(1:ref_len_valid,1), trajs_new_origin(1:ref_len_valid,2)-P_TOL,'--r')
+
+legend("original trajectory","smoothed trajectory","buffer band");
 
 % figure
 % plot(1:length(kappa_lot), kappa_lot,'-ob')
@@ -90,7 +99,7 @@ function [output,search_latoff,search_theta,search_kappa,trajs_new_origin,trajs_
     search_latoff = 0;
     search_theta = 0;
     search_kappa = 0;
-    velocity_ms = velocity /3.6 ;
+    velocity_ms = velocity /3.6;
     
    
     % main function: where we do loop calculation 
@@ -132,6 +141,35 @@ function [output,search_latoff,search_theta,search_kappa,trajs_new_origin,trajs_
         delta_heading_rad = calculat_delta_heading(reference, trajs_new,ref_len_valid);
         delta_heading_deg = rad_to_deg(delta_heading_rad);
         [kappa] = calculate_kappa(trajs_new,ref_len_valid);
+        [kappa_d] = calculate_kappa_d(kappa,ref_len_valid);
+        
+        delta_heading_rad_origin = calculat_delta_heading(reference, trajs_new_origin,ref_len_valid);
+        delta_heading_deg_origin = rad_to_deg(delta_heading_rad_origin);
+        [kappa_origin] = calculate_kappa(trajs_new_origin,ref_len_valid);
+        [kappa_d_origin] = calculate_kappa_d(kappa_origin,ref_len_valid);
+        
+        toc;
+        
+        figure
+        subplot(5,1,1)
+        plot(1:ref_len_valid,delta_heading_deg_origin(1:ref_len_valid));
+        title("original heading angle");
+        subplot(5,1,2)
+        plot(1:ref_len_valid,delta_heading_deg(1:ref_len_valid));
+        title("smoothed heading angle");
+        subplot(5,1,3)
+        plot(1:ref_len_valid-1,kappa_origin(1:ref_len_valid-1));
+        title("original kappa");
+        subplot(5,1,4)
+        plot(1:ref_len_valid-1,kappa(1:ref_len_valid-1));
+        title("smoothed kappa");
+        subplot(5,1,5)
+        plot(1:ref_len_valid-1,kappa_d(1:ref_len_valid-1));
+        title("smoothed kappa derivative");
+        
+        
+        
+        
         adding = zeros(400,2)-1;
         output = [trajs_new,ref_poly,delta_heading_rad,kappa,adding];
         [max_ref, valid_len] = calculate_max_ref(output);
@@ -367,11 +405,11 @@ function [delta_heading] = calculat_delta_heading(center_line, traj_new,ref_len_
             delta_theta = 0;
         else
             
-            delta_theta = (x1 * x2 + y1 * y2) / abs(square_term_1 * square_term_2 + 0.00001);
+            delta_theta = (x1 * y2 - x2 * y1) / abs(square_term_1 * square_term_2 + 0.00001);
             
         end
-        symbo = sign(traj_new(i+1,2) - center_line(i+1,2));
-        delta_heading(i) =   symbo * acos(delta_theta);
+        
+        delta_heading(i) =   asin(delta_theta);
     end
         delta_heading(LEN) = delta_heading(LEN - 1);    
 end
@@ -567,29 +605,49 @@ function optPath = PathSmoothing(ref_len_valid,path, alpha, beta,P_MAX_ITER,P_TO
     optPath=path;%
     iter = 0;
     COND = 1;
+    term_2 = [];
+    term_1 = [];
+    
     while COND == 1 
 %         change=0;
-        for ip=3:(ref_len_valid-2)  
+        term_dx_2pre = [0,0];
+        term_dx_1pre = [0,0];
+        for ip=2:(ref_len_valid-1)  
           optPath(ip,:)=optPath(ip,:)-0 *(optPath(ip,:)-path(ip,:));
           
             term_dx_1 = 2*optPath(ip,:)-optPath(ip-1,:)-optPath(ip+1,:);
             
-            term_dx_2 = optPath(ip-2,:) - 4*optPath(ip-1,:) + 6 * optPath(ip,:)...
-                - 4 * optPath(ip+1,:) + optPath(ip+2,:);
+            if ip <=2 || ip >= ref_len_valid -1 
+                term_dx_2 = 0;
+            else
+                term_dx_2 = optPath(ip-2,:) - 4*optPath(ip-1,:) + 6 * optPath(ip,:)...
+                    - 4 * optPath(ip+1,:) + optPath(ip+2,:);
+            end
             
+            term_comp_2 = max(norm(abs(term_dx_2)),norm(term_dx_2pre));
+            term_dx_2pre = term_dx_2;
+            term_comp_1 = max(norm(abs(term_dx_1)),norm(term_dx_1pre));
+            term_dx_1pre = term_dx_1;
             
-            
-            optPath(ip,:) = optPath(ip,:) - alpha * term_dx_1;
-             optPath(ip,:) = optPath(ip,:) - beta * term_dx_2;
-%           change=change+norm(optPath(ip,:)-prePath);
+            alpha_mod = 0;%alpha;
+            beta_mod = beta;
+%             alpha_mod = mod_para(ip,ref_len_valid,alpha);
+%             beta_mod = mod_para(ip,ref_len_valid,beta);
+%             
+            optPath(ip,:) = optPath(ip,:) - alpha_mod * term_dx_1;
+             optPath(ip,:) = optPath(ip,:) - beta_mod * term_dx_2;
+         
         end
-        kappa = calculate_kappa(optPath(2:end,:),ref_len_valid-2);
+        term_2 = [term_2,term_comp_2];
+        term_1 = [term_1,term_comp_1];
         
+        kappa = calculate_kappa(optPath(2:end-1,:),ref_len_valid-1);
+        kappa = kappa(4:ref_len_valid-6)
 %         figure 
 %         plot(optPath(1:ref_len_valid,1),optPath(1:ref_len_valid,2));
 %         
         iter = iter + 1
-        
+  
         change = zeros(1,length(optPath));
         for i = 1:ref_len_valid
             change(i) = norm(optPath(i,:)-path(i,:));
@@ -605,7 +663,7 @@ function optPath = PathSmoothing(ref_len_valid,path, alpha, beta,P_MAX_ITER,P_TO
         end
         
         sum = 0;
-        for i = 1: ref_len_valid
+        for i = 1: length(kappa)
             if abs(kappa(i)) > P_MAX_KAPPA %0.002
                sum = sum + 1; 
             end
@@ -616,10 +674,32 @@ function optPath = PathSmoothing(ref_len_valid,path, alpha, beta,P_MAX_ITER,P_TO
         end
                    
     end
+    figure
+    plot(1:length(term_1),term_2,'-r');
+    title("Gradient in 400 iterations");
 end
 
-function para = mod_para(ref_len_valid,para)
+function [beta] = variable_para(ref_size,beta,idx)
+    sigma = 8;
+    i = 1: ref_size;
+    f = 1 / (sqrt(2*pi)* sigma) *exp(-(i -ref_size/2).^2 / (2* sigma^2));
+    maximum = max(f);
+    f = beta / maximum * f;
+    beta = f(idx);
+end
 
+
+function para = mod_para(index,ref_len_valid,para)
+    
+    mu = round(ref_len_valid/2);
+    sigma = 10;
+    i = 1: ref_len_valid;
+    y = 1 / sqrt(2*pi)/sigma * exp(-(i-mu).^2/(2*(sigma)^2));
+    maximum = max(y);
+    scale = para /maximum;
+    y =  y * scale;
+    para = y(index);
+    
 end
 
 function [kappa] = calculate_kappa(trajs_new,ref_len_valid)
@@ -640,7 +720,7 @@ end
     kappa = zeros(length(trajs_new),1);
     
     % calculate the first derivatives
-    
+%     ref_len_valid = ref_len_valid -1 ;
     for i = 1:(ref_len_valid - 1)
         
         if abs(trajs_new(i+1,1)-trajs_new(i,1)) <= 0.00001
@@ -651,7 +731,7 @@ end
         
         pd(i) = (trajs_new(i+1,2)-trajs_new(i,2))/denominator_pd;   
     end
-    pd(length(trajs_new)) = pd(length(trajs_new)-1);
+    pd(ref_len_valid) = pd(ref_len_valid-1);
     % calculate the second derivatives, central difference
 %     pdd(1) = 0;
 %     for i =2: length(trajs_new)-1
@@ -666,7 +746,7 @@ end
 %             trajs_new(i-1,2))/denominator_pdd;
 %     end
 % calculate the second derivatives, forward difference
-    for i =1: ref_len_valid-2
+    for i =2: ref_len_valid-2
         if (0.5*(trajs_new(i+1,1) - trajs_new(i,1)))^2 <= 0.001
             denominator_pdd = 0.001;
         else
@@ -677,15 +757,30 @@ end
             trajs_new(i,2))/denominator_pdd;
     end
     
-    pdd(length(trajs_new)-1) = pdd(length(trajs_new)-2);
-    pdd(length(trajs_new)) = pdd(length(trajs_new)-2);
+    pdd(ref_len_valid-1) = pdd(ref_len_valid-2);
+    pdd(ref_len_valid) = pdd(ref_len_valid-2);
     
-    for i  = 1:ref_len_valid
+    for i  = 2:ref_len_valid
         kappa(i) = (pdd(i))/((1+pd(i)^2)^(1.5));
     end
     kappa(1) = kappa(2);
     kappa(end) = kappa(end - 1);
 end
+
+function [kappa_d] = calculate_kappa_d(kappa,ref_len_valid)
+    for i = 1:(ref_len_valid - 1)
+        
+        if abs(kappa(i+1,1)-kappa(i,1)) <= 0.00001
+            denominator_pd = 0.00001;
+        else
+            denominator_pd = kappa(i+1,1)-kappa(i,1);
+        end
+        
+        kappa_d(i) = (kappa(i+1,1)-kappa(i,1))/0.1;   
+    end
+    kappa_d(ref_len_valid) = kappa_d(ref_len_valid-1);
+end
+
 
 function [location] = update_trajs(velocity,trajs_new,delta_t)
 %% this function dynamically update trajs_new for LKA system

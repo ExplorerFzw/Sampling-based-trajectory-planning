@@ -14,9 +14,9 @@ velocity = 50;
 indicator = -1;
 Flag = 1;
 P_alpha = 0.01;
-P_beta = 0.7;
+P_beta = 0.05;
 P_lateral_offset = 6;
-P_MAX_ITER = 10000;
+P_MAX_ITER = 500;
 P_TOL = 0.7;
 P_MAX_KAPPA = 0.002;
 
@@ -38,6 +38,8 @@ Ti = LEN;
 Di = abs(P_lateral_offset) * indicator;% indicator signal should be positive when turning left, and vice versa.
 [ref_bezier] = ref_bezier_generation(reference_1, D0,Ti,Di);
 trajs_new_origin = reference_generation(reference_1, ref_bezier);
+figure
+plot(trajs_new_origin(:,1),trajs_new_origin(:,2));
 % trajs_new = trajs_new_origin;
 kappa_origin = calculate_kappa(trajs_new_origin);
 
@@ -73,12 +75,12 @@ figure
 plot(trajs_new_origin(:,1),trajs_new_origin(:,2),'--b')
 hold on
 plot(trajs_new(:,1),trajs_new(:,2),'--r');
-legend('ref on left','ref on right','ref in Cartisian','smoothed changing lane');
+legend('ref','ref new','ref in Cartisian','smoothed changing lane');
 
-figure 
-plot(1:length(trajs_new),kappa)
-hold on 
-plot(1:length(trajs_new),kappa_origin)
+% figure 
+% plot(1:length(trajs_new),kappa)
+% hold on 
+% plot(1:length(trajs_new),kappa_origin)
 %%
 function LEN = calculateLEN(velocity)
     LEN = velocity;
@@ -281,17 +283,20 @@ function optPath = PathSmoothing(path, alpha, beta,P_MAX_ITER,P_TOL, P_MAX_KAPPA
     COND = 1;
     while COND == 1 
 %         change=0;
-        for ip=2:(length(path(:,1))-1) 
-          optPath(ip,:)=optPath(ip,:)-alpha*(optPath(ip,:)-path(ip,:));
-            term_dx_1 = 2*optPath(ip,:)-optPath(ip-1,:)-optPath(ip+1,:);
-%             term_dx_2 = optPath(ip-2,:) - 4*optPath(ip-1,:) + 6 * optPath(ip,:)...
-%                 -4 * optPath(ip+1,:) - optPath(ip+2,:);
-            optPath(ip,:) = optPath(ip,:)-beta * term_dx_1;
+        for ip=3:(length(path(:,1))-2) 
+          optPath(ip,:)=optPath(ip,:)-0 *(optPath(ip,:)-path(ip,:));
+%             term_dx_1 = 2*optPath(ip,:)-optPath(ip-1,:)-optPath(ip+1,:);
+            term_dx_2 = optPath(ip-2,:) - 4*optPath(ip-1,:) + 6 * optPath(ip,:)...
+                -4 * optPath(ip+1,:) - optPath(ip+2,:);
+            optPath(ip,:) = optPath(ip,:)+beta * term_dx_2;
 %           change=change+norm(optPath(ip,:)-prePath);
         end
         kappa = calculate_kappa(optPath);
         
-        iter = iter + 1
+        figure 
+        plot(optPath(:,1),optPath(:,2));
+        
+        iter = iter + 1;
         
         change = zeros(1,length(optPath));
         for i = 1:length(optPath)
@@ -359,7 +364,7 @@ end
         if (0.5*(-trajs_new(i-1,1)+trajs_new(i+1,1)))^2 == 0
             denominator_pdd = 0.001;
         else
-            denominator_pdd = 0.5*(-trajs_new(i-1,1)+trajs_new(i+1,1))^2;
+            denominator_pdd = (0.5*(-trajs_new(i-1,1)+trajs_new(i+1,1)))^2;
         end
         
         pdd(i) = (trajs_new(i+1,2)-2*trajs_new(i,2) +...
@@ -367,9 +372,11 @@ end
     end
     pdd(length(trajs_new)) = pdd(length(trajs_new)-1);
     
-    for i  = 1:length(trajs_new)
+    for i  = 2:length(trajs_new)-2
         kappa(i) = (pdd(i))/((1+pd(i)^2)^(1.5));
     end
+    kappa(1) = 0;
+    kappa(length(trajs_new)) = 0;
 end
 
 function [location] = update_trajs(velocity,trajs_new,delta_t)
