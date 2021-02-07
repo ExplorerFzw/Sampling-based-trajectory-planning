@@ -1,6 +1,6 @@
 clc
 clear all 
-close all
+% close all
 
 
 MINT_V = 5;
@@ -27,12 +27,12 @@ x = 0;
 v = v_ego;
 a = a_ego;
 
-figure
-while T < 50
+% figure
+while T < 40
     
     if mod(IND,30) == 0
         SET_SPEED = SET_SPEED ;%+ round(10 * (rand(1) - 0.5));
-        SET_SPEED =max(5,min(50,SET_SPEED));
+%         SET_SPEED =max(5,min(50,SET_SPEED));
     end
     
     T
@@ -54,8 +54,8 @@ while T < 50
 %     v_ego  = v_new;
     
     [v_new, x_new, a_new] = update_state3(v_ego,x,a,a_des);
-    v_pre = v_new;
-    a_pre = a_new;
+    v_pre = v_des;
+    a_pre = a_des;
     a = a_new;
     v_ego = v_new;
     
@@ -63,21 +63,32 @@ while T < 50
     IND = IND + 1;
     
     subplot(3,1,1)
-    plot(t_data,s_of_t,'o')
-    axis([0 10 0 150])
+%     plot(t_data,s_of_t,'o')
+    plot(T,x_new,'bo')
+
+%     axis([0 10 0 150])
     title("s of t")
+        drawnow limitrate
+    hold on
+    
     subplot(3,1,2)
-    plot(t_data,v_of_t,'o',t_data,SET_SPEED * ones(length(t_data),1))
-%     hold on
+%     plot(t_data,v_of_t,'o',t_data,SET_SPEED * ones(length(t_data),1))
+    plot(T,v_new,'m*',T,SET_SPEED,'bo')
+
 %     plot(t_data,SET_SPEED * ones(length(t_data),1))
-    axis([0 10 0 50])
+%     axis([0 10 0 50])
     title("v of t")
+        drawnow limitrate
+    hold on
+    
     subplot(3,1,3)
-    plot(t_data,a_of_t,'o')
-    axis([0 10 -4 4])
+%     plot(t_data,a_of_t,'o')
+    plot(T,a_new,'bo')
+%     axis([0 10 -4 4])
     title("a of t")
 
     drawnow limitrate
+    hold on
 %     pause(0.1)
    
 end

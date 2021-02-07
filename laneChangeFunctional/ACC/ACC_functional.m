@@ -35,7 +35,7 @@ aDesIndex = 2;
     dist);
 
 fprintf("acc plan finished")
-%%
+%% test on velocity control
 
 x = 0;
 a = a_ego;
@@ -43,9 +43,8 @@ v_pre = v_ego;
 a_pre = a_ego;
 COND = 1;
 
-% figure
 while T < 25
-    
+    tic
     D0 = 0; % ONLY for test convenience
     TTC = 0;
 
@@ -59,7 +58,7 @@ while T < 25
 %     
     a_des = min(max(a_of_t(2),-4),1.5);
     v_des = min(max(v_of_t(2),0),speed_limit);
-
+toc
     [v_new, x_new, a_new] = update_state3(v_ego,x,a_ego,a_des);
     
     if COND == 1
@@ -92,6 +91,56 @@ while T < 25
     drawnow
     hold on 
 end
+
+% figure
+% while T < 25
+%     tic
+%     D0 = 0; % ONLY for test convenience
+%     TTC = 0;
+% 
+%     [cost_graph] = cal_distance_control(MINT,DT,MAXT,v_f,a_f,dist,D0,TTC,DS,v_pre,a_pre,KJ,KT,KDS);
+%     cost_optimal = check_status(cost_graph,speed_limit, MAX_ACC, MIN_ACC,MAXT);
+%     [s_of_t, v_of_t,a_of_t, t_data] = combination_quintic(cost_optimal);
+%     
+% %     figure
+% %     plot(t_data,v_of_t,'o');
+% %     close all;
+% %     
+%     a_des = min(max(a_of_t(2),-4),1.5);
+%     v_des = min(max(v_of_t(2),0),speed_limit);
+% toc
+%     [v_new, x_new, a_new] = update_state3(v_ego,x,a_ego,a_des);
+%     
+%     if COND == 1
+%         v_pre = v_new;
+%         a_pre = a_new;
+%     else   
+%         v_pre = v_des;
+%         a_pre = a_des;
+%     end
+% 
+%     
+%     
+%     a_ego = a_new;
+%     v_ego = v_new;
+%     
+%     dist = dist + v_f * 0.1 - (v_ego * 0.1 + 1/2 * a_ego * 0.1^2);
+% 
+%     T = T + 0.1
+%     subplot(3,1,1)
+%     plot(T,a_ego,'-ro');
+%     drawnow
+%     hold on 
+%     subplot(3,1,2)
+%     plot(T,v_ego,'-ro');
+%     drawnow
+%     hold on 
+%     subplot(3,1,3)
+%     plot(T,dist,'-ro');
+%     
+%     drawnow
+%     hold on 
+% end
 %%
 function [v_new, x_new, a_new] = update_state3(v,x,a,a_des)
 
