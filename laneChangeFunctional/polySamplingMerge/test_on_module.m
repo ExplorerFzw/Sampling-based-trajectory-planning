@@ -26,7 +26,7 @@ KLAT = 1;
 KLON = 1;
 KK = 1;
 KKD = 1;
-KD_constrain = 0.1;
+KD_constrain = 1;
 KT_constrain = 1;
 
 merge_dir = 1;
@@ -317,9 +317,9 @@ function cost_graph_optimal = check_status(cost_graph)
     while COND == 1
         frenet_data = cost_graph(i,:);
         Te = frenet_data(2);        
-        for i = 5:10
-            a(i-4) = frenet_data(i);
-            b(i-4) = frenet_data(i+6);
+        for j = 5:10
+            a(j-4) = frenet_data(j);
+            b(j-4) = frenet_data(j+6);
         end
     
         xt = [];
@@ -352,7 +352,7 @@ function cost_graph_optimal = check_status(cost_graph)
             COND = 2;
         end
         
-        i = i+1;
+        i = i+1
         
         if  i > size(cost_graph,1)
             COND = 2;

@@ -17,6 +17,11 @@ LW = 3.5;
 % B1 = int(A1,[0,Te])
 % B2 = int(A2,[0,Te])
 
+syms t
+X3 = [120*t, 24, 0,0,0,0];
+A3 = X3' *X3;
+B3 = int(A3,[0,t])
+
 B1 = [Te, Te^2/2, Te^3/3, Te^4/4,   Te^5/5,   Te^6/6;...
     Te^2/2, Te^3/3, Te^4/4, Te^5/5,   Te^6/6,   Te^7/7;...
     Te^3/3, Te^4/4, Te^5/5, Te^6/6,   Te^7/7,   Te^8/8;...
@@ -41,8 +46,8 @@ A = [-1 -Te -Te^2 -Te^3 -Te^4 -Te^5;1 Te Te^2 Te^3 Te^4 Te^5];
 b = [-(d0 + 2.5) ; d0+LW];
 lb = [];
 ub = [];
-x0 = [];
-
+x0 = [1.0000 0.2000 0 0.1520 -0.0472 0.0038];
+x0 = x0 + 0.1*(rand(5,1)-0.5)
 % tic
 % options = optimoptions('quadprog','Display','iter',...
 %     'Algorithm','interior-point-convex','OptimalityTolerance',1e-4);
@@ -51,9 +56,10 @@ x0 = [];
 
 
 options = optimoptions('quadprog',...
-    'Algorithm','interior-point-convex','OptimalityTolerance',1e-4);
+    'Algorithm','interior-point-convex','linearsolver','dense','OptimalityTolerance',1e-4);
 tic
 [x,fval,exitflag,output,lambda] =  quadprog(H,f,A,b,Aeq,beq,lb,ub,x0,options)
+% [x,fval,exitflag,output,lambda] =  quadprog(H,f,A,b,Aeq,beq)
 toc
 
 
