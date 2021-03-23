@@ -1,0 +1,3 @@
+ssh ykezvd@10.80.86.228
+exit
+scp -r E:\jiangyunchengGit\laneChangeFunctional\ITSC21 ykezvd@10.80.86.228:~
