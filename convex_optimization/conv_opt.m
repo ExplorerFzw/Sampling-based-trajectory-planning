@@ -179,6 +179,20 @@ Aeq = ones(1,3);
 beq = 1/2;
 x0 = [];
 [x,fval,exitflag,output,lambda] = quadprog(H,f,[],[],Aeq,beq,lb,ub,x0,options)
+
+
+%% stack investigation problem
+H = zeros(3,3);
+H(1,1) = 0.5;
+H(2,2)  =1.2;
+f = zeros(3,1);
+
+Aeq = [1 1 1];
+beq = 100;
+A = [0, -0.05, 0.05];
+b = 0;
+[x,fval,exitflag,output,lambda] = ...
+   quadprog(H,f,A,b,Aeq,beq)
 %% the use of   mpcqpsolver to solve quadratic programming problems
 H = [1 -1; -1 2];
 f = [-2; -6];
