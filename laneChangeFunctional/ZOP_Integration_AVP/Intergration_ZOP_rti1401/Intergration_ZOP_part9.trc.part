@@ -1,0 +1,208 @@
+		endgroup -- referenced model group "LM_TOS"
+	endgroup -- referenced-block-group "RoadModel"
+	group "VLC" -- referenced block group
+		p_4_Intergration_ZOP_VLC_LGTCMD_ST_0[0]
+		{
+		 type:    struct Intergration_ZOP_VLC_LGTCMD_ST*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+		trcref0_P_A
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "P_A"
+		 alias:    "P_A"
+		}
+		trcref1_P_Cd
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "P_Cd"
+		 alias:    "P_Cd"
+		}
+		trcref2_P_Cf
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "P_Cf"
+		 alias:    "P_Cf"
+		}
+		trcref3_P_DC2ECMargin
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "P_DC2ECMargin"
+		 alias:    "P_DC2ECMargin"
+		}
+		trcref4_P_Dev4IEnd
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "P_Dev4IEnd"
+		 alias:    "P_Dev4IEnd"
+		}
+		trcref5_P_DriveOffAdd
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "P_DriveOffAdd"
+		 alias:    "P_DriveOffAdd"
+		}
+		trcref6_P_Ki
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "P_Ki"
+		 alias:    "P_Ki"
+		}
+		trcref7_P_Kp
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "P_Kp"
+		 alias:    "P_Kp"
+		}
+		trcref8_P_SlopeMax
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "P_SlopeMax"
+		 alias:    "P_SlopeMax"
+		}
+		trcref9_P_SlopeMin
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "P_SlopeMin"
+		 alias:    "P_SlopeMin"
+		}
+		trcref10_P_StandStillFactEC
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "P_StandStillFactEC"
+		 alias:    "P_StandStillFactEC"
+		}
+		trcref11_P_StsdCase
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "P_StsdCase"
+		 alias:    "P_StsdCase"
+		}
+		trcref12_P_StsddAxRamp
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "P_StsddAxRamp"
+		 alias:    "P_StsddAxRamp"
+		}
+		trcref13_P_aDiffaF
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "P_aDiffaF"
+		 alias:    "P_aDiffaF"
+		}
+		trcref14_P_dAxMax
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "P_dAxMax"
+		 alias:    "P_dAxMax"
+		}
+		trcref15_P_dAxMin
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "P_dAxMin"
+		 alias:    "P_dAxMin"
+		}
+		trcref16_P_dIRamp
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "P_dIRamp"
+		 alias:    "P_dIRamp"
+		}
+		trcref17_P_dSlopeLim
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "P_dSlopeLim"
+		 alias:    "P_dSlopeLim"
+		}
+		trcref18_P_tARefFilter
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "P_tARefFilter"
+		 alias:    "P_tARefFilter"
+		}
+		trcref19_P_tDriveOffThr
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "P_tDriveOffThr"
+		 alias:    "P_tDriveOffThr"
+		}
+		trcref20_P_tFxMergeFilter
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "P_tFxMergeFilter"
+		 alias:    "P_tFxMergeFilter"
+		}
+		trcref21_P_tSlopeFilter1
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "P_tSlopeFilter1"
+		 alias:    "P_tSlopeFilter1"
+		}
+		trcref22_P_tSlopeFilter2
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "P_tSlopeFilter2"
+		 alias:    "P_tSlopeFilter2"
+		}
+		trcref23_P_vDriveOffThr
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "P_vDriveOffThr"
+		 alias:    "P_vDriveOffThr"
+		}
+		trcref24_P_vLowSpd
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "P_vLowSpd"
+		 alias:    "P_vLowSpd"
+		}
+		trcref25_TransRatio
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "TransRatio"
+		 alias:    "TransRatio"
+		}
+		trcref26_m_Vehicle
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "m_Vehicle"
+		 alias:    "m_Vehicle"
+		}
+		trcref27_r_Wheel
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "r_Wheel"
+		 alias:    "r_Wheel"
+		}
+		-- Skipping parameter "P_A"
+		-- Skipping parameter "P_Cd"
+		-- Skipping parameter "P_Cf"
+		-- Skipping parameter "P_DC2ECMargin"
+		-- Skipping parameter "P_Dev4IEnd"
+		-- Skipping parameter "P_DriveOffAdd"
+		-- Skipping parameter "P_Ki"
+		-- Skipping parameter "P_Kp"
+		-- Skipping parameter "P_SlopeMax"
+		-- Skipping parameter "P_SlopeMin"
+		-- Skipping parameter "P_StandStillFactEC"
+		-- Skipping parameter "P_StsdCase"
+		-- Skipping parameter "P_StsddAxRamp"
+		-- Skipping parameter "P_aDiffaF"
+		-- Skipping parameter "P_dAxMax"
+		-- Skipping parameter "P_dAxMin"
+		-- Skipping parameter "P_dIRamp"
+		-- Skipping parameter "P_dSlopeLim"
+		-- Skipping parameter "P_tARefFilter"
+		-- Skipping parameter "P_tDriveOffThr"
+		-- Skipping parameter "P_tFxMergeFilter"
+		-- Skipping parameter "P_tSlopeFilter1"
+		-- Skipping parameter "P_tSlopeFilter2"
+		-- Skipping parameter "P_vDriveOffThr"
+		-- Skipping parameter "P_vLowSpd"
+		-- Skipping parameter "TransRatio"
+		-- Skipping parameter "m_Vehicle"
+		-- Skipping parameter "r_Wheel"
+
+		group "VLC"  -- referenced model group
+    

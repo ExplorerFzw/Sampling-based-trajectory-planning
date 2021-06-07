@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="./js/coder_app.js"></script>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="./rtwreport_utils.js"></script>
+<script type="text/javascript" src="./rtwannotate.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/coder_app.css"/>
+</head>
+<body onload="srcFileOnload();">
+<pre id="code">
+<table class="code" id="codeTbl">
+<tr name="1" id="1">
+<td><a id="l1" class='ln'>1</a></td><td><span class="ct">/*</span></td></tr>
+<tr name="2" id="2">
+<td><a id="l2" class='ln'>2</a></td><td><span class="ct"> * Code generation for system model 'VSI'</span></td></tr>
+<tr name="3" id="3">
+<td><a id="l3" class='ln'>3</a></td><td><span class="ct"> *</span></td></tr>
+<tr name="4" id="4">
+<td><a id="l4" class='ln'>4</a></td><td><span class="ct"> * Model                      : VSI</span></td></tr>
+<tr name="5" id="5">
+<td><a id="l5" class='ln'>5</a></td><td><span class="ct"> * Model version              : 1.378</span></td></tr>
+<tr name="6" id="6">
+<td><a id="l6" class='ln'>6</a></td><td><span class="ct"> * Simulink Coder version : 9.0 (R2018b) 24-May-2018</span></td></tr>
+<tr name="7" id="7">
+<td><a id="l7" class='ln'>7</a></td><td><span class="ct"> * C source code generated on : Thu Jan  7 20:45:40 2021</span></td></tr>
+<tr name="8" id="8">
+<td><a id="l8" class='ln'>8</a></td><td><span class="ct"> *</span></td></tr>
+<tr name="9" id="9">
+<td><a id="l9" class='ln'>9</a></td><td><span class="ct"> * Note that the functions contained in this file are part of a Simulink</span></td></tr>
+<tr name="10" id="10">
+<td><a id="l10" class='ln'>10</a></td><td><span class="ct"> * model, and are not self-contained algorithms.</span></td></tr>
+<tr name="11" id="11">
+<td><a id="l11" class='ln'>11</a></td><td><span class="ct"> */</span></td></tr>
+<tr name="12" id="12">
+<td><a id="l12" class='ln'>12</a></td><td></td></tr>
+<tr name="13" id="13">
+<td><a id="l13" class='ln'>13</a></td><td><span class="pp">#include "VSI_trc_ptr.h"</span></td></tr>
+<tr name="14" id="14">
+<td><a id="l14" class='ln'>14</a></td><td><span class="pp">#include "rti_initref_cpp.h"</span></td></tr>
+<tr name="15" id="15">
+<td><a id="l15" class='ln'>15</a></td><td><span class="pp">#include "VSI.h"</span></td></tr>
+<tr name="16" id="16">
+<td><a id="l16" class='ln'>16</a></td><td><span class="pp">#include "VSI_private.h"</span></td></tr>
+<tr name="17" id="17">
+<td><a id="l17" class='ln'>17</a></td><td></td></tr>
+<tr name="18" id="18">
+<td><a id="l18" class='ln'>18</a></td><td><a id="18c1" class="tk">P_VSI_T</a> <a id="18c9" class="tk">VSI_P_g</a> = <span class="br">{</span></td></tr>
+<tr name="19" id="19">
+<td><a id="l19" class='ln'>19</a></td><td>  <span class="ct">/* Expression: 180</span></td></tr>
+<tr name="20" id="20">
+<td><a id="l20" class='ln'>20</a></td><td><span class="ct">   * Referenced by: '&lt;S1&gt;/Constant4'</span></td></tr>
+<tr name="21" id="21">
+<td><a id="l21" class='ln'>21</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="22" id="22">
+<td><a id="l22" class='ln'>22</a></td><td>  180.0,</td></tr>
+<tr name="23" id="23">
+<td><a id="l23" class='ln'>23</a></td><td></td></tr>
+<tr name="24" id="24">
+<td><a id="l24" class='ln'>24</a></td><td>  <span class="ct">/* Expression: pi</span></td></tr>
+<tr name="25" id="25">
+<td><a id="l25" class='ln'>25</a></td><td><span class="ct">   * Referenced by: '&lt;S1&gt;/Pi'</span></td></tr>
+<tr name="26" id="26">
+<td><a id="l26" class='ln'>26</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="27" id="27">
+<td><a id="l27" class='ln'>27</a></td><td>  3.1415926535897931,</td></tr>
+<tr name="28" id="28">
+<td><a id="l28" class='ln'>28</a></td><td></td></tr>
+<tr name="29" id="29">
+<td><a id="l29" class='ln'>29</a></td><td>  <span class="ct">/* Expression: 3.6</span></td></tr>
+<tr name="30" id="30">
+<td><a id="l30" class='ln'>30</a></td><td><span class="ct">   * Referenced by: '&lt;S1&gt;/Constant'</span></td></tr>
+<tr name="31" id="31">
+<td><a id="l31" class='ln'>31</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="32" id="32">
+<td><a id="l32" class='ln'>32</a></td><td>  3.6,</td></tr>
+<tr name="33" id="33">
+<td><a id="l33" class='ln'>33</a></td><td></td></tr>
+<tr name="34" id="34">
+<td><a id="l34" class='ln'>34</a></td><td>  <span class="ct">/* Expression: 0</span></td></tr>
+<tr name="35" id="35">
+<td><a id="l35" class='ln'>35</a></td><td><span class="ct">   * Referenced by: '&lt;S3&gt;/Constant'</span></td></tr>
+<tr name="36" id="36">
+<td><a id="l36" class='ln'>36</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="37" id="37">
+<td><a id="l37" class='ln'>37</a></td><td>  0.0,</td></tr>
+<tr name="38" id="38">
+<td><a id="l38" class='ln'>38</a></td><td></td></tr>
+<tr name="39" id="39">
+<td><a id="l39" class='ln'>39</a></td><td>  <span class="ct">/* Expression: 0</span></td></tr>
+<tr name="40" id="40">
+<td><a id="l40" class='ln'>40</a></td><td><span class="ct">   * Referenced by: '&lt;S3&gt;/Constant2'</span></td></tr>
+<tr name="41" id="41">
+<td><a id="l41" class='ln'>41</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="42" id="42">
+<td><a id="l42" class='ln'>42</a></td><td>  0.0,</td></tr>
+<tr name="43" id="43">
+<td><a id="l43" class='ln'>43</a></td><td></td></tr>
+<tr name="44" id="44">
+<td><a id="l44" class='ln'>44</a></td><td>  <span class="ct">/* Expression: 0</span></td></tr>
+<tr name="45" id="45">
+<td><a id="l45" class='ln'>45</a></td><td><span class="ct">   * Referenced by: '&lt;S3&gt;/Constant1'</span></td></tr>
+<tr name="46" id="46">
+<td><a id="l46" class='ln'>46</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="47" id="47">
+<td><a id="l47" class='ln'>47</a></td><td>  0.0,</td></tr>
+<tr name="48" id="48">
+<td><a id="l48" class='ln'>48</a></td><td></td></tr>
+<tr name="49" id="49">
+<td><a id="l49" class='ln'>49</a></td><td>  <span class="ct">/* Expression: 0.001</span></td></tr>
+<tr name="50" id="50">
+<td><a id="l50" class='ln'>50</a></td><td><span class="ct">   * Referenced by: '&lt;S3&gt;/Constant3'</span></td></tr>
+<tr name="51" id="51">
+<td><a id="l51" class='ln'>51</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="52" id="52">
+<td><a id="l52" class='ln'>52</a></td><td>  0.001,</td></tr>
+<tr name="53" id="53">
+<td><a id="l53" class='ln'>53</a></td><td></td></tr>
+<tr name="54" id="54">
+<td><a id="l54" class='ln'>54</a></td><td>  <span class="ct">/* Computed Parameter: Gain_Gain</span></td></tr>
+<tr name="55" id="55">
+<td><a id="l55" class='ln'>55</a></td><td><span class="ct">   * Referenced by: '&lt;S1&gt;/Gain'</span></td></tr>
+<tr name="56" id="56">
+<td><a id="l56" class='ln'>56</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="57" id="57">
+<td><a id="l57" class='ln'>57</a></td><td>  <a id="57c3" class="tk">-</a>1.0F,</td></tr>
+<tr name="58" id="58">
+<td><a id="l58" class='ln'>58</a></td><td></td></tr>
+<tr name="59" id="59">
+<td><a id="l59" class='ln'>59</a></td><td>  <span class="ct">/* Computed Parameter: Constant_Value_f</span></td></tr>
+<tr name="60" id="60">
+<td><a id="l60" class='ln'>60</a></td><td><span class="ct">   * Referenced by: '&lt;S9&gt;/Constant'</span></td></tr>
+<tr name="61" id="61">
+<td><a id="l61" class='ln'>61</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="62" id="62">
+<td><a id="l62" class='ln'>62</a></td><td>  1.0F,</td></tr>
+<tr name="63" id="63">
+<td><a id="l63" class='ln'>63</a></td><td></td></tr>
+<tr name="64" id="64">
+<td><a id="l64" class='ln'>64</a></td><td>  <span class="ct">/* Computed Parameter: Memory1_InitialCondition</span></td></tr>
+<tr name="65" id="65">
+<td><a id="l65" class='ln'>65</a></td><td><span class="ct">   * Referenced by: '&lt;S3&gt;/Memory1'</span></td></tr>
+<tr name="66" id="66">
+<td><a id="l66" class='ln'>66</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="67" id="67">
+<td><a id="l67" class='ln'>67</a></td><td>  0.0F,</td></tr>
+<tr name="68" id="68">
+<td><a id="l68" class='ln'>68</a></td><td></td></tr>
+<tr name="69" id="69">
+<td><a id="l69" class='ln'>69</a></td><td>  <span class="ct">/* Computed Parameter: Constant_Value_p</span></td></tr>
+<tr name="70" id="70">
+<td><a id="l70" class='ln'>70</a></td><td><span class="ct">   * Referenced by: '&lt;S11&gt;/Constant'</span></td></tr>
+<tr name="71" id="71">
+<td><a id="l71" class='ln'>71</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="72" id="72">
+<td><a id="l72" class='ln'>72</a></td><td>  1.0F,</td></tr>
+<tr name="73" id="73">
+<td><a id="l73" class='ln'>73</a></td><td></td></tr>
+<tr name="74" id="74">
+<td><a id="l74" class='ln'>74</a></td><td>  <span class="ct">/* Computed Parameter: Memory4_InitialCondition</span></td></tr>
+<tr name="75" id="75">
+<td><a id="l75" class='ln'>75</a></td><td><span class="ct">   * Referenced by: '&lt;S3&gt;/Memory4'</span></td></tr>
+<tr name="76" id="76">
+<td><a id="l76" class='ln'>76</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="77" id="77">
+<td><a id="l77" class='ln'>77</a></td><td>  0.0F,</td></tr>
+<tr name="78" id="78">
+<td><a id="l78" class='ln'>78</a></td><td></td></tr>
+<tr name="79" id="79">
+<td><a id="l79" class='ln'>79</a></td><td>  <span class="ct">/* Computed Parameter: Constant_Value_by</span></td></tr>
+<tr name="80" id="80">
+<td><a id="l80" class='ln'>80</a></td><td><span class="ct">   * Referenced by: '&lt;S8&gt;/Constant'</span></td></tr>
+<tr name="81" id="81">
+<td><a id="l81" class='ln'>81</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="82" id="82">
+<td><a id="l82" class='ln'>82</a></td><td>  1.0F,</td></tr>
+<tr name="83" id="83">
+<td><a id="l83" class='ln'>83</a></td><td></td></tr>
+<tr name="84" id="84">
+<td><a id="l84" class='ln'>84</a></td><td>  <span class="ct">/* Computed Parameter: Memory2_InitialCondition</span></td></tr>
+<tr name="85" id="85">
+<td><a id="l85" class='ln'>85</a></td><td><span class="ct">   * Referenced by: '&lt;S3&gt;/Memory2'</span></td></tr>
+<tr name="86" id="86">
+<td><a id="l86" class='ln'>86</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="87" id="87">
+<td><a id="l87" class='ln'>87</a></td><td>  0.0F,</td></tr>
+<tr name="88" id="88">
+<td><a id="l88" class='ln'>88</a></td><td></td></tr>
+<tr name="89" id="89">
+<td><a id="l89" class='ln'>89</a></td><td>  <span class="ct">/* Computed Parameter: Gain_Gain_c</span></td></tr>
+<tr name="90" id="90">
+<td><a id="l90" class='ln'>90</a></td><td><span class="ct">   * Referenced by: '&lt;S3&gt;/Gain'</span></td></tr>
+<tr name="91" id="91">
+<td><a id="l91" class='ln'>91</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="92" id="92">
+<td><a id="l92" class='ln'>92</a></td><td>  1.0F,</td></tr>
+<tr name="93" id="93">
+<td><a id="l93" class='ln'>93</a></td><td></td></tr>
+<tr name="94" id="94">
+<td><a id="l94" class='ln'>94</a></td><td>  <span class="ct">/* Computed Parameter: Constant_Value_a</span></td></tr>
+<tr name="95" id="95">
+<td><a id="l95" class='ln'>95</a></td><td><span class="ct">   * Referenced by: '&lt;S7&gt;/Constant'</span></td></tr>
+<tr name="96" id="96">
+<td><a id="l96" class='ln'>96</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="97" id="97">
+<td><a id="l97" class='ln'>97</a></td><td>  1.0F,</td></tr>
+<tr name="98" id="98">
+<td><a id="l98" class='ln'>98</a></td><td></td></tr>
+<tr name="99" id="99">
+<td><a id="l99" class='ln'>99</a></td><td>  <span class="ct">/* Computed Parameter: Memory_InitialCondition</span></td></tr>
+<tr name="100" id="100">
+<td><a id="l100" class='ln'>100</a></td><td><span class="ct">   * Referenced by: '&lt;S3&gt;/Memory'</span></td></tr>
+<tr name="101" id="101">
+<td><a id="l101" class='ln'>101</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="102" id="102">
+<td><a id="l102" class='ln'>102</a></td><td>  0.0F,</td></tr>
+<tr name="103" id="103">
+<td><a id="l103" class='ln'>103</a></td><td></td></tr>
+<tr name="104" id="104">
+<td><a id="l104" class='ln'>104</a></td><td>  <span class="ct">/* Computed Parameter: Memory5_InitialCondition</span></td></tr>
+<tr name="105" id="105">
+<td><a id="l105" class='ln'>105</a></td><td><span class="ct">   * Referenced by: '&lt;S3&gt;/Memory5'</span></td></tr>
+<tr name="106" id="106">
+<td><a id="l106" class='ln'>106</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="107" id="107">
+<td><a id="l107" class='ln'>107</a></td><td>  0.0F,</td></tr>
+<tr name="108" id="108">
+<td><a id="l108" class='ln'>108</a></td><td></td></tr>
+<tr name="109" id="109">
+<td><a id="l109" class='ln'>109</a></td><td>  <span class="ct">/* Computed Parameter: Constant_Value_c</span></td></tr>
+<tr name="110" id="110">
+<td><a id="l110" class='ln'>110</a></td><td><span class="ct">   * Referenced by: '&lt;S10&gt;/Constant'</span></td></tr>
+<tr name="111" id="111">
+<td><a id="l111" class='ln'>111</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="112" id="112">
+<td><a id="l112" class='ln'>112</a></td><td>  1.0F,</td></tr>
+<tr name="113" id="113">
+<td><a id="l113" class='ln'>113</a></td><td></td></tr>
+<tr name="114" id="114">
+<td><a id="l114" class='ln'>114</a></td><td>  <span class="ct">/* Computed Parameter: Memory3_InitialCondition</span></td></tr>
+<tr name="115" id="115">
+<td><a id="l115" class='ln'>115</a></td><td><span class="ct">   * Referenced by: '&lt;S3&gt;/Memory3'</span></td></tr>
+<tr name="116" id="116">
+<td><a id="l116" class='ln'>116</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="117" id="117">
+<td><a id="l117" class='ln'>117</a></td><td>  0.0F</td></tr>
+<tr name="118" id="118">
+<td><a id="l118" class='ln'>118</a></td><td><span class="br">}</span>;</td></tr>
+<tr name="119" id="119">
+<td><a id="l119" class='ln'>119</a></td><td></td></tr>
+<tr name="120" id="120">
+<td><a id="l120" class='ln'>120</a></td><td><a id="120c1" class="tk">MdlrefDW_VSI_T</a> <a id="120c16" class="tk">VSI_MdlrefDW</a>;</td></tr>
+<tr name="121" id="121">
+<td><a id="l121" class='ln'>121</a></td><td></td></tr>
+<tr name="122" id="122">
+<td><a id="l122" class='ln'>122</a></td><td><span class="ct">/* Block signals (default storage) */</span></td></tr>
+<tr name="123" id="123">
+<td><a id="l123" class='ln'>123</a></td><td><a id="123c1" class="tk">B_VSI_c_T</a> <a id="123c11" class="tk">VSI_B</a>;</td></tr>
+<tr name="124" id="124">
+<td><a id="l124" class='ln'>124</a></td><td></td></tr>
+<tr name="125" id="125">
+<td><a id="l125" class='ln'>125</a></td><td><span class="ct">/* Block states (default storage) */</span></td></tr>
+<tr name="126" id="126">
+<td><a id="l126" class='ln'>126</a></td><td><a id="126c1" class="tk">DW_VSI_f_T</a> <a id="126c12" class="tk">VSI_DW</a>;</td></tr>
+<tr name="127" id="127">
+<td><a id="l127" class='ln'>127</a></td><td></td></tr>
+<tr name="128" id="128">
+<td><a id="l128" class='ln'>128</a></td><td><span class="ct">/* System initialize for referenced model: 'VSI' */</span></td></tr>
+<tr name="129" id="129">
+<td><a id="l129" class='ln'>129</a></td><td><span class="kw">void</span> <a id="129c6" class="tk">VSI_Init</a>(<span class="kw">void</span>)</td></tr>
+<tr name="130" id="130">
+<td><a id="l130" class='ln'>130</a></td><td><span class="br">{</span></td></tr>
+<tr name="131" id="131">
+<td><a id="l131" class='ln'>131</a></td><td>  <span class="ct">/* InitializeConditions for Memory: '&lt;S3&gt;/Memory1' */</span></td></tr>
+<tr name="132" id="132">
+<td><a id="l132" class='ln'>132</a></td><td>  <a id="132c3" class="tk">VSI_DW</a>.<a id="132c10" class="tk">Memory1_PreviousInput</a> = <a id="132c34" class="tk">VSI_P_g</a>.<a id="132c42" class="tk">Memory1_InitialCondition</a>;</td></tr>
+<tr name="133" id="133">
+<td><a id="l133" class='ln'>133</a></td><td></td></tr>
+<tr name="134" id="134">
+<td><a id="l134" class='ln'>134</a></td><td>  <span class="ct">/* InitializeConditions for Memory: '&lt;S3&gt;/Memory4' */</span></td></tr>
+<tr name="135" id="135">
+<td><a id="l135" class='ln'>135</a></td><td>  <a id="135c3" class="tk">VSI_DW</a>.<a id="135c10" class="tk">Memory4_PreviousInput</a> = <a id="135c34" class="tk">VSI_P_g</a>.<a id="135c42" class="tk">Memory4_InitialCondition</a>;</td></tr>
+<tr name="136" id="136">
+<td><a id="l136" class='ln'>136</a></td><td></td></tr>
+<tr name="137" id="137">
+<td><a id="l137" class='ln'>137</a></td><td>  <span class="ct">/* InitializeConditions for Memory: '&lt;S3&gt;/Memory2' */</span></td></tr>
+<tr name="138" id="138">
+<td><a id="l138" class='ln'>138</a></td><td>  <a id="138c3" class="tk">VSI_DW</a>.<a id="138c10" class="tk">Memory2_PreviousInput</a> = <a id="138c34" class="tk">VSI_P_g</a>.<a id="138c42" class="tk">Memory2_InitialCondition</a>;</td></tr>
+<tr name="139" id="139">
+<td><a id="l139" class='ln'>139</a></td><td></td></tr>
+<tr name="140" id="140">
+<td><a id="l140" class='ln'>140</a></td><td>  <span class="ct">/* InitializeConditions for Memory: '&lt;S3&gt;/Memory' */</span></td></tr>
+<tr name="141" id="141">
+<td><a id="l141" class='ln'>141</a></td><td>  <a id="141c3" class="tk">VSI_DW</a>.<a id="141c10" class="tk">Memory_PreviousInput</a> = <a id="141c33" class="tk">VSI_P_g</a>.<a id="141c41" class="tk">Memory_InitialCondition</a>;</td></tr>
+<tr name="142" id="142">
+<td><a id="l142" class='ln'>142</a></td><td></td></tr>
+<tr name="143" id="143">
+<td><a id="l143" class='ln'>143</a></td><td>  <span class="ct">/* InitializeConditions for Memory: '&lt;S3&gt;/Memory5' */</span></td></tr>
+<tr name="144" id="144">
+<td><a id="l144" class='ln'>144</a></td><td>  <a id="144c3" class="tk">VSI_DW</a>.<a id="144c10" class="tk">Memory5_PreviousInput</a> = <a id="144c34" class="tk">VSI_P_g</a>.<a id="144c42" class="tk">Memory5_InitialCondition</a>;</td></tr>
+<tr name="145" id="145">
+<td><a id="l145" class='ln'>145</a></td><td></td></tr>
+<tr name="146" id="146">
+<td><a id="l146" class='ln'>146</a></td><td>  <span class="ct">/* InitializeConditions for Memory: '&lt;S3&gt;/Memory3' */</span></td></tr>
+<tr name="147" id="147">
+<td><a id="l147" class='ln'>147</a></td><td>  <a id="147c3" class="tk">VSI_DW</a>.<a id="147c10" class="tk">Memory3_PreviousInput</a> = <a id="147c34" class="tk">VSI_P_g</a>.<a id="147c42" class="tk">Memory3_InitialCondition</a>;</td></tr>
+<tr name="148" id="148">
+<td><a id="l148" class='ln'>148</a></td><td><span class="br">}</span></td></tr>
+<tr name="149" id="149">
+<td><a id="l149" class='ln'>149</a></td><td></td></tr>
+<tr name="150" id="150">
+<td><a id="l150" class='ln'>150</a></td><td><span class="ct">/* System reset for referenced model: 'VSI' */</span></td></tr>
+<tr name="151" id="151">
+<td><a id="l151" class='ln'>151</a></td><td><span class="kw">void</span> <a id="151c6" class="tk">VSI_Reset</a>(<span class="kw">void</span>)</td></tr>
+<tr name="152" id="152">
+<td><a id="l152" class='ln'>152</a></td><td><span class="br">{</span></td></tr>
+<tr name="153" id="153">
+<td><a id="l153" class='ln'>153</a></td><td>  <span class="ct">/* InitializeConditions for Memory: '&lt;S3&gt;/Memory1' */</span></td></tr>
+<tr name="154" id="154">
+<td><a id="l154" class='ln'>154</a></td><td>  <a id="154c3" class="tk">VSI_DW</a>.<a id="154c10" class="tk">Memory1_PreviousInput</a> = <a id="154c34" class="tk">VSI_P_g</a>.<a id="154c42" class="tk">Memory1_InitialCondition</a>;</td></tr>
+<tr name="155" id="155">
+<td><a id="l155" class='ln'>155</a></td><td></td></tr>
+<tr name="156" id="156">
+<td><a id="l156" class='ln'>156</a></td><td>  <span class="ct">/* InitializeConditions for Memory: '&lt;S3&gt;/Memory4' */</span></td></tr>
+<tr name="157" id="157">
+<td><a id="l157" class='ln'>157</a></td><td>  <a id="157c3" class="tk">VSI_DW</a>.<a id="157c10" class="tk">Memory4_PreviousInput</a> = <a id="157c34" class="tk">VSI_P_g</a>.<a id="157c42" class="tk">Memory4_InitialCondition</a>;</td></tr>
+<tr name="158" id="158">
+<td><a id="l158" class='ln'>158</a></td><td></td></tr>
+<tr name="159" id="159">
+<td><a id="l159" class='ln'>159</a></td><td>  <span class="ct">/* InitializeConditions for Memory: '&lt;S3&gt;/Memory2' */</span></td></tr>
+<tr name="160" id="160">
+<td><a id="l160" class='ln'>160</a></td><td>  <a id="160c3" class="tk">VSI_DW</a>.<a id="160c10" class="tk">Memory2_PreviousInput</a> = <a id="160c34" class="tk">VSI_P_g</a>.<a id="160c42" class="tk">Memory2_InitialCondition</a>;</td></tr>
+<tr name="161" id="161">
+<td><a id="l161" class='ln'>161</a></td><td></td></tr>
+<tr name="162" id="162">
+<td><a id="l162" class='ln'>162</a></td><td>  <span class="ct">/* InitializeConditions for Memory: '&lt;S3&gt;/Memory' */</span></td></tr>
+<tr name="163" id="163">
+<td><a id="l163" class='ln'>163</a></td><td>  <a id="163c3" class="tk">VSI_DW</a>.<a id="163c10" class="tk">Memory_PreviousInput</a> = <a id="163c33" class="tk">VSI_P_g</a>.<a id="163c41" class="tk">Memory_InitialCondition</a>;</td></tr>
+<tr name="164" id="164">
+<td><a id="l164" class='ln'>164</a></td><td></td></tr>
+<tr name="165" id="165">
+<td><a id="l165" class='ln'>165</a></td><td>  <span class="ct">/* InitializeConditions for Memory: '&lt;S3&gt;/Memory5' */</span></td></tr>
+<tr name="166" id="166">
+<td><a id="l166" class='ln'>166</a></td><td>  <a id="166c3" class="tk">VSI_DW</a>.<a id="166c10" class="tk">Memory5_PreviousInput</a> = <a id="166c34" class="tk">VSI_P_g</a>.<a id="166c42" class="tk">Memory5_InitialCondition</a>;</td></tr>
+<tr name="167" id="167">
+<td><a id="l167" class='ln'>167</a></td><td></td></tr>
+<tr name="168" id="168">
+<td><a id="l168" class='ln'>168</a></td><td>  <span class="ct">/* InitializeConditions for Memory: '&lt;S3&gt;/Memory3' */</span></td></tr>
+<tr name="169" id="169">
+<td><a id="l169" class='ln'>169</a></td><td>  <a id="169c3" class="tk">VSI_DW</a>.<a id="169c10" class="tk">Memory3_PreviousInput</a> = <a id="169c34" class="tk">VSI_P_g</a>.<a id="169c42" class="tk">Memory3_InitialCondition</a>;</td></tr>
+<tr name="170" id="170">
+<td><a id="l170" class='ln'>170</a></td><td><span class="br">}</span></td></tr>
+<tr name="171" id="171">
+<td><a id="l171" class='ln'>171</a></td><td></td></tr>
+<tr name="172" id="172">
+<td><a id="l172" class='ln'>172</a></td><td><span class="ct">/* Outputs for referenced model: 'VSI' */</span></td></tr>
+<tr name="173" id="173">
+<td><a id="l173" class='ln'>173</a></td><td><span class="kw">void</span> <a id="173c6" class="tk">VSI</a>(<span class="kw">const</span> <a id="173c16" class="tk">SYS_INFO_ST</a> <a id="173c28" class="tk">*</a><a id="173c29" class="tk">rtu_SYS_Info_st</a>, <span class="kw">const</span> <a id="173c52" class="tk">COM_VEHBUS_ST</a></td></tr>
+<tr name="174" id="174">
+<td><a id="l174" class='ln'>174</a></td><td>         <a id="174c10" class="tk">*</a><a id="174c11" class="tk">rtu_COM_VehBus_st</a>, <a id="174c30" class="tk">real32_T</a> <a id="174c39" class="tk">*</a><a id="174c40" class="tk">rty_VSI_VehState_st_YrsF</a>, <a id="174c66" class="tk">real32_T</a></td></tr>
+<tr name="175" id="175">
+<td><a id="l175" class='ln'>175</a></td><td>         <a id="175c10" class="tk">*</a><a id="175c11" class="tk">rty_VSI_VehState_st_AxSensorF</a>, <a id="175c42" class="tk">real32_T</a></td></tr>
+<tr name="176" id="176">
+<td><a id="l176" class='ln'>176</a></td><td>         <a id="176c10" class="tk">*</a><a id="176c11" class="tk">rty_VSI_VehState_st_StWheelAngl</a>, <a id="176c44" class="tk">real32_T</a> <a id="176c53" class="tk">*</a><a id="176c54" class="tk">rty_VSI_VehState_st_vRef</a>,</td></tr>
+<tr name="177" id="177">
+<td><a id="l177" class='ln'>177</a></td><td>         <a id="177c10" class="tk">real32_T</a> <a id="177c19" class="tk">*</a><a id="177c20" class="tk">rty_VSI_VehState_st_aRef</a>, <a id="177c46" class="tk">real32_T</a></td></tr>
+<tr name="178" id="178">
+<td><a id="l178" class='ln'>178</a></td><td>         <a id="178c10" class="tk">*</a><a id="178c11" class="tk">rty_VSI_VehState_st_AxSlope</a>, <a id="178c40" class="tk">boolean_T</a></td></tr>
+<tr name="179" id="179">
+<td><a id="l179" class='ln'>179</a></td><td>         <a id="179c10" class="tk">*</a><a id="179c11" class="tk">rty_VSI_VehState_st_AxSlopeVali</a>, <a id="179c44" class="tk">real32_T</a></td></tr>
+<tr name="180" id="180">
+<td><a id="l180" class='ln'>180</a></td><td>         <a id="180c10" class="tk">*</a><a id="180c11" class="tk">rty_VSI_VehState_st_Curvature</a>)</td></tr>
+<tr name="181" id="181">
+<td><a id="l181" class='ln'>181</a></td><td><span class="br">{</span></td></tr>
+<tr name="182" id="182">
+<td><a id="l182" class='ln'>182</a></td><td>  <a id="182c3" class="tk">int32_T</a> <a id="182c11" class="tk">WhlSpd_valid_cnt</a>;</td></tr>
+<tr name="183" id="183">
+<td><a id="l183" class='ln'>183</a></td><td>  <a id="183c3" class="tk">real32_T</a> <a id="183c12" class="tk">u0</a>;</td></tr>
+<tr name="184" id="184">
+<td><a id="l184" class='ln'>184</a></td><td>  <a id="184c3" class="tk">real32_T</a> <a id="184c12" class="tk">u1</a>;</td></tr>
+<tr name="185" id="185">
+<td><a id="l185" class='ln'>185</a></td><td>  <a id="185c3" class="tk">real32_T</a> <a id="185c12" class="tk">u1_0</a>;</td></tr>
+<tr name="186" id="186">
+<td><a id="l186" class='ln'>186</a></td><td>  <a id="186c3" class="tk">real_T</a> <a id="186c10" class="tk">u0_0</a>;</td></tr>
+<tr name="187" id="187">
+<td><a id="l187" class='ln'>187</a></td><td>  <a id="187c3" class="tk">real_T</a> <a id="187c10" class="tk">u1_1</a>;</td></tr>
+<tr name="188" id="188">
+<td><a id="l188" class='ln'>188</a></td><td></td></tr>
+<tr name="189" id="189">
+<td><a id="l189" class='ln'>189</a></td><td>  <span class="ct">/* Product: '&lt;S1&gt;/Divide4' incorporates:</span></td></tr>
+<tr name="190" id="190">
+<td><a id="l190" class='ln'>190</a></td><td><span class="ct">   *  Constant: '&lt;S1&gt;/Constant4'</span></td></tr>
+<tr name="191" id="191">
+<td><a id="l191" class='ln'>191</a></td><td><span class="ct">   *  Constant: '&lt;S1&gt;/Pi'</span></td></tr>
+<tr name="192" id="192">
+<td><a id="l192" class='ln'>192</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="193" id="193">
+<td><a id="l193" class='ln'>193</a></td><td>  <a id="193c3" class="tk">VSI_B</a>.<a id="193c9" class="tk">Divide4</a> = <a id="193c19" class="tk">VSI_P_g</a>.<a id="193c27" class="tk">Constant4_Value</a> <a id="193c43" class="tk">/</a> <a id="193c45" class="tk">VSI_P_g</a>.<a id="193c53" class="tk">Pi_Value</a>;</td></tr>
+<tr name="194" id="194">
+<td><a id="l194" class='ln'>194</a></td><td></td></tr>
+<tr name="195" id="195">
+<td><a id="l195" class='ln'>195</a></td><td>  <span class="ct">/* Product: '&lt;S1&gt;/Divide7' */</span></td></tr>
+<tr name="196" id="196">
+<td><a id="l196" class='ln'>196</a></td><td>  <a id="196c3" class="tk">VSI_B</a>.<a id="196c9" class="tk">Divide7</a> = (<a id="196c20" class="tk">real32_T</a>)(<a id="196c30" class="tk">rtu_COM_VehBus_st</a>-&gt;<a id="196c49" class="tk">x1E9</a>.<a id="196c54" class="tk">VehDynYawRate</a> <a id="196c68" class="tk">/</a></td></tr>
+<tr name="197" id="197">
+<td><a id="l197" class='ln'>197</a></td><td>    <a id="197c5" class="tk">VSI_B</a>.<a id="197c11" class="tk">Divide4</a>);</td></tr>
+<tr name="198" id="198">
+<td><a id="l198" class='ln'>198</a></td><td></td></tr>
+<tr name="199" id="199">
+<td><a id="l199" class='ln'>199</a></td><td>  <span class="ct">/* Gain: '&lt;S1&gt;/Gain' */</span></td></tr>
+<tr name="200" id="200">
+<td><a id="l200" class='ln'>200</a></td><td>  <a id="200c3" class="tk">VSI_B</a>.<a id="200c9" class="tk">YrsSensor</a> = <a id="200c21" class="tk">VSI_P_g</a>.<a id="200c29" class="tk">Gain_Gain</a> <a id="200c39" class="tk">*</a> <a id="200c41" class="tk">VSI_B</a>.<a id="200c47" class="tk">Divide7</a>;</td></tr>
+<tr name="201" id="201">
+<td><a id="l201" class='ln'>201</a></td><td></td></tr>
+<tr name="202" id="202">
+<td><a id="l202" class='ln'>202</a></td><td>  <span class="ct">/* Product: '&lt;S1&gt;/Divide6' */</span></td></tr>
+<tr name="203" id="203">
+<td><a id="l203" class='ln'>203</a></td><td>  <a id="203c3" class="tk">VSI_B</a>.<a id="203c9" class="tk">SasSensor</a> = (<a id="203c22" class="tk">real32_T</a>)(<a id="203c32" class="tk">rtu_COM_VehBus_st</a>-&gt;<a id="203c51" class="tk">x1E5</a>.<a id="203c56" class="tk">StrgWhlAng</a> <a id="203c67" class="tk">/</a></td></tr>
+<tr name="204" id="204">
+<td><a id="l204" class='ln'>204</a></td><td>    <a id="204c5" class="tk">VSI_B</a>.<a id="204c11" class="tk">Divide4</a>);</td></tr>
+<tr name="205" id="205">
+<td><a id="l205" class='ln'>205</a></td><td></td></tr>
+<tr name="206" id="206">
+<td><a id="l206" class='ln'>206</a></td><td>  <span class="ct">/* Product: '&lt;S1&gt;/Divide' incorporates:</span></td></tr>
+<tr name="207" id="207">
+<td><a id="l207" class='ln'>207</a></td><td><span class="ct">   *  Constant: '&lt;S1&gt;/Constant'</span></td></tr>
+<tr name="208" id="208">
+<td><a id="l208" class='ln'>208</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="209" id="209">
+<td><a id="l209" class='ln'>209</a></td><td>  <a id="209c3" class="tk">VSI_B</a>.<a id="209c9" class="tk">vFL</a> = (<a id="209c16" class="tk">real32_T</a>)(<a id="209c26" class="tk">rtu_COM_VehBus_st</a>-&gt;<a id="209c45" class="tk">x24E</a>.<a id="209c50" class="tk">WhlGndVelLNonDrvn_Radar</a> <a id="209c74" class="tk">/</a></td></tr>
+<tr name="210" id="210">
+<td><a id="l210" class='ln'>210</a></td><td>    <a id="210c5" class="tk">VSI_P_g</a>.<a id="210c13" class="tk">Constant_Value</a>);</td></tr>
+<tr name="211" id="211">
+<td><a id="l211" class='ln'>211</a></td><td></td></tr>
+<tr name="212" id="212">
+<td><a id="l212" class='ln'>212</a></td><td>  <span class="ct">/* Logic: '&lt;S1&gt;/Logical Operator3' */</span></td></tr>
+<tr name="213" id="213">
+<td><a id="l213" class='ln'>213</a></td><td>  <a id="213c3" class="tk">VSI_B</a>.<a id="213c9" class="tk">vFLValid</a> = <a id="213c20" class="tk">!</a><a id="213c21" class="tk">rtu_COM_VehBus_st</a>-&gt;<a id="213c40" class="tk">x24E</a>.<a id="213c45" class="tk">WhlGndVelLNonDrvnV_Radar</a>;</td></tr>
+<tr name="214" id="214">
+<td><a id="l214" class='ln'>214</a></td><td></td></tr>
+<tr name="215" id="215">
+<td><a id="l215" class='ln'>215</a></td><td>  <span class="ct">/* Product: '&lt;S1&gt;/Divide1' incorporates:</span></td></tr>
+<tr name="216" id="216">
+<td><a id="l216" class='ln'>216</a></td><td><span class="ct">   *  Constant: '&lt;S1&gt;/Constant'</span></td></tr>
+<tr name="217" id="217">
+<td><a id="l217" class='ln'>217</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="218" id="218">
+<td><a id="l218" class='ln'>218</a></td><td>  <a id="218c3" class="tk">VSI_B</a>.<a id="218c9" class="tk">vFR</a> = (<a id="218c16" class="tk">real32_T</a>)(<a id="218c26" class="tk">rtu_COM_VehBus_st</a>-&gt;<a id="218c45" class="tk">x24E</a>.<a id="218c50" class="tk">WhlGndVelRNonDrvn_Radar</a> <a id="218c74" class="tk">/</a></td></tr>
+<tr name="219" id="219">
+<td><a id="l219" class='ln'>219</a></td><td>    <a id="219c5" class="tk">VSI_P_g</a>.<a id="219c13" class="tk">Constant_Value</a>);</td></tr>
+<tr name="220" id="220">
+<td><a id="l220" class='ln'>220</a></td><td></td></tr>
+<tr name="221" id="221">
+<td><a id="l221" class='ln'>221</a></td><td>  <span class="ct">/* Logic: '&lt;S1&gt;/Logical Operator5' */</span></td></tr>
+<tr name="222" id="222">
+<td><a id="l222" class='ln'>222</a></td><td>  <a id="222c3" class="tk">VSI_B</a>.<a id="222c9" class="tk">vFRValid</a> = <a id="222c20" class="tk">!</a><a id="222c21" class="tk">rtu_COM_VehBus_st</a>-&gt;<a id="222c40" class="tk">x24E</a>.<a id="222c45" class="tk">WhlGndVelRNonDrvnV_Radar</a>;</td></tr>
+<tr name="223" id="223">
+<td><a id="l223" class='ln'>223</a></td><td></td></tr>
+<tr name="224" id="224">
+<td><a id="l224" class='ln'>224</a></td><td>  <span class="ct">/* Product: '&lt;S1&gt;/Divide2' incorporates:</span></td></tr>
+<tr name="225" id="225">
+<td><a id="l225" class='ln'>225</a></td><td><span class="ct">   *  Constant: '&lt;S1&gt;/Constant'</span></td></tr>
+<tr name="226" id="226">
+<td><a id="l226" class='ln'>226</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="227" id="227">
+<td><a id="l227" class='ln'>227</a></td><td>  <a id="227c3" class="tk">VSI_B</a>.<a id="227c9" class="tk">vRL</a> = (<a id="227c16" class="tk">real32_T</a>)(<a id="227c26" class="tk">rtu_COM_VehBus_st</a>-&gt;<a id="227c45" class="tk">x24C</a>.<a id="227c50" class="tk">WhlGndVelLDrvn_Radar</a> <a id="227c71" class="tk">/</a></td></tr>
+<tr name="228" id="228">
+<td><a id="l228" class='ln'>228</a></td><td>    <a id="228c5" class="tk">VSI_P_g</a>.<a id="228c13" class="tk">Constant_Value</a>);</td></tr>
+<tr name="229" id="229">
+<td><a id="l229" class='ln'>229</a></td><td></td></tr>
+<tr name="230" id="230">
+<td><a id="l230" class='ln'>230</a></td><td>  <span class="ct">/* Logic: '&lt;S1&gt;/Logical Operator6' */</span></td></tr>
+<tr name="231" id="231">
+<td><a id="l231" class='ln'>231</a></td><td>  <a id="231c3" class="tk">VSI_B</a>.<a id="231c9" class="tk">vRLValid</a> = <a id="231c20" class="tk">!</a>(<a id="231c22" class="tk">rtu_COM_VehBus_st</a>-&gt;<a id="231c41" class="tk">x24C</a>.<a id="231c46" class="tk">WhlGndVelLDrvn_Radar</a> <a id="231c67" class="tk">!=</a> 0.0F);</td></tr>
+<tr name="232" id="232">
+<td><a id="l232" class='ln'>232</a></td><td></td></tr>
+<tr name="233" id="233">
+<td><a id="l233" class='ln'>233</a></td><td>  <span class="ct">/* Product: '&lt;S1&gt;/Divide3' incorporates:</span></td></tr>
+<tr name="234" id="234">
+<td><a id="l234" class='ln'>234</a></td><td><span class="ct">   *  Constant: '&lt;S1&gt;/Constant'</span></td></tr>
+<tr name="235" id="235">
+<td><a id="l235" class='ln'>235</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="236" id="236">
+<td><a id="l236" class='ln'>236</a></td><td>  <a id="236c3" class="tk">VSI_B</a>.<a id="236c9" class="tk">vRR</a> = (<a id="236c16" class="tk">real32_T</a>)(<a id="236c26" class="tk">rtu_COM_VehBus_st</a>-&gt;<a id="236c45" class="tk">x24C</a>.<a id="236c50" class="tk">WhlGndVelRDrvn_Radar</a> <a id="236c71" class="tk">/</a></td></tr>
+<tr name="237" id="237">
+<td><a id="l237" class='ln'>237</a></td><td>    <a id="237c5" class="tk">VSI_P_g</a>.<a id="237c13" class="tk">Constant_Value</a>);</td></tr>
+<tr name="238" id="238">
+<td><a id="l238" class='ln'>238</a></td><td></td></tr>
+<tr name="239" id="239">
+<td><a id="l239" class='ln'>239</a></td><td>  <span class="ct">/* Logic: '&lt;S1&gt;/Logical Operator4' */</span></td></tr>
+<tr name="240" id="240">
+<td><a id="l240" class='ln'>240</a></td><td>  <a id="240c3" class="tk">VSI_B</a>.<a id="240c9" class="tk">vRRValid</a> = <a id="240c20" class="tk">!</a><a id="240c21" class="tk">rtu_COM_VehBus_st</a>-&gt;<a id="240c40" class="tk">x24C</a>.<a id="240c45" class="tk">WhlGndVelRDrvnV_Radar</a>;</td></tr>
+<tr name="241" id="241">
+<td><a id="l241" class='ln'>241</a></td><td></td></tr>
+<tr name="242" id="242">
+<td><a id="l242" class='ln'>242</a></td><td>  <span class="ct">/* Logic: '&lt;S1&gt;/Logical Operator2' */</span></td></tr>
+<tr name="243" id="243">
+<td><a id="l243" class='ln'>243</a></td><td>  <a id="243c3" class="tk">VSI_B</a>.<a id="243c9" class="tk">AxSensorValid</a> = <a id="243c25" class="tk">!</a><a id="243c26" class="tk">rtu_COM_VehBus_st</a>-&gt;<a id="243c45" class="tk">x185</a>.<a id="243c50" class="tk">VSELongtAccV</a>;</td></tr>
+<tr name="244" id="244">
+<td><a id="l244" class='ln'>244</a></td><td></td></tr>
+<tr name="245" id="245">
+<td><a id="l245" class='ln'>245</a></td><td>  <span class="ct">/* Logic: '&lt;S1&gt;/Logical Operator1' */</span></td></tr>
+<tr name="246" id="246">
+<td><a id="l246" class='ln'>246</a></td><td>  <a id="246c3" class="tk">VSI_B</a>.<a id="246c9" class="tk">YrsSensorValid</a> = <a id="246c26" class="tk">!</a><a id="246c27" class="tk">rtu_COM_VehBus_st</a>-&gt;<a id="246c46" class="tk">x1E9</a>.<a id="246c51" class="tk">VehDynYawRateV</a>;</td></tr>
+<tr name="247" id="247">
+<td><a id="l247" class='ln'>247</a></td><td></td></tr>
+<tr name="248" id="248">
+<td><a id="l248" class='ln'>248</a></td><td>  <span class="ct">/* Logic: '&lt;S1&gt;/Logical Operator' */</span></td></tr>
+<tr name="249" id="249">
+<td><a id="l249" class='ln'>249</a></td><td>  <a id="249c3" class="tk">VSI_B</a>.<a id="249c9" class="tk">SasSensorValid</a> = <a id="249c26" class="tk">!</a><a id="249c27" class="tk">rtu_COM_VehBus_st</a>-&gt;<a id="249c46" class="tk">x1E5</a>.<a id="249c51" class="tk">StrgWhlAngV</a>;</td></tr>
+<tr name="250" id="250">
+<td><a id="l250" class='ln'>250</a></td><td></td></tr>
+<tr name="251" id="251">
+<td><a id="l251" class='ln'>251</a></td><td>  <span class="ct">/* BusCreator: '&lt;S1&gt;/Bus Creator1' */</span></td></tr>
+<tr name="252" id="252">
+<td><a id="l252" class='ln'>252</a></td><td>  <a id="252c3" class="tk">VSI_B</a>.<a id="252c9" class="tk">COM_VehDyn_st</a>.<a id="252c23" class="tk">AxSensor</a> = <a id="252c34" class="tk">rtu_COM_VehBus_st</a>-&gt;<a id="252c53" class="tk">x185</a>.<a id="252c58" class="tk">VSELongtAcc</a>;</td></tr>
+<tr name="253" id="253">
+<td><a id="l253" class='ln'>253</a></td><td>  <a id="253c3" class="tk">VSI_B</a>.<a id="253c9" class="tk">COM_VehDyn_st</a>.<a id="253c23" class="tk">YrsSensor</a> = <a id="253c35" class="tk">VSI_B</a>.<a id="253c41" class="tk">YrsSensor</a>;</td></tr>
+<tr name="254" id="254">
+<td><a id="l254" class='ln'>254</a></td><td>  <a id="254c3" class="tk">VSI_B</a>.<a id="254c9" class="tk">COM_VehDyn_st</a>.<a id="254c23" class="tk">SasSensor</a> = <a id="254c35" class="tk">VSI_B</a>.<a id="254c41" class="tk">SasSensor</a>;</td></tr>
+<tr name="255" id="255">
+<td><a id="l255" class='ln'>255</a></td><td>  <a id="255c3" class="tk">VSI_B</a>.<a id="255c9" class="tk">COM_VehDyn_st</a>.<a id="255c23" class="tk">WhlSpd_FL</a> = <a id="255c35" class="tk">VSI_B</a>.<a id="255c41" class="tk">vFL</a>;</td></tr>
+<tr name="256" id="256">
+<td><a id="l256" class='ln'>256</a></td><td>  <a id="256c3" class="tk">VSI_B</a>.<a id="256c9" class="tk">COM_VehDyn_st</a>.<a id="256c23" class="tk">WhlSpd_FL_Valid</a> = <a id="256c41" class="tk">VSI_B</a>.<a id="256c47" class="tk">vFLValid</a>;</td></tr>
+<tr name="257" id="257">
+<td><a id="l257" class='ln'>257</a></td><td>  <a id="257c3" class="tk">VSI_B</a>.<a id="257c9" class="tk">COM_VehDyn_st</a>.<a id="257c23" class="tk">WhlSpd_FR</a> = <a id="257c35" class="tk">VSI_B</a>.<a id="257c41" class="tk">vFR</a>;</td></tr>
+<tr name="258" id="258">
+<td><a id="l258" class='ln'>258</a></td><td>  <a id="258c3" class="tk">VSI_B</a>.<a id="258c9" class="tk">COM_VehDyn_st</a>.<a id="258c23" class="tk">WhlSpd_FR_Valid</a> = <a id="258c41" class="tk">VSI_B</a>.<a id="258c47" class="tk">vFRValid</a>;</td></tr>
+<tr name="259" id="259">
+<td><a id="l259" class='ln'>259</a></td><td>  <a id="259c3" class="tk">VSI_B</a>.<a id="259c9" class="tk">COM_VehDyn_st</a>.<a id="259c23" class="tk">WhlSpd_RL</a> = <a id="259c35" class="tk">VSI_B</a>.<a id="259c41" class="tk">vRL</a>;</td></tr>
+<tr name="260" id="260">
+<td><a id="l260" class='ln'>260</a></td><td>  <a id="260c3" class="tk">VSI_B</a>.<a id="260c9" class="tk">COM_VehDyn_st</a>.<a id="260c23" class="tk">WhlSpd_RL_Valid</a> = <a id="260c41" class="tk">VSI_B</a>.<a id="260c47" class="tk">vRLValid</a>;</td></tr>
+<tr name="261" id="261">
+<td><a id="l261" class='ln'>261</a></td><td>  <a id="261c3" class="tk">VSI_B</a>.<a id="261c9" class="tk">COM_VehDyn_st</a>.<a id="261c23" class="tk">WhlSpd_RR</a> = <a id="261c35" class="tk">VSI_B</a>.<a id="261c41" class="tk">vRR</a>;</td></tr>
+<tr name="262" id="262">
+<td><a id="l262" class='ln'>262</a></td><td>  <a id="262c3" class="tk">VSI_B</a>.<a id="262c9" class="tk">COM_VehDyn_st</a>.<a id="262c23" class="tk">WhlSpd_RR_Valid</a> = <a id="262c41" class="tk">VSI_B</a>.<a id="262c47" class="tk">vRRValid</a>;</td></tr>
+<tr name="263" id="263">
+<td><a id="l263" class='ln'>263</a></td><td>  <a id="263c3" class="tk">VSI_B</a>.<a id="263c9" class="tk">COM_VehDyn_st</a>.<a id="263c23" class="tk">AxSensor_Valid</a> = <a id="263c40" class="tk">VSI_B</a>.<a id="263c46" class="tk">AxSensorValid</a>;</td></tr>
+<tr name="264" id="264">
+<td><a id="l264" class='ln'>264</a></td><td>  <a id="264c3" class="tk">VSI_B</a>.<a id="264c9" class="tk">COM_VehDyn_st</a>.<a id="264c23" class="tk">YrsSensor_Valid</a> = <a id="264c41" class="tk">VSI_B</a>.<a id="264c47" class="tk">YrsSensorValid</a>;</td></tr>
+<tr name="265" id="265">
+<td><a id="l265" class='ln'>265</a></td><td>  <a id="265c3" class="tk">VSI_B</a>.<a id="265c9" class="tk">COM_VehDyn_st</a>.<a id="265c23" class="tk">SasSensor_Valid</a> = <a id="265c41" class="tk">VSI_B</a>.<a id="265c47" class="tk">SasSensorValid</a>;</td></tr>
+<tr name="266" id="266">
+<td><a id="l266" class='ln'>266</a></td><td></td></tr>
+<tr name="267" id="267">
+<td><a id="l267" class='ln'>267</a></td><td>  <span class="ct">/* MinMax: '&lt;S9&gt;/Max' incorporates:</span></td></tr>
+<tr name="268" id="268">
+<td><a id="l268" class='ln'>268</a></td><td><span class="ct">   *  Constant: '&lt;S3&gt;/P_tYrsFilt'</span></td></tr>
+<tr name="269" id="269">
+<td><a id="l269" class='ln'>269</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="270" id="270">
+<td><a id="l270" class='ln'>270</a></td><td>  <a id="270c3" class="tk">u0</a> = <a id="270c8" class="tk">rtu_SYS_Info_st</a>-&gt;<a id="270c25" class="tk">dT</a>;</td></tr>
+<tr name="271" id="271">
+<td><a id="l271" class='ln'>271</a></td><td>  <a id="271c3" class="tk">u1</a> = <a id="271c8" class="tk">rtP_P_tYrsFilt</a>;</td></tr>
+<tr name="272" id="272">
+<td><a id="l272" class='ln'>272</a></td><td>  <span class="kw">if</span> ((<a id="272c8" class="tk">u0</a> <a id="272c11" class="tk">&gt;</a> <a id="272c13" class="tk">u1</a>) <a id="272c17" class="tk">||</a> <a id="272c20" class="tk">rtIsNaNF</a>(<a id="272c29" class="tk">u1</a>)) <span class="br">{</span></td></tr>
+<tr name="273" id="273">
+<td><a id="l273" class='ln'>273</a></td><td>    <a id="273c5" class="tk">u1</a> = <a id="273c10" class="tk">u0</a>;</td></tr>
+<tr name="274" id="274">
+<td><a id="l274" class='ln'>274</a></td><td>  <span class="br">}</span></td></tr>
+<tr name="275" id="275">
+<td><a id="l275" class='ln'>275</a></td><td></td></tr>
+<tr name="276" id="276">
+<td><a id="l276" class='ln'>276</a></td><td>  <a id="276c3" class="tk">VSI_B</a>.<a id="276c9" class="tk">Max</a> = <a id="276c15" class="tk">u1</a>;</td></tr>
+<tr name="277" id="277">
+<td><a id="l277" class='ln'>277</a></td><td></td></tr>
+<tr name="278" id="278">
+<td><a id="l278" class='ln'>278</a></td><td>  <span class="ct">/* End of MinMax: '&lt;S9&gt;/Max' */</span></td></tr>
+<tr name="279" id="279">
+<td><a id="l279" class='ln'>279</a></td><td></td></tr>
+<tr name="280" id="280">
+<td><a id="l280" class='ln'>280</a></td><td>  <span class="ct">/* Product: '&lt;S9&gt;/Divide' */</span></td></tr>
+<tr name="281" id="281">
+<td><a id="l281" class='ln'>281</a></td><td>  <a id="281c3" class="tk">VSI_B</a>.<a id="281c9" class="tk">filtFactor</a> = <a id="281c22" class="tk">rtu_SYS_Info_st</a>-&gt;<a id="281c39" class="tk">dT</a> <a id="281c42" class="tk">/</a> <a id="281c44" class="tk">VSI_B</a>.<a id="281c50" class="tk">Max</a>;</td></tr>
+<tr name="282" id="282">
+<td><a id="l282" class='ln'>282</a></td><td></td></tr>
+<tr name="283" id="283">
+<td><a id="l283" class='ln'>283</a></td><td>  <span class="ct">/* Product: '&lt;S9&gt;/Multiply' */</span></td></tr>
+<tr name="284" id="284">
+<td><a id="l284" class='ln'>284</a></td><td>  <a id="284c3" class="tk">VSI_B</a>.<a id="284c9" class="tk">Multiply</a> = <a id="284c20" class="tk">VSI_B</a>.<a id="284c26" class="tk">COM_VehDyn_st</a>.<a id="284c40" class="tk">YrsSensor</a> <a id="284c50" class="tk">*</a> <a id="284c52" class="tk">VSI_B</a>.<a id="284c58" class="tk">filtFactor</a>;</td></tr>
+<tr name="285" id="285">
+<td><a id="l285" class='ln'>285</a></td><td></td></tr>
+<tr name="286" id="286">
+<td><a id="l286" class='ln'>286</a></td><td>  <span class="ct">/* Sum: '&lt;S9&gt;/Add' incorporates:</span></td></tr>
+<tr name="287" id="287">
+<td><a id="l287" class='ln'>287</a></td><td><span class="ct">   *  Constant: '&lt;S9&gt;/Constant'</span></td></tr>
+<tr name="288" id="288">
+<td><a id="l288" class='ln'>288</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="289" id="289">
+<td><a id="l289" class='ln'>289</a></td><td>  <a id="289c3" class="tk">VSI_B</a>.<a id="289c9" class="tk">Add</a> = <a id="289c15" class="tk">VSI_P_g</a>.<a id="289c23" class="tk">Constant_Value_f</a> <a id="289c40" class="tk">-</a> <a id="289c42" class="tk">VSI_B</a>.<a id="289c48" class="tk">filtFactor</a>;</td></tr>
+<tr name="290" id="290">
+<td><a id="l290" class='ln'>290</a></td><td></td></tr>
+<tr name="291" id="291">
+<td><a id="l291" class='ln'>291</a></td><td>  <span class="ct">/* Memory: '&lt;S3&gt;/Memory1' */</span></td></tr>
+<tr name="292" id="292">
+<td><a id="l292" class='ln'>292</a></td><td>  <a id="292c3" class="tk">VSI_B</a>.<a id="292c9" class="tk">Memory1</a> = <a id="292c19" class="tk">VSI_DW</a>.<a id="292c26" class="tk">Memory1_PreviousInput</a>;</td></tr>
+<tr name="293" id="293">
+<td><a id="l293" class='ln'>293</a></td><td></td></tr>
+<tr name="294" id="294">
+<td><a id="l294" class='ln'>294</a></td><td>  <span class="ct">/* Product: '&lt;S9&gt;/Multiply1' */</span></td></tr>
+<tr name="295" id="295">
+<td><a id="l295" class='ln'>295</a></td><td>  <a id="295c3" class="tk">VSI_B</a>.<a id="295c9" class="tk">Multiply1</a> = <a id="295c21" class="tk">VSI_B</a>.<a id="295c27" class="tk">Add</a> <a id="295c31" class="tk">*</a> <a id="295c33" class="tk">VSI_B</a>.<a id="295c39" class="tk">Memory1</a>;</td></tr>
+<tr name="296" id="296">
+<td><a id="l296" class='ln'>296</a></td><td></td></tr>
+<tr name="297" id="297">
+<td><a id="l297" class='ln'>297</a></td><td>  <span class="ct">/* Sum: '&lt;S9&gt;/Add1' */</span></td></tr>
+<tr name="298" id="298">
+<td><a id="l298" class='ln'>298</a></td><td>  <a id="298c3" class="tk">VSI_B</a>.<a id="298c9" class="tk">Add1</a> = <a id="298c16" class="tk">VSI_B</a>.<a id="298c22" class="tk">Multiply</a> <a id="298c31" class="tk">+</a> <a id="298c33" class="tk">VSI_B</a>.<a id="298c39" class="tk">Multiply1</a>;</td></tr>
+<tr name="299" id="299">
+<td><a id="l299" class='ln'>299</a></td><td></td></tr>
+<tr name="300" id="300">
+<td><a id="l300" class='ln'>300</a></td><td>  <span class="ct">/* Switch: '&lt;S3&gt;/Switch' incorporates:</span></td></tr>
+<tr name="301" id="301">
+<td><a id="l301" class='ln'>301</a></td><td><span class="ct">   *  Constant: '&lt;S3&gt;/Constant'</span></td></tr>
+<tr name="302" id="302">
+<td><a id="l302" class='ln'>302</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="303" id="303">
+<td><a id="l303" class='ln'>303</a></td><td>  <span class="kw">if</span> (<a id="303c7" class="tk">VSI_B</a>.<a id="303c13" class="tk">COM_VehDyn_st</a>.<a id="303c27" class="tk">YrsSensor_Valid</a>) <span class="br">{</span></td></tr>
+<tr name="304" id="304">
+<td><a id="l304" class='ln'>304</a></td><td>    <a id="304c5" class="tk">VSI_B</a>.<a id="304c11" class="tk">Switch</a> = <a id="304c20" class="tk">VSI_B</a>.<a id="304c26" class="tk">Add1</a>;</td></tr>
+<tr name="305" id="305">
+<td><a id="l305" class='ln'>305</a></td><td>  <span class="br">}</span> <span class="kw">else</span> <span class="br">{</span></td></tr>
+<tr name="306" id="306">
+<td><a id="l306" class='ln'>306</a></td><td>    <a id="306c5" class="tk">VSI_B</a>.<a id="306c11" class="tk">Switch</a> = (<a id="306c21" class="tk">real32_T</a>)<a id="306c30" class="tk">VSI_P_g</a>.<a id="306c38" class="tk">Constant_Value_b</a>;</td></tr>
+<tr name="307" id="307">
+<td><a id="l307" class='ln'>307</a></td><td>  <span class="br">}</span></td></tr>
+<tr name="308" id="308">
+<td><a id="l308" class='ln'>308</a></td><td></td></tr>
+<tr name="309" id="309">
+<td><a id="l309" class='ln'>309</a></td><td>  <span class="ct">/* End of Switch: '&lt;S3&gt;/Switch' */</span></td></tr>
+<tr name="310" id="310">
+<td><a id="l310" class='ln'>310</a></td><td></td></tr>
+<tr name="311" id="311">
+<td><a id="l311" class='ln'>311</a></td><td>  <span class="ct">/* MATLAB Function: '&lt;S3&gt;/MATLAB Function1' */</span></td></tr>
+<tr name="312" id="312">
+<td><a id="l312" class='ln'>312</a></td><td>  <a id="312c3" class="tk">WhlSpd_valid_cnt</a> = 0;</td></tr>
+<tr name="313" id="313">
+<td><a id="l313" class='ln'>313</a></td><td>  <span class="kw">if</span> (<a id="313c7" class="tk">VSI_B</a>.<a id="313c13" class="tk">COM_VehDyn_st</a>.<a id="313c27" class="tk">WhlSpd_FL_Valid</a>) <span class="br">{</span></td></tr>
+<tr name="314" id="314">
+<td><a id="l314" class='ln'>314</a></td><td>    <a id="314c5" class="tk">WhlSpd_valid_cnt</a> = 1;</td></tr>
+<tr name="315" id="315">
+<td><a id="l315" class='ln'>315</a></td><td>  <span class="br">}</span></td></tr>
+<tr name="316" id="316">
+<td><a id="l316" class='ln'>316</a></td><td></td></tr>
+<tr name="317" id="317">
+<td><a id="l317" class='ln'>317</a></td><td>  <span class="kw">if</span> (<a id="317c7" class="tk">VSI_B</a>.<a id="317c13" class="tk">COM_VehDyn_st</a>.<a id="317c27" class="tk">WhlSpd_FR_Valid</a>) <span class="br">{</span></td></tr>
+<tr name="318" id="318">
+<td><a id="l318" class='ln'>318</a></td><td>    <a id="318c5" class="tk">WhlSpd_valid_cnt</a><a id="318c21" class="tk">++</a>;</td></tr>
+<tr name="319" id="319">
+<td><a id="l319" class='ln'>319</a></td><td>  <span class="br">}</span></td></tr>
+<tr name="320" id="320">
+<td><a id="l320" class='ln'>320</a></td><td></td></tr>
+<tr name="321" id="321">
+<td><a id="l321" class='ln'>321</a></td><td>  <span class="kw">if</span> (<a id="321c7" class="tk">VSI_B</a>.<a id="321c13" class="tk">COM_VehDyn_st</a>.<a id="321c27" class="tk">WhlSpd_RL_Valid</a>) <span class="br">{</span></td></tr>
+<tr name="322" id="322">
+<td><a id="l322" class='ln'>322</a></td><td>    <a id="322c5" class="tk">WhlSpd_valid_cnt</a><a id="322c21" class="tk">++</a>;</td></tr>
+<tr name="323" id="323">
+<td><a id="l323" class='ln'>323</a></td><td>  <span class="br">}</span></td></tr>
+<tr name="324" id="324">
+<td><a id="l324" class='ln'>324</a></td><td></td></tr>
+<tr name="325" id="325">
+<td><a id="l325" class='ln'>325</a></td><td>  <span class="kw">if</span> (<a id="325c7" class="tk">VSI_B</a>.<a id="325c13" class="tk">COM_VehDyn_st</a>.<a id="325c27" class="tk">WhlSpd_RR_Valid</a>) <span class="br">{</span></td></tr>
+<tr name="326" id="326">
+<td><a id="l326" class='ln'>326</a></td><td>    <a id="326c5" class="tk">WhlSpd_valid_cnt</a><a id="326c21" class="tk">++</a>;</td></tr>
+<tr name="327" id="327">
+<td><a id="l327" class='ln'>327</a></td><td>  <span class="br">}</span></td></tr>
+<tr name="328" id="328">
+<td><a id="l328" class='ln'>328</a></td><td></td></tr>
+<tr name="329" id="329">
+<td><a id="l329" class='ln'>329</a></td><td>  <span class="kw">if</span> (<a id="329c7" class="tk">WhlSpd_valid_cnt</a> <a id="329c24" class="tk">==</a> 4) <span class="br">{</span></td></tr>
+<tr name="330" id="330">
+<td><a id="l330" class='ln'>330</a></td><td>    <span class="kw">if</span> ((<a id="330c10" class="tk">VSI_B</a>.<a id="330c16" class="tk">COM_VehDyn_st</a>.<a id="330c30" class="tk">WhlSpd_FL</a> <a id="330c40" class="tk">+</a> <a id="330c42" class="tk">VSI_B</a>.<a id="330c48" class="tk">COM_VehDyn_st</a>.<a id="330c62" class="tk">WhlSpd_FR</a>) <a id="330c73" class="tk">/</a> 2.0F <a id="330c80" class="tk">&gt;=</a></td></tr>
+<tr name="331" id="331">
+<td><a id="l331" class='ln'>331</a></td><td>        (<a id="331c10" class="tk">VSI_B</a>.<a id="331c16" class="tk">COM_VehDyn_st</a>.<a id="331c30" class="tk">WhlSpd_RL</a> <a id="331c40" class="tk">+</a> <a id="331c42" class="tk">VSI_B</a>.<a id="331c48" class="tk">COM_VehDyn_st</a>.<a id="331c62" class="tk">WhlSpd_RR</a>) <a id="331c73" class="tk">/</a> 2.0F)</td></tr>
+<tr name="332" id="332">
+<td><a id="l332" class='ln'>332</a></td><td>    <span class="br">{</span></td></tr>
+<tr name="333" id="333">
+<td><a id="l333" class='ln'>333</a></td><td>      <a id="333c7" class="tk">u0</a> = <a id="333c12" class="tk">VSI_B</a>.<a id="333c18" class="tk">COM_VehDyn_st</a>.<a id="333c32" class="tk">WhlSpd_FL</a>;</td></tr>
+<tr name="334" id="334">
+<td><a id="l334" class='ln'>334</a></td><td>      <a id="334c7" class="tk">u1</a> = <a id="334c12" class="tk">VSI_B</a>.<a id="334c18" class="tk">COM_VehDyn_st</a>.<a id="334c32" class="tk">WhlSpd_FR</a>;</td></tr>
+<tr name="335" id="335">
+<td><a id="l335" class='ln'>335</a></td><td>      <span class="kw">if</span> ((<a id="335c12" class="tk">u0</a> <a id="335c15" class="tk">&lt;</a> <a id="335c17" class="tk">u1</a>) <a id="335c21" class="tk">||</a> <a id="335c24" class="tk">rtIsNaNF</a>(<a id="335c33" class="tk">u1</a>)) <span class="br">{</span></td></tr>
+<tr name="336" id="336">
+<td><a id="l336" class='ln'>336</a></td><td>        <a id="336c9" class="tk">u1</a> = <a id="336c14" class="tk">u0</a>;</td></tr>
+<tr name="337" id="337">
+<td><a id="l337" class='ln'>337</a></td><td>      <span class="br">}</span></td></tr>
+<tr name="338" id="338">
+<td><a id="l338" class='ln'>338</a></td><td></td></tr>
+<tr name="339" id="339">
+<td><a id="l339" class='ln'>339</a></td><td>      <a id="339c7" class="tk">u0</a> = <a id="339c12" class="tk">VSI_B</a>.<a id="339c18" class="tk">COM_VehDyn_st</a>.<a id="339c32" class="tk">WhlSpd_RL</a>;</td></tr>
+<tr name="340" id="340">
+<td><a id="l340" class='ln'>340</a></td><td>      <a id="340c7" class="tk">u1_0</a> = <a id="340c14" class="tk">VSI_B</a>.<a id="340c20" class="tk">COM_VehDyn_st</a>.<a id="340c34" class="tk">WhlSpd_RR</a>;</td></tr>
+<tr name="341" id="341">
+<td><a id="l341" class='ln'>341</a></td><td>      <span class="kw">if</span> ((<a id="341c12" class="tk">u0</a> <a id="341c15" class="tk">&gt;</a> <a id="341c17" class="tk">u1_0</a>) <a id="341c23" class="tk">||</a> <a id="341c26" class="tk">rtIsNaNF</a>(<a id="341c35" class="tk">u1_0</a>)) <span class="br">{</span></td></tr>
+<tr name="342" id="342">
+<td><a id="l342" class='ln'>342</a></td><td>        <a id="342c9" class="tk">u1_0</a> = <a id="342c16" class="tk">u0</a>;</td></tr>
+<tr name="343" id="343">
+<td><a id="l343" class='ln'>343</a></td><td>      <span class="br">}</span></td></tr>
+<tr name="344" id="344">
+<td><a id="l344" class='ln'>344</a></td><td></td></tr>
+<tr name="345" id="345">
+<td><a id="l345" class='ln'>345</a></td><td>      <a id="345c7" class="tk">VSI_B</a>.<a id="345c13" class="tk">vRaw</a> = (<a id="345c21" class="tk">u1</a> <a id="345c24" class="tk">+</a> <a id="345c26" class="tk">u1_0</a>) <a id="345c32" class="tk">/</a> 2.0F;</td></tr>
+<tr name="346" id="346">
+<td><a id="l346" class='ln'>346</a></td><td>    <span class="br">}</span> <span class="kw">else</span> <span class="br">{</span></td></tr>
+<tr name="347" id="347">
+<td><a id="l347" class='ln'>347</a></td><td>      <a id="347c7" class="tk">u0</a> = <a id="347c12" class="tk">VSI_B</a>.<a id="347c18" class="tk">COM_VehDyn_st</a>.<a id="347c32" class="tk">WhlSpd_FL</a>;</td></tr>
+<tr name="348" id="348">
+<td><a id="l348" class='ln'>348</a></td><td>      <a id="348c7" class="tk">u1</a> = <a id="348c12" class="tk">VSI_B</a>.<a id="348c18" class="tk">COM_VehDyn_st</a>.<a id="348c32" class="tk">WhlSpd_FR</a>;</td></tr>
+<tr name="349" id="349">
+<td><a id="l349" class='ln'>349</a></td><td>      <span class="kw">if</span> ((<a id="349c12" class="tk">u0</a> <a id="349c15" class="tk">&gt;</a> <a id="349c17" class="tk">u1</a>) <a id="349c21" class="tk">||</a> <a id="349c24" class="tk">rtIsNaNF</a>(<a id="349c33" class="tk">u1</a>)) <span class="br">{</span></td></tr>
+<tr name="350" id="350">
+<td><a id="l350" class='ln'>350</a></td><td>        <a id="350c9" class="tk">u1</a> = <a id="350c14" class="tk">u0</a>;</td></tr>
+<tr name="351" id="351">
+<td><a id="l351" class='ln'>351</a></td><td>      <span class="br">}</span></td></tr>
+<tr name="352" id="352">
+<td><a id="l352" class='ln'>352</a></td><td></td></tr>
+<tr name="353" id="353">
+<td><a id="l353" class='ln'>353</a></td><td>      <a id="353c7" class="tk">u0</a> = <a id="353c12" class="tk">VSI_B</a>.<a id="353c18" class="tk">COM_VehDyn_st</a>.<a id="353c32" class="tk">WhlSpd_RL</a>;</td></tr>
+<tr name="354" id="354">
+<td><a id="l354" class='ln'>354</a></td><td>      <a id="354c7" class="tk">u1_0</a> = <a id="354c14" class="tk">VSI_B</a>.<a id="354c20" class="tk">COM_VehDyn_st</a>.<a id="354c34" class="tk">WhlSpd_RR</a>;</td></tr>
+<tr name="355" id="355">
+<td><a id="l355" class='ln'>355</a></td><td>      <span class="kw">if</span> ((<a id="355c12" class="tk">u0</a> <a id="355c15" class="tk">&lt;</a> <a id="355c17" class="tk">u1_0</a>) <a id="355c23" class="tk">||</a> <a id="355c26" class="tk">rtIsNaNF</a>(<a id="355c35" class="tk">u1_0</a>)) <span class="br">{</span></td></tr>
+<tr name="356" id="356">
+<td><a id="l356" class='ln'>356</a></td><td>        <a id="356c9" class="tk">u1_0</a> = <a id="356c16" class="tk">u0</a>;</td></tr>
+<tr name="357" id="357">
+<td><a id="l357" class='ln'>357</a></td><td>      <span class="br">}</span></td></tr>
+<tr name="358" id="358">
+<td><a id="l358" class='ln'>358</a></td><td></td></tr>
+<tr name="359" id="359">
+<td><a id="l359" class='ln'>359</a></td><td>      <a id="359c7" class="tk">VSI_B</a>.<a id="359c13" class="tk">vRaw</a> = (<a id="359c21" class="tk">u1</a> <a id="359c24" class="tk">+</a> <a id="359c26" class="tk">u1_0</a>) <a id="359c32" class="tk">/</a> 2.0F;</td></tr>
+<tr name="360" id="360">
+<td><a id="l360" class='ln'>360</a></td><td>    <span class="br">}</span></td></tr>
+<tr name="361" id="361">
+<td><a id="l361" class='ln'>361</a></td><td>  <span class="br">}</span> <span class="kw">else</span> <span class="br">{</span></td></tr>
+<tr name="362" id="362">
+<td><a id="l362" class='ln'>362</a></td><td>    <a id="362c5" class="tk">VSI_B</a>.<a id="362c11" class="tk">vRaw</a> = (((<a id="362c21" class="tk">VSI_B</a>.<a id="362c27" class="tk">COM_VehDyn_st</a>.<a id="362c41" class="tk">WhlSpd_FL</a> <a id="362c51" class="tk">*</a> (<a id="362c54" class="tk">real32_T</a>)</td></tr>
+<tr name="363" id="363">
+<td><a id="l363" class='ln'>363</a></td><td>                    <a id="363c21" class="tk">VSI_B</a>.<a id="363c27" class="tk">COM_VehDyn_st</a>.<a id="363c41" class="tk">WhlSpd_FL_Valid</a> <a id="363c57" class="tk">+</a></td></tr>
+<tr name="364" id="364">
+<td><a id="l364" class='ln'>364</a></td><td>                    <a id="364c21" class="tk">VSI_B</a>.<a id="364c27" class="tk">COM_VehDyn_st</a>.<a id="364c41" class="tk">WhlSpd_FR</a> <a id="364c51" class="tk">*</a> (<a id="364c54" class="tk">real32_T</a>)</td></tr>
+<tr name="365" id="365">
+<td><a id="l365" class='ln'>365</a></td><td>                    <a id="365c21" class="tk">VSI_B</a>.<a id="365c27" class="tk">COM_VehDyn_st</a>.<a id="365c41" class="tk">WhlSpd_FR_Valid</a>) <a id="365c58" class="tk">+</a></td></tr>
+<tr name="366" id="366">
+<td><a id="l366" class='ln'>366</a></td><td>                   <a id="366c20" class="tk">VSI_B</a>.<a id="366c26" class="tk">COM_VehDyn_st</a>.<a id="366c40" class="tk">WhlSpd_RL</a> <a id="366c50" class="tk">*</a> (<a id="366c53" class="tk">real32_T</a>)</td></tr>
+<tr name="367" id="367">
+<td><a id="l367" class='ln'>367</a></td><td>                   <a id="367c20" class="tk">VSI_B</a>.<a id="367c26" class="tk">COM_VehDyn_st</a>.<a id="367c40" class="tk">WhlSpd_RL_Valid</a>) <a id="367c57" class="tk">+</a></td></tr>
+<tr name="368" id="368">
+<td><a id="l368" class='ln'>368</a></td><td>                  <a id="368c19" class="tk">VSI_B</a>.<a id="368c25" class="tk">COM_VehDyn_st</a>.<a id="368c39" class="tk">WhlSpd_RR</a> <a id="368c49" class="tk">*</a> (<a id="368c52" class="tk">real32_T</a>)</td></tr>
+<tr name="369" id="369">
+<td><a id="l369" class='ln'>369</a></td><td>                  <a id="369c19" class="tk">VSI_B</a>.<a id="369c25" class="tk">COM_VehDyn_st</a>.<a id="369c39" class="tk">WhlSpd_RR_Valid</a>) <a id="369c56" class="tk">/</a> (<a id="369c59" class="tk">real32_T</a>)</td></tr>
+<tr name="370" id="370">
+<td><a id="l370" class='ln'>370</a></td><td>      <a id="370c7" class="tk">WhlSpd_valid_cnt</a>;</td></tr>
+<tr name="371" id="371">
+<td><a id="l371" class='ln'>371</a></td><td>  <span class="br">}</span></td></tr>
+<tr name="372" id="372">
+<td><a id="l372" class='ln'>372</a></td><td></td></tr>
+<tr name="373" id="373">
+<td><a id="l373" class='ln'>373</a></td><td>  <span class="ct">/* End of MATLAB Function: '&lt;S3&gt;/MATLAB Function1' */</span></td></tr>
+<tr name="374" id="374">
+<td><a id="l374" class='ln'>374</a></td><td></td></tr>
+<tr name="375" id="375">
+<td><a id="l375" class='ln'>375</a></td><td>  <span class="ct">/* MinMax: '&lt;S11&gt;/Max' incorporates:</span></td></tr>
+<tr name="376" id="376">
+<td><a id="l376" class='ln'>376</a></td><td><span class="ct">   *  Constant: '&lt;S3&gt;/P_tVVehFilt'</span></td></tr>
+<tr name="377" id="377">
+<td><a id="l377" class='ln'>377</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="378" id="378">
+<td><a id="l378" class='ln'>378</a></td><td>  <a id="378c3" class="tk">u0</a> = <a id="378c8" class="tk">rtu_SYS_Info_st</a>-&gt;<a id="378c25" class="tk">dT</a>;</td></tr>
+<tr name="379" id="379">
+<td><a id="l379" class='ln'>379</a></td><td>  <a id="379c3" class="tk">u1</a> = <a id="379c8" class="tk">rtP_P_tVVehFilt</a>;</td></tr>
+<tr name="380" id="380">
+<td><a id="l380" class='ln'>380</a></td><td>  <span class="kw">if</span> ((<a id="380c8" class="tk">u0</a> <a id="380c11" class="tk">&gt;</a> <a id="380c13" class="tk">u1</a>) <a id="380c17" class="tk">||</a> <a id="380c20" class="tk">rtIsNaNF</a>(<a id="380c29" class="tk">u1</a>)) <span class="br">{</span></td></tr>
+<tr name="381" id="381">
+<td><a id="l381" class='ln'>381</a></td><td>    <a id="381c5" class="tk">u1</a> = <a id="381c10" class="tk">u0</a>;</td></tr>
+<tr name="382" id="382">
+<td><a id="l382" class='ln'>382</a></td><td>  <span class="br">}</span></td></tr>
+<tr name="383" id="383">
+<td><a id="l383" class='ln'>383</a></td><td></td></tr>
+<tr name="384" id="384">
+<td><a id="l384" class='ln'>384</a></td><td>  <a id="384c3" class="tk">VSI_B</a>.<a id="384c9" class="tk">Max_e</a> = <a id="384c17" class="tk">u1</a>;</td></tr>
+<tr name="385" id="385">
+<td><a id="l385" class='ln'>385</a></td><td></td></tr>
+<tr name="386" id="386">
+<td><a id="l386" class='ln'>386</a></td><td>  <span class="ct">/* End of MinMax: '&lt;S11&gt;/Max' */</span></td></tr>
+<tr name="387" id="387">
+<td><a id="l387" class='ln'>387</a></td><td></td></tr>
+<tr name="388" id="388">
+<td><a id="l388" class='ln'>388</a></td><td>  <span class="ct">/* Product: '&lt;S11&gt;/Divide' */</span></td></tr>
+<tr name="389" id="389">
+<td><a id="l389" class='ln'>389</a></td><td>  <a id="389c3" class="tk">VSI_B</a>.<a id="389c9" class="tk">filtFactor_b</a> = <a id="389c24" class="tk">rtu_SYS_Info_st</a>-&gt;<a id="389c41" class="tk">dT</a> <a id="389c44" class="tk">/</a> <a id="389c46" class="tk">VSI_B</a>.<a id="389c52" class="tk">Max_e</a>;</td></tr>
+<tr name="390" id="390">
+<td><a id="l390" class='ln'>390</a></td><td></td></tr>
+<tr name="391" id="391">
+<td><a id="l391" class='ln'>391</a></td><td>  <span class="ct">/* Product: '&lt;S11&gt;/Multiply' */</span></td></tr>
+<tr name="392" id="392">
+<td><a id="l392" class='ln'>392</a></td><td>  <a id="392c3" class="tk">VSI_B</a>.<a id="392c9" class="tk">Multiply_c</a> = <a id="392c22" class="tk">VSI_B</a>.<a id="392c28" class="tk">vRaw</a> <a id="392c33" class="tk">*</a> <a id="392c35" class="tk">VSI_B</a>.<a id="392c41" class="tk">filtFactor_b</a>;</td></tr>
+<tr name="393" id="393">
+<td><a id="l393" class='ln'>393</a></td><td></td></tr>
+<tr name="394" id="394">
+<td><a id="l394" class='ln'>394</a></td><td>  <span class="ct">/* Sum: '&lt;S11&gt;/Add' incorporates:</span></td></tr>
+<tr name="395" id="395">
+<td><a id="l395" class='ln'>395</a></td><td><span class="ct">   *  Constant: '&lt;S11&gt;/Constant'</span></td></tr>
+<tr name="396" id="396">
+<td><a id="l396" class='ln'>396</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="397" id="397">
+<td><a id="l397" class='ln'>397</a></td><td>  <a id="397c3" class="tk">VSI_B</a>.<a id="397c9" class="tk">Add_a</a> = <a id="397c17" class="tk">VSI_P_g</a>.<a id="397c25" class="tk">Constant_Value_p</a> <a id="397c42" class="tk">-</a> <a id="397c44" class="tk">VSI_B</a>.<a id="397c50" class="tk">filtFactor_b</a>;</td></tr>
+<tr name="398" id="398">
+<td><a id="l398" class='ln'>398</a></td><td></td></tr>
+<tr name="399" id="399">
+<td><a id="l399" class='ln'>399</a></td><td>  <span class="ct">/* Memory: '&lt;S3&gt;/Memory4' */</span></td></tr>
+<tr name="400" id="400">
+<td><a id="l400" class='ln'>400</a></td><td>  <a id="400c3" class="tk">VSI_B</a>.<a id="400c9" class="tk">Memory4</a> = <a id="400c19" class="tk">VSI_DW</a>.<a id="400c26" class="tk">Memory4_PreviousInput</a>;</td></tr>
+<tr name="401" id="401">
+<td><a id="l401" class='ln'>401</a></td><td></td></tr>
+<tr name="402" id="402">
+<td><a id="l402" class='ln'>402</a></td><td>  <span class="ct">/* Product: '&lt;S11&gt;/Multiply1' */</span></td></tr>
+<tr name="403" id="403">
+<td><a id="l403" class='ln'>403</a></td><td>  <a id="403c3" class="tk">VSI_B</a>.<a id="403c9" class="tk">Multiply1_o</a> = <a id="403c23" class="tk">VSI_B</a>.<a id="403c29" class="tk">Add_a</a> <a id="403c35" class="tk">*</a> <a id="403c37" class="tk">VSI_B</a>.<a id="403c43" class="tk">Memory4</a>;</td></tr>
+<tr name="404" id="404">
+<td><a id="l404" class='ln'>404</a></td><td></td></tr>
+<tr name="405" id="405">
+<td><a id="l405" class='ln'>405</a></td><td>  <span class="ct">/* Sum: '&lt;S11&gt;/Add1' */</span></td></tr>
+<tr name="406" id="406">
+<td><a id="l406" class='ln'>406</a></td><td>  <a id="406c3" class="tk">VSI_B</a>.<a id="406c9" class="tk">Add1_f</a> = <a id="406c18" class="tk">VSI_B</a>.<a id="406c24" class="tk">Multiply_c</a> <a id="406c35" class="tk">+</a> <a id="406c37" class="tk">VSI_B</a>.<a id="406c43" class="tk">Multiply1_o</a>;</td></tr>
+<tr name="407" id="407">
+<td><a id="l407" class='ln'>407</a></td><td></td></tr>
+<tr name="408" id="408">
+<td><a id="l408" class='ln'>408</a></td><td>  <span class="ct">/* MinMax: '&lt;S8&gt;/Max' incorporates:</span></td></tr>
+<tr name="409" id="409">
+<td><a id="l409" class='ln'>409</a></td><td><span class="ct">   *  Constant: '&lt;S3&gt;/P_tSasFilt'</span></td></tr>
+<tr name="410" id="410">
+<td><a id="l410" class='ln'>410</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="411" id="411">
+<td><a id="l411" class='ln'>411</a></td><td>  <a id="411c3" class="tk">u0</a> = <a id="411c8" class="tk">rtu_SYS_Info_st</a>-&gt;<a id="411c25" class="tk">dT</a>;</td></tr>
+<tr name="412" id="412">
+<td><a id="l412" class='ln'>412</a></td><td>  <a id="412c3" class="tk">u1</a> = <a id="412c8" class="tk">rtP_P_tSasFilt</a>;</td></tr>
+<tr name="413" id="413">
+<td><a id="l413" class='ln'>413</a></td><td>  <span class="kw">if</span> ((<a id="413c8" class="tk">u0</a> <a id="413c11" class="tk">&gt;</a> <a id="413c13" class="tk">u1</a>) <a id="413c17" class="tk">||</a> <a id="413c20" class="tk">rtIsNaNF</a>(<a id="413c29" class="tk">u1</a>)) <span class="br">{</span></td></tr>
+<tr name="414" id="414">
+<td><a id="l414" class='ln'>414</a></td><td>    <a id="414c5" class="tk">u1</a> = <a id="414c10" class="tk">u0</a>;</td></tr>
+<tr name="415" id="415">
+<td><a id="l415" class='ln'>415</a></td><td>  <span class="br">}</span></td></tr>
+<tr name="416" id="416">
+<td><a id="l416" class='ln'>416</a></td><td></td></tr>
+<tr name="417" id="417">
+<td><a id="l417" class='ln'>417</a></td><td>  <a id="417c3" class="tk">VSI_B</a>.<a id="417c9" class="tk">Max_h</a> = <a id="417c17" class="tk">u1</a>;</td></tr>
+<tr name="418" id="418">
+<td><a id="l418" class='ln'>418</a></td><td></td></tr>
+<tr name="419" id="419">
+<td><a id="l419" class='ln'>419</a></td><td>  <span class="ct">/* End of MinMax: '&lt;S8&gt;/Max' */</span></td></tr>
+<tr name="420" id="420">
+<td><a id="l420" class='ln'>420</a></td><td></td></tr>
+<tr name="421" id="421">
+<td><a id="l421" class='ln'>421</a></td><td>  <span class="ct">/* Product: '&lt;S8&gt;/Divide' */</span></td></tr>
+<tr name="422" id="422">
+<td><a id="l422" class='ln'>422</a></td><td>  <a id="422c3" class="tk">VSI_B</a>.<a id="422c9" class="tk">filtFactor_j</a> = <a id="422c24" class="tk">rtu_SYS_Info_st</a>-&gt;<a id="422c41" class="tk">dT</a> <a id="422c44" class="tk">/</a> <a id="422c46" class="tk">VSI_B</a>.<a id="422c52" class="tk">Max_h</a>;</td></tr>
+<tr name="423" id="423">
+<td><a id="l423" class='ln'>423</a></td><td></td></tr>
+<tr name="424" id="424">
+<td><a id="l424" class='ln'>424</a></td><td>  <span class="ct">/* Product: '&lt;S8&gt;/Multiply' */</span></td></tr>
+<tr name="425" id="425">
+<td><a id="l425" class='ln'>425</a></td><td>  <a id="425c3" class="tk">VSI_B</a>.<a id="425c9" class="tk">Multiply_a</a> = <a id="425c22" class="tk">VSI_B</a>.<a id="425c28" class="tk">COM_VehDyn_st</a>.<a id="425c42" class="tk">SasSensor</a> <a id="425c52" class="tk">*</a> <a id="425c54" class="tk">VSI_B</a>.<a id="425c60" class="tk">filtFactor_j</a>;</td></tr>
+<tr name="426" id="426">
+<td><a id="l426" class='ln'>426</a></td><td></td></tr>
+<tr name="427" id="427">
+<td><a id="l427" class='ln'>427</a></td><td>  <span class="ct">/* Sum: '&lt;S8&gt;/Add' incorporates:</span></td></tr>
+<tr name="428" id="428">
+<td><a id="l428" class='ln'>428</a></td><td><span class="ct">   *  Constant: '&lt;S8&gt;/Constant'</span></td></tr>
+<tr name="429" id="429">
+<td><a id="l429" class='ln'>429</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="430" id="430">
+<td><a id="l430" class='ln'>430</a></td><td>  <a id="430c3" class="tk">VSI_B</a>.<a id="430c9" class="tk">Add_f</a> = <a id="430c17" class="tk">VSI_P_g</a>.<a id="430c25" class="tk">Constant_Value_by</a> <a id="430c43" class="tk">-</a> <a id="430c45" class="tk">VSI_B</a>.<a id="430c51" class="tk">filtFactor_j</a>;</td></tr>
+<tr name="431" id="431">
+<td><a id="l431" class='ln'>431</a></td><td></td></tr>
+<tr name="432" id="432">
+<td><a id="l432" class='ln'>432</a></td><td>  <span class="ct">/* Memory: '&lt;S3&gt;/Memory2' */</span></td></tr>
+<tr name="433" id="433">
+<td><a id="l433" class='ln'>433</a></td><td>  <a id="433c3" class="tk">VSI_B</a>.<a id="433c9" class="tk">Memory2</a> = <a id="433c19" class="tk">VSI_DW</a>.<a id="433c26" class="tk">Memory2_PreviousInput</a>;</td></tr>
+<tr name="434" id="434">
+<td><a id="l434" class='ln'>434</a></td><td></td></tr>
+<tr name="435" id="435">
+<td><a id="l435" class='ln'>435</a></td><td>  <span class="ct">/* Product: '&lt;S8&gt;/Multiply1' */</span></td></tr>
+<tr name="436" id="436">
+<td><a id="l436" class='ln'>436</a></td><td>  <a id="436c3" class="tk">VSI_B</a>.<a id="436c9" class="tk">Multiply1_d</a> = <a id="436c23" class="tk">VSI_B</a>.<a id="436c29" class="tk">Add_f</a> <a id="436c35" class="tk">*</a> <a id="436c37" class="tk">VSI_B</a>.<a id="436c43" class="tk">Memory2</a>;</td></tr>
+<tr name="437" id="437">
+<td><a id="l437" class='ln'>437</a></td><td></td></tr>
+<tr name="438" id="438">
+<td><a id="l438" class='ln'>438</a></td><td>  <span class="ct">/* Sum: '&lt;S8&gt;/Add1' */</span></td></tr>
+<tr name="439" id="439">
+<td><a id="l439" class='ln'>439</a></td><td>  <a id="439c3" class="tk">VSI_B</a>.<a id="439c9" class="tk">Add1_c</a> = <a id="439c18" class="tk">VSI_B</a>.<a id="439c24" class="tk">Multiply_a</a> <a id="439c35" class="tk">+</a> <a id="439c37" class="tk">VSI_B</a>.<a id="439c43" class="tk">Multiply1_d</a>;</td></tr>
+<tr name="440" id="440">
+<td><a id="l440" class='ln'>440</a></td><td></td></tr>
+<tr name="441" id="441">
+<td><a id="l441" class='ln'>441</a></td><td>  <span class="ct">/* Product: '&lt;S3&gt;/Divide2' incorporates:</span></td></tr>
+<tr name="442" id="442">
+<td><a id="l442" class='ln'>442</a></td><td><span class="ct">   *  Constant: '&lt;S3&gt;/StRatio'</span></td></tr>
+<tr name="443" id="443">
+<td><a id="l443" class='ln'>443</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="444" id="444">
+<td><a id="l444" class='ln'>444</a></td><td>  <a id="444c3" class="tk">VSI_B</a>.<a id="444c9" class="tk">Divide2</a> = <a id="444c19" class="tk">VSI_B</a>.<a id="444c25" class="tk">Add1_c</a> <a id="444c32" class="tk">/</a> <a id="444c34" class="tk">rtP_StRatio</a>;</td></tr>
+<tr name="445" id="445">
+<td><a id="l445" class='ln'>445</a></td><td></td></tr>
+<tr name="446" id="446">
+<td><a id="l446" class='ln'>446</a></td><td>  <span class="ct">/* Switch: '&lt;S3&gt;/Switch2' incorporates:</span></td></tr>
+<tr name="447" id="447">
+<td><a id="l447" class='ln'>447</a></td><td><span class="ct">   *  Constant: '&lt;S3&gt;/Constant2'</span></td></tr>
+<tr name="448" id="448">
+<td><a id="l448" class='ln'>448</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="449" id="449">
+<td><a id="l449" class='ln'>449</a></td><td>  <span class="kw">if</span> (<a id="449c7" class="tk">VSI_B</a>.<a id="449c13" class="tk">COM_VehDyn_st</a>.<a id="449c27" class="tk">SasSensor_Valid</a>) <span class="br">{</span></td></tr>
+<tr name="450" id="450">
+<td><a id="l450" class='ln'>450</a></td><td>    <a id="450c5" class="tk">VSI_B</a>.<a id="450c11" class="tk">Switch2</a> = <a id="450c21" class="tk">VSI_B</a>.<a id="450c27" class="tk">Divide2</a>;</td></tr>
+<tr name="451" id="451">
+<td><a id="l451" class='ln'>451</a></td><td>  <span class="br">}</span> <span class="kw">else</span> <span class="br">{</span></td></tr>
+<tr name="452" id="452">
+<td><a id="l452" class='ln'>452</a></td><td>    <a id="452c5" class="tk">VSI_B</a>.<a id="452c11" class="tk">Switch2</a> = (<a id="452c22" class="tk">real32_T</a>)<a id="452c31" class="tk">VSI_P_g</a>.<a id="452c39" class="tk">Constant2_Value</a>;</td></tr>
+<tr name="453" id="453">
+<td><a id="l453" class='ln'>453</a></td><td>  <span class="br">}</span></td></tr>
+<tr name="454" id="454">
+<td><a id="l454" class='ln'>454</a></td><td></td></tr>
+<tr name="455" id="455">
+<td><a id="l455" class='ln'>455</a></td><td>  <span class="ct">/* End of Switch: '&lt;S3&gt;/Switch2' */</span></td></tr>
+<tr name="456" id="456">
+<td><a id="l456" class='ln'>456</a></td><td></td></tr>
+<tr name="457" id="457">
+<td><a id="l457" class='ln'>457</a></td><td>  <span class="ct">/* Product: '&lt;S3&gt;/Divide1' incorporates:</span></td></tr>
+<tr name="458" id="458">
+<td><a id="l458" class='ln'>458</a></td><td><span class="ct">   *  Constant: '&lt;S3&gt;/d_WheelBase'</span></td></tr>
+<tr name="459" id="459">
+<td><a id="l459" class='ln'>459</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="460" id="460">
+<td><a id="l460" class='ln'>460</a></td><td>  <a id="460c3" class="tk">VSI_B</a>.<a id="460c9" class="tk">Divide1</a> = <a id="460c19" class="tk">VSI_B</a>.<a id="460c25" class="tk">Switch2</a> <a id="460c33" class="tk">/</a> <a id="460c35" class="tk">rtP_d_WheelBase</a>;</td></tr>
+<tr name="461" id="461">
+<td><a id="l461" class='ln'>461</a></td><td></td></tr>
+<tr name="462" id="462">
+<td><a id="l462" class='ln'>462</a></td><td>  <span class="ct">/* MATLAB Function: '&lt;S3&gt;/MATLAB Function3' incorporates:</span></td></tr>
+<tr name="463" id="463">
+<td><a id="l463" class='ln'>463</a></td><td><span class="ct">   *  Constant: '&lt;S3&gt;/P_vHi'</span></td></tr>
+<tr name="464" id="464">
+<td><a id="l464" class='ln'>464</a></td><td><span class="ct">   *  Constant: '&lt;S3&gt;/P_vLo'</span></td></tr>
+<tr name="465" id="465">
+<td><a id="l465" class='ln'>465</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="466" id="466">
+<td><a id="l466" class='ln'>466</a></td><td>  <span class="kw">if</span> (<a id="466c7" class="tk">VSI_B</a>.<a id="466c13" class="tk">Add1_f</a> <a id="466c20" class="tk">&lt;</a> <a id="466c22" class="tk">rtP_P_vLo</a>) <span class="br">{</span></td></tr>
+<tr name="467" id="467">
+<td><a id="l467" class='ln'>467</a></td><td>    <a id="467c5" class="tk">VSI_B</a>.<a id="467c11" class="tk">Curv</a> = <a id="467c18" class="tk">VSI_B</a>.<a id="467c24" class="tk">Divide1</a>;</td></tr>
+<tr name="468" id="468">
+<td><a id="l468" class='ln'>468</a></td><td>  <span class="br">}</span> <span class="kw">else</span> <span class="kw">if</span> (<a id="468c14" class="tk">VSI_B</a>.<a id="468c20" class="tk">Add1_f</a> <a id="468c27" class="tk">&gt;</a> <a id="468c29" class="tk">rtP_P_vHi</a>) <span class="br">{</span></td></tr>
+<tr name="469" id="469">
+<td><a id="l469" class='ln'>469</a></td><td>    <a id="469c5" class="tk">VSI_B</a>.<a id="469c11" class="tk">Curv</a> = <a id="469c18" class="tk">VSI_B</a>.<a id="469c24" class="tk">Switch</a> <a id="469c31" class="tk">/</a> <a id="469c33" class="tk">VSI_B</a>.<a id="469c39" class="tk">Add1_f</a>;</td></tr>
+<tr name="470" id="470">
+<td><a id="l470" class='ln'>470</a></td><td>  <span class="br">}</span> <span class="kw">else</span> <span class="br">{</span></td></tr>
+<tr name="471" id="471">
+<td><a id="l471" class='ln'>471</a></td><td>    <a id="471c5" class="tk">VSI_B</a>.<a id="471c11" class="tk">Curv</a> = (<a id="471c19" class="tk">VSI_B</a>.<a id="471c25" class="tk">Add1_f</a> <a id="471c32" class="tk">-</a> <a id="471c34" class="tk">rtP_P_vLo</a>) <a id="471c45" class="tk">/</a> (<a id="471c48" class="tk">rtP_P_vHi</a> <a id="471c58" class="tk">-</a> <a id="471c60" class="tk">rtP_P_vLo</a>) <a id="471c71" class="tk">*</a></td></tr>
+<tr name="472" id="472">
+<td><a id="l472" class='ln'>472</a></td><td>      (<a id="472c8" class="tk">VSI_B</a>.<a id="472c14" class="tk">Switch</a> <a id="472c21" class="tk">/</a> <a id="472c23" class="tk">VSI_B</a>.<a id="472c29" class="tk">Add1_f</a> <a id="472c36" class="tk">-</a> <a id="472c38" class="tk">VSI_B</a>.<a id="472c44" class="tk">Divide1</a>) <a id="472c53" class="tk">+</a> <a id="472c55" class="tk">VSI_B</a>.<a id="472c61" class="tk">Divide1</a>;</td></tr>
+<tr name="473" id="473">
+<td><a id="l473" class='ln'>473</a></td><td>  <span class="br">}</span></td></tr>
+<tr name="474" id="474">
+<td><a id="l474" class='ln'>474</a></td><td></td></tr>
+<tr name="475" id="475">
+<td><a id="l475" class='ln'>475</a></td><td>  <span class="ct">/* End of MATLAB Function: '&lt;S3&gt;/MATLAB Function3' */</span></td></tr>
+<tr name="476" id="476">
+<td><a id="l476" class='ln'>476</a></td><td></td></tr>
+<tr name="477" id="477">
+<td><a id="l477" class='ln'>477</a></td><td>  <span class="ct">/* Gain: '&lt;S3&gt;/Gain' */</span></td></tr>
+<tr name="478" id="478">
+<td><a id="l478" class='ln'>478</a></td><td>  <a id="478c3" class="tk">VSI_B</a>.<a id="478c9" class="tk">VSI_VehState_st</a>.<a id="478c25" class="tk">Curvature</a> = <a id="478c37" class="tk">VSI_P_g</a>.<a id="478c45" class="tk">Gain_Gain_c</a> <a id="478c57" class="tk">*</a> <a id="478c59" class="tk">VSI_B</a>.<a id="478c65" class="tk">Curv</a>;</td></tr>
+<tr name="479" id="479">
+<td><a id="l479" class='ln'>479</a></td><td></td></tr>
+<tr name="480" id="480">
+<td><a id="l480" class='ln'>480</a></td><td>  <span class="ct">/* MinMax: '&lt;S7&gt;/Max' incorporates:</span></td></tr>
+<tr name="481" id="481">
+<td><a id="l481" class='ln'>481</a></td><td><span class="ct">   *  Constant: '&lt;S3&gt;/P_tAxsFilt'</span></td></tr>
+<tr name="482" id="482">
+<td><a id="l482" class='ln'>482</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="483" id="483">
+<td><a id="l483" class='ln'>483</a></td><td>  <a id="483c3" class="tk">u0</a> = <a id="483c8" class="tk">rtu_SYS_Info_st</a>-&gt;<a id="483c25" class="tk">dT</a>;</td></tr>
+<tr name="484" id="484">
+<td><a id="l484" class='ln'>484</a></td><td>  <a id="484c3" class="tk">u1</a> = <a id="484c8" class="tk">rtP_P_tAxsFilt</a>;</td></tr>
+<tr name="485" id="485">
+<td><a id="l485" class='ln'>485</a></td><td>  <span class="kw">if</span> ((<a id="485c8" class="tk">u0</a> <a id="485c11" class="tk">&gt;</a> <a id="485c13" class="tk">u1</a>) <a id="485c17" class="tk">||</a> <a id="485c20" class="tk">rtIsNaNF</a>(<a id="485c29" class="tk">u1</a>)) <span class="br">{</span></td></tr>
+<tr name="486" id="486">
+<td><a id="l486" class='ln'>486</a></td><td>    <a id="486c5" class="tk">u1</a> = <a id="486c10" class="tk">u0</a>;</td></tr>
+<tr name="487" id="487">
+<td><a id="l487" class='ln'>487</a></td><td>  <span class="br">}</span></td></tr>
+<tr name="488" id="488">
+<td><a id="l488" class='ln'>488</a></td><td></td></tr>
+<tr name="489" id="489">
+<td><a id="l489" class='ln'>489</a></td><td>  <a id="489c3" class="tk">VSI_B</a>.<a id="489c9" class="tk">Max_b</a> = <a id="489c17" class="tk">u1</a>;</td></tr>
+<tr name="490" id="490">
+<td><a id="l490" class='ln'>490</a></td><td></td></tr>
+<tr name="491" id="491">
+<td><a id="l491" class='ln'>491</a></td><td>  <span class="ct">/* End of MinMax: '&lt;S7&gt;/Max' */</span></td></tr>
+<tr name="492" id="492">
+<td><a id="l492" class='ln'>492</a></td><td></td></tr>
+<tr name="493" id="493">
+<td><a id="l493" class='ln'>493</a></td><td>  <span class="ct">/* Product: '&lt;S7&gt;/Divide' */</span></td></tr>
+<tr name="494" id="494">
+<td><a id="l494" class='ln'>494</a></td><td>  <a id="494c3" class="tk">VSI_B</a>.<a id="494c9" class="tk">filtFactor_d</a> = <a id="494c24" class="tk">rtu_SYS_Info_st</a>-&gt;<a id="494c41" class="tk">dT</a> <a id="494c44" class="tk">/</a> <a id="494c46" class="tk">VSI_B</a>.<a id="494c52" class="tk">Max_b</a>;</td></tr>
+<tr name="495" id="495">
+<td><a id="l495" class='ln'>495</a></td><td></td></tr>
+<tr name="496" id="496">
+<td><a id="l496" class='ln'>496</a></td><td>  <span class="ct">/* Product: '&lt;S7&gt;/Multiply' */</span></td></tr>
+<tr name="497" id="497">
+<td><a id="l497" class='ln'>497</a></td><td>  <a id="497c3" class="tk">VSI_B</a>.<a id="497c9" class="tk">Multiply_d</a> = <a id="497c22" class="tk">VSI_B</a>.<a id="497c28" class="tk">COM_VehDyn_st</a>.<a id="497c42" class="tk">AxSensor</a> <a id="497c51" class="tk">*</a> <a id="497c53" class="tk">VSI_B</a>.<a id="497c59" class="tk">filtFactor_d</a>;</td></tr>
+<tr name="498" id="498">
+<td><a id="l498" class='ln'>498</a></td><td></td></tr>
+<tr name="499" id="499">
+<td><a id="l499" class='ln'>499</a></td><td>  <span class="ct">/* Sum: '&lt;S7&gt;/Add' incorporates:</span></td></tr>
+<tr name="500" id="500">
+<td><a id="l500" class='ln'>500</a></td><td><span class="ct">   *  Constant: '&lt;S7&gt;/Constant'</span></td></tr>
+<tr name="501" id="501">
+<td><a id="l501" class='ln'>501</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="502" id="502">
+<td><a id="l502" class='ln'>502</a></td><td>  <a id="502c3" class="tk">VSI_B</a>.<a id="502c9" class="tk">Add_e</a> = <a id="502c17" class="tk">VSI_P_g</a>.<a id="502c25" class="tk">Constant_Value_a</a> <a id="502c42" class="tk">-</a> <a id="502c44" class="tk">VSI_B</a>.<a id="502c50" class="tk">filtFactor_d</a>;</td></tr>
+<tr name="503" id="503">
+<td><a id="l503" class='ln'>503</a></td><td></td></tr>
+<tr name="504" id="504">
+<td><a id="l504" class='ln'>504</a></td><td>  <span class="ct">/* Memory: '&lt;S3&gt;/Memory' */</span></td></tr>
+<tr name="505" id="505">
+<td><a id="l505" class='ln'>505</a></td><td>  <a id="505c3" class="tk">VSI_B</a>.<a id="505c9" class="tk">Memory</a> = <a id="505c18" class="tk">VSI_DW</a>.<a id="505c25" class="tk">Memory_PreviousInput</a>;</td></tr>
+<tr name="506" id="506">
+<td><a id="l506" class='ln'>506</a></td><td></td></tr>
+<tr name="507" id="507">
+<td><a id="l507" class='ln'>507</a></td><td>  <span class="ct">/* Product: '&lt;S7&gt;/Multiply1' */</span></td></tr>
+<tr name="508" id="508">
+<td><a id="l508" class='ln'>508</a></td><td>  <a id="508c3" class="tk">VSI_B</a>.<a id="508c9" class="tk">Multiply1_n</a> = <a id="508c23" class="tk">VSI_B</a>.<a id="508c29" class="tk">Add_e</a> <a id="508c35" class="tk">*</a> <a id="508c37" class="tk">VSI_B</a>.<a id="508c43" class="tk">Memory</a>;</td></tr>
+<tr name="509" id="509">
+<td><a id="l509" class='ln'>509</a></td><td></td></tr>
+<tr name="510" id="510">
+<td><a id="l510" class='ln'>510</a></td><td>  <span class="ct">/* Sum: '&lt;S7&gt;/Add1' */</span></td></tr>
+<tr name="511" id="511">
+<td><a id="l511" class='ln'>511</a></td><td>  <a id="511c3" class="tk">VSI_B</a>.<a id="511c9" class="tk">Add1_n</a> = <a id="511c18" class="tk">VSI_B</a>.<a id="511c24" class="tk">Multiply_d</a> <a id="511c35" class="tk">+</a> <a id="511c37" class="tk">VSI_B</a>.<a id="511c43" class="tk">Multiply1_n</a>;</td></tr>
+<tr name="512" id="512">
+<td><a id="l512" class='ln'>512</a></td><td></td></tr>
+<tr name="513" id="513">
+<td><a id="l513" class='ln'>513</a></td><td>  <span class="ct">/* Switch: '&lt;S3&gt;/Switch1' incorporates:</span></td></tr>
+<tr name="514" id="514">
+<td><a id="l514" class='ln'>514</a></td><td><span class="ct">   *  Constant: '&lt;S3&gt;/Constant1'</span></td></tr>
+<tr name="515" id="515">
+<td><a id="l515" class='ln'>515</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="516" id="516">
+<td><a id="l516" class='ln'>516</a></td><td>  <span class="kw">if</span> (<a id="516c7" class="tk">VSI_B</a>.<a id="516c13" class="tk">COM_VehDyn_st</a>.<a id="516c27" class="tk">AxSensor_Valid</a>) <span class="br">{</span></td></tr>
+<tr name="517" id="517">
+<td><a id="l517" class='ln'>517</a></td><td>    <a id="517c5" class="tk">VSI_B</a>.<a id="517c11" class="tk">Switch1</a> = <a id="517c21" class="tk">VSI_B</a>.<a id="517c27" class="tk">Add1_n</a>;</td></tr>
+<tr name="518" id="518">
+<td><a id="l518" class='ln'>518</a></td><td>  <span class="br">}</span> <span class="kw">else</span> <span class="br">{</span></td></tr>
+<tr name="519" id="519">
+<td><a id="l519" class='ln'>519</a></td><td>    <a id="519c5" class="tk">VSI_B</a>.<a id="519c11" class="tk">Switch1</a> = (<a id="519c22" class="tk">real32_T</a>)<a id="519c31" class="tk">VSI_P_g</a>.<a id="519c39" class="tk">Constant1_Value</a>;</td></tr>
+<tr name="520" id="520">
+<td><a id="l520" class='ln'>520</a></td><td>  <span class="br">}</span></td></tr>
+<tr name="521" id="521">
+<td><a id="l521" class='ln'>521</a></td><td></td></tr>
+<tr name="522" id="522">
+<td><a id="l522" class='ln'>522</a></td><td>  <span class="ct">/* End of Switch: '&lt;S3&gt;/Switch1' */</span></td></tr>
+<tr name="523" id="523">
+<td><a id="l523" class='ln'>523</a></td><td></td></tr>
+<tr name="524" id="524">
+<td><a id="l524" class='ln'>524</a></td><td>  <span class="ct">/* Memory: '&lt;S3&gt;/Memory5' */</span></td></tr>
+<tr name="525" id="525">
+<td><a id="l525" class='ln'>525</a></td><td>  <a id="525c3" class="tk">VSI_B</a>.<a id="525c9" class="tk">Memory5</a> = <a id="525c19" class="tk">VSI_DW</a>.<a id="525c26" class="tk">Memory5_PreviousInput</a>;</td></tr>
+<tr name="526" id="526">
+<td><a id="l526" class='ln'>526</a></td><td></td></tr>
+<tr name="527" id="527">
+<td><a id="l527" class='ln'>527</a></td><td>  <span class="ct">/* Sum: '&lt;S3&gt;/Subtract' */</span></td></tr>
+<tr name="528" id="528">
+<td><a id="l528" class='ln'>528</a></td><td>  <a id="528c3" class="tk">VSI_B</a>.<a id="528c9" class="tk">Subtract</a> = <a id="528c20" class="tk">VSI_B</a>.<a id="528c26" class="tk">Add1_f</a> <a id="528c33" class="tk">-</a> <a id="528c35" class="tk">VSI_B</a>.<a id="528c41" class="tk">Memory5</a>;</td></tr>
+<tr name="529" id="529">
+<td><a id="l529" class='ln'>529</a></td><td></td></tr>
+<tr name="530" id="530">
+<td><a id="l530" class='ln'>530</a></td><td>  <span class="ct">/* MinMax: '&lt;S3&gt;/Max' incorporates:</span></td></tr>
+<tr name="531" id="531">
+<td><a id="l531" class='ln'>531</a></td><td><span class="ct">   *  Constant: '&lt;S3&gt;/Constant3'</span></td></tr>
+<tr name="532" id="532">
+<td><a id="l532" class='ln'>532</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="533" id="533">
+<td><a id="l533" class='ln'>533</a></td><td>  <a id="533c3" class="tk">u0_0</a> = <a id="533c10" class="tk">VSI_P_g</a>.<a id="533c18" class="tk">Constant3_Value</a>;</td></tr>
+<tr name="534" id="534">
+<td><a id="l534" class='ln'>534</a></td><td>  <a id="534c3" class="tk">u1_1</a> = <a id="534c10" class="tk">rtu_SYS_Info_st</a>-&gt;<a id="534c27" class="tk">dT</a>;</td></tr>
+<tr name="535" id="535">
+<td><a id="l535" class='ln'>535</a></td><td>  <span class="kw">if</span> ((<a id="535c8" class="tk">u0_0</a> <a id="535c13" class="tk">&gt;</a> <a id="535c15" class="tk">u1_1</a>) <a id="535c21" class="tk">||</a> <a id="535c24" class="tk">rtIsNaN</a>(<a id="535c32" class="tk">u1_1</a>)) <span class="br">{</span></td></tr>
+<tr name="536" id="536">
+<td><a id="l536" class='ln'>536</a></td><td>    <a id="536c5" class="tk">u1_1</a> = <a id="536c12" class="tk">u0_0</a>;</td></tr>
+<tr name="537" id="537">
+<td><a id="l537" class='ln'>537</a></td><td>  <span class="br">}</span></td></tr>
+<tr name="538" id="538">
+<td><a id="l538" class='ln'>538</a></td><td></td></tr>
+<tr name="539" id="539">
+<td><a id="l539" class='ln'>539</a></td><td>  <a id="539c3" class="tk">VSI_B</a>.<a id="539c9" class="tk">Max_i</a> = (<a id="539c18" class="tk">real32_T</a>)<a id="539c27" class="tk">u1_1</a>;</td></tr>
+<tr name="540" id="540">
+<td><a id="l540" class='ln'>540</a></td><td></td></tr>
+<tr name="541" id="541">
+<td><a id="l541" class='ln'>541</a></td><td>  <span class="ct">/* End of MinMax: '&lt;S3&gt;/Max' */</span></td></tr>
+<tr name="542" id="542">
+<td><a id="l542" class='ln'>542</a></td><td></td></tr>
+<tr name="543" id="543">
+<td><a id="l543" class='ln'>543</a></td><td>  <span class="ct">/* Product: '&lt;S3&gt;/Divide3' */</span></td></tr>
+<tr name="544" id="544">
+<td><a id="l544" class='ln'>544</a></td><td>  <a id="544c3" class="tk">VSI_B</a>.<a id="544c9" class="tk">Divide3</a> = <a id="544c19" class="tk">VSI_B</a>.<a id="544c25" class="tk">Subtract</a> <a id="544c34" class="tk">/</a> <a id="544c36" class="tk">VSI_B</a>.<a id="544c42" class="tk">Max_i</a>;</td></tr>
+<tr name="545" id="545">
+<td><a id="l545" class='ln'>545</a></td><td></td></tr>
+<tr name="546" id="546">
+<td><a id="l546" class='ln'>546</a></td><td>  <span class="ct">/* MinMax: '&lt;S10&gt;/Max' incorporates:</span></td></tr>
+<tr name="547" id="547">
+<td><a id="l547" class='ln'>547</a></td><td><span class="ct">   *  Constant: '&lt;S3&gt;/P_tARawFilt'</span></td></tr>
+<tr name="548" id="548">
+<td><a id="l548" class='ln'>548</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="549" id="549">
+<td><a id="l549" class='ln'>549</a></td><td>  <a id="549c3" class="tk">u0</a> = <a id="549c8" class="tk">rtu_SYS_Info_st</a>-&gt;<a id="549c25" class="tk">dT</a>;</td></tr>
+<tr name="550" id="550">
+<td><a id="l550" class='ln'>550</a></td><td>  <a id="550c3" class="tk">u1</a> = <a id="550c8" class="tk">rtP_P_tARawFilt</a>;</td></tr>
+<tr name="551" id="551">
+<td><a id="l551" class='ln'>551</a></td><td>  <span class="kw">if</span> ((<a id="551c8" class="tk">u0</a> <a id="551c11" class="tk">&gt;</a> <a id="551c13" class="tk">u1</a>) <a id="551c17" class="tk">||</a> <a id="551c20" class="tk">rtIsNaNF</a>(<a id="551c29" class="tk">u1</a>)) <span class="br">{</span></td></tr>
+<tr name="552" id="552">
+<td><a id="l552" class='ln'>552</a></td><td>    <a id="552c5" class="tk">u1</a> = <a id="552c10" class="tk">u0</a>;</td></tr>
+<tr name="553" id="553">
+<td><a id="l553" class='ln'>553</a></td><td>  <span class="br">}</span></td></tr>
+<tr name="554" id="554">
+<td><a id="l554" class='ln'>554</a></td><td></td></tr>
+<tr name="555" id="555">
+<td><a id="l555" class='ln'>555</a></td><td>  <a id="555c3" class="tk">VSI_B</a>.<a id="555c9" class="tk">Max_iy</a> = <a id="555c18" class="tk">u1</a>;</td></tr>
+<tr name="556" id="556">
+<td><a id="l556" class='ln'>556</a></td><td></td></tr>
+<tr name="557" id="557">
+<td><a id="l557" class='ln'>557</a></td><td>  <span class="ct">/* End of MinMax: '&lt;S10&gt;/Max' */</span></td></tr>
+<tr name="558" id="558">
+<td><a id="l558" class='ln'>558</a></td><td></td></tr>
+<tr name="559" id="559">
+<td><a id="l559" class='ln'>559</a></td><td>  <span class="ct">/* Product: '&lt;S10&gt;/Divide' */</span></td></tr>
+<tr name="560" id="560">
+<td><a id="l560" class='ln'>560</a></td><td>  <a id="560c3" class="tk">VSI_B</a>.<a id="560c9" class="tk">filtFactor_e</a> = <a id="560c24" class="tk">rtu_SYS_Info_st</a>-&gt;<a id="560c41" class="tk">dT</a> <a id="560c44" class="tk">/</a> <a id="560c46" class="tk">VSI_B</a>.<a id="560c52" class="tk">Max_iy</a>;</td></tr>
+<tr name="561" id="561">
+<td><a id="l561" class='ln'>561</a></td><td></td></tr>
+<tr name="562" id="562">
+<td><a id="l562" class='ln'>562</a></td><td>  <span class="ct">/* Product: '&lt;S10&gt;/Multiply' */</span></td></tr>
+<tr name="563" id="563">
+<td><a id="l563" class='ln'>563</a></td><td>  <a id="563c3" class="tk">VSI_B</a>.<a id="563c9" class="tk">Multiply_i</a> = <a id="563c22" class="tk">VSI_B</a>.<a id="563c28" class="tk">Divide3</a> <a id="563c36" class="tk">*</a> <a id="563c38" class="tk">VSI_B</a>.<a id="563c44" class="tk">filtFactor_e</a>;</td></tr>
+<tr name="564" id="564">
+<td><a id="l564" class='ln'>564</a></td><td></td></tr>
+<tr name="565" id="565">
+<td><a id="l565" class='ln'>565</a></td><td>  <span class="ct">/* Sum: '&lt;S10&gt;/Add' incorporates:</span></td></tr>
+<tr name="566" id="566">
+<td><a id="l566" class='ln'>566</a></td><td><span class="ct">   *  Constant: '&lt;S10&gt;/Constant'</span></td></tr>
+<tr name="567" id="567">
+<td><a id="l567" class='ln'>567</a></td><td><span class="ct">   */</span></td></tr>
+<tr name="568" id="568">
+<td><a id="l568" class='ln'>568</a></td><td>  <a id="568c3" class="tk">VSI_B</a>.<a id="568c9" class="tk">Add_aw</a> = <a id="568c18" class="tk">VSI_P_g</a>.<a id="568c26" class="tk">Constant_Value_c</a> <a id="568c43" class="tk">-</a> <a id="568c45" class="tk">VSI_B</a>.<a id="568c51" class="tk">filtFactor_e</a>;</td></tr>
+<tr name="569" id="569">
+<td><a id="l569" class='ln'>569</a></td><td></td></tr>
+<tr name="570" id="570">
+<td><a id="l570" class='ln'>570</a></td><td>  <span class="ct">/* Memory: '&lt;S3&gt;/Memory3' */</span></td></tr>
+<tr name="571" id="571">
+<td><a id="l571" class='ln'>571</a></td><td>  <a id="571c3" class="tk">VSI_B</a>.<a id="571c9" class="tk">Memory3</a> = <a id="571c19" class="tk">VSI_DW</a>.<a id="571c26" class="tk">Memory3_PreviousInput</a>;</td></tr>
+<tr name="572" id="572">
+<td><a id="l572" class='ln'>572</a></td><td></td></tr>
+<tr name="573" id="573">
+<td><a id="l573" class='ln'>573</a></td><td>  <span class="ct">/* Product: '&lt;S10&gt;/Multiply1' */</span></td></tr>
+<tr name="574" id="574">
+<td><a id="l574" class='ln'>574</a></td><td>  <a id="574c3" class="tk">VSI_B</a>.<a id="574c9" class="tk">Multiply1_d0</a> = <a id="574c24" class="tk">VSI_B</a>.<a id="574c30" class="tk">Add_aw</a> <a id="574c37" class="tk">*</a> <a id="574c39" class="tk">VSI_B</a>.<a id="574c45" class="tk">Memory3</a>;</td></tr>
+<tr name="575" id="575">
+<td><a id="l575" class='ln'>575</a></td><td></td></tr>
+<tr name="576" id="576">
+<td><a id="l576" class='ln'>576</a></td><td>  <span class="ct">/* Sum: '&lt;S10&gt;/Add1' */</span></td></tr>
+<tr name="577" id="577">
+<td><a id="l577" class='ln'>577</a></td><td>  <a id="577c3" class="tk">VSI_B</a>.<a id="577c9" class="tk">Add1_fz</a> = <a id="577c19" class="tk">VSI_B</a>.<a id="577c25" class="tk">Multiply_i</a> <a id="577c36" class="tk">+</a> <a id="577c38" class="tk">VSI_B</a>.<a id="577c44" class="tk">Multiply1_d0</a>;</td></tr>
+<tr name="578" id="578">
+<td><a id="l578" class='ln'>578</a></td><td></td></tr>
+<tr name="579" id="579">
+<td><a id="l579" class='ln'>579</a></td><td>  <span class="ct">/* Sum: '&lt;S3&gt;/Add' */</span></td></tr>
+<tr name="580" id="580">
+<td><a id="l580" class='ln'>580</a></td><td>  <a id="580c3" class="tk">VSI_B</a>.<a id="580c9" class="tk">Add_p</a> = <a id="580c17" class="tk">VSI_B</a>.<a id="580c23" class="tk">Switch1</a> <a id="580c31" class="tk">-</a> <a id="580c33" class="tk">VSI_B</a>.<a id="580c39" class="tk">Add1_fz</a>;</td></tr>
+<tr name="581" id="581">
+<td><a id="l581" class='ln'>581</a></td><td></td></tr>
+<tr name="582" id="582">
+<td><a id="l582" class='ln'>582</a></td><td>  <span class="ct">/* BusCreator: '&lt;Root&gt;/Bus Creator' */</span></td></tr>
+<tr name="583" id="583">
+<td><a id="l583" class='ln'>583</a></td><td>  <a id="583c3" class="tk">VSI_B</a>.<a id="583c9" class="tk">VSI_VehState_st</a>.<a id="583c25" class="tk">YrsF</a> = <a id="583c32" class="tk">VSI_B</a>.<a id="583c38" class="tk">Switch</a>;</td></tr>
+<tr name="584" id="584">
+<td><a id="l584" class='ln'>584</a></td><td>  <a id="584c3" class="tk">VSI_B</a>.<a id="584c9" class="tk">VSI_VehState_st</a>.<a id="584c25" class="tk">AxSensorF</a> = <a id="584c37" class="tk">VSI_B</a>.<a id="584c43" class="tk">Switch1</a>;</td></tr>
+<tr name="585" id="585">
+<td><a id="l585" class='ln'>585</a></td><td>  <a id="585c3" class="tk">VSI_B</a>.<a id="585c9" class="tk">VSI_VehState_st</a>.<a id="585c25" class="tk">StWheelAngleF</a> = <a id="585c41" class="tk">VSI_B</a>.<a id="585c47" class="tk">Switch2</a>;</td></tr>
+<tr name="586" id="586">
+<td><a id="l586" class='ln'>586</a></td><td>  <a id="586c3" class="tk">VSI_B</a>.<a id="586c9" class="tk">VSI_VehState_st</a>.<a id="586c25" class="tk">vRef</a> = <a id="586c32" class="tk">VSI_B</a>.<a id="586c38" class="tk">Add1_f</a>;</td></tr>
+<tr name="587" id="587">
+<td><a id="l587" class='ln'>587</a></td><td>  <a id="587c3" class="tk">VSI_B</a>.<a id="587c9" class="tk">VSI_VehState_st</a>.<a id="587c25" class="tk">aRef</a> = <a id="587c32" class="tk">VSI_B</a>.<a id="587c38" class="tk">Add1_fz</a>;</td></tr>
+<tr name="588" id="588">
+<td><a id="l588" class='ln'>588</a></td><td>  <a id="588c3" class="tk">VSI_B</a>.<a id="588c9" class="tk">VSI_VehState_st</a>.<a id="588c25" class="tk">AxSlope</a> = <a id="588c35" class="tk">VSI_B</a>.<a id="588c41" class="tk">Add_p</a>;</td></tr>
+<tr name="589" id="589">
+<td><a id="l589" class='ln'>589</a></td><td>  <a id="589c3" class="tk">VSI_B</a>.<a id="589c9" class="tk">VSI_VehState_st</a>.<a id="589c25" class="tk">AxSlopeValid</a> = <a id="589c40" class="tk">VSI_B</a>.<a id="589c46" class="tk">COM_VehDyn_st</a>.<a id="589c60" class="tk">AxSensor_Valid</a>;</td></tr>
+<tr name="590" id="590">
+<td><a id="l590" class='ln'>590</a></td><td></td></tr>
+<tr name="591" id="591">
+<td><a id="l591" class='ln'>591</a></td><td>  <span class="ct">/* SignalConversion: '&lt;Root&gt;/BusConversion_InsertedFor_VSI_VehState_st_at_inport_0' */</span></td></tr>
+<tr name="592" id="592">
+<td><a id="l592" class='ln'>592</a></td><td>  <a id="592c3" class="tk">*</a><a id="592c4" class="tk">rty_VSI_VehState_st_YrsF</a> = <a id="592c31" class="tk">VSI_B</a>.<a id="592c37" class="tk">VSI_VehState_st</a>.<a id="592c53" class="tk">YrsF</a>;</td></tr>
+<tr name="593" id="593">
+<td><a id="l593" class='ln'>593</a></td><td></td></tr>
+<tr name="594" id="594">
+<td><a id="l594" class='ln'>594</a></td><td>  <span class="ct">/* SignalConversion: '&lt;Root&gt;/BusConversion_InsertedFor_VSI_VehState_st_at_inport_0' */</span></td></tr>
+<tr name="595" id="595">
+<td><a id="l595" class='ln'>595</a></td><td>  <a id="595c3" class="tk">*</a><a id="595c4" class="tk">rty_VSI_VehState_st_AxSensorF</a> = <a id="595c36" class="tk">VSI_B</a>.<a id="595c42" class="tk">VSI_VehState_st</a>.<a id="595c58" class="tk">AxSensorF</a>;</td></tr>
+<tr name="596" id="596">
+<td><a id="l596" class='ln'>596</a></td><td></td></tr>
+<tr name="597" id="597">
+<td><a id="l597" class='ln'>597</a></td><td>  <span class="ct">/* SignalConversion: '&lt;Root&gt;/BusConversion_InsertedFor_VSI_VehState_st_at_inport_0' */</span></td></tr>
+<tr name="598" id="598">
+<td><a id="l598" class='ln'>598</a></td><td>  <a id="598c3" class="tk">*</a><a id="598c4" class="tk">rty_VSI_VehState_st_StWheelAngl</a> = <a id="598c38" class="tk">VSI_B</a>.<a id="598c44" class="tk">VSI_VehState_st</a>.<a id="598c60" class="tk">StWheelAngleF</a>;</td></tr>
+<tr name="599" id="599">
+<td><a id="l599" class='ln'>599</a></td><td></td></tr>
+<tr name="600" id="600">
+<td><a id="l600" class='ln'>600</a></td><td>  <span class="ct">/* SignalConversion: '&lt;Root&gt;/BusConversion_InsertedFor_VSI_VehState_st_at_inport_0' */</span></td></tr>
+<tr name="601" id="601">
+<td><a id="l601" class='ln'>601</a></td><td>  <a id="601c3" class="tk">*</a><a id="601c4" class="tk">rty_VSI_VehState_st_vRef</a> = <a id="601c31" class="tk">VSI_B</a>.<a id="601c37" class="tk">VSI_VehState_st</a>.<a id="601c53" class="tk">vRef</a>;</td></tr>
+<tr name="602" id="602">
+<td><a id="l602" class='ln'>602</a></td><td></td></tr>
+<tr name="603" id="603">
+<td><a id="l603" class='ln'>603</a></td><td>  <span class="ct">/* SignalConversion: '&lt;Root&gt;/BusConversion_InsertedFor_VSI_VehState_st_at_inport_0' */</span></td></tr>
+<tr name="604" id="604">
+<td><a id="l604" class='ln'>604</a></td><td>  <a id="604c3" class="tk">*</a><a id="604c4" class="tk">rty_VSI_VehState_st_aRef</a> = <a id="604c31" class="tk">VSI_B</a>.<a id="604c37" class="tk">VSI_VehState_st</a>.<a id="604c53" class="tk">aRef</a>;</td></tr>
+<tr name="605" id="605">
+<td><a id="l605" class='ln'>605</a></td><td></td></tr>
+<tr name="606" id="606">
+<td><a id="l606" class='ln'>606</a></td><td>  <span class="ct">/* SignalConversion: '&lt;Root&gt;/BusConversion_InsertedFor_VSI_VehState_st_at_inport_0' */</span></td></tr>
+<tr name="607" id="607">
+<td><a id="l607" class='ln'>607</a></td><td>  <a id="607c3" class="tk">*</a><a id="607c4" class="tk">rty_VSI_VehState_st_AxSlope</a> = <a id="607c34" class="tk">VSI_B</a>.<a id="607c40" class="tk">VSI_VehState_st</a>.<a id="607c56" class="tk">AxSlope</a>;</td></tr>
+<tr name="608" id="608">
+<td><a id="l608" class='ln'>608</a></td><td></td></tr>
+<tr name="609" id="609">
+<td><a id="l609" class='ln'>609</a></td><td>  <span class="ct">/* SignalConversion: '&lt;Root&gt;/BusConversion_InsertedFor_VSI_VehState_st_at_inport_0' */</span></td></tr>
+<tr name="610" id="610">
+<td><a id="l610" class='ln'>610</a></td><td>  <a id="610c3" class="tk">*</a><a id="610c4" class="tk">rty_VSI_VehState_st_AxSlopeVali</a> = <a id="610c38" class="tk">VSI_B</a>.<a id="610c44" class="tk">VSI_VehState_st</a>.<a id="610c60" class="tk">AxSlopeValid</a>;</td></tr>
+<tr name="611" id="611">
+<td><a id="l611" class='ln'>611</a></td><td></td></tr>
+<tr name="612" id="612">
+<td><a id="l612" class='ln'>612</a></td><td>  <span class="ct">/* SignalConversion: '&lt;Root&gt;/BusConversion_InsertedFor_VSI_VehState_st_at_inport_0' */</span></td></tr>
+<tr name="613" id="613">
+<td><a id="l613" class='ln'>613</a></td><td>  <a id="613c3" class="tk">*</a><a id="613c4" class="tk">rty_VSI_VehState_st_Curvature</a> = <a id="613c36" class="tk">VSI_B</a>.<a id="613c42" class="tk">VSI_VehState_st</a>.<a id="613c58" class="tk">Curvature</a>;</td></tr>
+<tr name="614" id="614">
+<td><a id="l614" class='ln'>614</a></td><td><span class="br">}</span></td></tr>
+<tr name="615" id="615">
+<td><a id="l615" class='ln'>615</a></td><td></td></tr>
+<tr name="616" id="616">
+<td><a id="l616" class='ln'>616</a></td><td><span class="ct">/* Update for referenced model: 'VSI' */</span></td></tr>
+<tr name="617" id="617">
+<td><a id="l617" class='ln'>617</a></td><td><span class="kw">void</span> <a id="617c6" class="tk">VSI_Update</a>(<span class="kw">void</span>)</td></tr>
+<tr name="618" id="618">
+<td><a id="l618" class='ln'>618</a></td><td><span class="br">{</span></td></tr>
+<tr name="619" id="619">
+<td><a id="l619" class='ln'>619</a></td><td>  <span class="ct">/* Update for Memory: '&lt;S3&gt;/Memory1' */</span></td></tr>
+<tr name="620" id="620">
+<td><a id="l620" class='ln'>620</a></td><td>  <a id="620c3" class="tk">VSI_DW</a>.<a id="620c10" class="tk">Memory1_PreviousInput</a> = <a id="620c34" class="tk">VSI_B</a>.<a id="620c40" class="tk">Add1</a>;</td></tr>
+<tr name="621" id="621">
+<td><a id="l621" class='ln'>621</a></td><td></td></tr>
+<tr name="622" id="622">
+<td><a id="l622" class='ln'>622</a></td><td>  <span class="ct">/* Update for Memory: '&lt;S3&gt;/Memory4' */</span></td></tr>
+<tr name="623" id="623">
+<td><a id="l623" class='ln'>623</a></td><td>  <a id="623c3" class="tk">VSI_DW</a>.<a id="623c10" class="tk">Memory4_PreviousInput</a> = <a id="623c34" class="tk">VSI_B</a>.<a id="623c40" class="tk">Add1_f</a>;</td></tr>
+<tr name="624" id="624">
+<td><a id="l624" class='ln'>624</a></td><td></td></tr>
+<tr name="625" id="625">
+<td><a id="l625" class='ln'>625</a></td><td>  <span class="ct">/* Update for Memory: '&lt;S3&gt;/Memory2' */</span></td></tr>
+<tr name="626" id="626">
+<td><a id="l626" class='ln'>626</a></td><td>  <a id="626c3" class="tk">VSI_DW</a>.<a id="626c10" class="tk">Memory2_PreviousInput</a> = <a id="626c34" class="tk">VSI_B</a>.<a id="626c40" class="tk">Add1_c</a>;</td></tr>
+<tr name="627" id="627">
+<td><a id="l627" class='ln'>627</a></td><td></td></tr>
+<tr name="628" id="628">
+<td><a id="l628" class='ln'>628</a></td><td>  <span class="ct">/* Update for Memory: '&lt;S3&gt;/Memory' */</span></td></tr>
+<tr name="629" id="629">
+<td><a id="l629" class='ln'>629</a></td><td>  <a id="629c3" class="tk">VSI_DW</a>.<a id="629c10" class="tk">Memory_PreviousInput</a> = <a id="629c33" class="tk">VSI_B</a>.<a id="629c39" class="tk">Add1_n</a>;</td></tr>
+<tr name="630" id="630">
+<td><a id="l630" class='ln'>630</a></td><td></td></tr>
+<tr name="631" id="631">
+<td><a id="l631" class='ln'>631</a></td><td>  <span class="ct">/* Update for Memory: '&lt;S3&gt;/Memory5' */</span></td></tr>
+<tr name="632" id="632">
+<td><a id="l632" class='ln'>632</a></td><td>  <a id="632c3" class="tk">VSI_DW</a>.<a id="632c10" class="tk">Memory5_PreviousInput</a> = <a id="632c34" class="tk">VSI_B</a>.<a id="632c40" class="tk">Add1_f</a>;</td></tr>
+<tr name="633" id="633">
+<td><a id="l633" class='ln'>633</a></td><td></td></tr>
+<tr name="634" id="634">
+<td><a id="l634" class='ln'>634</a></td><td>  <span class="ct">/* Update for Memory: '&lt;S3&gt;/Memory3' */</span></td></tr>
+<tr name="635" id="635">
+<td><a id="l635" class='ln'>635</a></td><td>  <a id="635c3" class="tk">VSI_DW</a>.<a id="635c10" class="tk">Memory3_PreviousInput</a> = <a id="635c34" class="tk">VSI_B</a>.<a id="635c40" class="tk">Add1_fz</a>;</td></tr>
+<tr name="636" id="636">
+<td><a id="l636" class='ln'>636</a></td><td><span class="br">}</span></td></tr>
+<tr name="637" id="637">
+<td><a id="l637" class='ln'>637</a></td><td></td></tr>
+<tr name="638" id="638">
+<td><a id="l638" class='ln'>638</a></td><td><span class="ct">/* Model initialize function */</span></td></tr>
+<tr name="639" id="639">
+<td><a id="l639" class='ln'>639</a></td><td><span class="kw">void</span> <a id="639c6" class="tk">VSI_initialize</a>(<span class="kw">const</span> <a id="639c27" class="tk">char_T</a> <a id="639c34" class="tk">*</a><a id="639c35" class="tk">*</a><a id="639c36" class="tk">rt_errorStatus</a>)</td></tr>
+<tr name="640" id="640">
+<td><a id="l640" class='ln'>640</a></td><td><span class="br">{</span></td></tr>
+<tr name="641" id="641">
+<td><a id="l641" class='ln'>641</a></td><td>  <a id="641c3" class="tk">RT_MODEL_VSI_T</a> <a id="641c18" class="tk">*</a><span class="kw">const</span> <a id="641c25" class="tk">VSI_M</a> = <a id="641c33" class="tk">&amp;</a>(<a id="641c35" class="tk">VSI_MdlrefDW</a>.<a id="641c48" class="tk">rtm</a>);</td></tr>
+<tr name="642" id="642">
+<td><a id="l642" class='ln'>642</a></td><td></td></tr>
+<tr name="643" id="643">
+<td><a id="l643" class='ln'>643</a></td><td>  <span class="ct">/* Registration code */</span></td></tr>
+<tr name="644" id="644">
+<td><a id="l644" class='ln'>644</a></td><td></td></tr>
+<tr name="645" id="645">
+<td><a id="l645" class='ln'>645</a></td><td>  <span class="ct">/* initialize non-finites */</span></td></tr>
+<tr name="646" id="646">
+<td><a id="l646" class='ln'>646</a></td><td>  <a id="646c3" class="tk">rt_InitInfAndNaN</a>(<span class="kw">sizeof</span>(<a id="646c27" class="tk">real_T</a>));</td></tr>
+<tr name="647" id="647">
+<td><a id="l647" class='ln'>647</a></td><td></td></tr>
+<tr name="648" id="648">
+<td><a id="l648" class='ln'>648</a></td><td>  <span class="ct">/* initialize error status */</span></td></tr>
+<tr name="649" id="649">
+<td><a id="l649" class='ln'>649</a></td><td>  <a id="649c3" class="tk">rtmSetErrorStatusPointer</a>(<a id="649c28" class="tk">VSI_M</a>, <a id="649c35" class="tk">rt_errorStatus</a>);</td></tr>
+<tr name="650" id="650">
+<td><a id="l650" class='ln'>650</a></td><td></td></tr>
+<tr name="651" id="651">
+<td><a id="l651" class='ln'>651</a></td><td>  <span class="ct">/* block I/O */</span></td></tr>
+<tr name="652" id="652">
+<td><a id="l652" class='ln'>652</a></td><td>  (<span class="kw">void</span>) <a id="652c10" class="tk">memset</a>(((<span class="kw">void</span> <a id="652c24" class="tk">*</a>) <a id="652c27" class="tk">&amp;</a><a id="652c28" class="tk">VSI_B</a>), 0,</td></tr>
+<tr name="653" id="653">
+<td><a id="l653" class='ln'>653</a></td><td>                <span class="kw">sizeof</span>(<a id="653c24" class="tk">B_VSI_c_T</a>));</td></tr>
+<tr name="654" id="654">
+<td><a id="l654" class='ln'>654</a></td><td></td></tr>
+<tr name="655" id="655">
+<td><a id="l655" class='ln'>655</a></td><td>  <span class="ct">/* states (dwork) */</span></td></tr>
+<tr name="656" id="656">
+<td><a id="l656" class='ln'>656</a></td><td>  (<span class="kw">void</span>) <a id="656c10" class="tk">memset</a>((<span class="kw">void</span> <a id="656c23" class="tk">*</a>)<a id="656c25" class="tk">&amp;</a><a id="656c26" class="tk">VSI_DW</a>, 0,</td></tr>
+<tr name="657" id="657">
+<td><a id="l657" class='ln'>657</a></td><td>                <span class="kw">sizeof</span>(<a id="657c24" class="tk">DW_VSI_f_T</a>));</td></tr>
+<tr name="658" id="658">
+<td><a id="l658" class='ln'>658</a></td><td></td></tr>
+<tr name="659" id="659">
+<td><a id="l659" class='ln'>659</a></td><td>  <span class="br">{</span></td></tr>
+<tr name="660" id="660">
+<td><a id="l660" class='ln'>660</a></td><td>    <span class="ct">/* user code (registration function declaration) */</span></td></tr>
+<tr name="661" id="661">
+<td><a id="l661" class='ln'>661</a></td><td>    <span class="ct">/*Initialize global TRC pointers. */</span></td></tr>
+<tr name="662" id="662">
+<td><a id="l662" class='ln'>662</a></td><td>    <a id="662c5" class="tk">VSI_rti_init_trc_pointers</a>();</td></tr>
+<tr name="663" id="663">
+<td><a id="l663" class='ln'>663</a></td><td>    <a id="663c5" class="tk">RTI_INIT_CODE_ENV</a>();</td></tr>
+<tr name="664" id="664">
+<td><a id="l664" class='ln'>664</a></td><td>  <span class="br">}</span></td></tr>
+<tr name="665" id="665">
+<td><a id="l665" class='ln'>665</a></td><td><span class="br">}</span></td></tr>
+<tr name="666" id="666">
+<td><a id="l666" class='ln'>666</a></td><td></td></tr>
+</table>
+</pre>
+</body>
+</html>

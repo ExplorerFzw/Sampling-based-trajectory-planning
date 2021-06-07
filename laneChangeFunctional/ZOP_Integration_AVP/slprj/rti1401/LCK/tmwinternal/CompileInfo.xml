@@ -1,0 +1,3068 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MF0 version="1.1" packageUris="http://schema.mathworks.com/mf0/sl_modelref_info/R2018b">
+  <ModelRefInfoRepo.ModelRefInfoRoot type="ModelRefInfoRepo.ModelRefInfoRoot" uuid="d47a704e-17e9-46a9-ab49-bbcb7dc4e400">
+    <autoSolverStatusFlags>323</autoSolverStatusFlags>
+    <childModelRefInfo type="ModelRefInfoRepo.ChildModelRefInfo" uuid="aad3e774-a102-49bc-8103-79fb645f9f1f">
+      <isSingleInstance>true</isSingleInstance>
+      <modelName>LCK</modelName>
+      <modelPath>LCK</modelPath>
+    </childModelRefInfo>
+    <dataTransferInfos>AAFJTQAAAAAOAAAAOAAAAAYAAAAIAAAAAgAAAAAAAAAFAAAACAAAAAAAAAABAAAAAQAAAAAAAAAFAAQAAQAAAAEAAAAAAAAA</dataTransferInfos>
+    <fundamentalSampleTimePeriod>0.01</fundamentalSampleTimePeriod>
+    <globalVariables>AVP_OUTPUT_ST</globalVariables>
+    <globalVariables>C_DEG2RAD</globalVariables>
+    <globalVariables>C_KPH2MPS</globalVariables>
+    <globalVariables>C_NEARZERO</globalVariables>
+    <globalVariables>C_ONE</globalVariables>
+    <globalVariables>C_RAD2DEG</globalVariables>
+    <globalVariables>C_ZERO</globalVariables>
+    <globalVariables>Curvature_Rate</globalVariables>
+    <globalVariables>FUS_LANE_DATA_ST</globalVariables>
+    <globalVariables>FUS_LANE_OUTPUT_ST</globalVariables>
+    <globalVariables>FUS_LANE_PRIMARY_TRA</globalVariables>
+    <globalVariables>FUS_LANE_START_POINT</globalVariables>
+    <globalVariables>FUS_LANE_TRACK_EST_ST</globalVariables>
+    <globalVariables>HMI_Lateral_t</globalVariables>
+    <globalVariables>I_Term_Reset_Flag</globalVariables>
+    <globalVariables>LCK_BOOLEAN_FALSE</globalVariables>
+    <globalVariables>LCK_BOOLEAN_TURE</globalVariables>
+    <globalVariables>LCK_MODE_ACTIVE</globalVariables>
+    <globalVariables>LCK_MODE_ERROR</globalVariables>
+    <globalVariables>LCK_MODE_IDLE</globalVariables>
+    <globalVariables>LCK_MODE_LEFT_LANE_CHANGE</globalVariables>
+    <globalVariables>LCK_MODE_OFF</globalVariables>
+    <globalVariables>LCK_MODE_READY</globalVariables>
+    <globalVariables>LCK_MODE_RIGHT_LANE_CHANGE</globalVariables>
+    <globalVariables>LCK_PID_TorqCmd</globalVariables>
+    <globalVariables>LEFT_TURN_SIGNAL</globalVariables>
+    <globalVariables>LatCtrl_LCK_LanSigInputs_t</globalVariables>
+    <globalVariables>LatCtrl_LCK_SPPInfo_t</globalVariables>
+    <globalVariables>LatCtrl_LCK_TorqCmd</globalVariables>
+    <globalVariables>LatCtrl_LCK_TrackSigInputs_t</globalVariables>
+    <globalVariables>LatCtrl_LCK_VehSigInputs_t</globalVariables>
+    <globalVariables>ML_TIME_MSEC</globalVariables>
+    <globalVariables>ML_TIME_SEC</globalVariables>
+    <globalVariables>RIGHT_TURN_SIGNAL</globalVariables>
+    <globalVariables>Road_Radius</globalVariables>
+    <globalVariables>TJA_SP_CONF_MEDIUM</globalVariables>
+    <globalVariables>TJA_SP_TYPE_BLMONLY</globalVariables>
+    <globalVariables>TJA_SP_TYPE_POBLM</globalVariables>
+    <globalVariables>TJA_SP_TYPE_POONLY</globalVariables>
+    <globalVariables>c_BIT0</globalVariables>
+    <globalVariables>c_BIT1</globalVariables>
+    <globalVariables>c_BIT10</globalVariables>
+    <globalVariables>c_BIT11</globalVariables>
+    <globalVariables>c_BIT12</globalVariables>
+    <globalVariables>c_BIT13</globalVariables>
+    <globalVariables>c_BIT14</globalVariables>
+    <globalVariables>c_BIT15</globalVariables>
+    <globalVariables>c_BIT2</globalVariables>
+    <globalVariables>c_BIT3</globalVariables>
+    <globalVariables>c_BIT4</globalVariables>
+    <globalVariables>c_BIT5</globalVariables>
+    <globalVariables>c_BIT6</globalVariables>
+    <globalVariables>c_BIT7</globalVariables>
+    <globalVariables>c_BIT8</globalVariables>
+    <globalVariables>c_BIT9</globalVariables>
+    <globalVariables>k_HLR_suprress_hold</globalVariables>
+    <globalVariables>k_HighAccel_suppress_hold</globalVariables>
+    <globalVariables>k_LCG_Configured</globalVariables>
+    <globalVariables>k_LCK_A0Fac_ActSta</globalVariables>
+    <globalVariables>k_LCK_A0Fac_DrvStm</globalVariables>
+    <globalVariables>k_LCK_A0ShiftFac_Dy_LftCurv</globalVariables>
+    <globalVariables>k_LCK_A0ShiftFac_Dy_RgtCurv</globalVariables>
+    <globalVariables>k_LCK_A0ShiftFac_Vspd</globalVariables>
+    <globalVariables>k_LCK_A0Shift_LftCurv</globalVariables>
+    <globalVariables>k_LCK_A0Shift_RgtCurv</globalVariables>
+    <globalVariables>k_LCK_A0Shift_StraLan</globalVariables>
+    <globalVariables>k_LCK_A0_Rdy2Act_UseConst</globalVariables>
+    <globalVariables>k_LCK_Active2Ready_Mask</globalVariables>
+    <globalVariables>k_LCK_CvatRateBks</globalVariables>
+    <globalVariables>k_LCK_CvatrBks</globalVariables>
+    <globalVariables>k_LCK_DFac_Dy</globalVariables>
+    <globalVariables>k_LCK_DFac_Dy_Curv</globalVariables>
+    <globalVariables>k_LCK_DFac_HaCurCen</globalVariables>
+    <globalVariables>k_LCK_DFac_HaCurSid</globalVariables>
+    <globalVariables>k_LCK_DFac_HaStrCen</globalVariables>
+    <globalVariables>k_LCK_DFac_HaStrSid</globalVariables>
+    <globalVariables>k_LCK_DFac_HadCurCen</globalVariables>
+    <globalVariables>k_LCK_DFac_HadCurSid</globalVariables>
+    <globalVariables>k_LCK_DFac_HadStrCen</globalVariables>
+    <globalVariables>k_LCK_DFac_HadStrSid</globalVariables>
+    <globalVariables>k_LCK_DFac_Rad</globalVariables>
+    <globalVariables>k_LCK_DFac_SA_CurCen</globalVariables>
+    <globalVariables>k_LCK_DFac_SA_CurSid</globalVariables>
+    <globalVariables>k_LCK_DFac_SA_StrCen</globalVariables>
+    <globalVariables>k_LCK_DFac_SA_StrSid</globalVariables>
+    <globalVariables>k_LCK_DFac_SS_CurCen</globalVariables>
+    <globalVariables>k_LCK_DFac_SS_CurSid</globalVariables>
+    <globalVariables>k_LCK_DFac_SS_StrCen</globalVariables>
+    <globalVariables>k_LCK_DFac_SS_StrSid</globalVariables>
+    <globalVariables>k_LCK_DFac_Vspd</globalVariables>
+    <globalVariables>k_LCK_DTermMax</globalVariables>
+    <globalVariables>k_LCK_DlyTm_DrvStim</globalVariables>
+    <globalVariables>k_LCK_DyBks_Curv</globalVariables>
+    <globalVariables>k_LCK_Enable_POOnly</globalVariables>
+    <globalVariables>k_LCK_Entry_DistBuffer</globalVariables>
+    <globalVariables>k_LCK_Fac_Vspd2RngThr_FalRec</globalVariables>
+    <globalVariables>k_LCK_FfwDeltaFac_Rad_Lft</globalVariables>
+    <globalVariables>k_LCK_FfwDeltaFac_Rad_Rgt</globalVariables>
+    <globalVariables>k_LCK_FfwDeltaFac_Vspd</globalVariables>
+    <globalVariables>k_LCK_FfwFac_CvatRate_Lft</globalVariables>
+    <globalVariables>k_LCK_FfwFac_CvatRate_Rgt</globalVariables>
+    <globalVariables>k_LCK_FfwFac_Dy</globalVariables>
+    <globalVariables>k_LCK_FfwFac_Rad_Lft</globalVariables>
+    <globalVariables>k_LCK_FfwFac_Rad_Rgt</globalVariables>
+    <globalVariables>k_LCK_FfwFac_Vspd</globalVariables>
+    <globalVariables>k_LCK_FfwTorq_Cvat</globalVariables>
+    <globalVariables>k_LCK_Ffw_CvatSwh</globalVariables>
+    <globalVariables>k_LCK_Ffw_DyBks</globalVariables>
+    <globalVariables>k_LCK_Ffw_TimCon_CmdFlt</globalVariables>
+    <globalVariables>k_LCK_HAFac_ActSta</globalVariables>
+    <globalVariables>k_LCK_HAFac_DrvStm</globalVariables>
+    <globalVariables>k_LCK_HARFac_ActSta</globalVariables>
+    <globalVariables>k_LCK_HARFac_DrvStm</globalVariables>
+    <globalVariables>k_LCK_HaloTime</globalVariables>
+    <globalVariables>k_LCK_HaloTime_Switch</globalVariables>
+    <globalVariables>k_LCK_HedAngDiffX</globalVariables>
+    <globalVariables>k_LCK_HedAngRateDiffX</globalVariables>
+    <globalVariables>k_LCK_Hed_DyBks</globalVariables>
+    <globalVariables>k_LCK_HndsOnWhel_DlyTm_Idl2Rdy</globalVariables>
+    <globalVariables>k_LCK_Idle2Ready_Mask</globalVariables>
+    <globalVariables>k_LCK_Junc_SusTime</globalVariables>
+    <globalVariables>k_LCK_KpKdDecSlopeLmt</globalVariables>
+    <globalVariables>k_LCK_KpKdIncSlopeLmt</globalVariables>
+    <globalVariables>k_LCK_LM_ROC_DlyTm_Idl2Rdy</globalVariables>
+    <globalVariables>k_LCK_LM_ROC_DlyTm_Rdy2Idl</globalVariables>
+    <globalVariables>k_LCK_LM_ROC_Idl2Rdy</globalVariables>
+    <globalVariables>k_LCK_LM_ROC_Rdy2Idl</globalVariables>
+    <globalVariables>k_LCK_LatCtrl_DFac_Lft</globalVariables>
+    <globalVariables>k_LCK_LatCtrl_DFac_Rgt</globalVariables>
+    <globalVariables>k_LCK_LatCtrl_Kd</globalVariables>
+    <globalVariables>k_LCK_LatCtrl_Kp</globalVariables>
+    <globalVariables>k_LCK_LatCtrl_PFac_Lft</globalVariables>
+    <globalVariables>k_LCK_LatCtrl_PFac_Rgt</globalVariables>
+    <globalVariables>k_LCK_LatCtrl_TimCon_CmdFlt</globalVariables>
+    <globalVariables>k_LCK_Lat_Ctrl_DFac_Lft</globalVariables>
+    <globalVariables>k_LCK_Lat_Ctrl_DFac_Rgt</globalVariables>
+    <globalVariables>k_LCK_Lat_Ctrl_Kd</globalVariables>
+    <globalVariables>k_LCK_Lat_Ctrl_Ki</globalVariables>
+    <globalVariables>k_LCK_Lat_Ctrl_Kp</globalVariables>
+    <globalVariables>k_LCK_Lat_Ctrl_Kp_NearGain</globalVariables>
+    <globalVariables>k_LCK_Lat_Ctrl_PFac_Lft</globalVariables>
+    <globalVariables>k_LCK_Lat_Ctrl_PFac_Rgt</globalVariables>
+    <globalVariables>k_LCK_Lat_Ctrl_TimCon_CmdFlt</globalVariables>
+    <globalVariables>k_LCK_Lat_DFac_Rad</globalVariables>
+    <globalVariables>k_LCK_Lat_DFac_SS_Cur</globalVariables>
+    <globalVariables>k_LCK_Lat_DFac_SS_Str</globalVariables>
+    <globalVariables>k_LCK_Lat_DFac_Vspd</globalVariables>
+    <globalVariables>k_LCK_Lat_DyBks</globalVariables>
+    <globalVariables>k_LCK_Lat_IFac_Rad</globalVariables>
+    <globalVariables>k_LCK_Lat_IFac_Vspd</globalVariables>
+    <globalVariables>k_LCK_Lat_ILmtFac_Dy_CurvLan</globalVariables>
+    <globalVariables>k_LCK_Lat_ILmtFac_Dy_StraLan</globalVariables>
+    <globalVariables>k_LCK_Lat_ILmtFac_Rad</globalVariables>
+    <globalVariables>k_LCK_Lat_ILmtFac_Rad_NearGain</globalVariables>
+    <globalVariables>k_LCK_Lat_ILmtFac_Vspd_CurvLan</globalVariables>
+    <globalVariables>k_LCK_Lat_ILmtFac_Vspd_StraLan</globalVariables>
+    <globalVariables>k_LCK_Lat_ITermLmt_Dy</globalVariables>
+    <globalVariables>k_LCK_Lat_KpKdDecSlopeLmt</globalVariables>
+    <globalVariables>k_LCK_Lat_KpKdIncSlopeLmt</globalVariables>
+    <globalVariables>k_LCK_Lat_PFac_Dy_InnLftCur</globalVariables>
+    <globalVariables>k_LCK_Lat_PFac_Dy_InnRgtCur</globalVariables>
+    <globalVariables>k_LCK_Lat_PFac_Dy_OutLftCur</globalVariables>
+    <globalVariables>k_LCK_Lat_PFac_Dy_OutRgtCur</globalVariables>
+    <globalVariables>k_LCK_Lat_PFac_Dy_Str</globalVariables>
+    <globalVariables>k_LCK_Lat_PFac_Rad</globalVariables>
+    <globalVariables>k_LCK_Lat_PFac_SS_Cur</globalVariables>
+    <globalVariables>k_LCK_Lat_PFac_SS_Str</globalVariables>
+    <globalVariables>k_LCK_Lat_PFac_Vspd</globalVariables>
+    <globalVariables>k_LCK_Lat_PTermMax</globalVariables>
+    <globalVariables>k_LCK_LnCetr_DlyTm_Rdy2Act</globalVariables>
+    <globalVariables>k_LCK_LnWidth_DlyTm_Idl2Rdy</globalVariables>
+    <globalVariables>k_LCK_LnWidth_DlyTm_Rdy2Idl</globalVariables>
+    <globalVariables>k_LCK_LnWidth_LowLmt_Idl2Rdy</globalVariables>
+    <globalVariables>k_LCK_LnWidth_LowLmt_Rdy2Idl</globalVariables>
+    <globalVariables>k_LCK_LnWidth_UpLmt_Idl2Rdy</globalVariables>
+    <globalVariables>k_LCK_LnWidth_UpLmt_Rdy2Idl</globalVariables>
+    <globalVariables>k_LCK_LowRng_Spd_Thr</globalVariables>
+    <globalVariables>k_LCK_MinJunction_Range</globalVariables>
+    <globalVariables>k_LCK_NonLinCompFac_Vspd</globalVariables>
+    <globalVariables>k_LCK_NonLinCompTab</globalVariables>
+    <globalVariables>k_LCK_NonLinearComp_En</globalVariables>
+    <globalVariables>k_LCK_Ovrd_DlyTm_Rdy2Idl</globalVariables>
+    <globalVariables>k_LCK_Ovrd_Torq_Hys</globalVariables>
+    <globalVariables>k_LCK_PFac_Dy</globalVariables>
+    <globalVariables>k_LCK_PFac_Dy_Curv</globalVariables>
+    <globalVariables>k_LCK_PFac_HaCurCen</globalVariables>
+    <globalVariables>k_LCK_PFac_HaCurSid</globalVariables>
+    <globalVariables>k_LCK_PFac_HaStrCen</globalVariables>
+    <globalVariables>k_LCK_PFac_HaStrSid</globalVariables>
+    <globalVariables>k_LCK_PFac_HadCurCen</globalVariables>
+    <globalVariables>k_LCK_PFac_HadCurSid</globalVariables>
+    <globalVariables>k_LCK_PFac_HadStrCen</globalVariables>
+    <globalVariables>k_LCK_PFac_HadStrSid</globalVariables>
+    <globalVariables>k_LCK_PFac_Rad</globalVariables>
+    <globalVariables>k_LCK_PFac_SA_CurCen</globalVariables>
+    <globalVariables>k_LCK_PFac_SA_CurSid</globalVariables>
+    <globalVariables>k_LCK_PFac_SA_StrCen</globalVariables>
+    <globalVariables>k_LCK_PFac_SA_StrSid</globalVariables>
+    <globalVariables>k_LCK_PFac_SS_CurCen</globalVariables>
+    <globalVariables>k_LCK_PFac_SS_CurSid</globalVariables>
+    <globalVariables>k_LCK_PFac_SS_StrCen</globalVariables>
+    <globalVariables>k_LCK_PFac_SS_StrSid</globalVariables>
+    <globalVariables>k_LCK_PFac_Vspd</globalVariables>
+    <globalVariables>k_LCK_PTermMax</globalVariables>
+    <globalVariables>k_LCK_ROC_filt_tau</globalVariables>
+    <globalVariables>k_LCK_RadBks</globalVariables>
+    <globalVariables>k_LCK_Range_Drop_MinDur</globalVariables>
+    <globalVariables>k_LCK_RatLmtFac_TorqCmd_Vspd</globalVariables>
+    <globalVariables>k_LCK_RatLmt_TorqCmd</globalVariables>
+    <globalVariables>k_LCK_Ready2Active_Mask</globalVariables>
+    <globalVariables>k_LCK_Ready2Idle_Mask</globalVariables>
+    <globalVariables>k_LCK_Rng2VehSpd_Ratio_DlyTime</globalVariables>
+    <globalVariables>k_LCK_Rng2VehSpd_Ratio_Thr</globalVariables>
+    <globalVariables>k_LCK_RngThr_FalRec</globalVariables>
+    <globalVariables>k_LCK_SPHighSpd_DlyTm_Idl2Rdy</globalVariables>
+    <globalVariables>k_LCK_SPLowSpd_DlyTm_Idl2Rdy</globalVariables>
+    <globalVariables>k_LCK_SPPConfHigh_ProbThre</globalVariables>
+    <globalVariables>k_LCK_SPPConfMedHigh_ProbThre</globalVariables>
+    <globalVariables>k_LCK_SPPConfMed_ProbThre</globalVariables>
+    <globalVariables>k_LCK_SPTyp_LowLmt_Idl2Rdy</globalVariables>
+    <globalVariables>k_LCK_SPTyp_UpLmt_Idl2Rdy</globalVariables>
+    <globalVariables>k_LCK_SP_A0_Rdy2Act</globalVariables>
+    <globalVariables>k_LCK_SP_A0_Rdy2Act_Max</globalVariables>
+    <globalVariables>k_LCK_SP_A0_Rdy2Act_Min</globalVariables>
+    <globalVariables>k_LCK_SP_A1_Rdy2Act</globalVariables>
+    <globalVariables>k_LCK_SP_Conf_Low_JuncTm</globalVariables>
+    <globalVariables>k_LCK_SP_Conf_Med_JuncTm</globalVariables>
+    <globalVariables>k_LCK_SPconfInvld_DlyTm_Rdy2Idl</globalVariables>
+    <globalVariables>k_LCK_SPconfLow_DlyTm_Rdy2Idl</globalVariables>
+    <globalVariables>k_LCK_SPconfLow_DlyTm_Rdy2Idl_x</globalVariables>
+    <globalVariables>k_LCK_SPconfLow_DlyTm_Rdy2Idl_z</globalVariables>
+    <globalVariables>k_LCK_SPconfMed_DlyTm_Rdy2Idl</globalVariables>
+    <globalVariables>k_LCK_SPconfMed_DlyTm_Rdy2Idl_x</globalVariables>
+    <globalVariables>k_LCK_SPconfMed_DlyTm_Rdy2Idl_z</globalVariables>
+    <globalVariables>k_LCK_SigFacHldTim_ActSta</globalVariables>
+    <globalVariables>k_LCK_SigFacHldTim_DrvStim</globalVariables>
+    <globalVariables>k_LCK_StrAngBks</globalVariables>
+    <globalVariables>k_LCK_StrAng_CR_threshold_z</globalVariables>
+    <globalVariables>k_LCK_StrSpdBks</globalVariables>
+    <globalVariables>k_LCK_TJALCK_SWSpeed</globalVariables>
+    <globalVariables>k_LCK_TimBks_ActSta</globalVariables>
+    <globalVariables>k_LCK_TimBks_DrvStm</globalVariables>
+    <globalVariables>k_LCK_TimCon_A0Flt_Normal</globalVariables>
+    <globalVariables>k_LCK_TimCon_A0Flt_Strong</globalVariables>
+    <globalVariables>k_LCK_TimCon_A1Flt_Normal</globalVariables>
+    <globalVariables>k_LCK_TimCon_A1Flt_Strong</globalVariables>
+    <globalVariables>k_LCK_TimCon_A2Flt_Normal</globalVariables>
+    <globalVariables>k_LCK_TimCon_A2Flt_Strong</globalVariables>
+    <globalVariables>k_LCK_TimCon_A3Flt_Normal</globalVariables>
+    <globalVariables>k_LCK_TimCon_A3Flt_Strong</globalVariables>
+    <globalVariables>k_LCK_TimCon_RadFlt</globalVariables>
+    <globalVariables>k_LCK_TimCon_YawRtFlt</globalVariables>
+    <globalVariables>k_LCK_TinCon_LaneProbFlt</globalVariables>
+    <globalVariables>k_LCK_TorqCmdBks</globalVariables>
+    <globalVariables>k_LCK_TorqThrBig_DrvStim</globalVariables>
+    <globalVariables>k_LCK_TorqThr_DrvStim</globalVariables>
+    <globalVariables>k_LCK_UseSP_MaxRange</globalVariables>
+    <globalVariables>k_LCK_VehSpd_LowLmtFus_Idl2Rdy</globalVariables>
+    <globalVariables>k_LCK_VehSpd_LowlmtVis_Idl2Rdy</globalVariables>
+    <globalVariables>k_LCK_VehSpd_LowlmtVis_Rdy2Idl</globalVariables>
+    <globalVariables>k_LCK_VehSpd_TJA_ICA_Bound</globalVariables>
+    <globalVariables>k_LCK_VehSpd_Uplmt_Idl2Rdy</globalVariables>
+    <globalVariables>k_LCK_VehSpd_Uplmt_Rdy2Idl</globalVariables>
+    <globalVariables>k_LCK_VisionOnly</globalVariables>
+    <globalVariables>k_LCK_VspdBks</globalVariables>
+    <globalVariables>k_LCK_YR_OffstFac_Dy_LftCurv</globalVariables>
+    <globalVariables>k_LCK_YR_OffstFac_Dy_RgtCurv</globalVariables>
+    <globalVariables>k_LCK_YawRateSign</globalVariables>
+    <globalVariables>k_LCK_YawRateThr_Act2Rdy_ROC_x</globalVariables>
+    <globalVariables>k_LCK_YawRateThr_Act2Rdy_z</globalVariables>
+    <globalVariables>k_LCK_YawRateThr_DlyTm_Act2Rdy</globalVariables>
+    <globalVariables>k_LCK_YawRateThr_Idl2Rdy</globalVariables>
+    <globalVariables>k_LCK_YawRate_DlyTm_Idl2Rdy</globalVariables>
+    <globalVariables>k_LCK_YawRate_OffsetFac_Vspd</globalVariables>
+    <globalVariables>k_LCK_YawRate_Offset_LftCurv</globalVariables>
+    <globalVariables>k_LCK_YawRate_Offset_RgtCurv</globalVariables>
+    <globalVariables>k_LCK_accel_inhibit_thold</globalVariables>
+    <globalVariables>k_LCK_host_veh_width</globalVariables>
+    <globalVariables>k_LCK_ovrd_torq_thold_per_spd_x</globalVariables>
+    <globalVariables>k_LCK_ovrd_torq_thold_per_spd_z</globalVariables>
+    <globalVariables>k_LC_Exit_Switch</globalVariables>
+    <globalVariables>k_Ovrd_torq_thold_per_spd_sw</globalVariables>
+    <globalVariables>k_StrAng_CR_hold_msec</globalVariables>
+    <globalVariables>k_StrAng_CR_suppress_hold</globalVariables>
+    <globalVariables>k_StrAng_CR_threshold_x</globalVariables>
+    <globalVariables>k_StrAng_CR_threshold_z</globalVariables>
+    <globalVariables>k_StrAng_filter_tau</globalVariables>
+    <globalVariables>k_Use_Constant_SPP_Timer</globalVariables>
+    <globalVariables>k_accel_pedal_pos_per_speed_x</globalVariables>
+    <globalVariables>k_accel_pedal_pos_per_speed_z</globalVariables>
+    <globalVariables>k_brake_suprress_hold</globalVariables>
+    <globalVariables>k_driver_appl_torque_filt</globalVariables>
+    <globalVariables>k_driver_suppression_hold_time</globalVariables>
+    <globalVariables>k_hands_on_wheel_hold_msec</globalVariables>
+    <globalVariables>k_hands_on_wheel_torque_hi</globalVariables>
+    <globalVariables>k_hands_on_wheel_torque_lo</globalVariables>
+    <globalVariables>k_handsoff_delay_cycles</globalVariables>
+    <globalVariables>k_handsoff_torq_Lo_CR</globalVariables>
+    <globalVariables>k_handson_delay_cycles</globalVariables>
+    <globalVariables>k_hs_StrAng_CR_threshold_z</globalVariables>
+    <globalVariables>k_ls_StrAng_CR_threshold_z</globalVariables>
+    <globalVariables>k_override_left_torq_thold</globalVariables>
+    <globalVariables>k_override_right_torq_thold</globalVariables>
+    <globalVariables>k_override_torq_sustain_period</globalVariables>
+    <globalVariables>k_turn_suprress_hold</globalVariables>
+    <hasBwsAccessed>true</hasBwsAccessed>
+    <hasBwsAccessedByAnyModel>true</hasBwsAccessedByAnyModel>
+    <hasNonVirtualConstantTs>true</hasNonVirtualConstantTs>
+    <hasStatesModifiedInOutputUpdate>true</hasStatesModifiedInOutputUpdate>
+    <inports type="ModelRefInfoRepo.InportInformation" uuid="8a902f8e-bffd-4360-ae68-befae5ac8f5b">
+      <isNotDerivPort>true</isNotDerivPort>
+      <designMax>inf</designMax>
+      <designMin>-inf</designMin>
+      <indexType>2</indexType>
+      <rateInfo type="ModelRefInfoRepo.RateInfo">
+        <compiled>true</compiled>
+        <nonFcnCallPartitionName>D1</nonFcnCallPartitionName>
+        <period>0.01</period>
+        <rateIdx>0</rateIdx>
+      </rateInfo>
+      <resolvedSignalObject></resolvedSignalObject>
+      <sigNameToEMVCEMap type="ModelRefInfoRepo.SigNameEMVCEInfo" uuid="935807d8-d908-48f2-9c4e-dc9b9002d749"/>
+    </inports>
+    <inports type="ModelRefInfoRepo.InportInformation" uuid="55dae59f-4be4-45a5-880c-769b55540771">
+      <isNotDerivPort>true</isNotDerivPort>
+      <designMax>inf</designMax>
+      <designMin>-inf</designMin>
+      <indexType>2</indexType>
+      <originalPortNumber>1</originalPortNumber>
+      <rateInfo type="ModelRefInfoRepo.RateInfo">
+        <compiled>true</compiled>
+        <nonFcnCallPartitionName>D1</nonFcnCallPartitionName>
+        <period>0.01</period>
+        <rateIdx>0</rateIdx>
+      </rateInfo>
+      <resolvedSignalObject></resolvedSignalObject>
+      <sigNameToEMVCEMap type="ModelRefInfoRepo.SigNameEMVCEInfo" uuid="5c1f2877-d8d0-471b-a5f5-f1822da3893b"/>
+    </inports>
+    <inports type="ModelRefInfoRepo.InportInformation" uuid="ed11c96d-bd85-4117-97a3-c0669c20229a">
+      <isNotDerivPort>true</isNotDerivPort>
+      <designMax>inf</designMax>
+      <designMin>-inf</designMin>
+      <indexType>2</indexType>
+      <originalPortNumber>2</originalPortNumber>
+      <rateInfo type="ModelRefInfoRepo.RateInfo">
+        <compiled>true</compiled>
+        <nonFcnCallPartitionName>D1</nonFcnCallPartitionName>
+        <period>0.01</period>
+        <rateIdx>0</rateIdx>
+      </rateInfo>
+      <resolvedSignalObject></resolvedSignalObject>
+      <sigNameToEMVCEMap type="ModelRefInfoRepo.SigNameEMVCEInfo" uuid="4cc855a4-3877-4df1-aa6c-e6cba5202a8c"/>
+    </inports>
+    <inports type="ModelRefInfoRepo.InportInformation" uuid="16c74258-dbda-4a33-9398-dc34419e10e1">
+      <isNotDerivPort>true</isNotDerivPort>
+      <designMax>inf</designMax>
+      <designMin>-inf</designMin>
+      <indexType>2</indexType>
+      <originalPortNumber>3</originalPortNumber>
+      <rateInfo type="ModelRefInfoRepo.RateInfo">
+        <compiled>true</compiled>
+        <nonFcnCallPartitionName>D1</nonFcnCallPartitionName>
+        <period>0.01</period>
+        <rateIdx>0</rateIdx>
+      </rateInfo>
+      <resolvedSignalObject></resolvedSignalObject>
+      <sigNameToEMVCEMap type="ModelRefInfoRepo.SigNameEMVCEInfo" uuid="4b6d905a-a11b-49c1-ad4d-318c98f5d31d"/>
+    </inports>
+    <inports type="ModelRefInfoRepo.InportInformation" uuid="0fe7178b-2764-472e-8099-19483f9ddfcf">
+      <isNotDerivPort>true</isNotDerivPort>
+      <designMax>inf</designMax>
+      <designMin>-inf</designMin>
+      <indexType>2</indexType>
+      <originalPortNumber>4</originalPortNumber>
+      <rateInfo type="ModelRefInfoRepo.RateInfo">
+        <compiled>true</compiled>
+        <nonFcnCallPartitionName>D1</nonFcnCallPartitionName>
+        <period>0.01</period>
+        <rateIdx>0</rateIdx>
+      </rateInfo>
+      <resolvedSignalObject></resolvedSignalObject>
+      <sigNameToEMVCEMap type="ModelRefInfoRepo.SigNameEMVCEInfo" uuid="86e726e4-e953-4dc5-858e-bf81799cf0f7"/>
+    </inports>
+    <inports type="ModelRefInfoRepo.InportInformation" uuid="7d6d0aa9-61c5-4afc-9c00-f75b70e6a2e9">
+      <isNotDerivPort>true</isNotDerivPort>
+      <designMax>inf</designMax>
+      <designMin>-inf</designMin>
+      <indexType>2</indexType>
+      <originalPortNumber>5</originalPortNumber>
+      <rateInfo type="ModelRefInfoRepo.RateInfo">
+        <compiled>true</compiled>
+        <nonFcnCallPartitionName>D1</nonFcnCallPartitionName>
+        <period>0.01</period>
+        <rateIdx>0</rateIdx>
+      </rateInfo>
+      <resolvedSignalObject></resolvedSignalObject>
+      <sigNameToEMVCEMap type="ModelRefInfoRepo.SigNameEMVCEInfo" uuid="07ceb958-2fcb-4ac6-9620-162cc6cbd54b"/>
+    </inports>
+    <inports type="ModelRefInfoRepo.InportInformation" uuid="19b11f66-71db-4e92-b181-6b769a5dab29">
+      <isNotDerivPort>true</isNotDerivPort>
+      <designMax>inf</designMax>
+      <designMin>-inf</designMin>
+      <indexType>2</indexType>
+      <originalPortNumber>6</originalPortNumber>
+      <rateInfo type="ModelRefInfoRepo.RateInfo">
+        <compiled>true</compiled>
+        <nonFcnCallPartitionName>D1</nonFcnCallPartitionName>
+        <period>0.01</period>
+        <rateIdx>0</rateIdx>
+      </rateInfo>
+      <resolvedSignalObject></resolvedSignalObject>
+      <sigNameToEMVCEMap type="ModelRefInfoRepo.SigNameEMVCEInfo" uuid="ff2cabd0-189f-4bc6-b815-857c6f4c5a03"/>
+    </inports>
+    <inports type="ModelRefInfoRepo.InportInformation" uuid="88f6a5c3-1885-4b89-9b98-3e8d684076fc">
+      <isNotDerivPort>true</isNotDerivPort>
+      <designMax>inf</designMax>
+      <designMin>-inf</designMin>
+      <indexType>2</indexType>
+      <originalPortNumber>7</originalPortNumber>
+      <rateInfo type="ModelRefInfoRepo.RateInfo">
+        <compiled>true</compiled>
+        <nonFcnCallPartitionName>D1</nonFcnCallPartitionName>
+        <period>0.01</period>
+        <rateIdx>0</rateIdx>
+      </rateInfo>
+      <resolvedSignalObject></resolvedSignalObject>
+      <sigNameToEMVCEMap type="ModelRefInfoRepo.SigNameEMVCEInfo" uuid="0b26ee97-694e-4e7f-95c7-b1d85d87f33c"/>
+    </inports>
+    <inports type="ModelRefInfoRepo.InportInformation" uuid="107a74c2-e661-4d61-81ba-b879d2e38b49">
+      <isNotDerivPort>true</isNotDerivPort>
+      <designMax>inf</designMax>
+      <designMin>-inf</designMin>
+      <indexType>2</indexType>
+      <originalPortNumber>8</originalPortNumber>
+      <rateInfo type="ModelRefInfoRepo.RateInfo">
+        <compiled>true</compiled>
+        <nonFcnCallPartitionName>D1</nonFcnCallPartitionName>
+        <period>0.01</period>
+        <rateIdx>0</rateIdx>
+      </rateInfo>
+      <resolvedSignalObject></resolvedSignalObject>
+      <sigNameToEMVCEMap type="ModelRefInfoRepo.SigNameEMVCEInfo" uuid="a464ea02-386a-43fd-8e01-05fa3f0d9551"/>
+    </inports>
+    <inports type="ModelRefInfoRepo.InportInformation" uuid="10a2a7ff-be51-462e-a5d3-dbe83f7669db">
+      <isNotDerivPort>true</isNotDerivPort>
+      <designMax>inf</designMax>
+      <designMin>-inf</designMin>
+      <indexType>2</indexType>
+      <originalPortNumber>9</originalPortNumber>
+      <rateInfo type="ModelRefInfoRepo.RateInfo">
+        <compiled>true</compiled>
+        <nonFcnCallPartitionName>D1</nonFcnCallPartitionName>
+        <period>0.01</period>
+        <rateIdx>0</rateIdx>
+      </rateInfo>
+      <resolvedSignalObject></resolvedSignalObject>
+      <sigNameToEMVCEMap type="ModelRefInfoRepo.SigNameEMVCEInfo" uuid="9fdd68fb-a9be-4fe1-b385-3068eab57499"/>
+    </inports>
+    <isNumAllowedInstancesOne>true</isNumAllowedInstancesOne>
+    <isOrigInportVirtualBus>false</isOrigInportVirtualBus>
+    <isOrigInportVirtualBus>false</isOrigInportVirtualBus>
+    <isOrigInportVirtualBus>false</isOrigInportVirtualBus>
+    <isOrigInportVirtualBus>false</isOrigInportVirtualBus>
+    <isOrigInportVirtualBus>false</isOrigInportVirtualBus>
+    <isOrigInportVirtualBus>false</isOrigInportVirtualBus>
+    <isOrigInportVirtualBus>false</isOrigInportVirtualBus>
+    <isOrigInportVirtualBus>false</isOrigInportVirtualBus>
+    <isOrigInportVirtualBus>false</isOrigInportVirtualBus>
+    <isOrigInportVirtualBus>false</isOrigInportVirtualBus>
+    <isOrigOutportVirtualBus>false</isOrigOutportVirtualBus>
+    <isOrigOutportVirtualBus>false</isOrigOutportVirtualBus>
+    <isOrigOutportVirtualBus>false</isOrigOutportVirtualBus>
+    <isOrigOutportVirtualBus>false</isOrigOutportVirtualBus>
+    <isOrigOutportVirtualBus>false</isOrigOutportVirtualBus>
+    <loggingSaveFormat>2</loggingSaveFormat>
+    <maxFreqHz>-1</maxFreqHz>
+    <origInportBusType></origInportBusType>
+    <origInportBusType></origInportBusType>
+    <origInportBusType></origInportBusType>
+    <origInportBusType></origInportBusType>
+    <origInportBusType></origInportBusType>
+    <origInportBusType></origInportBusType>
+    <origInportBusType></origInportBusType>
+    <origInportBusType></origInportBusType>
+    <origInportBusType></origInportBusType>
+    <origInportBusType></origInportBusType>
+    <origInportElements></origInportElements>
+    <origInportElements></origInportElements>
+    <origInportElements></origInportElements>
+    <origInportElements></origInportElements>
+    <origInportElements></origInportElements>
+    <origInportElements></origInportElements>
+    <origInportElements></origInportElements>
+    <origInportElements></origInportElements>
+    <origInportElements></origInportElements>
+    <origInportElements></origInportElements>
+    <origOutportBusType></origOutportBusType>
+    <origOutportBusType></origOutportBusType>
+    <origOutportBusType></origOutportBusType>
+    <origOutportBusType></origOutportBusType>
+    <origOutportBusType></origOutportBusType>
+    <origOutportElements></origOutportElements>
+    <origOutportElements></origOutportElements>
+    <origOutportElements></origOutportElements>
+    <origOutportElements></origOutportElements>
+    <origOutportElements></origOutportElements>
+    <outports type="ModelRefInfoRepo.OutportInformation" uuid="eedc01e6-cfaa-49ca-9e94-56b9f1c8eebd">
+      <designMax>inf</designMax>
+      <designMin>-inf</designMin>
+      <rateInfo type="ModelRefInfoRepo.RateInfo">
+        <compiled>true</compiled>
+        <nonFcnCallPartitionName>D1</nonFcnCallPartitionName>
+        <period>0.01</period>
+        <rateIdx>0</rateIdx>
+      </rateInfo>
+      <resolvedSignalObject></resolvedSignalObject>
+      <sigNameToEMVCEMap type="ModelRefInfoRepo.SigNameEMVCEInfo" uuid="f90eb1ac-b40c-4c26-9d7a-7ee6ecc50488"/>
+    </outports>
+    <outports type="ModelRefInfoRepo.OutportInformation" uuid="6abd90ee-efea-4e6e-a6c1-8052a8785205">
+      <designMax>inf</designMax>
+      <designMin>-inf</designMin>
+      <originalPortNumber>1</originalPortNumber>
+      <rateInfo type="ModelRefInfoRepo.RateInfo">
+        <compiled>true</compiled>
+        <nonFcnCallPartitionName>D1</nonFcnCallPartitionName>
+        <period>0.01</period>
+        <rateIdx>0</rateIdx>
+      </rateInfo>
+      <resolvedSignalObject></resolvedSignalObject>
+      <sigNameToEMVCEMap type="ModelRefInfoRepo.SigNameEMVCEInfo" uuid="782ec3e7-6c52-44ab-a126-6d7d9c62b7cf"/>
+    </outports>
+    <outports type="ModelRefInfoRepo.OutportInformation" uuid="d29ba690-ff0b-4934-870e-7448d2b11a9b">
+      <designMax>inf</designMax>
+      <designMin>-inf</designMin>
+      <originalPortNumber>2</originalPortNumber>
+      <rateInfo type="ModelRefInfoRepo.RateInfo">
+        <compiled>true</compiled>
+        <nonFcnCallPartitionName>D1</nonFcnCallPartitionName>
+        <period>0.01</period>
+        <rateIdx>0</rateIdx>
+      </rateInfo>
+      <resolvedSignalObject></resolvedSignalObject>
+      <sigNameToEMVCEMap type="ModelRefInfoRepo.SigNameEMVCEInfo" uuid="188628ef-7274-49de-ba08-f8af3dfda654"/>
+    </outports>
+    <outports type="ModelRefInfoRepo.OutportInformation" uuid="b03dc89a-6e97-4ea4-a326-0f9fe46d77c5">
+      <designMax>inf</designMax>
+      <designMin>-inf</designMin>
+      <originalPortNumber>3</originalPortNumber>
+      <rateInfo type="ModelRefInfoRepo.RateInfo">
+        <compiled>true</compiled>
+        <nonFcnCallPartitionName>D1</nonFcnCallPartitionName>
+        <period>0.01</period>
+        <rateIdx>0</rateIdx>
+      </rateInfo>
+      <resolvedSignalObject></resolvedSignalObject>
+      <sigNameToEMVCEMap type="ModelRefInfoRepo.SigNameEMVCEInfo" uuid="4d6e52e0-07bf-4b12-80f6-32962e47a574"/>
+    </outports>
+    <outports type="ModelRefInfoRepo.OutportInformation" uuid="8a3c710f-56da-4b86-a20c-54c5c8965977">
+      <designMax>inf</designMax>
+      <designMin>-inf</designMin>
+      <originalPortNumber>4</originalPortNumber>
+      <rateInfo type="ModelRefInfoRepo.RateInfo">
+        <compiled>true</compiled>
+        <nonFcnCallPartitionName>D1</nonFcnCallPartitionName>
+        <period>0.01</period>
+        <rateIdx>0</rateIdx>
+      </rateInfo>
+      <resolvedSignalObject></resolvedSignalObject>
+      <sigNameToEMVCEMap type="ModelRefInfoRepo.SigNameEMVCEInfo" uuid="ea94348a-1690-4d14-ac9a-0ae77f9ec948"/>
+    </outports>
+    <runtimeNonFcnCallRateInfos type="ModelRefInfoRepo.RateInfo">
+      <compiled>true</compiled>
+      <nonFcnCallPartitionName>D1</nonFcnCallPartitionName>
+      <period>0.01</period>
+      <rateIdx>0</rateIdx>
+    </runtimeNonFcnCallRateInfos>
+    <sampleTimeInheritanceRule>2</sampleTimeInheritanceRule>
+    <structTypeBusTypeMap type="ModelRefInfoRepo.StructTypeBusTypeElem" uuid="4ecb335d-bbd7-431b-868f-63eaa10e3f01">
+      <busType>LatCtrl_LCK_LanSigInputs_t</busType>
+      <structType>struct_FIcryxmgVL22aI7I6bhv4C</structType>
+    </structTypeBusTypeMap>
+    <structTypeBusTypeMap type="ModelRefInfoRepo.StructTypeBusTypeElem" uuid="64a58def-fe25-477b-a891-ac9f1f9186c0">
+      <busType>LatCtrl_LCK_SPPInfo_t</busType>
+      <structType>struct_NjYvygQNC0GIsxMiWU9s6E</structType>
+    </structTypeBusTypeMap>
+    <timingAndTaskingRegistry>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;MF0 version=&quot;1.1&quot; packageUris=&quot;http://schema.mathworks.com/mf0/slexec_mm_sto/R2018b&quot;&gt;
+  &lt;sto.Registry type=&quot;sto.Registry&quot; uuid=&quot;3103db1d-65ac-478e-b621-04a8dff1dd6e&quot;&gt;
+    &lt;clocks type=&quot;sto.Clock&quot; uuid=&quot;07ba027c-8b31-402f-8bf0-ea9d2a9fe866&quot;&gt;
+      &lt;clockTickConstraint&gt;PeriodicWithFixedResolution&lt;/clockTickConstraint&gt;
+      &lt;needsToProvideTimeDuringExecution&gt;true&lt;/needsToProvideTimeDuringExecution&gt;
+      &lt;resolution&gt;0.01&lt;/resolution&gt;
+      &lt;specifiedClockTickConstraint&gt;PeriodicWithFixedResolution&lt;/specifiedClockTickConstraint&gt;
+      &lt;clockDomain type=&quot;sto.ClockDomain&quot; uuid=&quot;719c5d4c-235a-476b-991b-dc7f3df0e166&quot;&gt;
+        &lt;baseTaskID&gt;_task0&lt;/baseTaskID&gt;
+        &lt;computedFundamentalStepSize&gt;0.01&lt;/computedFundamentalStepSize&gt;
+        &lt;rates type=&quot;sto.Rate&quot; uuid=&quot;7656d6ed-c804-40f8-ae1e-575770a24d68&quot;/&gt;
+        &lt;rates type=&quot;sto.Rate&quot; uuid=&quot;ee2be083-9ce4-4dde-a277-cd0c83b33635&quot;/&gt;
+        &lt;rootTaskHierarchyElements type=&quot;sto.Task&quot; uuid=&quot;0221ea6a-a136-4d46-b279-60d23e2d1a55&quot;&gt;
+          &lt;isExecutable&gt;true&lt;/isExecutable&gt;
+          &lt;orderIndex&gt;1&lt;/orderIndex&gt;
+          &lt;rates type=&quot;sto.Rate&quot; uuid=&quot;7656d6ed-c804-40f8-ae1e-575770a24d68&quot;&gt;
+            &lt;annotation&gt;FiM&lt;/annotation&gt;
+            &lt;colorIndex&gt;8&lt;/colorIndex&gt;
+            &lt;description&gt;Fixed in Minor Step&lt;/description&gt;
+            &lt;eventSourceType&gt;UNSPECIFIED_EVENT_SOURCE&lt;/eventSourceType&gt;
+            &lt;rateIDX&gt;-1&lt;/rateIDX&gt;
+            &lt;registry type=&quot;sto.Registry&quot; uuid=&quot;3103db1d-65ac-478e-b621-04a8dff1dd6e&quot;/&gt;
+            &lt;taskId&gt;_task0&lt;/taskId&gt;
+            &lt;useForExecution&gt;NotForExecution&lt;/useForExecution&gt;
+            &lt;rateSpec type=&quot;sto.RateSpec&quot; uuid=&quot;17364d6e-b812-47e4-9994-3d064f0c3aff&quot;&gt;
+              &lt;offset&gt;1&lt;/offset&gt;
+              &lt;rateType&gt;ZOHContinuous&lt;/rateType&gt;
+            &lt;/rateSpec&gt;
+          &lt;/rates&gt;
+          &lt;rates type=&quot;sto.Rate&quot; uuid=&quot;ee2be083-9ce4-4dde-a277-cd0c83b33635&quot;&gt;
+            &lt;annotation&gt;D1&lt;/annotation&gt;
+            &lt;colorIndex&gt;2&lt;/colorIndex&gt;
+            &lt;description&gt;Discrete 1&lt;/description&gt;
+            &lt;eventSourceType&gt;UNSPECIFIED_EVENT_SOURCE&lt;/eventSourceType&gt;
+            &lt;registry type=&quot;sto.Registry&quot; uuid=&quot;3103db1d-65ac-478e-b621-04a8dff1dd6e&quot;/&gt;
+            &lt;taskId&gt;_task0&lt;/taskId&gt;
+            &lt;rateSpec type=&quot;sto.RateSpec&quot; uuid=&quot;ca552a28-63e8-462b-af0c-695bac292b23&quot;&gt;
+              &lt;period&gt;0.01&lt;/period&gt;
+              &lt;rateType&gt;ClassicPeriodicDiscrete&lt;/rateType&gt;
+            &lt;/rateSpec&gt;
+          &lt;/rates&gt;
+          &lt;elementType&gt;Task&lt;/elementType&gt;
+          &lt;identifier&gt;_task0&lt;/identifier&gt;
+          &lt;priority&gt;40&lt;/priority&gt;
+        &lt;/rootTaskHierarchyElements&gt;
+      &lt;/clockDomain&gt;
+    &lt;/clocks&gt;
+    &lt;clocks type=&quot;sto.Clock&quot; uuid=&quot;aff483c7-434f-4be9-9aab-c8c79e89d07c&quot;&gt;
+      &lt;cNum&gt;1&lt;/cNum&gt;
+      &lt;identifier&gt;ParameterChangeEvent&lt;/identifier&gt;
+      &lt;resolution&gt;-1&lt;/resolution&gt;
+      &lt;specifiedTaskingMode&gt;ExplicitTasking&lt;/specifiedTaskingMode&gt;
+      &lt;timeAdvanceMode&gt;None&lt;/timeAdvanceMode&gt;
+      &lt;clockDomain type=&quot;sto.ClockDomain&quot; uuid=&quot;03b4a45b-c98e-4473-aed7-d6b44598ed53&quot;&gt;
+        &lt;computedFundamentalStepSize&gt;-1&lt;/computedFundamentalStepSize&gt;
+        &lt;rates type=&quot;sto.Rate&quot; uuid=&quot;09dfa971-5b94-4676-8a59-0d5a1843e2d8&quot;/&gt;
+        &lt;rootTaskHierarchyElements type=&quot;sto.Task&quot; uuid=&quot;20c7215d-8306-4e23-a0b5-c4ace225f58a&quot;&gt;
+          &lt;isExplicit&gt;true&lt;/isExplicit&gt;
+          &lt;rates type=&quot;sto.Rate&quot; uuid=&quot;09dfa971-5b94-4676-8a59-0d5a1843e2d8&quot;&gt;
+            &lt;eventSourceType&gt;PARAMETER_CHANGE_EVENT&lt;/eventSourceType&gt;
+            &lt;rateIDX&gt;-1&lt;/rateIDX&gt;
+            &lt;registry type=&quot;sto.Registry&quot; uuid=&quot;3103db1d-65ac-478e-b621-04a8dff1dd6e&quot;/&gt;
+            &lt;stringID&gt;ParameterChangeEvent&lt;/stringID&gt;
+            &lt;taskId&gt;ModelWideParameterChangeEvent&lt;/taskId&gt;
+            &lt;useForExecution&gt;NotForExecution&lt;/useForExecution&gt;
+            &lt;rateSpec type=&quot;sto.RateSpec&quot; uuid=&quot;5bc3e1bf-94fa-4dc0-a856-4e942b2dce0a&quot;&gt;
+              &lt;period&gt;inf&lt;/period&gt;
+              &lt;rateType&gt;ModelWideParameterChangeEvent&lt;/rateType&gt;
+            &lt;/rateSpec&gt;
+          &lt;/rates&gt;
+          &lt;tNum&gt;1&lt;/tNum&gt;
+          &lt;timeKeeperClockID&gt;ParameterChangeEvent&lt;/timeKeeperClockID&gt;
+          &lt;elementType&gt;Task&lt;/elementType&gt;
+          &lt;identifier&gt;ModelWideParameterChangeEvent&lt;/identifier&gt;
+          &lt;priority&gt;-1&lt;/priority&gt;
+          &lt;schedulingClockID&gt;ParameterChangeEvent&lt;/schedulingClockID&gt;
+        &lt;/rootTaskHierarchyElements&gt;
+      &lt;/clockDomain&gt;
+    &lt;/clocks&gt;
+    &lt;executionSpec&gt;Undetermined&lt;/executionSpec&gt;
+    &lt;taskDependencyGraph type=&quot;sto.SerializedTaskConnectionList&quot; uuid=&quot;b8d968c8-e1ca-461f-9985-936d58f43038&quot;&gt;
+      &lt;taskIdentifier&gt;_task0&lt;/taskIdentifier&gt;
+    &lt;/taskDependencyGraph&gt;
+    &lt;taskDependencyGraph type=&quot;sto.SerializedTaskConnectionList&quot; uuid=&quot;e3259959-0c46-4117-9f7e-4b2976b84b1c&quot;&gt;
+      &lt;clockIdentifier&gt;ParameterChangeEvent&lt;/clockIdentifier&gt;
+      &lt;taskIdentifier&gt;ModelWideParameterChangeEvent&lt;/taskIdentifier&gt;
+    &lt;/taskDependencyGraph&gt;
+    &lt;taskPriorityDirection&gt;HighNumberLast&lt;/taskPriorityDirection&gt;
+    &lt;tasks type=&quot;sto.Task&quot; uuid=&quot;0221ea6a-a136-4d46-b279-60d23e2d1a55&quot;/&gt;
+    &lt;tasks type=&quot;sto.Task&quot; uuid=&quot;20c7215d-8306-4e23-a0b5-c4ace225f58a&quot;/&gt;
+  &lt;/sto.Registry&gt;
+&lt;/MF0&gt;</timingAndTaskingRegistry>
+    <FMUBlockMap type="ModelRefInfoRepo.FMUBlockInfo" uuid="d664244e-e133-446c-8888-2d51af6c7856"/>
+    <codeGenInfo type="ModelRefInfoRepo.CodeGenInformation" uuid="1f6b20de-62d2-4b1b-8f4e-c42a318bb7aa"/>
+    <configSettingsForConsistencyChecks type="ModelRefInfoRepo.ConfigSettingsForConsistencyChecks" uuid="6b4affae-1348-46c1-b952-13b2712827f5">
+      <consistentOutportInitialization>true</consistentOutportInitialization>
+      <fixedStepSize>0.01</fixedStepSize>
+      <frameDiagnosticSetting>2</frameDiagnosticSetting>
+      <hasHybridSampleTime>true</hasHybridSampleTime>
+      <signalLoggingSaveFormat>2</signalLoggingSaveFormat>
+      <solverName>FixedStepDiscrete</solverName>
+      <solverType>SOLVER_TYPE_FIXEDSTEP</solverType>
+      <hardwareSettings type="ModelRefInfoRepo.HardwareSettings" uuid="5eaa9b66-fa6f-4508-81a7-4cafd47532c9">
+        <prodBitPerChar>8</prodBitPerChar>
+        <prodBitPerDouble>64</prodBitPerDouble>
+        <prodBitPerFloat>32</prodBitPerFloat>
+        <prodBitPerInt>32</prodBitPerInt>
+        <prodBitPerLong>32</prodBitPerLong>
+        <prodBitPerLongLong>64</prodBitPerLongLong>
+        <prodBitPerPointer>32</prodBitPerPointer>
+        <prodBitPerPtrDiffT>32</prodBitPerPtrDiffT>
+        <prodBitPerShort>16</prodBitPerShort>
+        <prodBitPerSizeT>32</prodBitPerSizeT>
+        <prodEndianess>2</prodEndianess>
+        <prodLargestAtomicInteger>2</prodLargestAtomicInteger>
+        <prodShiftRight>true</prodShiftRight>
+        <prodWordSize>32</prodWordSize>
+      </hardwareSettings>
+    </configSettingsForConsistencyChecks>
+    <dataPortGroup type="ModelRefInfoRepo.DataPortGroup" uuid="52075efb-345f-45d7-a357-9a810f8939bb">
+      <dataInputPorts>0</dataInputPorts>
+      <dataInputPorts>1</dataInputPorts>
+      <dataInputPorts>2</dataInputPorts>
+      <dataInputPorts>3</dataInputPorts>
+      <dataInputPorts>4</dataInputPorts>
+      <dataInputPorts>5</dataInputPorts>
+      <dataInputPorts>6</dataInputPorts>
+      <dataInputPorts>7</dataInputPorts>
+      <dataInputPorts>8</dataInputPorts>
+      <dataInputPorts>9</dataInputPorts>
+      <dataOutputPorts>0</dataOutputPorts>
+      <dataOutputPorts>1</dataOutputPorts>
+      <dataOutputPorts>2</dataOutputPorts>
+      <dataOutputPorts>3</dataOutputPorts>
+      <dataOutputPorts>4</dataOutputPorts>
+    </dataPortGroup>
+    <interfaceParameterInfo type="ModelRefInfoRepo.InterfaceParameterInfo" uuid="ffff63d7-70e6-4f39-8da9-b171bab73bdd">
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="0348ce11-324d-48d5-8864-2381a0a3212c">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>C_DEG2RAD</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="c28c493d-6205-48df-8f37-1506c90fd7dd">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>C_KPH2MPS</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="91c56377-ab11-453e-8eda-dcd413cb10bb">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>C_NEARZERO</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="1e0b3e27-6bd8-4f89-923e-eaa1a6e213f9">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>C_ONE</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="a4ee6167-1ba0-426d-882a-7e5a261eb43f">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>C_RAD2DEG</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="8d7015ac-4494-4101-a262-3030c5e2d13a">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>C_ZERO</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="759b045f-7cee-4479-8df7-d7b57ba4ee55">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>LCK_MODE_ACTIVE</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="5d32639e-36ce-415c-98fd-2e377652d8df">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>LCK_MODE_ERROR</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="4c77e0d2-5f80-43f3-856c-7e830456e687">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>LCK_MODE_IDLE</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="44bc6794-12d0-4146-b7b1-b4354a464975">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>LCK_MODE_LEFT_LANE_CHANGE</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="25ca7cdd-9d72-453c-b02d-15293992c0b7">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>LCK_MODE_OFF</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="7563aa1c-aa3e-4ed4-9114-54eb64a18aeb">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>LCK_MODE_READY</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="f9607172-f839-4559-9c22-013b5a15ed6c">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>LCK_MODE_RIGHT_LANE_CHANGE</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="f577f9a0-12be-43bf-b468-5e2676b092ea">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>LEFT_TURN_SIGNAL</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="54852dfd-723e-4dcd-bda8-f584d51fa1b3">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>ML_TIME_MSEC</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="c5e1d2bb-d918-4532-afc5-f646792c2258">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>ML_TIME_SEC</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="89923a71-42bc-40d3-818f-e31d89fe2250">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>RIGHT_TURN_SIGNAL</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="d40fd166-964c-4800-9a2f-83dd1f2ff22d">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>TJA_SP_CONF_MEDIUM</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="a3ae5fc7-fd82-46a9-ad4f-796fd353428c">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>TJA_SP_TYPE_BLMONLY</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="25f9efd0-1c96-43af-b824-f03ddabf3990">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>TJA_SP_TYPE_POBLM</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="7f9ccd5a-bf35-418c-86cf-0ae5490e1ed8">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>TJA_SP_TYPE_POONLY</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="831eaca0-30a0-4776-948f-034c6d752e04">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_HLR_suprress_hold</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="fe5a1a93-a075-46f8-a06c-36fbfe7509a4">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_HighAccel_suppress_hold</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="d2ef1524-3297-44d4-935f-6d3beedb3357">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCG_Configured</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="5ae3580f-f3bd-4a97-ae3d-974bf1ebc509">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>7</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_A0Fac_ActSta</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="6b694b5a-c9d9-43b6-9ef1-41b876ec998c">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>7</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_A0Fac_DrvStm</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="b570cccb-ea13-437f-9945-95c64447e436">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>19</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_A0ShiftFac_Dy_LftCurv</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="14859684-b4b4-465c-81be-78edcb31f568">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>19</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_A0ShiftFac_Dy_RgtCurv</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="2333f62e-dec9-46c9-b967-c061f497d2a4">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>16</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_A0ShiftFac_Vspd</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="3e2b26f0-45ca-4ec3-afbc-2d925a0d87fa">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>14</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_A0Shift_LftCurv</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="5f989dd5-48b2-452b-ae62-8ecf2d4be501">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>14</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_A0Shift_RgtCurv</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="82ce48d7-9e79-4670-9874-694ddeb7d42d">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_A0Shift_StraLan</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="a92fe1d3-110a-4f00-bdf4-4e57879128d8">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_A0_Rdy2Act_UseConst</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="11a14631-1ba4-4870-92b7-cd1e798ff3cc">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Active2Ready_Mask</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="5a480d91-ca26-4633-8cab-11c213d9c9b5">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>15</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_CvatRateBks</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="4d13a3c9-ade5-4ad6-9a25-13ad669e6dec">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>16</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_CvatrBks</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="bf57ebe8-d959-4804-92a0-6b3d2ef91fc5">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>10</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_DFac_Dy</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="0ca9bafd-fda5-4e7f-9908-750bde2c9813">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>10</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_DFac_Dy_Curv</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="dd5a144d-1972-4688-ad66-f751bd0850f8">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>10</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_DFac_HaCurCen</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="0cc9ee33-e037-46ed-8964-e5445a0a2284">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>10</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_DFac_HaCurSid</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="7517f2cd-7075-4502-9c3c-fdd6653c4701">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>10</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_DFac_HaStrCen</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="4e6ededf-8fe5-4b00-bb3d-1685191be421">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>10</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_DFac_HaStrSid</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="27a5fc95-4400-4e8c-a179-3c42fd278af0">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>10</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_DFac_HadCurCen</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="42ea2a86-a12f-49b9-b4fa-87f5c5e10c75">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>10</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_DFac_HadCurSid</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="db27113a-5ee4-442d-a10c-f86fa67f35b7">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>10</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_DFac_HadStrCen</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="71b317c9-6266-4d71-bd80-5394b6edf441">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>10</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_DFac_HadStrSid</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="92a54f80-b893-47b6-b846-305229c0871e">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>14</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_DFac_Rad</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="d20f6d13-ca77-4ec5-87d9-840912f731a4">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>8</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_DFac_SA_CurCen</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="d55bbe22-7d98-4d80-9930-6783b341b8cb">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>8</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_DFac_SA_CurSid</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="35b3e37d-223e-4a78-a3a5-3816b35f7e19">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>8</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_DFac_SA_StrCen</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="58fb763b-457e-4a4d-aaff-5759646d0cd4">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>8</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_DFac_SA_StrSid</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="6d551809-59c7-41ad-8c21-d1b2d38a91a1">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>8</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_DFac_SS_CurCen</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="69287973-64b3-400e-81d6-837422274360">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>8</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_DFac_SS_CurSid</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="9155332a-f8ea-4a48-93ad-cc30e926a705">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>8</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_DFac_SS_StrCen</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="ae33e434-3027-478a-8b1d-92cf931c0a51">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>8</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_DFac_SS_StrSid</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="7ac90bcd-dbda-4a4a-a8c7-da54a3b3ba28">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>16</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_DFac_Vspd</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="ff23ebe9-76ca-4154-be00-941d954f9356">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_DTermMax</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="a65978e2-fdaa-4662-9317-88fdfac4158a">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_DlyTm_DrvStim</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="cc5da388-8cc8-40f6-99ab-3438710f7da5">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>19</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_DyBks_Curv</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="9ff79714-e973-438f-89d4-8662643a4214">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Enable_POOnly</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="054553b8-1e9e-418d-809e-06fb09064cfd">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Entry_DistBuffer</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="2b399697-aeae-41c1-8b9b-b362b8de4e51">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Fac_Vspd2RngThr_FalRec</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="af2f00d9-1ac9-4c7c-958c-dc8f4a93eae3">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>14</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_FfwDeltaFac_Rad_Lft</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="98073962-2342-4acb-9403-622ccf38790e">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>14</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_FfwDeltaFac_Rad_Rgt</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="312e516d-d372-4b03-aa63-aaa81bba67ea">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>16</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_FfwDeltaFac_Vspd</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="5cacd9d9-6614-42a5-b4ec-fd19f894d1fd">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>15</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_FfwFac_CvatRate_Lft</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="a2a0cdae-7668-4230-9eba-a0f082c362b2">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>15</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_FfwFac_CvatRate_Rgt</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="daf0d03f-9e06-4fd1-b36d-21add74c40fd">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>8</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_FfwFac_Dy</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="351e9f31-1ec1-4868-8848-f6652efb4067">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>14</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_FfwFac_Rad_Lft</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="1a5c2d70-c418-4ea6-848c-2b6330fbe78d">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>14</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_FfwFac_Rad_Rgt</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="a68bdda1-8e7c-4c01-ab4c-c05db9ae3b01">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>16</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_FfwFac_Vspd</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="a53d87c5-db48-4a79-bd29-5a5d41b4c712">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>16</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_FfwTorq_Cvat</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="965e5c7a-928f-4897-92c0-2404d6b3fc1d">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Ffw_CvatSwh</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="6e3de44b-eeb3-480d-b2a0-633c7ddbd552">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>8</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Ffw_DyBks</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="c56323de-e932-4185-aff0-79e796f11347">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Ffw_TimCon_CmdFlt</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="56abc65d-8bc9-457a-95f3-964c436f9676">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>7</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_HAFac_ActSta</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="55f99986-020b-485b-b6c1-ce4a8a41c534">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>7</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_HAFac_DrvStm</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="5591cf50-dadc-4620-a06b-e14b657cbd65">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>7</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_HARFac_ActSta</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="e2fbbd4e-c94b-45ac-8ebd-b6d1bb42368f">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>7</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_HARFac_DrvStm</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="ab8cff60-1994-4fed-a011-f2150e3bb80d">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_HaloTime</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="6b8497e3-37df-4394-bb54-ac67512933e5">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_HaloTime_Switch</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="ed4d730a-863d-457d-a193-c3405698a7b6">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>10</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_HedAngDiffX</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="3e7fe2b0-e03d-4b70-b3a8-83314a572160">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>10</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_HedAngRateDiffX</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="66e7fcc3-2b7f-4f29-a191-11277414e53d">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>10</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Hed_DyBks</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="2481f909-961c-40de-9bf3-b60686734733">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_HndsOnWhel_DlyTm_Idl2Rdy</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="5813c149-c761-45ec-b37a-9913034e5404">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Idle2Ready_Mask</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="66409af0-c9b6-455c-8e97-5bdb2fb2b566">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Junc_SusTime</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="6b01d43d-97cd-4105-852e-64cbad5b2ccd">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_KpKdDecSlopeLmt</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="4de86d70-a81a-4015-b9bf-1365919687c1">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_KpKdIncSlopeLmt</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="80be7fe9-5e76-4165-9955-e24b30f79669">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_LM_ROC_DlyTm_Idl2Rdy</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="5cd1b201-612d-470b-8dc5-534560a03d8d">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_LM_ROC_DlyTm_Rdy2Idl</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="2bee786e-e867-484a-bb9e-0d25a2342cc6">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_LM_ROC_Idl2Rdy</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="b61c95b6-e5d3-4cba-8025-a83a2570e19f">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_LM_ROC_Rdy2Idl</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="91386b70-7b4a-4bdd-ad19-a8c2baeaaa14">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_LatCtrl_DFac_Lft</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="62593f31-7edb-434a-8256-671f0a480f02">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_LatCtrl_DFac_Rgt</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="654b6207-c565-42a2-a230-9ff04b33ce95">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_LatCtrl_Kd</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="04b6aa5d-30df-44b5-bac8-8c8264da9374">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_LatCtrl_Kp</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="038ef132-26e5-4ae1-9acc-870c4a67ec93">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_LatCtrl_PFac_Lft</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="7bca763c-9ae9-49ba-bc7b-1f232276a60e">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_LatCtrl_PFac_Rgt</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="832b6f28-092d-4ef5-b47f-da77bdb15138">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_LatCtrl_TimCon_CmdFlt</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="99a03cf8-0fc8-46b1-9fd5-60d542310031">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Lat_Ctrl_DFac_Lft</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="19e5062a-8ffb-45d7-8c78-e54f9b5aa9c0">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Lat_Ctrl_DFac_Rgt</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="52e0bb51-c8b0-44e6-a02a-ddba91cbfa1c">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Lat_Ctrl_Kd</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="f4987211-f416-4354-b655-11c9ec01aefd">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Lat_Ctrl_Ki</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="d7b01137-2698-44a4-871d-c0974c0f86a3">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Lat_Ctrl_Kp</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="89afbfcb-b513-47fa-9e9b-6268c4fb7732">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Lat_Ctrl_Kp_NearGain</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="66e170ca-b947-47ed-986c-bd303e9146f6">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Lat_Ctrl_PFac_Lft</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="85df25b7-349f-4487-9e89-bfc34eff55ff">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Lat_Ctrl_PFac_Rgt</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="d33b36a0-3f4c-4d31-96e5-0eb2b08eac75">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Lat_Ctrl_TimCon_CmdFlt</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="e90e6a57-255e-467a-a7bc-92eebd3b0622">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>14</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Lat_DFac_Rad</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="b638f73d-3ce3-4310-b9bc-f89e4f7756c6">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>8</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Lat_DFac_SS_Cur</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="2dab1e73-39bf-4cd2-a27c-68faaba43c03">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>8</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Lat_DFac_SS_Str</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="c62ccb17-d8bc-454c-8152-ccaf6bb26692">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>16</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Lat_DFac_Vspd</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="e42c6e97-3cec-4fd1-b43b-542825915dd5">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>10</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Lat_DyBks</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="f0f743ba-70bc-44ea-ba3a-09e1a13335c3">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>14</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Lat_IFac_Rad</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="3dc93846-dece-43eb-b2ae-4d241ce12ed9">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>16</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Lat_IFac_Vspd</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="37ea7650-ab67-4c39-a395-3e2838e35fd5">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>10</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Lat_ILmtFac_Dy_CurvLan</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="ba4d3127-9787-4160-acef-3afa2bbcf360">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>10</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Lat_ILmtFac_Dy_StraLan</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="089d9cde-8d87-42af-b74d-623b57a65f73">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>14</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Lat_ILmtFac_Rad</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="9e723a5a-01e9-4c0d-80bb-aac1dac94755">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Lat_ILmtFac_Rad_NearGain</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="a38bfdd0-f267-4fa8-95cf-1c1f4a92a87b">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>16</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Lat_ILmtFac_Vspd_CurvLan</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="f7c77c6c-570e-422b-80f1-4223a3025d0f">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>16</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Lat_ILmtFac_Vspd_StraLan</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="cf79cd4e-8db8-4dfe-b4e9-11817b81df29">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Lat_ITermLmt_Dy</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="ab89a88f-e204-4848-9994-d94a0a259c31">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Lat_KpKdDecSlopeLmt</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="16b00091-d6c2-4c47-94fa-29d8e1ab5145">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Lat_KpKdIncSlopeLmt</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="337cc6a1-efee-4cf1-9932-464dd814c310">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>10</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Lat_PFac_Dy_InnLftCur</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="5e20cc8a-1d40-4629-b11d-ef355ba60c20">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>10</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Lat_PFac_Dy_InnRgtCur</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="5aaf6ed8-58d8-4a79-aa0a-913bbbb970d6">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>10</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Lat_PFac_Dy_OutLftCur</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="b229d455-fc26-407c-877a-cf41cbfbe13b">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>10</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Lat_PFac_Dy_OutRgtCur</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="754fbdbc-311f-439d-8381-5dfd47f4cadc">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>10</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Lat_PFac_Dy_Str</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="8a3990e7-2002-4c34-afc2-3887b8a4c861">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>14</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Lat_PFac_Rad</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="69544cff-04cd-42d2-a34c-c43d3219546d">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>8</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Lat_PFac_SS_Cur</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="efa1a6b2-f763-42e6-99b1-7a0e6ee08467">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>8</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Lat_PFac_SS_Str</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="88ca7854-a367-44cf-a65b-da153893001d">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>16</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Lat_PFac_Vspd</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="715dfb56-2ee9-49a0-977e-6850ce24aba7">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Lat_PTermMax</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="f7fcd844-ff23-4f31-bada-4033a512cb24">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_LnCetr_DlyTm_Rdy2Act</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="f06bbddc-b62a-4ed5-a290-e0af052dad8c">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_LnWidth_DlyTm_Idl2Rdy</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="f501fbff-4db4-4d07-8b35-e7461798f832">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_LnWidth_DlyTm_Rdy2Idl</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="efbfc360-789e-4095-a482-501f4fbc9b76">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_LnWidth_LowLmt_Idl2Rdy</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="4a1c379c-07a4-42c3-b234-3116759cc4b4">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_LnWidth_LowLmt_Rdy2Idl</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="68f254ef-d131-403d-84c9-849e317a5a70">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_LnWidth_UpLmt_Idl2Rdy</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="4b5f754f-8393-4b1b-a074-b2237074bf08">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_LnWidth_UpLmt_Rdy2Idl</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="5913b16f-6a2d-42fe-9be6-665313d638a4">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_LowRng_Spd_Thr</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="1af3875b-4139-4ab7-8d7f-b2e44b52c434">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_MinJunction_Range</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="7fa682fa-f68e-4f36-844c-a4950d4356b3">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>16</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_NonLinCompFac_Vspd</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="9151a6ae-c0fb-4cdf-af11-0a50c3515b04">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>20</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_NonLinCompTab</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="eed52455-8aa1-4b87-a168-b6f84cda3071">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_NonLinearComp_En</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="e9cdc99e-583b-43fc-91ae-578cf44af498">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Ovrd_DlyTm_Rdy2Idl</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="6400f6ca-2ff6-41b6-a857-9fff7dc2d2a8">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Ovrd_Torq_Hys</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="39fb250f-7a6a-483b-8b4b-605b4bad62cb">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>10</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_PFac_Dy</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="c2c39e5b-1a7a-4cd9-8811-6aad12702297">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>10</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_PFac_Dy_Curv</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="6ac898cf-23fc-4c28-892f-c649c28a8070">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>10</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_PFac_HaCurCen</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="966cb6c2-a49b-456d-8647-5b072608db5e">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>10</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_PFac_HaCurSid</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="8edfbddc-4f06-40c2-89ff-c170369405b5">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>10</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_PFac_HaStrCen</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="2cb749a9-2e64-4b50-a4ef-884af5c76465">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>10</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_PFac_HaStrSid</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="d234c52e-9ae9-4693-9678-08422501166a">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>10</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_PFac_HadCurCen</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="560270d8-14db-4b2f-a95e-5374fd0a8cc6">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>10</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_PFac_HadCurSid</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="9e0fac3b-ca80-457a-a773-cbaad5df82e5">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>10</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_PFac_HadStrCen</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="24910a36-aca8-4234-8753-747bf4e7801b">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>10</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_PFac_HadStrSid</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="9263dd6f-470f-40e1-b201-b16d85e1683b">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>14</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_PFac_Rad</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="a9f8b72d-cb56-49aa-a571-1c5c59703902">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>8</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_PFac_SA_CurCen</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="61b0964c-ae05-4bcd-8b38-5f0134fb2234">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>8</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_PFac_SA_CurSid</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="ac84efa6-7782-405f-bd3c-b71b4cc97751">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>8</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_PFac_SA_StrCen</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="3ed09427-e306-4628-8fc6-82e3288778a6">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>8</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_PFac_SA_StrSid</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="e9454eb2-499b-4603-8f6e-8c7432652d69">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>8</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_PFac_SS_CurCen</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="e6d91463-7862-45d3-9061-1e6d261fa298">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>8</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_PFac_SS_CurSid</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="4f528965-d669-4dc3-a13b-e41f51e3f018">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>8</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_PFac_SS_StrCen</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="c0a84b1d-334f-4edd-8b7b-4846bde8b235">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>8</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_PFac_SS_StrSid</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="8f780d96-a1ed-4f31-acda-c753e2e8cdfb">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>16</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_PFac_Vspd</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="27011c7a-6b04-4395-a5d8-f9fc51f98722">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_PTermMax</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="6dc5acba-e0b2-441e-a693-0f59d52993b8">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_ROC_filt_tau</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="72dd0953-9c94-41f5-b829-b22ca55df11b">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>14</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_RadBks</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="69a420d6-138a-4d40-9047-3ac2318889c1">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Range_Drop_MinDur</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="ab65773c-51d4-467a-81c9-7ed5c2c83978">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>16</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_RatLmtFac_TorqCmd_Vspd</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="613fef07-29aa-4d23-905b-bd0a670c1c17">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>20</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_RatLmt_TorqCmd</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="241d054e-4bed-4e7e-bd33-5cc48b74d0c6">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Ready2Active_Mask</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="4743e09a-8dfb-462b-a035-14c682600ce4">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Ready2Idle_Mask</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="a70ee416-da1b-4aa0-8885-6eaa433bf807">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Rng2VehSpd_Ratio_DlyTime</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="e844afa7-dc33-4f3c-9596-7e11319b9a5f">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_Rng2VehSpd_Ratio_Thr</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="88d43f89-95c6-408a-9cbb-232bc4df0d93">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>16</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_RngThr_FalRec</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="f64fc2c1-d850-4886-9c44-e3b3ce64934c">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_SPHighSpd_DlyTm_Idl2Rdy</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="b4c9e236-4586-4504-b9cc-b440d3bcee35">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_SPLowSpd_DlyTm_Idl2Rdy</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="8695f177-9067-4e52-b53c-8e5217b7ac7b">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_SPPConfHigh_ProbThre</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="6479e1ba-ee28-4e3e-8d80-9e4eda4a75fc">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_SPPConfMedHigh_ProbThre</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="43ebea65-1a46-43f5-8939-1c3df6938d70">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_SPPConfMed_ProbThre</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="ae58a4d6-7456-4db0-9f3d-46347f0fc283">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_SPTyp_LowLmt_Idl2Rdy</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="790ba4e9-f807-4c94-943e-2f360633026b">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_SPTyp_UpLmt_Idl2Rdy</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="bfaa790f-3be9-4bb1-85c4-68ba56623595">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_SP_A0_Rdy2Act</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="d39e9cee-2f60-4aea-b31e-493a4fbca7de">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_SP_A0_Rdy2Act_Max</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="58fd0b38-1c74-4cda-92c9-d928a46df881">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_SP_A0_Rdy2Act_Min</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="3046ed9e-441c-4768-bb76-cc81dd4c24a2">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_SP_A1_Rdy2Act</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="ec74baa5-c520-4936-b09a-a8e384291ecf">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_SP_Conf_Low_JuncTm</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="62fa0ac0-3988-48b1-9af1-e6db4e3480ec">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_SP_Conf_Med_JuncTm</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="1d9c001c-6c02-41b6-87ff-f0f1525057ba">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_SPconfInvld_DlyTm_Rdy2Idl</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="c96f60b8-344b-4f1d-af4d-6f7db2627ebc">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_SPconfLow_DlyTm_Rdy2Idl</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="218195e0-ab73-4e82-bd2f-d369d63156e3">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>16</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_SPconfLow_DlyTm_Rdy2Idl_x</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="304b9ce5-2606-427b-a438-e86a609505f1">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>16</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_SPconfLow_DlyTm_Rdy2Idl_z</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="b0a85c96-0602-47a9-91ca-3fa33de538a3">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_SPconfMed_DlyTm_Rdy2Idl</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="d4d390af-6ae6-4089-99d7-82b0da0d2e42">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>16</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_SPconfMed_DlyTm_Rdy2Idl_x</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="8f1ef534-c667-48ce-a385-f596a00dd024">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>16</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_SPconfMed_DlyTm_Rdy2Idl_z</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="b728cf99-e820-4b20-a609-8149ac3aa4bf">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_SigFacHldTim_ActSta</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="851b3316-9435-424e-8059-f66014319673">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_SigFacHldTim_DrvStim</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="730538cc-34f7-48cd-9902-07116ff41711">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>8</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_StrAngBks</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="ec71570f-f08b-48b2-b6db-c089b6b342b3">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>7</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_StrAng_CR_threshold_z</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="d32905c5-d307-4c8a-82e9-b2707c362bda">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>8</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_StrSpdBks</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="b100c66d-b90a-42ed-a061-5925df339097">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_TJALCK_SWSpeed</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="47e0850b-ebe5-4c46-a995-277f8846c516">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>7</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_TimBks_ActSta</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="7dba6b95-ef0e-432e-aa9e-af5f6998de84">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>7</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_TimBks_DrvStm</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="7943d301-0382-4d88-a05a-6f7f3dae20e3">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_TimCon_A0Flt_Normal</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="e9fbf6cf-4b63-4d76-900f-27db82c1a0ce">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_TimCon_A0Flt_Strong</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="51167cdd-fa15-44f7-b853-b9be5093eda9">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_TimCon_A1Flt_Normal</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="05e16a44-e362-4f99-a82a-2df307ed9b7f">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_TimCon_A1Flt_Strong</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="d29d97fb-3010-46fe-8c9e-d112aea3c7f8">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_TimCon_A2Flt_Normal</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="8382645d-c76a-4945-b71a-7ce910f05ede">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_TimCon_A2Flt_Strong</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="6f4016d7-60a5-4b3b-93ac-e215348f1a4c">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_TimCon_A3Flt_Normal</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="56cefcdb-a131-4dc9-a59a-2ee65d74e522">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_TimCon_A3Flt_Strong</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="129d4b94-b285-45ab-90bb-887240c38f3d">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_TimCon_RadFlt</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="0abe12d2-52d9-4cdf-b321-44b3823be262">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_TimCon_YawRtFlt</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="04bb0f5b-b9f4-44d8-983e-d690df912b8e">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_TinCon_LaneProbFlt</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="e7701f54-57e4-42fb-80f7-c25b62222d61">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>20</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_TorqCmdBks</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="a8bcc2a0-1070-4afe-937b-93d6dd8fc88c">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_TorqThrBig_DrvStim</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="26291ac7-8350-4f8d-a41e-490116bbd33a">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_TorqThr_DrvStim</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="59bc1374-06ec-4cf7-9810-6d6bbc581a96">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_UseSP_MaxRange</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="9f29ed93-07b1-4888-8850-be62ab0140ce">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_VehSpd_LowLmtFus_Idl2Rdy</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="5da51aa3-2cf4-49b9-b9bd-5f536f1c8841">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_VehSpd_LowlmtVis_Idl2Rdy</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="9b7297b9-161f-432b-beed-0bc81b7269f5">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_VehSpd_LowlmtVis_Rdy2Idl</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="a32bba86-0d6a-4804-90ed-4a0f935cdc00">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_VehSpd_TJA_ICA_Bound</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="22a234e5-208d-407d-90cf-64b2b9f227ed">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_VehSpd_Uplmt_Idl2Rdy</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="1dffd76f-86da-4ba6-a2c4-986185c5bd19">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_VehSpd_Uplmt_Rdy2Idl</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="cc269f63-311d-4e40-a1f0-7e2b050970b6">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_VisionOnly</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="ed01560a-d19f-4bfb-b620-4c49d89e600b">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>16</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_VspdBks</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="dfe9b4c5-b708-42b5-90d9-2917f525803a">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>19</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_YR_OffstFac_Dy_LftCurv</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="2b546201-2cd5-45aa-93fd-c449f917f1f1">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>19</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_YR_OffstFac_Dy_RgtCurv</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="d7ba10f0-37ec-4a03-a6a0-8a2cdcd69162">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_YawRateSign</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="7587d4e3-7199-4f28-ab6b-b6f15a964d50">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>6</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_YawRateThr_Act2Rdy_ROC_x</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="075661d2-c88b-42da-9865-dbe0cb212fa3">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>6</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_YawRateThr_Act2Rdy_z</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="f51a9e98-a831-449e-a594-965ecd54ea97">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_YawRateThr_DlyTm_Act2Rdy</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="01d36aaf-e119-41c7-94e9-0565f345d5f2">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_YawRateThr_Idl2Rdy</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="e7b7bf36-710b-4106-8c82-33461e55849e">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_YawRate_DlyTm_Idl2Rdy</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="8c470319-0b11-4ae6-879b-d22cc118e63d">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>16</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_YawRate_OffsetFac_Vspd</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="98aab706-5dc0-40de-8664-8e3bc1cc958c">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>14</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_YawRate_Offset_LftCurv</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="cc0f81e4-1359-4801-a2f9-f0501796e401">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>14</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_YawRate_Offset_RgtCurv</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="b80af815-5d55-48d2-be88-c2489f0b01e0">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_accel_inhibit_thold</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="65df2e0c-7519-4286-8a06-ff8928a0adce">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_host_veh_width</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="e3bab901-1820-4451-956a-fd5e8e8c71ac">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>6</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_ovrd_torq_thold_per_spd_x</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="7972aa1e-ddba-4753-bc8e-c31859e56eca">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>6</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LCK_ovrd_torq_thold_per_spd_z</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="02b51521-bfd0-4ba1-a407-80dd8ea95bab">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_LC_Exit_Switch</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="264262bd-cf00-49d1-a4dd-b51bce4f33ed">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_Ovrd_torq_thold_per_spd_sw</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="2824a089-8c00-49a8-b710-4c87fe8f4809">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_StrAng_CR_hold_msec</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="674ef3e3-da86-49d1-b02f-5bcfa08e890c">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_StrAng_CR_suppress_hold</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="4d423c96-b72a-47d6-951f-7d421662662f">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>7</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_StrAng_CR_threshold_x</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="f4179531-78d7-4bcb-9a88-8a5cdb8ba1ef">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>7</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_StrAng_CR_threshold_z</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="14cf2730-ab49-4bb1-8882-afe14c6a3607">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_StrAng_filter_tau</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="75c07acd-70ad-4d51-a42d-50f11f44099d">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_Use_Constant_SPP_Timer</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="6b7c9daf-7032-4cd6-90b5-9b0a38091317">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>13</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_accel_pedal_pos_per_speed_x</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="b130dcd5-b9cc-47d9-84b7-04f6d47eb41e">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>13</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_accel_pedal_pos_per_speed_z</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="ff1e0b80-9630-4b92-bf85-8d29da054a63">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_brake_suprress_hold</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="f0e286c2-6d38-43b8-8073-512ac1c05ba7">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_driver_appl_torque_filt</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="13c5593a-25cf-4de4-aa69-30adc18a843e">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_driver_suppression_hold_time</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="cff49b64-b517-442f-8d28-b44d1ac6a939">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_hands_on_wheel_hold_msec</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="7c9c8719-ac04-4067-baf2-28dcc356ae30">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_hands_on_wheel_torque_hi</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="2bf0bd0f-3bdc-4a20-b786-b4275122b2b3">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_hands_on_wheel_torque_lo</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="61575df2-7124-4550-b060-70a70b0a2e02">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_handsoff_delay_cycles</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="7193ad84-2936-4632-9472-a401c7371a07">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_handsoff_torq_Lo_CR</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="5a699b01-28b7-4fbe-a294-44c056ce2fe5">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_handson_delay_cycles</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="157e110c-c368-46b8-80c5-ae1c26d47a09">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>7</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_hs_StrAng_CR_threshold_z</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="57036269-ded5-4717-9ce8-6f371decbcec">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>7</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_ls_StrAng_CR_threshold_z</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="dec9de43-6265-4150-8ff9-5a2d850500b0">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_override_left_torq_thold</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="a21e0537-7d77-4d04-85ba-74fd7b2068fd">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_override_right_torq_thold</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="7a1e3ce1-5038-44dd-89b9-9aff173af76d">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_override_torq_sustain_period</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="3e07d6aa-499b-44da-823a-cd958af2c3cb">
+        <datatypeID>1</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>k_turn_suprress_hold</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="5fa3ccb8-063d-44be-ad5f-f721b1a135ba">
+        <datatypeID>5</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>c_BIT0</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="53b8ab9c-b25b-4daf-bb8e-a38258108e5f">
+        <datatypeID>5</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>c_BIT1</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="04e5c554-3888-4d3d-a80f-03d3f014805e">
+        <datatypeID>5</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>c_BIT10</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="97600ce4-5a44-4c45-a330-40ed6ea186ea">
+        <datatypeID>5</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>c_BIT11</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="248ce49c-4cea-46e2-8460-52f31f21e1ad">
+        <datatypeID>5</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>c_BIT12</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="00086f90-7b84-4a94-8356-eb097d3b61b3">
+        <datatypeID>5</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>c_BIT13</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="0257a778-dc91-4b08-a3a7-fc0e068963e7">
+        <datatypeID>5</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>c_BIT14</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="9ff4f015-3d9c-4f68-8336-9f1d02e8fdb0">
+        <datatypeID>5</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>c_BIT15</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="d7027ff4-08d6-40db-bd0b-c76f0f770097">
+        <datatypeID>5</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>c_BIT2</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="894a7c20-d344-4aa8-9afb-ef67de72b642">
+        <datatypeID>5</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>c_BIT3</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="77409038-1931-4b77-af9d-598412834f4a">
+        <datatypeID>5</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>c_BIT4</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="3e3d9b73-d8bc-43f8-91ef-d6da8cc9a0a8">
+        <datatypeID>5</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>c_BIT5</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="33e442c7-f595-4475-bce7-0806a1a7b5cd">
+        <datatypeID>5</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>c_BIT6</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="11e62672-966d-44d8-8569-b3da3048d521">
+        <datatypeID>5</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>c_BIT7</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="7b6115ec-6805-494d-8dc8-755d5b311e5b">
+        <datatypeID>5</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>c_BIT8</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="b54d0abf-f03c-4d2a-a3b1-59b86e820934">
+        <datatypeID>5</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>c_BIT9</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="31bbb13f-3c6d-4228-978d-93a67c08934a">
+        <datatypeID>8</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>LCK_BOOLEAN_FALSE</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="ff2bcc5b-605b-426a-bae5-8698d2b28ee6">
+        <datatypeID>8</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>LCK_BOOLEAN_TURE</parameterName>
+      </globalVariables>
+    </interfaceParameterInfo>
+    <methodInfo type="ModelRefInfoRepo.MethodExistenceInfo" uuid="1a110059-36a3-4fad-a66f-2ae4feecf221">
+      <hasSystemInitializeMethod>true</hasSystemInitializeMethod>
+      <hasSystemResetMethod>true</hasSystemResetMethod>
+      <hasTerminateMethod>true</hasTerminateMethod>
+      <hasUpdateMethod>true</hasUpdateMethod>
+    </methodInfo>
+    <periodicEventPortUnsupportedBlockInfo type="ModelRefInfoRepo.PeriodicEventPortUnsupportedBlockInfo" uuid="0aec75a5-39f5-4773-84ba-89bcaa0e0119"/>
+    <portGroupsRequireSameRate type="ModelRefInfoRepo.PortGroupsRequireSameRate" uuid="a6c1ff9f-f912-4c09-9981-e60ccf60f84a">
+      <DSMPortGroups type="ModelRefInfoRepo.NameToPortGroupIdxVectMap" uuid="5355b710-9659-4bf4-a899-3c1e4eacf932"/>
+      <GlobalDSMPortGroups type="ModelRefInfoRepo.NameToPortGroupIdxVectMap" uuid="01f96985-5d80-4705-a780-b17647c0acf5"/>
+      <mergedPortGroups type="ModelRefInfoRepo.NameToPortGroupIdxVectMap" uuid="0dbea7dc-c11b-4eff-890e-f95ec4525e3c"/>
+    </portGroupsRequireSameRate>
+    <rateSpecOfGlobalDSMAccessedByDescExpFcnMdlMap type="ModelRefInfoRepo.GlobalDSMRateSpecMap" uuid="e84576dd-ecc6-475d-9c8f-45dbe2f311bd"/>
+    <simulinkFunctions type="ModelRefInfoRepo.SimulinkFunctions" uuid="55efdd30-8c98-42ee-8ba1-934fd696de6b">
+      <compServicePortMap>AAFJTQAAAAAOAAAAMAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAAAAAAAAAAAAQAAAAAAAAAJAAAAAAAAAA==</compServicePortMap>
+      <compSimulinkFunctionCatalog></compSimulinkFunctionCatalog>
+      <variantSimulinkFunctions type="ModelRefInfoRepo.VariantSimulinkFunctions" uuid="c165b3c1-868b-4e63-8306-82184f780006"/>
+    </simulinkFunctions>
+    <stateWriterToOwnerMap type="ModelRefInfoRepo.StateWriterInfo" uuid="a1c47d6b-bc99-4c8a-ac06-3e7d6031edd1"/>
+  </ModelRefInfoRepo.ModelRefInfoRoot>
+</MF0>

@@ -1,0 +1,5 @@
+CREATE LCK_rtwlib.lib      
+ADDMOD LCK.o03       
+ADDMOD LCK_trc_ptr.o03       
+SAVE                     
+END                      

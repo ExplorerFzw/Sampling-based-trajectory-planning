@@ -1,0 +1,2138 @@
+		endgroup -- referenced model group "fusionAlg"
+	endgroup -- referenced-block-group "FUS"
+	group "Model" -- referenced block group
+		LatCtrl_LCK_TorqCmd
+		{
+		 type:    flt(32,IEEE)
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_real32_T_63[1125]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out2"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_real32_T_63[1126]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out3"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_real32_T_63[1127]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out4"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_real32_T_63[1128]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out5"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_real32_T_63[1129]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out6"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_real32_T_63[1130]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out7"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_real32_T_63[1131]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out8"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_real32_T_63[1132]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out9"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_real32_T_63[1133]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out10"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_real32_T_63[1134]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out11"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_real32_T_63[1135]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out12"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_real32_T_63[1136]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out13"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_real32_T_63[1137]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out14"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_real32_T_63[1138]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out15"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_real32_T_63[1139]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out16"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_real32_T_63[1140]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out17"
+		 flags:   OUTPUT|READONLY
+		}
+		trcref0_C_DEG2RAD
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "C_DEG2RAD"
+		 alias:    "C_DEG2RAD"
+		}
+		trcref1_C_KPH2MPS
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "C_KPH2MPS"
+		 alias:    "C_KPH2MPS"
+		}
+		trcref2_C_NEARZERO
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "C_NEARZERO"
+		 alias:    "C_NEARZERO"
+		}
+		trcref3_C_ONE
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "C_ONE"
+		 alias:    "C_ONE"
+		}
+		trcref4_C_RAD2DEG
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "C_RAD2DEG"
+		 alias:    "C_RAD2DEG"
+		}
+		trcref5_C_ZERO
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "C_ZERO"
+		 alias:    "C_ZERO"
+		}
+		trcref6_LCK_MODE_ACTIVE
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "LCK_MODE_ACTIVE"
+		 alias:    "LCK_MODE_ACTIVE"
+		}
+		trcref7_LCK_MODE_ERROR
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "LCK_MODE_ERROR"
+		 alias:    "LCK_MODE_ERROR"
+		}
+		trcref8_LCK_MODE_IDLE
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "LCK_MODE_IDLE"
+		 alias:    "LCK_MODE_IDLE"
+		}
+		trcref9_LCK_MODE_LEFT_LANE_CHANGE
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "LCK_MODE_LEFT_LANE_CHANGE"
+		 alias:    "LCK_MODE_LEFT_LANE_CHANGE"
+		}
+		trcref10_LCK_MODE_OFF
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "LCK_MODE_OFF"
+		 alias:    "LCK_MODE_OFF"
+		}
+		trcref11_LCK_MODE_READY
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "LCK_MODE_READY"
+		 alias:    "LCK_MODE_READY"
+		}
+		trcref12_LCK_MODE_RIGHT_LANE_CHANGE
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "LCK_MODE_RIGHT_LANE_CHANGE"
+		 alias:    "LCK_MODE_RIGHT_LANE_CHANGE"
+		}
+		trcref13_LEFT_TURN_SIGNAL
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "LEFT_TURN_SIGNAL"
+		 alias:    "LEFT_TURN_SIGNAL"
+		}
+		trcref14_ML_TIME_MSEC
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "ML_TIME_MSEC"
+		 alias:    "ML_TIME_MSEC"
+		}
+		trcref15_ML_TIME_SEC
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "ML_TIME_SEC"
+		 alias:    "ML_TIME_SEC"
+		}
+		trcref16_RIGHT_TURN_SIGNAL
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "RIGHT_TURN_SIGNAL"
+		 alias:    "RIGHT_TURN_SIGNAL"
+		}
+		trcref17_TJA_SP_CONF_MEDIUM
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "TJA_SP_CONF_MEDIUM"
+		 alias:    "TJA_SP_CONF_MEDIUM"
+		}
+		trcref18_TJA_SP_TYPE_BLMONLY
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "TJA_SP_TYPE_BLMONLY"
+		 alias:    "TJA_SP_TYPE_BLMONLY"
+		}
+		trcref19_TJA_SP_TYPE_POBLM
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "TJA_SP_TYPE_POBLM"
+		 alias:    "TJA_SP_TYPE_POBLM"
+		}
+		trcref20_TJA_SP_TYPE_POONLY
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "TJA_SP_TYPE_POONLY"
+		 alias:    "TJA_SP_TYPE_POONLY"
+		}
+		trcref21_k_HLR_suprress_hold
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_HLR_suprress_hold"
+		 alias:    "k_HLR_suprress_hold"
+		}
+		trcref22_k_HighAccel_suppress_hold
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_HighAccel_suppress_hold"
+		 alias:    "k_HighAccel_suppress_hold"
+		}
+		trcref23_k_IntEvaSpdOn
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_IntEvaSpdOn"
+		 alias:    "k_IntEvaSpdOn"
+		}
+		trcref24_k_LCG_Configured
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCG_Configured"
+		 alias:    "k_LCG_Configured"
+		}
+		trcref25_k_LCK_A0Fac_ActSta
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_A0Fac_ActSta"
+		 alias:    "k_LCK_A0Fac_ActSta"
+		}
+		trcref26_k_LCK_A0Fac_DrvStm
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_A0Fac_DrvStm"
+		 alias:    "k_LCK_A0Fac_DrvStm"
+		}
+		trcref27_k_LCK_A0ShiftFac_Dy_LftCurv
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_A0ShiftFac_Dy_LftCurv"
+		 alias:    "k_LCK_A0ShiftFac_Dy_LftCurv"
+		}
+		trcref28_k_LCK_A0ShiftFac_Dy_RgtCurv
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_A0ShiftFac_Dy_RgtCurv"
+		 alias:    "k_LCK_A0ShiftFac_Dy_RgtCurv"
+		}
+		trcref29_k_LCK_A0ShiftFac_Vspd
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_A0ShiftFac_Vspd"
+		 alias:    "k_LCK_A0ShiftFac_Vspd"
+		}
+		trcref30_k_LCK_A0Shift_LftCurv
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_A0Shift_LftCurv"
+		 alias:    "k_LCK_A0Shift_LftCurv"
+		}
+		trcref31_k_LCK_A0Shift_RgtCurv
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_A0Shift_RgtCurv"
+		 alias:    "k_LCK_A0Shift_RgtCurv"
+		}
+		trcref32_k_LCK_A0Shift_StraLan
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_A0Shift_StraLan"
+		 alias:    "k_LCK_A0Shift_StraLan"
+		}
+		trcref33_k_LCK_A0_Rdy2Act_UseConst
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_A0_Rdy2Act_UseConst"
+		 alias:    "k_LCK_A0_Rdy2Act_UseConst"
+		}
+		trcref34_k_LCK_Active2Ready_Mask
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Active2Ready_Mask"
+		 alias:    "k_LCK_Active2Ready_Mask"
+		}
+		trcref35_k_LCK_CvatRateBks
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_CvatRateBks"
+		 alias:    "k_LCK_CvatRateBks"
+		}
+		trcref36_k_LCK_CvatrBks
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_CvatrBks"
+		 alias:    "k_LCK_CvatrBks"
+		}
+		trcref37_k_LCK_DFac_Dy
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_DFac_Dy"
+		 alias:    "k_LCK_DFac_Dy"
+		}
+		trcref38_k_LCK_DFac_Dy_Curv
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_DFac_Dy_Curv"
+		 alias:    "k_LCK_DFac_Dy_Curv"
+		}
+		trcref39_k_LCK_DFac_HaCurCen
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_DFac_HaCurCen"
+		 alias:    "k_LCK_DFac_HaCurCen"
+		}
+		trcref40_k_LCK_DFac_HaCurSid
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_DFac_HaCurSid"
+		 alias:    "k_LCK_DFac_HaCurSid"
+		}
+		trcref41_k_LCK_DFac_HaStrCen
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_DFac_HaStrCen"
+		 alias:    "k_LCK_DFac_HaStrCen"
+		}
+		trcref42_k_LCK_DFac_HaStrSid
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_DFac_HaStrSid"
+		 alias:    "k_LCK_DFac_HaStrSid"
+		}
+		trcref43_k_LCK_DFac_HadCurCen
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_DFac_HadCurCen"
+		 alias:    "k_LCK_DFac_HadCurCen"
+		}
+		trcref44_k_LCK_DFac_HadCurSid
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_DFac_HadCurSid"
+		 alias:    "k_LCK_DFac_HadCurSid"
+		}
+		trcref45_k_LCK_DFac_HadStrCen
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_DFac_HadStrCen"
+		 alias:    "k_LCK_DFac_HadStrCen"
+		}
+		trcref46_k_LCK_DFac_HadStrSid
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_DFac_HadStrSid"
+		 alias:    "k_LCK_DFac_HadStrSid"
+		}
+		trcref47_k_LCK_DFac_Rad
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_DFac_Rad"
+		 alias:    "k_LCK_DFac_Rad"
+		}
+		trcref48_k_LCK_DFac_SA_CurCen
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_DFac_SA_CurCen"
+		 alias:    "k_LCK_DFac_SA_CurCen"
+		}
+		trcref49_k_LCK_DFac_SA_CurSid
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_DFac_SA_CurSid"
+		 alias:    "k_LCK_DFac_SA_CurSid"
+		}
+		trcref50_k_LCK_DFac_SA_StrCen
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_DFac_SA_StrCen"
+		 alias:    "k_LCK_DFac_SA_StrCen"
+		}
+		trcref51_k_LCK_DFac_SA_StrSid
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_DFac_SA_StrSid"
+		 alias:    "k_LCK_DFac_SA_StrSid"
+		}
+		trcref52_k_LCK_DFac_SS_CurCen
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_DFac_SS_CurCen"
+		 alias:    "k_LCK_DFac_SS_CurCen"
+		}
+		trcref53_k_LCK_DFac_SS_CurSid
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_DFac_SS_CurSid"
+		 alias:    "k_LCK_DFac_SS_CurSid"
+		}
+		trcref54_k_LCK_DFac_SS_StrCen
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_DFac_SS_StrCen"
+		 alias:    "k_LCK_DFac_SS_StrCen"
+		}
+		trcref55_k_LCK_DFac_SS_StrSid
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_DFac_SS_StrSid"
+		 alias:    "k_LCK_DFac_SS_StrSid"
+		}
+		trcref56_k_LCK_DFac_Vspd
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_DFac_Vspd"
+		 alias:    "k_LCK_DFac_Vspd"
+		}
+		trcref57_k_LCK_DTermMax
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_DTermMax"
+		 alias:    "k_LCK_DTermMax"
+		}
+		trcref58_k_LCK_DlyTm_DrvStim
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_DlyTm_DrvStim"
+		 alias:    "k_LCK_DlyTm_DrvStim"
+		}
+		trcref59_k_LCK_DyBks_Curv
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_DyBks_Curv"
+		 alias:    "k_LCK_DyBks_Curv"
+		}
+		trcref60_k_LCK_Enable_POOnly
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Enable_POOnly"
+		 alias:    "k_LCK_Enable_POOnly"
+		}
+		trcref61_k_LCK_Entry_DistBuffer
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Entry_DistBuffer"
+		 alias:    "k_LCK_Entry_DistBuffer"
+		}
+		trcref62_k_LCK_Fac_Vspd2RngThr_FalRec
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Fac_Vspd2RngThr_FalRec"
+		 alias:    "k_LCK_Fac_Vspd2RngThr_FalRec"
+		}
+		trcref63_k_LCK_FfwDeltaFac_Rad_Lft
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_FfwDeltaFac_Rad_Lft"
+		 alias:    "k_LCK_FfwDeltaFac_Rad_Lft"
+		}
+		trcref64_k_LCK_FfwDeltaFac_Rad_Rgt
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_FfwDeltaFac_Rad_Rgt"
+		 alias:    "k_LCK_FfwDeltaFac_Rad_Rgt"
+		}
+		trcref65_k_LCK_FfwDeltaFac_Vspd
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_FfwDeltaFac_Vspd"
+		 alias:    "k_LCK_FfwDeltaFac_Vspd"
+		}
+		trcref66_k_LCK_FfwFac_CvatRate_Lft
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_FfwFac_CvatRate_Lft"
+		 alias:    "k_LCK_FfwFac_CvatRate_Lft"
+		}
+		trcref67_k_LCK_FfwFac_CvatRate_Rgt
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_FfwFac_CvatRate_Rgt"
+		 alias:    "k_LCK_FfwFac_CvatRate_Rgt"
+		}
+		trcref68_k_LCK_FfwFac_Dy
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_FfwFac_Dy"
+		 alias:    "k_LCK_FfwFac_Dy"
+		}
+		trcref69_k_LCK_FfwFac_Rad_Lft
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_FfwFac_Rad_Lft"
+		 alias:    "k_LCK_FfwFac_Rad_Lft"
+		}
+		trcref70_k_LCK_FfwFac_Rad_Rgt
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_FfwFac_Rad_Rgt"
+		 alias:    "k_LCK_FfwFac_Rad_Rgt"
+		}
+		trcref71_k_LCK_FfwFac_Vspd
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_FfwFac_Vspd"
+		 alias:    "k_LCK_FfwFac_Vspd"
+		}
+		trcref72_k_LCK_FfwTorq_Cvat
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_FfwTorq_Cvat"
+		 alias:    "k_LCK_FfwTorq_Cvat"
+		}
+		trcref73_k_LCK_Ffw_CvatSwh
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Ffw_CvatSwh"
+		 alias:    "k_LCK_Ffw_CvatSwh"
+		}
+		trcref74_k_LCK_Ffw_DyBks
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Ffw_DyBks"
+		 alias:    "k_LCK_Ffw_DyBks"
+		}
+		trcref75_k_LCK_Ffw_TimCon_CmdFlt
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Ffw_TimCon_CmdFlt"
+		 alias:    "k_LCK_Ffw_TimCon_CmdFlt"
+		}
+		trcref76_k_LCK_HAFac_ActSta
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_HAFac_ActSta"
+		 alias:    "k_LCK_HAFac_ActSta"
+		}
+		trcref77_k_LCK_HAFac_DrvStm
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_HAFac_DrvStm"
+		 alias:    "k_LCK_HAFac_DrvStm"
+		}
+		trcref78_k_LCK_HARFac_ActSta
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_HARFac_ActSta"
+		 alias:    "k_LCK_HARFac_ActSta"
+		}
+		trcref79_k_LCK_HARFac_DrvStm
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_HARFac_DrvStm"
+		 alias:    "k_LCK_HARFac_DrvStm"
+		}
+		trcref80_k_LCK_HaloTime
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_HaloTime"
+		 alias:    "k_LCK_HaloTime"
+		}
+		trcref81_k_LCK_HaloTime_Switch
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_HaloTime_Switch"
+		 alias:    "k_LCK_HaloTime_Switch"
+		}
+		trcref82_k_LCK_HedAngDiffX
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_HedAngDiffX"
+		 alias:    "k_LCK_HedAngDiffX"
+		}
+		trcref83_k_LCK_HedAngRateDiffX
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_HedAngRateDiffX"
+		 alias:    "k_LCK_HedAngRateDiffX"
+		}
+		trcref84_k_LCK_Hed_DyBks
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Hed_DyBks"
+		 alias:    "k_LCK_Hed_DyBks"
+		}
+		trcref85_k_LCK_HndsOnWhel_DlyTm_Idl2Rdy
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_HndsOnWhel_DlyTm_Idl2Rdy"
+		 alias:    "k_LCK_HndsOnWhel_DlyTm_Idl2Rdy"
+		}
+		trcref86_k_LCK_Idle2Ready_Mask
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Idle2Ready_Mask"
+		 alias:    "k_LCK_Idle2Ready_Mask"
+		}
+		trcref87_k_LCK_Junc_SusTime
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Junc_SusTime"
+		 alias:    "k_LCK_Junc_SusTime"
+		}
+		trcref88_k_LCK_KpKdDecSlopeLmt
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_KpKdDecSlopeLmt"
+		 alias:    "k_LCK_KpKdDecSlopeLmt"
+		}
+		trcref89_k_LCK_KpKdIncSlopeLmt
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_KpKdIncSlopeLmt"
+		 alias:    "k_LCK_KpKdIncSlopeLmt"
+		}
+		trcref90_k_LCK_LM_ROC_DlyTm_Idl2Rdy
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_LM_ROC_DlyTm_Idl2Rdy"
+		 alias:    "k_LCK_LM_ROC_DlyTm_Idl2Rdy"
+		}
+		trcref91_k_LCK_LM_ROC_DlyTm_Rdy2Idl
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_LM_ROC_DlyTm_Rdy2Idl"
+		 alias:    "k_LCK_LM_ROC_DlyTm_Rdy2Idl"
+		}
+		trcref92_k_LCK_LM_ROC_Idl2Rdy
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_LM_ROC_Idl2Rdy"
+		 alias:    "k_LCK_LM_ROC_Idl2Rdy"
+		}
+		trcref93_k_LCK_LM_ROC_Rdy2Idl
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_LM_ROC_Rdy2Idl"
+		 alias:    "k_LCK_LM_ROC_Rdy2Idl"
+		}
+		trcref94_k_LCK_LatCtrl_DFac_Lft
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_LatCtrl_DFac_Lft"
+		 alias:    "k_LCK_LatCtrl_DFac_Lft"
+		}
+		trcref95_k_LCK_LatCtrl_DFac_Rgt
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_LatCtrl_DFac_Rgt"
+		 alias:    "k_LCK_LatCtrl_DFac_Rgt"
+		}
+		trcref96_k_LCK_LatCtrl_Kd
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_LatCtrl_Kd"
+		 alias:    "k_LCK_LatCtrl_Kd"
+		}
+		trcref97_k_LCK_LatCtrl_Kp
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_LatCtrl_Kp"
+		 alias:    "k_LCK_LatCtrl_Kp"
+		}
+		trcref98_k_LCK_LatCtrl_PFac_Lft
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_LatCtrl_PFac_Lft"
+		 alias:    "k_LCK_LatCtrl_PFac_Lft"
+		}
+		trcref99_k_LCK_LatCtrl_PFac_Rgt
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_LatCtrl_PFac_Rgt"
+		 alias:    "k_LCK_LatCtrl_PFac_Rgt"
+		}
+		trcref100_k_LCK_LatCtrl_TimCon_CmdFlt
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_LatCtrl_TimCon_CmdFlt"
+		 alias:    "k_LCK_LatCtrl_TimCon_CmdFlt"
+		}
+		trcref101_k_LCK_Lat_Ctrl_DFac_Lft
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Lat_Ctrl_DFac_Lft"
+		 alias:    "k_LCK_Lat_Ctrl_DFac_Lft"
+		}
+		trcref102_k_LCK_Lat_Ctrl_DFac_Rgt
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Lat_Ctrl_DFac_Rgt"
+		 alias:    "k_LCK_Lat_Ctrl_DFac_Rgt"
+		}
+		trcref103_k_LCK_Lat_Ctrl_Kd
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Lat_Ctrl_Kd"
+		 alias:    "k_LCK_Lat_Ctrl_Kd"
+		}
+		trcref104_k_LCK_Lat_Ctrl_Ki
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Lat_Ctrl_Ki"
+		 alias:    "k_LCK_Lat_Ctrl_Ki"
+		}
+		trcref105_k_LCK_Lat_Ctrl_Kp
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Lat_Ctrl_Kp"
+		 alias:    "k_LCK_Lat_Ctrl_Kp"
+		}
+		trcref106_k_LCK_Lat_Ctrl_Kp_NearGain
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Lat_Ctrl_Kp_NearGain"
+		 alias:    "k_LCK_Lat_Ctrl_Kp_NearGain"
+		}
+		trcref107_k_LCK_Lat_Ctrl_PFac_Lft
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Lat_Ctrl_PFac_Lft"
+		 alias:    "k_LCK_Lat_Ctrl_PFac_Lft"
+		}
+		trcref108_k_LCK_Lat_Ctrl_PFac_Rgt
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Lat_Ctrl_PFac_Rgt"
+		 alias:    "k_LCK_Lat_Ctrl_PFac_Rgt"
+		}
+		trcref109_k_LCK_Lat_Ctrl_TimCon_CmdFlt
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Lat_Ctrl_TimCon_CmdFlt"
+		 alias:    "k_LCK_Lat_Ctrl_TimCon_CmdFlt"
+		}
+		trcref110_k_LCK_Lat_DFac_Rad
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Lat_DFac_Rad"
+		 alias:    "k_LCK_Lat_DFac_Rad"
+		}
+		trcref111_k_LCK_Lat_DFac_SS_Cur
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Lat_DFac_SS_Cur"
+		 alias:    "k_LCK_Lat_DFac_SS_Cur"
+		}
+		trcref112_k_LCK_Lat_DFac_SS_Str
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Lat_DFac_SS_Str"
+		 alias:    "k_LCK_Lat_DFac_SS_Str"
+		}
+		trcref113_k_LCK_Lat_DFac_Vspd
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Lat_DFac_Vspd"
+		 alias:    "k_LCK_Lat_DFac_Vspd"
+		}
+		trcref114_k_LCK_Lat_DyBks
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Lat_DyBks"
+		 alias:    "k_LCK_Lat_DyBks"
+		}
+		trcref115_k_LCK_Lat_IFac_Rad
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Lat_IFac_Rad"
+		 alias:    "k_LCK_Lat_IFac_Rad"
+		}
+		trcref116_k_LCK_Lat_IFac_Vspd
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Lat_IFac_Vspd"
+		 alias:    "k_LCK_Lat_IFac_Vspd"
+		}
+		trcref117_k_LCK_Lat_ILmtFac_Dy_CurvLan
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Lat_ILmtFac_Dy_CurvLan"
+		 alias:    "k_LCK_Lat_ILmtFac_Dy_CurvLan"
+		}
+		trcref118_k_LCK_Lat_ILmtFac_Dy_StraLan
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Lat_ILmtFac_Dy_StraLan"
+		 alias:    "k_LCK_Lat_ILmtFac_Dy_StraLan"
+		}
+		trcref119_k_LCK_Lat_ILmtFac_Rad
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Lat_ILmtFac_Rad"
+		 alias:    "k_LCK_Lat_ILmtFac_Rad"
+		}
+		trcref120_k_LCK_Lat_ILmtFac_Rad_NearGain
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Lat_ILmtFac_Rad_NearGain"
+		 alias:    "k_LCK_Lat_ILmtFac_Rad_NearGain"
+		}
+		trcref121_k_LCK_Lat_ILmtFac_Vspd_CurvLan
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Lat_ILmtFac_Vspd_CurvLan"
+		 alias:    "k_LCK_Lat_ILmtFac_Vspd_CurvLan"
+		}
+		trcref122_k_LCK_Lat_ILmtFac_Vspd_StraLan
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Lat_ILmtFac_Vspd_StraLan"
+		 alias:    "k_LCK_Lat_ILmtFac_Vspd_StraLan"
+		}
+		trcref123_k_LCK_Lat_ITermLmt_Dy
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Lat_ITermLmt_Dy"
+		 alias:    "k_LCK_Lat_ITermLmt_Dy"
+		}
+		trcref124_k_LCK_Lat_KpKdDecSlopeLmt
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Lat_KpKdDecSlopeLmt"
+		 alias:    "k_LCK_Lat_KpKdDecSlopeLmt"
+		}
+		trcref125_k_LCK_Lat_KpKdIncSlopeLmt
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Lat_KpKdIncSlopeLmt"
+		 alias:    "k_LCK_Lat_KpKdIncSlopeLmt"
+		}
+		trcref126_k_LCK_Lat_PFac_Dy_InnLftCur
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Lat_PFac_Dy_InnLftCur"
+		 alias:    "k_LCK_Lat_PFac_Dy_InnLftCur"
+		}
+		trcref127_k_LCK_Lat_PFac_Dy_InnRgtCur
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Lat_PFac_Dy_InnRgtCur"
+		 alias:    "k_LCK_Lat_PFac_Dy_InnRgtCur"
+		}
+		trcref128_k_LCK_Lat_PFac_Dy_OutLftCur
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Lat_PFac_Dy_OutLftCur"
+		 alias:    "k_LCK_Lat_PFac_Dy_OutLftCur"
+		}
+		trcref129_k_LCK_Lat_PFac_Dy_OutRgtCur
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Lat_PFac_Dy_OutRgtCur"
+		 alias:    "k_LCK_Lat_PFac_Dy_OutRgtCur"
+		}
+		trcref130_k_LCK_Lat_PFac_Dy_Str
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Lat_PFac_Dy_Str"
+		 alias:    "k_LCK_Lat_PFac_Dy_Str"
+		}
+		trcref131_k_LCK_Lat_PFac_Rad
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Lat_PFac_Rad"
+		 alias:    "k_LCK_Lat_PFac_Rad"
+		}
+		trcref132_k_LCK_Lat_PFac_SS_Cur
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Lat_PFac_SS_Cur"
+		 alias:    "k_LCK_Lat_PFac_SS_Cur"
+		}
+		trcref133_k_LCK_Lat_PFac_SS_Str
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Lat_PFac_SS_Str"
+		 alias:    "k_LCK_Lat_PFac_SS_Str"
+		}
+		trcref134_k_LCK_Lat_PFac_Vspd
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Lat_PFac_Vspd"
+		 alias:    "k_LCK_Lat_PFac_Vspd"
+		}
+		trcref135_k_LCK_Lat_PTermMax
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Lat_PTermMax"
+		 alias:    "k_LCK_Lat_PTermMax"
+		}
+		trcref136_k_LCK_LnCetr_DlyTm_Rdy2Act
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_LnCetr_DlyTm_Rdy2Act"
+		 alias:    "k_LCK_LnCetr_DlyTm_Rdy2Act"
+		}
+		trcref137_k_LCK_LnWidth_DlyTm_Idl2Rdy
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_LnWidth_DlyTm_Idl2Rdy"
+		 alias:    "k_LCK_LnWidth_DlyTm_Idl2Rdy"
+		}
+		trcref138_k_LCK_LnWidth_DlyTm_Rdy2Idl
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_LnWidth_DlyTm_Rdy2Idl"
+		 alias:    "k_LCK_LnWidth_DlyTm_Rdy2Idl"
+		}
+		trcref139_k_LCK_LnWidth_LowLmt_Idl2Rdy
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_LnWidth_LowLmt_Idl2Rdy"
+		 alias:    "k_LCK_LnWidth_LowLmt_Idl2Rdy"
+		}
+		trcref140_k_LCK_LnWidth_LowLmt_Rdy2Idl
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_LnWidth_LowLmt_Rdy2Idl"
+		 alias:    "k_LCK_LnWidth_LowLmt_Rdy2Idl"
+		}
+		trcref141_k_LCK_LnWidth_UpLmt_Idl2Rdy
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_LnWidth_UpLmt_Idl2Rdy"
+		 alias:    "k_LCK_LnWidth_UpLmt_Idl2Rdy"
+		}
+		trcref142_k_LCK_LnWidth_UpLmt_Rdy2Idl
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_LnWidth_UpLmt_Rdy2Idl"
+		 alias:    "k_LCK_LnWidth_UpLmt_Rdy2Idl"
+		}
+		trcref143_k_LCK_LowRng_Spd_Thr
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_LowRng_Spd_Thr"
+		 alias:    "k_LCK_LowRng_Spd_Thr"
+		}
+		trcref144_k_LCK_MinJunction_Range
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_MinJunction_Range"
+		 alias:    "k_LCK_MinJunction_Range"
+		}
+		trcref145_k_LCK_NonLinCompFac_Vspd
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_NonLinCompFac_Vspd"
+		 alias:    "k_LCK_NonLinCompFac_Vspd"
+		}
+		trcref146_k_LCK_NonLinCompTab
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_NonLinCompTab"
+		 alias:    "k_LCK_NonLinCompTab"
+		}
+		trcref147_k_LCK_NonLinearComp_En
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_NonLinearComp_En"
+		 alias:    "k_LCK_NonLinearComp_En"
+		}
+		trcref148_k_LCK_Ovrd_DlyTm_Rdy2Idl
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Ovrd_DlyTm_Rdy2Idl"
+		 alias:    "k_LCK_Ovrd_DlyTm_Rdy2Idl"
+		}
+		trcref149_k_LCK_Ovrd_Torq_Hys
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Ovrd_Torq_Hys"
+		 alias:    "k_LCK_Ovrd_Torq_Hys"
+		}
+		trcref150_k_LCK_PFac_Dy
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_PFac_Dy"
+		 alias:    "k_LCK_PFac_Dy"
+		}
+		trcref151_k_LCK_PFac_Dy_Curv
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_PFac_Dy_Curv"
+		 alias:    "k_LCK_PFac_Dy_Curv"
+		}
+		trcref152_k_LCK_PFac_HaCurCen
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_PFac_HaCurCen"
+		 alias:    "k_LCK_PFac_HaCurCen"
+		}
+		trcref153_k_LCK_PFac_HaCurSid
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_PFac_HaCurSid"
+		 alias:    "k_LCK_PFac_HaCurSid"
+		}
+		trcref154_k_LCK_PFac_HaStrCen
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_PFac_HaStrCen"
+		 alias:    "k_LCK_PFac_HaStrCen"
+		}
+		trcref155_k_LCK_PFac_HaStrSid
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_PFac_HaStrSid"
+		 alias:    "k_LCK_PFac_HaStrSid"
+		}
+		trcref156_k_LCK_PFac_HadCurCen
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_PFac_HadCurCen"
+		 alias:    "k_LCK_PFac_HadCurCen"
+		}
+		trcref157_k_LCK_PFac_HadCurSid
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_PFac_HadCurSid"
+		 alias:    "k_LCK_PFac_HadCurSid"
+		}
+		trcref158_k_LCK_PFac_HadStrCen
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_PFac_HadStrCen"
+		 alias:    "k_LCK_PFac_HadStrCen"
+		}
+		trcref159_k_LCK_PFac_HadStrSid
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_PFac_HadStrSid"
+		 alias:    "k_LCK_PFac_HadStrSid"
+		}
+		trcref160_k_LCK_PFac_Rad
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_PFac_Rad"
+		 alias:    "k_LCK_PFac_Rad"
+		}
+		trcref161_k_LCK_PFac_SA_CurCen
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_PFac_SA_CurCen"
+		 alias:    "k_LCK_PFac_SA_CurCen"
+		}
+		trcref162_k_LCK_PFac_SA_CurSid
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_PFac_SA_CurSid"
+		 alias:    "k_LCK_PFac_SA_CurSid"
+		}
+		trcref163_k_LCK_PFac_SA_StrCen
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_PFac_SA_StrCen"
+		 alias:    "k_LCK_PFac_SA_StrCen"
+		}
+		trcref164_k_LCK_PFac_SA_StrSid
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_PFac_SA_StrSid"
+		 alias:    "k_LCK_PFac_SA_StrSid"
+		}
+		trcref165_k_LCK_PFac_SS_CurCen
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_PFac_SS_CurCen"
+		 alias:    "k_LCK_PFac_SS_CurCen"
+		}
+		trcref166_k_LCK_PFac_SS_CurSid
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_PFac_SS_CurSid"
+		 alias:    "k_LCK_PFac_SS_CurSid"
+		}
+		trcref167_k_LCK_PFac_SS_StrCen
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_PFac_SS_StrCen"
+		 alias:    "k_LCK_PFac_SS_StrCen"
+		}
+		trcref168_k_LCK_PFac_SS_StrSid
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_PFac_SS_StrSid"
+		 alias:    "k_LCK_PFac_SS_StrSid"
+		}
+		trcref169_k_LCK_PFac_Vspd
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_PFac_Vspd"
+		 alias:    "k_LCK_PFac_Vspd"
+		}
+		trcref170_k_LCK_PTermMax
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_PTermMax"
+		 alias:    "k_LCK_PTermMax"
+		}
+		trcref171_k_LCK_ROC_filt_tau
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_ROC_filt_tau"
+		 alias:    "k_LCK_ROC_filt_tau"
+		}
+		trcref172_k_LCK_RadBks
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_RadBks"
+		 alias:    "k_LCK_RadBks"
+		}
+		trcref173_k_LCK_Range_Drop_MinDur
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Range_Drop_MinDur"
+		 alias:    "k_LCK_Range_Drop_MinDur"
+		}
+		trcref174_k_LCK_RatLmtFac_TorqCmd_Vspd
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_RatLmtFac_TorqCmd_Vspd"
+		 alias:    "k_LCK_RatLmtFac_TorqCmd_Vspd"
+		}
+		trcref175_k_LCK_RatLmt_TorqCmd
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_RatLmt_TorqCmd"
+		 alias:    "k_LCK_RatLmt_TorqCmd"
+		}
+		trcref176_k_LCK_Ready2Active_Mask
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Ready2Active_Mask"
+		 alias:    "k_LCK_Ready2Active_Mask"
+		}
+		trcref177_k_LCK_Ready2Idle_Mask
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Ready2Idle_Mask"
+		 alias:    "k_LCK_Ready2Idle_Mask"
+		}
+		trcref178_k_LCK_Rng2VehSpd_Ratio_DlyTime
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Rng2VehSpd_Ratio_DlyTime"
+		 alias:    "k_LCK_Rng2VehSpd_Ratio_DlyTime"
+		}
+		trcref179_k_LCK_Rng2VehSpd_Ratio_Thr
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_Rng2VehSpd_Ratio_Thr"
+		 alias:    "k_LCK_Rng2VehSpd_Ratio_Thr"
+		}
+		trcref180_k_LCK_RngThr_FalRec
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_RngThr_FalRec"
+		 alias:    "k_LCK_RngThr_FalRec"
+		}
+		trcref181_k_LCK_SPHighSpd_DlyTm_Idl2Rdy
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_SPHighSpd_DlyTm_Idl2Rdy"
+		 alias:    "k_LCK_SPHighSpd_DlyTm_Idl2Rdy"
+		}
+		trcref182_k_LCK_SPLowSpd_DlyTm_Idl2Rdy
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_SPLowSpd_DlyTm_Idl2Rdy"
+		 alias:    "k_LCK_SPLowSpd_DlyTm_Idl2Rdy"
+		}
+		trcref183_k_LCK_SPPConfHigh_ProbThre
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_SPPConfHigh_ProbThre"
+		 alias:    "k_LCK_SPPConfHigh_ProbThre"
+		}
+		trcref184_k_LCK_SPPConfMedHigh_ProbThre
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_SPPConfMedHigh_ProbThre"
+		 alias:    "k_LCK_SPPConfMedHigh_ProbThre"
+		}
+		trcref185_k_LCK_SPPConfMed_ProbThre
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_SPPConfMed_ProbThre"
+		 alias:    "k_LCK_SPPConfMed_ProbThre"
+		}
+		trcref186_k_LCK_SPTyp_LowLmt_Idl2Rdy
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_SPTyp_LowLmt_Idl2Rdy"
+		 alias:    "k_LCK_SPTyp_LowLmt_Idl2Rdy"
+		}
+		trcref187_k_LCK_SPTyp_UpLmt_Idl2Rdy
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_SPTyp_UpLmt_Idl2Rdy"
+		 alias:    "k_LCK_SPTyp_UpLmt_Idl2Rdy"
+		}
+		trcref188_k_LCK_SP_A0_Rdy2Act
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_SP_A0_Rdy2Act"
+		 alias:    "k_LCK_SP_A0_Rdy2Act"
+		}
+		trcref189_k_LCK_SP_A0_Rdy2Act_Max
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_SP_A0_Rdy2Act_Max"
+		 alias:    "k_LCK_SP_A0_Rdy2Act_Max"
+		}
+		trcref190_k_LCK_SP_A0_Rdy2Act_Min
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_SP_A0_Rdy2Act_Min"
+		 alias:    "k_LCK_SP_A0_Rdy2Act_Min"
+		}
+		trcref191_k_LCK_SP_A1_Rdy2Act
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_SP_A1_Rdy2Act"
+		 alias:    "k_LCK_SP_A1_Rdy2Act"
+		}
+		trcref192_k_LCK_SP_Conf_Low_JuncTm
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_SP_Conf_Low_JuncTm"
+		 alias:    "k_LCK_SP_Conf_Low_JuncTm"
+		}
+		trcref193_k_LCK_SP_Conf_Med_JuncTm
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_SP_Conf_Med_JuncTm"
+		 alias:    "k_LCK_SP_Conf_Med_JuncTm"
+		}
+		trcref194_k_LCK_SPconfInvld_DlyTm_Rdy2Idl
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_SPconfInvld_DlyTm_Rdy2Idl"
+		 alias:    "k_LCK_SPconfInvld_DlyTm_Rdy2Idl"
+		}
+		trcref195_k_LCK_SPconfLow_DlyTm_Rdy2Idl
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_SPconfLow_DlyTm_Rdy2Idl"
+		 alias:    "k_LCK_SPconfLow_DlyTm_Rdy2Idl"
+		}
+		trcref196_k_LCK_SPconfLow_DlyTm_Rdy2Idl_x
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_SPconfLow_DlyTm_Rdy2Idl_x"
+		 alias:    "k_LCK_SPconfLow_DlyTm_Rdy2Idl_x"
+		}
+		trcref197_k_LCK_SPconfLow_DlyTm_Rdy2Idl_z
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_SPconfLow_DlyTm_Rdy2Idl_z"
+		 alias:    "k_LCK_SPconfLow_DlyTm_Rdy2Idl_z"
+		}
+		trcref198_k_LCK_SPconfMed_DlyTm_Rdy2Idl
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_SPconfMed_DlyTm_Rdy2Idl"
+		 alias:    "k_LCK_SPconfMed_DlyTm_Rdy2Idl"
+		}
+		trcref199_k_LCK_SPconfMed_DlyTm_Rdy2Idl_x
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_SPconfMed_DlyTm_Rdy2Idl_x"
+		 alias:    "k_LCK_SPconfMed_DlyTm_Rdy2Idl_x"
+		}
+		trcref200_k_LCK_SPconfMed_DlyTm_Rdy2Idl_z
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_SPconfMed_DlyTm_Rdy2Idl_z"
+		 alias:    "k_LCK_SPconfMed_DlyTm_Rdy2Idl_z"
+		}
+		trcref201_k_LCK_SigFacHldTim_ActSta
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_SigFacHldTim_ActSta"
+		 alias:    "k_LCK_SigFacHldTim_ActSta"
+		}
+		trcref202_k_LCK_SigFacHldTim_DrvStim
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_SigFacHldTim_DrvStim"
+		 alias:    "k_LCK_SigFacHldTim_DrvStim"
+		}
+		trcref203_k_LCK_StrAngBks
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_StrAngBks"
+		 alias:    "k_LCK_StrAngBks"
+		}
+		trcref204_k_LCK_StrAng_CR_threshold_z
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_StrAng_CR_threshold_z"
+		 alias:    "k_LCK_StrAng_CR_threshold_z"
+		}
+		trcref205_k_LCK_StrSpdBks
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_StrSpdBks"
+		 alias:    "k_LCK_StrSpdBks"
+		}
+		trcref206_k_LCK_TJALCK_SWSpeed
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_TJALCK_SWSpeed"
+		 alias:    "k_LCK_TJALCK_SWSpeed"
+		}
+		trcref207_k_LCK_TimBks_ActSta
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_TimBks_ActSta"
+		 alias:    "k_LCK_TimBks_ActSta"
+		}
+		trcref208_k_LCK_TimBks_DrvStm
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_TimBks_DrvStm"
+		 alias:    "k_LCK_TimBks_DrvStm"
+		}
+		trcref209_k_LCK_TimCon_A0Flt_Normal
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_TimCon_A0Flt_Normal"
+		 alias:    "k_LCK_TimCon_A0Flt_Normal"
+		}
+		trcref210_k_LCK_TimCon_A0Flt_Strong
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_TimCon_A0Flt_Strong"
+		 alias:    "k_LCK_TimCon_A0Flt_Strong"
+		}
+		trcref211_k_LCK_TimCon_A1Flt_Normal
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_TimCon_A1Flt_Normal"
+		 alias:    "k_LCK_TimCon_A1Flt_Normal"
+		}
+		trcref212_k_LCK_TimCon_A1Flt_Strong
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_TimCon_A1Flt_Strong"
+		 alias:    "k_LCK_TimCon_A1Flt_Strong"
+		}
+		trcref213_k_LCK_TimCon_A2Flt_Normal
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_TimCon_A2Flt_Normal"
+		 alias:    "k_LCK_TimCon_A2Flt_Normal"
+		}
+		trcref214_k_LCK_TimCon_A2Flt_Strong
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_TimCon_A2Flt_Strong"
+		 alias:    "k_LCK_TimCon_A2Flt_Strong"
+		}
+		trcref215_k_LCK_TimCon_A3Flt_Normal
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_TimCon_A3Flt_Normal"
+		 alias:    "k_LCK_TimCon_A3Flt_Normal"
+		}
+		trcref216_k_LCK_TimCon_A3Flt_Strong
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_TimCon_A3Flt_Strong"
+		 alias:    "k_LCK_TimCon_A3Flt_Strong"
+		}
+		trcref217_k_LCK_TimCon_RadFlt
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_TimCon_RadFlt"
+		 alias:    "k_LCK_TimCon_RadFlt"
+		}
+		trcref218_k_LCK_TimCon_YawRtFlt
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_TimCon_YawRtFlt"
+		 alias:    "k_LCK_TimCon_YawRtFlt"
+		}
+		trcref219_k_LCK_TinCon_LaneProbFlt
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_TinCon_LaneProbFlt"
+		 alias:    "k_LCK_TinCon_LaneProbFlt"
+		}
+		trcref220_k_LCK_TorqCmdBks
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_TorqCmdBks"
+		 alias:    "k_LCK_TorqCmdBks"
+		}
+		trcref221_k_LCK_TorqThrBig_DrvStim
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_TorqThrBig_DrvStim"
+		 alias:    "k_LCK_TorqThrBig_DrvStim"
+		}
+		trcref222_k_LCK_TorqThr_DrvStim
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_TorqThr_DrvStim"
+		 alias:    "k_LCK_TorqThr_DrvStim"
+		}
+		trcref223_k_LCK_UseSP_MaxRange
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_UseSP_MaxRange"
+		 alias:    "k_LCK_UseSP_MaxRange"
+		}
+		trcref224_k_LCK_VehSpd_LowLmtFus_Idl2Rdy
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_VehSpd_LowLmtFus_Idl2Rdy"
+		 alias:    "k_LCK_VehSpd_LowLmtFus_Idl2Rdy"
+		}
+		trcref225_k_LCK_VehSpd_LowlmtVis_Idl2Rdy
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_VehSpd_LowlmtVis_Idl2Rdy"
+		 alias:    "k_LCK_VehSpd_LowlmtVis_Idl2Rdy"
+		}
+		trcref226_k_LCK_VehSpd_LowlmtVis_Rdy2Idl
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_VehSpd_LowlmtVis_Rdy2Idl"
+		 alias:    "k_LCK_VehSpd_LowlmtVis_Rdy2Idl"
+		}
+		trcref227_k_LCK_VehSpd_TJA_ICA_Bound
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_VehSpd_TJA_ICA_Bound"
+		 alias:    "k_LCK_VehSpd_TJA_ICA_Bound"
+		}
+		trcref228_k_LCK_VehSpd_Uplmt_Idl2Rdy
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_VehSpd_Uplmt_Idl2Rdy"
+		 alias:    "k_LCK_VehSpd_Uplmt_Idl2Rdy"
+		}
+		trcref229_k_LCK_VehSpd_Uplmt_Rdy2Idl
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_VehSpd_Uplmt_Rdy2Idl"
+		 alias:    "k_LCK_VehSpd_Uplmt_Rdy2Idl"
+		}
+		trcref230_k_LCK_VisionOnly
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_VisionOnly"
+		 alias:    "k_LCK_VisionOnly"
+		}
+		trcref231_k_LCK_VspdBks
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_VspdBks"
+		 alias:    "k_LCK_VspdBks"
+		}
+		trcref232_k_LCK_YR_OffstFac_Dy_LftCurv
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_YR_OffstFac_Dy_LftCurv"
+		 alias:    "k_LCK_YR_OffstFac_Dy_LftCurv"
+		}
+		trcref233_k_LCK_YR_OffstFac_Dy_RgtCurv
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_YR_OffstFac_Dy_RgtCurv"
+		 alias:    "k_LCK_YR_OffstFac_Dy_RgtCurv"
+		}
+		trcref234_k_LCK_YawRateSign
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_YawRateSign"
+		 alias:    "k_LCK_YawRateSign"
+		}
+		trcref235_k_LCK_YawRateThr_Act2Rdy_ROC_x
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_YawRateThr_Act2Rdy_ROC_x"
+		 alias:    "k_LCK_YawRateThr_Act2Rdy_ROC_x"
+		}
+		trcref236_k_LCK_YawRateThr_Act2Rdy_z
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_YawRateThr_Act2Rdy_z"
+		 alias:    "k_LCK_YawRateThr_Act2Rdy_z"
+		}
+		trcref237_k_LCK_YawRateThr_DlyTm_Act2Rdy
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_YawRateThr_DlyTm_Act2Rdy"
+		 alias:    "k_LCK_YawRateThr_DlyTm_Act2Rdy"
+		}
+		trcref238_k_LCK_YawRateThr_Idl2Rdy
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_YawRateThr_Idl2Rdy"
+		 alias:    "k_LCK_YawRateThr_Idl2Rdy"
+		}
+		trcref239_k_LCK_YawRate_DlyTm_Idl2Rdy
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_YawRate_DlyTm_Idl2Rdy"
+		 alias:    "k_LCK_YawRate_DlyTm_Idl2Rdy"
+		}
+		trcref240_k_LCK_YawRate_OffsetFac_Vspd
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_YawRate_OffsetFac_Vspd"
+		 alias:    "k_LCK_YawRate_OffsetFac_Vspd"
+		}
+		trcref241_k_LCK_YawRate_Offset_LftCurv
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_YawRate_Offset_LftCurv"
+		 alias:    "k_LCK_YawRate_Offset_LftCurv"
+		}
+		trcref242_k_LCK_YawRate_Offset_RgtCurv
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_YawRate_Offset_RgtCurv"
+		 alias:    "k_LCK_YawRate_Offset_RgtCurv"
+		}
+		trcref243_k_LCK_accel_inhibit_thold
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_accel_inhibit_thold"
+		 alias:    "k_LCK_accel_inhibit_thold"
+		}
+		trcref244_k_LCK_host_veh_width
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_host_veh_width"
+		 alias:    "k_LCK_host_veh_width"
+		}
+		trcref245_k_LCK_ovrd_torq_thold_per_spd_x
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_ovrd_torq_thold_per_spd_x"
+		 alias:    "k_LCK_ovrd_torq_thold_per_spd_x"
+		}
+		trcref246_k_LCK_ovrd_torq_thold_per_spd_z
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LCK_ovrd_torq_thold_per_spd_z"
+		 alias:    "k_LCK_ovrd_torq_thold_per_spd_z"
+		}
+		trcref247_k_LC_Exit_Switch
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_LC_Exit_Switch"
+		 alias:    "k_LC_Exit_Switch"
+		}
+		trcref248_k_Ovrd_torq_thold_per_spd_sw
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_Ovrd_torq_thold_per_spd_sw"
+		 alias:    "k_Ovrd_torq_thold_per_spd_sw"
+		}
+		trcref249_k_StrAng_CR_hold_msec
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_StrAng_CR_hold_msec"
+		 alias:    "k_StrAng_CR_hold_msec"
+		}
+		trcref250_k_StrAng_CR_suppress_hold
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_StrAng_CR_suppress_hold"
+		 alias:    "k_StrAng_CR_suppress_hold"
+		}
+		trcref251_k_StrAng_CR_threshold_x
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_StrAng_CR_threshold_x"
+		 alias:    "k_StrAng_CR_threshold_x"
+		}
+		trcref252_k_StrAng_CR_threshold_z
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_StrAng_CR_threshold_z"
+		 alias:    "k_StrAng_CR_threshold_z"
+		}
+		trcref253_k_StrAng_filter_tau
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_StrAng_filter_tau"
+		 alias:    "k_StrAng_filter_tau"
+		}
+		trcref254_k_Use_Constant_SPP_Timer
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_Use_Constant_SPP_Timer"
+		 alias:    "k_Use_Constant_SPP_Timer"
+		}
+		trcref255_k_accel_pedal_pos_per_speed_x
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_accel_pedal_pos_per_speed_x"
+		 alias:    "k_accel_pedal_pos_per_speed_x"
+		}
+		trcref256_k_accel_pedal_pos_per_speed_z
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_accel_pedal_pos_per_speed_z"
+		 alias:    "k_accel_pedal_pos_per_speed_z"
+		}
+		trcref257_k_brake_suprress_hold
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_brake_suprress_hold"
+		 alias:    "k_brake_suprress_hold"
+		}
+		trcref258_k_driver_appl_torque_filt
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_driver_appl_torque_filt"
+		 alias:    "k_driver_appl_torque_filt"
+		}
+		trcref259_k_driver_suppression_hold_time
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_driver_suppression_hold_time"
+		 alias:    "k_driver_suppression_hold_time"
+		}
+		trcref260_k_hands_on_wheel_hold_msec
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_hands_on_wheel_hold_msec"
+		 alias:    "k_hands_on_wheel_hold_msec"
+		}
+		trcref261_k_hands_on_wheel_torque_hi
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_hands_on_wheel_torque_hi"
+		 alias:    "k_hands_on_wheel_torque_hi"
+		}
+		trcref262_k_hands_on_wheel_torque_lo
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_hands_on_wheel_torque_lo"
+		 alias:    "k_hands_on_wheel_torque_lo"
+		}
+		trcref263_k_handsoff_delay_cycles
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_handsoff_delay_cycles"
+		 alias:    "k_handsoff_delay_cycles"
+		}
+		trcref264_k_handsoff_torq_Lo_CR
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_handsoff_torq_Lo_CR"
+		 alias:    "k_handsoff_torq_Lo_CR"
+		}
+		trcref265_k_handson_delay_cycles
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_handson_delay_cycles"
+		 alias:    "k_handson_delay_cycles"
+		}
+		trcref266_k_hs_StrAng_CR_threshold_z
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_hs_StrAng_CR_threshold_z"
+		 alias:    "k_hs_StrAng_CR_threshold_z"
+		}
+		trcref267_k_ls_StrAng_CR_threshold_z
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ls_StrAng_CR_threshold_z"
+		 alias:    "k_ls_StrAng_CR_threshold_z"
+		}
+		trcref268_k_override_left_torq_thold
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_override_left_torq_thold"
+		 alias:    "k_override_left_torq_thold"
+		}
+		trcref269_k_override_right_torq_thold
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_override_right_torq_thold"
+		 alias:    "k_override_right_torq_thold"
+		}
+		trcref270_k_override_torq_sustain_period
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_override_torq_sustain_period"
+		 alias:    "k_override_torq_sustain_period"
+		}
+		trcref271_k_turn_suprress_hold
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_turn_suprress_hold"
+		 alias:    "k_turn_suprress_hold"
+		}
+		trcref272_c_BIT0
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "c_BIT0"
+		 alias:    "c_BIT0"
+		}
+		trcref273_c_BIT1
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "c_BIT1"
+		 alias:    "c_BIT1"
+		}
+		trcref274_c_BIT10
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "c_BIT10"
+		 alias:    "c_BIT10"
+		}
+		trcref275_c_BIT11
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "c_BIT11"
+		 alias:    "c_BIT11"
+		}
+		trcref276_c_BIT12
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "c_BIT12"
+		 alias:    "c_BIT12"
+		}
+		trcref277_c_BIT13
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "c_BIT13"
+		 alias:    "c_BIT13"
+		}
+		trcref278_c_BIT14
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "c_BIT14"
+		 alias:    "c_BIT14"
+		}
+		trcref279_c_BIT15
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "c_BIT15"
+		 alias:    "c_BIT15"
+		}
+		trcref280_c_BIT2
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "c_BIT2"
+		 alias:    "c_BIT2"
+		}
+		trcref281_c_BIT3
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "c_BIT3"
+		 alias:    "c_BIT3"
+		}
+		trcref282_c_BIT4
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "c_BIT4"
+		 alias:    "c_BIT4"
+		}
+		trcref283_c_BIT5
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "c_BIT5"
+		 alias:    "c_BIT5"
+		}
+		trcref284_c_BIT6
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "c_BIT6"
+		 alias:    "c_BIT6"
+		}
+		trcref285_c_BIT7
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "c_BIT7"
+		 alias:    "c_BIT7"
+		}
+		trcref286_c_BIT8
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "c_BIT8"
+		 alias:    "c_BIT8"
+		}
+		trcref287_c_BIT9
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "c_BIT9"
+		 alias:    "c_BIT9"
+		}
+		trcref288_LCK_BOOLEAN_FALSE
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "LCK_BOOLEAN_FALSE"
+		 alias:    "LCK_BOOLEAN_FALSE"
+		}
+		trcref289_LCK_BOOLEAN_TURE
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "LCK_BOOLEAN_TURE"
+		 alias:    "LCK_BOOLEAN_TURE"
+		}
+		-- Skipping parameter "C_DEG2RAD"
+		-- Skipping parameter "C_KPH2MPS"
+		-- Skipping parameter "C_NEARZERO"
+		-- Skipping parameter "C_ONE"
+		-- Skipping parameter "C_RAD2DEG"
+		-- Skipping parameter "C_ZERO"
+		-- Skipping parameter "LCK_MODE_ACTIVE"
+		-- Skipping parameter "LCK_MODE_ERROR"
+		-- Skipping parameter "LCK_MODE_IDLE"
+		-- Skipping parameter "LCK_MODE_LEFT_LANE_CHANGE"
+		-- Skipping parameter "LCK_MODE_OFF"
+		-- Skipping parameter "LCK_MODE_READY"
+		-- Skipping parameter "LCK_MODE_RIGHT_LANE_CHANGE"
+		-- Skipping parameter "LEFT_TURN_SIGNAL"
+		-- Skipping parameter "ML_TIME_MSEC"
+		-- Skipping parameter "ML_TIME_SEC"
+		-- Skipping parameter "RIGHT_TURN_SIGNAL"
+		-- Skipping parameter "TJA_SP_CONF_MEDIUM"
+		-- Skipping parameter "TJA_SP_TYPE_BLMONLY"
+		-- Skipping parameter "TJA_SP_TYPE_POBLM"
+		-- Skipping parameter "TJA_SP_TYPE_POONLY"
+		-- Skipping parameter "k_HLR_suprress_hold"
+		-- Skipping parameter "k_HighAccel_suppress_hold"
+		-- Skipping parameter "k_IntEvaSpdOn"
+		-- Skipping parameter "k_LCG_Configured"
+		-- Skipping parameter "k_LCK_A0Fac_ActSta"
+		-- Skipping parameter "k_LCK_A0Fac_DrvStm"
+		-- Skipping parameter "k_LCK_A0ShiftFac_Dy_LftCurv"
+		-- Skipping parameter "k_LCK_A0ShiftFac_Dy_RgtCurv"
+		-- Skipping parameter "k_LCK_A0ShiftFac_Vspd"
+		-- Skipping parameter "k_LCK_A0Shift_LftCurv"
+		-- Skipping parameter "k_LCK_A0Shift_RgtCurv"
+		-- Skipping parameter "k_LCK_A0Shift_StraLan"
+		-- Skipping parameter "k_LCK_A0_Rdy2Act_UseConst"
+		-- Skipping parameter "k_LCK_Active2Ready_Mask"
+		-- Skipping parameter "k_LCK_CvatRateBks"
+		-- Skipping parameter "k_LCK_CvatrBks"
+		-- Skipping parameter "k_LCK_DFac_Dy"
+		-- Skipping parameter "k_LCK_DFac_Dy_Curv"
+		-- Skipping parameter "k_LCK_DFac_HaCurCen"
+		-- Skipping parameter "k_LCK_DFac_HaCurSid"
+		-- Skipping parameter "k_LCK_DFac_HaStrCen"
+		-- Skipping parameter "k_LCK_DFac_HaStrSid"
+		-- Skipping parameter "k_LCK_DFac_HadCurCen"
+		-- Skipping parameter "k_LCK_DFac_HadCurSid"
+		-- Skipping parameter "k_LCK_DFac_HadStrCen"
+		-- Skipping parameter "k_LCK_DFac_HadStrSid"
+		-- Skipping parameter "k_LCK_DFac_Rad"
+		-- Skipping parameter "k_LCK_DFac_SA_CurCen"
+		-- Skipping parameter "k_LCK_DFac_SA_CurSid"
+		-- Skipping parameter "k_LCK_DFac_SA_StrCen"
+		-- Skipping parameter "k_LCK_DFac_SA_StrSid"
+		-- Skipping parameter "k_LCK_DFac_SS_CurCen"
+		-- Skipping parameter "k_LCK_DFac_SS_CurSid"
+		-- Skipping parameter "k_LCK_DFac_SS_StrCen"
+		-- Skipping parameter "k_LCK_DFac_SS_StrSid"
+		-- Skipping parameter "k_LCK_DFac_Vspd"
+		-- Skipping parameter "k_LCK_DTermMax"
+		-- Skipping parameter "k_LCK_DlyTm_DrvStim"
+		-- Skipping parameter "k_LCK_DyBks_Curv"
+		-- Skipping parameter "k_LCK_Enable_POOnly"
+		-- Skipping parameter "k_LCK_Entry_DistBuffer"
+		-- Skipping parameter "k_LCK_Fac_Vspd2RngThr_FalRec"
+		-- Skipping parameter "k_LCK_FfwDeltaFac_Rad_Lft"
+		-- Skipping parameter "k_LCK_FfwDeltaFac_Rad_Rgt"
+		-- Skipping parameter "k_LCK_FfwDeltaFac_Vspd"
+		-- Skipping parameter "k_LCK_FfwFac_CvatRate_Lft"
+		-- Skipping parameter "k_LCK_FfwFac_CvatRate_Rgt"
+		-- Skipping parameter "k_LCK_FfwFac_Dy"
+		-- Skipping parameter "k_LCK_FfwFac_Rad_Lft"
+		-- Skipping parameter "k_LCK_FfwFac_Rad_Rgt"
+		-- Skipping parameter "k_LCK_FfwFac_Vspd"
+		-- Skipping parameter "k_LCK_FfwTorq_Cvat"
+		-- Skipping parameter "k_LCK_Ffw_CvatSwh"
+		-- Skipping parameter "k_LCK_Ffw_DyBks"
+		-- Skipping parameter "k_LCK_Ffw_TimCon_CmdFlt"
+		-- Skipping parameter "k_LCK_HAFac_ActSta"
+		-- Skipping parameter "k_LCK_HAFac_DrvStm"
+		-- Skipping parameter "k_LCK_HARFac_ActSta"
+		-- Skipping parameter "k_LCK_HARFac_DrvStm"
+		-- Skipping parameter "k_LCK_HaloTime"
+		-- Skipping parameter "k_LCK_HaloTime_Switch"
+		-- Skipping parameter "k_LCK_HedAngDiffX"
+		-- Skipping parameter "k_LCK_HedAngRateDiffX"
+		-- Skipping parameter "k_LCK_Hed_DyBks"
+		-- Skipping parameter "k_LCK_HndsOnWhel_DlyTm_Idl2Rdy"
+		-- Skipping parameter "k_LCK_Idle2Ready_Mask"
+		-- Skipping parameter "k_LCK_Junc_SusTime"
+		-- Skipping parameter "k_LCK_KpKdDecSlopeLmt"
+		-- Skipping parameter "k_LCK_KpKdIncSlopeLmt"
+		-- Skipping parameter "k_LCK_LM_ROC_DlyTm_Idl2Rdy"
+		-- Skipping parameter "k_LCK_LM_ROC_DlyTm_Rdy2Idl"
+		-- Skipping parameter "k_LCK_LM_ROC_Idl2Rdy"
+		-- Skipping parameter "k_LCK_LM_ROC_Rdy2Idl"
+		-- Skipping parameter "k_LCK_LatCtrl_DFac_Lft"
+		-- Skipping parameter "k_LCK_LatCtrl_DFac_Rgt"
+		-- Skipping parameter "k_LCK_LatCtrl_Kd"
+		-- Skipping parameter "k_LCK_LatCtrl_Kp"
+		-- Skipping parameter "k_LCK_LatCtrl_PFac_Lft"
+		-- Skipping parameter "k_LCK_LatCtrl_PFac_Rgt"
+		-- Skipping parameter "k_LCK_LatCtrl_TimCon_CmdFlt"
+		-- Skipping parameter "k_LCK_Lat_Ctrl_DFac_Lft"
+		-- Skipping parameter "k_LCK_Lat_Ctrl_DFac_Rgt"
+		-- Skipping parameter "k_LCK_Lat_Ctrl_Kd"
+		-- Skipping parameter "k_LCK_Lat_Ctrl_Ki"
+		-- Skipping parameter "k_LCK_Lat_Ctrl_Kp"
+		-- Skipping parameter "k_LCK_Lat_Ctrl_Kp_NearGain"
+		-- Skipping parameter "k_LCK_Lat_Ctrl_PFac_Lft"
+		-- Skipping parameter "k_LCK_Lat_Ctrl_PFac_Rgt"
+		-- Skipping parameter "k_LCK_Lat_Ctrl_TimCon_CmdFlt"
+		-- Skipping parameter "k_LCK_Lat_DFac_Rad"
+		-- Skipping parameter "k_LCK_Lat_DFac_SS_Cur"
+		-- Skipping parameter "k_LCK_Lat_DFac_SS_Str"
+		-- Skipping parameter "k_LCK_Lat_DFac_Vspd"
+		-- Skipping parameter "k_LCK_Lat_DyBks"
+		-- Skipping parameter "k_LCK_Lat_IFac_Rad"
+		-- Skipping parameter "k_LCK_Lat_IFac_Vspd"
+		-- Skipping parameter "k_LCK_Lat_ILmtFac_Dy_CurvLan"
+		-- Skipping parameter "k_LCK_Lat_ILmtFac_Dy_StraLan"
+		-- Skipping parameter "k_LCK_Lat_ILmtFac_Rad"
+		-- Skipping parameter "k_LCK_Lat_ILmtFac_Rad_NearGain"
+		-- Skipping parameter "k_LCK_Lat_ILmtFac_Vspd_CurvLan"
+		-- Skipping parameter "k_LCK_Lat_ILmtFac_Vspd_StraLan"
+		-- Skipping parameter "k_LCK_Lat_ITermLmt_Dy"
+		-- Skipping parameter "k_LCK_Lat_KpKdDecSlopeLmt"
+		-- Skipping parameter "k_LCK_Lat_KpKdIncSlopeLmt"
+		-- Skipping parameter "k_LCK_Lat_PFac_Dy_InnLftCur"
+		-- Skipping parameter "k_LCK_Lat_PFac_Dy_InnRgtCur"
+		-- Skipping parameter "k_LCK_Lat_PFac_Dy_OutLftCur"
+		-- Skipping parameter "k_LCK_Lat_PFac_Dy_OutRgtCur"
+		-- Skipping parameter "k_LCK_Lat_PFac_Dy_Str"
+		-- Skipping parameter "k_LCK_Lat_PFac_Rad"
+		-- Skipping parameter "k_LCK_Lat_PFac_SS_Cur"
+		-- Skipping parameter "k_LCK_Lat_PFac_SS_Str"
+		-- Skipping parameter "k_LCK_Lat_PFac_Vspd"
+		-- Skipping parameter "k_LCK_Lat_PTermMax"
+		-- Skipping parameter "k_LCK_LnCetr_DlyTm_Rdy2Act"
+		-- Skipping parameter "k_LCK_LnWidth_DlyTm_Idl2Rdy"
+		-- Skipping parameter "k_LCK_LnWidth_DlyTm_Rdy2Idl"
+		-- Skipping parameter "k_LCK_LnWidth_LowLmt_Idl2Rdy"
+		-- Skipping parameter "k_LCK_LnWidth_LowLmt_Rdy2Idl"
+		-- Skipping parameter "k_LCK_LnWidth_UpLmt_Idl2Rdy"
+		-- Skipping parameter "k_LCK_LnWidth_UpLmt_Rdy2Idl"
+		-- Skipping parameter "k_LCK_LowRng_Spd_Thr"
+		-- Skipping parameter "k_LCK_MinJunction_Range"
+		-- Skipping parameter "k_LCK_NonLinCompFac_Vspd"
+		-- Skipping parameter "k_LCK_NonLinCompTab"
+		-- Skipping parameter "k_LCK_NonLinearComp_En"
+		-- Skipping parameter "k_LCK_Ovrd_DlyTm_Rdy2Idl"
+		-- Skipping parameter "k_LCK_Ovrd_Torq_Hys"
+		-- Skipping parameter "k_LCK_PFac_Dy"
+		-- Skipping parameter "k_LCK_PFac_Dy_Curv"
+		-- Skipping parameter "k_LCK_PFac_HaCurCen"
+		-- Skipping parameter "k_LCK_PFac_HaCurSid"
+		-- Skipping parameter "k_LCK_PFac_HaStrCen"
+		-- Skipping parameter "k_LCK_PFac_HaStrSid"
+		-- Skipping parameter "k_LCK_PFac_HadCurCen"
+		-- Skipping parameter "k_LCK_PFac_HadCurSid"
+		-- Skipping parameter "k_LCK_PFac_HadStrCen"
+		-- Skipping parameter "k_LCK_PFac_HadStrSid"
+		-- Skipping parameter "k_LCK_PFac_Rad"
+		-- Skipping parameter "k_LCK_PFac_SA_CurCen"
+		-- Skipping parameter "k_LCK_PFac_SA_CurSid"
+		-- Skipping parameter "k_LCK_PFac_SA_StrCen"
+		-- Skipping parameter "k_LCK_PFac_SA_StrSid"
+		-- Skipping parameter "k_LCK_PFac_SS_CurCen"
+		-- Skipping parameter "k_LCK_PFac_SS_CurSid"
+		-- Skipping parameter "k_LCK_PFac_SS_StrCen"
+		-- Skipping parameter "k_LCK_PFac_SS_StrSid"
+		-- Skipping parameter "k_LCK_PFac_Vspd"
+		-- Skipping parameter "k_LCK_PTermMax"
+		-- Skipping parameter "k_LCK_ROC_filt_tau"
+		-- Skipping parameter "k_LCK_RadBks"
+		-- Skipping parameter "k_LCK_Range_Drop_MinDur"
+		-- Skipping parameter "k_LCK_RatLmtFac_TorqCmd_Vspd"
+		-- Skipping parameter "k_LCK_RatLmt_TorqCmd"
+		-- Skipping parameter "k_LCK_Ready2Active_Mask"
+		-- Skipping parameter "k_LCK_Ready2Idle_Mask"
+		-- Skipping parameter "k_LCK_Rng2VehSpd_Ratio_DlyTime"
+		-- Skipping parameter "k_LCK_Rng2VehSpd_Ratio_Thr"
+		-- Skipping parameter "k_LCK_RngThr_FalRec"
+		-- Skipping parameter "k_LCK_SPHighSpd_DlyTm_Idl2Rdy"
+		-- Skipping parameter "k_LCK_SPLowSpd_DlyTm_Idl2Rdy"
+		-- Skipping parameter "k_LCK_SPPConfHigh_ProbThre"
+		-- Skipping parameter "k_LCK_SPPConfMedHigh_ProbThre"
+		-- Skipping parameter "k_LCK_SPPConfMed_ProbThre"
+		-- Skipping parameter "k_LCK_SPTyp_LowLmt_Idl2Rdy"
+		-- Skipping parameter "k_LCK_SPTyp_UpLmt_Idl2Rdy"
+		-- Skipping parameter "k_LCK_SP_A0_Rdy2Act"
+		-- Skipping parameter "k_LCK_SP_A0_Rdy2Act_Max"
+		-- Skipping parameter "k_LCK_SP_A0_Rdy2Act_Min"
+		-- Skipping parameter "k_LCK_SP_A1_Rdy2Act"
+		-- Skipping parameter "k_LCK_SP_Conf_Low_JuncTm"
+		-- Skipping parameter "k_LCK_SP_Conf_Med_JuncTm"
+		-- Skipping parameter "k_LCK_SPconfInvld_DlyTm_Rdy2Idl"
+		-- Skipping parameter "k_LCK_SPconfLow_DlyTm_Rdy2Idl"
+		-- Skipping parameter "k_LCK_SPconfLow_DlyTm_Rdy2Idl_x"
+		-- Skipping parameter "k_LCK_SPconfLow_DlyTm_Rdy2Idl_z"
+		-- Skipping parameter "k_LCK_SPconfMed_DlyTm_Rdy2Idl"
+		-- Skipping parameter "k_LCK_SPconfMed_DlyTm_Rdy2Idl_x"
+		-- Skipping parameter "k_LCK_SPconfMed_DlyTm_Rdy2Idl_z"
+		-- Skipping parameter "k_LCK_SigFacHldTim_ActSta"
+		-- Skipping parameter "k_LCK_SigFacHldTim_DrvStim"
+		-- Skipping parameter "k_LCK_StrAngBks"
+		-- Skipping parameter "k_LCK_StrAng_CR_threshold_z"
+		-- Skipping parameter "k_LCK_StrSpdBks"
+		-- Skipping parameter "k_LCK_TJALCK_SWSpeed"
+		-- Skipping parameter "k_LCK_TimBks_ActSta"
+		-- Skipping parameter "k_LCK_TimBks_DrvStm"
+		-- Skipping parameter "k_LCK_TimCon_A0Flt_Normal"
+		-- Skipping parameter "k_LCK_TimCon_A0Flt_Strong"
+		-- Skipping parameter "k_LCK_TimCon_A1Flt_Normal"
+		-- Skipping parameter "k_LCK_TimCon_A1Flt_Strong"
+		-- Skipping parameter "k_LCK_TimCon_A2Flt_Normal"
+		-- Skipping parameter "k_LCK_TimCon_A2Flt_Strong"
+		-- Skipping parameter "k_LCK_TimCon_A3Flt_Normal"
+		-- Skipping parameter "k_LCK_TimCon_A3Flt_Strong"
+		-- Skipping parameter "k_LCK_TimCon_RadFlt"
+		-- Skipping parameter "k_LCK_TimCon_YawRtFlt"
+		-- Skipping parameter "k_LCK_TinCon_LaneProbFlt"
+		-- Skipping parameter "k_LCK_TorqCmdBks"
+		-- Skipping parameter "k_LCK_TorqThrBig_DrvStim"
+		-- Skipping parameter "k_LCK_TorqThr_DrvStim"
+		-- Skipping parameter "k_LCK_UseSP_MaxRange"
+		-- Skipping parameter "k_LCK_VehSpd_LowLmtFus_Idl2Rdy"
+		-- Skipping parameter "k_LCK_VehSpd_LowlmtVis_Idl2Rdy"
+		-- Skipping parameter "k_LCK_VehSpd_LowlmtVis_Rdy2Idl"
+		-- Skipping parameter "k_LCK_VehSpd_TJA_ICA_Bound"
+		-- Skipping parameter "k_LCK_VehSpd_Uplmt_Idl2Rdy"
+		-- Skipping parameter "k_LCK_VehSpd_Uplmt_Rdy2Idl"
+		-- Skipping parameter "k_LCK_VisionOnly"
+		-- Skipping parameter "k_LCK_VspdBks"
+		-- Skipping parameter "k_LCK_YR_OffstFac_Dy_LftCurv"
+		-- Skipping parameter "k_LCK_YR_OffstFac_Dy_RgtCurv"
+		-- Skipping parameter "k_LCK_YawRateSign"
+		-- Skipping parameter "k_LCK_YawRateThr_Act2Rdy_ROC_x"
+		-- Skipping parameter "k_LCK_YawRateThr_Act2Rdy_z"
+		-- Skipping parameter "k_LCK_YawRateThr_DlyTm_Act2Rdy"
+		-- Skipping parameter "k_LCK_YawRateThr_Idl2Rdy"
+		-- Skipping parameter "k_LCK_YawRate_DlyTm_Idl2Rdy"
+		-- Skipping parameter "k_LCK_YawRate_OffsetFac_Vspd"
+		-- Skipping parameter "k_LCK_YawRate_Offset_LftCurv"
+		-- Skipping parameter "k_LCK_YawRate_Offset_RgtCurv"
+		-- Skipping parameter "k_LCK_accel_inhibit_thold"
+		-- Skipping parameter "k_LCK_host_veh_width"
+		-- Skipping parameter "k_LCK_ovrd_torq_thold_per_spd_x"
+		-- Skipping parameter "k_LCK_ovrd_torq_thold_per_spd_z"
+		-- Skipping parameter "k_LC_Exit_Switch"
+		-- Skipping parameter "k_Ovrd_torq_thold_per_spd_sw"
+		-- Skipping parameter "k_StrAng_CR_hold_msec"
+		-- Skipping parameter "k_StrAng_CR_suppress_hold"
+		-- Skipping parameter "k_StrAng_CR_threshold_x"
+		-- Skipping parameter "k_StrAng_CR_threshold_z"
+		-- Skipping parameter "k_StrAng_filter_tau"
+		-- Skipping parameter "k_Use_Constant_SPP_Timer"
+		-- Skipping parameter "k_accel_pedal_pos_per_speed_x"
+		-- Skipping parameter "k_accel_pedal_pos_per_speed_z"
+		-- Skipping parameter "k_brake_suprress_hold"
+		-- Skipping parameter "k_driver_appl_torque_filt"
+		-- Skipping parameter "k_driver_suppression_hold_time"
+		-- Skipping parameter "k_hands_on_wheel_hold_msec"
+		-- Skipping parameter "k_hands_on_wheel_torque_hi"
+		-- Skipping parameter "k_hands_on_wheel_torque_lo"
+		-- Skipping parameter "k_handsoff_delay_cycles"
+		-- Skipping parameter "k_handsoff_torq_Lo_CR"
+		-- Skipping parameter "k_handson_delay_cycles"
+		-- Skipping parameter "k_hs_StrAng_CR_threshold_z"
+		-- Skipping parameter "k_ls_StrAng_CR_threshold_z"
+		-- Skipping parameter "k_override_left_torq_thold"
+		-- Skipping parameter "k_override_right_torq_thold"
+		-- Skipping parameter "k_override_torq_sustain_period"
+		-- Skipping parameter "k_turn_suprress_hold"
+		-- Skipping parameter "c_BIT0"
+		-- Skipping parameter "c_BIT1"
+		-- Skipping parameter "c_BIT10"
+		-- Skipping parameter "c_BIT11"
+		-- Skipping parameter "c_BIT12"
+		-- Skipping parameter "c_BIT13"
+		-- Skipping parameter "c_BIT14"
+		-- Skipping parameter "c_BIT15"
+		-- Skipping parameter "c_BIT2"
+		-- Skipping parameter "c_BIT3"
+		-- Skipping parameter "c_BIT4"
+		-- Skipping parameter "c_BIT5"
+		-- Skipping parameter "c_BIT6"
+		-- Skipping parameter "c_BIT7"
+		-- Skipping parameter "c_BIT8"
+		-- Skipping parameter "c_BIT9"
+		-- Skipping parameter "LCK_BOOLEAN_FALSE"
+		-- Skipping parameter "LCK_BOOLEAN_TURE"
+
+		group "LCK"  -- referenced model group
+    

@@ -1,0 +1,80 @@
+LOG-file created by automatic CAN datafile reload
+Date: 16-Mar-2021 17:06:55
+
+The following method was used: "ReloadController"
+
+****************************************************************************************************
+RELOAD:
+Controller number: 2  Board/Module number:1  Board Type: CAN_Type1  GroupId: 4
+
+Data file: ALL FILES
+
+Number of RTICAN message blocks which participated in the reload process: 16
+
+Number of RTICAN messages blocks which created at least one open connection: 0
+
+
+Number of RTICAN messages blocks which participated in the reload process but did not
+experience any changes in block in/outport configuration: 16
+block names: 
+"Intergration_ZOP/MapInput/ACC_Input"
+"Intergration_ZOP/MapInput/LKS_Info_Input"
+"Intergration_ZOP/MapInput/Map_Info_1"
+"Intergration_ZOP/MapInput/Traffic_Info_00"
+"Intergration_ZOP/MapInput/ZOP_Input_01"
+"Intergration_ZOP/Subsystem/AVP_HDMAP_Msg_00"
+"Intergration_ZOP/Subsystem/AVP_HDMAP_Msg_01"
+"Intergration_ZOP/TX_IPC/ACC_Output_01"
+"Intergration_ZOP/TX_IPC/BCM_Info_1"
+"Intergration_ZOP/TX_IPC/BCM_Info_2"
+"Intergration_ZOP/TX_IPC/LKS_TJA_Info_Output_01"
+"Intergration_ZOP/TX_IPC/LKS_TJA_Info_Output_02"
+"Intergration_ZOP/TX_IPC/Steer_Info"
+"Intergration_ZOP/TX_IPC/Veh_Gear"
+"Intergration_ZOP/TX_IPC/Veh_WhlSpd_00"
+"Intergration_ZOP/TX_IPC/Veh_WhlSpd_01"
+
+Number of RTICAN messages blocks which did not participate in the reload process: 38
+block names :
+"Intergration_ZOP/MapInput/Localization_00"
+"Intergration_ZOP/MapInput/Map_Info1"
+"Intergration_ZOP/Subsystem2/Subsystem/obj_0/Obj_Msg_00"
+"Intergration_ZOP/Subsystem2/Subsystem/obj_1/Obj_Msg_01"
+"Intergration_ZOP/Subsystem2/Subsystem/obj_10/Obj_Msg_10"
+"Intergration_ZOP/Subsystem2/Subsystem/obj_11/Obj_Msg_11"
+"Intergration_ZOP/Subsystem2/Subsystem/obj_12/Obj_Msg_12"
+"Intergration_ZOP/Subsystem2/Subsystem/obj_13/Obj_Msg_13"
+"Intergration_ZOP/Subsystem2/Subsystem/obj_14/Obj_Msg_14"
+"Intergration_ZOP/Subsystem2/Subsystem/obj_15/Obj_Msg_15"
+"Intergration_ZOP/Subsystem2/Subsystem/obj_16/Obj_Msg_16"
+"Intergration_ZOP/Subsystem2/Subsystem/obj_17/Obj_Msg_17"
+"Intergration_ZOP/Subsystem2/Subsystem/obj_18/Obj_Msg_18"
+"Intergration_ZOP/Subsystem2/Subsystem/obj_19/Obj_Msg_19"
+"Intergration_ZOP/Subsystem2/Subsystem/obj_2/Obj_Msg_02"
+"Intergration_ZOP/Subsystem2/Subsystem/obj_20/Obj_Msg_20"
+"Intergration_ZOP/Subsystem2/Subsystem/obj_21/Obj_Msg_21"
+"Intergration_ZOP/Subsystem2/Subsystem/obj_22/Obj_Msg_22"
+"Intergration_ZOP/Subsystem2/Subsystem/obj_23/Obj_Msg_23"
+"Intergration_ZOP/Subsystem2/Subsystem/obj_24/Obj_Msg_24"
+"Intergration_ZOP/Subsystem2/Subsystem/obj_25/Obj_Msg_25"
+"Intergration_ZOP/Subsystem2/Subsystem/obj_26/Obj_Msg_26"
+"Intergration_ZOP/Subsystem2/Subsystem/obj_27/Obj_Msg_27"
+"Intergration_ZOP/Subsystem2/Subsystem/obj_28/Obj_Msg_28"
+"Intergration_ZOP/Subsystem2/Subsystem/obj_29/Obj_Msg_29"
+"Intergration_ZOP/Subsystem2/Subsystem/obj_3/Obj_Msg_03"
+"Intergration_ZOP/Subsystem2/Subsystem/obj_30/Obj_Msg_30"
+"Intergration_ZOP/Subsystem2/Subsystem/obj_31/Obj_Msg_31"
+"Intergration_ZOP/Subsystem2/Subsystem/obj_4/Obj_Msg_04"
+"Intergration_ZOP/Subsystem2/Subsystem/obj_5/Obj_Msg_05"
+"Intergration_ZOP/Subsystem2/Subsystem/obj_6/Obj_Msg_06"
+"Intergration_ZOP/Subsystem2/Subsystem/obj_7/Obj_Msg_07"
+"Intergration_ZOP/Subsystem2/Subsystem/obj_8/Obj_Msg_08"
+"Intergration_ZOP/Subsystem2/Subsystem/obj_9/Obj_Msg_09"
+"Intergration_ZOP/Subsystem2/Subsystem1/ZOP_NarrowLine_1"
+"Intergration_ZOP/Subsystem2/Subsystem1/ZOP_NarrowLine_2"
+"Intergration_ZOP/ZOP_CAN_Output/ZOP_Output_01"
+"Intergration_ZOP/ZOP_CAN_Output/ZOP_Output_02"
+
+****************************************************************************************************
+
+%EOF

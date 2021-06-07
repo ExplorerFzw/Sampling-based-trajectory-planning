@@ -1,0 +1,119 @@
+		endgroup -- referenced model group "VLC"
+	endgroup -- referenced-block-group "VLC"
+	group "VSI" -- referenced block group
+		p_0_Intergration_real32_T_31[257]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_real32_T_31[258]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out2"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_real32_T_31[259]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out3"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_real32_T_31[260]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out4"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_real32_T_31[261]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out5"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_real32_T_31[262]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out6"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_boolean_T_34[20]
+		{
+		 type:    uint(8)*
+		 alias:   "Out7"
+		 range:   < 0 ; 1 >
+		 bitmask: 0x01
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_real32_T_31[263]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out8"
+		 flags:   OUTPUT|READONLY
+		}
+		trcref0_P_tARawFilt
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "P_tARawFilt"
+		 alias:    "P_tARawFilt"
+		}
+		trcref1_P_tAxsFilt
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "P_tAxsFilt"
+		 alias:    "P_tAxsFilt"
+		}
+		trcref2_P_tSasFilt
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "P_tSasFilt"
+		 alias:    "P_tSasFilt"
+		}
+		trcref3_P_tVVehFilt
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "P_tVVehFilt"
+		 alias:    "P_tVVehFilt"
+		}
+		trcref4_P_tYrsFilt
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "P_tYrsFilt"
+		 alias:    "P_tYrsFilt"
+		}
+		trcref5_P_vHi
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "P_vHi"
+		 alias:    "P_vHi"
+		}
+		trcref6_P_vLo
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "P_vLo"
+		 alias:    "P_vLo"
+		}
+		trcref7_StRatio
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "StRatio"
+		 alias:    "StRatio"
+		}
+		trcref8_d_WheelBase
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "d_WheelBase"
+		 alias:    "d_WheelBase"
+		}
+		-- Skipping parameter "P_tARawFilt"
+		-- Skipping parameter "P_tAxsFilt"
+		-- Skipping parameter "P_tSasFilt"
+		-- Skipping parameter "P_tVVehFilt"
+		-- Skipping parameter "P_tYrsFilt"
+		-- Skipping parameter "P_vHi"
+		-- Skipping parameter "P_vLo"
+		-- Skipping parameter "StRatio"
+		-- Skipping parameter "d_WheelBase"
+
+		group "VSI"  -- referenced model group
+    

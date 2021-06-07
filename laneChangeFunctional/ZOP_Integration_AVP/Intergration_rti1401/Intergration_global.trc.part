@@ -1,0 +1,595 @@
+-- ******** Tunable Parameters ************************************************
+
+group "Tunable Parameters"
+
+	rtP_P_vyCutInThres
+	{
+	 type:    flt(64,IEEE)
+	 alias:   "P_vyCutInThres"
+	 flags:   PARAM
+	}
+	rtP_P_A
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_A"
+	 flags:   PARAM
+	}
+	rtP_P_Cd
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_Cd"
+	 flags:   PARAM
+	}
+	rtP_P_Cf
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_Cf"
+	 flags:   PARAM
+	}
+	rtP_P_DC2ECMargin
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_DC2ECMargin"
+	 flags:   PARAM
+	}
+	rtP_P_Dev4IEnd
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_Dev4IEnd"
+	 flags:   PARAM
+	}
+	rtP_P_DriveOffAdd
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_DriveOffAdd"
+	 flags:   PARAM
+	}
+	rtP_P_Ki
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_Ki"
+	 flags:   PARAM
+	}
+	rtP_P_Kp
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_Kp"
+	 flags:   PARAM
+	}
+	rtP_P_SlopeMax
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_SlopeMax"
+	 flags:   PARAM
+	}
+	rtP_P_SlopeMin
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_SlopeMin"
+	 flags:   PARAM
+	}
+	rtP_P_StandStillFactEC
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_StandStillFactEC"
+	 flags:   PARAM
+	}
+	rtP_P_StsddAxRamp
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_StsddAxRamp"
+	 flags:   PARAM
+	}
+	rtP_P_aDiffaF
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_aDiffaF"
+	 flags:   PARAM
+	}
+	rtP_P_aFOCApproachIntpAcitve
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_aFOCApproachIntpAcitve"
+	 flags:   PARAM
+	}
+	rtP_P_aFOCApproachIntpEnsure
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_aFOCApproachIntpEnsure"
+	 flags:   PARAM
+	}
+	rtP_P_aStsd
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_aStsd"
+	 flags:   PARAM
+	}
+	rtP_P_adtMaxBDC
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_adtMaxBDC"
+	 flags:   PARAM
+	}
+	rtP_P_dAimMin
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_dAimMin"
+	 flags:   PARAM
+	}
+	rtP_P_dAxMax
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_dAxMax"
+	 flags:   PARAM
+	}
+	rtP_P_dAxMin
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_dAxMin"
+	 flags:   PARAM
+	}
+	rtP_P_dIRamp
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_dIRamp"
+	 flags:   PARAM
+	}
+	rtP_P_dObjDrvOffMax
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_dObjDrvOffMax"
+	 flags:   PARAM
+	}
+	rtP_P_dObjDrvOffMin
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_dObjDrvOffMin"
+	 flags:   PARAM
+	}
+	rtP_P_dObjLowHystDecToStop
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_dObjLowHystDecToStop"
+	 flags:   PARAM
+	}
+	rtP_P_dObjUpperHystDecToStop
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_dObjUpperHystDecToStop"
+	 flags:   PARAM
+	}
+	rtP_P_dResMax
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_dResMax"
+	 flags:   PARAM
+	}
+	rtP_P_dSlopeLim
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_dSlopeLim"
+	 flags:   PARAM
+	}
+	rtP_P_dStandStill
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_dStandStill"
+	 flags:   PARAM
+	}
+	rtP_P_dStandStillMin
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_dStandStillMin"
+	 flags:   PARAM
+	}
+	rtP_P_dvarYMax4PO
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_dvarYMax4PO"
+	 flags:   PARAM
+	}
+	rtP_P_dyCutInThres
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_dyCutInThres"
+	 flags:   PARAM
+	}
+	rtP_P_facBDCInit
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_facBDCInit"
+	 flags:   PARAM
+	}
+	rtP_P_facBDCIterCalc
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_facBDCIterCalc"
+	 flags:   PARAM
+	}
+	rtP_P_facFOCNegDiff
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_facFOCNegDiff"
+	 flags:   PARAM
+	}
+	rtP_P_facFOCPosDiff
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_facFOCPosDiff"
+	 flags:   PARAM
+	}
+	rtP_P_kapHystThres
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_kapHystThres"
+	 flags:   PARAM
+	}
+	rtP_P_plausMin4PO
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_plausMin4PO"
+	 flags:   PARAM
+	}
+	rtP_P_probExistMin4PO
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_probExistMin4PO"
+	 flags:   PARAM
+	}
+	rtP_P_tARawFilt
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_tARawFilt"
+	 flags:   PARAM
+	}
+	rtP_P_tARefFilter
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_tARefFilter"
+	 flags:   PARAM
+	}
+	rtP_P_tAxsFilt
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_tAxsFilt"
+	 flags:   PARAM
+	}
+	rtP_P_tBDCStartFilt
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_tBDCStartFilt"
+	 flags:   PARAM
+	}
+	rtP_P_tCurvFilt
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_tCurvFilt"
+	 flags:   PARAM
+	}
+	rtP_P_tCutInFilt
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_tCutInFilt"
+	 flags:   PARAM
+	}
+	rtP_P_tDriveOffThr
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_tDriveOffThr"
+	 flags:   PARAM
+	}
+	rtP_P_tFOCStationaryFast
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_tFOCStationaryFast"
+	 flags:   PARAM
+	}
+	rtP_P_tFOCStationarySlow
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_tFOCStationarySlow"
+	 flags:   PARAM
+	}
+	rtP_P_tFiltAxAbsPO
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_tFiltAxAbsPO"
+	 flags:   PARAM
+	}
+	rtP_P_tFiltVxAxPOFast
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_tFiltVxAxPOFast"
+	 flags:   PARAM
+	}
+	rtP_P_tFiltVxAxPOSlow
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_tFiltVxAxPOSlow"
+	 flags:   PARAM
+	}
+	rtP_P_tFxMergeFilter
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_tFxMergeFilter"
+	 flags:   PARAM
+	}
+	rtP_P_tMinDrvPhase
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_tMinDrvPhase"
+	 flags:   PARAM
+	}
+	rtP_P_tRollingFilt
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_tRollingFilt"
+	 flags:   PARAM
+	}
+	rtP_P_tRollingFinFilt
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_tRollingFinFilt"
+	 flags:   PARAM
+	}
+	rtP_P_tSSCNeg
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_tSSCNeg"
+	 flags:   PARAM
+	}
+	rtP_P_tSSCPos
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_tSSCPos"
+	 flags:   PARAM
+	}
+	rtP_P_tSasFilt
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_tSasFilt"
+	 flags:   PARAM
+	}
+	rtP_P_tSlopeFilter1
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_tSlopeFilter1"
+	 flags:   PARAM
+	}
+	rtP_P_tSlopeFilter2
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_tSlopeFilter2"
+	 flags:   PARAM
+	}
+	rtP_P_tTimeGapSet
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_tTimeGapSet"
+	 flags:   PARAM
+	}
+	rtP_P_tToStop
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_tToStop"
+	 flags:   PARAM
+	}
+	rtP_P_tToStopInBDC
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_tToStopInBDC"
+	 flags:   PARAM
+	}
+	rtP_P_tToStopTrig
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_tToStopTrig"
+	 flags:   PARAM
+	}
+	rtP_P_tVVehFilt
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_tVVehFilt"
+	 flags:   PARAM
+	}
+	rtP_P_tYrsFilt
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_tYrsFilt"
+	 flags:   PARAM
+	}
+	rtP_P_vDriveOffThr
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_vDriveOffThr"
+	 flags:   PARAM
+	}
+	rtP_P_vEgoDecToStop
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_vEgoDecToStop"
+	 flags:   PARAM
+	}
+	rtP_P_vEgoLowBDC
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_vEgoLowBDC"
+	 flags:   PARAM
+	}
+	rtP_P_vFOCNegDiff
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_vFOCNegDiff"
+	 flags:   PARAM
+	}
+	rtP_P_vFOCPosDiff
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_vFOCPosDiff"
+	 flags:   PARAM
+	}
+	rtP_P_vFOCStationaryFast
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_vFOCStationaryFast"
+	 flags:   PARAM
+	}
+	rtP_P_vFOCStationarySlow
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_vFOCStationarySlow"
+	 flags:   PARAM
+	}
+	rtP_P_vHi
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_vHi"
+	 flags:   PARAM
+	}
+	rtP_P_vLo
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_vLo"
+	 flags:   PARAM
+	}
+	rtP_P_vObjDrvOff
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_vObjDrvOff"
+	 flags:   PARAM
+	}
+	rtP_P_vObjLowHystDecToStop
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_vObjLowHystDecToStop"
+	 flags:   PARAM
+	}
+	rtP_P_vObjNoStop
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_vObjNoStop"
+	 flags:   PARAM
+	}
+	rtP_P_vObjReCalc
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_vObjReCalc"
+	 flags:   PARAM
+	}
+	rtP_P_vObjStop
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_vObjStop"
+	 flags:   PARAM
+	}
+	rtP_P_vObjUpperHystDecToStop
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_vObjUpperHystDecToStop"
+	 flags:   PARAM
+	}
+	rtP_P_vStandStill
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_vStandStill"
+	 flags:   PARAM
+	}
+	rtP_P_vStandStillHyst
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_vStandStillHyst"
+	 flags:   PARAM
+	}
+	rtP_P_x165_On
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_x165_On"
+	 flags:   PARAM
+	}
+	rtP_P_x242_On
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_x242_On"
+	 flags:   PARAM
+	}
+	rtP_P_x246_On
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "P_x246_On"
+	 flags:   PARAM
+	}
+	rtP_StRatio
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "StRatio"
+	 flags:   PARAM
+	}
+	rtP_TransRatio
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "TransRatio"
+	 flags:   PARAM
+	}
+	rtP_d_WheelBase
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "d_WheelBase"
+	 flags:   PARAM
+	}
+	rtP_m_Vehicle
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "m_Vehicle"
+	 flags:   PARAM
+	}
+	rtP_r_Wheel
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "r_Wheel"
+	 flags:   PARAM
+	}
+	rtP_P_CutInEnable
+	{
+	 type:    uint(8)
+	 alias:   "P_CutInEnable"
+	 bitmask: 0x01
+	 range:   < 0 ; 1 >
+	 flags:   PARAM
+	}
+	rtP_P_PlausIntegDisable
+	{
+	 type:    uint(8)
+	 alias:   "P_PlausIntegDisable"
+	 bitmask: 0x01
+	 range:   < 0 ; 1 >
+	 flags:   PARAM
+	}
+	rtP_P_StandObjEnable
+	{
+	 type:    uint(8)
+	 alias:   "P_StandObjEnable"
+	 bitmask: 0x01
+	 range:   < 0 ; 1 >
+	 flags:   PARAM
+	}
+
+endgroup
+
+-- ******** State Machine Data ************************************************
+
+group "State Machine Data"
+
+
+endgroup
+
+
+-- ******** Labels ************************************************************
+
+-- Generation of labels turned off with TRCGenerateLabels option.
+
+-- ******** RTT Dynamic Variables *********************************************
+
+group "RTT Dynamic Variables"
+
+endgroup
+

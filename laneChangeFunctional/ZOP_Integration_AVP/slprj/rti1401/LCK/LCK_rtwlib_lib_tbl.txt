@@ -1,0 +1,18 @@
+Microtec PowerPC Object Librarian    Wed Mar 17 16:04:59 2021
+
+	Version 3.8    
+OPEN LCK_rtwlib.lib
+DIRECTORY LCK_rtwlib.lib
+Microtec PowerPC Object Librarian       V 3.8      Wed Mar 17 16:04:59 2021
+
+
+IEEE-695 Library being built: LCK_rtwlib.lib 
+
+ Module                 Size
+
+LCK.o03 ...........   293896
+LCK_trc_ptr.o03 ...    15928
+
+Module Count = 2 
+
+END

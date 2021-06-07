@@ -1,0 +1,685 @@
+VERSION "HSCAN2"
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: IPC MAB
+
+
+BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 Vector__XXX
+ SG_ ZOP_LC_Pro_Res : 0|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ ZOP_LC_Pro : 0|2@0+ (1,0) [0|3] "" Vector__XXX
+
+BO_ 571 ZOP_NarrowLine_2: 8 MAB
+ SG_ ZOP_narrowLane_dxEnd : 51|12@0+ (0.01,0) [0|40.95] "" Vector__XXX
+ SG_ ZOP_narrowLaneType : 15|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ ZOP_narrowLane_dxStart : 47|12@0+ (0.01,0) [0|40.95] "" Vector__XXX
+ SG_ Lane_C2 : 28|12@1+ (5E-006,-0.01) [-0.01|0.01] "" Vector__XXX
+ SG_ Lane_C1 : 16|11@1+ (0.0009,-0.9) [-0.9|0.9] "" Vector__XXX
+ SG_ Lane_C0 : 0|12@1+ (0.01,-16) [-16|15.99] "M" Vector__XXX
+
+BO_ 570 ZOP_NarrowLine_1: 8 MAB
+ SG_ ZOP_narrowLane_dxEnd : 51|12@0+ (0.01,0) [0|40.95] "" Vector__XXX
+ SG_ ZOP_narrowLaneType : 15|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ ZOP_narrowLane_dxStart : 47|12@0+ (0.01,0) [0|40.95] "" Vector__XXX
+ SG_ Lane_C2 : 28|12@1+ (5E-006,-0.01) [-0.01|0.01] "" Vector__XXX
+ SG_ Lane_C1 : 16|11@1+ (0.0009,-0.9) [-0.9|0.9] "" Vector__XXX
+ SG_ Lane_C0 : 0|12@1+ (0.01,-16) [-16|15.99] "M" Vector__XXX
+
+BO_ 566 ZOP_Output_02: 8 MAB
+ SG_ ZOP_SpdLmtTip : 31|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ ZOP_trucnkeva_flag : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ ZOP_zopOutRemind : 23|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ ZOP_narrowLaneFlag : 11|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ ZOP_intersection_tip : 15|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ ZOP_DMS_active : 3|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ ZOP_cutinflag : 7|4@0+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 857 Cone_Msg_09: 8 MAB
+ SG_ Obj_heading : 47|10@0+ (0.5,0) [0|511.5] "" Vector__XXX
+ SG_ Obj_Prop : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_y : 31|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_x : 15|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_Type : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_ID : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 856 Cone_Msg_08: 8 MAB
+ SG_ Obj_heading : 47|10@0+ (0.5,0) [0|511.5] "" Vector__XXX
+ SG_ Obj_Prop : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_y : 31|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_x : 15|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_Type : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_ID : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 855 Cone_Msg_07: 8 MAB
+ SG_ Obj_heading : 47|10@0+ (0.5,0) [0|511.5] "" Vector__XXX
+ SG_ Obj_Prop : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_y : 31|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_x : 15|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_Type : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_ID : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 854 Cone_Msg_06: 8 MAB
+ SG_ Obj_heading : 47|10@0+ (0.5,0) [0|511.5] "" Vector__XXX
+ SG_ Obj_Prop : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_y : 31|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_x : 15|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_Type : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_ID : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 853 Cone_Msg_05: 8 MAB
+ SG_ Obj_heading : 47|10@0+ (0.5,0) [0|511.5] "" Vector__XXX
+ SG_ Obj_Prop : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_y : 31|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_x : 15|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_Type : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_ID : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 852 Cone_Msg_04: 8 MAB
+ SG_ Obj_heading : 47|10@0+ (0.5,0) [0|511.5] "" Vector__XXX
+ SG_ Obj_Prop : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_y : 31|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_x : 15|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_Type : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_ID : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 851 Cone_Msg_03: 8 MAB
+ SG_ Obj_heading : 47|10@0+ (0.5,0) [0|511.5] "" Vector__XXX
+ SG_ Obj_Prop : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_y : 31|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_x : 15|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_Type : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_ID : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 850 Cone_Msg_02: 8 MAB
+ SG_ Obj_heading : 47|10@0+ (0.5,0) [0|511.5] "" Vector__XXX
+ SG_ Obj_Prop : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_y : 31|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_x : 15|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_Type : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_ID : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 849 Cone_Msg_01: 8 MAB
+ SG_ Obj_heading : 47|10@0+ (0.5,0) [0|511.5] "" Vector__XXX
+ SG_ Obj_Prop : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_y : 31|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_x : 15|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_Type : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_ID : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 848 Cone_Msg_00: 8 MAB
+ SG_ Obj_heading : 47|10@0+ (0.5,0) [0|511.5] "" Vector__XXX
+ SG_ Obj_Prop : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_y : 31|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_x : 15|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_Type : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_ID : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 534 Map_Info_1: 8 IPC
+ SG_ TgtSpd : 48|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ TgtDist : 56|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ Map_LocIndex : 44|4@1+ (1,0) [0|15] "M" Vector__XXX
+ SG_ Map_LaneNum : 40|4@1+ (1,0) [0|15] "M" Vector__XXX
+ SG_ Map_LaneIndex : 36|4@1+ (1,0) [0|15] "M" Vector__XXX
+ SG_ Map_InZone : 32|4@1+ (1,0) [0|15] "M" Vector__XXX
+ SG_ Map_Dist2Stop : 16|16@1+ (0.02,-200) [-200|1110.7] "M" Vector__XXX
+ SG_ Map_Dist2Merge : 0|16@1+ (0.02,0) [0|1310.7] "M" Vector__XXX
+
+BO_ 518 Lane_Comp_0: 8 IPC
+ SG_ Lane_Width_3 : 24|8@1+ (0.025,0) [0|6.375] "M" Vector__XXX
+ SG_ Lane_Width_2 : 16|8@1+ (0.025,0) [0|6.375] "M" Vector__XXX
+ SG_ Lane_Width_1 : 8|8@1+ (0.025,0) [0|6.375] "M" Vector__XXX
+ SG_ Lane_Width : 0|8@1+ (0.025,0) [0|6.375] "M" Vector__XXX
+
+BO_ 515 Lane_03: 8 IPC
+ SG_ Lane_Type : 36|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ Lane_Range : 56|8@1+ (0.5,0) [0|127.5] "M" Vector__XXX
+ SG_ Lane_C3 : 40|16@1+ (1E-008,-0.00017) [-0.00017|0.000167] "" Vector__XXX
+ SG_ Lane_C2 : 24|12@1+ (5E-006,-0.01) [-0.01|0.01] "" Vector__XXX
+ SG_ Lane_C1 : 12|11@1+ (0.0009,-0.9) [-0.9|0.9] "" Vector__XXX
+ SG_ Lane_C0 : 0|12@1+ (0.01,-16) [-16|15.99] "M" Vector__XXX
+
+BO_ 768 Obj_Msg_00: 8 MAB
+ SG_ Obj_heading : 47|10@0+ (0.5,0) [0|511.5] "" Vector__XXX
+ SG_ Obj_Prop : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_y : 31|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_x : 15|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_Type : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_ID : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 769 Obj_Msg_01: 8 MAB
+ SG_ Obj_heading : 47|10@0+ (0.5,0) [0|511.5] "" Vector__XXX
+ SG_ Obj_Prop : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_y : 31|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_x : 15|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_Type : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_ID : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 770 Obj_Msg_02: 8 MAB
+ SG_ Obj_heading : 47|10@0+ (0.5,0) [0|511.5] "" Vector__XXX
+ SG_ Obj_Prop : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_y : 31|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_x : 15|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_Type : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_ID : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 771 Obj_Msg_03: 8 MAB
+ SG_ Obj_heading : 47|10@0+ (0.5,0) [0|511.5] "" Vector__XXX
+ SG_ Obj_Prop : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_y : 31|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_x : 15|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_Type : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_ID : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 772 Obj_Msg_04: 8 MAB
+ SG_ Obj_heading : 47|10@0+ (0.5,0) [0|511.5] "" Vector__XXX
+ SG_ Obj_Prop : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_y : 31|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_x : 15|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_Type : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_ID : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 773 Obj_Msg_05: 8 MAB
+ SG_ Obj_heading : 47|10@0+ (0.5,0) [0|511.5] "" Vector__XXX
+ SG_ Obj_Prop : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_y : 31|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_x : 15|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_Type : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_ID : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 774 Obj_Msg_06: 8 MAB
+ SG_ Obj_heading : 47|10@0+ (0.5,0) [0|511.5] "" Vector__XXX
+ SG_ Obj_Prop : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_y : 31|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_x : 15|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_Type : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_ID : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 775 Obj_Msg_07: 8 MAB
+ SG_ Obj_heading : 47|10@0+ (0.5,0) [0|511.5] "" Vector__XXX
+ SG_ Obj_Prop : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_y : 31|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_x : 15|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_Type : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_ID : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 776 Obj_Msg_08: 8 MAB
+ SG_ Obj_heading : 47|10@0+ (0.5,0) [0|511.5] "" Vector__XXX
+ SG_ Obj_Prop : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_y : 31|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_x : 15|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_Type : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_ID : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 777 Obj_Msg_09: 8 MAB
+ SG_ Obj_heading : 47|10@0+ (0.5,0) [0|511.5] "" Vector__XXX
+ SG_ Obj_Prop : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_y : 31|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_x : 15|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_Type : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_ID : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 778 Obj_Msg_10: 8 MAB
+ SG_ Obj_heading : 47|10@0+ (0.5,0) [0|511.5] "" Vector__XXX
+ SG_ Obj_Prop : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_y : 31|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_x : 15|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_Type : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_ID : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 779 Obj_Msg_11: 8 MAB
+ SG_ Obj_heading : 47|10@0+ (0.5,0) [0|511.5] "" Vector__XXX
+ SG_ Obj_Prop : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_y : 31|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_x : 15|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_Type : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_ID : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 780 Obj_Msg_12: 8 MAB
+ SG_ Obj_heading : 47|10@0+ (0.5,0) [0|511.5] "" Vector__XXX
+ SG_ Obj_Prop : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_y : 31|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_x : 15|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_Type : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_ID : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 781 Obj_Msg_13: 8 MAB
+ SG_ Obj_heading : 47|10@0+ (0.5,0) [0|511.5] "" Vector__XXX
+ SG_ Obj_Prop : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_y : 31|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_x : 15|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_Type : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_ID : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 782 Obj_Msg_14: 8 MAB
+ SG_ Obj_heading : 47|10@0+ (0.5,0) [0|511.5] "" Vector__XXX
+ SG_ Obj_Prop : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_y : 31|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_x : 15|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_Type : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_ID : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 783 Obj_Msg_15: 8 MAB
+ SG_ Obj_heading : 47|10@0+ (0.5,0) [0|511.5] "" Vector__XXX
+ SG_ Obj_Prop : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_y : 31|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_x : 15|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_Type : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_ID : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 784 Obj_Msg_16: 8 MAB
+ SG_ Obj_heading : 47|10@0+ (0.5,0) [0|511.5] "" Vector__XXX
+ SG_ Obj_Prop : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_y : 31|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_x : 15|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_Type : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_ID : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 785 Obj_Msg_17: 8 MAB
+ SG_ Obj_heading : 47|10@0+ (0.5,0) [0|511.5] "" Vector__XXX
+ SG_ Obj_Prop : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_y : 31|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_x : 15|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_Type : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_ID : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 786 Obj_Msg_18: 8 MAB
+ SG_ Obj_heading : 47|10@0+ (0.5,0) [0|511.5] "" Vector__XXX
+ SG_ Obj_Prop : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_y : 31|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_x : 15|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_Type : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_ID : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 787 Obj_Msg_19: 8 MAB
+ SG_ Obj_heading : 47|10@0+ (0.5,0) [0|511.5] "" Vector__XXX
+ SG_ Obj_Prop : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_y : 31|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_x : 15|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_Type : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_ID : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 788 Obj_Msg_20: 8 MAB
+ SG_ Obj_heading : 47|10@0+ (0.5,0) [0|511.5] "" Vector__XXX
+ SG_ Obj_Prop : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_y : 31|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_x : 15|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_Type : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_ID : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 789 Obj_Msg_21: 8 MAB
+ SG_ Obj_heading : 47|10@0+ (0.5,0) [0|511.5] "" Vector__XXX
+ SG_ Obj_Prop : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_y : 31|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_x : 15|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_Type : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_ID : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 790 Obj_Msg_22: 8 MAB
+ SG_ Obj_heading : 47|10@0+ (0.5,0) [0|511.5] "" Vector__XXX
+ SG_ Obj_Prop : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_y : 31|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_x : 15|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_Type : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_ID : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 791 Obj_Msg_23: 8 MAB
+ SG_ Obj_heading : 47|10@0+ (0.5,0) [0|511.5] "" Vector__XXX
+ SG_ Obj_Prop : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_y : 31|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_x : 15|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_Type : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_ID : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 792 Obj_Msg_24: 8 MAB
+ SG_ Obj_heading : 47|10@0+ (0.5,0) [0|511.5] "" Vector__XXX
+ SG_ Obj_Prop : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_y : 31|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_x : 15|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_Type : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_ID : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 793 Obj_Msg_25: 8 MAB
+ SG_ Obj_heading : 47|10@0+ (0.5,0) [0|511.5] "" Vector__XXX
+ SG_ Obj_Prop : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_y : 31|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_x : 15|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_Type : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_ID : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 794 Obj_Msg_26: 8 MAB
+ SG_ Obj_heading : 47|10@0+ (0.5,0) [0|511.5] "" Vector__XXX
+ SG_ Obj_Prop : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_y : 31|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_x : 15|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_Type : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_ID : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 795 Obj_Msg_27: 8 MAB
+ SG_ Obj_heading : 47|10@0+ (0.5,0) [0|511.5] "" Vector__XXX
+ SG_ Obj_Prop : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_y : 31|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_x : 15|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_Type : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_ID : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 796 Obj_Msg_28: 8 MAB
+ SG_ Obj_heading : 47|10@0+ (0.5,0) [0|511.5] "" Vector__XXX
+ SG_ Obj_Prop : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_y : 31|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_x : 15|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_Type : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_ID : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 797 Obj_Msg_29: 8 MAB
+ SG_ Obj_heading : 47|10@0+ (0.5,0) [0|511.5] "" Vector__XXX
+ SG_ Obj_Prop : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_y : 31|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_x : 15|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_Type : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_ID : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 798 Obj_Msg_30: 8 MAB
+ SG_ Obj_heading : 47|10@0+ (0.5,0) [0|511.5] "" Vector__XXX
+ SG_ Obj_Prop : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_y : 31|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_x : 15|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_Type : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_ID : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 799 Obj_Msg_31: 8 MAB
+ SG_ Obj_heading : 47|10@0+ (0.5,0) [0|511.5] "" Vector__XXX
+ SG_ Obj_Prop : 35|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_y : 31|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_x : 15|12@0+ (0.1,-200) [-200|209.5] "" Vector__XXX
+ SG_ Obj_Type : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Obj_ID : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 565 ZOP_Output_01: 8 MAB
+ SG_ ZOP_Zone_Rmd : 25|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ ZOP_TakeOverReq : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ ZOP_Ramp_Rmd : 7|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ ZOP_Dest : 23|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ ZOP_Status : 3|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ ZOP_Passive_Rea : 11|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ ZOP_Error : 14|3@0+ (1,0) [0|7] "" Vector__XXX
+ SG_ ZOP_Enable : 5|2@0+ (1,0) [0|3] "" Vector__XXX
+
+BO_ 560 ZOP_Input_01: 8 IPC
+ SG_ ZOP_lcReq : 23|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ ZOP_functionActivation : 11|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ ZOP_dmsDriverEyeSt : 15|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ ZOP_Enable : 1|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ ZOP_Dest : 7|4@0+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 539 Localization_01: 8 IPC
+ SG_ Loc_Heading : 0|12@1+ (0.1,0) [0|409.5] "" Vector__XXX
+
+BO_ 533 Map_Info: 8 IPC
+ SG_ Map_Flag : 56|8@1+ (1,0) [0|255] "M" Vector__XXX
+ SG_ Map_SpdLmt2 : 48|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ Map_SpdLmt1 : 40|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ Map_SpdLmt0 : 32|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ Map_Dist2Start : 16|16@1+ (1,-20000) [-20000|45535] "M" Vector__XXX
+ SG_ Map_Dist2Dest : 0|16@1+ (1,0) [0|65535] "M" Vector__XXX
+
+BO_ 538 Localization_00: 8 IPC
+ SG_ Loc_Lon : 32|32@1+ (1E-007,0) [0|429.4967295] "" Vector__XXX
+ SG_ Loc_Lat : 0|32@1+ (1E-007,0) [0|429.4967295] "" Vector__XXX
+
+BO_ 514 Lane_02: 8 IPC
+ SG_ Lane_Type : 36|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ Lane_Range : 56|8@1+ (0.5,0) [0|127.5] "M" Vector__XXX
+ SG_ Lane_C3 : 40|16@1+ (1E-008,-0.00017) [-0.00017|0.000167] "" Vector__XXX
+ SG_ Lane_C2 : 24|12@1+ (5E-006,-0.01) [-0.01|0.01] "" Vector__XXX
+ SG_ Lane_C1 : 12|11@1+ (0.0009,-0.9) [-0.9|0.9] "" Vector__XXX
+ SG_ Lane_C0 : 0|12@1+ (0.01,-16) [-16|15.99] "M" Vector__XXX
+
+BO_ 513 Lane_01: 8 IPC
+ SG_ Lane_Type : 36|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ Lane_Range : 56|8@1+ (0.5,0) [0|127.5] "M" Vector__XXX
+ SG_ Lane_C3 : 40|16@1+ (1E-008,-0.00017) [-0.00017|0.000167] "" Vector__XXX
+ SG_ Lane_C2 : 24|12@1+ (5E-006,-0.01) [-0.01|0.01] "" Vector__XXX
+ SG_ Lane_C1 : 12|11@1+ (0.0009,-0.9) [-0.9|0.9] "" Vector__XXX
+ SG_ Lane_C0 : 0|12@1+ (0.01,-16) [-16|15.99] "M" Vector__XXX
+
+BO_ 512 Lane_00: 8 IPC
+ SG_ Lane_Type : 36|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ Lane_Range : 56|8@1+ (0.5,0) [0|127.5] "M" Vector__XXX
+ SG_ Lane_C3 : 40|16@1+ (1E-008,-0.00017) [-0.00017|0.000167] "" Vector__XXX
+ SG_ Lane_C2 : 24|12@1+ (5E-006,-0.01) [-0.01|0.01] "" Vector__XXX
+ SG_ Lane_C1 : 12|11@1+ (0.0009,-0.9) [-0.9|0.9] "" Vector__XXX
+ SG_ Lane_C0 : 0|12@1+ (0.01,-16) [-16|15.99] "M" Vector__XXX
+
+BO_ 404 Veh_Gear: 8 MAB
+ SG_ TrEstdGearHSC2 : 3|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ TrEstdGearVHSC2 : 4|1@0+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 588 Veh_WhlSpd_00: 8 MAB
+ SG_ LDrvnWhlRotlDircnHSC2 : 15|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ RDrvnWhlRotlDircnHSC2 : 2|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ WhlGndVelDrvnChksm_RadarHSC2 : 63|8@0+ (1,0) [0|255] "" Vector__XXX
+ SG_ WhlGndVelDrvnRC_RadarHSC2 : 11|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ WhlGndVelLDrvnV_RadarHSC2 : 3|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ WhlGndVelLDrvn_RadarHSC2 : 45|14@0+ (0.03125,0) [0|511.969] "km/h" Vector__XXX
+ SG_ WhlGndVelRDrvnV_RadarHSC2 : 4|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ WhlGndVelRDrvn_RadarHSC2 : 29|14@0+ (0.03125,0) [0|511.969] "km/h" Vector__XXX
+
+BO_ 590 Veh_WhlSpd_01: 8 MAB
+ SG_ LNonDrvnWhlRotlDircn_RadarHSC2 : 17|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ RNonDrvnWhlRotlDircn_RadarHSC2 : 9|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ WhlGndVelLNonDrvnV_RadarHSC2 : 30|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ WhlGndVelLNonDrvn_RadarHSC2 : 45|14@0+ (0.03125,0) [0|511.969] "km/h" Vector__XXX
+ SG_ WhlGndVelNonDrvnChksm_RadarHSC2 : 63|8@0+ (1,0) [0|255] "" Vector__XXX
+ SG_ WhlGndVelNonDrvnRC_RadarHSC2 : 7|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ WhlGndVelRNonDrvnV_RadarHSC2 : 31|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ WhlGndVelRNonDrvn_RadarHSC2 : 29|14@0+ (0.03125,0) [0|511.969] "km/h" Vector__XXX
+
+BO_ 592 ACC_Input: 8 IPC
+ SG_ vSetDis : 15|8@0+ (1,0) [0|255] "km/h" Vector__XXX
+ SG_ TimeGapSet : 5|3@0+ (1,0) [0|7] "" Vector__XXX
+ SG_ ACC_Enable : 7|2@0+ (1,0) [0|3] "" Vector__XXX
+
+BO_ 597 ACC_Output_01: 8 MAB
+ SG_ Vehicle_Front_Type : 30|3@0+ (1,0) [0|7] "" Vector__XXX
+ SG_ Vehicle_Front_dy : 44|9@0+ (0.1,-25.5) [-25.5|25.6] "m" Vector__XXX
+ SG_ Vehicle_Front_dx : 39|11@0+ (0.1,0) [0|2047] "m" Vector__XXX
+ SG_ ACC_Tip : 17|3@0+ (1,0) [0|7] "" Vector__XXX
+ SG_ ACC_Status : 21|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ ACC_Passive_Rea : 9|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ ACC_Error : 12|3@0+ (1,0) [0|7] "" Vector__XXX
+ SG_ TimeGapRes : 15|3@0+ (1,0) [0|7] "" Vector__XXX
+ SG_ vSetDis : 7|8@0+ (1,0) [0|255] "km/h" Vector__XXX
+
+BO_ 614 LKS_TJA_Info_Output_02: 6 MAB
+ SG_ LC_Request_Tip : 43|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ LC_Request : 34|3@0+ (1,0) [0|7] "" Vector__XXX
+ SG_ LC_Fail_Tip : 37|3@0+ (1,0) [0|7] "" Vector__XXX
+ SG_ LC_Tip : 18|3@0+ (1,0) [0|7] "" Vector__XXX
+ SG_ Handsoff_Warning : 47|3@0+ (1,0) [-4|3] "" Vector__XXX
+ SG_ LC_Reason : 21|3@0+ (1,0) [0|7] "" Vector__XXX
+ SG_ LC_Proposal : 2|3@0+ (1,0) [0|7] "" Vector__XXX
+ SG_ LC_pro_reason : 5|3@0+ (1,0) [0|7] "" Vector__XXX
+ SG_ LC_Dis_dy : 31|10@0+ (0.01,0) [0|10.23] "" Vector__XXX
+ SG_ LC_Dis_dx : 15|10@0+ (0.01,0) [0|10.23] "" Vector__XXX
+ SG_ LC_Direction : 7|2@0+ (1,0) [0|3] "" Vector__XXX
+
+BO_ 613 LKS_TJA_Info_Output_01: 3 MAB
+ SG_ TJA_Status : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ TJA_Passive_Rea : 23|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ TJA_Error : 11|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ LKS_Status : 15|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ LKS_Passive_Rea : 3|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ LKS_Error : 7|4@0+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 608 LKS_Info_Input: 1 IPC
+ SG_ TJA_Enable : 5|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ LKA_Enable : 7|2@0+ (1,0) [0|3] "" Vector__XXX
+
+BO_ 1130 BCM_Info_2: 8 MAB
+ SG_ BntOpenStsHSC2 : 47|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ DipdBeamLghtOnHSC2 : 13|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ DircnIndLampSwStsHSC2 : 3|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ DrvrDoorOpenStsHSC2 : 1|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ DspMeasSysHSC2 : 44|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ FrtFogLghtOnHSC2 : 14|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ FrtPsngDoorOpenStsHSC2 : 43|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ FrtWiperParkPosAHSC2 : 52|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ FrtWshrPumpAHSC2 : 55|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ KeyDetIndxHSC2 : 51|3@0+ (1,0) [0|7] "" Vector__XXX
+ SG_ LDircnIndLghtFHSC2 : 10|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ LDircnIOHSC2 : 11|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ LdspcOpenStsHSC2 : 7|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ MainBeamLghtOnHSC2 : 15|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ RDircnIndLghtFHSC2 : 48|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ RDircnIOHSC2 : 9|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ RLDoorOpenStsHSC2 : 41|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ RRDoorOpenStsHSC2 : 5|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ RrFogLghtOnHSC2 : 8|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ VehSideLghtStsHSC2 : 57|2@0+ (1,0) [0|3] "" Vector__XXX
+
+BO_ 485 Steer_Info: 8 MAB
+ SG_ StrgWhlAngHSC2 : 15|16@0+ (0.0625,-2048) [-2048|2047.88] "degree" Vector__XXX
+ SG_ StrgWhlAngAlvRCHSC2 : 31|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ StrgWhlAngExtdPVHSC2 : 47|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ StrgWhlAngGrdHSC2 : 27|12@0+ (1,-2048) [-2048|2046] "degree/s" Vector__XXX
+ SG_ StrgWhlAngSnsrCalStsHSC2 : 6|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ StrgWhlAngSnsrChksmHSC2 : 63|8@0+ (1,0) [0|255] "" Vector__XXX
+ SG_ StrgWhlAngSnsrFltHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ StrgWhlAngSnsrInidHSC2 : 2|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ StrgWhlAngSnsrMultCapbHSC2 : 1|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ StrgWhlAngVHSC2 : 7|1@0+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 540 BCM_Info_1: 8 MAB
+ SG_ ClstrDspdVehSpdHSC2 : 55|8@0+ (1,0) [0|254] "km/h" Vector__XXX
+ SG_ FrtWiperSwStsHSC2 : 47|2@0+ (1,0) [0|3] "" Vector__XXX
+
+BO_ 528 Traffic_Info_00: 8 IPC
+ SG_ LightTime : 16|8@1+ (1,-10) [-10|245] "" Vector__XXX
+ SG_ LightSpd : 24|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ LightDist : 0|12@1+ (0.1,-101) [-101|308.5] "" Vector__XXX
+ SG_ LightColor : 12|4@1+ (1,0) [0|15] "" Vector__XXX
+
+
+
+CM_ BO_ 3221225472 "This is a message for not used signals, created by Vector CANdb++ DBC OLE DB Provider.";
+CM_ SG_ 571 Lane_C0 "
+";
+CM_ SG_ 570 Lane_C0 "
+";
+CM_ SG_ 515 Lane_C0 "
+";
+CM_ SG_ 539 Loc_Heading "
+";
+CM_ SG_ 538 Loc_Lon "
+";
+CM_ SG_ 538 Loc_Lat "
+";
+CM_ SG_ 514 Lane_C0 "
+";
+CM_ SG_ 513 Lane_C0 "
+";
+CM_ SG_ 512 Lane_C0 "
+";
+CM_ SG_ 592 vSetDis "set speed of ACC";
+CM_ SG_ 592 TimeGapSet "set time gap from driver";
+CM_ SG_ 592 ACC_Enable "ACC switch enable";
+CM_ SG_ 597 Vehicle_Front_Type "Type of front vehicle followed by ego vehicle";
+CM_ SG_ 597 Vehicle_Front_dy "lateral distance of front vehicle to ego vehicle";
+CM_ SG_ 597 Vehicle_Front_dx "longitudinal distance of front vehicle to ego vehicle";
+CM_ SG_ 597 ACC_Tip "notice about ACC operation";
+CM_ SG_ 597 ACC_Status "ACC status";
+CM_ SG_ 597 ACC_Passive_Rea "the reason of ACC goes to passive state";
+CM_ SG_ 597 ACC_Error "ACC error type";
+CM_ SG_ 597 TimeGapRes "time gap response to driver";
+CM_ SG_ 597 vSetDis "set speed of ACC";
+BA_DEF_  "BaudRate" FLOAT 1000 1000000;
+BA_DEF_ SG_  "GenSigLongName" STRING ;
+BA_DEF_ BO_  "GenMsgSendType" ENUM  "cyclic","spontaneous","cyclicIfActive","spontaneousWithDelay","OnChangeWithRepetition","Immediate";
+BA_DEF_ BO_  "GenMsgCycleTime" FLOAT 0 300000;
+BA_DEF_ SG_  "GenSigStartValue" INT -9.22337203685478E+018 1.84467440737096E+019;
+BA_DEF_DEF_  "BaudRate" 1000;
+BA_DEF_DEF_  "GenSigLongName" "";
+BA_DEF_DEF_  "GenMsgSendType" "";
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "GenSigStartValue" 0;
+BA_ "BaudRate" 500000;
+BA_ "GenMsgCycleTime" BO_ 404 20;
+BA_ "GenMsgSendType" BO_ 404 0;
+BA_ "GenMsgCycleTime" BO_ 588 20;
+BA_ "GenMsgSendType" BO_ 588 0;
+BA_ "GenMsgCycleTime" BO_ 590 20;
+BA_ "GenMsgSendType" BO_ 590 0;
+BA_ "GenSigStartValue" SG_ 534 TgtSpd 0;
+BA_ "GenSigStartValue" SG_ 534 TgtDist 0;
+BA_ "GenSigStartValue" SG_ 534 Map_Dist2Stop 10000;
+BA_ "GenSigStartValue" SG_ 534 Map_Dist2Merge 0;
+BA_ "GenSigStartValue" SG_ 533 Map_SpdLmt2 0;
+BA_ "GenSigStartValue" SG_ 533 Map_SpdLmt1 0;
+BA_ "GenSigStartValue" SG_ 533 Map_SpdLmt0 0;
+BA_ "GenSigStartValue" SG_ 533 Map_Dist2Start 20000;
+BA_ "GenSigLongName" SG_ 404 TrEstdGearHSC2 "Transmission Estimated Gear";
+BA_ "GenSigStartValue" SG_ 404 TrEstdGearHSC2 0;
+BA_ "GenSigLongName" SG_ 404 TrEstdGearVHSC2 "Transmission Estimated Gear Validity";
+BA_ "GenSigStartValue" SG_ 404 TrEstdGearVHSC2 0;
+BA_ "GenSigStartValue" SG_ 588 LDrvnWhlRotlDircnHSC2 3;
+BA_ "GenSigStartValue" SG_ 588 RDrvnWhlRotlDircnHSC2 3;
+BA_ "GenSigLongName" SG_ 588 WhlGndVelDrvnChksm_RadarHSC2 "Wheel Ground Velocity Driven Checksum_radar";
+BA_ "GenSigStartValue" SG_ 588 WhlGndVelDrvnChksm_RadarHSC2 0;
+BA_ "GenSigStartValue" SG_ 588 WhlGndVelDrvnRC_RadarHSC2 0;
+BA_ "GenSigStartValue" SG_ 588 WhlGndVelLDrvnV_RadarHSC2 1;
+BA_ "GenSigStartValue" SG_ 588 WhlGndVelLDrvn_RadarHSC2 0;
+BA_ "GenSigStartValue" SG_ 588 WhlGndVelRDrvnV_RadarHSC2 1;
+BA_ "GenSigStartValue" SG_ 588 WhlGndVelRDrvn_RadarHSC2 0;
+BA_ "GenSigStartValue" SG_ 590 LNonDrvnWhlRotlDircn_RadarHSC2 0;
+BA_ "GenSigStartValue" SG_ 590 RNonDrvnWhlRotlDircn_RadarHSC2 0;
+BA_ "GenSigStartValue" SG_ 590 WhlGndVelLNonDrvnV_RadarHSC2 1;
+BA_ "GenSigStartValue" SG_ 590 WhlGndVelLNonDrvn_RadarHSC2 0;
+BA_ "GenSigLongName" SG_ 590 WhlGndVelNonDrvnChksm_RadarHSC2 "Wheel Ground Velocity Non Driven Checksum_radar";
+BA_ "GenSigStartValue" SG_ 590 WhlGndVelNonDrvnChksm_RadarHSC2 0;
+BA_ "GenSigStartValue" SG_ 590 WhlGndVelNonDrvnRC_RadarHSC2 0;
+BA_ "GenSigStartValue" SG_ 590 WhlGndVelRNonDrvnV_RadarHSC2 1;
+BA_ "GenSigStartValue" SG_ 590 WhlGndVelRNonDrvn_RadarHSC2 0;
+BA_ "GenSigStartValue" SG_ 528 LightTime 10;
+BA_ "GenSigStartValue" SG_ 528 LightDist 1010;
+VAL_ 404 TrEstdGearHSC2 15 "Park Gear" 14 "Reverse Gear" 13 "Neutral Gear" 8 "Eighth Gear" 7 "Seventh Gear" 6 "Sixth Gear" 5 "Fifth Gear" 4 "Fourth Gear" 3 "Third Gear" 2 "Second Gear" 1 "First Gear" 0 "Not Supported" ;
+VAL_ 404 TrEstdGearVHSC2 1 "Invalid" 0 "Valid" ;
+VAL_ 588 LDrvnWhlRotlDircnHSC2 3 "Initial/Invalid" 2 "Backward" 1 "Forward" 0 "Unknown" ;
+VAL_ 588 RDrvnWhlRotlDircnHSC2 3 "Initial/Invalid" 2 "Backward" 1 "Forward" 0 "Unknown" ;
+VAL_ 588 WhlGndVelLDrvnV_RadarHSC2 1 "Invalid" 0 "Valid" ;
+VAL_ 588 WhlGndVelRDrvnV_RadarHSC2 1 "Invalid" 0 "Valid" ;
+VAL_ 590 LNonDrvnWhlRotlDircn_RadarHSC2 3 "Initial/Invalid" 2 "Backward" 1 "Forward" 0 "Unknown" ;
+VAL_ 590 RNonDrvnWhlRotlDircn_RadarHSC2 3 "Initial/Invalid" 2 "Backward" 1 "Forward" 0 "Unknown" ;
+VAL_ 590 WhlGndVelLNonDrvnV_RadarHSC2 1 "Invalid" 0 "Valid" ;
+VAL_ 590 WhlGndVelRNonDrvnV_RadarHSC2 1 "Invalid" 0 "Valid" ;
+

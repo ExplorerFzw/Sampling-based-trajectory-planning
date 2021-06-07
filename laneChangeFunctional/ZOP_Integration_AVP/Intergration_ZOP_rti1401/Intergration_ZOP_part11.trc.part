@@ -1,0 +1,371 @@
+		endgroup -- referenced model group "VSI"
+	endgroup -- referenced-block-group "VSI"
+	group "ZOP_Main" -- referenced block group
+		p_0_Intergration_ZOP_uint8_T_67[580]
+		{
+		 type:    uint(8)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_uint8_T_67[581]
+		{
+		 type:    uint(8)*
+		 alias:   "Out2"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_real32_T_63[1144]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out3"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_real32_T_63[1145]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out4"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_real32_T_63[1146]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out5"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_int8_T_68[18]
+		{
+		 type:    int(8)*
+		 alias:   "Out6"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_real32_T_63[1147]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out7"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_uint8_T_67[582]
+		{
+		 type:    uint(8)*
+		 alias:   "Out8"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_uint8_T_67[583]
+		{
+		 type:    uint(8)*
+		 alias:   "Out9"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_int8_T_68[19]
+		{
+		 type:    int(8)*
+		 alias:   "Out10"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_uint8_T_67[584]
+		{
+		 type:    uint(8)*
+		 alias:   "Out11"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_uint8_T_67[585]
+		{
+		 type:    uint(8)*
+		 alias:   "Out12"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_int8_T_68[20]
+		{
+		 type:    int(8)*
+		 alias:   "Out13"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_int8_T_68[21]
+		{
+		 type:    int(8)*
+		 alias:   "Out14"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_boolean_T_69[2677]
+		{
+		 type:    uint(8)*
+		 alias:   "Out15"
+		 range:   < 0 ; 1 >
+		 bitmask: 0x01
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_int8_T_68[22]
+		{
+		 type:    int(8)*
+		 alias:   "Out16"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_int8_T_68[23]
+		{
+		 type:    int(8)*
+		 alias:   "Out17"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_int8_T_68[24]
+		{
+		 type:    int(8)*
+		 alias:   "Out18"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_int8_T_68[25]
+		{
+		 type:    int(8)*
+		 alias:   "Out19"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_int8_T_68[26]
+		{
+		 type:    int(8)*
+		 alias:   "Out20"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_int8_T_68[27]
+		{
+		 type:    int(8)*
+		 alias:   "Out21"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_int8_T_68[28]
+		{
+		 type:    int(8)*
+		 alias:   "Out22"
+		 flags:   OUTPUT|READONLY
+		}
+		trcref0_k_ZOP_ALC_D10
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ZOP_ALC_D10"
+		 alias:    "k_ZOP_ALC_D10"
+		}
+		trcref1_k_ZOP_ALC_Enable
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ZOP_ALC_Enable"
+		 alias:    "k_ZOP_ALC_Enable"
+		}
+		trcref2_k_ZOP_ALC_Ramp
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ZOP_ALC_Ramp"
+		 alias:    "k_ZOP_ALC_Ramp"
+		}
+		trcref3_k_ZOP_HoldCnt
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ZOP_HoldCnt"
+		 alias:    "k_ZOP_HoldCnt"
+		}
+		trcref4_k_ZOP_LCProCnt
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ZOP_LCProCnt"
+		 alias:    "k_ZOP_LCProCnt"
+		}
+		trcref5_k_ZOP_LCTimeMax
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ZOP_LCTimeMax"
+		 alias:    "k_ZOP_LCTimeMax"
+		}
+		trcref6_k_ZOP_LS_ChangingDist
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ZOP_LS_ChangingDist"
+		 alias:    "k_ZOP_LS_ChangingDist"
+		}
+		trcref7_k_ZOP_LS_ChangingTime
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ZOP_LS_ChangingTime"
+		 alias:    "k_ZOP_LS_ChangingTime"
+		}
+		trcref8_k_ZOP_MapFlag_Enable
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ZOP_MapFlag_Enable"
+		 alias:    "k_ZOP_MapFlag_Enable"
+		}
+		trcref9_k_ZOP_ObjSpd_cf
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ZOP_ObjSpd_cf"
+		 alias:    "k_ZOP_ObjSpd_cf"
+		}
+		trcref10_k_ZOP_SpdCkDstThr
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ZOP_SpdCkDstThr"
+		 alias:    "k_ZOP_SpdCkDstThr"
+		}
+		trcref11_k_ZOP_SpdLmt_Enable
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ZOP_SpdLmt_Enable"
+		 alias:    "k_ZOP_SpdLmt_Enable"
+		}
+		trcref12_k_ZOP_SpdLoThr
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ZOP_SpdLoThr"
+		 alias:    "k_ZOP_SpdLoThr"
+		}
+		trcref13_k_ZOP_V2X_Enable
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ZOP_V2X_Enable"
+		 alias:    "k_ZOP_V2X_Enable"
+		}
+		trcref14_k_ZOP_VcTJA_Enable
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ZOP_VcTJA_Enable"
+		 alias:    "k_ZOP_VcTJA_Enable"
+		}
+		trcref15_k_ZOP_VoiceAct_Enable
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ZOP_VoiceAct_Enable"
+		 alias:    "k_ZOP_VoiceAct_Enable"
+		}
+		trcref16_k_ZOP_ALC_SCnt
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ZOP_ALC_SCnt"
+		 alias:    "k_ZOP_ALC_SCnt"
+		}
+		trcref17_k_ZOP_ALC_SCnt_LC
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ZOP_ALC_SCnt_LC"
+		 alias:    "k_ZOP_ALC_SCnt_LC"
+		}
+		trcref18_k_ZOP_ALC_SCnt_Thr
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ZOP_ALC_SCnt_Thr"
+		 alias:    "k_ZOP_ALC_SCnt_Thr"
+		}
+		trcref19_k_ZOP_ALC_SCnt_Thr_LC
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ZOP_ALC_SCnt_Thr_LC"
+		 alias:    "k_ZOP_ALC_SCnt_Thr_LC"
+		}
+		trcref20_k_ZOP_ALC_SNCnt
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ZOP_ALC_SNCnt"
+		 alias:    "k_ZOP_ALC_SNCnt"
+		}
+		trcref21_k_ZOP_ALC_SNCnt_LC
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ZOP_ALC_SNCnt_LC"
+		 alias:    "k_ZOP_ALC_SNCnt_LC"
+		}
+		trcref22_k_ZOP_ALC_SpdEnable
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ZOP_ALC_SpdEnable"
+		 alias:    "k_ZOP_ALC_SpdEnable"
+		}
+		trcref23_k_ZOP_SpdLoTimeThr
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ZOP_SpdLoTimeThr"
+		 alias:    "k_ZOP_SpdLoTimeThr"
+		}
+		trcref24_MODE_ZOP_ACTIVE
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "MODE_ZOP_ACTIVE"
+		 alias:    "MODE_ZOP_ACTIVE"
+		}
+		trcref25_MODE_ZOP_ERROR
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "MODE_ZOP_ERROR"
+		 alias:    "MODE_ZOP_ERROR"
+		}
+		trcref26_MODE_ZOP_FINISH
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "MODE_ZOP_FINISH"
+		 alias:    "MODE_ZOP_FINISH"
+		}
+		trcref27_MODE_ZOP_HOLD
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "MODE_ZOP_HOLD"
+		 alias:    "MODE_ZOP_HOLD"
+		}
+		trcref28_MODE_ZOP_LC
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "MODE_ZOP_LC"
+		 alias:    "MODE_ZOP_LC"
+		}
+		trcref29_MODE_ZOP_OFF
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "MODE_ZOP_OFF"
+		 alias:    "MODE_ZOP_OFF"
+		}
+		trcref30_MODE_ZOP_OVERIDE
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "MODE_ZOP_OVERIDE"
+		 alias:    "MODE_ZOP_OVERIDE"
+		}
+		trcref31_MODE_ZOP_PASSIVE
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "MODE_ZOP_PASSIVE"
+		 alias:    "MODE_ZOP_PASSIVE"
+		}
+		trcref32_MODE_ZOP_READY
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "MODE_ZOP_READY"
+		 alias:    "MODE_ZOP_READY"
+		}
+		-- Skipping parameter "k_ZOP_ALC_D10"
+		-- Skipping parameter "k_ZOP_ALC_Enable"
+		-- Skipping parameter "k_ZOP_ALC_Ramp"
+		-- Skipping parameter "k_ZOP_HoldCnt"
+		-- Skipping parameter "k_ZOP_LCProCnt"
+		-- Skipping parameter "k_ZOP_LCTimeMax"
+		-- Skipping parameter "k_ZOP_LS_ChangingDist"
+		-- Skipping parameter "k_ZOP_LS_ChangingTime"
+		-- Skipping parameter "k_ZOP_MapFlag_Enable"
+		-- Skipping parameter "k_ZOP_ObjSpd_cf"
+		-- Skipping parameter "k_ZOP_SpdCkDstThr"
+		-- Skipping parameter "k_ZOP_SpdLmt_Enable"
+		-- Skipping parameter "k_ZOP_SpdLoThr"
+		-- Skipping parameter "k_ZOP_V2X_Enable"
+		-- Skipping parameter "k_ZOP_VcTJA_Enable"
+		-- Skipping parameter "k_ZOP_VoiceAct_Enable"
+		-- Skipping parameter "k_ZOP_ALC_SCnt"
+		-- Skipping parameter "k_ZOP_ALC_SCnt_LC"
+		-- Skipping parameter "k_ZOP_ALC_SCnt_Thr"
+		-- Skipping parameter "k_ZOP_ALC_SCnt_Thr_LC"
+		-- Skipping parameter "k_ZOP_ALC_SNCnt"
+		-- Skipping parameter "k_ZOP_ALC_SNCnt_LC"
+		-- Skipping parameter "k_ZOP_ALC_SpdEnable"
+		-- Skipping parameter "k_ZOP_SpdLoTimeThr"
+		-- Skipping parameter "MODE_ZOP_ACTIVE"
+		-- Skipping parameter "MODE_ZOP_ERROR"
+		-- Skipping parameter "MODE_ZOP_FINISH"
+		-- Skipping parameter "MODE_ZOP_HOLD"
+		-- Skipping parameter "MODE_ZOP_LC"
+		-- Skipping parameter "MODE_ZOP_OFF"
+		-- Skipping parameter "MODE_ZOP_OVERIDE"
+		-- Skipping parameter "MODE_ZOP_PASSIVE"
+		-- Skipping parameter "MODE_ZOP_READY"
+
+		group "ZOP_Main"  -- referenced model group
+    

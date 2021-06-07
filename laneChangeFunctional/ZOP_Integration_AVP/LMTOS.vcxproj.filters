@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Adapters.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AdapterSimOutput.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BirdView.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CoordinationTransformation.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Defines.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DrivingManeuver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="HMI.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Inputs.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LMBase.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LMCommonDefines.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LMF.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LMMathLib.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LMPp.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LMTOSRunAlgo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Outputs.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Parameters.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ReadData.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ReadRawData.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Scenario.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TOSACC.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TOSBase.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TOSHWA.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TOSNRA.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TOSPp.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TOSTruckEvasion.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="VehicleMovement.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="VSL.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Adapters.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="BirdView.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CoordinationTransformation.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Defines.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DrivingManeuver.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="HMI.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Inputs.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LMBase.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LMCommonDefines.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LMF.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LMMathLib.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LMPp.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LMTOS.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LMTOSRunAlgo.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Parameters.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ReadData.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ReadRawData.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Scenario.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TOSACC.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TOSBase.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TOSHWA.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TOSNRA.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TOSPp.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TOSTruckEvasion.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="VehicleMovement.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="VSL.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

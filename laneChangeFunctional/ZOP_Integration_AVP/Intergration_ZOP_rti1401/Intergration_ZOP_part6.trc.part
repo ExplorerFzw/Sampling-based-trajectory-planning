@@ -1,0 +1,24 @@
+		endgroup -- referenced model group "AVP_Main"
+	endgroup -- referenced-block-group "AVP_Main"
+	group "FUS" -- referenced block group
+		p_0_Intergration_ZOP_FUS_OBJ_OUTPUT_ST_2[0]
+		{
+		 type:    struct Intergration_ZOP_FUS_OBJ_OUTPUT_ST*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_FUS_LANE_OUTPUT_ST_10[0]
+		{
+		 type:    struct Intergration_ZOP_FUS_LANE_OUTPUT_ST*
+		 alias:   "Out2"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_FUS_ROAD_EDGE_OUTPUT_ST_13[0]
+		{
+		 type:    struct Intergration_ZOP_FUS_ROAD_EDGE_OUTPUT_ST*
+		 alias:   "Out3"
+		 flags:   OUTPUT|READONLY
+		}
+
+		group "fusionAlg"  -- referenced model group
+    

@@ -1,0 +1,6854 @@
+-- ****************************************************************************
+--
+--  Trace file: ZOP_Main.trc
+--
+--  RTI1401 7.12 (02-May-2019)
+--  Wed Feb  3 13:27:16 2021
+--
+--  Copyright 2021, dSPACE GmbH. All rights reserved.
+--
+-- ****************************************************************************
+--
+--  Used options:
+--    TRCGenerateVirtualBlocks      = 0
+--    TRCGenerateLabels             = 0
+--    TRCGenerateStates             = 0
+--    TRCGenerateDerivatives        = 0
+--    TRCGenerateParamValues        = 0
+--    TRCGenerateApplicationKeyword = 0
+--    TRCOnlyGlobals                = 0
+--    TRCIsOmitVdOn                 = 0
+--
+--  Trace file format: 3
+
+-- ******** Keywords **********************************************************
+-- _application "ZOP_Main.map"
+
+_genname     "RTI"
+_genversion  "7.12"
+_gendate     "02/03/2021 13:27:21"
+_description ""
+_author      "RTI1401 7.12 (02-May-2019)"
+_model       "ZOP_Main"
+
+-- Default data type formats
+_floating_point_type(64,IEEE)
+_integer_type(32)
+
+-- No Data Capture blocks within model: use base sample time as sampling period
+sampling_period[0]
+{
+  value:       0.01
+  alias:       "HostService"
+  increment:   0.01
+  unit:        "s"
+}
+
+
+
+-- Type definitions for structures
+
+struct ZOP_Main_SystemCmd_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "SystemEnable"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "SystemOn"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "SystemCancel"
+      type:    uint(8)
+      offs:    -1
+    }
+endstruct
+
+struct ZOP_Main_VSI_VEHSTATE_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "YrsF"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "AxSensorF"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "StWheelAngleF"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "vRef"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "aRef"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "AxSlope"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "AxSlopeValid"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField7 
+    {
+      alias:   "Curvature"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct ZOP_Main_FUS_OBJ_TRACK_EST_ST
+{
+  array-incr: -1
+  desc:       "fusion object estimate"
+}
+    structField0 
+    {
+      alias:   "longPosition"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The longitudinal distance to the middle of nearest facing side of the object.Measured in the reference coordinate system"
+    }
+    structField1 
+    {
+      alias:   "latPosition"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The lateral distance to the middle of nearest facing side of the object.Measured in the reference coordinate system"
+    }
+    structField2 
+    {
+      alias:   "headingAngle"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The heading angle for a vechile.It is defined as the angle between the heading of the detected vehicle and the heading of the host vehicle."
+    }
+    structField3 
+    {
+      alias:   "speed"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The vehicle speed relative to the ground and in direction of the vehicle traveling"
+    }
+    structField4 
+    {
+      alias:   "yawRate"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The yawRate of the object in the reference coordinate system"
+    }
+    structField5 
+    {
+      alias:   "longRelativeVelocity"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The longitudinal relative velocity of the object in the reference coordinate system."
+    }
+    structField6 
+    {
+      alias:   "latRelativeVelocity"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The lateral relative velocity of the object in the reference coordinate system."
+    }
+    structField7 
+    {
+      alias:   "longAbsoluteVelocity"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The longitudinal absolute velocity of the object in the reference coordinate system."
+    }
+    structField8 
+    {
+      alias:   "latAbsoluteVelocity"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The lateral absolute velocity of the object in the reference coordinate system."
+    }
+    structField9 
+    {
+      alias:   "acceleration"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The vehicle acceleration relative to the ground and in direction of the vehicle traveling"
+    }
+    structField10 
+    {
+      alias:   "longRelativeAcceleration"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The longitudinal relative acceleration of the object in the reference coordinate system."
+    }
+    structField11 
+    {
+      alias:   "latRelativeAcceleration"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The lateral relative acceleration of the object in the reference coordinate system."
+    }
+    structField12 
+    {
+      alias:   "longAbsoluteAcceleration"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The longitudinal absolute acceleration of the object in the reference coordinate system."
+    }
+    structField13 
+    {
+      alias:   "latAbsoluteAcceleration"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The lateral absolute acceleration of the object in the reference coordinate system."
+    }
+    structField14 
+    {
+      alias:   "curvature"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "the curvature of the object trajectory"
+    }
+endstruct
+
+struct ZOP_Main_FUS_OBJ_TRACK_PROP_ST
+{
+  array-incr: -1
+  desc:       "fusion object property"
+}
+    structField0 
+    {
+      alias:   "id"
+      type:    uint(8)
+      offs:    -1
+      desc:    "The obj id.The id number needs to be equal to the index in the object stucture"
+    }
+    structField1 
+    {
+      alias:   "fusionSource"
+      type:    uint(8)
+      offs:    -1
+      desc:    "fusionSource£º\n\n0: vision only\n1: radar only\n2: fused radar vision\n255: unkown"
+    }
+    structField2 
+    {
+      alias:   "motionModel"
+      type:    uint(8)
+      offs:    -1
+      desc:    "The motion model used for the object.\nFusion motion model£º\n0: CA\n1: CTRA\n255: unkown"
+    }
+    structField3 
+    {
+      alias:   "trackStatus"
+      type:    uint(8)
+      offs:    -1
+      desc:    "Fusion obj trace status:\n\n0: New(Initialized),\n1: Measured,\n2: Predicted,"
+    }
+    structField4 
+    {
+      alias:   "positionConfidence"
+      type:    uint(8)
+      offs:    -1
+      desc:    "Position confidence(Used in RoadGeometryFusion).\n0:Not Reliable \n1:Reliable"
+    }
+    structField5 
+    {
+      alias:   "fcwConfidence"
+      type:    uint(8)
+      offs:    -1
+      desc:    "The object confidence for function FCW.0:Not Reliable,1:Warning reliable"
+    }
+    structField6 
+    {
+      alias:   "tjaConfidence"
+      type:    uint(8)
+      offs:    -1
+      desc:    "The object confidence for function TJA.0:Not Reliable,1:Reliable 1:Reliable"
+    }
+    structField7 
+    {
+      alias:   "leftNearLaneMarkingConfidence"
+      type:    uint(8)
+      offs:    -1
+      desc:    "Left nearest lane marking confidence.Not Reliable"
+    }
+    structField8 
+    {
+      alias:   "rightNearLaneMarkingConfidence"
+      type:    uint(8)
+      offs:    -1
+      desc:    "Right nearest lane marking confidence.0:Not reliable,1:Reliable"
+    }
+    structField9 
+    {
+      alias:   "visionId"
+      type:    uint(8)
+      offs:    -1
+      desc:    "The vision id for the object.Note!The vision id number do not need to be equal to the index in the object structure"
+    }
+    structField10 
+    {
+      alias:   "accelerationStdDev"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Standard deviation for object acceleration"
+    }
+    structField11 
+    {
+      alias:   "headingAngleStdDev"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Standard deviation for the heading angle of the object"
+    }
+    structField12 
+    {
+      alias:   "latPositionStdDev"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Standard deviation for the lateral position of the object"
+    }
+    structField13 
+    {
+      alias:   "longPositionStdDev"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "standard deviation for longitudinal position of the object"
+    }
+    structField14 
+    {
+      alias:   "speedStdDev"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Standard deviation for object speed"
+    }
+endstruct
+
+struct ZOP_Main_FUS_OBJ_TRACK_INFO_ST
+{
+  array-incr: -1
+  desc:       "fusion object information"
+}
+    structField0 
+    {
+      alias:   "valid"
+      type:    uint(8)
+      offs:    -1
+      desc:    "the valid of fusion obj.\n0: invalid; \n1: valid"
+    }
+    structField1 
+    {
+      alias:   "type"
+      type:    uint(8)
+      offs:    -1
+      desc:    "Fusion Object classification\n\n0: Unknown\n1: Pedestrian\n2: Cyclist\n3: Bus\n4: Small_Medium_Car\n5: Trucks\n6: Tri-Motor\n7: Special_vehicle\n8: Tiny_car\n9: Ambulance\n10: UncertainVehicle"
+    }
+    structField2 
+    {
+      alias:   "nearestSide"
+      type:    uint(8)
+      offs:    -1
+      desc:    "which object side that is nearest (facing) the host vehicle\n0: Rear\n1: Front\n2: Right\n3: Left\n4: Unknown"
+    }
+    structField3 
+    {
+      alias:   "motionPatternCurrent"
+      type:    uint(8)
+      offs:    -1
+      desc:    "0:unknown,\n1:stationary,\n2:driving,\n3:oncoming,\n4:driving stopped\n5:oncoming stopped"
+    }
+    structField4 
+    {
+      alias:   "motionPatternHistory"
+      type:    uint(8)
+      offs:    -1
+      desc:    "0:unknown,1:stopped,2:recedable,3:oncomeable"
+    }
+    structField5 
+    {
+      alias:   "width"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The object width\nThe width is the extent of the nearest facing side"
+    }
+    structField6 
+    {
+      alias:   "height"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The object height."
+    }
+    structField7 
+    {
+      alias:   "length"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The object length."
+    }
+    structField8 
+    {
+      alias:   "distanceToleftNearLaneMarking"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The lateral distance between the object and the closest lane marking to the left"
+    }
+    structField9 
+    {
+      alias:   "distanceToRightNearLaneMarking"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The lateral distance between the object and the closest lane marking to the right"
+    }
+endstruct
+
+struct ZOP_Main_FUS_OBJ_DATA_ST
+{
+  array-incr: -1
+  desc:       "fusion object data"
+}
+    structField0 
+    {
+      alias:   "obj_estimate"
+      type:    struct ZOP_Main_FUS_OBJ_TRACK_EST_ST
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "obj_property"
+      type:    struct ZOP_Main_FUS_OBJ_TRACK_PROP_ST
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "obj_information"
+      type:    struct ZOP_Main_FUS_OBJ_TRACK_INFO_ST
+      offs:    -1
+    }
+endstruct
+
+typedef ZOP_Main_FUS_OBJ_OUTPUT_ST_objects_1 struct ZOP_Main_FUS_OBJ_DATA_ST[40]
+
+struct ZOP_Main_FUS_OBJ_OUTPUT_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "timeStamp"
+      type:    flt(64,IEEE)
+      offs:    -1
+      desc:    "Common timestamp for all object and barrier signals"
+    }
+    structField1 
+    {
+      alias:   "objects"
+      type:    ZOP_Main_FUS_OBJ_OUTPUT_ST_objects_1
+      offs:    -1
+      desc:    "fusion obj"
+    }
+    structField2 
+    {
+      alias:   "frameNum"
+      type:    uint(32)
+      offs:    -1
+      desc:    "frame nmber"
+    }
+endstruct
+
+struct ZOP_Main_FUS_LANE_START_POINT
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "x0"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "y0"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct ZOP_Main_FUS_LANE_TRACK_EST_ST
+{
+  array-incr: -1
+  desc:       "descripton of a curve as function f(x)= a + bx + cx^2 +dx^3 this structure defines the coefficient of the curve function"
+}
+    structField0 
+    {
+      alias:   "latDistanceZeroOrderCoeff"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "coefficient a"
+    }
+    structField1 
+    {
+      alias:   "latDistanceFirstOrderCoeff"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "coefficient b"
+    }
+    structField2 
+    {
+      alias:   "latDistanceSecondOrderCoeff"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "coefficient c"
+    }
+    structField3 
+    {
+      alias:   "latDistanceThirdOrderCoeff"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "coefficient d"
+    }
+    structField4 
+    {
+      alias:   "longDistanceToend"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "end of the curve"
+    }
+    structField5 
+    {
+      alias:   "startPoint"
+      type:    struct ZOP_Main_FUS_LANE_START_POINT
+      offs:    -1
+    }
+endstruct
+
+struct ZOP_Main_FUS_LANE_DATA_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "id"
+      type:    uint(8)
+      offs:    -1
+      desc:    "The obj id.The id number needs to be equal to the index in the object stucture"
+    }
+    structField1 
+    {
+      alias:   "traceStatus"
+      type:    uint(8)
+      offs:    -1
+      desc:    "0:invalid,\n1:init,\n2:measurement,\n3:predicted"
+    }
+    structField2 
+    {
+      alias:   "quality"
+      type:    uint(8)
+      offs:    -1
+      desc:    "0:Low,\n1:Mid,\n2:Mid high\n3:High"
+    }
+    structField3 
+    {
+      alias:   "color"
+      type:    uint(8)
+      offs:    -1
+      desc:    "0:unknown,\n1:white,\n2:yellow,\n3:blue"
+    }
+    structField4 
+    {
+      alias:   "type"
+      type:    uint(32)
+      offs:    -1
+      desc:    "0: None,\n1: Solid,\n2: Dashed,\n3: Solid Dashed\n4: Dashed Solid\n5: Double(Left Dased, Right Solid)\n6: Double(Left Solid, Right Dased)\n7: Double(Double Dashed)\n8: Double(Double Solid)\n9: Botts Dots\n10: Invalid\n11: Undecided"
+    }
+    structField5 
+    {
+      alias:   "width"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "total width of lane marker, from inner edge to outer edge"
+    }
+    structField6 
+    {
+      alias:   "curFunction"
+      type:    struct ZOP_Main_FUS_LANE_TRACK_EST_ST
+      offs:    -1
+      desc:    "fusion lane marker curve function"
+    }
+endstruct
+
+struct ZOP_Main_FUS_LANE_PRIMARY_TRA
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "id"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "traceStatus"
+      type:    uint(8)
+      offs:    -1
+      desc:    "0 invalid \n1 init\n2 measurement \n3 predicted"
+    }
+    structField2 
+    {
+      alias:   "quality"
+      type:    uint(8)
+      offs:    -1
+      desc:    "0 invalid\n1 low\n2 mid\n3 mid high\n4 high"
+    }
+    structField3 
+    {
+      alias:   "curveFunc"
+      type:    struct ZOP_Main_FUS_LANE_TRACK_EST_ST
+      offs:    -1
+    }
+endstruct
+
+struct ZOP_Main_FUS_LANE_OUTPUT_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "timestamp"
+      type:    flt(64,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "frameNum"
+      type:    uint(32)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "hostLaneWidth"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "host lane width"
+    }
+    structField3 
+    {
+      alias:   "leftLaneWidth"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "rightLaneWidth"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "leftHostLane"
+      type:    struct ZOP_Main_FUS_LANE_DATA_ST
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "rightHostLane"
+      type:    struct ZOP_Main_FUS_LANE_DATA_ST
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "leftNeighborLane"
+      type:    struct ZOP_Main_FUS_LANE_DATA_ST
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "rightNeighborLane"
+      type:    struct ZOP_Main_FUS_LANE_DATA_ST
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "primaryObjTrajectory"
+      type:    struct ZOP_Main_FUS_LANE_PRIMARY_TRA
+      offs:    -1
+    }
+    structField10 
+    {
+      alias:   "laneChangeStatus"
+      type:    uint(32)
+      offs:    -1
+      desc:    "0:No lane change,\n1:Lane change to the left,\n2:Lane change to the right"
+    }
+endstruct
+
+typedef ZOP_Main_TARGETOBJECT_probWithinLane_arr_f_4 flt(32,IEEE)[5]
+
+struct ZOP_Main_TARGETOBJECT
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "dis2EgoLaneCenter"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "TTC_f"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "ID_un8"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "Index_un8"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "probWithinLane_arr_f"
+      type:    ZOP_Main_TARGETOBJECT_probWithinLane_arr_f_4
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "probCutIn_f"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "probCutOut_f"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "overlap_f"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "trackingTimeWithinLane_f"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+typedef ZOP_Main_SEGMENT_coef_arr_f_0 flt(32,IEEE)[4]
+
+struct ZOP_Main_SEGMENT
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "coef_arr_f"
+      type:    ZOP_Main_SEGMENT_coef_arr_f_0
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "dlowerLimit_f"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "dupperLimit_f"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "numOfSegment_un8"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "available_b"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField5 
+    {
+      alias:   "detectedByVideo_b"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField6 
+    {
+      alias:   "quality_f"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+typedef ZOP_Main_LM_LANE_ST_ObjectList_st_0 struct ZOP_Main_TARGETOBJECT[10]
+
+typedef ZOP_Main_LM_LANE_ST_SRGMENT_6 struct ZOP_Main_SEGMENT[6]
+
+struct ZOP_Main_LM_LANE_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "ObjectList_st"
+      type:    ZOP_Main_LM_LANE_ST_ObjectList_st_0
+      offs:    -1
+      desc:    "There are 10 objects within a lane at most.its order depends on the distance to ego vehicle(consider sign):\nlike: -20,10,-10,60; its order in the object list: -20, -10, 10,60"
+    }
+    structField1 
+    {
+      alias:   "objectNum_un8"
+      type:    uint(8)
+      offs:    -1
+      desc:    "There are 10 objects within a lane at most"
+    }
+    structField2 
+    {
+      alias:   "available_b"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+      desc:    "False: unavailable\nTrue: available"
+    }
+    structField3 
+    {
+      alias:   "lane_dwidth_f"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "front_lane_length_f"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "rear_lane_length_f"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "SRGMENT"
+      type:    ZOP_Main_LM_LANE_ST_SRGMENT_6
+      offs:    -1
+      desc:    "A lane have 6 segments. There are 2 segments in rear of ego vehicle and 4 segments in front of ego vehicle"
+    }
+endstruct
+
+typedef ZOP_Main_LANEMODEL_OUTPUT_ST_LANES_ST_1 struct ZOP_Main_LM_LANE_ST[5]
+
+struct ZOP_Main_LANEMODEL_OUTPUT_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "egoLaneID_un8"
+      type:    uint(8)
+      offs:    -1
+      desc:    "ego vehicle lane:\nfrom left to right, the num of lane is 0, 1, 2,,3,4;\n0:Lane_0\n1:Lane_1\n2:Lane_2\n3:Lane_3\n4:Lane_4\n255:unknow"
+    }
+    structField1 
+    {
+      alias:   "LANES_ST"
+      type:    ZOP_Main_LANEMODEL_OUTPUT_ST_LANES_ST_1
+      offs:    -1
+      desc:    "there are 5 lanes in the  road at most"
+    }
+endstruct
+
+struct ZOP_Main_HWA_TARGETOBJECT_OUTPUT_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "L_NEIGHBORLANE_TAROBJ_0_ST"
+      type:    struct ZOP_Main_TARGETOBJECT
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "L_NEIGHBORLANE_TAROBJ_1_ST"
+      type:    struct ZOP_Main_TARGETOBJECT
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "L_NEIGHBORLANE_TAROBJ_2_ST"
+      type:    struct ZOP_Main_TARGETOBJECT
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "L_NEIGHBORLANE_TAROBJ_3_ST"
+      type:    struct ZOP_Main_TARGETOBJECT
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "EGOLANE_TAROBJ_0_ST"
+      type:    struct ZOP_Main_TARGETOBJECT
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "EGOLANE_TAROBJ_1_ST"
+      type:    struct ZOP_Main_TARGETOBJECT
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "EGOLANE_TAROBJ_2_ST"
+      type:    struct ZOP_Main_TARGETOBJECT
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "EGOLANE_TAROBJ_3_ST"
+      type:    struct ZOP_Main_TARGETOBJECT
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "R_NEIGHBORLANE_TAROBJ_0_ST"
+      type:    struct ZOP_Main_TARGETOBJECT
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "R_NEIGHBORLANE_TAROBJ_1_ST"
+      type:    struct ZOP_Main_TARGETOBJECT
+      offs:    -1
+    }
+    structField10 
+    {
+      alias:   "R_NEIGHBORLANE_TAROBJ_2_ST"
+      type:    struct ZOP_Main_TARGETOBJECT
+      offs:    -1
+    }
+    structField11 
+    {
+      alias:   "R_NEIGHBORLANE_TAROBJ_3_ST"
+      type:    struct ZOP_Main_TARGETOBJECT
+      offs:    -1
+    }
+endstruct
+
+struct ZOP_Main_ACC_Status_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "state"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "ready"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "active"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "overide"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "cancle"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "error"
+      type:    uint(8)
+      offs:    -1
+    }
+endstruct
+
+struct ZOP_Main_ATS_PO_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "Valid"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField1 
+    {
+      alias:   "Index"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "dx"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "dy"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "vx"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "vy"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "ax"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "vxAbs"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "axAbs"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "Type"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField10 
+    {
+      alias:   "MotionSts"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+typedef ZOP_Main_MapInfo_ST_SpeedLimit_12 flt(32,IEEE)[3]
+
+struct ZOP_Main_MapInfo_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "LaneNum"
+      type:    int(8)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "MapFlag"
+      type:    uint(16)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "TgtSpd"
+      type:    flt(64,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "isInZopZone"
+      type:    int(8)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "LaneIndex"
+      type:    int(8)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "LocIndex"
+      type:    int(8)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "Dist2Dest"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "Dist2Start"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "Dist2StopLine"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "Dist2Merge"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField10 
+    {
+      alias:   "LocLat"
+      type:    flt(64,IEEE)
+      offs:    -1
+    }
+    structField11 
+    {
+      alias:   "LocLon"
+      type:    flt(64,IEEE)
+      offs:    -1
+    }
+    structField12 
+    {
+      alias:   "SpeedLimit"
+      type:    ZOP_Main_MapInfo_ST_SpeedLimit_12
+      offs:    -1
+      desc:    "0,1,2 Right-->Left"
+    }
+endstruct
+
+struct ZOP_Main_Light_Info_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "color"
+      type:    int(8)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "time"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "dist"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct ZOP_Main_ZOP_HMI_REQ
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "ZOP_Enable"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "ZOP_Destination_Target"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "Function_Activation"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "DMS_DriverEye_St"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "LC_Req"
+      type:    uint(8)
+      offs:    -1
+    }
+endstruct
+
+struct ZOP_Main_ZOP2LCK
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "state"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "activate_lck"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "lc_cmd"
+      type:    int(8)
+      offs:    -1
+    }
+endstruct
+
+struct ZOP_Main_ZOP2ACC
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "state"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "activate_acc"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "spd_lmt"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "light_des_spd"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "light_a_des"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "case_num"
+      type:    int(8)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "light_dist"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct ZOP_Main_ZOP2TJA
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "activate_tja"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "is_zop_active"
+      type:    uint(8)
+      offs:    -1
+    }
+endstruct
+
+struct ZOP_Main_LKS_Status_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "state"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "ready"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "active"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "overide"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "cancle"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "error"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "lc_finish"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "lc_fail"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "lc_dist"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct ZOP_Main_MapInfo_ST_Post
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "LaneNum"
+      type:    int(8)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "MapFlag"
+      type:    uint(16)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "TgtSpd"
+      type:    flt(64,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "isInZopZone"
+      type:    int(8)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "LaneIndex"
+      type:    int(8)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "LocIndex"
+      type:    int(8)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "Dist2Dest"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "Dist2Start"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "Dist2StopLine"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "Dist2Merge"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField10 
+    {
+      alias:   "LocLat"
+      type:    flt(64,IEEE)
+      offs:    -1
+    }
+    structField11 
+    {
+      alias:   "LocLon"
+      type:    flt(64,IEEE)
+      offs:    -1
+    }
+    structField12 
+    {
+      alias:   "SpeedLimit"
+      type:    ZOP_Main_MapInfo_ST_SpeedLimit_12
+      offs:    -1
+      desc:    "0,1,2 Right-->Left"
+    }
+    structField13 
+    {
+      alias:   "LaneStable"
+      type:    int(8)
+      offs:    -1
+    }
+endstruct
+
+struct ZOP_Main_ZOP2HMI
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "LCDir"
+      type:    int(8)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "LCRes"
+      type:    int(8)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "LCTip"
+      type:    int(8)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "LCFailTip"
+      type:    int(8)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "LCReqTip"
+      type:    int(8)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "LCProp"
+      type:    int(8)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "LCPropRes"
+      type:    int(8)
+      offs:    -1
+    }
+endstruct
+
+typedef ZOP_Main_ZOP_Object_ST_exist_9 int(8)[2]
+
+struct ZOP_Main_ZOP_Object_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "id"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "x"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "y"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "vx"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "vy"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "ax"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "ay"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "dir"
+      type:    int(8)
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "dir_f"
+      type:    int(8)
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "exist"
+      type:    ZOP_Main_ZOP_Object_ST_exist_9
+      offs:    -1
+    }
+endstruct
+
+typedef ZOP_Main_ZOP_Var_ST_SpdTimeCnt_27 uint(32)[3]
+
+struct ZOP_Main_ZOP_Var_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "LnLo"
+      type:    int(8)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "LnHi"
+      type:    int(8)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "LSafeNCnt"
+      type:    int(8)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "RSafeNCnt"
+      type:    int(8)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "LSafeCnt"
+      type:    int(8)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "RSafeCnt"
+      type:    int(8)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "LSafeRaw"
+      type:    int(8)
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "RSafeRaw"
+      type:    int(8)
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "Safe"
+      type:    int(8)
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "holdTimeCnt"
+      type:    uint(32)
+      offs:    -1
+    }
+    structField10 
+    {
+      alias:   "lcTimeCnt"
+      type:    uint(32)
+      offs:    -1
+    }
+    structField11 
+    {
+      alias:   "lcProTimeCnt"
+      type:    uint(32)
+      offs:    -1
+    }
+    structField12 
+    {
+      alias:   "lcDirCnt"
+      type:    uint(32)
+      offs:    -1
+    }
+    structField13 
+    {
+      alias:   "LCResult"
+      type:    int(8)
+      offs:    -1
+    }
+    structField14 
+    {
+      alias:   "DesLane"
+      type:    int(8)
+      offs:    -1
+    }
+    structField15 
+    {
+      alias:   "CmdLane"
+      type:    int(8)
+      offs:    -1
+    }
+    structField16 
+    {
+      alias:   "LCDir"
+      type:    int(8)
+      offs:    -1
+    }
+    structField17 
+    {
+      alias:   "LCCmd"
+      type:    int(8)
+      offs:    -1
+    }
+    structField18 
+    {
+      alias:   "LCRes"
+      type:    uint(16)
+      offs:    -1
+    }
+    structField19 
+    {
+      alias:   "LCTip"
+      type:    uint(16)
+      offs:    -1
+    }
+    structField20 
+    {
+      alias:   "LCNRes"
+      type:    uint(16)
+      offs:    -1
+    }
+    structField21 
+    {
+      alias:   "LCTime"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField22 
+    {
+      alias:   "LCDist"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField23 
+    {
+      alias:   "FinishState"
+      type:    int(8)
+      offs:    -1
+      desc:    "0 = none, 1 = Succ, 2 = Fail"
+    }
+    structField24 
+    {
+      alias:   "LCFailTip"
+      type:    int(8)
+      offs:    -1
+    }
+    structField25 
+    {
+      alias:   "Spd"
+      type:    ZOP_Main_MapInfo_ST_SpeedLimit_12
+      offs:    -1
+    }
+    structField26 
+    {
+      alias:   "SpdTmp"
+      type:    ZOP_Main_MapInfo_ST_SpeedLimit_12
+      offs:    -1
+    }
+    structField27 
+    {
+      alias:   "SpdTimeCnt"
+      type:    ZOP_Main_ZOP_Var_ST_SpdTimeCnt_27
+      offs:    -1
+    }
+    structField28 
+    {
+      alias:   "MapFlag"
+      type:    uint(16)
+      offs:    -1
+    }
+    structField29 
+    {
+      alias:   "MapFlagDir"
+      type:    int(8)
+      offs:    -1
+    }
+endstruct
+
+
+-- Type definitions for arrays
+typedef ZOP_Main_ArrayDT42_8 struct ZOP_Main_ZOP_Object_ST[8]
+
+
+-- ******** Simulation control variables **************************************
+
+finalTime
+{
+ type:  flt(64,IEEE)*
+ alias: "finalTime"
+ desc:  "Simulation stop time. When reached, simState switches to STOP."
+ flags:  READONLY
+ unit:  "s"
+}
+
+currentTime
+{
+ type:  flt(64,IEEE)*
+ alias: "currentTime"
+ desc:  "Current simulation time. Increments with execution of Timer Task 1."
+ flags: READONLY
+ unit:  "s"
+}
+
+modelStepSize
+{
+ type:  flt(64,IEEE)
+ alias: "modelStepSize"
+ desc:  "Fixed step size of the model, sample time of Timer Task 1."
+ flags: READONLY
+ unit:  "s"
+}
+
+simState
+{
+ type:  int(32)
+ alias: "simState"
+ desc:  "Simulation state: STOP=0 PAUSE=1 RUN=2"
+ unit:  "-"
+}
+
+msg_last_error_no
+{
+ type:  uint(32)
+ alias: "errorNumber"
+ desc:  "Error number of last error message (zero if no error)."
+ unit:  "-"
+ flags: READONLY
+}
+
+p_dsts_sum_of_reset_time
+{
+ type:  flt(64,IEEE)*
+ alias: "sumOfResetTime"
+ desc:  "Internal variable for summing up reset time."
+ unit:  "s"
+ flags: READONLY|HIDDEN
+}
+
+
+-- ******** Task Information variables ****************************************
+group "Task Info"
+{
+ 
+}
+  group "Timer Task 1"
+  {
+   
+  }
+
+  pRti_TIMERA_STime
+  {
+   type:  flt(64,IEEE)*
+   alias: "sampleTime"
+   flags: READONLY
+  }
+  pRti_TIMERA_TTime
+  {
+   type:  flt(64,IEEE)*
+   alias: "turnaroundTime"
+   flags: READONLY
+  }
+  pRti_TIMERA_TState
+  {
+   type:  int(32)*
+   alias: "state"
+   flags: READONLY
+  }
+  pRti_TIMERA_OType
+  {
+   type:  int(32)*
+   alias: "overrunCheckType"
+   flags: READONLY
+  }
+  pRti_TIMERA_OMax
+  {
+   type:  int(32)*
+   alias: "overrunQueueMax"
+   flags: READONLY
+  }
+  pRti_TIMERA_ORpt
+  {
+   type:  int(32)*
+   alias: "overrunQueueCount"
+   flags: READONLY
+  }
+  pRti_TIMERA_OCnt
+  {
+   type:  int(32)*
+   alias: "overrunCount"
+   flags: READONLY
+  }
+  pRti_TIMERA_TCnt
+  {
+   type:  flt(64,IEEE)*
+   alias: "taskCallCount"
+   flags: READONLY
+  }
+  pRti_TIMERA_Prio
+  {
+   type:  int(32)*
+   alias: "priority"
+   flags: READONLY
+  }
+  endgroup
+
+
+endgroup
+
+
+-- ******** Model variables ***************************************************
+
+group "Model Root"
+	group "SystemCmd_Input" -- block-group
+	{
+	 block: "Inport"
+	}
+		p_1_ZOP_Main_SystemCmd_ST_0[0]
+		{
+		 type:    struct ZOP_Main_SystemCmd_ST*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "SystemCmd_Input"
+
+	group "VehStatus_Input" -- block-group
+	{
+	 block: "Inport"
+	}
+		p_1_ZOP_Main_VSI_VEHSTATE_ST_1[0]
+		{
+		 type:    struct ZOP_Main_VSI_VEHSTATE_ST*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "VehStatus_Input"
+
+	group "FusionObj_Input" -- block-group
+	{
+	 block: "Inport"
+	}
+		p_1_ZOP_Main_FUS_OBJ_OUTPUT_ST_2[0]
+		{
+		 type:    struct ZOP_Main_FUS_OBJ_OUTPUT_ST*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "FusionObj_Input"
+
+	group "FusionLane_Input" -- block-group
+	{
+	 block: "Inport"
+	}
+		p_1_ZOP_Main_FUS_LANE_OUTPUT_ST_3[0]
+		{
+		 type:    struct ZOP_Main_FUS_LANE_OUTPUT_ST*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "FusionLane_Input"
+
+	group "RoadModel_Lane_Input" -- block-group
+	{
+	 block: "Inport"
+	}
+		p_1_ZOP_Main_LANEMODEL_OUTPUT_ST_4[0]
+		{
+		 type:    struct ZOP_Main_LANEMODEL_OUTPUT_ST*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "RoadModel_Lane_Input"
+
+	group "RoadModel_TS_Input" -- block-group
+	{
+	 block: "Inport"
+	}
+		p_1_ZOP_Main_HWA_TARGETOBJECT_OUTPUT_ST_5[0]
+		{
+		 type:    struct ZOP_Main_HWA_TARGETOBJECT_OUTPUT_ST*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "RoadModel_TS_Input"
+
+	group "ACC_Output" -- block-group
+	{
+	 block: "Inport"
+	}
+		p_1_ZOP_Main_ACC_Status_ST_6[0]
+		{
+		 type:    struct ZOP_Main_ACC_Status_ST*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "ACC_Output"
+
+	group "LKS_Mode" -- block-group
+	{
+	 block: "Inport"
+	}
+		p_1_ZOP_Main_real32_T_7[0]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "LKS_Mode"
+
+	group "ACC_PO" -- block-group
+	{
+	 block: "Inport"
+	}
+		p_1_ZOP_Main_ATS_PO_ST_8[0]
+		{
+		 type:    struct ZOP_Main_ATS_PO_ST*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "ACC_PO"
+
+	group "LC_dx" -- block-group
+	{
+	 block: "Inport"
+	}
+		p_1_ZOP_Main_real32_T_9[0]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "LC_dx"
+
+	group "MapInfo" -- block-group
+	{
+	 block: "Inport"
+	}
+		p_1_ZOP_Main_MapInfo_ST_10[0]
+		{
+		 type:    struct ZOP_Main_MapInfo_ST*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "MapInfo"
+
+	group "LightInfo" -- block-group
+	{
+	 block: "Inport"
+	}
+		p_1_ZOP_Main_Light_Info_ST_11[0]
+		{
+		 type:    struct ZOP_Main_Light_Info_ST*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "LightInfo"
+
+	group "SpdLmt" -- block-group
+	{
+	 block: "Inport"
+	}
+		p_1_ZOP_Main_real_T_12[0]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "SpdLmt"
+
+	group "ZOP_HMI_Req" -- block-group
+	{
+	 block: "Inport"
+	}
+		p_1_ZOP_Main_ZOP_HMI_REQ_13[0]
+		{
+		 type:    struct ZOP_Main_ZOP_HMI_REQ*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "ZOP_HMI_Req"
+
+	group "ZOP2ACC" -- block-group
+	{
+	 block: "Outport"
+	}
+		p_4_ZOP_Main_ZOP2ACC_0[0]
+		{
+		 type:    struct ZOP_Main_ZOP2ACC*
+		 alias:   "In1"
+		 flags:   READONLY
+		}
+
+
+
+	endgroup -- block-group "ZOP2ACC"
+
+	group "ZOP2LKS" -- block-group
+	{
+	 block: "Outport"
+	}
+		p_4_ZOP_Main_ZOP2LCK_1[0]
+		{
+		 type:    struct ZOP_Main_ZOP2LCK*
+		 alias:   "In1"
+		 flags:   READONLY
+		}
+
+
+
+	endgroup -- block-group "ZOP2LKS"
+
+	group "ZOP2TJA" -- block-group
+	{
+	 block: "Outport"
+	}
+		p_4_ZOP_Main_ZOP2TJA_2[0]
+		{
+		 type:    struct ZOP_Main_ZOP2TJA*
+		 alias:   "In1"
+		 flags:   READONLY
+		}
+
+
+
+	endgroup -- block-group "ZOP2TJA"
+
+	group "ZOP_Takeover" -- block-group
+	{
+	 block: "Outport"
+	}
+		p_4_ZOP_Main_int8_T_3[0]
+		{
+		 type:    int(8)*
+		 alias:   "In1"
+		 flags:   READONLY
+		}
+
+
+
+	endgroup -- block-group "ZOP_Takeover"
+
+	group "ZOP_Mode" -- block-group
+	{
+	 block: "Outport"
+	}
+		p_4_ZOP_Main_int8_T_3[1]
+		{
+		 type:    int(8)*
+		 alias:   "In1"
+		 flags:   READONLY
+		}
+
+
+
+	endgroup -- block-group "ZOP_Mode"
+
+	group "ZOP_Enable" -- block-group
+	{
+	 block: "Outport"
+	}
+		p_4_ZOP_Main_boolean_T_4[0]
+		{
+		 type:    uint(8)*
+		 alias:   "In1"
+		 range:   < 0 ; 1 >
+		 bitmask: 0x01
+		 flags:   READONLY
+		}
+
+
+
+	endgroup -- block-group "ZOP_Enable"
+
+	group "ZOP2HMI" -- block-group
+	{
+	 block: "Outport"
+	}
+		p_4_ZOP_Main_ZOP2HMI_5[0]
+		{
+		 type:    struct ZOP_Main_ZOP2HMI*
+		 alias:   "In1"
+		 flags:   READONLY
+		}
+
+
+
+	endgroup -- block-group "ZOP2HMI"
+
+	group "Bus\nCreator1" -- block-group
+	{
+	 block: "BusCreator"
+	}
+		p_4_ZOP_Main_ZOP2LCK_1[0]
+		{
+		 type:    struct ZOP_Main_ZOP2LCK*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Bus\nCreator1"
+
+	group "Bus\nCreator2" -- block-group
+	{
+	 block: "BusCreator"
+	}
+		p_4_ZOP_Main_ZOP2ACC_0[0]
+		{
+		 type:    struct ZOP_Main_ZOP2ACC*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Bus\nCreator2"
+
+	group "Bus\nCreator3" -- block-group
+	{
+	 block: "BusCreator"
+	}
+		p_4_ZOP_Main_ZOP2TJA_2[0]
+		{
+		 type:    struct ZOP_Main_ZOP2TJA*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Bus\nCreator3"
+
+	group "Bus\nCreator4" -- block-group
+	{
+	 block: "BusCreator"
+	}
+		p_0_ZOP_Main_Light_Info_ST_4[0]
+		{
+		 type:    struct ZOP_Main_Light_Info_ST*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Bus\nCreator4"
+
+	group "Bus\nCreator5" -- block-group
+	{
+	 block: "BusCreator"
+	}
+		p_0_ZOP_Main_SystemCmd_ST_7[0]
+		{
+		 type:    struct ZOP_Main_SystemCmd_ST*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Bus\nCreator5"
+
+	group "C_Tmp1" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		p_2_ZOP_Main_real_T_5[68]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Value"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "C_Tmp1"
+
+	group "C_Tmp2" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		p_2_ZOP_Main_real_T_5[67]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Value"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "C_Tmp2"
+
+	group "LCDist" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		p_2_ZOP_Main_real_T_5[69]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Value"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "LCDist"
+
+	group "MODE_ZOP_FINISH" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		trcref0_MODE_ZOP_FINISH
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "MODE_ZOP_FINISH"
+		 alias:    "MODE_ZOP_FINISH"
+		}
+		trcref0_Value
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "MODE_ZOP_FINISH"
+		 alias:    "Value"
+		 flags:    DEPRECATED|HIDDEN
+		}
+
+
+	endgroup -- block-group "MODE_ZOP_FINISH"
+
+	group "MODE_ZOP_LC" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		trcref0_MODE_ZOP_LC
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "MODE_ZOP_LC"
+		 alias:    "MODE_ZOP_LC"
+		}
+		trcref0_Value
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "MODE_ZOP_LC"
+		 alias:    "Value"
+		 flags:    DEPRECATED|HIDDEN
+		}
+
+
+	endgroup -- block-group "MODE_ZOP_LC"
+
+	group "ZOPACT" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		p_2_ZOP_Main_real_T_5[59]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Value"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "ZOPACT"
+
+	group "ZOPACT1" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		p_2_ZOP_Main_real_T_5[58]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Value"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "ZOPACT1"
+
+	group "ZOPACT2" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		p_2_ZOP_Main_real_T_5[60]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Value"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "ZOPACT2"
+
+	group "ZOPACT3" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		p_2_ZOP_Main_real_T_5[57]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Value"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "ZOPACT3"
+
+	group "ZOPACT4" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		p_2_ZOP_Main_real_T_5[64]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Value"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "ZOPACT4"
+
+	group "ZOPACT5" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		p_2_ZOP_Main_real_T_5[70]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Value"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "ZOPACT5"
+
+	group "ZOPACT6" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		p_2_ZOP_Main_real_T_5[62]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Value"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "ZOPACT6"
+
+	group "ZOPACT7" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		p_2_ZOP_Main_real_T_5[61]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Value"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "ZOPACT7"
+
+	group "ZOPACT8" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		p_2_ZOP_Main_real_T_5[65]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Value"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "ZOPACT8"
+
+	group "ZOPNACT1" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		p_2_ZOP_Main_real_T_5[63]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Value"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "ZOPNACT1"
+
+	group "k_ZOP_SpdLmt_Enable" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		trcref0_k_ZOP_SpdLmt_Enable
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ZOP_SpdLmt_Enable"
+		 alias:    "k_ZOP_SpdLmt_Enable"
+		}
+		trcref0_Value
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ZOP_SpdLmt_Enable"
+		 alias:    "Value"
+		 flags:    DEPRECATED|HIDDEN
+		}
+
+
+	endgroup -- block-group "k_ZOP_SpdLmt_Enable"
+
+	group "k_ZOP_VcTJA_Enable" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		trcref0_k_ZOP_VcTJA_Enable
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ZOP_VcTJA_Enable"
+		 alias:    "k_ZOP_VcTJA_Enable"
+		}
+		trcref0_Value
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ZOP_VcTJA_Enable"
+		 alias:    "Value"
+		 flags:    DEPRECATED|HIDDEN
+		}
+
+
+	endgroup -- block-group "k_ZOP_VcTJA_Enable"
+
+	group "k_ZOP_VoiceAct_Enable" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		trcref0_k_ZOP_VoiceAct_Enable
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ZOP_VoiceAct_Enable"
+		 alias:    "k_ZOP_VoiceAct_Enable"
+		}
+		trcref0_Value
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ZOP_VoiceAct_Enable"
+		 alias:    "Value"
+		 flags:    DEPRECATED|HIDDEN
+		}
+
+
+	endgroup -- block-group "k_ZOP_VoiceAct_Enable"
+
+	group "k_ZOP_VoiceAct_Enable1" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		trcref0_k_ZOP_VoiceAct_Enable
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ZOP_VoiceAct_Enable"
+		 alias:    "k_ZOP_VoiceAct_Enable"
+		}
+		trcref0_Value
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ZOP_VoiceAct_Enable"
+		 alias:    "Value"
+		 flags:    DEPRECATED|HIDDEN
+		}
+
+
+	endgroup -- block-group "k_ZOP_VoiceAct_Enable1"
+
+	group "Data Type Conversion1" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "Data Type Conversion1"
+
+	group "Data Type Conversion10" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "Data Type Conversion10"
+
+	group "Data Type Conversion11" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "Data Type Conversion11"
+
+	group "Data Type Conversion12" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		p_0_ZOP_Main_real32_T_8[3]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Data Type Conversion12"
+
+	group "Data Type Conversion13" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "Data Type Conversion13"
+
+	group "Data Type Conversion14" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		p_0_ZOP_Main_real32_T_8[4]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Data Type Conversion14"
+
+	group "Data Type Conversion15" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		p_0_ZOP_Main_real32_T_8[1]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Data Type Conversion15"
+
+	group "Data Type Conversion16" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		p_0_ZOP_Main_real32_T_8[2]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Data Type Conversion16"
+
+	group "Data Type Conversion17" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		p_0_ZOP_Main_real32_T_8[0]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Data Type Conversion17"
+
+	group "Data Type Conversion18" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		p_0_ZOP_Main_real32_T_8[5]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Data Type Conversion18"
+
+	group "Data Type Conversion19" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "Data Type Conversion19"
+
+	group "Data Type Conversion2" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "Data Type Conversion2"
+
+	group "Data Type Conversion20" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		p_0_ZOP_Main_uint8_T_10[3]
+		{
+		 type:    uint(8)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Data Type Conversion20"
+
+	group "Data Type Conversion21" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		p_0_ZOP_Main_uint8_T_10[1]
+		{
+		 type:    uint(8)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Data Type Conversion21"
+
+	group "Data Type Conversion22" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		p_0_ZOP_Main_uint8_T_10[4]
+		{
+		 type:    uint(8)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Data Type Conversion22"
+
+	group "Data Type Conversion23" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "Data Type Conversion23"
+
+	group "Data Type Conversion24" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		p_0_ZOP_Main_real_T_6[5]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Data Type Conversion24"
+
+	group "Data Type Conversion26" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		p_0_ZOP_Main_uint8_T_10[0]
+		{
+		 type:    uint(8)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Data Type Conversion26"
+
+	group "Data Type Conversion3" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "Data Type Conversion3"
+
+	group "Data Type Conversion4" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "Data Type Conversion4"
+
+	group "Data Type Conversion5" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "Data Type Conversion5"
+
+	group "Data Type Conversion6" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "Data Type Conversion6"
+
+	group "Data Type Conversion7" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "Data Type Conversion7"
+
+	group "Data Type Conversion8" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "Data Type Conversion8"
+
+	group "Data Type Conversion9" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "Data Type Conversion9"
+
+	group "Gain" -- block-group
+	{
+	 block: "Gain"
+	}
+		p_0_ZOP_Main_real_T_6[4]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+		p_2_ZOP_Main_real_T_5[66]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Gain"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "Gain"
+
+	group "Logical\nOperator1" -- block-group
+	{
+	 block: "Logic"
+	}
+		p_0_ZOP_Main_boolean_T_12[7]
+		{
+		 type:    uint(8)*
+		 alias:   "Out1"
+		 range:   < 0 ; 1 >
+		 bitmask: 0x01
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Logical\nOperator1"
+
+	group "MinMax" -- block-group
+	{
+	 block: "MinMax"
+	}
+		p_0_ZOP_Main_uint8_T_10[2]
+		{
+		 type:    uint(8)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "MinMax"
+
+	group "MinMax1" -- block-group
+	{
+	 block: "MinMax"
+	}
+		p_0_ZOP_Main_uint8_T_10[5]
+		{
+		 type:    uint(8)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "MinMax1"
+
+	group "Relational\nOperator" -- block-group
+	{
+	 block: "RelationalOperator"
+	}
+		p_0_ZOP_Main_boolean_T_12[3]
+		{
+		 type:    uint(8)*
+		 alias:   "Out1"
+		 range:   < 0 ; 1 >
+		 bitmask: 0x01
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Relational\nOperator"
+
+	group "Relational\nOperator1" -- block-group
+	{
+	 block: "RelationalOperator"
+	}
+		p_0_ZOP_Main_boolean_T_12[2]
+		{
+		 type:    uint(8)*
+		 alias:   "Out1"
+		 range:   < 0 ; 1 >
+		 bitmask: 0x01
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Relational\nOperator1"
+
+	group "Relational\nOperator2" -- block-group
+	{
+	 block: "RelationalOperator"
+	}
+		p_0_ZOP_Main_boolean_T_12[0]
+		{
+		 type:    uint(8)*
+		 alias:   "Out1"
+		 range:   < 0 ; 1 >
+		 bitmask: 0x01
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Relational\nOperator2"
+
+	group "Relational\nOperator3" -- block-group
+	{
+	 block: "RelationalOperator"
+	}
+		p_0_ZOP_Main_boolean_T_12[1]
+		{
+		 type:    uint(8)*
+		 alias:   "Out1"
+		 range:   < 0 ; 1 >
+		 bitmask: 0x01
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Relational\nOperator3"
+
+	group "Relational\nOperator4" -- block-group
+	{
+	 block: "RelationalOperator"
+	}
+		p_0_ZOP_Main_boolean_T_12[4]
+		{
+		 type:    uint(8)*
+		 alias:   "Out1"
+		 range:   < 0 ; 1 >
+		 bitmask: 0x01
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Relational\nOperator4"
+
+	group "Relational\nOperator5" -- block-group
+	{
+	 block: "RelationalOperator"
+	}
+		p_0_ZOP_Main_boolean_T_12[6]
+		{
+		 type:    uint(8)*
+		 alias:   "Out1"
+		 range:   < 0 ; 1 >
+		 bitmask: 0x01
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Relational\nOperator5"
+
+	group "Switch" -- block-group
+	{
+	 block: "Switch"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "Switch"
+
+	group "Switch1" -- block-group
+	{
+	 block: "Switch"
+	}
+		p_0_ZOP_Main_real32_T_8[6]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Switch1"
+
+	group "Switch2" -- block-group
+	{
+	 block: "Switch"
+	}
+		p_0_ZOP_Main_real_T_6[1]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Switch2"
+
+	group "Switch3" -- block-group
+	{
+	 block: "Switch"
+	}
+		p_0_ZOP_Main_real_T_6[3]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Switch3"
+
+	group "Switch4" -- block-group
+	{
+	 block: "Switch"
+	}
+		p_0_ZOP_Main_real_T_6[0]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+		p_2_ZOP_Main_real32_T_6[14]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Threshold"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "Switch4"
+
+	group "Switch5" -- block-group
+	{
+	 block: "Switch"
+	}
+		p_0_ZOP_Main_real_T_6[2]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+		p_2_ZOP_Main_real32_T_6[15]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Threshold"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "Switch5"
+
+	group "Switch6" -- block-group
+	{
+	 block: "Switch"
+	}
+		p_0_ZOP_Main_real_T_6[7]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+		p_2_ZOP_Main_real32_T_6[17]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Threshold"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "Switch6"
+
+	group "Switch7" -- block-group
+	{
+	 block: "Switch"
+	}
+		p_0_ZOP_Main_real_T_6[6]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+		p_2_ZOP_Main_real32_T_6[16]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Threshold"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "Switch7"
+
+	group "Unit Delay2" -- block-group
+	{
+	 block: "UnitDelay"
+	}
+		p_0_ZOP_Main_boolean_T_12[5]
+		{
+		 type:    uint(8)*
+		 alias:   "Out1"
+		 range:   < 0 ; 1 >
+		 bitmask: 0x01
+		 flags:   OUTPUT|READONLY
+		}
+		p_2_ZOP_Main_boolean_T_8[8]
+		{
+		 type:    uint(8)*
+		 alias:   "InitialCondition"
+		 range:   < 0 ; 1 >
+		 bitmask: 0x01
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "Unit Delay2"
+
+	group "Unit Delay3" -- block-group
+	{
+	 block: "UnitDelay"
+	}
+		p_0_ZOP_Main_int8_T_11[0]
+		{
+		 type:    int(8)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+		p_2_ZOP_Main_int8_T_9[3]
+		{
+		 type:    int(8)*
+		 alias:   "InitialCondition"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "Unit Delay3"
+
+  
+  
+	group "LKS_Mode_Conv" -- subsystem-group
+
+		p_0_ZOP_Main_LKS_Status_ST_5[0]
+		{
+		 type:    struct ZOP_Main_LKS_Status_ST*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+		group "Unit Delay4" -- block-group
+		{
+		 block: "UnitDelay"
+		}
+			p_0_ZOP_Main_real32_T_8[7]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+			p_2_ZOP_Main_real32_T_6[13]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "InitialCondition"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Unit Delay4"
+
+  
+  
+		group "LKS_Input_Proc" -- subsystem-group
+
+			p_0_ZOP_Main_LKS_Status_ST_5[0]
+			{
+			 type:    struct ZOP_Main_LKS_Status_ST*
+			 alias:   "LKS_Output"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+
+
+		endgroup -- subsystem-group "LKS_Input_Proc"
+
+
+	endgroup -- subsystem-group "LKS_Mode_Conv"
+  
+  
+	group "Light_Process" -- subsystem-group
+
+		p_0_ZOP_Main_real_T_6[57]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "v_des"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_ZOP_Main_real_T_6[58]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "a_des"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_ZOP_Main_real32_T_8[23]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "case_num"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+		group "C_Tmp1" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			p_2_ZOP_Main_real_T_5[2]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "C_Tmp1"
+
+		group "C_Tmp2" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			p_2_ZOP_Main_real_T_5[4]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "C_Tmp2"
+
+		group "C_Tmp3" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			p_2_ZOP_Main_real_T_5[3]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "C_Tmp3"
+
+		group "k_ZOP_V2X_Enable" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			trcref0_k_ZOP_V2X_Enable
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_V2X_Enable"
+			 alias:    "k_ZOP_V2X_Enable"
+			}
+			trcref0_Value
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_V2X_Enable"
+			 alias:    "Value"
+			 flags:    DEPRECATED|HIDDEN
+			}
+
+
+		endgroup -- block-group "k_ZOP_V2X_Enable"
+
+		group "Data Type Conversion1" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			p_0_ZOP_Main_real_T_6[54]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Data Type Conversion1"
+
+		group "Data Type Conversion15" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			p_0_ZOP_Main_real32_T_8[21]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Data Type Conversion15"
+
+		group "Data Type Conversion2" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			p_0_ZOP_Main_real_T_6[52]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Data Type Conversion2"
+
+		group "Data Type Conversion3" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			-- Skipping output Out1
+
+
+		endgroup -- block-group "Data Type Conversion3"
+
+		group "Data Type Conversion4" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			p_0_ZOP_Main_real_T_6[59]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Data Type Conversion4"
+
+		group "Data Type Conversion5" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			p_0_ZOP_Main_real_T_6[53]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Data Type Conversion5"
+
+		group "Data Type Conversion6" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			p_0_ZOP_Main_real_T_6[56]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Data Type Conversion6"
+
+		group "Data Type Conversion7" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			p_0_ZOP_Main_real_T_6[57]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Data Type Conversion7"
+
+		group "Data Type Conversion8" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			p_0_ZOP_Main_real_T_6[58]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Data Type Conversion8"
+
+		group "Data Type Conversion9" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			p_0_ZOP_Main_real32_T_8[22]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Data Type Conversion9"
+
+		group "Relational\nOperator1" -- block-group
+		{
+		 block: "RelationalOperator"
+		}
+			p_0_ZOP_Main_boolean_T_12[47]
+			{
+			 type:    uint(8)*
+			 alias:   "Out1"
+			 range:   < 0 ; 1 >
+			 bitmask: 0x01
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Relational\nOperator1"
+
+		group "Switch" -- block-group
+		{
+		 block: "Switch"
+		}
+			p_0_ZOP_Main_real32_T_8[23]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+			p_2_ZOP_Main_real32_T_6[1]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Threshold"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Switch"
+
+		group "Switch1" -- block-group
+		{
+		 block: "Switch"
+		}
+			p_0_ZOP_Main_real_T_6[55]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Switch1"
+
+  
+  
+		group "Chart" -- subsystem-group
+
+			p_0_ZOP_Main_real_T_6[64]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Flag"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+
+
+		endgroup -- subsystem-group "Chart"
+  
+  
+		group "LightLogic" -- subsystem-group
+
+			p_0_ZOP_Main_real_T_6[60]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "v_des"
+			 flags:   OUTPUT|READONLY
+			}
+			p_0_ZOP_Main_real_T_6[61]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "a_des"
+			 flags:   OUTPUT|READONLY
+			}
+			p_0_ZOP_Main_real_T_6[62]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "dist"
+			 flags:   OUTPUT|READONLY
+			}
+			p_0_ZOP_Main_real_T_6[63]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "case_num"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+
+
+		endgroup -- subsystem-group "LightLogic"
+
+
+	endgroup -- subsystem-group "Light_Process"
+  
+  
+	group "RTI Data" -- subsystem-group
+
+
+	endgroup -- subsystem-group "RTI Data"
+  
+  
+	group "ZOP_Main_OS" -- subsystem-group
+
+		p_4_ZOP_Main_int8_T_3[1]
+		{
+		 type:    int(8)*
+		 alias:   "ZOP_Mode"
+		 flags:   OUTPUT|READONLY
+		}
+		p_4_ZOP_Main_int8_T_3[0]
+		{
+		 type:    int(8)*
+		 alias:   "ZOP_Takeover"
+		 flags:   OUTPUT|READONLY
+		}
+		p_4_ZOP_Main_boolean_T_4[0]
+		{
+		 type:    uint(8)*
+		 alias:   "ZOP_Enable"
+		 range:   < 0 ; 1 >
+		 bitmask: 0x01
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_ZOP_Main_int16_T_9[0]
+		{
+		 type:    int(16)*
+		 alias:   "LC_Cmd"
+		 desc:    "Uniform Fixed-Point"
+		 scale:   [2^-7, 0.0]
+		 bitmask: 0:15
+		 flags:   OUTPUT|READONLY
+		}
+		p_4_ZOP_Main_ZOP2HMI_5[0]
+		{
+		 type:    struct ZOP_Main_ZOP2HMI*
+		 alias:   "ZOP2HMI"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+		group "Bus\nCreator1" -- block-group
+		{
+		 block: "BusCreator"
+		}
+			p_0_ZOP_Main_MapInfo_ST_Post_1[0]
+			{
+			 type:    struct ZOP_Main_MapInfo_ST_Post*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Bus\nCreator1"
+
+		group "Bus\nCreator2" -- block-group
+		{
+		 block: "BusCreator"
+		}
+			p_4_ZOP_Main_ZOP2HMI_5[0]
+			{
+			 type:    struct ZOP_Main_ZOP2HMI*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Bus\nCreator2"
+
+		group "Bus\nCreator3" -- block-group
+		{
+		 block: "BusCreator"
+		}
+			p_0_ZOP_Main_ZOP_Object_ST_2[0]
+			{
+			 type:    struct ZOP_Main_ZOP_Object_ST*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Bus\nCreator3"
+
+		group "Vector\nConcatenate" -- block-group
+		{
+		 block: "Concatenate"
+		}
+			p_0_ZOP_Main_int8_T_11[5]
+			{
+			 type:    ZOP_Main_ZOP_Object_ST_exist_9*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Vector\nConcatenate"
+
+		group "C_Tmp1" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			p_2_ZOP_Main_real_T_5[56]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "C_Tmp1"
+
+		group "C_Tmp10" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			p_2_ZOP_Main_real_T_5[52]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "C_Tmp10"
+
+		group "C_Tmp11" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			p_2_ZOP_Main_real_T_5[54]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "C_Tmp11"
+
+		group "C_Tmp12" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			p_2_ZOP_Main_real_T_5[53]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "C_Tmp12"
+
+		group "C_Tmp2" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			p_2_ZOP_Main_real_T_5[46]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "C_Tmp2"
+
+		group "C_Tmp3" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			p_2_ZOP_Main_real_T_5[47]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "C_Tmp3"
+
+		group "C_Tmp4" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			p_2_ZOP_Main_real_T_5[48]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "C_Tmp4"
+
+		group "C_Tmp5" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			p_2_ZOP_Main_real_T_5[49]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "C_Tmp5"
+
+		group "C_Tmp6" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			p_2_ZOP_Main_real_T_5[50]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "C_Tmp6"
+
+		group "C_Tmp7" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			p_2_ZOP_Main_real_T_5[45]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "C_Tmp7"
+
+		group "C_Tmp8" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			p_2_ZOP_Main_real_T_5[55]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "C_Tmp8"
+
+		group "C_Tmp9" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			p_2_ZOP_Main_real_T_5[51]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "C_Tmp9"
+
+		group "MODE_ZOP_ACTIVE" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			trcref0_MODE_ZOP_ACTIVE
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "MODE_ZOP_ACTIVE"
+			 alias:    "MODE_ZOP_ACTIVE"
+			}
+			trcref0_Value
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "MODE_ZOP_ACTIVE"
+			 alias:    "Value"
+			 flags:    DEPRECATED|HIDDEN
+			}
+
+
+		endgroup -- block-group "MODE_ZOP_ACTIVE"
+
+		group "MODE_ZOP_FINISH" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			trcref0_MODE_ZOP_FINISH
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "MODE_ZOP_FINISH"
+			 alias:    "MODE_ZOP_FINISH"
+			}
+			trcref0_Value
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "MODE_ZOP_FINISH"
+			 alias:    "Value"
+			 flags:    DEPRECATED|HIDDEN
+			}
+
+
+		endgroup -- block-group "MODE_ZOP_FINISH"
+
+		group "k_LS_ChangingDist" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			trcref0_k_ZOP_LS_ChangingDist
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_LS_ChangingDist"
+			 alias:    "k_ZOP_LS_ChangingDist"
+			}
+			trcref0_Value
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_LS_ChangingDist"
+			 alias:    "Value"
+			 flags:    DEPRECATED|HIDDEN
+			}
+
+
+		endgroup -- block-group "k_LS_ChangingDist"
+
+		group "k_LS_ChangingTime" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			trcref0_k_ZOP_LS_ChangingTime
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_LS_ChangingTime"
+			 alias:    "k_ZOP_LS_ChangingTime"
+			}
+			trcref0_Value
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_LS_ChangingTime"
+			 alias:    "Value"
+			 flags:    DEPRECATED|HIDDEN
+			}
+
+
+		endgroup -- block-group "k_LS_ChangingTime"
+
+		group "Data Type Conversion1" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			-- Skipping output Out1
+
+
+		endgroup -- block-group "Data Type Conversion1"
+
+		group "Data Type Conversion10" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			-- Skipping output Out1
+
+
+		endgroup -- block-group "Data Type Conversion10"
+
+		group "Data Type Conversion11" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			-- Skipping output Out1
+
+
+		endgroup -- block-group "Data Type Conversion11"
+
+		group "Data Type Conversion12" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			p_0_ZOP_Main_int8_T_11[13]
+			{
+			 type:    int(8)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Data Type Conversion12"
+
+		group "Data Type Conversion13" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			-- Skipping output Out1
+
+
+		endgroup -- block-group "Data Type Conversion13"
+
+		group "Data Type Conversion14" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			-- Skipping output Out1
+
+
+		endgroup -- block-group "Data Type Conversion14"
+
+		group "Data Type Conversion15" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			-- Skipping output Out1
+
+
+		endgroup -- block-group "Data Type Conversion15"
+
+		group "Data Type Conversion16" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			p_0_ZOP_Main_int8_T_11[7]
+			{
+			 type:    int(8)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Data Type Conversion16"
+
+		group "Data Type Conversion17" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			p_0_ZOP_Main_int8_T_11[8]
+			{
+			 type:    int(8)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Data Type Conversion17"
+
+		group "Data Type Conversion18" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			p_0_ZOP_Main_int8_T_11[4]
+			{
+			 type:    int(8)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Data Type Conversion18"
+
+		group "Data Type Conversion2" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			-- Skipping output Out1
+
+
+		endgroup -- block-group "Data Type Conversion2"
+
+		group "Data Type Conversion3" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			p_0_ZOP_Main_real32_T_8[9]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Data Type Conversion3"
+
+		group "Data Type Conversion4" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			p_0_ZOP_Main_int8_T_11[12]
+			{
+			 type:    int(8)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Data Type Conversion4"
+
+		group "Data Type Conversion5" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			p_0_ZOP_Main_int8_T_11[11]
+			{
+			 type:    int(8)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Data Type Conversion5"
+
+		group "Data Type Conversion6" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			p_0_ZOP_Main_int8_T_11[10]
+			{
+			 type:    int(8)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Data Type Conversion6"
+
+		group "Data Type Conversion7" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			p_0_ZOP_Main_int8_T_11[9]
+			{
+			 type:    int(8)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Data Type Conversion7"
+
+		group "Data Type Conversion8" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			-- Skipping output Out1
+
+
+		endgroup -- block-group "Data Type Conversion8"
+
+		group "Data Type Conversion9" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			-- Skipping output Out1
+
+
+		endgroup -- block-group "Data Type Conversion9"
+
+		group "Gain" -- block-group
+		{
+		 block: "Gain"
+		}
+			p_0_ZOP_Main_int16_T_9[0]
+			{
+			 type:    int(16)*
+			 alias:   "Out1"
+			 desc:    "Uniform Fixed-Point"
+			 scale:   [2^-7, 0.0]
+			 bitmask: 0:15
+			 flags:   OUTPUT|READONLY
+			}
+			p_2_ZOP_Main_int8_T_9[4]
+			{
+			 type:    int(8)*
+			 alias:   "Gain"
+			 desc:    "Uniform Fixed-Point"
+			 scale:   [2^-7, 0.0]
+			 bitmask: 0:7
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain"
+
+		group "Logical\nOperator" -- block-group
+		{
+		 block: "Logic"
+		}
+			p_4_ZOP_Main_boolean_T_4[0]
+			{
+			 type:    uint(8)*
+			 alias:   "Out1"
+			 range:   < 0 ; 1 >
+			 bitmask: 0x01
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Logical\nOperator"
+
+		group "Relational\nOperator" -- block-group
+		{
+		 block: "RelationalOperator"
+		}
+			p_0_ZOP_Main_boolean_T_12[12]
+			{
+			 type:    uint(8)*
+			 alias:   "Out1"
+			 range:   < 0 ; 1 >
+			 bitmask: 0x01
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Relational\nOperator"
+
+		group "Relational\nOperator1" -- block-group
+		{
+		 block: "RelationalOperator"
+		}
+			p_0_ZOP_Main_boolean_T_12[11]
+			{
+			 type:    uint(8)*
+			 alias:   "Out1"
+			 range:   < 0 ; 1 >
+			 bitmask: 0x01
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Relational\nOperator1"
+
+		group "Relational\nOperator2" -- block-group
+		{
+		 block: "RelationalOperator"
+		}
+			p_0_ZOP_Main_boolean_T_12[10]
+			{
+			 type:    uint(8)*
+			 alias:   "Out1"
+			 range:   < 0 ; 1 >
+			 bitmask: 0x01
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Relational\nOperator2"
+
+		group "Relational\nOperator4" -- block-group
+		{
+		 block: "RelationalOperator"
+		}
+			p_0_ZOP_Main_boolean_T_12[9]
+			{
+			 type:    uint(8)*
+			 alias:   "Out1"
+			 range:   < 0 ; 1 >
+			 bitmask: 0x01
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Relational\nOperator4"
+
+		group "Switch" -- block-group
+		{
+		 block: "Switch"
+		}
+			p_0_ZOP_Main_real_T_6[8]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Switch"
+
+		group "Switch1" -- block-group
+		{
+		 block: "Switch"
+		}
+			p_0_ZOP_Main_real_T_6[10]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Switch1"
+
+		group "Switch2" -- block-group
+		{
+		 block: "Switch"
+		}
+			p_0_ZOP_Main_real_T_6[9]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Switch2"
+
+		group "Unit Delay1" -- block-group
+		{
+		 block: "UnitDelay"
+		}
+			p_0_ZOP_Main_int8_T_11[1]
+			{
+			 type:    int(8)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+			p_2_ZOP_Main_int8_T_9[0]
+			{
+			 type:    int(8)*
+			 alias:   "InitialCondition"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Unit Delay1"
+
+		group "Unit Delay2" -- block-group
+		{
+		 block: "UnitDelay"
+		}
+			p_0_ZOP_Main_boolean_T_12[8]
+			{
+			 type:    uint(8)*
+			 alias:   "Out1"
+			 range:   < 0 ; 1 >
+			 bitmask: 0x01
+			 flags:   OUTPUT|READONLY
+			}
+			p_2_ZOP_Main_boolean_T_8[7]
+			{
+			 type:    uint(8)*
+			 alias:   "InitialCondition"
+			 range:   < 0 ; 1 >
+			 bitmask: 0x01
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Unit Delay2"
+
+		group "Unit Delay3" -- block-group
+		{
+		 block: "UnitDelay"
+		}
+			p_0_ZOP_Main_int8_T_11[2]
+			{
+			 type:    int(8)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+			p_2_ZOP_Main_int8_T_9[1]
+			{
+			 type:    int(8)*
+			 alias:   "InitialCondition"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Unit Delay3"
+
+		group "Unit Delay4" -- block-group
+		{
+		 block: "UnitDelay"
+		}
+			p_0_ZOP_Main_real32_T_8[8]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+			p_2_ZOP_Main_real32_T_6[12]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "InitialCondition"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Unit Delay4"
+
+		group "Unit Delay5" -- block-group
+		{
+		 block: "UnitDelay"
+		}
+			p_0_ZOP_Main_int8_T_11[3]
+			{
+			 type:    int(8)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+			p_2_ZOP_Main_int8_T_9[2]
+			{
+			 type:    int(8)*
+			 alias:   "InitialCondition"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Unit Delay5"
+
+  
+  
+		group "LaneStateProcess" -- subsystem-group
+
+			p_0_ZOP_Main_real32_T_8[19]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "LaneCurPost"
+			 flags:   OUTPUT|READONLY
+			}
+			p_0_ZOP_Main_real32_T_8[20]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "LaneStable"
+			 flags:   OUTPUT|READONLY
+			}
+
+			trcref0_MODE_ZOP_LC
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "MODE_ZOP_LC"
+			 alias:    "MODE_ZOP_LC"
+			}
+			-- Skipping parameter "MODE_ZOP_LC"
+
+
+
+		endgroup -- subsystem-group "LaneStateProcess"
+  
+  
+		group "TargetCheck" -- subsystem-group
+
+			p_0_ZOP_Main_ZOP_Object_ST_2[1]
+			{
+			 type:    ZOP_Main_ArrayDT42_8*
+			 alias:   "ObjTarget"
+			 flags:   OUTPUT|READONLY
+			}
+			p_0_ZOP_Main_real_T_6[11]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "ObjNum"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+  
+  
+			group "DEFAULT.CheckTargetF" -- subsystem-group
+
+				p_0_ZOP_Main_boolean_T_12[25]
+				{
+				 type:    uint(8)*
+				 alias:   "TargetExist"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   OUTPUT|READONLY
+				}
+				p_0_ZOP_Main_boolean_T_12[29]
+				{
+				 type:    uint(8)*
+				 alias:   "TargetExist2"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   OUTPUT|READONLY
+				}
+
+
+				group "Abs" -- block-group
+				{
+				 block: "Abs"
+				}
+					p_0_ZOP_Main_real_T_6[31]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Abs"
+
+				group "Abs1" -- block-group
+				{
+				 block: "Abs"
+				}
+					p_0_ZOP_Main_real_T_6[32]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Abs1"
+
+				group "Abs4" -- block-group
+				{
+				 block: "Abs"
+				}
+					p_0_ZOP_Main_real32_T_8[10]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Abs4"
+
+				group "Abs5" -- block-group
+				{
+				 block: "Abs"
+				}
+					p_0_ZOP_Main_real_T_6[17]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Abs5"
+
+				group "C" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_5[25]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "C"
+
+				group "C1" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_5[44]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "C1"
+
+				group "C2" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_5[42]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "C2"
+
+				group "CF1" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_5[32]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "CF1"
+
+				group "CF2" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_5[33]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "CF2"
+
+				group "CF3" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_5[40]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "CF3"
+
+				group "CF4" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_5[41]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "CF4"
+
+				group "CF5" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_5[43]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "CF5"
+
+				group "Constant1" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_5[29]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant1"
+
+				group "Constant10" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_5[28]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant10"
+
+				group "Constant2" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_5[34]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant2"
+
+				group "Constant36" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_5[37]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant36"
+
+				group "Constant7" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_5[31]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant7"
+
+				group "Constant9" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_5[26]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant9"
+
+				group "Gain" -- block-group
+				{
+				 block: "Gain"
+				}
+					p_0_ZOP_Main_real_T_6[24]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_ZOP_Main_real_T_5[36]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Gain"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Gain"
+
+				group "Gain1" -- block-group
+				{
+				 block: "Gain"
+				}
+					p_0_ZOP_Main_real_T_6[27]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_ZOP_Main_real_T_5[39]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Gain"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Gain1"
+
+				group "Gain3" -- block-group
+				{
+				 block: "Gain"
+				}
+					p_0_ZOP_Main_real_T_6[18]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_ZOP_Main_real_T_5[27]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Gain"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Gain3"
+
+				group "Logical\nOperator2" -- block-group
+				{
+				 block: "Logic"
+				}
+					p_0_ZOP_Main_boolean_T_12[18]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Logical\nOperator2"
+
+				group "Logical\nOperator3" -- block-group
+				{
+				 block: "Logic"
+				}
+					p_0_ZOP_Main_boolean_T_12[21]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Logical\nOperator3"
+
+				group "Logical\nOperator4" -- block-group
+				{
+				 block: "Logic"
+				}
+					p_0_ZOP_Main_boolean_T_12[29]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Logical\nOperator4"
+
+				group "Logical\nOperator5" -- block-group
+				{
+				 block: "Logic"
+				}
+					p_0_ZOP_Main_boolean_T_12[25]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Logical\nOperator5"
+
+				group "Logical\nOperator6" -- block-group
+				{
+				 block: "Logic"
+				}
+					p_0_ZOP_Main_boolean_T_12[15]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Logical\nOperator6"
+
+				group "MinMax" -- block-group
+				{
+				 block: "MinMax"
+				}
+					p_0_ZOP_Main_real_T_6[14]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "MinMax"
+
+				group "Divide" -- block-group
+				{
+				 block: "Product"
+				}
+					p_0_ZOP_Main_real_T_6[22]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Divide"
+
+				group "Divide1" -- block-group
+				{
+				 block: "Product"
+				}
+					p_0_ZOP_Main_real_T_6[30]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Divide1"
+
+				group "Divide2" -- block-group
+				{
+				 block: "Product"
+				}
+					p_0_ZOP_Main_real_T_6[15]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Divide2"
+
+				group "Product" -- block-group
+				{
+				 block: "Product"
+				}
+					p_0_ZOP_Main_real_T_6[25]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Product"
+
+				group "Product1" -- block-group
+				{
+				 block: "Product"
+				}
+					p_0_ZOP_Main_real_T_6[28]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Product1"
+
+				group "Relational\nOperator1" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_ZOP_Main_boolean_T_12[28]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Relational\nOperator1"
+
+				group "Relational\nOperator10" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_ZOP_Main_boolean_T_12[20]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Relational\nOperator10"
+
+				group "Relational\nOperator11" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_ZOP_Main_boolean_T_12[26]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Relational\nOperator11"
+
+				group "Relational\nOperator12" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_ZOP_Main_boolean_T_12[27]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Relational\nOperator12"
+
+				group "Relational\nOperator2" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_ZOP_Main_boolean_T_12[24]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Relational\nOperator2"
+
+				group "Relational\nOperator3" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_ZOP_Main_boolean_T_12[16]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Relational\nOperator3"
+
+				group "Relational\nOperator4" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_ZOP_Main_boolean_T_12[17]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Relational\nOperator4"
+
+				group "Relational\nOperator5" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_ZOP_Main_boolean_T_12[14]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Relational\nOperator5"
+
+				group "Relational\nOperator8" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_ZOP_Main_boolean_T_12[13]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Relational\nOperator8"
+
+				group "Relational\nOperator9" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_ZOP_Main_boolean_T_12[19]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Relational\nOperator9"
+
+				group "Saturation" -- block-group
+				{
+				 block: "Saturate"
+				}
+					p_0_ZOP_Main_real32_T_8[11]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_ZOP_Main_real32_T_6[8]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "UpperLimit"
+					 flags:   PARAM
+					}
+					p_2_ZOP_Main_real32_T_6[9]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "LowerLimit"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Saturation"
+
+				group "Saturation1" -- block-group
+				{
+				 block: "Saturate"
+				}
+					p_0_ZOP_Main_real32_T_8[12]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_ZOP_Main_real32_T_6[10]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "UpperLimit"
+					 flags:   PARAM
+					}
+					p_2_ZOP_Main_real32_T_6[11]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "LowerLimit"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Saturation1"
+
+				group "Add3" -- block-group
+				{
+				 block: "Sum"
+				}
+					p_0_ZOP_Main_real_T_6[29]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Add3"
+
+				group "Add6" -- block-group
+				{
+				 block: "Sum"
+				}
+					p_0_ZOP_Main_real_T_6[19]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Add6"
+
+				group "Add7" -- block-group
+				{
+				 block: "Sum"
+				}
+					p_0_ZOP_Main_real_T_6[16]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Add7"
+
+				group "Switch1" -- block-group
+				{
+				 block: "Switch"
+				}
+					p_0_ZOP_Main_real_T_6[21]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_ZOP_Main_real_T_5[30]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Threshold"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Switch1"
+
+				group "Switch2" -- block-group
+				{
+				 block: "Switch"
+				}
+					p_0_ZOP_Main_real_T_6[23]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_ZOP_Main_real_T_5[35]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Threshold"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Switch2"
+
+				group "Switch3" -- block-group
+				{
+				 block: "Switch"
+				}
+					p_0_ZOP_Main_real_T_6[20]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Switch3"
+
+				group "Switch4" -- block-group
+				{
+				 block: "Switch"
+				}
+					p_0_ZOP_Main_real_T_6[26]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_ZOP_Main_real_T_5[38]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Threshold"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Switch4"
+
+				group "Switch7" -- block-group
+				{
+				 block: "Switch"
+				}
+					p_0_ZOP_Main_boolean_T_12[23]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Switch7"
+
+				group "Unit Delay1" -- block-group
+				{
+				 block: "UnitDelay"
+				}
+					p_0_ZOP_Main_boolean_T_12[22]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_ZOP_Main_boolean_T_8[5]
+					{
+					 type:    uint(8)*
+					 alias:   "InitialCondition"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Unit Delay1"
+
+
+
+			endgroup -- subsystem-group "DEFAULT.CheckTargetF"
+  
+  
+			group "DEFAULT.CheckTargetR" -- subsystem-group
+
+				p_0_ZOP_Main_boolean_T_12[42]
+				{
+				 type:    uint(8)*
+				 alias:   "TargetExist"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   OUTPUT|READONLY
+				}
+				p_0_ZOP_Main_boolean_T_12[46]
+				{
+				 type:    uint(8)*
+				 alias:   "TargetExist2"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   OUTPUT|READONLY
+				}
+
+
+				group "Abs" -- block-group
+				{
+				 block: "Abs"
+				}
+					p_0_ZOP_Main_real_T_6[50]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Abs"
+
+				group "Abs1" -- block-group
+				{
+				 block: "Abs"
+				}
+					p_0_ZOP_Main_real_T_6[51]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Abs1"
+
+				group "Abs2" -- block-group
+				{
+				 block: "Abs"
+				}
+					p_0_ZOP_Main_real32_T_8[13]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Abs2"
+
+				group "Abs4" -- block-group
+				{
+				 block: "Abs"
+				}
+					p_0_ZOP_Main_real32_T_8[14]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Abs4"
+
+				group "Abs5" -- block-group
+				{
+				 block: "Abs"
+				}
+					p_0_ZOP_Main_real_T_6[36]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Abs5"
+
+				group "C" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_5[5]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "C"
+
+				group "C1" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_5[24]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "C1"
+
+				group "C2" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_5[22]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "C2"
+
+				group "CK1" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_5[12]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "CK1"
+
+				group "CK2" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_5[13]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "CK2"
+
+				group "CK3" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_5[20]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "CK3"
+
+				group "CK4" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_5[21]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "CK4"
+
+				group "CK5" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_5[23]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "CK5"
+
+				group "Constant1" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_5[9]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant1"
+
+				group "Constant10" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_5[8]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant10"
+
+				group "Constant2" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_5[14]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant2"
+
+				group "Constant36" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_5[17]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant36"
+
+				group "Constant7" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_5[11]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant7"
+
+				group "Constant9" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_5[6]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant9"
+
+				group "Gain" -- block-group
+				{
+				 block: "Gain"
+				}
+					p_0_ZOP_Main_real_T_6[43]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_ZOP_Main_real_T_5[16]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Gain"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Gain"
+
+				group "Gain1" -- block-group
+				{
+				 block: "Gain"
+				}
+					p_0_ZOP_Main_real_T_6[46]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_ZOP_Main_real_T_5[19]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Gain"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Gain1"
+
+				group "Gain2" -- block-group
+				{
+				 block: "Gain"
+				}
+					p_0_ZOP_Main_real32_T_8[16]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_ZOP_Main_real32_T_6[4]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Gain"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Gain2"
+
+				group "Gain3" -- block-group
+				{
+				 block: "Gain"
+				}
+					p_0_ZOP_Main_real_T_6[37]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_ZOP_Main_real_T_5[7]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Gain"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Gain3"
+
+				group "Gain4" -- block-group
+				{
+				 block: "Gain"
+				}
+					p_0_ZOP_Main_real32_T_8[17]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_ZOP_Main_real32_T_6[5]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Gain"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Gain4"
+
+				group "Logical\nOperator2" -- block-group
+				{
+				 block: "Logic"
+				}
+					p_0_ZOP_Main_boolean_T_12[35]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Logical\nOperator2"
+
+				group "Logical\nOperator3" -- block-group
+				{
+				 block: "Logic"
+				}
+					p_0_ZOP_Main_boolean_T_12[38]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Logical\nOperator3"
+
+				group "Logical\nOperator4" -- block-group
+				{
+				 block: "Logic"
+				}
+					p_0_ZOP_Main_boolean_T_12[46]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Logical\nOperator4"
+
+				group "Logical\nOperator5" -- block-group
+				{
+				 block: "Logic"
+				}
+					p_0_ZOP_Main_boolean_T_12[42]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Logical\nOperator5"
+
+				group "Logical\nOperator6" -- block-group
+				{
+				 block: "Logic"
+				}
+					p_0_ZOP_Main_boolean_T_12[32]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Logical\nOperator6"
+
+				group "MinMax" -- block-group
+				{
+				 block: "MinMax"
+				}
+					p_0_ZOP_Main_real_T_6[33]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "MinMax"
+
+				group "Divide" -- block-group
+				{
+				 block: "Product"
+				}
+					p_0_ZOP_Main_real_T_6[41]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Divide"
+
+				group "Divide1" -- block-group
+				{
+				 block: "Product"
+				}
+					p_0_ZOP_Main_real_T_6[49]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Divide1"
+
+				group "Divide2" -- block-group
+				{
+				 block: "Product"
+				}
+					p_0_ZOP_Main_real_T_6[34]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Divide2"
+
+				group "Product" -- block-group
+				{
+				 block: "Product"
+				}
+					p_0_ZOP_Main_real_T_6[44]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Product"
+
+				group "Product1" -- block-group
+				{
+				 block: "Product"
+				}
+					p_0_ZOP_Main_real_T_6[47]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Product1"
+
+				group "Relational\nOperator1" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_ZOP_Main_boolean_T_12[45]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Relational\nOperator1"
+
+				group "Relational\nOperator10" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_ZOP_Main_boolean_T_12[37]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Relational\nOperator10"
+
+				group "Relational\nOperator11" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_ZOP_Main_boolean_T_12[43]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Relational\nOperator11"
+
+				group "Relational\nOperator12" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_ZOP_Main_boolean_T_12[44]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Relational\nOperator12"
+
+				group "Relational\nOperator2" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_ZOP_Main_boolean_T_12[41]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Relational\nOperator2"
+
+				group "Relational\nOperator3" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_ZOP_Main_boolean_T_12[33]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Relational\nOperator3"
+
+				group "Relational\nOperator4" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_ZOP_Main_boolean_T_12[34]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Relational\nOperator4"
+
+				group "Relational\nOperator5" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_ZOP_Main_boolean_T_12[31]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Relational\nOperator5"
+
+				group "Relational\nOperator8" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_ZOP_Main_boolean_T_12[30]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Relational\nOperator8"
+
+				group "Relational\nOperator9" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_ZOP_Main_boolean_T_12[36]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Relational\nOperator9"
+
+				group "Saturation" -- block-group
+				{
+				 block: "Saturate"
+				}
+					p_0_ZOP_Main_real32_T_8[15]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_ZOP_Main_real32_T_6[2]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "UpperLimit"
+					 flags:   PARAM
+					}
+					p_2_ZOP_Main_real32_T_6[3]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "LowerLimit"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Saturation"
+
+				group "Saturation1" -- block-group
+				{
+				 block: "Saturate"
+				}
+					p_0_ZOP_Main_real32_T_8[18]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_ZOP_Main_real32_T_6[6]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "UpperLimit"
+					 flags:   PARAM
+					}
+					p_2_ZOP_Main_real32_T_6[7]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "LowerLimit"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Saturation1"
+
+				group "Add3" -- block-group
+				{
+				 block: "Sum"
+				}
+					p_0_ZOP_Main_real_T_6[48]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Add3"
+
+				group "Add6" -- block-group
+				{
+				 block: "Sum"
+				}
+					p_0_ZOP_Main_real_T_6[38]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Add6"
+
+				group "Add7" -- block-group
+				{
+				 block: "Sum"
+				}
+					p_0_ZOP_Main_real_T_6[35]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Add7"
+
+				group "Switch1" -- block-group
+				{
+				 block: "Switch"
+				}
+					p_0_ZOP_Main_real_T_6[40]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_ZOP_Main_real_T_5[10]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Threshold"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Switch1"
+
+				group "Switch2" -- block-group
+				{
+				 block: "Switch"
+				}
+					p_0_ZOP_Main_real_T_6[42]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_ZOP_Main_real_T_5[15]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Threshold"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Switch2"
+
+				group "Switch3" -- block-group
+				{
+				 block: "Switch"
+				}
+					p_0_ZOP_Main_real_T_6[39]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Switch3"
+
+				group "Switch4" -- block-group
+				{
+				 block: "Switch"
+				}
+					p_0_ZOP_Main_real_T_6[45]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_ZOP_Main_real_T_5[18]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Threshold"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Switch4"
+
+				group "Switch7" -- block-group
+				{
+				 block: "Switch"
+				}
+					p_0_ZOP_Main_boolean_T_12[40]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Switch7"
+
+				group "Unit Delay1" -- block-group
+				{
+				 block: "UnitDelay"
+				}
+					p_0_ZOP_Main_boolean_T_12[39]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_ZOP_Main_boolean_T_8[2]
+					{
+					 type:    uint(8)*
+					 alias:   "InitialCondition"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Unit Delay1"
+
+
+
+			endgroup -- subsystem-group "DEFAULT.CheckTargetR"
+
+
+		endgroup -- subsystem-group "TargetCheck"
+  
+  
+		group "ZOP_State_Machine" -- subsystem-group
+
+			p_4_ZOP_Main_int8_T_3[1]
+			{
+			 type:    int(8)*
+			 alias:   "ZOP_Mode"
+			 flags:   OUTPUT|READONLY
+			}
+			p_4_ZOP_Main_int8_T_3[0]
+			{
+			 type:    int(8)*
+			 alias:   "ZOP_Finish"
+			 flags:   OUTPUT|READONLY
+			}
+			p_0_ZOP_Main_ZOP_Var_ST_0[0]
+			{
+			 type:    struct ZOP_Main_ZOP_Var_ST*
+			 alias:   "ZOP_Vars"
+			 flags:   OUTPUT|READONLY
+			}
+			p_0_ZOP_Main_int8_T_11[14]
+			{
+			 type:    int(8)*
+			 alias:   "LaneChangeCmd"
+			 flags:   OUTPUT|READONLY
+			}
+			p_0_ZOP_Main_int8_T_11[15]
+			{
+			 type:    int(8)*
+			 alias:   "LaneChangeDir"
+			 flags:   OUTPUT|READONLY
+			}
+
+			trcref0_MODE_ZOP_ERROR
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "MODE_ZOP_ERROR"
+			 alias:    "MODE_ZOP_ERROR"
+			}
+			trcref1_MODE_ZOP_FINISH
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "MODE_ZOP_FINISH"
+			 alias:    "MODE_ZOP_FINISH"
+			}
+			trcref2_MODE_ZOP_HOLD
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "MODE_ZOP_HOLD"
+			 alias:    "MODE_ZOP_HOLD"
+			}
+			trcref3_MODE_ZOP_LC
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "MODE_ZOP_LC"
+			 alias:    "MODE_ZOP_LC"
+			}
+			trcref4_MODE_ZOP_OFF
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "MODE_ZOP_OFF"
+			 alias:    "MODE_ZOP_OFF"
+			}
+			trcref5_MODE_ZOP_OVERIDE
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "MODE_ZOP_OVERIDE"
+			 alias:    "MODE_ZOP_OVERIDE"
+			}
+			trcref6_MODE_ZOP_PASSIVE
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "MODE_ZOP_PASSIVE"
+			 alias:    "MODE_ZOP_PASSIVE"
+			}
+			trcref7_MODE_ZOP_READY
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "MODE_ZOP_READY"
+			 alias:    "MODE_ZOP_READY"
+			}
+			trcref8_k_ZOP_ALC_D10
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_ALC_D10"
+			 alias:    "k_ZOP_ALC_D10"
+			}
+			trcref9_k_ZOP_ALC_Enable
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_ALC_Enable"
+			 alias:    "k_ZOP_ALC_Enable"
+			}
+			trcref10_k_ZOP_ALC_Ramp
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_ALC_Ramp"
+			 alias:    "k_ZOP_ALC_Ramp"
+			}
+			trcref11_k_ZOP_ALC_SCnt
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_ALC_SCnt"
+			 alias:    "k_ZOP_ALC_SCnt"
+			}
+			trcref12_k_ZOP_ALC_SCnt_LC
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_ALC_SCnt_LC"
+			 alias:    "k_ZOP_ALC_SCnt_LC"
+			}
+			trcref13_k_ZOP_ALC_SCnt_Thr
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_ALC_SCnt_Thr"
+			 alias:    "k_ZOP_ALC_SCnt_Thr"
+			}
+			trcref14_k_ZOP_ALC_SCnt_Thr_LC
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_ALC_SCnt_Thr_LC"
+			 alias:    "k_ZOP_ALC_SCnt_Thr_LC"
+			}
+			trcref15_k_ZOP_ALC_SNCnt
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_ALC_SNCnt"
+			 alias:    "k_ZOP_ALC_SNCnt"
+			}
+			trcref16_k_ZOP_ALC_SNCnt_LC
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_ALC_SNCnt_LC"
+			 alias:    "k_ZOP_ALC_SNCnt_LC"
+			}
+			trcref17_k_ZOP_ALC_SpdEnable
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_ALC_SpdEnable"
+			 alias:    "k_ZOP_ALC_SpdEnable"
+			}
+			trcref18_k_ZOP_HoldCnt
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_HoldCnt"
+			 alias:    "k_ZOP_HoldCnt"
+			}
+			trcref19_k_ZOP_LCProCnt
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_LCProCnt"
+			 alias:    "k_ZOP_LCProCnt"
+			}
+			trcref20_k_ZOP_LCTimeMax
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_LCTimeMax"
+			 alias:    "k_ZOP_LCTimeMax"
+			}
+			trcref21_k_ZOP_MapFlag_Enable
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_MapFlag_Enable"
+			 alias:    "k_ZOP_MapFlag_Enable"
+			}
+			trcref22_k_ZOP_ObjSpd_cf
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_ObjSpd_cf"
+			 alias:    "k_ZOP_ObjSpd_cf"
+			}
+			trcref23_k_ZOP_SpdCkDstThr
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_SpdCkDstThr"
+			 alias:    "k_ZOP_SpdCkDstThr"
+			}
+			trcref24_k_ZOP_SpdLoThr
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_SpdLoThr"
+			 alias:    "k_ZOP_SpdLoThr"
+			}
+			trcref25_k_ZOP_SpdLoTimeThr
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_SpdLoTimeThr"
+			 alias:    "k_ZOP_SpdLoTimeThr"
+			}
+			-- Skipping parameter "MODE_ZOP_ERROR"
+			-- Skipping parameter "MODE_ZOP_FINISH"
+			-- Skipping parameter "MODE_ZOP_HOLD"
+			-- Skipping parameter "MODE_ZOP_LC"
+			-- Skipping parameter "MODE_ZOP_OFF"
+			-- Skipping parameter "MODE_ZOP_OVERIDE"
+			-- Skipping parameter "MODE_ZOP_PASSIVE"
+			-- Skipping parameter "MODE_ZOP_READY"
+			-- Skipping parameter "k_ZOP_ALC_D10"
+			-- Skipping parameter "k_ZOP_ALC_Enable"
+			-- Skipping parameter "k_ZOP_ALC_Ramp"
+			-- Skipping parameter "k_ZOP_ALC_SCnt"
+			-- Skipping parameter "k_ZOP_ALC_SCnt_LC"
+			-- Skipping parameter "k_ZOP_ALC_SCnt_Thr"
+			-- Skipping parameter "k_ZOP_ALC_SCnt_Thr_LC"
+			-- Skipping parameter "k_ZOP_ALC_SNCnt"
+			-- Skipping parameter "k_ZOP_ALC_SNCnt_LC"
+			-- Skipping parameter "k_ZOP_ALC_SpdEnable"
+			-- Skipping parameter "k_ZOP_HoldCnt"
+			-- Skipping parameter "k_ZOP_LCProCnt"
+			-- Skipping parameter "k_ZOP_LCTimeMax"
+			-- Skipping parameter "k_ZOP_MapFlag_Enable"
+			-- Skipping parameter "k_ZOP_ObjSpd_cf"
+			-- Skipping parameter "k_ZOP_SpdCkDstThr"
+			-- Skipping parameter "k_ZOP_SpdLoThr"
+			-- Skipping parameter "k_ZOP_SpdLoTimeThr"
+
+
+
+		endgroup -- subsystem-group "ZOP_State_Machine"
+
+
+	endgroup -- subsystem-group "ZOP_Main_OS"
+  
+  
+	group "ZOP_OS" -- subsystem-group
+
+		-- Skipping output do_ZOP_CAN()
+		-- Skipping output do_LightLogic()
+		-- Skipping output do_ZOP_Feature()
+		-- Skipping output do_LKS_CONV()
+
+
+
+
+	endgroup -- subsystem-group "ZOP_OS"
+
+
+
+endgroup -- "Model Root"
+-- ******** Tunable Parameters ************************************************
+
+group "Tunable Parameters"
+
+	p_2_ZOP_Main_real32_T_0[0]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "k_ZOP_ALC_D10"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_real32_T_0[1]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "k_ZOP_ALC_Enable"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_real32_T_0[2]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "k_ZOP_ALC_Ramp"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_real32_T_0[3]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "k_ZOP_HoldCnt"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_real32_T_0[4]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "k_ZOP_LCProCnt"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_real32_T_0[5]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "k_ZOP_LCTimeMax"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_real32_T_0[6]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "k_ZOP_LS_ChangingDist"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_real32_T_0[7]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "k_ZOP_LS_ChangingTime"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_real32_T_0[8]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "k_ZOP_MapFlag_Enable"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_real32_T_0[9]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "k_ZOP_ObjSpd_cf"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_real32_T_0[10]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "k_ZOP_SpdCkDstThr"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_real32_T_0[11]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "k_ZOP_SpdLmt_Enable"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_real32_T_0[12]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "k_ZOP_SpdLoThr"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_real32_T_0[13]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "k_ZOP_V2X_Enable"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_real32_T_0[14]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "k_ZOP_VcTJA_Enable"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_real32_T_0[15]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "k_ZOP_VoiceAct_Enable"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_int8_T_1[0]
+	{
+	 type:    int(8)*
+	 alias:   "k_ZOP_ALC_SCnt"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_int8_T_1[1]
+	{
+	 type:    int(8)*
+	 alias:   "k_ZOP_ALC_SCnt_LC"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_int8_T_1[2]
+	{
+	 type:    int(8)*
+	 alias:   "k_ZOP_ALC_SCnt_Thr"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_int8_T_1[3]
+	{
+	 type:    int(8)*
+	 alias:   "k_ZOP_ALC_SCnt_Thr_LC"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_int8_T_1[4]
+	{
+	 type:    int(8)*
+	 alias:   "k_ZOP_ALC_SNCnt"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_int8_T_1[5]
+	{
+	 type:    int(8)*
+	 alias:   "k_ZOP_ALC_SNCnt_LC"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_int8_T_1[6]
+	{
+	 type:    int(8)*
+	 alias:   "k_ZOP_ALC_SpdEnable"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_int8_T_1[7]
+	{
+	 type:    int(8)*
+	 alias:   "k_ZOP_SpdLoTimeThr"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_uint8_T_2[0]
+	{
+	 type:    uint(8)*
+	 alias:   "MODE_ZOP_ACTIVE"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_uint8_T_2[1]
+	{
+	 type:    uint(8)*
+	 alias:   "MODE_ZOP_ERROR"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_uint8_T_2[2]
+	{
+	 type:    uint(8)*
+	 alias:   "MODE_ZOP_FINISH"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_uint8_T_2[3]
+	{
+	 type:    uint(8)*
+	 alias:   "MODE_ZOP_HOLD"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_uint8_T_2[4]
+	{
+	 type:    uint(8)*
+	 alias:   "MODE_ZOP_LC"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_uint8_T_2[5]
+	{
+	 type:    uint(8)*
+	 alias:   "MODE_ZOP_OFF"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_uint8_T_2[6]
+	{
+	 type:    uint(8)*
+	 alias:   "MODE_ZOP_OVERIDE"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_uint8_T_2[7]
+	{
+	 type:    uint(8)*
+	 alias:   "MODE_ZOP_PASSIVE"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_uint8_T_2[8]
+	{
+	 type:    uint(8)*
+	 alias:   "MODE_ZOP_READY"
+	 flags:   PARAM
+	}
+
+endgroup
+
+-- ******** State Machine Data ************************************************
+
+group "State Machine Data"
+
+
+endgroup
+
+
+-- ******** Labels ************************************************************
+
+-- Generation of labels turned off with TRCGenerateLabels option.
+
+-- ******** RTT Dynamic Variables *********************************************
+
+group "RTT Dynamic Variables"
+
+endgroup
+
+-- ******** User variables from model_usr.trc *********************************
+
+-- RTI_USR_TRC_BEGIN
+
+-- No user file ZOP_Main_usr.trc found.
+
+-- RTI_USR_TRC_END
+
+-- ******** EESPort States Variables ******************************************
+group "XIL API"
+{ 
+  
+}
+
+  group "EESPort"
+  {  
+    
+  }
+
+    p_xilapi_eesport_activeerrorset_uint32_T
+    {
+      type:    uint(32)*
+      alias:   "Active ErrorSet"
+      desc:    "Index of active ErrorSet or 0 if no ErrorSet is active."
+      flags:   OUTPUT|READONLY
+      range:   < 0 ; 4294967295 >
+    }
+
+    p_xilapi_eesport_erroractivated_uint32_T
+    {
+      type:    uint(32)*
+      alias:   "Error Activated"
+      desc:    "0 - no error is activated on hardware, 1 - at least one error is activated on hardware."  
+      flags:   OUTPUT|READONLY
+      range:   < 0 ; 1 >
+    }
+
+    p_xilapi_eesport_errorswitching_uint32_T
+    {
+      type:    uint(32)*
+      alias:   "Error Switching"
+      desc:    "0 - no switching operation running on hardware, 1 -  switching operation running on hardware."
+      flags:   OUTPUT|READONLY
+      range:   < 0 ; 1 >
+    }
+
+    xilapi_eesport_flags_uint32_T
+    {
+      type:    uint(32)
+      alias:   "Flags"
+      flags:   OUTPUT|READONLY
+      range:   < 0 ; 4294967295 >
+    }
+
+    xilapi_eesport_trigger_uint32_T
+    {
+      type:    uint(32)
+      alias:   "Trigger"
+      flags:   OUTPUT|READONLY
+      range:   < 0 ; 4294967295 >
+    }
+
+    endgroup -- "EESPort"
+
+endgroup -- "XILAPI"
+
+
+
+-- ******** [EOF] *************************************************************
+

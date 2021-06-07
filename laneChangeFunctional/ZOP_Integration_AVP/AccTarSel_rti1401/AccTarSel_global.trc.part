@@ -1,0 +1,331 @@
+-- ******** Tunable Parameters ************************************************
+
+group "Tunable Parameters"
+
+	p_2_AccTarSel_real_T_0[0]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "P_vyCutInThres"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[0]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_aFOCApproachIntpAcitve"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[1]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_aFOCApproachIntpEnsure"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[2]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_adtMaxBDC"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[3]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_dAimMin"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[4]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_dObjDrvOffMax"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[5]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_dObjDrvOffMin"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[6]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_dObjLowHystDecToStop"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[7]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_dObjUpperHystDecToStop"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[8]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_dResMax"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[9]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_dStandStill"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[10]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_dStandStillMin"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[11]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_dvarYMax4PO"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[12]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_dyCutInThres"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[13]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_facBDCInit"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[14]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_facBDCIterCalc"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[15]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_facFOCNegDiff"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[16]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_facFOCPosDiff"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[17]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_kapHystThres"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[18]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_plausMin4PO"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[19]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_probExistMin4PO"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[20]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_tBDCStartFilt"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[21]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_tCurvFilt"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[22]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_tCutInFilt"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[23]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_tFOCStationary"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[24]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_tFiltAxAbsPO"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[25]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_tFiltVxAxPO"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[26]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_tMinDrvPhase"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[27]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_tRollingFilt"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[28]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_tRollingFinFilt"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[29]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_tSSCNeg"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[30]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_tSSCPos"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[31]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_tTimeGapSet"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[32]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_tToStop"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[33]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_tToStopInBDC"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[34]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_tToStopTrig"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[35]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_vEgoDecToStop"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[36]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_vEgoLowBDC"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[37]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_vFOCNegDiff"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[38]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_vFOCPosDiff"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[39]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_vObjDrvOff"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[40]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_vObjLowHystDecToStop"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[41]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_vObjNoStop"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[42]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_vObjReCalc"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[43]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_vObjStop"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[44]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_vObjUpperHystDecToStop"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_real32_T_1[45]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "P_vStandStill"
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_boolean_T_2[0]
+	{
+	 type:    uint(8)*
+	 alias:   "P_CutInEnable"
+	 bitmask: 0x01
+	 range:   < 0 ; 1 >
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_boolean_T_2[1]
+	{
+	 type:    uint(8)*
+	 alias:   "P_PlausIntegDisable"
+	 bitmask: 0x01
+	 range:   < 0 ; 1 >
+	 flags:   PARAM
+	}
+	p_2_AccTarSel_boolean_T_2[2]
+	{
+	 type:    uint(8)*
+	 alias:   "P_StandObjEnable"
+	 bitmask: 0x01
+	 range:   < 0 ; 1 >
+	 flags:   PARAM
+	}
+
+endgroup
+
+-- ******** State Machine Data ************************************************
+
+group "State Machine Data"
+
+
+endgroup
+
+
+-- ******** Labels ************************************************************
+
+-- Generation of labels turned off with TRCGenerateLabels option.
+
+-- ******** RTT Dynamic Variables *********************************************
+
+group "RTT Dynamic Variables"
+
+endgroup
+

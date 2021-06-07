@@ -1,0 +1,38 @@
+Microtec PowerPC Object Librarian    Fri Jan 29 10:19:05 2021
+
+	Version 3.8    
+OPEN fusionAlg_rtwlib.lib
+DIRECTORY fusionAlg_rtwlib.lib
+Microtec PowerPC Object Librarian       V 3.8      Fri Jan 29 10:19:05 2021
+
+
+IEEE-695 Library being built: fusionAlg_rtwlib.lib 
+
+ Module                                         Size
+
+funsionAlg_sfun_wrapper.o03 ...............     3580
+sensor_adapter.cppo03 .....................     5396
+fusion_process.cppo03 .....................    65980
+radar_track_predict.cppo03 ................     2552
+datastruct_fusion_internal_state.cppo03 ...    44212
+coordinate_align.cppo03 ...................     1476
+double_bounce_remover.cppo03 ..............    29544
+signal_preprocess.cppo03 ..................    33880
+cluster_update.cppo03 .....................      828
+fusion_predict.cppo03 .....................     2644
+predict.cppo03 ............................     2244
+association.cppo03 ........................    14508
+group.cppo03 ..............................    21004
+splitter.cppo03 ...........................     4356
+fusion_track_manager.cppo03 ...............     1056
+fusion_update.cppo03 ......................    17784
+track_manager.cppo03 ......................     8920
+post_fusion_process.cppo03 ................    18788
+output_adapter.cppo03 .....................    49828
+combine_all_radar.cppo03 ..................    72216
+fusionAlg.o03 .............................   850632
+fusionAlg_trc_ptr.o03 .....................     4672
+
+Module Count = 22 
+
+END

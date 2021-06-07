@@ -558,7 +558,8 @@ end
 
 function v_f_t = cal_v_f_t(v_f, a_f, Ti)
     %calculate v_f of time.
-    v_f_t = v_f + a_f * Ti;
+    v_f_t = v_f + a_f * Ti; v
+    
 end
 
 function dist_t = cal_dist_t(dist,v_f,a_f,Ti)

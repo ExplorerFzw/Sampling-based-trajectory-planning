@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="./js/coder_app.js"></script>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="./rtwreport_utils.js"></script>
+<script type="text/javascript" src="./rtwannotate.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/coder_app.css"/>
+</head>
+<body onload="srcFileOnload();">
+<pre id="code">
+<table class="code" id="codeTbl">
+<tr name="1" id="1">
+<td><a id="l1" class='ln'>1</a></td><td><span class="pp">#include"Parameters.h"</span></td></tr>
+<tr name="2" id="2">
+<td><a id="l2" class='ln'>2</a></td><td><span class="ct">//for different velocity , the threshold of transfering to driving straight from Unknown</span></td></tr>
+<tr name="3" id="3">
+<td><a id="l3" class='ln'>3</a></td><td><span class="kw">float</span> <a id="3c7" class="tk">P_Veh2Yawrate_Arr</a>[6] = <span class="br">{</span>0,5.55,8.33,13.89,22.22,27.78<span class="br">}</span>;</td></tr>
+<tr name="4" id="4">
+<td><a id="l4" class='ln'>4</a></td><td><span class="kw">float</span> <a id="4c7" class="tk">P_MaxYawrate2DiffVxWithinDrStrgt_Arr</a>[6] = <span class="br">{</span>0.6,0.4,0.14,0.08,0,05<span class="br">}</span>;</td></tr>
+<tr name="5" id="5">
+<td><a id="l5" class='ln'>5</a></td><td><span class="ct">//for different velocity , the threshold of transfering to turn left/right from driving straight</span></td></tr>
+<tr name="6" id="6">
+<td><a id="l6" class='ln'>6</a></td><td><span class="kw">float</span> <a id="6c7" class="tk">P_Veh2Yawrate4TurnLOrR_Arr</a>[6] = <span class="br">{</span> 0,5.55,8.33,13.89,22.22,27.78 <span class="br">}</span>;</td></tr>
+<tr name="7" id="7">
+<td><a id="l7" class='ln'>7</a></td><td><span class="kw">float</span> <a id="7c7" class="tk">P_MinYawrate2DiffVx4Trans2TurnLOrR_Arr</a>[6] = <span class="br">{</span> 0.4,0.2,0.1,0.08,0,05 <span class="br">}</span>;</td></tr>
+<tr name="8" id="8">
+<td><a id="l8" class='ln'>8</a></td><td></td></tr>
+<tr name="9" id="9">
+<td><a id="l9" class='ln'>9</a></td><td><span class="kw">float</span> <a id="9c7" class="tk">P_Veh2Curv4TurnLOrR_Arr</a>[6] = <span class="br">{</span> 0,3.55,8.33,13.89,22.22,27.78 <span class="br">}</span>;</td></tr>
+<tr name="10" id="10">
+<td><a id="l10" class='ln'>10</a></td><td><span class="kw">float</span> <a id="10c7" class="tk">P_MinCurv2DiffVx4Trans2TurnLOrR_Arr</a>[6] = <span class="br">{</span> 0.1,0.02,0.01,0.005,0,002 <span class="br">}</span>;</td></tr>
+<tr name="11" id="11">
+<td><a id="l11" class='ln'>11</a></td><td></td></tr>
+<tr name="12" id="12">
+<td><a id="l12" class='ln'>12</a></td><td><span class="kw">float</span> <a id="12c7" class="tk">P_Veh2Accl4TurnLOrR_Arr</a>[6] = <span class="br">{</span> 0,5.55,8.33,13.89,22.22,27.78 <span class="br">}</span>;</td></tr>
+<tr name="13" id="13">
+<td><a id="l13" class='ln'>13</a></td><td><span class="kw">float</span> <a id="13c7" class="tk">P_MaxAccl2DiffVx4Trans2TurnLOrR_Arr</a>[6] = <span class="br">{</span> 4,2,1.0,0.8,0.5,0.2 <span class="br">}</span>;</td></tr>
+<tr name="14" id="14">
+<td><a id="l14" class='ln'>14</a></td><td></td></tr>
+<tr name="15" id="15">
+<td><a id="l15" class='ln'>15</a></td><td><span class="kw">float</span> <a id="15c7" class="tk">P_Veh2Decl4TurnLOrR_Arr</a>[6] = <span class="br">{</span> 0,5.55,8.33,13.89,22.22,27.78 <span class="br">}</span>;</td></tr>
+<tr name="16" id="16">
+<td><a id="l16" class='ln'>16</a></td><td><span class="kw">float</span> <a id="16c7" class="tk">P_MaxDecl2DiffVx4Trans2TurnLOrR_Arr</a>[6] = <span class="br">{</span> <a id="16c50" class="tk">-</a>4,<a id="16c53" class="tk">-</a>3.2,<a id="16c58" class="tk">-</a>2.14,<a id="16c64" class="tk">-</a>2.08,<a id="16c70" class="tk">-</a>2.0,<a id="16c75" class="tk">-</a>1.0 <span class="br">}</span>;</td></tr>
+<tr name="17" id="17">
+<td><a id="l17" class='ln'>17</a></td><td></td></tr>
+<tr name="18" id="18">
+<td><a id="l18" class='ln'>18</a></td><td><span class="kw">float</span> <a id="18c7" class="tk">P_Veh2Yaw1s4TurnLOrR_Arr</a>[6] = <span class="br">{</span> 0,5.55,8.33,13.89,22.22,27.78 <span class="br">}</span>;</td></tr>
+<tr name="19" id="19">
+<td><a id="l19" class='ln'>19</a></td><td><span class="kw">float</span> <a id="19c7" class="tk">P_MinYaw1sDiffVx4Trans2TurnLOrR_Arr</a>[6] = <span class="br">{</span> 0.3,0.2,0.1,0.04,0,02 <span class="br">}</span>;</td></tr>
+<tr name="20" id="20">
+<td><a id="l20" class='ln'>20</a></td><td></td></tr>
+<tr name="21" id="21">
+<td><a id="l21" class='ln'>21</a></td><td><span class="kw">float</span> <a id="21c7" class="tk">P_Veh2Yaw2s4TurnLOrR_Arr</a>[6] = <span class="br">{</span> 0,5.55,8.33,13.89,22.22,27.78 <span class="br">}</span>;</td></tr>
+<tr name="22" id="22">
+<td><a id="l22" class='ln'>22</a></td><td><span class="kw">float</span> <a id="22c7" class="tk">P_MinYaw2sDiffVx4Trans2TurnLOrR_Arr</a>[6] = <span class="br">{</span> 0.5,0.3,0.2,0.08,0,04 <span class="br">}</span>;</td></tr>
+<tr name="23" id="23">
+<td><a id="l23" class='ln'>23</a></td><td></td></tr>
+<tr name="24" id="24">
+<td><a id="l24" class='ln'>24</a></td><td><span class="kw">float</span> <a id="24c7" class="tk">P_MaxVelocity4TurnLeftOrRight_F</a> = 25;<span class="ct">//90kph</span></td></tr>
+<tr name="25" id="25">
+<td><a id="l25" class='ln'>25</a></td><td><span class="kw">float</span> <a id="25c7" class="tk">P_MinVelocity4TurnLeftOrRight_F</a> = 1.1;<span class="ct">//4kph</span></td></tr>
+<tr name="26" id="26">
+<td><a id="l26" class='ln'>26</a></td><td></td></tr>
+</table>
+</pre>
+</body>
+</html>

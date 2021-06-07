@@ -1,0 +1,18 @@
+Microtec PowerPC Object Librarian    Wed Mar 17 16:04:19 2021
+
+	Version 3.8    
+OPEN AVP_Main_rtwlib.lib
+DIRECTORY AVP_Main_rtwlib.lib
+Microtec PowerPC Object Librarian       V 3.8      Wed Mar 17 16:04:19 2021
+
+
+IEEE-695 Library being built: AVP_Main_rtwlib.lib 
+
+ Module                      Size
+
+AVP_Main.o03 ...........     1944
+AVP_Main_trc_ptr.o03 ...     1312
+
+Module Count = 2 
+
+END

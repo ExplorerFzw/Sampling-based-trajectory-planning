@@ -1,0 +1,2 @@
+
+COMPILING  "..\slprj\rti1401\_sharedutils\xswap_dkg56tB7.c"  

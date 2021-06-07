@@ -1,0 +1,1754 @@
+
+
+-- Type definitions for structures
+
+struct ZOP_Main_SystemCmd_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "SystemEnable"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "SystemOn"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "SystemCancel"
+      type:    uint(8)
+      offs:    -1
+    }
+endstruct
+
+struct ZOP_Main_VSI_VEHSTATE_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "YrsF"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "AxSensorF"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "StWheelAngleF"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "vRef"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "aRef"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "AxSlope"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "AxSlopeValid"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField7 
+    {
+      alias:   "Curvature"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct ZOP_Main_FUS_OBJ_TRACK_EST_ST
+{
+  array-incr: -1
+  desc:       "fusion object estimate"
+}
+    structField0 
+    {
+      alias:   "longPosition"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The longitudinal distance to the middle of nearest facing side of the object.Measured in the reference coordinate system"
+    }
+    structField1 
+    {
+      alias:   "latPosition"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The lateral distance to the middle of nearest facing side of the object.Measured in the reference coordinate system"
+    }
+    structField2 
+    {
+      alias:   "headingAngle"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The heading angle for a vechile.It is defined as the angle between the heading of the detected vehicle and the heading of the host vehicle."
+    }
+    structField3 
+    {
+      alias:   "speed"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The vehicle speed relative to the ground and in direction of the vehicle traveling"
+    }
+    structField4 
+    {
+      alias:   "yawRate"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The yawRate of the object in the reference coordinate system"
+    }
+    structField5 
+    {
+      alias:   "longRelativeVelocity"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The longitudinal relative velocity of the object in the reference coordinate system."
+    }
+    structField6 
+    {
+      alias:   "latRelativeVelocity"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The lateral relative velocity of the object in the reference coordinate system."
+    }
+    structField7 
+    {
+      alias:   "longAbsoluteVelocity"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The longitudinal absolute velocity of the object in the reference coordinate system."
+    }
+    structField8 
+    {
+      alias:   "latAbsoluteVelocity"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The lateral absolute velocity of the object in the reference coordinate system."
+    }
+    structField9 
+    {
+      alias:   "acceleration"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The vehicle acceleration relative to the ground and in direction of the vehicle traveling"
+    }
+    structField10 
+    {
+      alias:   "longRelativeAcceleration"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The longitudinal relative acceleration of the object in the reference coordinate system."
+    }
+    structField11 
+    {
+      alias:   "latRelativeAcceleration"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The lateral relative acceleration of the object in the reference coordinate system."
+    }
+    structField12 
+    {
+      alias:   "longAbsoluteAcceleration"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The longitudinal absolute acceleration of the object in the reference coordinate system."
+    }
+    structField13 
+    {
+      alias:   "latAbsoluteAcceleration"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The lateral absolute acceleration of the object in the reference coordinate system."
+    }
+    structField14 
+    {
+      alias:   "curvature"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "the curvature of the object trajectory"
+    }
+endstruct
+
+struct ZOP_Main_FUS_OBJ_TRACK_PROP_ST
+{
+  array-incr: -1
+  desc:       "fusion object property"
+}
+    structField0 
+    {
+      alias:   "id"
+      type:    uint(8)
+      offs:    -1
+      desc:    "The obj id.The id number needs to be equal to the index in the object stucture"
+    }
+    structField1 
+    {
+      alias:   "fusionSource"
+      type:    uint(8)
+      offs:    -1
+      desc:    "fusionSource£º\n\n0: vision only\n1: radar only\n2: fused radar vision\n255: unkown"
+    }
+    structField2 
+    {
+      alias:   "motionModel"
+      type:    uint(8)
+      offs:    -1
+      desc:    "The motion model used for the object.\nFusion motion model£º\n0: CA\n1: CTRA\n255: unkown"
+    }
+    structField3 
+    {
+      alias:   "trackStatus"
+      type:    uint(8)
+      offs:    -1
+      desc:    "Fusion obj trace status:\n\n0: New(Initialized),\n1: Measured,\n2: Predicted,"
+    }
+    structField4 
+    {
+      alias:   "positionConfidence"
+      type:    uint(8)
+      offs:    -1
+      desc:    "Position confidence(Used in RoadGeometryFusion).\n0:Not Reliable \n1:Reliable"
+    }
+    structField5 
+    {
+      alias:   "fcwConfidence"
+      type:    uint(8)
+      offs:    -1
+      desc:    "The object confidence for function FCW.0:Not Reliable,1:Warning reliable"
+    }
+    structField6 
+    {
+      alias:   "tjaConfidence"
+      type:    uint(8)
+      offs:    -1
+      desc:    "The object confidence for function TJA.0:Not Reliable,1:Reliable 1:Reliable"
+    }
+    structField7 
+    {
+      alias:   "leftNearLaneMarkingConfidence"
+      type:    uint(8)
+      offs:    -1
+      desc:    "Left nearest lane marking confidence.Not Reliable"
+    }
+    structField8 
+    {
+      alias:   "rightNearLaneMarkingConfidence"
+      type:    uint(8)
+      offs:    -1
+      desc:    "Right nearest lane marking confidence.0:Not reliable,1:Reliable"
+    }
+    structField9 
+    {
+      alias:   "visionId"
+      type:    uint(8)
+      offs:    -1
+      desc:    "The vision id for the object.Note!The vision id number do not need to be equal to the index in the object structure"
+    }
+    structField10 
+    {
+      alias:   "accelerationStdDev"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Standard deviation for object acceleration"
+    }
+    structField11 
+    {
+      alias:   "headingAngleStdDev"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Standard deviation for the heading angle of the object"
+    }
+    structField12 
+    {
+      alias:   "latPositionStdDev"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Standard deviation for the lateral position of the object"
+    }
+    structField13 
+    {
+      alias:   "longPositionStdDev"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "standard deviation for longitudinal position of the object"
+    }
+    structField14 
+    {
+      alias:   "speedStdDev"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Standard deviation for object speed"
+    }
+endstruct
+
+struct ZOP_Main_FUS_OBJ_TRACK_INFO_ST
+{
+  array-incr: -1
+  desc:       "fusion object information"
+}
+    structField0 
+    {
+      alias:   "valid"
+      type:    uint(8)
+      offs:    -1
+      desc:    "the valid of fusion obj.\n0: invalid; \n1: valid"
+    }
+    structField1 
+    {
+      alias:   "type"
+      type:    uint(8)
+      offs:    -1
+      desc:    "Fusion Object classification\n\n0: Unknown\n1: Pedestrian\n2: Cyclist\n3: Bus\n4: Small_Medium_Car\n5: Trucks\n6: Tri-Motor\n7: Special_vehicle\n8: Tiny_car\n9: Ambulance\n10: UncertainVehicle"
+    }
+    structField2 
+    {
+      alias:   "nearestSide"
+      type:    uint(8)
+      offs:    -1
+      desc:    "which object side that is nearest (facing) the host vehicle\n0: Rear\n1: Front\n2: Right\n3: Left\n4: Unknown"
+    }
+    structField3 
+    {
+      alias:   "motionPatternCurrent"
+      type:    uint(8)
+      offs:    -1
+      desc:    "0:unknown,\n1:stationary,\n2:driving,\n3:oncoming,\n4:driving stopped\n5:oncoming stopped"
+    }
+    structField4 
+    {
+      alias:   "motionPatternHistory"
+      type:    uint(8)
+      offs:    -1
+      desc:    "0:unknown,1:stopped,2:recedable,3:oncomeable"
+    }
+    structField5 
+    {
+      alias:   "width"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The object width\nThe width is the extent of the nearest facing side"
+    }
+    structField6 
+    {
+      alias:   "height"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The object height."
+    }
+    structField7 
+    {
+      alias:   "length"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The object length."
+    }
+    structField8 
+    {
+      alias:   "distanceToleftNearLaneMarking"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The lateral distance between the object and the closest lane marking to the left"
+    }
+    structField9 
+    {
+      alias:   "distanceToRightNearLaneMarking"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The lateral distance between the object and the closest lane marking to the right"
+    }
+endstruct
+
+struct ZOP_Main_FUS_OBJ_DATA_ST
+{
+  array-incr: -1
+  desc:       "fusion object data"
+}
+    structField0 
+    {
+      alias:   "obj_estimate"
+      type:    struct ZOP_Main_FUS_OBJ_TRACK_EST_ST
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "obj_property"
+      type:    struct ZOP_Main_FUS_OBJ_TRACK_PROP_ST
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "obj_information"
+      type:    struct ZOP_Main_FUS_OBJ_TRACK_INFO_ST
+      offs:    -1
+    }
+endstruct
+
+typedef ZOP_Main_FUS_OBJ_OUTPUT_ST_objects_1 struct ZOP_Main_FUS_OBJ_DATA_ST[40]
+
+struct ZOP_Main_FUS_OBJ_OUTPUT_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "timeStamp"
+      type:    flt(64,IEEE)
+      offs:    -1
+      desc:    "Common timestamp for all object and barrier signals"
+    }
+    structField1 
+    {
+      alias:   "objects"
+      type:    ZOP_Main_FUS_OBJ_OUTPUT_ST_objects_1
+      offs:    -1
+      desc:    "fusion obj"
+    }
+    structField2 
+    {
+      alias:   "frameNum"
+      type:    uint(32)
+      offs:    -1
+      desc:    "frame nmber"
+    }
+endstruct
+
+struct ZOP_Main_FUS_LANE_START_POINT
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "x0"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "y0"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct ZOP_Main_FUS_LANE_TRACK_EST_ST
+{
+  array-incr: -1
+  desc:       "descripton of a curve as function f(x)= a + bx + cx^2 +dx^3 this structure defines the coefficient of the curve function"
+}
+    structField0 
+    {
+      alias:   "latDistanceZeroOrderCoeff"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "coefficient a"
+    }
+    structField1 
+    {
+      alias:   "latDistanceFirstOrderCoeff"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "coefficient b"
+    }
+    structField2 
+    {
+      alias:   "latDistanceSecondOrderCoeff"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "coefficient c"
+    }
+    structField3 
+    {
+      alias:   "latDistanceThirdOrderCoeff"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "coefficient d"
+    }
+    structField4 
+    {
+      alias:   "longDistanceToend"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "end of the curve"
+    }
+    structField5 
+    {
+      alias:   "startPoint"
+      type:    struct ZOP_Main_FUS_LANE_START_POINT
+      offs:    -1
+    }
+endstruct
+
+struct ZOP_Main_FUS_LANE_DATA_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "id"
+      type:    uint(8)
+      offs:    -1
+      desc:    "The obj id.The id number needs to be equal to the index in the object stucture"
+    }
+    structField1 
+    {
+      alias:   "traceStatus"
+      type:    uint(8)
+      offs:    -1
+      desc:    "0:invalid,\n1:init,\n2:measurement,\n3:predicted"
+    }
+    structField2 
+    {
+      alias:   "quality"
+      type:    uint(8)
+      offs:    -1
+      desc:    "0:Low,\n1:Mid,\n2:Mid high\n3:High"
+    }
+    structField3 
+    {
+      alias:   "color"
+      type:    uint(8)
+      offs:    -1
+      desc:    "0:unknown,\n1:white,\n2:yellow,\n3:blue"
+    }
+    structField4 
+    {
+      alias:   "type"
+      type:    uint(32)
+      offs:    -1
+      desc:    "0: None,\n1: Solid,\n2: Dashed,\n3: Solid Dashed\n4: Dashed Solid\n5: Double(Left Dased, Right Solid)\n6: Double(Left Solid, Right Dased)\n7: Double(Double Dashed)\n8: Double(Double Solid)\n9: Botts Dots\n10: Invalid\n11: Undecided"
+    }
+    structField5 
+    {
+      alias:   "width"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "total width of lane marker, from inner edge to outer edge"
+    }
+    structField6 
+    {
+      alias:   "curFunction"
+      type:    struct ZOP_Main_FUS_LANE_TRACK_EST_ST
+      offs:    -1
+      desc:    "fusion lane marker curve function"
+    }
+endstruct
+
+struct ZOP_Main_FUS_LANE_PRIMARY_TRA
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "id"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "traceStatus"
+      type:    uint(8)
+      offs:    -1
+      desc:    "0 invalid \n1 init\n2 measurement \n3 predicted"
+    }
+    structField2 
+    {
+      alias:   "quality"
+      type:    uint(8)
+      offs:    -1
+      desc:    "0 invalid\n1 low\n2 mid\n3 mid high\n4 high"
+    }
+    structField3 
+    {
+      alias:   "curveFunc"
+      type:    struct ZOP_Main_FUS_LANE_TRACK_EST_ST
+      offs:    -1
+    }
+endstruct
+
+struct ZOP_Main_FUS_LANE_OUTPUT_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "timestamp"
+      type:    flt(64,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "frameNum"
+      type:    uint(32)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "hostLaneWidth"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "host lane width"
+    }
+    structField3 
+    {
+      alias:   "leftLaneWidth"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "rightLaneWidth"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "leftHostLane"
+      type:    struct ZOP_Main_FUS_LANE_DATA_ST
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "rightHostLane"
+      type:    struct ZOP_Main_FUS_LANE_DATA_ST
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "leftNeighborLane"
+      type:    struct ZOP_Main_FUS_LANE_DATA_ST
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "rightNeighborLane"
+      type:    struct ZOP_Main_FUS_LANE_DATA_ST
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "primaryObjTrajectory"
+      type:    struct ZOP_Main_FUS_LANE_PRIMARY_TRA
+      offs:    -1
+    }
+    structField10 
+    {
+      alias:   "laneChangeStatus"
+      type:    uint(32)
+      offs:    -1
+      desc:    "0:No lane change,\n1:Lane change to the left,\n2:Lane change to the right"
+    }
+endstruct
+
+typedef ZOP_Main_TARGETOBJECT_probWithinLane_arr_f_4 flt(32,IEEE)[5]
+
+struct ZOP_Main_TARGETOBJECT
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "dis2EgoLaneCenter"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "TTC_f"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "ID_un8"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "Index_un8"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "probWithinLane_arr_f"
+      type:    ZOP_Main_TARGETOBJECT_probWithinLane_arr_f_4
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "probCutIn_f"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "probCutOut_f"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "overlap_f"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "trackingTimeWithinLane_f"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+typedef ZOP_Main_SEGMENT_coef_arr_f_0 flt(32,IEEE)[4]
+
+struct ZOP_Main_SEGMENT
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "coef_arr_f"
+      type:    ZOP_Main_SEGMENT_coef_arr_f_0
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "dlowerLimit_f"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "dupperLimit_f"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "numOfSegment_un8"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "available_b"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField5 
+    {
+      alias:   "detectedByVideo_b"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField6 
+    {
+      alias:   "quality_f"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+typedef ZOP_Main_LM_LANE_ST_ObjectList_st_0 struct ZOP_Main_TARGETOBJECT[10]
+
+typedef ZOP_Main_LM_LANE_ST_SRGMENT_6 struct ZOP_Main_SEGMENT[6]
+
+struct ZOP_Main_LM_LANE_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "ObjectList_st"
+      type:    ZOP_Main_LM_LANE_ST_ObjectList_st_0
+      offs:    -1
+      desc:    "There are 10 objects within a lane at most.its order depends on the distance to ego vehicle(consider sign):\nlike: -20,10,-10,60; its order in the object list: -20, -10, 10,60"
+    }
+    structField1 
+    {
+      alias:   "objectNum_un8"
+      type:    uint(8)
+      offs:    -1
+      desc:    "There are 10 objects within a lane at most"
+    }
+    structField2 
+    {
+      alias:   "available_b"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+      desc:    "False: unavailable\nTrue: available"
+    }
+    structField3 
+    {
+      alias:   "lane_dwidth_f"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "front_lane_length_f"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "rear_lane_length_f"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "SRGMENT"
+      type:    ZOP_Main_LM_LANE_ST_SRGMENT_6
+      offs:    -1
+      desc:    "A lane have 6 segments. There are 2 segments in rear of ego vehicle and 4 segments in front of ego vehicle"
+    }
+endstruct
+
+typedef ZOP_Main_LANEMODEL_OUTPUT_ST_LANES_ST_1 struct ZOP_Main_LM_LANE_ST[5]
+
+struct ZOP_Main_LANEMODEL_OUTPUT_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "egoLaneID_un8"
+      type:    uint(8)
+      offs:    -1
+      desc:    "ego vehicle lane:\nfrom left to right, the num of lane is 0, 1, 2,,3,4;\n0:Lane_0\n1:Lane_1\n2:Lane_2\n3:Lane_3\n4:Lane_4\n255:unknow"
+    }
+    structField1 
+    {
+      alias:   "LANES_ST"
+      type:    ZOP_Main_LANEMODEL_OUTPUT_ST_LANES_ST_1
+      offs:    -1
+      desc:    "there are 5 lanes in the  road at most"
+    }
+endstruct
+
+struct ZOP_Main_HWA_TARGETOBJECT_OUTPUT_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "L_NEIGHBORLANE_TAROBJ_0_ST"
+      type:    struct ZOP_Main_TARGETOBJECT
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "L_NEIGHBORLANE_TAROBJ_1_ST"
+      type:    struct ZOP_Main_TARGETOBJECT
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "L_NEIGHBORLANE_TAROBJ_2_ST"
+      type:    struct ZOP_Main_TARGETOBJECT
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "L_NEIGHBORLANE_TAROBJ_3_ST"
+      type:    struct ZOP_Main_TARGETOBJECT
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "EGOLANE_TAROBJ_0_ST"
+      type:    struct ZOP_Main_TARGETOBJECT
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "EGOLANE_TAROBJ_1_ST"
+      type:    struct ZOP_Main_TARGETOBJECT
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "EGOLANE_TAROBJ_2_ST"
+      type:    struct ZOP_Main_TARGETOBJECT
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "EGOLANE_TAROBJ_3_ST"
+      type:    struct ZOP_Main_TARGETOBJECT
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "R_NEIGHBORLANE_TAROBJ_0_ST"
+      type:    struct ZOP_Main_TARGETOBJECT
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "R_NEIGHBORLANE_TAROBJ_1_ST"
+      type:    struct ZOP_Main_TARGETOBJECT
+      offs:    -1
+    }
+    structField10 
+    {
+      alias:   "R_NEIGHBORLANE_TAROBJ_2_ST"
+      type:    struct ZOP_Main_TARGETOBJECT
+      offs:    -1
+    }
+    structField11 
+    {
+      alias:   "R_NEIGHBORLANE_TAROBJ_3_ST"
+      type:    struct ZOP_Main_TARGETOBJECT
+      offs:    -1
+    }
+endstruct
+
+struct ZOP_Main_ACC_Status_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "state"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "ready"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "active"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "overide"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "cancle"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "error"
+      type:    uint(8)
+      offs:    -1
+    }
+endstruct
+
+struct ZOP_Main_ATS_PO_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "Valid"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField1 
+    {
+      alias:   "Index"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "dx"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "dy"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "vx"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "vy"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "ax"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "vxAbs"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "axAbs"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "Type"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField10 
+    {
+      alias:   "MotionSts"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+typedef ZOP_Main_MapInfo_ST_SpeedLimit_12 flt(32,IEEE)[3]
+
+struct ZOP_Main_MapInfo_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "LaneNum"
+      type:    int(8)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "MapFlag"
+      type:    uint(16)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "TgtSpd"
+      type:    flt(64,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "isInZopZone"
+      type:    int(8)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "LaneIndex"
+      type:    int(8)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "LocIndex"
+      type:    int(8)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "Dist2Dest"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "Dist2Start"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "Dist2StopLine"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "Dist2Merge"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField10 
+    {
+      alias:   "LocLat"
+      type:    flt(64,IEEE)
+      offs:    -1
+    }
+    structField11 
+    {
+      alias:   "LocLon"
+      type:    flt(64,IEEE)
+      offs:    -1
+    }
+    structField12 
+    {
+      alias:   "SpeedLimit"
+      type:    ZOP_Main_MapInfo_ST_SpeedLimit_12
+      offs:    -1
+      desc:    "0,1,2 Right-->Left"
+    }
+endstruct
+
+struct ZOP_Main_Light_Info_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "color"
+      type:    int(8)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "time"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "dist"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct ZOP_Main_ZOP_HMI_REQ
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "ZOP_Enable"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "ZOP_Destination_Target"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "Function_Activation"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "DMS_DriverEye_St"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "LC_Req"
+      type:    uint(8)
+      offs:    -1
+    }
+endstruct
+
+struct ZOP_Main_ZOP2LCK
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "state"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "activate_lck"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "lc_cmd"
+      type:    int(8)
+      offs:    -1
+    }
+endstruct
+
+struct ZOP_Main_ZOP2ACC
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "state"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "activate_acc"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "spd_lmt"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "light_des_spd"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "light_a_des"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "case_num"
+      type:    int(8)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "light_dist"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct ZOP_Main_ZOP2TJA
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "activate_tja"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "is_zop_active"
+      type:    uint(8)
+      offs:    -1
+    }
+endstruct
+
+struct ZOP_Main_LKS_Status_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "state"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "ready"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "active"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "overide"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "cancle"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "error"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "lc_finish"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "lc_fail"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "lc_dist"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct ZOP_Main_MapInfo_ST_Post
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "LaneNum"
+      type:    int(8)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "MapFlag"
+      type:    uint(16)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "TgtSpd"
+      type:    flt(64,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "isInZopZone"
+      type:    int(8)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "LaneIndex"
+      type:    int(8)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "LocIndex"
+      type:    int(8)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "Dist2Dest"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "Dist2Start"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "Dist2StopLine"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "Dist2Merge"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField10 
+    {
+      alias:   "LocLat"
+      type:    flt(64,IEEE)
+      offs:    -1
+    }
+    structField11 
+    {
+      alias:   "LocLon"
+      type:    flt(64,IEEE)
+      offs:    -1
+    }
+    structField12 
+    {
+      alias:   "SpeedLimit"
+      type:    ZOP_Main_MapInfo_ST_SpeedLimit_12
+      offs:    -1
+      desc:    "0,1,2 Right-->Left"
+    }
+    structField13 
+    {
+      alias:   "LaneStable"
+      type:    int(8)
+      offs:    -1
+    }
+endstruct
+
+struct ZOP_Main_ZOP2HMI
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "LCDir"
+      type:    int(8)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "LCRes"
+      type:    int(8)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "LCTip"
+      type:    int(8)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "LCFailTip"
+      type:    int(8)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "LCReqTip"
+      type:    int(8)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "LCProp"
+      type:    int(8)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "LCPropRes"
+      type:    int(8)
+      offs:    -1
+    }
+endstruct
+
+typedef ZOP_Main_ZOP_Object_ST_exist_9 int(8)[2]
+
+struct ZOP_Main_ZOP_Object_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "id"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "x"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "y"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "vx"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "vy"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "ax"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "ay"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "dir"
+      type:    int(8)
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "dir_f"
+      type:    int(8)
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "exist"
+      type:    ZOP_Main_ZOP_Object_ST_exist_9
+      offs:    -1
+    }
+endstruct
+
+typedef ZOP_Main_ZOP_Var_ST_SpdTimeCnt_27 uint(32)[3]
+
+struct ZOP_Main_ZOP_Var_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "LnLo"
+      type:    int(8)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "LnHi"
+      type:    int(8)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "LSafeNCnt"
+      type:    int(8)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "RSafeNCnt"
+      type:    int(8)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "LSafeCnt"
+      type:    int(8)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "RSafeCnt"
+      type:    int(8)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "LSafeRaw"
+      type:    int(8)
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "RSafeRaw"
+      type:    int(8)
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "Safe"
+      type:    int(8)
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "holdTimeCnt"
+      type:    uint(32)
+      offs:    -1
+    }
+    structField10 
+    {
+      alias:   "lcTimeCnt"
+      type:    uint(32)
+      offs:    -1
+    }
+    structField11 
+    {
+      alias:   "lcProTimeCnt"
+      type:    uint(32)
+      offs:    -1
+    }
+    structField12 
+    {
+      alias:   "lcDirCnt"
+      type:    uint(32)
+      offs:    -1
+    }
+    structField13 
+    {
+      alias:   "LCResult"
+      type:    int(8)
+      offs:    -1
+    }
+    structField14 
+    {
+      alias:   "DesLane"
+      type:    int(8)
+      offs:    -1
+    }
+    structField15 
+    {
+      alias:   "CmdLane"
+      type:    int(8)
+      offs:    -1
+    }
+    structField16 
+    {
+      alias:   "LCDir"
+      type:    int(8)
+      offs:    -1
+    }
+    structField17 
+    {
+      alias:   "LCCmd"
+      type:    int(8)
+      offs:    -1
+    }
+    structField18 
+    {
+      alias:   "LCRes"
+      type:    uint(16)
+      offs:    -1
+    }
+    structField19 
+    {
+      alias:   "LCTip"
+      type:    uint(16)
+      offs:    -1
+    }
+    structField20 
+    {
+      alias:   "LCNRes"
+      type:    uint(16)
+      offs:    -1
+    }
+    structField21 
+    {
+      alias:   "LCTime"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField22 
+    {
+      alias:   "LCDist"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField23 
+    {
+      alias:   "FinishState"
+      type:    int(8)
+      offs:    -1
+      desc:    "0 = none, 1 = Succ, 2 = Fail"
+    }
+    structField24 
+    {
+      alias:   "LCFailTip"
+      type:    int(8)
+      offs:    -1
+    }
+    structField25 
+    {
+      alias:   "Spd"
+      type:    ZOP_Main_MapInfo_ST_SpeedLimit_12
+      offs:    -1
+    }
+    structField26 
+    {
+      alias:   "SpdTmp"
+      type:    ZOP_Main_MapInfo_ST_SpeedLimit_12
+      offs:    -1
+    }
+    structField27 
+    {
+      alias:   "SpdTimeCnt"
+      type:    ZOP_Main_ZOP_Var_ST_SpdTimeCnt_27
+      offs:    -1
+    }
+    structField28 
+    {
+      alias:   "MapFlag"
+      type:    uint(16)
+      offs:    -1
+    }
+    structField29 
+    {
+      alias:   "MapFlagDir"
+      type:    int(8)
+      offs:    -1
+    }
+endstruct
+
+
+-- Type definitions for arrays
+typedef ZOP_Main_ArrayDT42_8 struct ZOP_Main_ZOP_Object_ST[8]
+
+

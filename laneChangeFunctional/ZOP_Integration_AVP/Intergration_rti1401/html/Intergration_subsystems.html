@@ -1,0 +1,385 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="rtwreport.css" /><script language="JavaScript" type="text/javascript" src="rtwshrink.js"></script><title>
+Non-virtual subsystems in Intergration
+</title>
+
+</head>
+<body onload="try {if (top) {if (top.rtwPageOnLoad) top.rtwPageOnLoad('rtwIdSubsystem'); else local_onload();}} catch(err) {};">
+<h1>
+Non-virtual subsystems in Intergration
+</h1>
+<div>
+
+</div>
+<div>
+
+</div>
+<h3 name="sec_Code_Mapping" id="sec_Code_Mapping">
+1. Code Mapping <span title="Click to shrink or expand section" style="cursor:pointer;font-weight:normal;" id="rtwIdSubsystem_table_001_control" onclick ="if (rtwTableShrink) rtwTableShrink(window.document, this, 'rtwIdSubsystem_table_001', false)"><span class="shrink-button">[<u>hide</u>]</span></span>
+</h3>
+<table width="100%" name="rtwIdSubsystem_table_001" id="rtwIdSubsystem_table_001" border="0">
+<tr>
+<td align="left" valign="top">
+<p>
+The following table: <br /><ul>
+<li>
+provides a mapping from the non-virtual subsystems in the model to functions or reusable functions in the generated code and
+</li>
+<li>
+notes exceptions that caused some non-virtual subsystems to not reuse code even though they were assigned a function packaging setting ('Function packaging' entry on the Subsystem Block Dialog) of 'Auto' or 'Reusable function'.
+</li>
+
+</ul>
+
+</p>
+
+</td>
+
+</tr>
+<tr>
+<td align="left" valign="top">
+<table class="AltRow FirstColumn" cellspacing="0">
+<tr class="heading">
+<th align="left" valign="top">
+<b>
+Subsystem
+</b>
+
+</th>
+<th align="left" valign="top">
+<b>
+Reuse Setting
+</b>
+
+</th>
+<th align="left" valign="top">
+<b>
+Reuse Outcome
+</b>
+
+</th>
+<th align="left" valign="top">
+<b>
+Outcome Diagnostic
+</b>
+
+</th>
+
+</tr>
+<tr class="even">
+<td align="left" valign="top">
+&lt;S8&gt;
+</td>
+<td align="left" valign="top">
+Auto
+</td>
+<td align="left" valign="top">
+Inline
+</td>
+<td align="left" valign="top">
+<A HREF="#S8blker"TARGET="rtwreport_document_frame"><FONT COLOR="red">[exceptions]</FONT></A>
+</td>
+
+</tr>
+<tr class="odd">
+<td align="left" valign="top">
+&lt;S9&gt;
+</td>
+<td align="left" valign="top">
+Auto
+</td>
+<td align="left" valign="top">
+Inline
+</td>
+<td align="left" valign="top">
+<A HREF="#S9blker"TARGET="rtwreport_document_frame"><FONT COLOR="red">[exceptions]</FONT></A>
+</td>
+
+</tr>
+<tr class="even">
+<td align="left" valign="top">
+&lt;S4&gt;
+</td>
+<td align="left" valign="top">
+Auto
+</td>
+<td align="left" valign="top">
+Inline
+</td>
+<td align="left" valign="top">
+<A HREF="#S4blker"TARGET="rtwreport_document_frame"><FONT COLOR="red">[exceptions]</FONT></A>
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+<h3 name="sec_Code_Reuse_Exceptions" id="sec_Code_Reuse_Exceptions">
+2. Code Reuse Exceptions <span title="Click to shrink or expand section" style="cursor:pointer;font-weight:normal;" id="rtwIdSubsystem_table_002_control" onclick ="if (rtwTableShrink) rtwTableShrink(window.document, this, 'rtwIdSubsystem_table_002', false)"><span class="shrink-button">[<u>hide</u>]</span></span>
+</h3>
+<table width="100%" name="rtwIdSubsystem_table_002" id="rtwIdSubsystem_table_002" border="0">
+<tr>
+<td align="left" valign="top">
+<p>
+The following section provides details on each exception that caused a non-virtual subsystem with a function packaging setting of<br /><ul>
+<li>
+'Auto' to become an inlined code segment,
+</li>
+<li>
+'Auto' to become a non-reusable function without arguments, or
+</li>
+<li>
+'Reusable function' to become a non-reusable function without arguments.
+</li>
+
+</ul>
+<b>Note:</b>This section does not report graphically identical non-virtual subsystems marked as 'Auto' that were not reused due to differences in their functional properties (such as dimensions, datatypes, work vectors, parameters, etc.).  You may identify reasons for non-reuse in such cases by inspecting the differences in the functional attributes of the subsystems in the model or in the inlined generated code.
+</p>
+
+</td>
+
+</tr>
+<tr>
+<td align="left" valign="top">
+<A NAME="S8blker">Contents of &lt;S8&gt; not reusable because: </B><BR />
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/TX/ESC_DA_MESSAGE_0x127/ESC_DA_MESSAGE/S-Function]</li>
+</ul>
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/TX/ESC_DA_MESSAGE_0x127/ESC_DA_MESSAGE/S-Function1]</li>
+</ul>
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/TX/ESC_FrontWheelSpeedKPH_0x123/ESC_FrontWheelSpeedKPH/S-Function]</li>
+</ul>
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/TX/ESC_FrontWheelSpeedKPH_0x123/ESC_FrontWheelSpeedKPH/S-Function1]</li>
+</ul>
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/TX/ESC_RearWheelSpeedKPH_0x124/ESC_RearWheelSpeedKPH/S-Function]</li>
+</ul>
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/TX/ESC_RearWheelSpeedKPH_0x124/ESC_RearWheelSpeedKPH/S-Function1]</li>
+</ul>
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/TX/ESC_Status_0x126/ESC_Status/S-Function]</li>
+</ul>
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/TX/ESC_Status_0x126/ESC_Status/S-Function1]</li>
+</ul>
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/TX/RADAR_HSC2_FVCM_FrP00_0x165/RADAR_HSC2_FVCM_FrP00/S-Function]</li>
+</ul>
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/TX/RADAR_HSC2_FVCM_FrP00_0x165/RADAR_HSC2_FVCM_FrP00/S-Function1]</li>
+</ul>
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/TX/RADAR_HSC2_FrP00_0x242/RADAR_HSC2_FrP00/S-Function]</li>
+</ul>
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/TX/RADAR_HSC2_FrP00_0x242/RADAR_HSC2_FrP00/S-Function1]</li>
+</ul>
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/TX/RADAR_HSC2_FrP01_0x244/RADAR_HSC2_FrP01/S-Function]</li>
+</ul>
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/TX/RADAR_HSC2_FrP01_0x244/RADAR_HSC2_FrP01/S-Function1]</li>
+</ul>
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/TX/RADAR_HSC2_FrP02_0x246/RADAR_HSC2_FrP02/S-Function]</li>
+</ul>
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/TX/RADAR_HSC2_FrP02_0x246/RADAR_HSC2_FrP02/S-Function1]</li>
+</ul>
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/TX/YRS1_0x131/YRS1/S-Function]</li>
+</ul>
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/TX/YRS1_0x131/YRS1/S-Function1]</li>
+</ul>
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/TX/YRS2_0x132/YRS2/S-Function]</li>
+</ul>
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/TX/YRS2_0x132/YRS2/S-Function1]</li>
+</ul>
+
+<A NAME="S9blker">Contents of &lt;S9&gt; not reusable because: </B><BR />
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/Tx_410_10ms/SAS_Status/S-Function]</li>
+</ul>
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/Tx_410_10ms/SAS_Status/S-Function1]</li>
+</ul>
+
+<A NAME="S4blker">Contents of &lt;S4&gt; not reusable because: </B><BR />
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/TX/ESC_DA_MESSAGE_0x127/ESC_DA_MESSAGE/S-Function]</li>
+</ul>
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/TX/ESC_DA_MESSAGE_0x127/ESC_DA_MESSAGE/S-Function1]</li>
+</ul>
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/TX/ESC_FrontWheelSpeedKPH_0x123/ESC_FrontWheelSpeedKPH/S-Function]</li>
+</ul>
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/TX/ESC_FrontWheelSpeedKPH_0x123/ESC_FrontWheelSpeedKPH/S-Function1]</li>
+</ul>
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/TX/ESC_RearWheelSpeedKPH_0x124/ESC_RearWheelSpeedKPH/S-Function]</li>
+</ul>
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/TX/ESC_RearWheelSpeedKPH_0x124/ESC_RearWheelSpeedKPH/S-Function1]</li>
+</ul>
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/TX/ESC_Status_0x126/ESC_Status/S-Function]</li>
+</ul>
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/TX/ESC_Status_0x126/ESC_Status/S-Function1]</li>
+</ul>
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/TX/RADAR_HSC2_FVCM_FrP00_0x165/RADAR_HSC2_FVCM_FrP00/S-Function]</li>
+</ul>
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/TX/RADAR_HSC2_FVCM_FrP00_0x165/RADAR_HSC2_FVCM_FrP00/S-Function1]</li>
+</ul>
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/TX/RADAR_HSC2_FrP00_0x242/RADAR_HSC2_FrP00/S-Function]</li>
+</ul>
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/TX/RADAR_HSC2_FrP00_0x242/RADAR_HSC2_FrP00/S-Function1]</li>
+</ul>
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/TX/RADAR_HSC2_FrP01_0x244/RADAR_HSC2_FrP01/S-Function]</li>
+</ul>
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/TX/RADAR_HSC2_FrP01_0x244/RADAR_HSC2_FrP01/S-Function1]</li>
+</ul>
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/TX/RADAR_HSC2_FrP02_0x246/RADAR_HSC2_FrP02/S-Function]</li>
+</ul>
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/TX/RADAR_HSC2_FrP02_0x246/RADAR_HSC2_FrP02/S-Function1]</li>
+</ul>
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/TX/YRS1_0x131/YRS1/S-Function]</li>
+</ul>
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/TX/YRS1_0x131/YRS1/S-Function1]</li>
+</ul>
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/TX/YRS2_0x132/YRS2/S-Function]</li>
+</ul>
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/TX/YRS2_0x132/YRS2/S-Function1]</li>
+</ul>
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/Tx_410_10ms/SAS_Status/S-Function]</li>
+</ul>
+
+<ul>
+
+<li>The following block contains an S-Function that does not conform to Code Reuse restrictions. The S-Function block (a) should have a TLC implementation and (b) should set the option 'SS_OPTION_WORKS_WITH_CODE_REUSE'. [Intergration/Tx_410_10ms/SAS_Status/S-Function1]</li>
+</ul>
+
+
+</td>
+
+</tr>
+
+</table>
+
+</body>
+
+</html>

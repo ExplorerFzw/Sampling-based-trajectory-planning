@@ -1,0 +1,24 @@
+C:\ProgramData\dSPACE\E6B644B2-4CC2-4582-A2C6-DC770F1098E0\Compiler\PPCTools\BIN\libppc.exe -QmsA0107 -QmsA0201 -QmsA0211 < LM_TOS_1229_rtwlib_cmd.lst  
+Microtec PowerPC Object Librarian    Sun Jan 03 16:55:22 2021
+
+	Version 3.8    
+CREATE LM_TOS_1229_rtwlib.lib      
+ADDMOD LM_TOS_MODULE_wrapper.o03       
+ADDMOD LM_TOS_RUN_ALGO.cppo03       
+ADDMOD HMI.cppo03       
+ADDMOD adapters.cppo03       
+ADDMOD TOS_HWA.cppo03       
+ADDMOD LM_BASE.cppo03       
+ADDMOD lm_math_lib.cppo03       
+ADDMOD LM_PP.cppo03       
+ADDMOD LMF.cppo03       
+ADDMOD TOS_BASE.cppo03       
+ADDMOD TOS_PP.cppo03       
+ADDMOD COORDINATETRANSFORMATION.cppo03       
+ADDMOD VSL.cppo03       
+ADDMOD TOS_NRA.cppo03       
+ADDMOD TOS_TRUCK_EVASION.cppo03       
+ADDMOD LM_TOS_1229.o03       
+ADDMOD LM_TOS_1229_trc_ptr.o03       
+SAVE                     
+END                      

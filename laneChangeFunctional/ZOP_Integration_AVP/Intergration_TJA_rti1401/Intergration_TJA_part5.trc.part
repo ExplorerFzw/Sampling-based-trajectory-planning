@@ -1,0 +1,24 @@
+		endgroup -- referenced model group "AccTarSel"
+	endgroup -- referenced-block-group "ACC"
+	group "FUS" -- referenced block group
+		p_0_Intergration_TJA_FUS_OBJ_OUTPUT_ST_1[0]
+		{
+		 type:    struct Intergration_TJA_FUS_OBJ_OUTPUT_ST*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_TJA_FUS_LANE_OUTPUT_ST_6[0]
+		{
+		 type:    struct Intergration_TJA_FUS_LANE_OUTPUT_ST*
+		 alias:   "Out2"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_TJA_FUS_ROAD_EDGE_OUTPUT_ST_9[0]
+		{
+		 type:    struct Intergration_TJA_FUS_ROAD_EDGE_OUTPUT_ST*
+		 alias:   "Out3"
+		 flags:   OUTPUT|READONLY
+		}
+
+		group "fusionAlg"  -- referenced model group
+    

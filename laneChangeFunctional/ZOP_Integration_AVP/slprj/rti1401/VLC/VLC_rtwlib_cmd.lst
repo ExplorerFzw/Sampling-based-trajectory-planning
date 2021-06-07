@@ -1,0 +1,5 @@
+CREATE VLC_rtwlib.lib      
+ADDMOD VLC.o03       
+ADDMOD VLC_trc_ptr.o03       
+SAVE                     
+END                      

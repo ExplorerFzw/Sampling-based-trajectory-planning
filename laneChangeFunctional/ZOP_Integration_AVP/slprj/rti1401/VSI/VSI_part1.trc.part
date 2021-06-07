@@ -1,0 +1,1525 @@
+-- ******** Model variables ***************************************************
+
+group "Model Root"
+      
+	group "SYS_Info_st" -- block-group
+	{
+	 block: "Inport"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "SYS_Info_st"
+
+	group "COM_VehBus_st" -- block-group
+	{
+	 block: "Inport"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "COM_VehBus_st"
+
+	group "COM_VehDyn_st" -- block-group
+	{
+	 block: "Inport"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "COM_VehDyn_st"
+
+	group "Bus\nCreator" -- block-group
+	{
+	 block: "BusCreator"
+	}
+		p_0_VSI_VSI_VEHSTATE_ST_1[0]
+		{
+		 type:    struct VSI_VSI_VEHSTATE_ST*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Bus\nCreator"
+
+  
+  
+	group "Adapter_VSI" -- subsystem-group
+
+		p_0_VSI_COM_VEHDYN_ST_0[0]
+		{
+		 type:    struct VSI_COM_VEHDYN_ST*
+		 alias:   "COM_VehDyn_st"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+		group "Bus\nCreator1" -- block-group
+		{
+		 block: "BusCreator"
+		}
+			p_0_VSI_COM_VEHDYN_ST_0[0]
+			{
+			 type:    struct VSI_COM_VEHDYN_ST*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Bus\nCreator1"
+
+		group "Constant" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			p_2_VSI_real_T_0[2]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Constant"
+
+		group "Constant4" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			p_2_VSI_real_T_0[0]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Constant4"
+
+		group "Pi" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			p_2_VSI_real_T_0[1]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Pi"
+
+		group "Gain" -- block-group
+		{
+		 block: "Gain"
+		}
+			p_0_VSI_real32_T_3[1]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+			p_2_VSI_real32_T_1[0]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain"
+
+		group "Logical\nOperator" -- block-group
+		{
+		 block: "Logic"
+		}
+			p_0_VSI_boolean_T_4[6]
+			{
+			 type:    uint(8)*
+			 alias:   "Out1"
+			 range:   < 0 ; 1 >
+			 bitmask: 0x01
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Logical\nOperator"
+
+		group "Logical\nOperator1" -- block-group
+		{
+		 block: "Logic"
+		}
+			p_0_VSI_boolean_T_4[5]
+			{
+			 type:    uint(8)*
+			 alias:   "Out1"
+			 range:   < 0 ; 1 >
+			 bitmask: 0x01
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Logical\nOperator1"
+
+		group "Logical\nOperator2" -- block-group
+		{
+		 block: "Logic"
+		}
+			p_0_VSI_boolean_T_4[4]
+			{
+			 type:    uint(8)*
+			 alias:   "Out1"
+			 range:   < 0 ; 1 >
+			 bitmask: 0x01
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Logical\nOperator2"
+
+		group "Logical\nOperator3" -- block-group
+		{
+		 block: "Logic"
+		}
+			p_0_VSI_boolean_T_4[0]
+			{
+			 type:    uint(8)*
+			 alias:   "Out1"
+			 range:   < 0 ; 1 >
+			 bitmask: 0x01
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Logical\nOperator3"
+
+		group "Logical\nOperator4" -- block-group
+		{
+		 block: "Logic"
+		}
+			p_0_VSI_boolean_T_4[3]
+			{
+			 type:    uint(8)*
+			 alias:   "Out1"
+			 range:   < 0 ; 1 >
+			 bitmask: 0x01
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Logical\nOperator4"
+
+		group "Logical\nOperator5" -- block-group
+		{
+		 block: "Logic"
+		}
+			p_0_VSI_boolean_T_4[1]
+			{
+			 type:    uint(8)*
+			 alias:   "Out1"
+			 range:   < 0 ; 1 >
+			 bitmask: 0x01
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Logical\nOperator5"
+
+		group "Logical\nOperator6" -- block-group
+		{
+		 block: "Logic"
+		}
+			p_0_VSI_boolean_T_4[2]
+			{
+			 type:    uint(8)*
+			 alias:   "Out1"
+			 range:   < 0 ; 1 >
+			 bitmask: 0x01
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Logical\nOperator6"
+
+		group "Divide" -- block-group
+		{
+		 block: "Product"
+		}
+			p_0_VSI_real32_T_3[3]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Divide"
+
+		group "Divide1" -- block-group
+		{
+		 block: "Product"
+		}
+			p_0_VSI_real32_T_3[4]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Divide1"
+
+		group "Divide2" -- block-group
+		{
+		 block: "Product"
+		}
+			p_0_VSI_real32_T_3[5]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Divide2"
+
+		group "Divide3" -- block-group
+		{
+		 block: "Product"
+		}
+			p_0_VSI_real32_T_3[6]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Divide3"
+
+		group "Divide4" -- block-group
+		{
+		 block: "Product"
+		}
+			p_0_VSI_real_T_2[0]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Divide4"
+
+		group "Divide6" -- block-group
+		{
+		 block: "Product"
+		}
+			p_0_VSI_real32_T_3[2]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Divide6"
+
+		group "Divide7" -- block-group
+		{
+		 block: "Product"
+		}
+			p_0_VSI_real32_T_3[0]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Divide7"
+
+
+
+	endgroup -- subsystem-group "Adapter_VSI"
+  
+  
+	group "RTI Data" -- subsystem-group
+
+
+	endgroup -- subsystem-group "RTI Data"
+  
+  
+	group "VSI" -- subsystem-group
+
+		p_0_VSI_real32_T_3[14]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "YrsF"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_VSI_real32_T_3[39]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "AxSensorF"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_VSI_real32_T_3[30]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "StWheelAngleF"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_VSI_real32_T_3[21]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "vRef"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_VSI_real32_T_3[50]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "aRef"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_VSI_real32_T_3[51]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "AxSlope"
+		 flags:   OUTPUT|READONLY
+		}
+		-- Skipping output AxSlopeValid
+		-- Skipping output Curvature
+
+
+		group "Constant" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			p_2_VSI_real_T_0[3]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Constant"
+
+		group "Constant1" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			p_2_VSI_real_T_0[5]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Constant1"
+
+		group "Constant2" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			p_2_VSI_real_T_0[4]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Constant2"
+
+		group "Constant3" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			p_2_VSI_real_T_0[6]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Constant3"
+
+		group "P_tARawFilt" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			trcref0_P_tARawFilt
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "P_tARawFilt"
+			 alias:    "P_tARawFilt"
+			}
+			trcref0_Value
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "P_tARawFilt"
+			 alias:    "Value"
+			 flags:    DEPRECATED|HIDDEN
+			}
+
+
+		endgroup -- block-group "P_tARawFilt"
+
+		group "P_tAxsFilt" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			trcref0_P_tAxsFilt
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "P_tAxsFilt"
+			 alias:    "P_tAxsFilt"
+			}
+			trcref0_Value
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "P_tAxsFilt"
+			 alias:    "Value"
+			 flags:    DEPRECATED|HIDDEN
+			}
+
+
+		endgroup -- block-group "P_tAxsFilt"
+
+		group "P_tSasFilt" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			trcref0_P_tSasFilt
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "P_tSasFilt"
+			 alias:    "P_tSasFilt"
+			}
+			trcref0_Value
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "P_tSasFilt"
+			 alias:    "Value"
+			 flags:    DEPRECATED|HIDDEN
+			}
+
+
+		endgroup -- block-group "P_tSasFilt"
+
+		group "P_tVVehFilt" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			trcref0_P_tVVehFilt
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "P_tVVehFilt"
+			 alias:    "P_tVVehFilt"
+			}
+			trcref0_Value
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "P_tVVehFilt"
+			 alias:    "Value"
+			 flags:    DEPRECATED|HIDDEN
+			}
+
+
+		endgroup -- block-group "P_tVVehFilt"
+
+		group "P_tYrsFilt" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			trcref0_P_tYrsFilt
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "P_tYrsFilt"
+			 alias:    "P_tYrsFilt"
+			}
+			trcref0_Value
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "P_tYrsFilt"
+			 alias:    "Value"
+			 flags:    DEPRECATED|HIDDEN
+			}
+
+
+		endgroup -- block-group "P_tYrsFilt"
+
+		group "P_vHi" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			trcref0_P_vHi
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "P_vHi"
+			 alias:    "P_vHi"
+			}
+			trcref0_Value
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "P_vHi"
+			 alias:    "Value"
+			 flags:    DEPRECATED|HIDDEN
+			}
+
+
+		endgroup -- block-group "P_vHi"
+
+		group "P_vLo" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			trcref0_P_vLo
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "P_vLo"
+			 alias:    "P_vLo"
+			}
+			trcref0_Value
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "P_vLo"
+			 alias:    "Value"
+			 flags:    DEPRECATED|HIDDEN
+			}
+
+
+		endgroup -- block-group "P_vLo"
+
+		group "StRatio" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			trcref0_StRatio
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "StRatio"
+			 alias:    "StRatio"
+			}
+			trcref0_Value
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "StRatio"
+			 alias:    "Value"
+			 flags:    DEPRECATED|HIDDEN
+			}
+
+
+		endgroup -- block-group "StRatio"
+
+		group "d_WheelBase" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			trcref0_d_WheelBase
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "d_WheelBase"
+			 alias:    "d_WheelBase"
+			}
+			trcref0_Value
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "d_WheelBase"
+			 alias:    "Value"
+			 flags:    DEPRECATED|HIDDEN
+			}
+
+
+		endgroup -- block-group "d_WheelBase"
+
+		group "Gain" -- block-group
+		{
+		 block: "Gain"
+		}
+			-- Skipping output Out1
+			p_2_VSI_real32_T_1[7]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain"
+
+		group "Memory" -- block-group
+		{
+		 block: "Memory"
+		}
+			p_0_VSI_real32_T_3[36]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+			p_2_VSI_real32_T_1[9]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "InitialCondition"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Memory"
+
+		group "Memory1" -- block-group
+		{
+		 block: "Memory"
+		}
+			p_0_VSI_real32_T_3[11]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+			p_2_VSI_real32_T_1[2]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "InitialCondition"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Memory1"
+
+		group "Memory2" -- block-group
+		{
+		 block: "Memory"
+		}
+			p_0_VSI_real32_T_3[26]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+			p_2_VSI_real32_T_1[6]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "InitialCondition"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Memory2"
+
+		group "Memory3" -- block-group
+		{
+		 block: "Memory"
+		}
+			p_0_VSI_real32_T_3[48]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+			p_2_VSI_real32_T_1[12]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "InitialCondition"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Memory3"
+
+		group "Memory4" -- block-group
+		{
+		 block: "Memory"
+		}
+			p_0_VSI_real32_T_3[19]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+			p_2_VSI_real32_T_1[4]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "InitialCondition"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Memory4"
+
+		group "Memory5" -- block-group
+		{
+		 block: "Memory"
+		}
+			p_0_VSI_real32_T_3[40]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+			p_2_VSI_real32_T_1[10]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "InitialCondition"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Memory5"
+
+		group "Max" -- block-group
+		{
+		 block: "MinMax"
+		}
+			p_0_VSI_real32_T_3[42]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Max"
+
+		group "Divide1" -- block-group
+		{
+		 block: "Product"
+		}
+			p_0_VSI_real32_T_3[31]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Divide1"
+
+		group "Divide2" -- block-group
+		{
+		 block: "Product"
+		}
+			p_0_VSI_real32_T_3[29]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Divide2"
+
+		group "Divide3" -- block-group
+		{
+		 block: "Product"
+		}
+			p_0_VSI_real32_T_3[43]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Divide3"
+
+		group "Add" -- block-group
+		{
+		 block: "Sum"
+		}
+			p_0_VSI_real32_T_3[51]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Add"
+
+		group "Subtract" -- block-group
+		{
+		 block: "Sum"
+		}
+			p_0_VSI_real32_T_3[41]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Subtract"
+
+		group "Switch" -- block-group
+		{
+		 block: "Switch"
+		}
+			p_0_VSI_real32_T_3[14]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Switch"
+
+		group "Switch1" -- block-group
+		{
+		 block: "Switch"
+		}
+			p_0_VSI_real32_T_3[39]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Switch1"
+
+		group "Switch2" -- block-group
+		{
+		 block: "Switch"
+		}
+			p_0_VSI_real32_T_3[30]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Switch2"
+
+  
+  
+		group "LPFilter_Ax_Sensor" -- subsystem-group
+
+			p_0_VSI_real32_T_3[38]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "xFilt"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+			group "Constant" -- block-group
+			{
+			 block: "Constant"
+			}
+				-- Skipping output Out1
+				p_2_VSI_real32_T_1[8]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Value"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Constant"
+
+			group "Max" -- block-group
+			{
+			 block: "MinMax"
+			}
+				p_0_VSI_real32_T_3[32]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Max"
+
+			group "Divide" -- block-group
+			{
+			 block: "Product"
+			}
+				p_0_VSI_real32_T_3[33]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Divide"
+
+			group "Multiply" -- block-group
+			{
+			 block: "Product"
+			}
+				p_0_VSI_real32_T_3[34]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Multiply"
+
+			group "Multiply1" -- block-group
+			{
+			 block: "Product"
+			}
+				p_0_VSI_real32_T_3[37]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Multiply1"
+
+			group "Add" -- block-group
+			{
+			 block: "Sum"
+			}
+				p_0_VSI_real32_T_3[35]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Add"
+
+			group "Add1" -- block-group
+			{
+			 block: "Sum"
+			}
+				p_0_VSI_real32_T_3[38]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Add1"
+
+
+
+		endgroup -- subsystem-group "LPFilter_Ax_Sensor"
+  
+  
+		group "LPFilter_Sas" -- subsystem-group
+
+			p_0_VSI_real32_T_3[28]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "xFilt"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+			group "Constant" -- block-group
+			{
+			 block: "Constant"
+			}
+				-- Skipping output Out1
+				p_2_VSI_real32_T_1[5]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Value"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Constant"
+
+			group "Max" -- block-group
+			{
+			 block: "MinMax"
+			}
+				p_0_VSI_real32_T_3[22]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Max"
+
+			group "Divide" -- block-group
+			{
+			 block: "Product"
+			}
+				p_0_VSI_real32_T_3[23]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Divide"
+
+			group "Multiply" -- block-group
+			{
+			 block: "Product"
+			}
+				p_0_VSI_real32_T_3[24]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Multiply"
+
+			group "Multiply1" -- block-group
+			{
+			 block: "Product"
+			}
+				p_0_VSI_real32_T_3[27]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Multiply1"
+
+			group "Add" -- block-group
+			{
+			 block: "Sum"
+			}
+				p_0_VSI_real32_T_3[25]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Add"
+
+			group "Add1" -- block-group
+			{
+			 block: "Sum"
+			}
+				p_0_VSI_real32_T_3[28]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Add1"
+
+
+
+		endgroup -- subsystem-group "LPFilter_Sas"
+  
+  
+		group "LPFilter_Yrs" -- subsystem-group
+
+			p_0_VSI_real32_T_3[13]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "xFilt"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+			group "Constant" -- block-group
+			{
+			 block: "Constant"
+			}
+				-- Skipping output Out1
+				p_2_VSI_real32_T_1[1]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Value"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Constant"
+
+			group "Max" -- block-group
+			{
+			 block: "MinMax"
+			}
+				p_0_VSI_real32_T_3[7]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Max"
+
+			group "Divide" -- block-group
+			{
+			 block: "Product"
+			}
+				p_0_VSI_real32_T_3[8]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Divide"
+
+			group "Multiply" -- block-group
+			{
+			 block: "Product"
+			}
+				p_0_VSI_real32_T_3[9]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Multiply"
+
+			group "Multiply1" -- block-group
+			{
+			 block: "Product"
+			}
+				p_0_VSI_real32_T_3[12]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Multiply1"
+
+			group "Add" -- block-group
+			{
+			 block: "Sum"
+			}
+				p_0_VSI_real32_T_3[10]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Add"
+
+			group "Add1" -- block-group
+			{
+			 block: "Sum"
+			}
+				p_0_VSI_real32_T_3[13]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Add1"
+
+
+
+		endgroup -- subsystem-group "LPFilter_Yrs"
+  
+  
+		group "LPFilter_aRef" -- subsystem-group
+
+			p_0_VSI_real32_T_3[50]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "xFilt"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+			group "Constant" -- block-group
+			{
+			 block: "Constant"
+			}
+				-- Skipping output Out1
+				p_2_VSI_real32_T_1[11]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Value"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Constant"
+
+			group "Max" -- block-group
+			{
+			 block: "MinMax"
+			}
+				p_0_VSI_real32_T_3[44]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Max"
+
+			group "Divide" -- block-group
+			{
+			 block: "Product"
+			}
+				p_0_VSI_real32_T_3[45]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Divide"
+
+			group "Multiply" -- block-group
+			{
+			 block: "Product"
+			}
+				p_0_VSI_real32_T_3[46]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Multiply"
+
+			group "Multiply1" -- block-group
+			{
+			 block: "Product"
+			}
+				p_0_VSI_real32_T_3[49]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Multiply1"
+
+			group "Add" -- block-group
+			{
+			 block: "Sum"
+			}
+				p_0_VSI_real32_T_3[47]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Add"
+
+			group "Add1" -- block-group
+			{
+			 block: "Sum"
+			}
+				p_0_VSI_real32_T_3[50]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Add1"
+
+
+
+		endgroup -- subsystem-group "LPFilter_aRef"
+  
+  
+		group "LPFilter_vRef" -- subsystem-group
+
+			p_0_VSI_real32_T_3[21]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "xFilt"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+			group "Constant" -- block-group
+			{
+			 block: "Constant"
+			}
+				-- Skipping output Out1
+				p_2_VSI_real32_T_1[3]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Value"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Constant"
+
+			group "Max" -- block-group
+			{
+			 block: "MinMax"
+			}
+				p_0_VSI_real32_T_3[15]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Max"
+
+			group "Divide" -- block-group
+			{
+			 block: "Product"
+			}
+				p_0_VSI_real32_T_3[16]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Divide"
+
+			group "Multiply" -- block-group
+			{
+			 block: "Product"
+			}
+				p_0_VSI_real32_T_3[17]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Multiply"
+
+			group "Multiply1" -- block-group
+			{
+			 block: "Product"
+			}
+				p_0_VSI_real32_T_3[20]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Multiply1"
+
+			group "Add" -- block-group
+			{
+			 block: "Sum"
+			}
+				p_0_VSI_real32_T_3[18]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Add"
+
+			group "Add1" -- block-group
+			{
+			 block: "Sum"
+			}
+				p_0_VSI_real32_T_3[21]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Add1"
+
+
+
+		endgroup -- subsystem-group "LPFilter_vRef"
+  
+  
+		group "MATLAB Function1" -- subsystem-group
+
+			p_0_VSI_real32_T_3[53]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "vRaw"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+
+
+		endgroup -- subsystem-group "MATLAB Function1"
+  
+  
+		group "MATLAB Function3" -- subsystem-group
+
+			p_0_VSI_real32_T_3[52]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Curv"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+
+
+		endgroup -- subsystem-group "MATLAB Function3"
+
+
+	endgroup -- subsystem-group "VSI"
+
+
+
+endgroup -- "Model Root"

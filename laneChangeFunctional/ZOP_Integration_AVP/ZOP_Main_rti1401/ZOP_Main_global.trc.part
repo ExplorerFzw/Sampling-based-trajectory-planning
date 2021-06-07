@@ -1,0 +1,223 @@
+-- ******** Tunable Parameters ************************************************
+
+group "Tunable Parameters"
+
+	p_2_ZOP_Main_real32_T_0[0]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "k_ZOP_ALC_D10"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_real32_T_0[1]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "k_ZOP_ALC_Enable"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_real32_T_0[2]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "k_ZOP_ALC_Ramp"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_real32_T_0[3]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "k_ZOP_HoldCnt"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_real32_T_0[4]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "k_ZOP_LCProCnt"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_real32_T_0[5]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "k_ZOP_LCTimeMax"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_real32_T_0[6]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "k_ZOP_LS_ChangingDist"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_real32_T_0[7]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "k_ZOP_LS_ChangingTime"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_real32_T_0[8]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "k_ZOP_MapFlag_Enable"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_real32_T_0[9]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "k_ZOP_ObjSpd_cf"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_real32_T_0[10]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "k_ZOP_SpdCkDstThr"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_real32_T_0[11]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "k_ZOP_SpdLmt_Enable"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_real32_T_0[12]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "k_ZOP_SpdLoThr"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_real32_T_0[13]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "k_ZOP_V2X_Enable"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_real32_T_0[14]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "k_ZOP_VcTJA_Enable"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_real32_T_0[15]
+	{
+	 type:    flt(32,IEEE)*
+	 alias:   "k_ZOP_VoiceAct_Enable"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_int8_T_1[0]
+	{
+	 type:    int(8)*
+	 alias:   "k_ZOP_ALC_SCnt"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_int8_T_1[1]
+	{
+	 type:    int(8)*
+	 alias:   "k_ZOP_ALC_SCnt_LC"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_int8_T_1[2]
+	{
+	 type:    int(8)*
+	 alias:   "k_ZOP_ALC_SCnt_Thr"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_int8_T_1[3]
+	{
+	 type:    int(8)*
+	 alias:   "k_ZOP_ALC_SCnt_Thr_LC"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_int8_T_1[4]
+	{
+	 type:    int(8)*
+	 alias:   "k_ZOP_ALC_SNCnt"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_int8_T_1[5]
+	{
+	 type:    int(8)*
+	 alias:   "k_ZOP_ALC_SNCnt_LC"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_int8_T_1[6]
+	{
+	 type:    int(8)*
+	 alias:   "k_ZOP_ALC_SpdEnable"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_int8_T_1[7]
+	{
+	 type:    int(8)*
+	 alias:   "k_ZOP_SpdLoTimeThr"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_uint8_T_2[0]
+	{
+	 type:    uint(8)*
+	 alias:   "MODE_ZOP_ACTIVE"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_uint8_T_2[1]
+	{
+	 type:    uint(8)*
+	 alias:   "MODE_ZOP_ERROR"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_uint8_T_2[2]
+	{
+	 type:    uint(8)*
+	 alias:   "MODE_ZOP_FINISH"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_uint8_T_2[3]
+	{
+	 type:    uint(8)*
+	 alias:   "MODE_ZOP_HOLD"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_uint8_T_2[4]
+	{
+	 type:    uint(8)*
+	 alias:   "MODE_ZOP_LC"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_uint8_T_2[5]
+	{
+	 type:    uint(8)*
+	 alias:   "MODE_ZOP_OFF"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_uint8_T_2[6]
+	{
+	 type:    uint(8)*
+	 alias:   "MODE_ZOP_OVERIDE"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_uint8_T_2[7]
+	{
+	 type:    uint(8)*
+	 alias:   "MODE_ZOP_PASSIVE"
+	 flags:   PARAM
+	}
+	p_2_ZOP_Main_uint8_T_2[8]
+	{
+	 type:    uint(8)*
+	 alias:   "MODE_ZOP_READY"
+	 flags:   PARAM
+	}
+
+endgroup
+
+-- ******** State Machine Data ************************************************
+
+group "State Machine Data"
+
+
+endgroup
+
+
+-- ******** Labels ************************************************************
+
+-- Generation of labels turned off with TRCGenerateLabels option.
+
+-- ******** RTT Dynamic Variables *********************************************
+
+group "RTT Dynamic Variables"
+
+endgroup
+

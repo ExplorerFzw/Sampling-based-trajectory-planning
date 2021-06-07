@@ -1,0 +1,4494 @@
+-- ******** Model variables ***************************************************
+
+group "Model Root"
+      
+	group "SystemCmd_Input" -- block-group
+	{
+	 block: "Inport"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "SystemCmd_Input"
+
+	group "VehStatus_Input" -- block-group
+	{
+	 block: "Inport"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "VehStatus_Input"
+
+	group "FusionObj_Input" -- block-group
+	{
+	 block: "Inport"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "FusionObj_Input"
+
+	group "FusionLane_Input" -- block-group
+	{
+	 block: "Inport"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "FusionLane_Input"
+
+	group "RoadModel_Lane_Input" -- block-group
+	{
+	 block: "Inport"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "RoadModel_Lane_Input"
+
+	group "RoadModel_TS_Input" -- block-group
+	{
+	 block: "Inport"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "RoadModel_TS_Input"
+
+	group "ACC_Output" -- block-group
+	{
+	 block: "Inport"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "ACC_Output"
+
+	group "LKS_Mode" -- block-group
+	{
+	 block: "Inport"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "LKS_Mode"
+
+	group "ACC_PO" -- block-group
+	{
+	 block: "Inport"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "ACC_PO"
+
+	group "LC_dx" -- block-group
+	{
+	 block: "Inport"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "LC_dx"
+
+	group "MapInfo" -- block-group
+	{
+	 block: "Inport"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "MapInfo"
+
+	group "LightInfo" -- block-group
+	{
+	 block: "Inport"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "LightInfo"
+
+	group "SpdLmt" -- block-group
+	{
+	 block: "Inport"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "SpdLmt"
+
+	group "ZOP_HMI_Req" -- block-group
+	{
+	 block: "Inport"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "ZOP_HMI_Req"
+
+	group "Bus\nCreator1" -- block-group
+	{
+	 block: "BusCreator"
+	}
+		p_0_ZOP_Main_ZOP2LCK_9[0]
+		{
+		 type:    struct ZOP_Main_ZOP2LCK*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Bus\nCreator1"
+
+	group "Bus\nCreator2" -- block-group
+	{
+	 block: "BusCreator"
+	}
+		p_0_ZOP_Main_ZOP2ACC_4[0]
+		{
+		 type:    struct ZOP_Main_ZOP2ACC*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Bus\nCreator2"
+
+	group "Bus\nCreator3" -- block-group
+	{
+	 block: "BusCreator"
+	}
+		p_0_ZOP_Main_ZOP2TJA_8[0]
+		{
+		 type:    struct ZOP_Main_ZOP2TJA*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Bus\nCreator3"
+
+	group "Bus\nCreator4" -- block-group
+	{
+	 block: "BusCreator"
+	}
+		p_0_ZOP_Main_Light_Info_ST_5[0]
+		{
+		 type:    struct ZOP_Main_Light_Info_ST*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Bus\nCreator4"
+
+	group "Bus\nCreator5" -- block-group
+	{
+	 block: "BusCreator"
+	}
+		p_0_ZOP_Main_SystemCmd_ST_11[0]
+		{
+		 type:    struct ZOP_Main_SystemCmd_ST*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Bus\nCreator5"
+
+	group "C_Tmp1" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		p_2_ZOP_Main_real_T_2[68]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Value"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "C_Tmp1"
+
+	group "C_Tmp2" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		p_2_ZOP_Main_real_T_2[67]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Value"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "C_Tmp2"
+
+	group "LCDist" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		p_2_ZOP_Main_real_T_2[69]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Value"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "LCDist"
+
+	group "MODE_ZOP_FINISH" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		trcref0_MODE_ZOP_FINISH
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "MODE_ZOP_FINISH"
+		 alias:    "MODE_ZOP_FINISH"
+		}
+		trcref0_Value
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "MODE_ZOP_FINISH"
+		 alias:    "Value"
+		 flags:    DEPRECATED|HIDDEN
+		}
+
+
+	endgroup -- block-group "MODE_ZOP_FINISH"
+
+	group "MODE_ZOP_LC" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		trcref0_MODE_ZOP_LC
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "MODE_ZOP_LC"
+		 alias:    "MODE_ZOP_LC"
+		}
+		trcref0_Value
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "MODE_ZOP_LC"
+		 alias:    "Value"
+		 flags:    DEPRECATED|HIDDEN
+		}
+
+
+	endgroup -- block-group "MODE_ZOP_LC"
+
+	group "ZOPACT" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		p_2_ZOP_Main_real_T_2[59]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Value"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "ZOPACT"
+
+	group "ZOPACT1" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		p_2_ZOP_Main_real_T_2[58]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Value"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "ZOPACT1"
+
+	group "ZOPACT2" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		p_2_ZOP_Main_real_T_2[60]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Value"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "ZOPACT2"
+
+	group "ZOPACT3" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		p_2_ZOP_Main_real_T_2[57]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Value"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "ZOPACT3"
+
+	group "ZOPACT4" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		p_2_ZOP_Main_real_T_2[64]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Value"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "ZOPACT4"
+
+	group "ZOPACT5" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		p_2_ZOP_Main_real_T_2[71]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Value"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "ZOPACT5"
+
+	group "ZOPACT6" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		p_2_ZOP_Main_real_T_2[62]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Value"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "ZOPACT6"
+
+	group "ZOPACT7" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		p_2_ZOP_Main_real_T_2[61]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Value"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "ZOPACT7"
+
+	group "ZOPACT8" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		p_2_ZOP_Main_real_T_2[65]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Value"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "ZOPACT8"
+
+	group "ZOPACT9" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		p_2_ZOP_Main_real_T_2[70]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Value"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "ZOPACT9"
+
+	group "ZOPNACT1" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		p_2_ZOP_Main_real_T_2[63]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Value"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "ZOPNACT1"
+
+	group "k_ZOP_ALC_Ramp" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		trcref0_k_ZOP_ALC_Ramp
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ZOP_ALC_Ramp"
+		 alias:    "k_ZOP_ALC_Ramp"
+		}
+		trcref0_Value
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ZOP_ALC_Ramp"
+		 alias:    "Value"
+		 flags:    DEPRECATED|HIDDEN
+		}
+
+
+	endgroup -- block-group "k_ZOP_ALC_Ramp"
+
+	group "k_ZOP_SpdLmt_Enable" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		trcref0_k_ZOP_SpdLmt_Enable
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ZOP_SpdLmt_Enable"
+		 alias:    "k_ZOP_SpdLmt_Enable"
+		}
+		trcref0_Value
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ZOP_SpdLmt_Enable"
+		 alias:    "Value"
+		 flags:    DEPRECATED|HIDDEN
+		}
+
+
+	endgroup -- block-group "k_ZOP_SpdLmt_Enable"
+
+	group "k_ZOP_VcTJA_Enable" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		trcref0_k_ZOP_VcTJA_Enable
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ZOP_VcTJA_Enable"
+		 alias:    "k_ZOP_VcTJA_Enable"
+		}
+		trcref0_Value
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ZOP_VcTJA_Enable"
+		 alias:    "Value"
+		 flags:    DEPRECATED|HIDDEN
+		}
+
+
+	endgroup -- block-group "k_ZOP_VcTJA_Enable"
+
+	group "k_ZOP_VoiceAct_Enable" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		trcref0_k_ZOP_VoiceAct_Enable
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ZOP_VoiceAct_Enable"
+		 alias:    "k_ZOP_VoiceAct_Enable"
+		}
+		trcref0_Value
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ZOP_VoiceAct_Enable"
+		 alias:    "Value"
+		 flags:    DEPRECATED|HIDDEN
+		}
+
+
+	endgroup -- block-group "k_ZOP_VoiceAct_Enable"
+
+	group "k_ZOP_VoiceAct_Enable1" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		trcref0_k_ZOP_VoiceAct_Enable
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ZOP_VoiceAct_Enable"
+		 alias:    "k_ZOP_VoiceAct_Enable"
+		}
+		trcref0_Value
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "k_ZOP_VoiceAct_Enable"
+		 alias:    "Value"
+		 flags:    DEPRECATED|HIDDEN
+		}
+
+
+	endgroup -- block-group "k_ZOP_VoiceAct_Enable1"
+
+	group "Data Type Conversion1" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "Data Type Conversion1"
+
+	group "Data Type Conversion10" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "Data Type Conversion10"
+
+	group "Data Type Conversion11" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "Data Type Conversion11"
+
+	group "Data Type Conversion12" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		p_0_ZOP_Main_real32_T_12[3]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Data Type Conversion12"
+
+	group "Data Type Conversion13" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "Data Type Conversion13"
+
+	group "Data Type Conversion14" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		p_0_ZOP_Main_real32_T_12[4]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Data Type Conversion14"
+
+	group "Data Type Conversion15" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		p_0_ZOP_Main_real32_T_12[1]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Data Type Conversion15"
+
+	group "Data Type Conversion16" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		p_0_ZOP_Main_real32_T_12[2]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Data Type Conversion16"
+
+	group "Data Type Conversion17" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		p_0_ZOP_Main_real32_T_12[0]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Data Type Conversion17"
+
+	group "Data Type Conversion18" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		p_0_ZOP_Main_real32_T_12[5]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Data Type Conversion18"
+
+	group "Data Type Conversion19" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "Data Type Conversion19"
+
+	group "Data Type Conversion2" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "Data Type Conversion2"
+
+	group "Data Type Conversion20" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		p_0_ZOP_Main_uint8_T_14[3]
+		{
+		 type:    uint(8)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Data Type Conversion20"
+
+	group "Data Type Conversion21" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		p_0_ZOP_Main_uint8_T_14[1]
+		{
+		 type:    uint(8)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Data Type Conversion21"
+
+	group "Data Type Conversion22" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		p_0_ZOP_Main_uint8_T_14[4]
+		{
+		 type:    uint(8)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Data Type Conversion22"
+
+	group "Data Type Conversion23" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "Data Type Conversion23"
+
+	group "Data Type Conversion24" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		p_0_ZOP_Main_real_T_7[5]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Data Type Conversion24"
+
+	group "Data Type Conversion26" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		p_0_ZOP_Main_uint8_T_14[0]
+		{
+		 type:    uint(8)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Data Type Conversion26"
+
+	group "Data Type Conversion3" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "Data Type Conversion3"
+
+	group "Data Type Conversion4" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "Data Type Conversion4"
+
+	group "Data Type Conversion5" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "Data Type Conversion5"
+
+	group "Data Type Conversion6" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "Data Type Conversion6"
+
+	group "Data Type Conversion7" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "Data Type Conversion7"
+
+	group "Data Type Conversion8" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "Data Type Conversion8"
+
+	group "Data Type Conversion9" -- block-group
+	{
+	 block: "DataTypeConversion"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "Data Type Conversion9"
+
+	group "Gain" -- block-group
+	{
+	 block: "Gain"
+	}
+		p_0_ZOP_Main_real_T_7[4]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+		p_2_ZOP_Main_real_T_2[66]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Gain"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "Gain"
+
+	group "Logical\nOperator1" -- block-group
+	{
+	 block: "Logic"
+	}
+		p_0_ZOP_Main_boolean_T_16[9]
+		{
+		 type:    uint(8)*
+		 alias:   "Out1"
+		 range:   < 0 ; 1 >
+		 bitmask: 0x01
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Logical\nOperator1"
+
+	group "Logical\nOperator2" -- block-group
+	{
+	 block: "Logic"
+	}
+		p_0_ZOP_Main_boolean_T_16[8]
+		{
+		 type:    uint(8)*
+		 alias:   "Out1"
+		 range:   < 0 ; 1 >
+		 bitmask: 0x01
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Logical\nOperator2"
+
+	group "MinMax" -- block-group
+	{
+	 block: "MinMax"
+	}
+		p_0_ZOP_Main_uint8_T_14[2]
+		{
+		 type:    uint(8)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "MinMax"
+
+	group "MinMax1" -- block-group
+	{
+	 block: "MinMax"
+	}
+		p_0_ZOP_Main_uint8_T_14[5]
+		{
+		 type:    uint(8)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "MinMax1"
+
+	group "Relational\nOperator" -- block-group
+	{
+	 block: "RelationalOperator"
+	}
+		p_0_ZOP_Main_boolean_T_16[3]
+		{
+		 type:    uint(8)*
+		 alias:   "Out1"
+		 range:   < 0 ; 1 >
+		 bitmask: 0x01
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Relational\nOperator"
+
+	group "Relational\nOperator1" -- block-group
+	{
+	 block: "RelationalOperator"
+	}
+		p_0_ZOP_Main_boolean_T_16[2]
+		{
+		 type:    uint(8)*
+		 alias:   "Out1"
+		 range:   < 0 ; 1 >
+		 bitmask: 0x01
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Relational\nOperator1"
+
+	group "Relational\nOperator2" -- block-group
+	{
+	 block: "RelationalOperator"
+	}
+		p_0_ZOP_Main_boolean_T_16[0]
+		{
+		 type:    uint(8)*
+		 alias:   "Out1"
+		 range:   < 0 ; 1 >
+		 bitmask: 0x01
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Relational\nOperator2"
+
+	group "Relational\nOperator3" -- block-group
+	{
+	 block: "RelationalOperator"
+	}
+		p_0_ZOP_Main_boolean_T_16[1]
+		{
+		 type:    uint(8)*
+		 alias:   "Out1"
+		 range:   < 0 ; 1 >
+		 bitmask: 0x01
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Relational\nOperator3"
+
+	group "Relational\nOperator4" -- block-group
+	{
+	 block: "RelationalOperator"
+	}
+		p_0_ZOP_Main_boolean_T_16[4]
+		{
+		 type:    uint(8)*
+		 alias:   "Out1"
+		 range:   < 0 ; 1 >
+		 bitmask: 0x01
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Relational\nOperator4"
+
+	group "Relational\nOperator5" -- block-group
+	{
+	 block: "RelationalOperator"
+	}
+		p_0_ZOP_Main_boolean_T_16[6]
+		{
+		 type:    uint(8)*
+		 alias:   "Out1"
+		 range:   < 0 ; 1 >
+		 bitmask: 0x01
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Relational\nOperator5"
+
+	group "Relational\nOperator6" -- block-group
+	{
+	 block: "RelationalOperator"
+	}
+		p_0_ZOP_Main_boolean_T_16[7]
+		{
+		 type:    uint(8)*
+		 alias:   "Out1"
+		 range:   < 0 ; 1 >
+		 bitmask: 0x01
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Relational\nOperator6"
+
+	group "Switch" -- block-group
+	{
+	 block: "Switch"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "Switch"
+
+	group "Switch1" -- block-group
+	{
+	 block: "Switch"
+	}
+		p_0_ZOP_Main_real32_T_12[6]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Switch1"
+
+	group "Switch2" -- block-group
+	{
+	 block: "Switch"
+	}
+		p_0_ZOP_Main_real_T_7[1]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Switch2"
+
+	group "Switch3" -- block-group
+	{
+	 block: "Switch"
+	}
+		p_0_ZOP_Main_real_T_7[3]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Switch3"
+
+	group "Switch4" -- block-group
+	{
+	 block: "Switch"
+	}
+		p_0_ZOP_Main_real_T_7[0]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+		p_2_ZOP_Main_real32_T_3[14]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Threshold"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "Switch4"
+
+	group "Switch5" -- block-group
+	{
+	 block: "Switch"
+	}
+		p_0_ZOP_Main_real_T_7[2]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+		p_2_ZOP_Main_real32_T_3[15]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Threshold"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "Switch5"
+
+	group "Switch6" -- block-group
+	{
+	 block: "Switch"
+	}
+		p_0_ZOP_Main_real_T_7[7]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+		p_2_ZOP_Main_real32_T_3[17]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Threshold"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "Switch6"
+
+	group "Switch7" -- block-group
+	{
+	 block: "Switch"
+	}
+		p_0_ZOP_Main_real_T_7[6]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+		p_2_ZOP_Main_real32_T_3[16]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Threshold"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "Switch7"
+
+	group "Unit Delay2" -- block-group
+	{
+	 block: "UnitDelay"
+	}
+		p_0_ZOP_Main_boolean_T_16[5]
+		{
+		 type:    uint(8)*
+		 alias:   "Out1"
+		 range:   < 0 ; 1 >
+		 bitmask: 0x01
+		 flags:   OUTPUT|READONLY
+		}
+		p_2_ZOP_Main_boolean_T_5[8]
+		{
+		 type:    uint(8)*
+		 alias:   "InitialCondition"
+		 range:   < 0 ; 1 >
+		 bitmask: 0x01
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "Unit Delay2"
+
+	group "Unit Delay3" -- block-group
+	{
+	 block: "UnitDelay"
+	}
+		p_0_ZOP_Main_int8_T_15[0]
+		{
+		 type:    int(8)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+		p_2_ZOP_Main_int8_T_6[3]
+		{
+		 type:    int(8)*
+		 alias:   "InitialCondition"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "Unit Delay3"
+
+  
+  
+	group "LKS_Mode_Conv" -- subsystem-group
+
+		p_0_ZOP_Main_LKS_Status_ST_6[0]
+		{
+		 type:    struct ZOP_Main_LKS_Status_ST*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+		group "Unit Delay4" -- block-group
+		{
+		 block: "UnitDelay"
+		}
+			p_0_ZOP_Main_real32_T_12[7]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+			p_2_ZOP_Main_real32_T_3[13]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "InitialCondition"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Unit Delay4"
+
+  
+  
+		group "LKS_Input_Proc" -- subsystem-group
+
+			p_0_ZOP_Main_LKS_Status_ST_6[0]
+			{
+			 type:    struct ZOP_Main_LKS_Status_ST*
+			 alias:   "LKS_Output"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+
+
+		endgroup -- subsystem-group "LKS_Input_Proc"
+
+
+	endgroup -- subsystem-group "LKS_Mode_Conv"
+  
+  
+	group "Light_Process" -- subsystem-group
+
+		p_0_ZOP_Main_real_T_7[57]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "v_des"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_ZOP_Main_real_T_7[58]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "a_des"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_ZOP_Main_real32_T_12[23]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "case_num"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+		group "C_Tmp1" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			p_2_ZOP_Main_real_T_2[2]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "C_Tmp1"
+
+		group "C_Tmp2" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			p_2_ZOP_Main_real_T_2[4]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "C_Tmp2"
+
+		group "C_Tmp3" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			p_2_ZOP_Main_real_T_2[3]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "C_Tmp3"
+
+		group "k_ZOP_V2X_Enable" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			trcref0_k_ZOP_V2X_Enable
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_V2X_Enable"
+			 alias:    "k_ZOP_V2X_Enable"
+			}
+			trcref0_Value
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_V2X_Enable"
+			 alias:    "Value"
+			 flags:    DEPRECATED|HIDDEN
+			}
+
+
+		endgroup -- block-group "k_ZOP_V2X_Enable"
+
+		group "Data Type Conversion1" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			p_0_ZOP_Main_real_T_7[54]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Data Type Conversion1"
+
+		group "Data Type Conversion15" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			p_0_ZOP_Main_real32_T_12[21]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Data Type Conversion15"
+
+		group "Data Type Conversion2" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			p_0_ZOP_Main_real_T_7[52]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Data Type Conversion2"
+
+		group "Data Type Conversion3" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			-- Skipping output Out1
+
+
+		endgroup -- block-group "Data Type Conversion3"
+
+		group "Data Type Conversion4" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			p_0_ZOP_Main_real_T_7[59]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Data Type Conversion4"
+
+		group "Data Type Conversion5" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			p_0_ZOP_Main_real_T_7[53]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Data Type Conversion5"
+
+		group "Data Type Conversion6" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			p_0_ZOP_Main_real_T_7[56]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Data Type Conversion6"
+
+		group "Data Type Conversion7" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			p_0_ZOP_Main_real_T_7[57]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Data Type Conversion7"
+
+		group "Data Type Conversion8" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			p_0_ZOP_Main_real_T_7[58]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Data Type Conversion8"
+
+		group "Data Type Conversion9" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			p_0_ZOP_Main_real32_T_12[22]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Data Type Conversion9"
+
+		group "Relational\nOperator1" -- block-group
+		{
+		 block: "RelationalOperator"
+		}
+			p_0_ZOP_Main_boolean_T_16[49]
+			{
+			 type:    uint(8)*
+			 alias:   "Out1"
+			 range:   < 0 ; 1 >
+			 bitmask: 0x01
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Relational\nOperator1"
+
+		group "Switch" -- block-group
+		{
+		 block: "Switch"
+		}
+			p_0_ZOP_Main_real32_T_12[23]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+			p_2_ZOP_Main_real32_T_3[1]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Threshold"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Switch"
+
+		group "Switch1" -- block-group
+		{
+		 block: "Switch"
+		}
+			p_0_ZOP_Main_real_T_7[55]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Switch1"
+
+  
+  
+		group "Chart" -- subsystem-group
+
+			p_0_ZOP_Main_real_T_7[64]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Flag"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+
+
+		endgroup -- subsystem-group "Chart"
+  
+  
+		group "LightLogic" -- subsystem-group
+
+			p_0_ZOP_Main_real_T_7[60]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "v_des"
+			 flags:   OUTPUT|READONLY
+			}
+			p_0_ZOP_Main_real_T_7[61]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "a_des"
+			 flags:   OUTPUT|READONLY
+			}
+			p_0_ZOP_Main_real_T_7[62]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "dist"
+			 flags:   OUTPUT|READONLY
+			}
+			p_0_ZOP_Main_real_T_7[63]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "case_num"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+
+
+		endgroup -- subsystem-group "LightLogic"
+
+
+	endgroup -- subsystem-group "Light_Process"
+  
+  
+	group "RTI Data" -- subsystem-group
+
+
+	endgroup -- subsystem-group "RTI Data"
+  
+  
+	group "ZOP_Main_OS" -- subsystem-group
+
+		-- Skipping output ZOP_Mode
+		-- Skipping output ZOP_Takeover
+		-- Skipping output ZOP_Enable
+		p_0_ZOP_Main_int16_T_13[0]
+		{
+		 type:    int(16)*
+		 alias:   "LC_Cmd"
+		 desc:    "Uniform Fixed-Point"
+		 scale:   [2^-7, 0.0]
+		 bitmask: 0:15
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_ZOP_Main_ZOP2HMI_10[0]
+		{
+		 type:    struct ZOP_Main_ZOP2HMI*
+		 alias:   "ZOP2HMI"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+		group "Bus\nCreator1" -- block-group
+		{
+		 block: "BusCreator"
+		}
+			p_0_ZOP_Main_MapInfo_ST_Post_1[0]
+			{
+			 type:    struct ZOP_Main_MapInfo_ST_Post*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Bus\nCreator1"
+
+		group "Bus\nCreator2" -- block-group
+		{
+		 block: "BusCreator"
+		}
+			p_0_ZOP_Main_ZOP2HMI_10[0]
+			{
+			 type:    struct ZOP_Main_ZOP2HMI*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Bus\nCreator2"
+
+		group "Bus\nCreator3" -- block-group
+		{
+		 block: "BusCreator"
+		}
+			p_0_ZOP_Main_ZOP_Object_ST_2[0]
+			{
+			 type:    struct ZOP_Main_ZOP_Object_ST*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Bus\nCreator3"
+
+		group "Vector\nConcatenate" -- block-group
+		{
+		 block: "Concatenate"
+		}
+			p_0_ZOP_Main_int8_T_15[5]
+			{
+			 type:    ZOP_Main_ZOP_Object_ST_exist_9*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Vector\nConcatenate"
+
+		group "C_Tmp1" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			p_2_ZOP_Main_real_T_2[56]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "C_Tmp1"
+
+		group "C_Tmp10" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			p_2_ZOP_Main_real_T_2[52]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "C_Tmp10"
+
+		group "C_Tmp11" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			p_2_ZOP_Main_real_T_2[54]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "C_Tmp11"
+
+		group "C_Tmp12" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			p_2_ZOP_Main_real_T_2[53]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "C_Tmp12"
+
+		group "C_Tmp2" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			p_2_ZOP_Main_real_T_2[46]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "C_Tmp2"
+
+		group "C_Tmp3" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			p_2_ZOP_Main_real_T_2[47]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "C_Tmp3"
+
+		group "C_Tmp4" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			p_2_ZOP_Main_real_T_2[48]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "C_Tmp4"
+
+		group "C_Tmp5" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			p_2_ZOP_Main_real_T_2[49]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "C_Tmp5"
+
+		group "C_Tmp6" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			p_2_ZOP_Main_real_T_2[50]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "C_Tmp6"
+
+		group "C_Tmp7" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			p_2_ZOP_Main_real_T_2[45]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "C_Tmp7"
+
+		group "C_Tmp8" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			p_2_ZOP_Main_real_T_2[55]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "C_Tmp8"
+
+		group "C_Tmp9" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			p_2_ZOP_Main_real_T_2[51]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "C_Tmp9"
+
+		group "MODE_ZOP_ACTIVE" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			trcref0_MODE_ZOP_ACTIVE
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "MODE_ZOP_ACTIVE"
+			 alias:    "MODE_ZOP_ACTIVE"
+			}
+			trcref0_Value
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "MODE_ZOP_ACTIVE"
+			 alias:    "Value"
+			 flags:    DEPRECATED|HIDDEN
+			}
+
+
+		endgroup -- block-group "MODE_ZOP_ACTIVE"
+
+		group "MODE_ZOP_FINISH" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			trcref0_MODE_ZOP_FINISH
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "MODE_ZOP_FINISH"
+			 alias:    "MODE_ZOP_FINISH"
+			}
+			trcref0_Value
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "MODE_ZOP_FINISH"
+			 alias:    "Value"
+			 flags:    DEPRECATED|HIDDEN
+			}
+
+
+		endgroup -- block-group "MODE_ZOP_FINISH"
+
+		group "k_LS_ChangingDist" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			trcref0_k_ZOP_LS_ChangingDist
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_LS_ChangingDist"
+			 alias:    "k_ZOP_LS_ChangingDist"
+			}
+			trcref0_Value
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_LS_ChangingDist"
+			 alias:    "Value"
+			 flags:    DEPRECATED|HIDDEN
+			}
+
+
+		endgroup -- block-group "k_LS_ChangingDist"
+
+		group "k_LS_ChangingTime" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			trcref0_k_ZOP_LS_ChangingTime
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_LS_ChangingTime"
+			 alias:    "k_ZOP_LS_ChangingTime"
+			}
+			trcref0_Value
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_LS_ChangingTime"
+			 alias:    "Value"
+			 flags:    DEPRECATED|HIDDEN
+			}
+
+
+		endgroup -- block-group "k_LS_ChangingTime"
+
+		group "Data Type Conversion1" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			-- Skipping output Out1
+
+
+		endgroup -- block-group "Data Type Conversion1"
+
+		group "Data Type Conversion10" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			-- Skipping output Out1
+
+
+		endgroup -- block-group "Data Type Conversion10"
+
+		group "Data Type Conversion11" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			-- Skipping output Out1
+
+
+		endgroup -- block-group "Data Type Conversion11"
+
+		group "Data Type Conversion12" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			p_0_ZOP_Main_int8_T_15[13]
+			{
+			 type:    int(8)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Data Type Conversion12"
+
+		group "Data Type Conversion13" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			-- Skipping output Out1
+
+
+		endgroup -- block-group "Data Type Conversion13"
+
+		group "Data Type Conversion14" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			-- Skipping output Out1
+
+
+		endgroup -- block-group "Data Type Conversion14"
+
+		group "Data Type Conversion15" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			-- Skipping output Out1
+
+
+		endgroup -- block-group "Data Type Conversion15"
+
+		group "Data Type Conversion16" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			p_0_ZOP_Main_int8_T_15[7]
+			{
+			 type:    int(8)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Data Type Conversion16"
+
+		group "Data Type Conversion17" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			p_0_ZOP_Main_int8_T_15[8]
+			{
+			 type:    int(8)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Data Type Conversion17"
+
+		group "Data Type Conversion18" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			p_0_ZOP_Main_int8_T_15[4]
+			{
+			 type:    int(8)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Data Type Conversion18"
+
+		group "Data Type Conversion2" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			-- Skipping output Out1
+
+
+		endgroup -- block-group "Data Type Conversion2"
+
+		group "Data Type Conversion3" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			p_0_ZOP_Main_real32_T_12[9]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Data Type Conversion3"
+
+		group "Data Type Conversion4" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			p_0_ZOP_Main_int8_T_15[12]
+			{
+			 type:    int(8)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Data Type Conversion4"
+
+		group "Data Type Conversion5" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			p_0_ZOP_Main_int8_T_15[11]
+			{
+			 type:    int(8)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Data Type Conversion5"
+
+		group "Data Type Conversion6" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			p_0_ZOP_Main_int8_T_15[10]
+			{
+			 type:    int(8)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Data Type Conversion6"
+
+		group "Data Type Conversion7" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			p_0_ZOP_Main_int8_T_15[9]
+			{
+			 type:    int(8)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Data Type Conversion7"
+
+		group "Data Type Conversion8" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			-- Skipping output Out1
+
+
+		endgroup -- block-group "Data Type Conversion8"
+
+		group "Data Type Conversion9" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			-- Skipping output Out1
+
+
+		endgroup -- block-group "Data Type Conversion9"
+
+		group "Gain" -- block-group
+		{
+		 block: "Gain"
+		}
+			p_0_ZOP_Main_int16_T_13[0]
+			{
+			 type:    int(16)*
+			 alias:   "Out1"
+			 desc:    "Uniform Fixed-Point"
+			 scale:   [2^-7, 0.0]
+			 bitmask: 0:15
+			 flags:   OUTPUT|READONLY
+			}
+			p_2_ZOP_Main_int8_T_6[4]
+			{
+			 type:    int(8)*
+			 alias:   "Gain"
+			 desc:    "Uniform Fixed-Point"
+			 scale:   [2^-7, 0.0]
+			 bitmask: 0:7
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain"
+
+		group "Logical\nOperator" -- block-group
+		{
+		 block: "Logic"
+		}
+			-- Skipping output Out1
+
+
+		endgroup -- block-group "Logical\nOperator"
+
+		group "Relational\nOperator" -- block-group
+		{
+		 block: "RelationalOperator"
+		}
+			p_0_ZOP_Main_boolean_T_16[14]
+			{
+			 type:    uint(8)*
+			 alias:   "Out1"
+			 range:   < 0 ; 1 >
+			 bitmask: 0x01
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Relational\nOperator"
+
+		group "Relational\nOperator1" -- block-group
+		{
+		 block: "RelationalOperator"
+		}
+			p_0_ZOP_Main_boolean_T_16[13]
+			{
+			 type:    uint(8)*
+			 alias:   "Out1"
+			 range:   < 0 ; 1 >
+			 bitmask: 0x01
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Relational\nOperator1"
+
+		group "Relational\nOperator2" -- block-group
+		{
+		 block: "RelationalOperator"
+		}
+			p_0_ZOP_Main_boolean_T_16[12]
+			{
+			 type:    uint(8)*
+			 alias:   "Out1"
+			 range:   < 0 ; 1 >
+			 bitmask: 0x01
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Relational\nOperator2"
+
+		group "Relational\nOperator4" -- block-group
+		{
+		 block: "RelationalOperator"
+		}
+			p_0_ZOP_Main_boolean_T_16[11]
+			{
+			 type:    uint(8)*
+			 alias:   "Out1"
+			 range:   < 0 ; 1 >
+			 bitmask: 0x01
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Relational\nOperator4"
+
+		group "Switch" -- block-group
+		{
+		 block: "Switch"
+		}
+			p_0_ZOP_Main_real_T_7[8]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Switch"
+
+		group "Switch1" -- block-group
+		{
+		 block: "Switch"
+		}
+			p_0_ZOP_Main_real_T_7[10]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Switch1"
+
+		group "Switch2" -- block-group
+		{
+		 block: "Switch"
+		}
+			p_0_ZOP_Main_real_T_7[9]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Switch2"
+
+		group "Unit Delay1" -- block-group
+		{
+		 block: "UnitDelay"
+		}
+			p_0_ZOP_Main_int8_T_15[1]
+			{
+			 type:    int(8)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+			p_2_ZOP_Main_int8_T_6[0]
+			{
+			 type:    int(8)*
+			 alias:   "InitialCondition"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Unit Delay1"
+
+		group "Unit Delay2" -- block-group
+		{
+		 block: "UnitDelay"
+		}
+			p_0_ZOP_Main_boolean_T_16[10]
+			{
+			 type:    uint(8)*
+			 alias:   "Out1"
+			 range:   < 0 ; 1 >
+			 bitmask: 0x01
+			 flags:   OUTPUT|READONLY
+			}
+			p_2_ZOP_Main_boolean_T_5[7]
+			{
+			 type:    uint(8)*
+			 alias:   "InitialCondition"
+			 range:   < 0 ; 1 >
+			 bitmask: 0x01
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Unit Delay2"
+
+		group "Unit Delay3" -- block-group
+		{
+		 block: "UnitDelay"
+		}
+			p_0_ZOP_Main_int8_T_15[2]
+			{
+			 type:    int(8)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+			p_2_ZOP_Main_int8_T_6[1]
+			{
+			 type:    int(8)*
+			 alias:   "InitialCondition"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Unit Delay3"
+
+		group "Unit Delay4" -- block-group
+		{
+		 block: "UnitDelay"
+		}
+			p_0_ZOP_Main_real32_T_12[8]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+			p_2_ZOP_Main_real32_T_3[12]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "InitialCondition"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Unit Delay4"
+
+		group "Unit Delay5" -- block-group
+		{
+		 block: "UnitDelay"
+		}
+			p_0_ZOP_Main_int8_T_15[3]
+			{
+			 type:    int(8)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+			p_2_ZOP_Main_int8_T_6[2]
+			{
+			 type:    int(8)*
+			 alias:   "InitialCondition"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Unit Delay5"
+
+  
+  
+		group "LaneStateProcess" -- subsystem-group
+
+			p_0_ZOP_Main_real32_T_12[19]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "LaneCurPost"
+			 flags:   OUTPUT|READONLY
+			}
+			p_0_ZOP_Main_real32_T_12[20]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "LaneStable"
+			 flags:   OUTPUT|READONLY
+			}
+
+			trcref0_MODE_ZOP_LC
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "MODE_ZOP_LC"
+			 alias:    "MODE_ZOP_LC"
+			}
+			-- Skipping parameter "MODE_ZOP_LC"
+
+
+
+		endgroup -- subsystem-group "LaneStateProcess"
+  
+  
+		group "TargetCheck" -- subsystem-group
+
+			p_0_ZOP_Main_ZOP_Object_ST_2[1]
+			{
+			 type:    ZOP_Main_ArrayDT42_8*
+			 alias:   "ObjTarget"
+			 flags:   OUTPUT|READONLY
+			}
+			p_0_ZOP_Main_real_T_7[11]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "ObjNum"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+  
+  
+			group "DEFAULT.CheckTargetF" -- subsystem-group
+
+				p_0_ZOP_Main_boolean_T_16[27]
+				{
+				 type:    uint(8)*
+				 alias:   "TargetExist"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   OUTPUT|READONLY
+				}
+				p_0_ZOP_Main_boolean_T_16[31]
+				{
+				 type:    uint(8)*
+				 alias:   "TargetExist2"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   OUTPUT|READONLY
+				}
+
+
+				group "Abs" -- block-group
+				{
+				 block: "Abs"
+				}
+					p_0_ZOP_Main_real_T_7[31]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Abs"
+
+				group "Abs1" -- block-group
+				{
+				 block: "Abs"
+				}
+					p_0_ZOP_Main_real_T_7[32]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Abs1"
+
+				group "Abs4" -- block-group
+				{
+				 block: "Abs"
+				}
+					p_0_ZOP_Main_real32_T_12[10]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Abs4"
+
+				group "Abs5" -- block-group
+				{
+				 block: "Abs"
+				}
+					p_0_ZOP_Main_real_T_7[17]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Abs5"
+
+				group "C" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_2[25]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "C"
+
+				group "C1" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_2[44]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "C1"
+
+				group "C2" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_2[42]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "C2"
+
+				group "CF1" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_2[32]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "CF1"
+
+				group "CF2" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_2[33]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "CF2"
+
+				group "CF3" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_2[40]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "CF3"
+
+				group "CF4" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_2[41]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "CF4"
+
+				group "CF5" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_2[43]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "CF5"
+
+				group "Constant1" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_2[29]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant1"
+
+				group "Constant10" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_2[28]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant10"
+
+				group "Constant2" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_2[34]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant2"
+
+				group "Constant36" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_2[37]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant36"
+
+				group "Constant7" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_2[31]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant7"
+
+				group "Constant9" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_2[26]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant9"
+
+				group "Gain" -- block-group
+				{
+				 block: "Gain"
+				}
+					p_0_ZOP_Main_real_T_7[24]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_ZOP_Main_real_T_2[36]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Gain"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Gain"
+
+				group "Gain1" -- block-group
+				{
+				 block: "Gain"
+				}
+					p_0_ZOP_Main_real_T_7[27]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_ZOP_Main_real_T_2[39]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Gain"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Gain1"
+
+				group "Gain3" -- block-group
+				{
+				 block: "Gain"
+				}
+					p_0_ZOP_Main_real_T_7[18]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_ZOP_Main_real_T_2[27]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Gain"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Gain3"
+
+				group "Logical\nOperator2" -- block-group
+				{
+				 block: "Logic"
+				}
+					p_0_ZOP_Main_boolean_T_16[20]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Logical\nOperator2"
+
+				group "Logical\nOperator3" -- block-group
+				{
+				 block: "Logic"
+				}
+					p_0_ZOP_Main_boolean_T_16[23]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Logical\nOperator3"
+
+				group "Logical\nOperator4" -- block-group
+				{
+				 block: "Logic"
+				}
+					p_0_ZOP_Main_boolean_T_16[31]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Logical\nOperator4"
+
+				group "Logical\nOperator5" -- block-group
+				{
+				 block: "Logic"
+				}
+					p_0_ZOP_Main_boolean_T_16[27]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Logical\nOperator5"
+
+				group "Logical\nOperator6" -- block-group
+				{
+				 block: "Logic"
+				}
+					p_0_ZOP_Main_boolean_T_16[17]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Logical\nOperator6"
+
+				group "MinMax" -- block-group
+				{
+				 block: "MinMax"
+				}
+					p_0_ZOP_Main_real_T_7[14]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "MinMax"
+
+				group "Divide" -- block-group
+				{
+				 block: "Product"
+				}
+					p_0_ZOP_Main_real_T_7[22]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Divide"
+
+				group "Divide1" -- block-group
+				{
+				 block: "Product"
+				}
+					p_0_ZOP_Main_real_T_7[30]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Divide1"
+
+				group "Divide2" -- block-group
+				{
+				 block: "Product"
+				}
+					p_0_ZOP_Main_real_T_7[15]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Divide2"
+
+				group "Product" -- block-group
+				{
+				 block: "Product"
+				}
+					p_0_ZOP_Main_real_T_7[25]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Product"
+
+				group "Product1" -- block-group
+				{
+				 block: "Product"
+				}
+					p_0_ZOP_Main_real_T_7[28]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Product1"
+
+				group "Relational\nOperator1" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_ZOP_Main_boolean_T_16[30]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Relational\nOperator1"
+
+				group "Relational\nOperator10" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_ZOP_Main_boolean_T_16[22]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Relational\nOperator10"
+
+				group "Relational\nOperator11" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_ZOP_Main_boolean_T_16[28]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Relational\nOperator11"
+
+				group "Relational\nOperator12" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_ZOP_Main_boolean_T_16[29]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Relational\nOperator12"
+
+				group "Relational\nOperator2" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_ZOP_Main_boolean_T_16[26]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Relational\nOperator2"
+
+				group "Relational\nOperator3" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_ZOP_Main_boolean_T_16[18]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Relational\nOperator3"
+
+				group "Relational\nOperator4" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_ZOP_Main_boolean_T_16[19]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Relational\nOperator4"
+
+				group "Relational\nOperator5" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_ZOP_Main_boolean_T_16[16]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Relational\nOperator5"
+
+				group "Relational\nOperator8" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_ZOP_Main_boolean_T_16[15]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Relational\nOperator8"
+
+				group "Relational\nOperator9" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_ZOP_Main_boolean_T_16[21]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Relational\nOperator9"
+
+				group "Saturation" -- block-group
+				{
+				 block: "Saturate"
+				}
+					p_0_ZOP_Main_real32_T_12[11]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_ZOP_Main_real32_T_3[8]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "UpperLimit"
+					 flags:   PARAM
+					}
+					p_2_ZOP_Main_real32_T_3[9]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "LowerLimit"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Saturation"
+
+				group "Saturation1" -- block-group
+				{
+				 block: "Saturate"
+				}
+					p_0_ZOP_Main_real32_T_12[12]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_ZOP_Main_real32_T_3[10]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "UpperLimit"
+					 flags:   PARAM
+					}
+					p_2_ZOP_Main_real32_T_3[11]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "LowerLimit"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Saturation1"
+
+				group "Add3" -- block-group
+				{
+				 block: "Sum"
+				}
+					p_0_ZOP_Main_real_T_7[29]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Add3"
+
+				group "Add6" -- block-group
+				{
+				 block: "Sum"
+				}
+					p_0_ZOP_Main_real_T_7[19]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Add6"
+
+				group "Add7" -- block-group
+				{
+				 block: "Sum"
+				}
+					p_0_ZOP_Main_real_T_7[16]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Add7"
+
+				group "Switch1" -- block-group
+				{
+				 block: "Switch"
+				}
+					p_0_ZOP_Main_real_T_7[21]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_ZOP_Main_real_T_2[30]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Threshold"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Switch1"
+
+				group "Switch2" -- block-group
+				{
+				 block: "Switch"
+				}
+					p_0_ZOP_Main_real_T_7[23]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_ZOP_Main_real_T_2[35]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Threshold"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Switch2"
+
+				group "Switch3" -- block-group
+				{
+				 block: "Switch"
+				}
+					p_0_ZOP_Main_real_T_7[20]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Switch3"
+
+				group "Switch4" -- block-group
+				{
+				 block: "Switch"
+				}
+					p_0_ZOP_Main_real_T_7[26]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_ZOP_Main_real_T_2[38]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Threshold"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Switch4"
+
+				group "Switch7" -- block-group
+				{
+				 block: "Switch"
+				}
+					p_0_ZOP_Main_boolean_T_16[25]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Switch7"
+
+				group "Unit Delay1" -- block-group
+				{
+				 block: "UnitDelay"
+				}
+					p_0_ZOP_Main_boolean_T_16[24]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_ZOP_Main_boolean_T_5[5]
+					{
+					 type:    uint(8)*
+					 alias:   "InitialCondition"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Unit Delay1"
+
+
+
+			endgroup -- subsystem-group "DEFAULT.CheckTargetF"
+  
+  
+			group "DEFAULT.CheckTargetR" -- subsystem-group
+
+				p_0_ZOP_Main_boolean_T_16[44]
+				{
+				 type:    uint(8)*
+				 alias:   "TargetExist"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   OUTPUT|READONLY
+				}
+				p_0_ZOP_Main_boolean_T_16[48]
+				{
+				 type:    uint(8)*
+				 alias:   "TargetExist2"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   OUTPUT|READONLY
+				}
+
+
+				group "Abs" -- block-group
+				{
+				 block: "Abs"
+				}
+					p_0_ZOP_Main_real_T_7[50]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Abs"
+
+				group "Abs1" -- block-group
+				{
+				 block: "Abs"
+				}
+					p_0_ZOP_Main_real_T_7[51]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Abs1"
+
+				group "Abs2" -- block-group
+				{
+				 block: "Abs"
+				}
+					p_0_ZOP_Main_real32_T_12[13]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Abs2"
+
+				group "Abs4" -- block-group
+				{
+				 block: "Abs"
+				}
+					p_0_ZOP_Main_real32_T_12[14]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Abs4"
+
+				group "Abs5" -- block-group
+				{
+				 block: "Abs"
+				}
+					p_0_ZOP_Main_real_T_7[36]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Abs5"
+
+				group "C" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_2[5]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "C"
+
+				group "C1" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_2[24]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "C1"
+
+				group "C2" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_2[22]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "C2"
+
+				group "CK1" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_2[12]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "CK1"
+
+				group "CK2" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_2[13]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "CK2"
+
+				group "CK3" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_2[20]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "CK3"
+
+				group "CK4" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_2[21]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "CK4"
+
+				group "CK5" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_2[23]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "CK5"
+
+				group "Constant1" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_2[9]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant1"
+
+				group "Constant10" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_2[8]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant10"
+
+				group "Constant2" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_2[14]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant2"
+
+				group "Constant36" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_2[17]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant36"
+
+				group "Constant7" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_2[11]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant7"
+
+				group "Constant9" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_ZOP_Main_real_T_2[6]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant9"
+
+				group "Gain" -- block-group
+				{
+				 block: "Gain"
+				}
+					p_0_ZOP_Main_real_T_7[43]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_ZOP_Main_real_T_2[16]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Gain"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Gain"
+
+				group "Gain1" -- block-group
+				{
+				 block: "Gain"
+				}
+					p_0_ZOP_Main_real_T_7[46]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_ZOP_Main_real_T_2[19]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Gain"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Gain1"
+
+				group "Gain2" -- block-group
+				{
+				 block: "Gain"
+				}
+					p_0_ZOP_Main_real32_T_12[16]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_ZOP_Main_real32_T_3[4]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Gain"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Gain2"
+
+				group "Gain3" -- block-group
+				{
+				 block: "Gain"
+				}
+					p_0_ZOP_Main_real_T_7[37]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_ZOP_Main_real_T_2[7]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Gain"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Gain3"
+
+				group "Gain4" -- block-group
+				{
+				 block: "Gain"
+				}
+					p_0_ZOP_Main_real32_T_12[17]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_ZOP_Main_real32_T_3[5]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Gain"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Gain4"
+
+				group "Logical\nOperator2" -- block-group
+				{
+				 block: "Logic"
+				}
+					p_0_ZOP_Main_boolean_T_16[37]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Logical\nOperator2"
+
+				group "Logical\nOperator3" -- block-group
+				{
+				 block: "Logic"
+				}
+					p_0_ZOP_Main_boolean_T_16[40]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Logical\nOperator3"
+
+				group "Logical\nOperator4" -- block-group
+				{
+				 block: "Logic"
+				}
+					p_0_ZOP_Main_boolean_T_16[48]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Logical\nOperator4"
+
+				group "Logical\nOperator5" -- block-group
+				{
+				 block: "Logic"
+				}
+					p_0_ZOP_Main_boolean_T_16[44]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Logical\nOperator5"
+
+				group "Logical\nOperator6" -- block-group
+				{
+				 block: "Logic"
+				}
+					p_0_ZOP_Main_boolean_T_16[34]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Logical\nOperator6"
+
+				group "MinMax" -- block-group
+				{
+				 block: "MinMax"
+				}
+					p_0_ZOP_Main_real_T_7[33]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "MinMax"
+
+				group "Divide" -- block-group
+				{
+				 block: "Product"
+				}
+					p_0_ZOP_Main_real_T_7[41]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Divide"
+
+				group "Divide1" -- block-group
+				{
+				 block: "Product"
+				}
+					p_0_ZOP_Main_real_T_7[49]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Divide1"
+
+				group "Divide2" -- block-group
+				{
+				 block: "Product"
+				}
+					p_0_ZOP_Main_real_T_7[34]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Divide2"
+
+				group "Product" -- block-group
+				{
+				 block: "Product"
+				}
+					p_0_ZOP_Main_real_T_7[44]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Product"
+
+				group "Product1" -- block-group
+				{
+				 block: "Product"
+				}
+					p_0_ZOP_Main_real_T_7[47]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Product1"
+
+				group "Relational\nOperator1" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_ZOP_Main_boolean_T_16[47]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Relational\nOperator1"
+
+				group "Relational\nOperator10" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_ZOP_Main_boolean_T_16[39]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Relational\nOperator10"
+
+				group "Relational\nOperator11" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_ZOP_Main_boolean_T_16[45]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Relational\nOperator11"
+
+				group "Relational\nOperator12" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_ZOP_Main_boolean_T_16[46]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Relational\nOperator12"
+
+				group "Relational\nOperator2" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_ZOP_Main_boolean_T_16[43]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Relational\nOperator2"
+
+				group "Relational\nOperator3" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_ZOP_Main_boolean_T_16[35]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Relational\nOperator3"
+
+				group "Relational\nOperator4" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_ZOP_Main_boolean_T_16[36]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Relational\nOperator4"
+
+				group "Relational\nOperator5" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_ZOP_Main_boolean_T_16[33]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Relational\nOperator5"
+
+				group "Relational\nOperator8" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_ZOP_Main_boolean_T_16[32]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Relational\nOperator8"
+
+				group "Relational\nOperator9" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_ZOP_Main_boolean_T_16[38]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Relational\nOperator9"
+
+				group "Saturation" -- block-group
+				{
+				 block: "Saturate"
+				}
+					p_0_ZOP_Main_real32_T_12[15]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_ZOP_Main_real32_T_3[2]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "UpperLimit"
+					 flags:   PARAM
+					}
+					p_2_ZOP_Main_real32_T_3[3]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "LowerLimit"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Saturation"
+
+				group "Saturation1" -- block-group
+				{
+				 block: "Saturate"
+				}
+					p_0_ZOP_Main_real32_T_12[18]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_ZOP_Main_real32_T_3[6]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "UpperLimit"
+					 flags:   PARAM
+					}
+					p_2_ZOP_Main_real32_T_3[7]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "LowerLimit"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Saturation1"
+
+				group "Add3" -- block-group
+				{
+				 block: "Sum"
+				}
+					p_0_ZOP_Main_real_T_7[48]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Add3"
+
+				group "Add6" -- block-group
+				{
+				 block: "Sum"
+				}
+					p_0_ZOP_Main_real_T_7[38]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Add6"
+
+				group "Add7" -- block-group
+				{
+				 block: "Sum"
+				}
+					p_0_ZOP_Main_real_T_7[35]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Add7"
+
+				group "Switch1" -- block-group
+				{
+				 block: "Switch"
+				}
+					p_0_ZOP_Main_real_T_7[40]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_ZOP_Main_real_T_2[10]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Threshold"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Switch1"
+
+				group "Switch2" -- block-group
+				{
+				 block: "Switch"
+				}
+					p_0_ZOP_Main_real_T_7[42]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_ZOP_Main_real_T_2[15]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Threshold"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Switch2"
+
+				group "Switch3" -- block-group
+				{
+				 block: "Switch"
+				}
+					p_0_ZOP_Main_real_T_7[39]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Switch3"
+
+				group "Switch4" -- block-group
+				{
+				 block: "Switch"
+				}
+					p_0_ZOP_Main_real_T_7[45]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_ZOP_Main_real_T_2[18]
+					{
+					 type:    flt(64,IEEE)*
+					 alias:   "Threshold"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Switch4"
+
+				group "Switch7" -- block-group
+				{
+				 block: "Switch"
+				}
+					p_0_ZOP_Main_boolean_T_16[42]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Switch7"
+
+				group "Unit Delay1" -- block-group
+				{
+				 block: "UnitDelay"
+				}
+					p_0_ZOP_Main_boolean_T_16[41]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_ZOP_Main_boolean_T_5[2]
+					{
+					 type:    uint(8)*
+					 alias:   "InitialCondition"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Unit Delay1"
+
+
+
+			endgroup -- subsystem-group "DEFAULT.CheckTargetR"
+
+
+		endgroup -- subsystem-group "TargetCheck"
+  
+  
+		group "ZOP_State_Machine" -- subsystem-group
+
+			-- Skipping output ZOP_Mode
+			-- Skipping output ZOP_Finish
+			p_0_ZOP_Main_ZOP_Var_ST_0[0]
+			{
+			 type:    struct ZOP_Main_ZOP_Var_ST*
+			 alias:   "ZOP_Vars"
+			 flags:   OUTPUT|READONLY
+			}
+			p_0_ZOP_Main_int8_T_15[14]
+			{
+			 type:    int(8)*
+			 alias:   "LaneChangeCmd"
+			 flags:   OUTPUT|READONLY
+			}
+			p_0_ZOP_Main_int8_T_15[15]
+			{
+			 type:    int(8)*
+			 alias:   "LaneChangeDir"
+			 flags:   OUTPUT|READONLY
+			}
+
+			trcref0_MODE_ZOP_ERROR
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "MODE_ZOP_ERROR"
+			 alias:    "MODE_ZOP_ERROR"
+			}
+			trcref1_MODE_ZOP_FINISH
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "MODE_ZOP_FINISH"
+			 alias:    "MODE_ZOP_FINISH"
+			}
+			trcref2_MODE_ZOP_HOLD
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "MODE_ZOP_HOLD"
+			 alias:    "MODE_ZOP_HOLD"
+			}
+			trcref3_MODE_ZOP_LC
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "MODE_ZOP_LC"
+			 alias:    "MODE_ZOP_LC"
+			}
+			trcref4_MODE_ZOP_OFF
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "MODE_ZOP_OFF"
+			 alias:    "MODE_ZOP_OFF"
+			}
+			trcref5_MODE_ZOP_OVERIDE
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "MODE_ZOP_OVERIDE"
+			 alias:    "MODE_ZOP_OVERIDE"
+			}
+			trcref6_MODE_ZOP_PASSIVE
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "MODE_ZOP_PASSIVE"
+			 alias:    "MODE_ZOP_PASSIVE"
+			}
+			trcref7_MODE_ZOP_READY
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "MODE_ZOP_READY"
+			 alias:    "MODE_ZOP_READY"
+			}
+			trcref8_k_ZOP_ALC_D10
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_ALC_D10"
+			 alias:    "k_ZOP_ALC_D10"
+			}
+			trcref9_k_ZOP_ALC_Enable
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_ALC_Enable"
+			 alias:    "k_ZOP_ALC_Enable"
+			}
+			trcref10_k_ZOP_ALC_Ramp
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_ALC_Ramp"
+			 alias:    "k_ZOP_ALC_Ramp"
+			}
+			trcref11_k_ZOP_ALC_SCnt
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_ALC_SCnt"
+			 alias:    "k_ZOP_ALC_SCnt"
+			}
+			trcref12_k_ZOP_ALC_SCnt_LC
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_ALC_SCnt_LC"
+			 alias:    "k_ZOP_ALC_SCnt_LC"
+			}
+			trcref13_k_ZOP_ALC_SCnt_Thr
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_ALC_SCnt_Thr"
+			 alias:    "k_ZOP_ALC_SCnt_Thr"
+			}
+			trcref14_k_ZOP_ALC_SCnt_Thr_LC
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_ALC_SCnt_Thr_LC"
+			 alias:    "k_ZOP_ALC_SCnt_Thr_LC"
+			}
+			trcref15_k_ZOP_ALC_SNCnt
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_ALC_SNCnt"
+			 alias:    "k_ZOP_ALC_SNCnt"
+			}
+			trcref16_k_ZOP_ALC_SNCnt_LC
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_ALC_SNCnt_LC"
+			 alias:    "k_ZOP_ALC_SNCnt_LC"
+			}
+			trcref17_k_ZOP_ALC_SpdEnable
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_ALC_SpdEnable"
+			 alias:    "k_ZOP_ALC_SpdEnable"
+			}
+			trcref18_k_ZOP_HoldCnt
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_HoldCnt"
+			 alias:    "k_ZOP_HoldCnt"
+			}
+			trcref19_k_ZOP_LCProCnt
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_LCProCnt"
+			 alias:    "k_ZOP_LCProCnt"
+			}
+			trcref20_k_ZOP_LCTimeMax
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_LCTimeMax"
+			 alias:    "k_ZOP_LCTimeMax"
+			}
+			trcref21_k_ZOP_MapFlag_Enable
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_MapFlag_Enable"
+			 alias:    "k_ZOP_MapFlag_Enable"
+			}
+			trcref22_k_ZOP_ObjSpd_cf
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_ObjSpd_cf"
+			 alias:    "k_ZOP_ObjSpd_cf"
+			}
+			trcref23_k_ZOP_SpdCkDstThr
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_SpdCkDstThr"
+			 alias:    "k_ZOP_SpdCkDstThr"
+			}
+			trcref24_k_ZOP_SpdLoThr
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_SpdLoThr"
+			 alias:    "k_ZOP_SpdLoThr"
+			}
+			trcref25_k_ZOP_SpdLoTimeThr
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "k_ZOP_SpdLoTimeThr"
+			 alias:    "k_ZOP_SpdLoTimeThr"
+			}
+			-- Skipping parameter "MODE_ZOP_ERROR"
+			-- Skipping parameter "MODE_ZOP_FINISH"
+			-- Skipping parameter "MODE_ZOP_HOLD"
+			-- Skipping parameter "MODE_ZOP_LC"
+			-- Skipping parameter "MODE_ZOP_OFF"
+			-- Skipping parameter "MODE_ZOP_OVERIDE"
+			-- Skipping parameter "MODE_ZOP_PASSIVE"
+			-- Skipping parameter "MODE_ZOP_READY"
+			-- Skipping parameter "k_ZOP_ALC_D10"
+			-- Skipping parameter "k_ZOP_ALC_Enable"
+			-- Skipping parameter "k_ZOP_ALC_Ramp"
+			-- Skipping parameter "k_ZOP_ALC_SCnt"
+			-- Skipping parameter "k_ZOP_ALC_SCnt_LC"
+			-- Skipping parameter "k_ZOP_ALC_SCnt_Thr"
+			-- Skipping parameter "k_ZOP_ALC_SCnt_Thr_LC"
+			-- Skipping parameter "k_ZOP_ALC_SNCnt"
+			-- Skipping parameter "k_ZOP_ALC_SNCnt_LC"
+			-- Skipping parameter "k_ZOP_ALC_SpdEnable"
+			-- Skipping parameter "k_ZOP_HoldCnt"
+			-- Skipping parameter "k_ZOP_LCProCnt"
+			-- Skipping parameter "k_ZOP_LCTimeMax"
+			-- Skipping parameter "k_ZOP_MapFlag_Enable"
+			-- Skipping parameter "k_ZOP_ObjSpd_cf"
+			-- Skipping parameter "k_ZOP_SpdCkDstThr"
+			-- Skipping parameter "k_ZOP_SpdLoThr"
+			-- Skipping parameter "k_ZOP_SpdLoTimeThr"
+
+
+
+		endgroup -- subsystem-group "ZOP_State_Machine"
+
+
+	endgroup -- subsystem-group "ZOP_Main_OS"
+  
+  
+	group "ZOP_OS" -- subsystem-group
+
+		-- Skipping output do_ZOP_CAN()
+		-- Skipping output do_LightLogic()
+		-- Skipping output do_ZOP_Feature()
+		-- Skipping output do_LKS_CONV()
+
+
+
+
+	endgroup -- subsystem-group "ZOP_OS"
+
+
+
+endgroup -- "Model Root"

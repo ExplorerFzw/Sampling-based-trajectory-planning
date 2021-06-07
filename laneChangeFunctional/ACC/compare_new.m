@@ -483,7 +483,7 @@ end
 
 function [s_target_dd] = cal_s_target_dd(v_f,a_f, Ti,tStop, tStopMethod)
 if tStopMethod == 1
-    a_f_d = cal_a_f_t(v_f,a_f, Ti,tStop);
+    a_f_d =  (v_f,a_f, Ti,tStop);
     s_target_dd =    a_f +   a_f_d *  min(Ti,tStop);   
 elseif tStopMethod == 2
     if tStop < Ti

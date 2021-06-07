@@ -1,0 +1,68 @@
+		endgroup -- referenced model group "AccTarSel"
+	endgroup -- referenced-block-group "ACC"
+	group "AVP_Main" -- referenced block group
+		p_0_Intergration_ZOP_uint8_T_67[587]
+		{
+		 type:    uint(8)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_uint8_T_67[588]
+		{
+		 type:    uint(8)*
+		 alias:   "Out2"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_real32_T_63[1148]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out3"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_real32_T_63[1149]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out4"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_real_T_55[3471]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Out5"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_boolean_T_69[2678]
+		{
+		 type:    uint(8)*
+		 alias:   "Out6"
+		 range:   < 0 ; 1 >
+		 bitmask: 0x01
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_real32_T_63[1150]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out7"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_real32_T_63[1151]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out8"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_real32_T_63[1152]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out9"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_real32_T_63[1153]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out10"
+		 flags:   OUTPUT|READONLY
+		}
+
+		group "AVP_Main"  -- referenced model group
+    

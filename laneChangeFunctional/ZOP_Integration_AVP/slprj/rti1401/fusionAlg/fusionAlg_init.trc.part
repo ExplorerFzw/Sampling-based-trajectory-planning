@@ -1,0 +1,3986 @@
+
+
+-- Type definitions for structures
+
+struct fusionAlg_Obj_Data
+{
+  array-incr: -1
+  desc:       "It includes all the infomation of the object from Radar."
+}
+    structField0 
+    {
+      alias:   "Msg_CheckSum1"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Check sum shall be generated out of each message content. check sum generation logic is TBC."
+    }
+    structField1 
+    {
+      alias:   "Msg_AliveCounter1"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Alive counter shall be incremented every radar sensor measurement cycle."
+    }
+    structField2 
+    {
+      alias:   "Obj_ExstProb"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Estimated existence probability of the object."
+    }
+    structField3 
+    {
+      alias:   "Obj_XVelRel_Stdev"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Estimated 3-sigma standard deviation value of the relative longitudinal velocity of the object."
+    }
+    structField4 
+    {
+      alias:   "Obj_XAccRel"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Relative longitudinal acceleration of the object"
+    }
+    structField5 
+    {
+      alias:   "Obj_ObstacleProb"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Estimated probability of the object being an obstacle."
+    }
+    structField6 
+    {
+      alias:   "Obj_MotionPattern"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Motion type of object.\n0x00: Unknown\n0x01: Stationary\n0x02: Stopped\n0x03: Moving\n0x04: Crossing\n0x05-07: reserved"
+    }
+    structField7 
+    {
+      alias:   "Obj_YPos_Stdev"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Estimated 3-sigma standard deviation value of lateral position of the object."
+    }
+    structField8 
+    {
+      alias:   "Obj_ValidFlag"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Validity indication flag. when this value shows invalid, all the signals in the corresponding CAN messages except FRS_Msg_AliveCounter and FRS_Msg_CheckSum shall take default values.\n0x0: Object invalid\n0x1: Object valid"
+    }
+    structField9 
+    {
+      alias:   "Obj_XPos_Stdev"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Estimated 3-sigma standard deviation value of longitudinal position of the object."
+    }
+    structField10 
+    {
+      alias:   "Obj_UpdateFlag"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Flag to indicate newly created object in CAN bus.\nObject history flag\n0x0: new object in the cycle;\n0x1: object existed in previous cycle"
+    }
+    structField11 
+    {
+      alias:   "Obj_ID"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "ID is defined as a unique identification number over the lifetime of the object.\n0xFF: Invalid\n0x00 - 0xFE: Valid"
+    }
+    structField12 
+    {
+      alias:   "Msg_CheckSum2"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Check sum shall be generated out of each message content. check sum generation logic is TBC."
+    }
+    structField13 
+    {
+      alias:   "Msg_AliveCounter2"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Alive counter shall be incremented every radar sensor measurement cycle."
+    }
+    structField14 
+    {
+      alias:   "Obj_MeasFlag"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "This signal indicates whether the latest sensor measurement observed the object or extrapolated.\n0x0: object measured in this cycle\n0x1: object extrapolated in this cycle"
+    }
+    structField15 
+    {
+      alias:   "Obj_YVelRel"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Relative lateral velocity of the object"
+    }
+    structField16 
+    {
+      alias:   "Obj_Type"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "To indicate the estimated type of Object\n0x00: Unknown\n0x01: 4 wheeler\n0x02: 2 wheeler\n0x03: Pedestrian"
+    }
+    structField17 
+    {
+      alias:   "Obj_XPos"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Position of target object in longitudinal direction\ncenter of vehicle rear axle shaft is reference point."
+    }
+    structField18 
+    {
+      alias:   "Obj_YPos"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Position of target object in lateral direction\ncenter of vehicle rear axle shaft is reference point."
+    }
+    structField19 
+    {
+      alias:   "Obj_XVelRel"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Relative longitudinal velocity of the object."
+    }
+endstruct
+
+struct fusionAlg_Radar_Status
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "Msg_CheckSum"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Check sum shall be generated out of each message content. check sum generation logic is TBC."
+    }
+    structField1 
+    {
+      alias:   "Msg_AliveCounter"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Alive counter shall be incremented every radar sensor measurement cycle."
+    }
+    structField2 
+    {
+      alias:   "Status_MisAlign"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "This signal indicates radar sensor mis-alignment status.\n0x00:unknown\n0x01:calibrated\n0x02:sensor mis-alignment detected\n0x03:calibration in progress\n0x04:uncalibratable\n0x05-07:  reserved"
+    }
+    structField3 
+    {
+      alias:   "Status_HWErr"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Flag to indicate if HW is failed or not.\n0x0:HW is NOT failed\n0x1:HW is failed"
+    }
+    structField4 
+    {
+      alias:   "Status_BlkProg"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Sensor blockage status indication.\n0x0: FRS is NOT blocked\n0x1: FRS is blocked"
+    }
+    structField5 
+    {
+      alias:   "Fail"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "This signal indicates if radar is working or not.\n0x0 = FRS radar is NOT working\n0x1 = FRS radar is working"
+    }
+    structField6 
+    {
+      alias:   "MeasEnabled"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "This signal indicates if the radar sensor is performing measurement or not. (radio-wave emission or not) Since Conti does not have this, it could be setup as the same as FRS_Fail."
+    }
+    structField7 
+    {
+      alias:   "Host_Yaw"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Host vehicle yaw rate in deg/s which is used for radar object tracking (calibrated host yaw rate if sensor has calibration capability).\nLeft turn is defined as FRS_Host_Yaw positive direction."
+    }
+    structField8 
+    {
+      alias:   "HostSpeed"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Host vehicle over-ground speed which is used for radar object tracking (calibrated host velocity if the sensor has calibaration capability).\nForward movement is defined as FRS_HostSpeed positive direction."
+    }
+    structField9 
+    {
+      alias:   "TimeStamp"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Sensor internal time stamp since the last sensor start up. the time stamp shall loop as it overflows."
+    }
+    structField10 
+    {
+      alias:   "Latency"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Radar process latency in ms from radio-wave reflection observation to CAN message transmission for current cycle."
+    }
+endstruct
+
+struct fusionAlg_Radar410_Info_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "x50_20_Obj_00"
+      type:    struct fusionAlg_Obj_Data
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "x51_21_Obj_01"
+      type:    struct fusionAlg_Obj_Data
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "x52_22_Obj_02"
+      type:    struct fusionAlg_Obj_Data
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "x53_23_Obj_03"
+      type:    struct fusionAlg_Obj_Data
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "x54_24_Obj_04"
+      type:    struct fusionAlg_Obj_Data
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "x55_25_Obj_05"
+      type:    struct fusionAlg_Obj_Data
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "x56_26_Obj_06"
+      type:    struct fusionAlg_Obj_Data
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "x57_27_Obj_07"
+      type:    struct fusionAlg_Obj_Data
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "x58_28_Obj_08"
+      type:    struct fusionAlg_Obj_Data
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "x59_29_Obj_09"
+      type:    struct fusionAlg_Obj_Data
+      offs:    -1
+    }
+    structField10 
+    {
+      alias:   "x5A_2A_Obj_10"
+      type:    struct fusionAlg_Obj_Data
+      offs:    -1
+    }
+    structField11 
+    {
+      alias:   "x5B_2B_Obj_11"
+      type:    struct fusionAlg_Obj_Data
+      offs:    -1
+    }
+    structField12 
+    {
+      alias:   "x5C_2C_Obj_12"
+      type:    struct fusionAlg_Obj_Data
+      offs:    -1
+    }
+    structField13 
+    {
+      alias:   "x5D_2D_Obj_13"
+      type:    struct fusionAlg_Obj_Data
+      offs:    -1
+    }
+    structField14 
+    {
+      alias:   "x5E_2E_Obj_14"
+      type:    struct fusionAlg_Obj_Data
+      offs:    -1
+    }
+    structField15 
+    {
+      alias:   "x5F_2F_Obj_15"
+      type:    struct fusionAlg_Obj_Data
+      offs:    -1
+    }
+    structField16 
+    {
+      alias:   "x60_30_Obj_16"
+      type:    struct fusionAlg_Obj_Data
+      offs:    -1
+    }
+    structField17 
+    {
+      alias:   "x61_31_Obj_17"
+      type:    struct fusionAlg_Obj_Data
+      offs:    -1
+    }
+    structField18 
+    {
+      alias:   "x62_32_Obj_18"
+      type:    struct fusionAlg_Obj_Data
+      offs:    -1
+    }
+    structField19 
+    {
+      alias:   "x63_33_Obj_19"
+      type:    struct fusionAlg_Obj_Data
+      offs:    -1
+    }
+    structField20 
+    {
+      alias:   "x64_34_Obj_20"
+      type:    struct fusionAlg_Obj_Data
+      offs:    -1
+    }
+    structField21 
+    {
+      alias:   "x65_35_Obj_21"
+      type:    struct fusionAlg_Obj_Data
+      offs:    -1
+    }
+    structField22 
+    {
+      alias:   "x66_36_Obj_22"
+      type:    struct fusionAlg_Obj_Data
+      offs:    -1
+    }
+    structField23 
+    {
+      alias:   "x67_37_Obj_23"
+      type:    struct fusionAlg_Obj_Data
+      offs:    -1
+    }
+    structField24 
+    {
+      alias:   "x68_38_Obj_24"
+      type:    struct fusionAlg_Obj_Data
+      offs:    -1
+    }
+    structField25 
+    {
+      alias:   "x69_39_Obj_25"
+      type:    struct fusionAlg_Obj_Data
+      offs:    -1
+    }
+    structField26 
+    {
+      alias:   "x6A_3A_Obj_26"
+      type:    struct fusionAlg_Obj_Data
+      offs:    -1
+    }
+    structField27 
+    {
+      alias:   "x6B_3B_Obj_27"
+      type:    struct fusionAlg_Obj_Data
+      offs:    -1
+    }
+    structField28 
+    {
+      alias:   "x6C_3C_Obj_28"
+      type:    struct fusionAlg_Obj_Data
+      offs:    -1
+    }
+    structField29 
+    {
+      alias:   "x6D_3D_Obj_29"
+      type:    struct fusionAlg_Obj_Data
+      offs:    -1
+    }
+    structField30 
+    {
+      alias:   "x6E_3E_Obj_30"
+      type:    struct fusionAlg_Obj_Data
+      offs:    -1
+    }
+    structField31 
+    {
+      alias:   "x6F_3F_Obj_31"
+      type:    struct fusionAlg_Obj_Data
+      offs:    -1
+    }
+    structField32 
+    {
+      alias:   "x70_40_Obj_32"
+      type:    struct fusionAlg_Obj_Data
+      offs:    -1
+    }
+    structField33 
+    {
+      alias:   "x71_41_Obj_33"
+      type:    struct fusionAlg_Obj_Data
+      offs:    -1
+    }
+    structField34 
+    {
+      alias:   "x72_42_Obj_34"
+      type:    struct fusionAlg_Obj_Data
+      offs:    -1
+    }
+    structField35 
+    {
+      alias:   "x73_43_Obj_35"
+      type:    struct fusionAlg_Obj_Data
+      offs:    -1
+    }
+    structField36 
+    {
+      alias:   "x74_44_Obj_36"
+      type:    struct fusionAlg_Obj_Data
+      offs:    -1
+    }
+    structField37 
+    {
+      alias:   "x75_45_Obj_37"
+      type:    struct fusionAlg_Obj_Data
+      offs:    -1
+    }
+    structField38 
+    {
+      alias:   "x76_46_Obj_38"
+      type:    struct fusionAlg_Obj_Data
+      offs:    -1
+    }
+    structField39 
+    {
+      alias:   "x77_47_Obj_39"
+      type:    struct fusionAlg_Obj_Data
+      offs:    -1
+    }
+    structField40 
+    {
+      alias:   "x80_Status"
+      type:    struct fusionAlg_Radar_Status
+      offs:    -1
+    }
+endstruct
+
+struct fusionAlg_Bus_308
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "RCS"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "DynProp"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "VrelLat"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "VrelLong"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "DistLat"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "DistLong"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "ID"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct fusionAlg_Header_308
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "ObjNum"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "tStamp"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "Version"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+typedef fusionAlg_ARS308_RX_leftFrontRadar_General_0 struct fusionAlg_Bus_308[40]
+
+struct fusionAlg_ARS308_RX
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "leftFrontRadar_General"
+      type:    fusionAlg_ARS308_RX_leftFrontRadar_General_0
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "LeftFrontRadar_Status"
+      type:    struct fusionAlg_Header_308
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "rightFrontRadar_General"
+      type:    fusionAlg_ARS308_RX_leftFrontRadar_General_0
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "rightFrontRadar_Status"
+      type:    struct fusionAlg_Header_308
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "rightRearRadar_General"
+      type:    fusionAlg_ARS308_RX_leftFrontRadar_General_0
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "rightRearRadar_Status"
+      type:    struct fusionAlg_Header_308
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "leftRearRadar_General"
+      type:    fusionAlg_ARS308_RX_leftFrontRadar_General_0
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "leftRearRadar_Status"
+      type:    struct fusionAlg_Header_308
+      offs:    -1
+    }
+endstruct
+
+struct fusionAlg_Host_Prot_Header
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "LH_Sync_ID"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "LH_Lanes_Count"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "LH_Estimated_Width"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "LH_Sonw_On_Road_Prob"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct fusionAlg_Host_Prot
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "LH_Line_First_C0"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "LH_Line_First_C1"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "LH_Line_First_C2"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "LH_Line_First_C3"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "LH_side"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "LH_Existence_Probability"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "LH_First_VR_End"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "LH_First_VR_Start"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "LH_Lanemark_Type"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "LH_Lanemark_Type_Conf"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField10 
+    {
+      alias:   "LH_Marker_Width"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField11 
+    {
+      alias:   "LH_Marker_Width_STD"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField12 
+    {
+      alias:   "LH_Track_ID"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField13 
+    {
+      alias:   "LH_Color"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField14 
+    {
+      alias:   "LH_DLM_Type"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct fusionAlg_Adja_Prot
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "LA_Line_C0"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "LA_Line_C1"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "LA_Line_C2"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "LA_Line_C3"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "LA_Exist_Probability"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "LA_Lane_Track_ID"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "LA_Lanemark_Type"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "LA_Lanemark_Type_Conf"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "LA_Line_Role"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "LA_Marker_Width"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField10 
+    {
+      alias:   "LA_Marker_Width_STD"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField11 
+    {
+      alias:   "LA_View_Range_End"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField12 
+    {
+      alias:   "LA_View_Range_Start"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField13 
+    {
+      alias:   "LA_Age"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField14 
+    {
+      alias:   "LA_Color"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField15 
+    {
+      alias:   "LA_Color_Conf"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField16 
+    {
+      alias:   "LA_DLM_Type"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+typedef fusionAlg_LANE_ST_Host_Prot_1 struct fusionAlg_Host_Prot[2]
+
+typedef fusionAlg_LANE_ST_Adja_Prot_2 struct fusionAlg_Adja_Prot[4]
+
+struct fusionAlg_LANE_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "Host_Prot_Header"
+      type:    struct fusionAlg_Host_Prot_Header
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "Host_Prot"
+      type:    fusionAlg_LANE_ST_Host_Prot_1
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "Adja_Prot"
+      type:    fusionAlg_LANE_ST_Adja_Prot_2
+      offs:    -1
+    }
+endstruct
+
+struct fusionAlg_ROAD_EDGE_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "LRE_Age"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "LRE_ExistProb"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "LRE_Type"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "LRE_ID"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "LRE_LineC0"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "LRE_LineC1"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "LRE_LineC2"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "LRE_LineC3"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "LRE_Start"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "LRE_End"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField10 
+    {
+      alias:   "LRE_Side"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField11 
+    {
+      alias:   "LRE_Height"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField12 
+    {
+      alias:   "LRE_Height_STD"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField13 
+    {
+      alias:   "LRE_Index"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct fusionAlg_ROADEDGE_DATA_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "RoadEdgeProtHeader"
+      type:    struct fusionAlg_ROAD_EDGE_ST
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "RoadEdgeProtA"
+      type:    struct fusionAlg_ROAD_EDGE_ST
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "RoadEdgeProtB"
+      type:    struct fusionAlg_ROAD_EDGE_ST
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "RoadEdgeProtC"
+      type:    struct fusionAlg_ROAD_EDGE_ST
+      offs:    -1
+    }
+endstruct
+
+struct fusionAlg_OBJECT_FRAME_INFO
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "FrameID"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "DaytimeIndicator"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "SyncID"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct fusionAlg_OBJECT_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "OBJ_ID"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "OBJ_Existence_Probability"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "OBJ_Right_Out_Of_Image"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "OBJ_Left_Out_Of_Image"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "OBJ_Top_Out_Of_Image"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "OBJ_Bottom_Out_Of_Image"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "OBJ_Age_Seconds"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "OBJ_Width"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "OBJ_Length"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "OBJ_Height"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField10 
+    {
+      alias:   "OBJ_Abs_Long_Velocity"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField11 
+    {
+      alias:   "OBJ_Abs_Long_Velocity_STD"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField12 
+    {
+      alias:   "OBJ_Abs_Lat_Velocity"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField13 
+    {
+      alias:   "OBJ_Abs_Lat_Velocity_STD"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField14 
+    {
+      alias:   "OBJ_Abs_Long_Acc"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField15 
+    {
+      alias:   "OBJ_Abs_Long_Acc_STD"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField16 
+    {
+      alias:   "OBJ_Abs_Lat_Acc"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField17 
+    {
+      alias:   "OBJ_Abs_Lat_Acc_STD"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField18 
+    {
+      alias:   "OBJ_Inv_TTC"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField19 
+    {
+      alias:   "OBJ_Inv_TTC_STD"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField20 
+    {
+      alias:   "OBJ_Object_Age"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField21 
+    {
+      alias:   "OBJ_Measuring_Status"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField22 
+    {
+      alias:   "OBJ_Object_Class"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField23 
+    {
+      alias:   "OBJ_Class_Probability"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField24 
+    {
+      alias:   "OBJ_Long_Distance"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField25 
+    {
+      alias:   "OBJ_Long_Distance_STD"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField26 
+    {
+      alias:   "OBJ_Lat_Distance"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField27 
+    {
+      alias:   "OBJ_Lat_Distance_STD"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField28 
+    {
+      alias:   "OBJ_Absolute_Speed"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField29 
+    {
+      alias:   "OBJ_Heading"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField30 
+    {
+      alias:   "OBJ_Angle_Mid_V"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField31 
+    {
+      alias:   "OBJ_Angle_Mid"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField32 
+    {
+      alias:   "OBJ_Angle_Mid_STD"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField33 
+    {
+      alias:   "OBJ_Angle_Mid_STD_V"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+typedef fusionAlg_EYEQ4_DATA_RT_ST_OBJ_BUS_3 struct fusionAlg_OBJECT_ST[40]
+
+struct fusionAlg_EYEQ4_DATA_RT_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "LANE_DATA_ST"
+      type:    struct fusionAlg_LANE_ST
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "ROADEDGE_ST"
+      type:    struct fusionAlg_ROADEDGE_DATA_ST
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "OBJ_FRAME_INFO"
+      type:    struct fusionAlg_OBJECT_FRAME_INFO
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "OBJ_BUS"
+      type:    fusionAlg_EYEQ4_DATA_RT_ST_OBJ_BUS_3
+      offs:    -1
+    }
+endstruct
+
+struct fusionAlg_VSI_VEHSTATE_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "YrsF"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "AxSensorF"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "StWheelAngleF"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "vRef"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "aRef"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "AxSlope"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "AxSlopeValid"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField7 
+    {
+      alias:   "Curvature"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct fusionAlg_FUS_UINT8_RESERVED_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "reserved1"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "reserved0"
+      type:    uint(8)
+      offs:    -1
+    }
+endstruct
+
+struct fusionAlg_FUS_RADAR_OBJ_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "objObstacleProb"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "objXPos_Stdev"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "objYPos_Stdev"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "objXVelRel_Stdev"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "objXAccRel"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "objExstProb"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "objYVelRel"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "objXVelRel"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "objXPos"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "objYPos"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField10 
+    {
+      alias:   "objID"
+      type:    uint(16)
+      offs:    -1
+    }
+    structField11 
+    {
+      alias:   "objUpdateFlag"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField12 
+    {
+      alias:   "objValidFlag"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField13 
+    {
+      alias:   "objMotionPattern"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField14 
+    {
+      alias:   "objType"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField15 
+    {
+      alias:   "objMeasFlag"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField16 
+    {
+      alias:   "reserved"
+      type:    struct fusionAlg_FUS_UINT8_RESERVED_ST
+      offs:    -1
+    }
+endstruct
+
+struct fusionAlg_FUS_RADOBJ_LIST_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "radar_01_obj"
+      type:    struct fusionAlg_FUS_RADAR_OBJ_ST
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "radar_02_obj"
+      type:    struct fusionAlg_FUS_RADAR_OBJ_ST
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "radar_03_obj"
+      type:    struct fusionAlg_FUS_RADAR_OBJ_ST
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "radar_04_obj"
+      type:    struct fusionAlg_FUS_RADAR_OBJ_ST
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "radar_05_obj"
+      type:    struct fusionAlg_FUS_RADAR_OBJ_ST
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "radar_06_obj"
+      type:    struct fusionAlg_FUS_RADAR_OBJ_ST
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "radar_07_obj"
+      type:    struct fusionAlg_FUS_RADAR_OBJ_ST
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "radar_08_obj"
+      type:    struct fusionAlg_FUS_RADAR_OBJ_ST
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "radar_09_obj"
+      type:    struct fusionAlg_FUS_RADAR_OBJ_ST
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "radar_10_obj"
+      type:    struct fusionAlg_FUS_RADAR_OBJ_ST
+      offs:    -1
+    }
+    structField10 
+    {
+      alias:   "radar_11_obj"
+      type:    struct fusionAlg_FUS_RADAR_OBJ_ST
+      offs:    -1
+    }
+    structField11 
+    {
+      alias:   "radar_12_obj"
+      type:    struct fusionAlg_FUS_RADAR_OBJ_ST
+      offs:    -1
+    }
+    structField12 
+    {
+      alias:   "radar_13_obj"
+      type:    struct fusionAlg_FUS_RADAR_OBJ_ST
+      offs:    -1
+    }
+    structField13 
+    {
+      alias:   "radar_14_obj"
+      type:    struct fusionAlg_FUS_RADAR_OBJ_ST
+      offs:    -1
+    }
+    structField14 
+    {
+      alias:   "radar_15_obj"
+      type:    struct fusionAlg_FUS_RADAR_OBJ_ST
+      offs:    -1
+    }
+    structField15 
+    {
+      alias:   "radar_16_obj"
+      type:    struct fusionAlg_FUS_RADAR_OBJ_ST
+      offs:    -1
+    }
+    structField16 
+    {
+      alias:   "radar_17_obj"
+      type:    struct fusionAlg_FUS_RADAR_OBJ_ST
+      offs:    -1
+    }
+    structField17 
+    {
+      alias:   "radar_18_obj"
+      type:    struct fusionAlg_FUS_RADAR_OBJ_ST
+      offs:    -1
+    }
+    structField18 
+    {
+      alias:   "radar_19_obj"
+      type:    struct fusionAlg_FUS_RADAR_OBJ_ST
+      offs:    -1
+    }
+    structField19 
+    {
+      alias:   "radar_20_obj"
+      type:    struct fusionAlg_FUS_RADAR_OBJ_ST
+      offs:    -1
+    }
+    structField20 
+    {
+      alias:   "radar_21_obj"
+      type:    struct fusionAlg_FUS_RADAR_OBJ_ST
+      offs:    -1
+    }
+    structField21 
+    {
+      alias:   "radar_22_obj"
+      type:    struct fusionAlg_FUS_RADAR_OBJ_ST
+      offs:    -1
+    }
+    structField22 
+    {
+      alias:   "radar_23_obj"
+      type:    struct fusionAlg_FUS_RADAR_OBJ_ST
+      offs:    -1
+    }
+    structField23 
+    {
+      alias:   "radar_24_obj"
+      type:    struct fusionAlg_FUS_RADAR_OBJ_ST
+      offs:    -1
+    }
+    structField24 
+    {
+      alias:   "radar_25_obj"
+      type:    struct fusionAlg_FUS_RADAR_OBJ_ST
+      offs:    -1
+    }
+    structField25 
+    {
+      alias:   "radar_26_obj"
+      type:    struct fusionAlg_FUS_RADAR_OBJ_ST
+      offs:    -1
+    }
+    structField26 
+    {
+      alias:   "radar_27_obj"
+      type:    struct fusionAlg_FUS_RADAR_OBJ_ST
+      offs:    -1
+    }
+    structField27 
+    {
+      alias:   "radar_28_obj"
+      type:    struct fusionAlg_FUS_RADAR_OBJ_ST
+      offs:    -1
+    }
+    structField28 
+    {
+      alias:   "radar_29_obj"
+      type:    struct fusionAlg_FUS_RADAR_OBJ_ST
+      offs:    -1
+    }
+    structField29 
+    {
+      alias:   "radar_30_obj"
+      type:    struct fusionAlg_FUS_RADAR_OBJ_ST
+      offs:    -1
+    }
+    structField30 
+    {
+      alias:   "radar_31_obj"
+      type:    struct fusionAlg_FUS_RADAR_OBJ_ST
+      offs:    -1
+    }
+    structField31 
+    {
+      alias:   "radar_32_obj"
+      type:    struct fusionAlg_FUS_RADAR_OBJ_ST
+      offs:    -1
+    }
+    structField32 
+    {
+      alias:   "radar_33_obj"
+      type:    struct fusionAlg_FUS_RADAR_OBJ_ST
+      offs:    -1
+    }
+    structField33 
+    {
+      alias:   "radar_34_obj"
+      type:    struct fusionAlg_FUS_RADAR_OBJ_ST
+      offs:    -1
+    }
+    structField34 
+    {
+      alias:   "radar_35_obj"
+      type:    struct fusionAlg_FUS_RADAR_OBJ_ST
+      offs:    -1
+    }
+    structField35 
+    {
+      alias:   "radar_36_obj"
+      type:    struct fusionAlg_FUS_RADAR_OBJ_ST
+      offs:    -1
+    }
+    structField36 
+    {
+      alias:   "radar_37_obj"
+      type:    struct fusionAlg_FUS_RADAR_OBJ_ST
+      offs:    -1
+    }
+    structField37 
+    {
+      alias:   "radar_38_obj"
+      type:    struct fusionAlg_FUS_RADAR_OBJ_ST
+      offs:    -1
+    }
+    structField38 
+    {
+      alias:   "radar_39_obj"
+      type:    struct fusionAlg_FUS_RADAR_OBJ_ST
+      offs:    -1
+    }
+    structField39 
+    {
+      alias:   "radar_40_obj"
+      type:    struct fusionAlg_FUS_RADAR_OBJ_ST
+      offs:    -1
+    }
+endstruct
+
+struct fusionAlg_FUS_RADAR_STATE_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "hostYaw"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "hostSpeed"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "timeStamp"
+      type:    uint(16)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "statusHWErr"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "statusBlkProg"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "statusMisAlign"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "sGUFail"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "measEnabled"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "msgAliveCounter"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "latency"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField10 
+    {
+      alias:   "msgCheckSum"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField11 
+    {
+      alias:   "reservedField"
+      type:    struct fusionAlg_FUS_UINT8_RESERVED_ST
+      offs:    -1
+    }
+endstruct
+
+struct fusionAlg_FUS_UINT32_RESERVED_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "reserved0"
+      type:    uint(32)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "reserved1"
+      type:    uint(32)
+      offs:    -1
+    }
+endstruct
+
+struct fusionAlg_FUS_RADAR_DATA_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "timestamp"
+      type:    flt(64,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "frameNum"
+      type:    uint(32)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "count"
+      type:    uint(32)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "errType"
+      type:    uint(32)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "radarObj"
+      type:    struct fusionAlg_FUS_RADOBJ_LIST_ST
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "radarState"
+      type:    struct fusionAlg_FUS_RADAR_STATE_ST
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "reserved"
+      type:    struct fusionAlg_FUS_UINT32_RESERVED_ST
+      offs:    -1
+    }
+endstruct
+
+struct fusionAlg_FUS_ARS308_DATA_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "leftFrontRadar"
+      type:    struct fusionAlg_FUS_RADAR_DATA_ST
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "rightFrontRadar"
+      type:    struct fusionAlg_FUS_RADAR_DATA_ST
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "rightRearRadar"
+      type:    struct fusionAlg_FUS_RADAR_DATA_ST
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "leftRearRadar"
+      type:    struct fusionAlg_FUS_RADAR_DATA_ST
+      offs:    -1
+    }
+endstruct
+
+struct fusionAlg_FUS_VISOBJ_UINT8_RESERVED_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "reserved0"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "reserved1"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "reserved2"
+      type:    uint(8)
+      offs:    -1
+    }
+endstruct
+
+struct fusionAlg_FUS_VISION_OBJ_STAGE_AGE_ST
+{
+  array-incr: -1
+  desc:       "Object total age and stage age, lifetime in frames"
+}
+    structField0 
+    {
+      alias:   "totalAge"
+      type:    uint(16)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "initAge"
+      type:    uint(16)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "measureAge"
+      type:    uint(16)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "predictAge"
+      type:    uint(16)
+      offs:    -1
+    }
+endstruct
+
+struct fusionAlg_FUS_VISION_OBJ_BOUNDARY
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "X1"
+      type:    int(16)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "Y1"
+      type:    int(16)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "X2"
+      type:    int(16)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "Y2"
+      type:    int(16)
+      offs:    -1
+    }
+endstruct
+
+struct fusionAlg_FUS_VISION_OBJ_COORD_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "lateral"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "lateralVariance"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "longitudinal"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "longitudinalVariance"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct fusionAlg_FUS_VISION_OBJ_VELOCITY
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "Vx"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "VxVariance"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "Vy"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "VyVariance"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct fusionAlg_FUS_VISION_OBJ_ANGLE_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "centerAngle"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "centerAngleVariance"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct fusionAlg_FUS_VISION_OBJ_ACCE_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "Ax"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "AxVariance"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "Ay"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "AyVariance"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct fusionAlg_FUS_VISION_BOXSIZE_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "length"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "width"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "height"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct fusionAlg_FUS_VISOBJ_UINT32_RESERVED_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "reserved0"
+      type:    uint(32)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "reserved1"
+      type:    uint(32)
+      offs:    -1
+    }
+endstruct
+
+struct fusionAlg_FUS_VISION_OBJ_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "obj_ID"
+      type:    uint(32)
+      offs:    -1
+      desc:    "Object ID"
+    }
+    structField1 
+    {
+      alias:   "obj_status"
+      type:    uint(32)
+      offs:    -1
+      desc:    "vision object status\n\n0:Initialized,\n1:Measured,\n2:Predicted,"
+    }
+    structField2 
+    {
+      alias:   "obj_stageAge"
+      type:    struct fusionAlg_FUS_VISION_OBJ_STAGE_AGE_ST
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "obj_boundary"
+      type:    struct fusionAlg_FUS_VISION_OBJ_BOUNDARY
+      offs:    -1
+      desc:    "Object Bounding box pixel location on the image plane"
+    }
+    structField4 
+    {
+      alias:   "obj_type"
+      type:    uint(32)
+      offs:    -1
+      desc:    "Object classification\n\n0: Unknown\n1: Pedestrian\n2: Vehicle\nBetween car and truck, at the moment, it is not supported"
+    }
+    structField5 
+    {
+      alias:   "obj_typeConf"
+      type:    uint(32)
+      offs:    -1
+      desc:    "type confidence value. ([1, 100])"
+    }
+    structField6 
+    {
+      alias:   "obj_coordinate"
+      type:    struct fusionAlg_FUS_VISION_OBJ_COORD_ST
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "obj_velocity"
+      type:    struct fusionAlg_FUS_VISION_OBJ_VELOCITY
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "obj_angleOfCenter"
+      type:    struct fusionAlg_FUS_VISION_OBJ_ANGLE_ST
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "obj_TTC"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Object time-to-collision estimation (TTC)"
+    }
+    structField10 
+    {
+      alias:   "obj_TTCVariance"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "variance measurement"
+    }
+    structField11 
+    {
+      alias:   "obj_acceleration"
+      type:    struct fusionAlg_FUS_VISION_OBJ_ACCE_ST
+      offs:    -1
+      desc:    "Object acceleration"
+    }
+    structField12 
+    {
+      alias:   "obj_existProb"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Object existence probability"
+    }
+    structField13 
+    {
+      alias:   "AyVariance"
+      type:    struct fusionAlg_FUS_VISION_BOXSIZE_ST
+      offs:    -1
+      desc:    "Length/Width/Height of Object"
+    }
+    structField14 
+    {
+      alias:   "obj_angleOfObject"
+      type:    uint(8)
+      offs:    -1
+      desc:    "For vehicle, angles are quantized in 8 directions. For pedestrians, and two wheelers, angles are quantized in 4 directions. (anti-clockwise direction)0- Front 1-Left Front 2-Left 3-Rear Left 4-Rear 5-Rear Right 6-Right 7-Front Right"
+    }
+    structField15 
+    {
+      alias:   "reserved1"
+      type:    struct fusionAlg_FUS_VISOBJ_UINT8_RESERVED_ST
+      offs:    -1
+    }
+    structField16 
+    {
+      alias:   "obj_Heading"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField17 
+    {
+      alias:   "obj_Heading_STD"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField18 
+    {
+      alias:   "obj_Heading_V"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField19 
+    {
+      alias:   "obj_Heading_STD_V"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField20 
+    {
+      alias:   "reserved2"
+      type:    struct fusionAlg_FUS_VISOBJ_UINT32_RESERVED_ST
+      offs:    -1
+    }
+endstruct
+
+struct fusionAlg_FUS_VISION_OBJ_LIST_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "vision_01_obj"
+      type:    struct fusionAlg_FUS_VISION_OBJ_ST
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "vision_02_obj"
+      type:    struct fusionAlg_FUS_VISION_OBJ_ST
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "vision_03_obj"
+      type:    struct fusionAlg_FUS_VISION_OBJ_ST
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "vision_04_obj"
+      type:    struct fusionAlg_FUS_VISION_OBJ_ST
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "vision_05_obj"
+      type:    struct fusionAlg_FUS_VISION_OBJ_ST
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "vision_06_obj"
+      type:    struct fusionAlg_FUS_VISION_OBJ_ST
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "vision_07_obj"
+      type:    struct fusionAlg_FUS_VISION_OBJ_ST
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "vision_08_obj"
+      type:    struct fusionAlg_FUS_VISION_OBJ_ST
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "vision_09_obj"
+      type:    struct fusionAlg_FUS_VISION_OBJ_ST
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "vision_10_obj"
+      type:    struct fusionAlg_FUS_VISION_OBJ_ST
+      offs:    -1
+    }
+    structField10 
+    {
+      alias:   "vision_11_obj"
+      type:    struct fusionAlg_FUS_VISION_OBJ_ST
+      offs:    -1
+    }
+    structField11 
+    {
+      alias:   "vision_12_obj"
+      type:    struct fusionAlg_FUS_VISION_OBJ_ST
+      offs:    -1
+    }
+    structField12 
+    {
+      alias:   "vision_13_obj"
+      type:    struct fusionAlg_FUS_VISION_OBJ_ST
+      offs:    -1
+    }
+    structField13 
+    {
+      alias:   "vision_14_obj"
+      type:    struct fusionAlg_FUS_VISION_OBJ_ST
+      offs:    -1
+    }
+    structField14 
+    {
+      alias:   "vision_15_obj"
+      type:    struct fusionAlg_FUS_VISION_OBJ_ST
+      offs:    -1
+    }
+    structField15 
+    {
+      alias:   "vision_16_obj"
+      type:    struct fusionAlg_FUS_VISION_OBJ_ST
+      offs:    -1
+    }
+    structField16 
+    {
+      alias:   "vision_17_obj"
+      type:    struct fusionAlg_FUS_VISION_OBJ_ST
+      offs:    -1
+    }
+    structField17 
+    {
+      alias:   "vision_18_obj"
+      type:    struct fusionAlg_FUS_VISION_OBJ_ST
+      offs:    -1
+    }
+    structField18 
+    {
+      alias:   "vision_19_obj"
+      type:    struct fusionAlg_FUS_VISION_OBJ_ST
+      offs:    -1
+    }
+    structField19 
+    {
+      alias:   "vision_20_obj"
+      type:    struct fusionAlg_FUS_VISION_OBJ_ST
+      offs:    -1
+    }
+    structField20 
+    {
+      alias:   "vision_21_obj"
+      type:    struct fusionAlg_FUS_VISION_OBJ_ST
+      offs:    -1
+    }
+    structField21 
+    {
+      alias:   "vision_22_obj"
+      type:    struct fusionAlg_FUS_VISION_OBJ_ST
+      offs:    -1
+    }
+    structField22 
+    {
+      alias:   "vision_23_obj"
+      type:    struct fusionAlg_FUS_VISION_OBJ_ST
+      offs:    -1
+    }
+    structField23 
+    {
+      alias:   "vision_24_obj"
+      type:    struct fusionAlg_FUS_VISION_OBJ_ST
+      offs:    -1
+    }
+    structField24 
+    {
+      alias:   "vision_25_obj"
+      type:    struct fusionAlg_FUS_VISION_OBJ_ST
+      offs:    -1
+    }
+    structField25 
+    {
+      alias:   "vision_26_obj"
+      type:    struct fusionAlg_FUS_VISION_OBJ_ST
+      offs:    -1
+    }
+    structField26 
+    {
+      alias:   "vision_27_obj"
+      type:    struct fusionAlg_FUS_VISION_OBJ_ST
+      offs:    -1
+    }
+    structField27 
+    {
+      alias:   "vision_28_obj"
+      type:    struct fusionAlg_FUS_VISION_OBJ_ST
+      offs:    -1
+    }
+    structField28 
+    {
+      alias:   "vision_29_obj"
+      type:    struct fusionAlg_FUS_VISION_OBJ_ST
+      offs:    -1
+    }
+    structField29 
+    {
+      alias:   "vision_30_obj"
+      type:    struct fusionAlg_FUS_VISION_OBJ_ST
+      offs:    -1
+    }
+    structField30 
+    {
+      alias:   "vision_31_obj"
+      type:    struct fusionAlg_FUS_VISION_OBJ_ST
+      offs:    -1
+    }
+    structField31 
+    {
+      alias:   "vision_32_obj"
+      type:    struct fusionAlg_FUS_VISION_OBJ_ST
+      offs:    -1
+    }
+    structField32 
+    {
+      alias:   "vision_33_obj"
+      type:    struct fusionAlg_FUS_VISION_OBJ_ST
+      offs:    -1
+    }
+    structField33 
+    {
+      alias:   "vision_34_obj"
+      type:    struct fusionAlg_FUS_VISION_OBJ_ST
+      offs:    -1
+    }
+    structField34 
+    {
+      alias:   "vision_35_obj"
+      type:    struct fusionAlg_FUS_VISION_OBJ_ST
+      offs:    -1
+    }
+    structField35 
+    {
+      alias:   "vision_36_obj"
+      type:    struct fusionAlg_FUS_VISION_OBJ_ST
+      offs:    -1
+    }
+    structField36 
+    {
+      alias:   "vision_37_obj"
+      type:    struct fusionAlg_FUS_VISION_OBJ_ST
+      offs:    -1
+    }
+    structField37 
+    {
+      alias:   "vision_38_obj"
+      type:    struct fusionAlg_FUS_VISION_OBJ_ST
+      offs:    -1
+    }
+    structField38 
+    {
+      alias:   "vision_39_obj"
+      type:    struct fusionAlg_FUS_VISION_OBJ_ST
+      offs:    -1
+    }
+    structField39 
+    {
+      alias:   "vision_40_obj"
+      type:    struct fusionAlg_FUS_VISION_OBJ_ST
+      offs:    -1
+    }
+endstruct
+
+struct fusionAlg_FUS_VISION_OBJ_DATA_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "timestamp"
+      type:    flt(64,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "frameNum"
+      type:    uint(32)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "count"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "reserved"
+      type:    struct fusionAlg_FUS_VISOBJ_UINT8_RESERVED_ST
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "objList"
+      type:    struct fusionAlg_FUS_VISION_OBJ_LIST_ST
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "dayNightState"
+      type:    uint(32)
+      offs:    -1
+      desc:    "0:night 1:twilight 2:day 255:unkown"
+    }
+    structField6 
+    {
+      alias:   "reserved1"
+      type:    struct fusionAlg_FUS_VISOBJ_UINT32_RESERVED_ST
+      offs:    -1
+    }
+endstruct
+
+struct fusionAlg_FUS_EYEQ4_LANE_PROT_HEADER_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "lhsyncid"
+      type:    uint(32)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "lhlanecount"
+      type:    uint(32)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "lhestimatedwidth"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "lhsnowonroadprob"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct fusionAlg_FUS_EYEQ4_LANE_PROT_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "lhlinefirstC0"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "coefficient a"
+    }
+    structField1 
+    {
+      alias:   "lhlinefirstC1"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "lhlinefirstC2"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "coefficient c"
+    }
+    structField3 
+    {
+      alias:   "lhlinefirstC3"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "coefficient d"
+    }
+    structField4 
+    {
+      alias:   "lhside"
+      type:    uint(32)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "lhfirstvrStart"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "lhfirstvrEnd"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "lhtrackid"
+      type:    uint(32)
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "lhcolor"
+      type:    uint(32)
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "lhmarkerwidth"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField10 
+    {
+      alias:   "lhmarkerwidthSTD"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField11 
+    {
+      alias:   "lhexistenceprobability"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField12 
+    {
+      alias:   "lhlanemarktype"
+      type:    uint(32)
+      offs:    -1
+    }
+    structField13 
+    {
+      alias:   "lhlanemarktypeconf"
+      type:    uint(32)
+      offs:    -1
+    }
+    structField14 
+    {
+      alias:   "lhdlmtype"
+      type:    uint(32)
+      offs:    -1
+    }
+endstruct
+
+struct fusionAlg_FUS_EYEQ4_LANE_ADJA_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "lhlinefirstC0"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "coefficient a"
+    }
+    structField1 
+    {
+      alias:   "lhlinefirstC1"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "lhlinefirstC2"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "coefficient c"
+    }
+    structField3 
+    {
+      alias:   "lhlinefirstC3"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "coefficient d"
+    }
+    structField4 
+    {
+      alias:   "linerole"
+      type:    uint(32)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "lanetrackid"
+      type:    uint(32)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "age"
+      type:    uint(32)
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "color"
+      type:    uint(32)
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "colorconf"
+      type:    uint(32)
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "lanemarkerwidth"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField10 
+    {
+      alias:   "lanemarkerwidthSTD"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField11 
+    {
+      alias:   "lavrstart"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField12 
+    {
+      alias:   "lavrend"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField13 
+    {
+      alias:   "laexistprobalility"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField14 
+    {
+      alias:   "lalanemarktype"
+      type:    uint(32)
+      offs:    -1
+    }
+    structField15 
+    {
+      alias:   "lalanemarktypeconf"
+      type:    uint(32)
+      offs:    -1
+    }
+    structField16 
+    {
+      alias:   "ladlmtype"
+      type:    uint(32)
+      offs:    -1
+    }
+endstruct
+
+struct fusionAlg_FUS_EYEQ4_LANE_DATA_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "timestamp"
+      type:    flt(64,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "frameNum"
+      type:    uint(32)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "laneChangeStatus"
+      type:    uint(32)
+      offs:    -1
+      desc:    "0:No lane change,\n1:Lane change to the left,\n2:Lane change to the right"
+    }
+    structField3 
+    {
+      alias:   "laneHostProtHeader"
+      type:    struct fusionAlg_FUS_EYEQ4_LANE_PROT_HEADER_ST
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "laneHostProtA"
+      type:    struct fusionAlg_FUS_EYEQ4_LANE_PROT_ST
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "laneHostProtB"
+      type:    struct fusionAlg_FUS_EYEQ4_LANE_PROT_ST
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "laneAdjaProtA"
+      type:    struct fusionAlg_FUS_EYEQ4_LANE_ADJA_ST
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "laneAdjaProtB"
+      type:    struct fusionAlg_FUS_EYEQ4_LANE_ADJA_ST
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "laneAdjaProtC"
+      type:    struct fusionAlg_FUS_EYEQ4_LANE_ADJA_ST
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "laneAdjaProtD"
+      type:    struct fusionAlg_FUS_EYEQ4_LANE_ADJA_ST
+      offs:    -1
+    }
+    structField10 
+    {
+      alias:   "errorFlag"
+      type:    uint(32)
+      offs:    -1
+    }
+    structField11 
+    {
+      alias:   "reserved"
+      type:    uint(32)
+      offs:    -1
+    }
+endstruct
+
+struct fusionAlg_FUS_EYEQ4_ROADEDGE_PROT_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "lreage"
+      type:    uint(32)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "lreexistprob"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "lretype"
+      type:    uint(32)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "lreid"
+      type:    uint(32)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "lrelineC0"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "lrelineC1"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "lrelineC2"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "lrelineC3"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "lrevrStart"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "lrevrEnd"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField10 
+    {
+      alias:   "lreside"
+      type:    uint(32)
+      offs:    -1
+    }
+    structField11 
+    {
+      alias:   "lreheight"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField12 
+    {
+      alias:   "lreheightstd"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField13 
+    {
+      alias:   "lreindex"
+      type:    uint(32)
+      offs:    -1
+    }
+endstruct
+
+struct fusionAlg_FUS_EYEQ4_ROADEDGE_DATA_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "timestamp"
+      type:    flt(64,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "frameNum"
+      type:    uint(32)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "roadEdgeProtHeader"
+      type:    struct fusionAlg_FUS_EYEQ4_ROADEDGE_PROT_ST
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "roadEdgeProtA"
+      type:    struct fusionAlg_FUS_EYEQ4_ROADEDGE_PROT_ST
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "roadEdgeProtB"
+      type:    struct fusionAlg_FUS_EYEQ4_ROADEDGE_PROT_ST
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "roadEdgeProtC"
+      type:    struct fusionAlg_FUS_EYEQ4_ROADEDGE_PROT_ST
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "errorFlag"
+      type:    uint(32)
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "reserved"
+      type:    uint(32)
+      offs:    -1
+    }
+endstruct
+
+struct fusionAlg_FUS_VEHICLE_DATA_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "yawRate"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "motionStatus"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "speed"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "acceleration"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct fusionAlg_FUS_OBJ_TRACK_EST_ST
+{
+  array-incr: -1
+  desc:       "fusion object estimate"
+}
+    structField0 
+    {
+      alias:   "longPosition"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The longitudinal distance to the middle of nearest facing side of the object.Measured in the reference coordinate system"
+    }
+    structField1 
+    {
+      alias:   "latPosition"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The lateral distance to the middle of nearest facing side of the object.Measured in the reference coordinate system"
+    }
+    structField2 
+    {
+      alias:   "headingAngle"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The heading angle for a vechile.It is defined as the angle between the heading of the detected vehicle and the heading of the host vehicle."
+    }
+    structField3 
+    {
+      alias:   "speed"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The vehicle speed relative to the ground and in direction of the vehicle traveling"
+    }
+    structField4 
+    {
+      alias:   "yawRate"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The yawRate of the object in the reference coordinate system"
+    }
+    structField5 
+    {
+      alias:   "longRelativeVelocity"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The longitudinal relative velocity of the object in the reference coordinate system."
+    }
+    structField6 
+    {
+      alias:   "latRelativeVelocity"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The lateral relative velocity of the object in the reference coordinate system."
+    }
+    structField7 
+    {
+      alias:   "longAbsoluteVelocity"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The longitudinal absolute velocity of the object in the reference coordinate system."
+    }
+    structField8 
+    {
+      alias:   "latAbsoluteVelocity"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The lateral absolute velocity of the object in the reference coordinate system."
+    }
+    structField9 
+    {
+      alias:   "acceleration"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The vehicle acceleration relative to the ground and in direction of the vehicle traveling"
+    }
+    structField10 
+    {
+      alias:   "longRelativeAcceleration"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The longitudinal relative acceleration of the object in the reference coordinate system."
+    }
+    structField11 
+    {
+      alias:   "latRelativeAcceleration"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The lateral relative acceleration of the object in the reference coordinate system."
+    }
+    structField12 
+    {
+      alias:   "longAbsoluteAcceleration"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The longitudinal absolute acceleration of the object in the reference coordinate system."
+    }
+    structField13 
+    {
+      alias:   "latAbsoluteAcceleration"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The lateral absolute acceleration of the object in the reference coordinate system."
+    }
+    structField14 
+    {
+      alias:   "curvature"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "the curvature of the object trajectory"
+    }
+endstruct
+
+struct fusionAlg_FUS_OBJ_TRACK_PROP_ST
+{
+  array-incr: -1
+  desc:       "fusion object property"
+}
+    structField0 
+    {
+      alias:   "id"
+      type:    uint(8)
+      offs:    -1
+      desc:    "The obj id.The id number needs to be equal to the index in the object stucture"
+    }
+    structField1 
+    {
+      alias:   "fusionSource"
+      type:    uint(8)
+      offs:    -1
+      desc:    "fusionSource£º\n\n0: vision only\n1: radar only\n2: fused radar vision\n255: unkown"
+    }
+    structField2 
+    {
+      alias:   "motionModel"
+      type:    uint(8)
+      offs:    -1
+      desc:    "The motion model used for the object.\nFusion motion model£º\n0: CA\n1: CTRA\n255: unkown"
+    }
+    structField3 
+    {
+      alias:   "trackStatus"
+      type:    uint(8)
+      offs:    -1
+      desc:    "Fusion obj trace status:\n\n0: New(Initialized),\n1: Measured,\n2: Predicted,"
+    }
+    structField4 
+    {
+      alias:   "positionConfidence"
+      type:    uint(8)
+      offs:    -1
+      desc:    "Position confidence(Used in RoadGeometryFusion).\n0:Not Reliable \n1:Reliable"
+    }
+    structField5 
+    {
+      alias:   "fcwConfidence"
+      type:    uint(8)
+      offs:    -1
+      desc:    "The object confidence for function FCW.0:Not Reliable,1:Warning reliable"
+    }
+    structField6 
+    {
+      alias:   "tjaConfidence"
+      type:    uint(8)
+      offs:    -1
+      desc:    "The object confidence for function TJA.0:Not Reliable,1:Reliable 1:Reliable"
+    }
+    structField7 
+    {
+      alias:   "leftNearLaneMarkingConfidence"
+      type:    uint(8)
+      offs:    -1
+      desc:    "Left nearest lane marking confidence.Not Reliable"
+    }
+    structField8 
+    {
+      alias:   "rightNearLaneMarkingConfidence"
+      type:    uint(8)
+      offs:    -1
+      desc:    "Right nearest lane marking confidence.0:Not reliable,1:Reliable"
+    }
+    structField9 
+    {
+      alias:   "visionId"
+      type:    uint(8)
+      offs:    -1
+      desc:    "The vision id for the object.Note!The vision id number do not need to be equal to the index in the object structure"
+    }
+    structField10 
+    {
+      alias:   "accelerationStdDev"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Standard deviation for object acceleration"
+    }
+    structField11 
+    {
+      alias:   "headingAngleStdDev"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Standard deviation for the heading angle of the object"
+    }
+    structField12 
+    {
+      alias:   "latPositionStdDev"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Standard deviation for the lateral position of the object"
+    }
+    structField13 
+    {
+      alias:   "longPositionStdDev"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "standard deviation for longitudinal position of the object"
+    }
+    structField14 
+    {
+      alias:   "speedStdDev"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Standard deviation for object speed"
+    }
+endstruct
+
+struct fusionAlg_FUS_OBJ_TRACK_INFO_ST
+{
+  array-incr: -1
+  desc:       "fusion object information"
+}
+    structField0 
+    {
+      alias:   "valid"
+      type:    uint(8)
+      offs:    -1
+      desc:    "the valid of fusion obj.\n0: invalid; \n1: valid"
+    }
+    structField1 
+    {
+      alias:   "type"
+      type:    uint(8)
+      offs:    -1
+      desc:    "Fusion Object classification\n\n0: Unknown\n1: Pedestrian\n2: Cyclist\n3: Bus\n4: Small_Medium_Car\n5: Trucks\n6: Tri-Motor\n7: Special_vehicle\n8: Tiny_car\n9: Ambulance\n10: UncertainVehicle"
+    }
+    structField2 
+    {
+      alias:   "nearestSide"
+      type:    uint(8)
+      offs:    -1
+      desc:    "which object side that is nearest (facing) the host vehicle\n0: Rear\n1: Front\n2: Right\n3: Left\n4: Unknown"
+    }
+    structField3 
+    {
+      alias:   "motionPatternCurrent"
+      type:    uint(8)
+      offs:    -1
+      desc:    "0:unknown,\n1:stationary,\n2:driving,\n3:oncoming,\n4:driving stopped\n5:oncoming stopped"
+    }
+    structField4 
+    {
+      alias:   "motionPatternHistory"
+      type:    uint(8)
+      offs:    -1
+      desc:    "0:unknown,1:stopped,2:recedable,3:oncomeable"
+    }
+    structField5 
+    {
+      alias:   "width"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The object width\nThe width is the extent of the nearest facing side"
+    }
+    structField6 
+    {
+      alias:   "height"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The object height."
+    }
+    structField7 
+    {
+      alias:   "length"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The object length."
+    }
+    structField8 
+    {
+      alias:   "distanceToleftNearLaneMarking"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The lateral distance between the object and the closest lane marking to the left"
+    }
+    structField9 
+    {
+      alias:   "distanceToRightNearLaneMarking"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The lateral distance between the object and the closest lane marking to the right"
+    }
+endstruct
+
+struct fusionAlg_FUS_OBJ_DATA_ST
+{
+  array-incr: -1
+  desc:       "fusion object data"
+}
+    structField0 
+    {
+      alias:   "obj_estimate"
+      type:    struct fusionAlg_FUS_OBJ_TRACK_EST_ST
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "obj_property"
+      type:    struct fusionAlg_FUS_OBJ_TRACK_PROP_ST
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "obj_information"
+      type:    struct fusionAlg_FUS_OBJ_TRACK_INFO_ST
+      offs:    -1
+    }
+endstruct
+
+typedef fusionAlg_FUS_OBJ_OUTPUT_ST_objects_1 struct fusionAlg_FUS_OBJ_DATA_ST[40]
+
+struct fusionAlg_FUS_OBJ_OUTPUT_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "timeStamp"
+      type:    flt(64,IEEE)
+      offs:    -1
+      desc:    "Common timestamp for all object and barrier signals"
+    }
+    structField1 
+    {
+      alias:   "objects"
+      type:    fusionAlg_FUS_OBJ_OUTPUT_ST_objects_1
+      offs:    -1
+      desc:    "fusion obj"
+    }
+    structField2 
+    {
+      alias:   "frameNum"
+      type:    uint(32)
+      offs:    -1
+      desc:    "frame nmber"
+    }
+endstruct
+
+struct fusionAlg_FUS_LANE_START_POINT
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "x0"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "y0"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct fusionAlg_FUS_LANE_TRACK_EST_ST
+{
+  array-incr: -1
+  desc:       "descripton of a curve as function f(x)= a + bx + cx^2 +dx^3 this structure defines the coefficient of the curve function"
+}
+    structField0 
+    {
+      alias:   "latDistanceZeroOrderCoeff"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "coefficient a"
+    }
+    structField1 
+    {
+      alias:   "latDistanceFirstOrderCoeff"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "coefficient b"
+    }
+    structField2 
+    {
+      alias:   "latDistanceSecondOrderCoeff"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "coefficient c"
+    }
+    structField3 
+    {
+      alias:   "latDistanceThirdOrderCoeff"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "coefficient d"
+    }
+    structField4 
+    {
+      alias:   "longDistanceToend"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "end of the curve"
+    }
+    structField5 
+    {
+      alias:   "startPoint"
+      type:    struct fusionAlg_FUS_LANE_START_POINT
+      offs:    -1
+    }
+endstruct
+
+struct fusionAlg_FUS_LANE_DATA_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "id"
+      type:    uint(8)
+      offs:    -1
+      desc:    "The obj id.The id number needs to be equal to the index in the object stucture"
+    }
+    structField1 
+    {
+      alias:   "traceStatus"
+      type:    uint(8)
+      offs:    -1
+      desc:    "0:invalid,\n1:init,\n2:measurement,\n3:predicted"
+    }
+    structField2 
+    {
+      alias:   "quality"
+      type:    uint(8)
+      offs:    -1
+      desc:    "0:Low,\n1:Mid,\n2:Mid high\n3:High"
+    }
+    structField3 
+    {
+      alias:   "color"
+      type:    uint(8)
+      offs:    -1
+      desc:    "0:unknown,\n1:white,\n2:yellow,\n3:blue"
+    }
+    structField4 
+    {
+      alias:   "type"
+      type:    uint(32)
+      offs:    -1
+      desc:    "0: None,\n1: Solid,\n2: Dashed,\n3: Solid Dashed\n4: Dashed Solid\n5: Double(Left Dased, Right Solid)\n6: Double(Left Solid, Right Dased)\n7: Double(Double Dashed)\n8: Double(Double Solid)\n9: Botts Dots\n10: Invalid\n11: Undecided"
+    }
+    structField5 
+    {
+      alias:   "width"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "total width of lane marker, from inner edge to outer edge"
+    }
+    structField6 
+    {
+      alias:   "curFunction"
+      type:    struct fusionAlg_FUS_LANE_TRACK_EST_ST
+      offs:    -1
+      desc:    "fusion lane marker curve function"
+    }
+endstruct
+
+struct fusionAlg_FUS_LANE_PRIMARY_TRA
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "id"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "traceStatus"
+      type:    uint(8)
+      offs:    -1
+      desc:    "0 invalid \n1 init\n2 measurement \n3 predicted"
+    }
+    structField2 
+    {
+      alias:   "quality"
+      type:    uint(8)
+      offs:    -1
+      desc:    "0 invalid\n1 low\n2 mid\n3 mid high\n4 high"
+    }
+    structField3 
+    {
+      alias:   "curveFunc"
+      type:    struct fusionAlg_FUS_LANE_TRACK_EST_ST
+      offs:    -1
+    }
+endstruct
+
+struct fusionAlg_FUS_LANE_OUTPUT_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "timestamp"
+      type:    flt(64,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "frameNum"
+      type:    uint(32)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "hostLaneWidth"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "host lane width"
+    }
+    structField3 
+    {
+      alias:   "leftLaneWidth"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "rightLaneWidth"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "leftHostLane"
+      type:    struct fusionAlg_FUS_LANE_DATA_ST
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "rightHostLane"
+      type:    struct fusionAlg_FUS_LANE_DATA_ST
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "leftNeighborLane"
+      type:    struct fusionAlg_FUS_LANE_DATA_ST
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "rightNeighborLane"
+      type:    struct fusionAlg_FUS_LANE_DATA_ST
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "primaryObjTrajectory"
+      type:    struct fusionAlg_FUS_LANE_PRIMARY_TRA
+      offs:    -1
+    }
+    structField10 
+    {
+      alias:   "laneChangeStatus"
+      type:    uint(32)
+      offs:    -1
+      desc:    "0:No lane change,\n1:Lane change to the left,\n2:Lane change to the right"
+    }
+endstruct
+
+struct fusionAlg_FUS_ROAD_EDGE_DATA_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "quality"
+      type:    uint(8)
+      offs:    -1
+      desc:    "0:invalid,\n1:Low,\n2:Mid,\n3:Mid High,\n4:High"
+    }
+    structField1 
+    {
+      alias:   "reserved"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "type"
+      type:    uint(16)
+      offs:    -1
+      desc:    "0: Unknown\n1: Lawn\n2: Sand\n3: Stone\n4: Wall\n5: Fence\n6: Curb\n7: Cone Bucket\n8: Parked Car\n9: Snow"
+    }
+    structField3 
+    {
+      alias:   "id"
+      type:    uint(32)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "trackStatus"
+      type:    uint(32)
+      offs:    -1
+      desc:    "0:invalid,\n1:init,\n2:measurement,\n3:predicted"
+    }
+    structField5 
+    {
+      alias:   "roadEdgeCurve"
+      type:    struct fusionAlg_FUS_LANE_TRACK_EST_ST
+      offs:    -1
+    }
+endstruct
+
+struct fusionAlg_FUS_ROAD_EDGE_OUTPUT_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "timestamp"
+      type:    flt(64,IEEE)
+      offs:    -1
+      desc:    "Common timestamp for all object and barrier signals"
+    }
+    structField1 
+    {
+      alias:   "frameNum"
+      type:    uint(32)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "hostVehPos"
+      type:    uint(32)
+      offs:    -1
+      desc:    "0 unkonwn\n1 left\n2 mid\n3 right"
+    }
+    structField3 
+    {
+      alias:   "leftRoadEdge"
+      type:    struct fusionAlg_FUS_ROAD_EDGE_DATA_ST
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "rightRoadEdge"
+      type:    struct fusionAlg_FUS_ROAD_EDGE_DATA_ST
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "errorFlag"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "detectedEdgeCnt"
+      type:    uint(8)
+      offs:    -1
+      desc:    "the count of road edge to be detected on image"
+    }
+endstruct
+
+struct fusionAlg_FUS_OUTOBJ_LIST_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "fus_output_01_obj"
+      type:    struct fusionAlg_FUS_OBJ_DATA_ST
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "fus_output_02_obj"
+      type:    struct fusionAlg_FUS_OBJ_DATA_ST
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "fus_output_03_obj"
+      type:    struct fusionAlg_FUS_OBJ_DATA_ST
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "fus_output_04_obj"
+      type:    struct fusionAlg_FUS_OBJ_DATA_ST
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "fus_output_05_obj"
+      type:    struct fusionAlg_FUS_OBJ_DATA_ST
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "fus_output_06_obj"
+      type:    struct fusionAlg_FUS_OBJ_DATA_ST
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "fus_output_07_obj"
+      type:    struct fusionAlg_FUS_OBJ_DATA_ST
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "fus_output_08_obj"
+      type:    struct fusionAlg_FUS_OBJ_DATA_ST
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "fus_output_09_obj"
+      type:    struct fusionAlg_FUS_OBJ_DATA_ST
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "fus_output_10_obj"
+      type:    struct fusionAlg_FUS_OBJ_DATA_ST
+      offs:    -1
+    }
+    structField10 
+    {
+      alias:   "fus_output_11_obj"
+      type:    struct fusionAlg_FUS_OBJ_DATA_ST
+      offs:    -1
+    }
+    structField11 
+    {
+      alias:   "fus_output_12_obj"
+      type:    struct fusionAlg_FUS_OBJ_DATA_ST
+      offs:    -1
+    }
+    structField12 
+    {
+      alias:   "fus_output_13_obj"
+      type:    struct fusionAlg_FUS_OBJ_DATA_ST
+      offs:    -1
+    }
+    structField13 
+    {
+      alias:   "fus_output_14_obj"
+      type:    struct fusionAlg_FUS_OBJ_DATA_ST
+      offs:    -1
+    }
+    structField14 
+    {
+      alias:   "fus_output_15_obj"
+      type:    struct fusionAlg_FUS_OBJ_DATA_ST
+      offs:    -1
+    }
+    structField15 
+    {
+      alias:   "fus_output_16_obj"
+      type:    struct fusionAlg_FUS_OBJ_DATA_ST
+      offs:    -1
+    }
+    structField16 
+    {
+      alias:   "fus_output_17_obj"
+      type:    struct fusionAlg_FUS_OBJ_DATA_ST
+      offs:    -1
+    }
+    structField17 
+    {
+      alias:   "fus_output_18_obj"
+      type:    struct fusionAlg_FUS_OBJ_DATA_ST
+      offs:    -1
+    }
+    structField18 
+    {
+      alias:   "fus_output_19_obj"
+      type:    struct fusionAlg_FUS_OBJ_DATA_ST
+      offs:    -1
+    }
+    structField19 
+    {
+      alias:   "fus_output_20_obj"
+      type:    struct fusionAlg_FUS_OBJ_DATA_ST
+      offs:    -1
+    }
+    structField20 
+    {
+      alias:   "fus_output_21_obj"
+      type:    struct fusionAlg_FUS_OBJ_DATA_ST
+      offs:    -1
+    }
+    structField21 
+    {
+      alias:   "fus_output_22_obj"
+      type:    struct fusionAlg_FUS_OBJ_DATA_ST
+      offs:    -1
+    }
+    structField22 
+    {
+      alias:   "fus_output_23_obj"
+      type:    struct fusionAlg_FUS_OBJ_DATA_ST
+      offs:    -1
+    }
+    structField23 
+    {
+      alias:   "fus_output_24_obj"
+      type:    struct fusionAlg_FUS_OBJ_DATA_ST
+      offs:    -1
+    }
+    structField24 
+    {
+      alias:   "fus_output_25_obj"
+      type:    struct fusionAlg_FUS_OBJ_DATA_ST
+      offs:    -1
+    }
+    structField25 
+    {
+      alias:   "fus_output_26_obj"
+      type:    struct fusionAlg_FUS_OBJ_DATA_ST
+      offs:    -1
+    }
+    structField26 
+    {
+      alias:   "fus_output_27_obj"
+      type:    struct fusionAlg_FUS_OBJ_DATA_ST
+      offs:    -1
+    }
+    structField27 
+    {
+      alias:   "fus_output_28_obj"
+      type:    struct fusionAlg_FUS_OBJ_DATA_ST
+      offs:    -1
+    }
+    structField28 
+    {
+      alias:   "fus_output_29_obj"
+      type:    struct fusionAlg_FUS_OBJ_DATA_ST
+      offs:    -1
+    }
+    structField29 
+    {
+      alias:   "fus_output_30_obj"
+      type:    struct fusionAlg_FUS_OBJ_DATA_ST
+      offs:    -1
+    }
+    structField30 
+    {
+      alias:   "fus_output_31_obj"
+      type:    struct fusionAlg_FUS_OBJ_DATA_ST
+      offs:    -1
+    }
+    structField31 
+    {
+      alias:   "fus_output_32_obj"
+      type:    struct fusionAlg_FUS_OBJ_DATA_ST
+      offs:    -1
+    }
+    structField32 
+    {
+      alias:   "fus_output_33_obj"
+      type:    struct fusionAlg_FUS_OBJ_DATA_ST
+      offs:    -1
+    }
+    structField33 
+    {
+      alias:   "fus_output_34_obj"
+      type:    struct fusionAlg_FUS_OBJ_DATA_ST
+      offs:    -1
+    }
+    structField34 
+    {
+      alias:   "fus_output_35_obj"
+      type:    struct fusionAlg_FUS_OBJ_DATA_ST
+      offs:    -1
+    }
+    structField35 
+    {
+      alias:   "fus_output_36_obj"
+      type:    struct fusionAlg_FUS_OBJ_DATA_ST
+      offs:    -1
+    }
+    structField36 
+    {
+      alias:   "fus_output_37_obj"
+      type:    struct fusionAlg_FUS_OBJ_DATA_ST
+      offs:    -1
+    }
+    structField37 
+    {
+      alias:   "fus_output_38_obj"
+      type:    struct fusionAlg_FUS_OBJ_DATA_ST
+      offs:    -1
+    }
+    structField38 
+    {
+      alias:   "fus_output_39_obj"
+      type:    struct fusionAlg_FUS_OBJ_DATA_ST
+      offs:    -1
+    }
+    structField39 
+    {
+      alias:   "fus_output_40_obj"
+      type:    struct fusionAlg_FUS_OBJ_DATA_ST
+      offs:    -1
+    }
+endstruct
+
+struct fusionAlg_FUS_OBJALG_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "timeStamp"
+      type:    flt(64,IEEE)
+      offs:    -1
+      desc:    "Common timestamp for all object and barrier signals"
+    }
+    structField1 
+    {
+      alias:   "objects"
+      type:    struct fusionAlg_FUS_OUTOBJ_LIST_ST
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "frameNum"
+      type:    uint(32)
+      offs:    -1
+      desc:    "frame nmber"
+    }
+endstruct
+
+
+-- Type definitions for arrays
+typedef fusionAlg_ArrayDT1_8 flt(32,IEEE)[8]
+typedef fusionAlg_ArrayDT1_9 flt(32,IEEE)[9]
+
+

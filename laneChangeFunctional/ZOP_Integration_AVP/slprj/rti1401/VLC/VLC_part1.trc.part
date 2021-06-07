@@ -1,0 +1,3404 @@
+-- ******** Model variables ***************************************************
+
+group "Model Root"
+      
+	group "ACC_LgtCtrl_st" -- block-group
+	{
+	 block: "Inport"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "ACC_LgtCtrl_st"
+
+	group "SYS_Info_st" -- block-group
+	{
+	 block: "Inport"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "SYS_Info_st"
+
+	group "VSI_VehState_st" -- block-group
+	{
+	 block: "Inport"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "VSI_VehState_st"
+
+	group "COM_VehBus_st" -- block-group
+	{
+	 block: "Inport"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "COM_VehBus_st"
+
+	group "Input" -- block-group
+	{
+	 block: "Inport"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "Input"
+
+	group "Bus\nCreator1" -- block-group
+	{
+	 block: "BusCreator"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "Bus\nCreator1"
+
+	group "P_dAxMax" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		trcref0_P_dAxMax
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "P_dAxMax"
+		 alias:    "P_dAxMax"
+		}
+		trcref0_Value
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "P_dAxMax"
+		 alias:    "Value"
+		 flags:    DEPRECATED|HIDDEN
+		}
+
+
+	endgroup -- block-group "P_dAxMax"
+
+	group "P_dAxMin" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		trcref0_P_dAxMin
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "P_dAxMin"
+		 alias:    "P_dAxMin"
+		}
+		trcref0_Value
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "P_dAxMin"
+		 alias:    "Value"
+		 flags:    DEPRECATED|HIDDEN
+		}
+
+
+	endgroup -- block-group "P_dAxMin"
+
+	group "P_vLowSpd" -- block-group
+	{
+	 block: "Constant"
+	}
+		-- Skipping output Out1
+		trcref0_P_vLowSpd
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "P_vLowSpd"
+		 alias:    "P_vLowSpd"
+		}
+		trcref0_Value
+		{
+		 refgroup: "/Tunable Parameters"
+		 refvar:   "P_vLowSpd"
+		 alias:    "Value"
+		 flags:    DEPRECATED|HIDDEN
+		}
+
+
+	endgroup -- block-group "P_vLowSpd"
+
+	group "If" -- block-group
+	{
+	 block: "If"
+	}
+		-- Skipping output Out1
+		-- Skipping output Out2
+
+
+	endgroup -- block-group "If"
+
+	group "Memory" -- block-group
+	{
+	 block: "Memory"
+	}
+		p_0_VLC_real32_T_2[0]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+		p_2_VLC_real32_T_1[12]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "InitialCondition"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "Memory"
+
+	group "Product" -- block-group
+	{
+	 block: "Product"
+	}
+		p_0_VLC_real32_T_2[1]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Product"
+
+	group "Product1" -- block-group
+	{
+	 block: "Product"
+	}
+		p_0_VLC_real32_T_2[2]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Product1"
+
+	group "Relational\nOperator" -- block-group
+	{
+	 block: "RelationalOperator"
+	}
+		p_0_VLC_boolean_T_3[0]
+		{
+		 type:    uint(8)*
+		 alias:   "Out1"
+		 range:   < 0 ; 1 >
+		 bitmask: 0x01
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Relational\nOperator"
+
+	group "Sum" -- block-group
+	{
+	 block: "Sum"
+	}
+		p_0_VLC_real32_T_2[29]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Sum"
+
+  
+  
+	group "AdapterRx_VLC" -- subsystem-group
+
+		p_0_VLC_COM_PROPACT_ST_0[0]
+		{
+		 type:    struct VLC_COM_PROPACT_ST*
+		 alias:   "COM_PropAct_st"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+		group "Bus\nCreator2" -- block-group
+		{
+		 block: "BusCreator"
+		}
+			p_0_VLC_COM_PROPACT_ST_0[0]
+			{
+			 type:    struct VLC_COM_PROPACT_ST*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Bus\nCreator2"
+
+		group "TransRatio" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			trcref0_TransRatio
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "TransRatio"
+			 alias:    "TransRatio"
+			}
+			trcref0_Value
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "TransRatio"
+			 alias:    "Value"
+			 flags:    DEPRECATED|HIDDEN
+			}
+
+
+		endgroup -- block-group "TransRatio"
+
+		group "Cast To Boolean" -- block-group
+		{
+		 block: "DataTypeConversion"
+		}
+			-- Skipping output Out1
+
+
+		endgroup -- block-group "Cast To Boolean"
+
+		group "Logical\nOperator7" -- block-group
+		{
+		 block: "Logic"
+		}
+			-- Skipping output Out1
+
+
+		endgroup -- block-group "Logical\nOperator7"
+
+		group "Divide" -- block-group
+		{
+		 block: "Product"
+		}
+			-- Skipping output Out1
+
+
+		endgroup -- block-group "Divide"
+
+		group "Divide1" -- block-group
+		{
+		 block: "Product"
+		}
+			-- Skipping output Out1
+
+
+		endgroup -- block-group "Divide1"
+
+
+
+	endgroup -- subsystem-group "AdapterRx_VLC"
+  
+  
+	group "RTI Data" -- subsystem-group
+
+
+	endgroup -- subsystem-group "RTI Data"
+  
+  
+	group "SlopeProcess" -- subsystem-group
+
+		p_0_VLC_real32_T_2[28]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "SlopeFr"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+  
+  
+		group "SlopeF" -- subsystem-group
+
+			p_0_VLC_real32_T_2[20]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "SlopeF"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+			group "Constant" -- block-group
+			{
+			 block: "Constant"
+			}
+				-- Skipping output Out1
+				trcref0_P_tSlopeFilter1
+				{
+				 refgroup: "/Tunable Parameters"
+				 refvar:   "P_tSlopeFilter1"
+				 alias:    "P_tSlopeFilter1"
+				}
+				trcref0_Value
+				{
+				 refgroup: "/Tunable Parameters"
+				 refvar:   "P_tSlopeFilter1"
+				 alias:    "Value"
+				 flags:    DEPRECATED|HIDDEN
+				}
+
+
+			endgroup -- block-group "Constant"
+
+			group "Constant1" -- block-group
+			{
+			 block: "Constant"
+			}
+				-- Skipping output Out1
+				trcref0_P_dSlopeLim
+				{
+				 refgroup: "/Tunable Parameters"
+				 refvar:   "P_dSlopeLim"
+				 alias:    "P_dSlopeLim"
+				}
+				trcref0_Value
+				{
+				 refgroup: "/Tunable Parameters"
+				 refvar:   "P_dSlopeLim"
+				 alias:    "Value"
+				 flags:    DEPRECATED|HIDDEN
+				}
+
+
+			endgroup -- block-group "Constant1"
+
+			group "Gain" -- block-group
+			{
+			 block: "Gain"
+			}
+				p_0_VLC_real32_T_2[18]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+				p_2_VLC_real32_T_1[17]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Gain"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Gain"
+
+			group "Memory1" -- block-group
+			{
+			 block: "Memory"
+			}
+				p_0_VLC_real32_T_2[12]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+				p_2_VLC_real32_T_1[16]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "InitialCondition"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Memory1"
+
+			group "Memory2" -- block-group
+			{
+			 block: "Memory"
+			}
+				p_0_VLC_real32_T_2[5]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+				p_2_VLC_real32_T_1[14]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "InitialCondition"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Memory2"
+
+			group "Max" -- block-group
+			{
+			 block: "MinMax"
+			}
+				p_0_VLC_real32_T_2[19]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Max"
+
+			group "MinMax" -- block-group
+			{
+			 block: "MinMax"
+			}
+				p_0_VLC_real32_T_2[17]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "MinMax"
+
+			group "Multiply" -- block-group
+			{
+			 block: "Product"
+			}
+				p_0_VLC_real32_T_2[16]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Multiply"
+
+			group "Add" -- block-group
+			{
+			 block: "Sum"
+			}
+				p_0_VLC_real32_T_2[15]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Add"
+
+			group "Add1" -- block-group
+			{
+			 block: "Sum"
+			}
+				p_0_VLC_real32_T_2[20]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Add1"
+
+  
+  
+			group "LPFilter_Slope" -- subsystem-group
+
+				p_0_VLC_real32_T_2[14]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "xFilt"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+				group "Constant" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_VLC_real32_T_1[15]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant"
+
+				group "Max" -- block-group
+				{
+				 block: "MinMax"
+				}
+					p_0_VLC_real32_T_2[8]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Max"
+
+				group "Divide" -- block-group
+				{
+				 block: "Product"
+				}
+					p_0_VLC_real32_T_2[9]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Divide"
+
+				group "Multiply" -- block-group
+				{
+				 block: "Product"
+				}
+					p_0_VLC_real32_T_2[10]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Multiply"
+
+				group "Multiply1" -- block-group
+				{
+				 block: "Product"
+				}
+					p_0_VLC_real32_T_2[13]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Multiply1"
+
+				group "Add" -- block-group
+				{
+				 block: "Sum"
+				}
+					p_0_VLC_real32_T_2[11]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Add"
+
+				group "Add1" -- block-group
+				{
+				 block: "Sum"
+				}
+					p_0_VLC_real32_T_2[14]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Add1"
+
+
+
+			endgroup -- subsystem-group "LPFilter_Slope"
+  
+  
+			group "SlopeLim" -- subsystem-group
+
+				p_0_VLC_real32_T_2[7]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "SlopeLim"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+				group "Abs" -- block-group
+				{
+				 block: "Abs"
+				}
+					p_0_VLC_real32_T_2[6]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Abs"
+
+				group "P_SlopeMin" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					trcref0_P_SlopeMin
+					{
+					 refgroup: "/Tunable Parameters"
+					 refvar:   "P_SlopeMin"
+					 alias:    "P_SlopeMin"
+					}
+					trcref0_Value
+					{
+					 refgroup: "/Tunable Parameters"
+					 refvar:   "P_SlopeMin"
+					 alias:    "Value"
+					 flags:    DEPRECATED|HIDDEN
+					}
+
+
+				endgroup -- block-group "P_SlopeMin"
+
+				group "If" -- block-group
+				{
+				 block: "If"
+				}
+					-- Skipping output Out1
+					-- Skipping output Out2
+
+
+				endgroup -- block-group "If"
+
+				group "Merge" -- block-group
+				{
+				 block: "Merge"
+				}
+					p_0_VLC_real32_T_2[7]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Merge"
+
+				group "Relational\nOperator" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_VLC_boolean_T_3[4]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Relational\nOperator"
+
+  
+  
+				group "If Action\nSubsystem" -- subsystem-group
+
+					p_0_VLC_real32_T_2[7]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+					group "Constant" -- block-group
+					{
+					 block: "Constant"
+					}
+						-- Skipping output Out1
+						p_2_VLC_real32_T_4[0]
+						{
+						 type:    flt(32,IEEE)*
+						 alias:   "Value"
+						 flags:   PARAM
+						}
+
+
+					endgroup -- block-group "Constant"
+
+
+
+				endgroup -- subsystem-group "If Action\nSubsystem"
+  
+  
+				group "If Action\nSubsystem1" -- subsystem-group
+
+					p_0_VLC_real32_T_2[7]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+					group "P_SlopeMax" -- block-group
+					{
+					 block: "Constant"
+					}
+						-- Skipping output Out1
+						trcref0_P_SlopeMax
+						{
+						 refgroup: "/Tunable Parameters"
+						 refvar:   "P_SlopeMax"
+						 alias:    "P_SlopeMax"
+						}
+						trcref0_Value
+						{
+						 refgroup: "/Tunable Parameters"
+						 refvar:   "P_SlopeMax"
+						 alias:    "Value"
+						 flags:    DEPRECATED|HIDDEN
+						}
+
+
+					endgroup -- block-group "P_SlopeMax"
+
+					group "Gain" -- block-group
+					{
+					 block: "Gain"
+					}
+						p_0_VLC_real32_T_2[61]
+						{
+						 type:    flt(32,IEEE)*
+						 alias:   "Out1"
+						 flags:   OUTPUT|READONLY
+						}
+						p_2_VLC_real32_T_1[9]
+						{
+						 type:    flt(32,IEEE)*
+						 alias:   "Gain"
+						 flags:   PARAM
+						}
+
+
+					endgroup -- block-group "Gain"
+
+					group "Max" -- block-group
+					{
+					 block: "MinMax"
+					}
+						p_0_VLC_real32_T_2[62]
+						{
+						 type:    flt(32,IEEE)*
+						 alias:   "Out1"
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "Max"
+
+					group "Min" -- block-group
+					{
+					 block: "MinMax"
+					}
+						p_0_VLC_real32_T_2[7]
+						{
+						 type:    flt(32,IEEE)*
+						 alias:   "Out1"
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "Min"
+
+
+
+				endgroup -- subsystem-group "If Action\nSubsystem1"
+
+
+			endgroup -- subsystem-group "SlopeLim"
+
+
+		endgroup -- subsystem-group "SlopeF"
+  
+  
+		group "SlopeFreeze" -- subsystem-group
+
+			p_0_VLC_real32_T_2[28]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "SlopeFreeze"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+			group "Constant" -- block-group
+			{
+			 block: "Constant"
+			}
+				-- Skipping output Out1
+				trcref0_P_tSlopeFilter2
+				{
+				 refgroup: "/Tunable Parameters"
+				 refvar:   "P_tSlopeFilter2"
+				 alias:    "P_tSlopeFilter2"
+				}
+				trcref0_Value
+				{
+				 refgroup: "/Tunable Parameters"
+				 refvar:   "P_tSlopeFilter2"
+				 alias:    "Value"
+				 flags:    DEPRECATED|HIDDEN
+				}
+
+
+			endgroup -- block-group "Constant"
+
+			group "Constant7" -- block-group
+			{
+			 block: "Constant"
+			}
+				-- Skipping output Out1
+				p_2_VLC_real32_T_1[40]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Value"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Constant7"
+
+			group "P_tDriveOffThr" -- block-group
+			{
+			 block: "Constant"
+			}
+				-- Skipping output Out1
+				trcref0_P_tDriveOffThr
+				{
+				 refgroup: "/Tunable Parameters"
+				 refvar:   "P_tDriveOffThr"
+				 alias:    "P_tDriveOffThr"
+				}
+				trcref0_Value
+				{
+				 refgroup: "/Tunable Parameters"
+				 refvar:   "P_tDriveOffThr"
+				 alias:    "Value"
+				 flags:    DEPRECATED|HIDDEN
+				}
+
+
+			endgroup -- block-group "P_tDriveOffThr"
+
+			group "P_vDriveOffThr" -- block-group
+			{
+			 block: "Constant"
+			}
+				-- Skipping output Out1
+				trcref0_P_vDriveOffThr
+				{
+				 refgroup: "/Tunable Parameters"
+				 refvar:   "P_vDriveOffThr"
+				 alias:    "P_vDriveOffThr"
+				}
+				trcref0_Value
+				{
+				 refgroup: "/Tunable Parameters"
+				 refvar:   "P_vDriveOffThr"
+				 alias:    "Value"
+				 flags:    DEPRECATED|HIDDEN
+				}
+
+
+			endgroup -- block-group "P_vDriveOffThr"
+
+			group "AND1" -- block-group
+			{
+			 block: "Logic"
+			}
+				p_0_VLC_boolean_T_3[3]
+				{
+				 type:    uint(8)*
+				 alias:   "Out1"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "AND1"
+
+			group "Memory" -- block-group
+			{
+			 block: "Memory"
+			}
+				p_0_VLC_real32_T_2[3]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+				p_2_VLC_real32_T_1[13]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "InitialCondition"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Memory"
+
+			group "Memory2" -- block-group
+			{
+			 block: "Memory"
+			}
+				p_0_VLC_real32_T_2[26]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+				p_2_VLC_real32_T_1[19]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "InitialCondition"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Memory2"
+
+			group "Max1" -- block-group
+			{
+			 block: "MinMax"
+			}
+				p_0_VLC_real32_T_2[57]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Max1"
+
+			group "Equal4" -- block-group
+			{
+			 block: "RelationalOperator"
+			}
+				p_0_VLC_boolean_T_3[1]
+				{
+				 type:    uint(8)*
+				 alias:   "Out1"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Equal4"
+
+			group "Equal5" -- block-group
+			{
+			 block: "RelationalOperator"
+			}
+				p_0_VLC_boolean_T_3[2]
+				{
+				 type:    uint(8)*
+				 alias:   "Out1"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Equal5"
+
+			group "Add1" -- block-group
+			{
+			 block: "Sum"
+			}
+				p_0_VLC_real32_T_2[56]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Add1"
+
+			group "Switch5" -- block-group
+			{
+			 block: "Switch"
+			}
+				p_0_VLC_real32_T_2[21]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Switch5"
+
+			group "Delay1" -- block-group
+			{
+			 block: "Delay"
+			}
+				p_0_VLC_real32_T_2[4]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+				p_2_VLC_uint32_T_2[0]
+				{
+				 type:    uint(32)*
+				 alias:   "DelayLength"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Delay1"
+
+  
+  
+			group "LPFilter_Slope" -- subsystem-group
+
+				p_0_VLC_real32_T_2[28]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "xFilt"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+				group "Constant" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_VLC_real32_T_1[18]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant"
+
+				group "Max" -- block-group
+				{
+				 block: "MinMax"
+				}
+					p_0_VLC_real32_T_2[22]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Max"
+
+				group "Divide" -- block-group
+				{
+				 block: "Product"
+				}
+					p_0_VLC_real32_T_2[23]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Divide"
+
+				group "Multiply" -- block-group
+				{
+				 block: "Product"
+				}
+					p_0_VLC_real32_T_2[24]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Multiply"
+
+				group "Multiply1" -- block-group
+				{
+				 block: "Product"
+				}
+					p_0_VLC_real32_T_2[27]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Multiply1"
+
+				group "Add" -- block-group
+				{
+				 block: "Sum"
+				}
+					p_0_VLC_real32_T_2[25]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Add"
+
+				group "Add1" -- block-group
+				{
+				 block: "Sum"
+				}
+					p_0_VLC_real32_T_2[28]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Add1"
+
+
+
+			endgroup -- subsystem-group "LPFilter_Slope"
+
+
+		endgroup -- subsystem-group "SlopeFreeze"
+
+
+	endgroup -- subsystem-group "SlopeProcess"
+  
+  
+	group "VLC_Core" -- subsystem-group
+
+		p_0_VLC_real32_T_2[30]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "FxTar"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+  
+  
+		group "VLC_AxCtrl" -- subsystem-group
+
+			p_0_VLC_real32_T_2[30]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "FxTar"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+			group "Constant" -- block-group
+			{
+			 block: "Constant"
+			}
+				-- Skipping output Out1
+				p_2_VLC_real32_T_1[6]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Value"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Constant"
+
+			group "Constant1" -- block-group
+			{
+			 block: "Constant"
+			}
+				-- Skipping output Out1
+				p_2_VLC_real32_T_1[0]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Value"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Constant1"
+
+			group "Constant2" -- block-group
+			{
+			 block: "Constant"
+			}
+				-- Skipping output Out1
+				p_2_VLC_real32_T_1[1]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Value"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Constant2"
+
+			group "P_Cf" -- block-group
+			{
+			 block: "Constant"
+			}
+				-- Skipping output Out1
+				trcref0_P_Cf
+				{
+				 refgroup: "/Tunable Parameters"
+				 refvar:   "P_Cf"
+				 alias:    "P_Cf"
+				}
+				trcref0_Value
+				{
+				 refgroup: "/Tunable Parameters"
+				 refvar:   "P_Cf"
+				 alias:    "Value"
+				 flags:    DEPRECATED|HIDDEN
+				}
+
+
+			endgroup -- block-group "P_Cf"
+
+			group "m_Vehicle" -- block-group
+			{
+			 block: "Constant"
+			}
+				-- Skipping output Out1
+				trcref0_m_Vehicle
+				{
+				 refgroup: "/Tunable Parameters"
+				 refvar:   "m_Vehicle"
+				 alias:    "m_Vehicle"
+				}
+				trcref0_Value
+				{
+				 refgroup: "/Tunable Parameters"
+				 refvar:   "m_Vehicle"
+				 alias:    "Value"
+				 flags:    DEPRECATED|HIDDEN
+				}
+
+
+			endgroup -- block-group "m_Vehicle"
+
+			group "P_Kp" -- block-group
+			{
+			 block: "Gain"
+			}
+				p_0_VLC_real32_T_2[64]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+				trcref0_P_Kp
+				{
+				 refgroup: "/Tunable Parameters"
+				 refvar:   "P_Kp"
+				 alias:    "P_Kp"
+				}
+				trcref0_Gain
+				{
+				 refgroup: "/Tunable Parameters"
+				 refvar:   "P_Kp"
+				 alias:    "Gain"
+				 flags:    DEPRECATED|HIDDEN
+				}
+
+
+			endgroup -- block-group "P_Kp"
+
+			group "Memory1" -- block-group
+			{
+			 block: "Memory"
+			}
+				p_0_VLC_real32_T_2[83]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+				p_2_VLC_real32_T_1[5]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "InitialCondition"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Memory1"
+
+			group "Multiply" -- block-group
+			{
+			 block: "Product"
+			}
+				p_0_VLC_real32_T_2[82]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Multiply"
+
+			group "Product1" -- block-group
+			{
+			 block: "Product"
+			}
+				p_0_VLC_real32_T_2[81]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Product1"
+
+			group "Product2" -- block-group
+			{
+			 block: "Product"
+			}
+				p_0_VLC_real32_T_2[30]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Product2"
+
+			group "Equal" -- block-group
+			{
+			 block: "RelationalOperator"
+			}
+				p_0_VLC_boolean_T_3[13]
+				{
+				 type:    uint(8)*
+				 alias:   "Out1"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Equal"
+
+			group "Add1" -- block-group
+			{
+			 block: "Sum"
+			}
+				p_0_VLC_real32_T_2[86]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Add1"
+
+			group "Add2" -- block-group
+			{
+			 block: "Sum"
+			}
+				p_0_VLC_real32_T_2[92]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Add2"
+
+			group "Add4" -- block-group
+			{
+			 block: "Sum"
+			}
+				p_0_VLC_real32_T_2[84]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Add4"
+
+			group "Switch" -- block-group
+			{
+			 block: "Switch"
+			}
+				p_0_VLC_real32_T_2[87]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Switch"
+
+			group "Switch1" -- block-group
+			{
+			 block: "Switch"
+			}
+				p_0_VLC_real32_T_2[65]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Switch1"
+
+			group "Switch2" -- block-group
+			{
+			 block: "Switch"
+			}
+				p_0_VLC_real32_T_2[85]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Switch2"
+
+  
+  
+			group "Dev_I" -- subsystem-group
+
+				p_0_VLC_real32_T_2[93]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Ki"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+				group "Abs1" -- block-group
+				{
+				 block: "Abs"
+				}
+					p_0_VLC_real32_T_2[77]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Abs1"
+
+				group "Abs2" -- block-group
+				{
+				 block: "Abs"
+				}
+					p_0_VLC_real32_T_2[78]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Abs2"
+
+				group "Abs3" -- block-group
+				{
+				 block: "Abs"
+				}
+					p_0_VLC_real32_T_2[67]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Abs3"
+
+				group "Abs4" -- block-group
+				{
+				 block: "Abs"
+				}
+					p_0_VLC_real32_T_2[66]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Abs4"
+
+				group "P_Dev4IEnd" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					trcref0_P_Dev4IEnd
+					{
+					 refgroup: "/Tunable Parameters"
+					 refvar:   "P_Dev4IEnd"
+					 alias:    "P_Dev4IEnd"
+					}
+					trcref0_Value
+					{
+					 refgroup: "/Tunable Parameters"
+					 refvar:   "P_Dev4IEnd"
+					 alias:    "Value"
+					 flags:    DEPRECATED|HIDDEN
+					}
+
+
+				endgroup -- block-group "P_Dev4IEnd"
+
+				group "P_Ki" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					trcref0_P_Ki
+					{
+					 refgroup: "/Tunable Parameters"
+					 refvar:   "P_Ki"
+					 alias:    "P_Ki"
+					}
+					trcref0_Value
+					{
+					 refgroup: "/Tunable Parameters"
+					 refvar:   "P_Ki"
+					 alias:    "Value"
+					 flags:    DEPRECATED|HIDDEN
+					}
+
+
+				endgroup -- block-group "P_Ki"
+
+				group "P_aDiffaF" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					trcref0_P_aDiffaF
+					{
+					 refgroup: "/Tunable Parameters"
+					 refvar:   "P_aDiffaF"
+					 alias:    "P_aDiffaF"
+					}
+					trcref0_Value
+					{
+					 refgroup: "/Tunable Parameters"
+					 refvar:   "P_aDiffaF"
+					 alias:    "Value"
+					 flags:    DEPRECATED|HIDDEN
+					}
+
+
+				endgroup -- block-group "P_aDiffaF"
+
+				group "P_dIRamp" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					trcref0_P_dIRamp
+					{
+					 refgroup: "/Tunable Parameters"
+					 refvar:   "P_dIRamp"
+					 alias:    "P_dIRamp"
+					}
+					trcref0_Value
+					{
+					 refgroup: "/Tunable Parameters"
+					 refvar:   "P_dIRamp"
+					 alias:    "Value"
+					 flags:    DEPRECATED|HIDDEN
+					}
+
+
+				endgroup -- block-group "P_dIRamp"
+
+				group "P_tARefFilter" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					trcref0_P_tARefFilter
+					{
+					 refgroup: "/Tunable Parameters"
+					 refvar:   "P_tARefFilter"
+					 alias:    "P_tARefFilter"
+					}
+					trcref0_Value
+					{
+					 refgroup: "/Tunable Parameters"
+					 refvar:   "P_tARefFilter"
+					 alias:    "Value"
+					 flags:    DEPRECATED|HIDDEN
+					}
+
+
+				endgroup -- block-group "P_tARefFilter"
+
+				group "Memory" -- block-group
+				{
+				 block: "Memory"
+				}
+					p_0_VLC_real32_T_2[73]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_VLC_real32_T_1[3]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "InitialCondition"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Memory"
+
+				group "Memory1" -- block-group
+				{
+				 block: "Memory"
+				}
+					p_0_VLC_real32_T_2[79]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_VLC_real32_T_1[4]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "InitialCondition"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Memory1"
+
+				group "Max" -- block-group
+				{
+				 block: "MinMax"
+				}
+					p_0_VLC_real32_T_2[68]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Max"
+
+				group "Product1" -- block-group
+				{
+				 block: "Product"
+				}
+					p_0_VLC_real32_T_2[80]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Product1"
+
+				group "Add" -- block-group
+				{
+				 block: "Sum"
+				}
+					p_0_VLC_real32_T_2[76]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Add"
+
+  
+  
+				group "LPFilter" -- subsystem-group
+
+					p_0_VLC_real32_T_2[75]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "xFilt"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+					group "Constant" -- block-group
+					{
+					 block: "Constant"
+					}
+						-- Skipping output Out1
+						p_2_VLC_real32_T_1[2]
+						{
+						 type:    flt(32,IEEE)*
+						 alias:   "Value"
+						 flags:   PARAM
+						}
+
+
+					endgroup -- block-group "Constant"
+
+					group "Max" -- block-group
+					{
+					 block: "MinMax"
+					}
+						p_0_VLC_real32_T_2[69]
+						{
+						 type:    flt(32,IEEE)*
+						 alias:   "Out1"
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "Max"
+
+					group "Divide" -- block-group
+					{
+					 block: "Product"
+					}
+						p_0_VLC_real32_T_2[70]
+						{
+						 type:    flt(32,IEEE)*
+						 alias:   "Out1"
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "Divide"
+
+					group "Multiply" -- block-group
+					{
+					 block: "Product"
+					}
+						p_0_VLC_real32_T_2[71]
+						{
+						 type:    flt(32,IEEE)*
+						 alias:   "Out1"
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "Multiply"
+
+					group "Multiply1" -- block-group
+					{
+					 block: "Product"
+					}
+						p_0_VLC_real32_T_2[74]
+						{
+						 type:    flt(32,IEEE)*
+						 alias:   "Out1"
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "Multiply1"
+
+					group "Add" -- block-group
+					{
+					 block: "Sum"
+					}
+						p_0_VLC_real32_T_2[72]
+						{
+						 type:    flt(32,IEEE)*
+						 alias:   "Out1"
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "Add"
+
+					group "Add1" -- block-group
+					{
+					 block: "Sum"
+					}
+						p_0_VLC_real32_T_2[75]
+						{
+						 type:    flt(32,IEEE)*
+						 alias:   "Out1"
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "Add1"
+
+
+
+				endgroup -- subsystem-group "LPFilter"
+  
+  
+				group "IGain_cal" -- subsystem-group
+
+					p_0_VLC_real32_T_2[93]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "IGain"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+
+
+				endgroup -- subsystem-group "IGain_cal"
+
+
+			endgroup -- subsystem-group "Dev_I"
+  
+  
+			group "Subsystem" -- subsystem-group
+
+				p_0_VLC_real32_T_2[91]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Air_friction"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+				group "Constant4" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_VLC_real32_T_1[7]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant4"
+
+				group "Constant6" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_VLC_real32_T_1[8]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant6"
+
+				group "P_A" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					trcref0_P_A
+					{
+					 refgroup: "/Tunable Parameters"
+					 refvar:   "P_A"
+					 alias:    "P_A"
+					}
+					trcref0_Value
+					{
+					 refgroup: "/Tunable Parameters"
+					 refvar:   "P_A"
+					 alias:    "Value"
+					 flags:    DEPRECATED|HIDDEN
+					}
+
+
+				endgroup -- block-group "P_A"
+
+				group "P_Cd" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					trcref0_P_Cd
+					{
+					 refgroup: "/Tunable Parameters"
+					 refvar:   "P_Cd"
+					 alias:    "P_Cd"
+					}
+					trcref0_Value
+					{
+					 refgroup: "/Tunable Parameters"
+					 refvar:   "P_Cd"
+					 alias:    "Value"
+					 flags:    DEPRECATED|HIDDEN
+					}
+
+
+				endgroup -- block-group "P_Cd"
+
+				group "m_Vehicle" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					trcref0_m_Vehicle
+					{
+					 refgroup: "/Tunable Parameters"
+					 refvar:   "m_Vehicle"
+					 alias:    "m_Vehicle"
+					}
+					trcref0_Value
+					{
+					 refgroup: "/Tunable Parameters"
+					 refvar:   "m_Vehicle"
+					 alias:    "Value"
+					 flags:    DEPRECATED|HIDDEN
+					}
+
+
+				endgroup -- block-group "m_Vehicle"
+
+				group "Math\nFunction" -- block-group
+				{
+				 block: "Math"
+				}
+					p_0_VLC_real32_T_2[88]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Math\nFunction"
+
+				group "Divide" -- block-group
+				{
+				 block: "Product"
+				}
+					p_0_VLC_real32_T_2[91]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Divide"
+
+				group "Product" -- block-group
+				{
+				 block: "Product"
+				}
+					p_0_VLC_real32_T_2[89]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Product"
+
+				group "Product1" -- block-group
+				{
+				 block: "Product"
+				}
+					p_0_VLC_real32_T_2[90]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Product1"
+
+
+
+			endgroup -- subsystem-group "Subsystem"
+
+
+		endgroup -- subsystem-group "VLC_AxCtrl"
+
+
+	endgroup -- subsystem-group "VLC_Core"
+  
+  
+	group "VLC_Post" -- subsystem-group
+
+		-- Skipping output EngineTorReq
+		p_0_VLC_boolean_T_3[6]
+		{
+		 type:    uint(8)*
+		 alias:   "EngineTorReqSt"
+		 range:   < 0 ; 1 >
+		 bitmask: 0x01
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_VLC_boolean_T_3[5]
+		{
+		 type:    uint(8)*
+		 alias:   "CDD_Enable"
+		 range:   < 0 ; 1 >
+		 bitmask: 0x01
+		 flags:   OUTPUT|READONLY
+		}
+		-- Skipping output CDD_AxTar
+
+
+		group "Constant" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			trcref0_P_tFxMergeFilter
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "P_tFxMergeFilter"
+			 alias:    "P_tFxMergeFilter"
+			}
+			trcref0_Value
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "P_tFxMergeFilter"
+			 alias:    "Value"
+			 flags:    DEPRECATED|HIDDEN
+			}
+
+
+		endgroup -- block-group "Constant"
+
+		group "Efficiency" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			p_2_VLC_real_T_0[6]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Efficiency"
+
+		group "MMotMin" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			p_2_VLC_real32_T_1[22]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "MMotMin"
+
+		group "P_DC2ECMargin" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			trcref0_P_DC2ECMargin
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "P_DC2ECMargin"
+			 alias:    "P_DC2ECMargin"
+			}
+			trcref0_Value
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "P_DC2ECMargin"
+			 alias:    "Value"
+			 flags:    DEPRECATED|HIDDEN
+			}
+
+
+		endgroup -- block-group "P_DC2ECMargin"
+
+		group "TransRatio" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			trcref0_TransRatio
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "TransRatio"
+			 alias:    "TransRatio"
+			}
+			trcref0_Value
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "TransRatio"
+			 alias:    "Value"
+			 flags:    DEPRECATED|HIDDEN
+			}
+
+
+		endgroup -- block-group "TransRatio"
+
+		group "m_Vehicle" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			trcref0_m_Vehicle
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "m_Vehicle"
+			 alias:    "m_Vehicle"
+			}
+			trcref0_Value
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "m_Vehicle"
+			 alias:    "Value"
+			 flags:    DEPRECATED|HIDDEN
+			}
+
+
+		endgroup -- block-group "m_Vehicle"
+
+		group "r_Wheel" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			trcref0_r_Wheel
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "r_Wheel"
+			 alias:    "r_Wheel"
+			}
+			trcref0_Value
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "r_Wheel"
+			 alias:    "Value"
+			 flags:    DEPRECATED|HIDDEN
+			}
+
+
+		endgroup -- block-group "r_Wheel"
+
+		group "Memory" -- block-group
+		{
+		 block: "Memory"
+		}
+			p_0_VLC_real_T_1[1]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+			p_2_VLC_real_T_0[1]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "InitialCondition"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Memory"
+
+		group "Memory1" -- block-group
+		{
+		 block: "Memory"
+		}
+			p_0_VLC_real_T_1[0]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+			p_2_VLC_real_T_0[0]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "InitialCondition"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Memory1"
+
+		group "Memory2" -- block-group
+		{
+		 block: "Memory"
+		}
+			p_0_VLC_real32_T_2[35]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+			p_2_VLC_real32_T_1[21]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "InitialCondition"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Memory2"
+
+		group "Fxtar_merge" -- block-group
+		{
+		 block: "Merge"
+		}
+			p_0_VLC_real32_T_2[30]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Fxtar_merge"
+
+		group "Divide" -- block-group
+		{
+		 block: "Product"
+		}
+			p_0_VLC_real32_T_2[52]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "Out1"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Divide"
+
+		group "Multiply" -- block-group
+		{
+		 block: "Product"
+		}
+			-- Skipping output Out1
+
+
+		endgroup -- block-group "Multiply"
+
+  
+  
+		group "LPFilter" -- subsystem-group
+
+			p_0_VLC_real32_T_2[37]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "xFilt"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+			group "Constant" -- block-group
+			{
+			 block: "Constant"
+			}
+				-- Skipping output Out1
+				p_2_VLC_real32_T_1[20]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Value"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Constant"
+
+			group "Max" -- block-group
+			{
+			 block: "MinMax"
+			}
+				p_0_VLC_real32_T_2[31]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Max"
+
+			group "Divide" -- block-group
+			{
+			 block: "Product"
+			}
+				p_0_VLC_real32_T_2[32]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Divide"
+
+			group "Multiply" -- block-group
+			{
+			 block: "Product"
+			}
+				p_0_VLC_real32_T_2[33]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Multiply"
+
+			group "Multiply1" -- block-group
+			{
+			 block: "Product"
+			}
+				p_0_VLC_real32_T_2[36]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Multiply1"
+
+			group "Add" -- block-group
+			{
+			 block: "Sum"
+			}
+				p_0_VLC_real32_T_2[34]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Add"
+
+			group "Add1" -- block-group
+			{
+			 block: "Sum"
+			}
+				p_0_VLC_real32_T_2[37]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Add1"
+
+
+
+		endgroup -- subsystem-group "LPFilter"
+  
+  
+		group "PostProcess" -- subsystem-group
+
+			p_0_VLC_real32_T_2[51]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "EngineTorReq"
+			 flags:   OUTPUT|READONLY
+			}
+			p_0_VLC_boolean_T_3[6]
+			{
+			 type:    uint(8)*
+			 alias:   "EngineTorReqSt"
+			 range:   < 0 ; 1 >
+			 bitmask: 0x01
+			 flags:   OUTPUT|READONLY
+			}
+			p_0_VLC_boolean_T_3[5]
+			{
+			 type:    uint(8)*
+			 alias:   "CDD_Enable"
+			 range:   < 0 ; 1 >
+			 bitmask: 0x01
+			 flags:   OUTPUT|READONLY
+			}
+			-- Skipping output CDD_AxTar
+
+
+			group "Constant" -- block-group
+			{
+			 block: "Constant"
+			}
+				-- Skipping output Out1
+				p_2_VLC_real_T_0[3]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Value"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Constant"
+
+			group "Constant1" -- block-group
+			{
+			 block: "Constant"
+			}
+				-- Skipping output Out1
+				p_2_VLC_real_T_0[2]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Value"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Constant1"
+
+			group "Constant2" -- block-group
+			{
+			 block: "Constant"
+			}
+				-- Skipping output Out1
+				p_2_VLC_real_T_0[4]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Value"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Constant2"
+
+			group "Constant4" -- block-group
+			{
+			 block: "Constant"
+			}
+				-- Skipping output Out1
+				p_2_VLC_real_T_0[5]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Value"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Constant4"
+
+			group "P_AxtarEC" -- block-group
+			{
+			 block: "Constant"
+			}
+				-- Skipping output Out1
+				p_2_VLC_real32_T_1[37]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Value"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "P_AxtarEC"
+
+			group "P_DecToStopCase" -- block-group
+			{
+			 block: "Constant"
+			}
+				-- Skipping output Out1
+				p_2_VLC_real32_T_1[34]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Value"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "P_DecToStopCase"
+
+			group "P_TrqReqDC" -- block-group
+			{
+			 block: "Constant"
+			}
+				-- Skipping output Out1
+				p_2_VLC_real32_T_1[39]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Value"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "P_TrqReqDC"
+
+			group "r_Wheel" -- block-group
+			{
+			 block: "Constant"
+			}
+				-- Skipping output Out1
+				trcref0_r_Wheel
+				{
+				 refgroup: "/Tunable Parameters"
+				 refvar:   "r_Wheel"
+				 alias:    "r_Wheel"
+				}
+				trcref0_Value
+				{
+				 refgroup: "/Tunable Parameters"
+				 refvar:   "r_Wheel"
+				 alias:    "Value"
+				 flags:    DEPRECATED|HIDDEN
+				}
+
+
+			endgroup -- block-group "r_Wheel"
+
+			group "OR" -- block-group
+			{
+			 block: "Logic"
+			}
+				p_0_VLC_boolean_T_3[8]
+				{
+				 type:    uint(8)*
+				 alias:   "Out1"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "OR"
+
+			group "MinMax" -- block-group
+			{
+			 block: "MinMax"
+			}
+				p_0_VLC_real32_T_2[49]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "MinMax"
+
+			group "MinMax1" -- block-group
+			{
+			 block: "MinMax"
+			}
+				p_0_VLC_real32_T_2[48]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "MinMax1"
+
+			group "Divide" -- block-group
+			{
+			 block: "Product"
+			}
+				p_0_VLC_real32_T_2[47]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Divide"
+
+			group "Equal" -- block-group
+			{
+			 block: "RelationalOperator"
+			}
+				p_0_VLC_boolean_T_3[7]
+				{
+				 type:    uint(8)*
+				 alias:   "Out1"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Equal"
+
+			group "Switch" -- block-group
+			{
+			 block: "Switch"
+			}
+				p_0_VLC_real32_T_2[45]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Switch"
+
+			group "Switch1" -- block-group
+			{
+			 block: "Switch"
+			}
+				p_0_VLC_boolean_T_3[5]
+				{
+				 type:    VLC_ArrayDT8_2*
+				 alias:   "Out1"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   OUTPUT|READONLY
+				}
+				p_2_VLC_real32_T_1[23]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Threshold"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Switch1"
+
+			group "Switch2" -- block-group
+			{
+			 block: "Switch"
+			}
+				p_0_VLC_real32_T_2[46]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+				p_2_VLC_real32_T_1[36]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Threshold"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Switch2"
+
+			group "Switch3" -- block-group
+			{
+			 block: "Switch"
+			}
+				p_0_VLC_real32_T_2[50]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+				p_2_VLC_real32_T_1[38]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Threshold"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Switch3"
+
+			group "Switch4" -- block-group
+			{
+			 block: "Switch"
+			}
+				p_0_VLC_real32_T_2[51]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Switch4"
+
+			group "Switch5" -- block-group
+			{
+			 block: "Switch"
+			}
+				-- Skipping output Out1
+
+
+			endgroup -- block-group "Switch5"
+
+			group "Switch6" -- block-group
+			{
+			 block: "Switch"
+			}
+				p_0_VLC_real32_T_2[44]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+				p_2_VLC_real32_T_1[35]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "Threshold"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Switch6"
+
+  
+  
+			group "Subsystem" -- subsystem-group
+
+				p_0_VLC_real32_T_2[43]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "AxRamp"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+				group "Constant" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					trcref0_P_StsdCase
+					{
+					 refgroup: "/Tunable Parameters"
+					 refvar:   "P_StsdCase"
+					 alias:    "P_StsdCase"
+					}
+					trcref0_Value
+					{
+					 refgroup: "/Tunable Parameters"
+					 refvar:   "P_StsdCase"
+					 alias:    "Value"
+					 flags:    DEPRECATED|HIDDEN
+					}
+
+
+				endgroup -- block-group "Constant"
+
+				group "1-D Lookup\nTable" -- block-group
+				{
+				 block: "Lookup_n-D"
+				}
+					p_0_VLC_real32_T_2[40]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_0_VLC_real32_T_2[60]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "In1"
+					 flags:   READONLY
+					}
+
+
+					p_2_VLC_real32_T_1[25]
+					{
+					 type:    VLC_ArrayDT1_2*
+					 alias:   "tableData"
+					 flags:   PARAM
+					}
+					p_2_VLC_real32_T_1[27]
+					{
+					 type:    VLC_ArrayDT1_2*
+					 alias:   "bp01Data"
+					 flags:   PARAM
+					}
+					trcref0_LookUpTableData
+					{
+					 refgroup: "."
+					 refvar:   "tableData"
+					 alias:    "LookUpTableData"
+					}
+
+
+				endgroup -- block-group "1-D Lookup\nTable"
+
+				group "1-D Lookup\nTable1" -- block-group
+				{
+				 block: "Lookup_n-D"
+				}
+					p_0_VLC_real32_T_2[41]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+					-- Skipping inport In1
+
+
+
+					p_2_VLC_real32_T_1[29]
+					{
+					 type:    VLC_ArrayDT1_2*
+					 alias:   "tableData"
+					 flags:   PARAM
+					}
+					p_2_VLC_real32_T_1[31]
+					{
+					 type:    VLC_ArrayDT1_2*
+					 alias:   "bp01Data"
+					 flags:   PARAM
+					}
+					trcref0_LookUpTableData
+					{
+					 refgroup: "."
+					 refvar:   "tableData"
+					 alias:    "LookUpTableData"
+					}
+
+
+				endgroup -- block-group "1-D Lookup\nTable1"
+
+				group "Equal" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_VLC_boolean_T_3[12]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Equal"
+
+				group "P_aStsd" -- block-group
+				{
+				 block: "Switch"
+				}
+					p_0_VLC_real32_T_2[42]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+					p_2_VLC_real32_T_1[33]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Threshold"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "P_aStsd"
+
+				group "Switch" -- block-group
+				{
+				 block: "Switch"
+				}
+					p_0_VLC_real32_T_2[43]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Switch"
+
+  
+  
+				group "Subsystem" -- subsystem-group
+
+					p_0_VLC_real32_T_2[39]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "AxRamp"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+					group "P_StsddAxRamp" -- block-group
+					{
+					 block: "Constant"
+					}
+						-- Skipping output Out1
+						trcref0_P_StsddAxRamp
+						{
+						 refgroup: "/Tunable Parameters"
+						 refvar:   "P_StsddAxRamp"
+						 alias:    "P_StsddAxRamp"
+						}
+						trcref0_Value
+						{
+						 refgroup: "/Tunable Parameters"
+						 refvar:   "P_StsddAxRamp"
+						 alias:    "Value"
+						 flags:    DEPRECATED|HIDDEN
+						}
+
+
+					endgroup -- block-group "P_StsddAxRamp"
+
+					group "Max" -- block-group
+					{
+					 block: "MinMax"
+					}
+						p_0_VLC_real32_T_2[55]
+						{
+						 type:    flt(32,IEEE)*
+						 alias:   "Out1"
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "Max"
+
+					group "Multiply" -- block-group
+					{
+					 block: "Product"
+					}
+						p_0_VLC_real32_T_2[53]
+						{
+						 type:    flt(32,IEEE)*
+						 alias:   "Out1"
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "Multiply"
+
+					group "Add1" -- block-group
+					{
+					 block: "Sum"
+					}
+						p_0_VLC_real32_T_2[54]
+						{
+						 type:    flt(32,IEEE)*
+						 alias:   "Out1"
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "Add1"
+
+					group "Delay1" -- block-group
+					{
+					 block: "Delay"
+					}
+						p_0_VLC_real32_T_2[39]
+						{
+						 type:    flt(32,IEEE)*
+						 alias:   "Out1"
+						 flags:   OUTPUT|READONLY
+						}
+						p_2_VLC_uint32_T_2[1]
+						{
+						 type:    uint(32)*
+						 alias:   "DelayLength"
+						 flags:   PARAM
+						}
+
+
+					endgroup -- block-group "Delay1"
+
+
+
+				endgroup -- subsystem-group "Subsystem"
+  
+  
+				group "Triggered\nSubsystem" -- subsystem-group
+
+					p_0_VLC_real32_T_2[60]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+					group "In1" -- block-group
+					{
+					 block: "Inport"
+					}
+						p_0_VLC_real32_T_2[60]
+						{
+						 type:    flt(32,IEEE)*
+						 alias:   "Out1"
+						 flags:   OUTPUT|READONLY
+						}
+
+
+					endgroup -- block-group "In1"
+
+
+
+				endgroup -- subsystem-group "Triggered\nSubsystem"
+
+
+			endgroup -- subsystem-group "Subsystem"
+  
+  
+			group "Subsystem1" -- subsystem-group
+
+				p_0_VLC_real32_T_2[38]
+				{
+				 type:    flt(32,IEEE)*
+				 alias:   "aStsd"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+				group "Constant3" -- block-group
+				{
+				 block: "Constant"
+				}
+					-- Skipping output Out1
+					p_2_VLC_real32_T_1[24]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Value"
+					 flags:   PARAM
+					}
+
+
+				endgroup -- block-group "Constant3"
+
+				group "If" -- block-group
+				{
+				 block: "If"
+				}
+					-- Skipping output Out1
+					-- Skipping output Out2
+
+
+				endgroup -- block-group "If"
+
+				group "AND" -- block-group
+				{
+				 block: "Logic"
+				}
+					p_0_VLC_boolean_T_3[11]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "AND"
+
+				group "Merge" -- block-group
+				{
+				 block: "Merge"
+				}
+					p_0_VLC_real32_T_2[38]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Merge"
+
+				group "Equal1" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_VLC_boolean_T_3[9]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Equal1"
+
+				group "Equal2" -- block-group
+				{
+				 block: "RelationalOperator"
+				}
+					p_0_VLC_boolean_T_3[10]
+					{
+					 type:    uint(8)*
+					 alias:   "Out1"
+					 range:   < 0 ; 1 >
+					 bitmask: 0x01
+					 flags:   OUTPUT|READONLY
+					}
+
+
+				endgroup -- block-group "Equal2"
+
+  
+  
+				group "If Action\nSubsystem" -- subsystem-group
+
+					p_0_VLC_real32_T_2[38]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+					group "Constant" -- block-group
+					{
+					 block: "Constant"
+					}
+						-- Skipping output Out1
+						p_2_VLC_real32_T_3[0]
+						{
+						 type:    flt(32,IEEE)*
+						 alias:   "Value"
+						 flags:   PARAM
+						}
+
+
+					endgroup -- block-group "Constant"
+
+
+
+				endgroup -- subsystem-group "If Action\nSubsystem"
+  
+  
+				group "If Action\nSubsystem1" -- subsystem-group
+
+					p_0_VLC_real32_T_2[38]
+					{
+					 type:    flt(32,IEEE)*
+					 alias:   "Out1"
+					 flags:   OUTPUT|READONLY
+					}
+
+
+					group "P_aStsd" -- block-group
+					{
+					 block: "Constant"
+					}
+						-- Skipping output Out1
+						p_2_VLC_real32_T_1[11]
+						{
+						 type:    flt(32,IEEE)*
+						 alias:   "Value"
+						 flags:   PARAM
+						}
+
+
+					endgroup -- block-group "P_aStsd"
+
+
+
+				endgroup -- subsystem-group "If Action\nSubsystem1"
+
+
+			endgroup -- subsystem-group "Subsystem1"
+
+
+		endgroup -- subsystem-group "PostProcess"
+  
+  
+		group "Actuator_Choice" -- subsystem-group
+
+			p_0_VLC_real_T_1[2]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "DC_Enable"
+			 flags:   OUTPUT|READONLY
+			}
+			p_0_VLC_real_T_1[3]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "EC_Enable"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+
+
+		endgroup -- subsystem-group "Actuator_Choice"
+
+
+	endgroup -- subsystem-group "VLC_Post"
+  
+  
+	group "VLC_SSM" -- subsystem-group
+
+		p_0_VLC_real32_T_2[30]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "FxTar"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+		group "P_Cf" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			trcref0_P_Cf
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "P_Cf"
+			 alias:    "P_Cf"
+			}
+			trcref0_Value
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "P_Cf"
+			 alias:    "Value"
+			 flags:    DEPRECATED|HIDDEN
+			}
+
+
+		endgroup -- block-group "P_Cf"
+
+		group "P_DriveOffAdd" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			trcref0_P_DriveOffAdd
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "P_DriveOffAdd"
+			 alias:    "P_DriveOffAdd"
+			}
+			trcref0_Value
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "P_DriveOffAdd"
+			 alias:    "Value"
+			 flags:    DEPRECATED|HIDDEN
+			}
+
+
+		endgroup -- block-group "P_DriveOffAdd"
+
+		group "P_StandStillFactEC" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			trcref0_P_StandStillFactEC
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "P_StandStillFactEC"
+			 alias:    "P_StandStillFactEC"
+			}
+			trcref0_Value
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "P_StandStillFactEC"
+			 alias:    "Value"
+			 flags:    DEPRECATED|HIDDEN
+			}
+
+
+		endgroup -- block-group "P_StandStillFactEC"
+
+		group "m_Vehicle" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			trcref0_m_Vehicle
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "m_Vehicle"
+			 alias:    "m_Vehicle"
+			}
+			trcref0_Value
+			{
+			 refgroup: "/Tunable Parameters"
+			 refvar:   "m_Vehicle"
+			 alias:    "Value"
+			 flags:    DEPRECATED|HIDDEN
+			}
+
+
+		endgroup -- block-group "m_Vehicle"
+
+  
+  
+		group "VLC_DriveOff" -- subsystem-group
+
+			p_0_VLC_real32_T_2[63]
+			{
+			 type:    flt(32,IEEE)*
+			 alias:   "FxTar"
+			 flags:   OUTPUT|READONLY
+			}
+
+
+
+
+		endgroup -- subsystem-group "VLC_DriveOff"
+
+
+	endgroup -- subsystem-group "VLC_SSM"
+  
+  
+	group "VLC_StateMachine" -- subsystem-group
+
+		p_0_VLC_real32_T_2[58]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "VLCState"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_VLC_real32_T_2[59]
+		{
+		 type:    flt(32,IEEE)*
+		 alias:   "AxTar_Lim"
+		 flags:   OUTPUT|READONLY
+		}
+
+
+
+
+	endgroup -- subsystem-group "VLC_StateMachine"
+
+
+
+endgroup -- "Model Root"

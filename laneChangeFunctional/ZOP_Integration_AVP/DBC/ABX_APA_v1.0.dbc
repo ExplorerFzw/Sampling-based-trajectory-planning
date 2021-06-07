@@ -1,0 +1,92 @@
+VERSION "HSCAN2"
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: APA AutoBox
+VAL_TABLE_ AVPSts 3 "Inhibit" 2 "Active" 1 "Passive" 0 "Off" ;
+VAL_TABLE_ AVPReq 1 "Request active" 0 "No request" ;
+VAL_TABLE_ AVPTrajectoryLine_lineValid 1 "Valid" 0 "Invalid" ;
+VAL_TABLE_ AVPRes 1 "Allow" 0 "Not Allow" ;
+VAL_TABLE_ AVPPark 3 "Park Stop" 2 "Park In" 1 "Park Out" 0 "No request" ;
+
+
+BO_ 1813 APA_ABX_Msg_00: 1 APA
+ SG_ AVPSts : 2|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ AVPReq : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1812 ABX_APA_Msg_02: 8 AutoBox
+ SG_ AVPTrajectoryLine_C3 : 47|24@0+ (1E-009,-0.008388608) [-0.008388608|0.008388607] "" Vector__XXX
+ SG_ AVPTrajectoryLine_C2 : 31|16@0+ (1E-006,-0.032768) [-0.032768|0.032767] "" Vector__XXX
+ SG_ AVPTrajectoryLine_C1 : 11|12@0+ (0.0009,-1.8432) [-1.8432|1.8423] "" Vector__XXX
+ SG_ AVPTrajectoryLine_C0 : 7|12@0+ (0.01,-20.48) [-20.48|20.47] "" Vector__XXX
+
+BO_ 1811 ABX_APA_Msg_01: 6 AutoBox
+ SG_ AVPTrajectoryLine_lineValid : 43|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ AVPTrajectoryPoint_headingAngle : 39|12@0+ (0.0009,-1.8432) [-1.8432|1.8423] "" Vector__XXX
+ SG_ AVPTrajectoryPoint_dy : 23|16@0+ (0.01,-327.68) [-327.68|327.67] "" Vector__XXX
+ SG_ AVPTrajectoryPoint_dx : 7|16@0+ (0.01,-327.68) [-327.68|327.67] "" Vector__XXX
+
+BO_ 1810 ABX_APA_Msg_00: 1 AutoBox
+ SG_ AVPRes : 5|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ AVPPark : 7|2@0+ (1,0) [0|3] "" Vector__XXX
+
+
+
+CM_ SG_ 1811 AVPTrajectoryPoint_headingAngle "Not use.";
+CM_ SG_ 1810 AVPPark "0x0: Not Invalid
+0x1: Allow";
+BA_DEF_  "BaudRate" FLOAT 1000 1000000;
+BA_DEF_ SG_  "GenSigLongName" STRING ;
+BA_DEF_ BO_  "GenMsgSendType" ENUM  "cyclic","spontaneous","cyclicIfActive","spontaneousWithDelay","OnChangeWithRepetition","Immediate";
+BA_DEF_ BO_  "GenMsgCycleTime" FLOAT 0 300000;
+BA_DEF_ SG_  "GenSigStartValue" INT -9.22337203685478E+018 1.84467440737096E+019;
+BA_DEF_DEF_  "BaudRate" 1000;
+BA_DEF_DEF_  "GenSigLongName" "";
+BA_DEF_DEF_  "GenMsgSendType" "";
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "GenSigStartValue" 0;
+BA_ "BaudRate" 500000;
+BA_ "GenSigStartValue" SG_ 1812 AVPTrajectoryLine_C3 8388608;
+BA_ "GenSigStartValue" SG_ 1812 AVPTrajectoryLine_C2 32768;
+BA_ "GenSigStartValue" SG_ 1812 AVPTrajectoryLine_C1 3048;
+BA_ "GenSigStartValue" SG_ 1812 AVPTrajectoryLine_C0 2048;
+BA_ "GenSigStartValue" SG_ 1811 AVPTrajectoryPoint_headingAngle 3048;
+BA_ "GenSigStartValue" SG_ 1811 AVPTrajectoryPoint_dy 32768;
+BA_ "GenSigStartValue" SG_ 1811 AVPTrajectoryPoint_dx 32768;
+VAL_ 1813 AVPSts 3 "Inhibit" 2 "Active" 1 "Passive" 0 "Off" ;
+VAL_ 1813 AVPReq 1 "Request active" 0 "No request" ;
+VAL_ 1811 AVPTrajectoryLine_lineValid 1 "Valid" 0 "Invalid" ;
+VAL_ 1810 AVPRes 1 "Allow" 0 "Not Allow" ;
+VAL_ 1810 AVPPark 3 "Park Stop" 2 "Park In" 1 "Park Out" 0 "No request" ;
+

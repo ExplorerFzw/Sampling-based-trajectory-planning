@@ -1,0 +1,9 @@
+C:\ProgramData\dSPACE\E6B644B2-4CC2-4582-A2C6-DC770F1098E0\Compiler\PPCTools\BIN\libppc.exe -QmsA0107 -QmsA0201 -QmsA0211 < VLC_rtwlib_cmd.lst  
+Microtec PowerPC Object Librarian    Fri Jan 22 10:54:19 2021
+
+	Version 3.8    
+CREATE VLC_rtwlib.lib      
+ADDMOD VLC.o03       
+ADDMOD VLC_trc_ptr.o03       
+SAVE                     
+END                      

@@ -1,0 +1,54 @@
+
+
+-- Type definitions for structures
+
+struct AVP_Main_AVP_OUTPUT_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "Tractory_c0"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "Tractory_c1"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "Tractory_c2"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "Tractory_c3"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "EndPoint_x"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "EndPoint_y"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "AVP_STATE"
+      type:    uint(8)
+      offs:    -1
+      desc:    "The AVP_STATE indicaes the state of AVP and detail as below:\n00: Invalid\n01:Parking In\n02:Parking Out\n03:Stop"
+    }
+endstruct
+
+

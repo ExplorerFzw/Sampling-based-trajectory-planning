@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="./js/coder_app.js"></script>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="./rtwreport_utils.js"></script>
+<script type="text/javascript" src="./rtwannotate.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/coder_app.css"/>
+</head>
+<body onload="srcFileOnload();">
+<pre id="code">
+<table class="code" id="codeTbl">
+<tr name="1" id="1">
+<td><a id="l1" class='ln'>1</a></td><td><span class="pp">#include "TOSHWA.h"</span></td></tr>
+<tr name="2" id="2">
+<td><a id="l2" class='ln'>2</a></td><td></td></tr>
+<tr name="3" id="3">
+<td><a id="l3" class='ln'>3</a></td><td><a id="3c1" class="tk">TOS_HWA</a>::<a id="3c10" class="tk">TOS_HWA</a>()<a id="3c19" class="tk">:</a></td></tr>
+<tr name="4" id="4">
+<td><a id="l4" class='ln'>4</a></td><td>	<a id="4c2" class="tk">m_hwa_tar_obj_st</a>(),</td></tr>
+<tr name="5" id="5">
+<td><a id="l5" class='ln'>5</a></td><td>	<a id="5c2" class="tk">m_hwa_tar_obj_K1_st</a>()</td></tr>
+<tr name="6" id="6">
+<td><a id="l6" class='ln'>6</a></td><td><span class="br">{</span></td></tr>
+<tr name="7" id="7">
+<td><a id="l7" class='ln'>7</a></td><td></td></tr>
+<tr name="8" id="8">
+<td><a id="l8" class='ln'>8</a></td><td><span class="br">}</span></td></tr>
+<tr name="9" id="9">
+<td><a id="l9" class='ln'>9</a></td><td></td></tr>
+<tr name="10" id="10">
+<td><a id="l10" class='ln'>10</a></td><td><span class="kw">void</span> <a id="10c6" class="tk">TOS_HWA</a>::<a id="10c15" class="tk">Calc_v</a>(<a id="10c22" class="tk">TOS_OBJ_PROB_WITHIN_LANE</a><a id="10c46" class="tk">&amp;</a>  <a id="10c49" class="tk">t_tos_obj_within_lane_st</a>, <a id="10c75" class="tk">PROB_EGO_VEHICLE_WITHIN_LANE_ST</a><a id="10c106" class="tk">&amp;</a>  <a id="10c109" class="tk">t_probEgoVehicleWithinLane_st</a>)</td></tr>
+<tr name="11" id="11">
+<td><a id="l11" class='ln'>11</a></td><td><span class="br">{</span></td></tr>
+<tr name="12" id="12">
+<td><a id="l12" class='ln'>12</a></td><td>	<a id="12c2" class="tk">uint8_t</a> <a id="12c10" class="tk">t_numNeighborL_F</a> = 0, <a id="12c32" class="tk">t_numNeighborL_R</a> = 0;</td></tr>
+<tr name="13" id="13">
+<td><a id="l13" class='ln'>13</a></td><td>	<a id="13c2" class="tk">uint8_t</a> <a id="13c10" class="tk">t_numNeighborR_F</a> = 0, <a id="13c32" class="tk">t_numNeighborR_R</a> = 0;</td></tr>
+<tr name="14" id="14">
+<td><a id="l14" class='ln'>14</a></td><td>	<a id="14c2" class="tk">uint8_t</a> <a id="14c10" class="tk">t_numEgoLane_F</a> = 0 , <a id="14c31" class="tk">t_numEgoLane_R</a> = 0;</td></tr>
+<tr name="15" id="15">
+<td><a id="l15" class='ln'>15</a></td><td>	<a id="15c2" class="tk">uint8_t</a> <a id="15c10" class="tk">t_objIndex</a> = <a id="15c23" class="tk">MAX_UN8</a>;</td></tr>
+<tr name="16" id="16">
+<td><a id="l16" class='ln'>16</a></td><td>	<a id="16c2" class="tk">uint8_t</a> <a id="16c10" class="tk">t_LaneId</a> = <a id="16c21" class="tk">MAX_UN8</a>;</td></tr>
+<tr name="17" id="17">
+<td><a id="l17" class='ln'>17</a></td><td>	<span class="kw">bool</span> <a id="17c7" class="tk">t_noEnd_b</a> = true;</td></tr>
+<tr name="18" id="18">
+<td><a id="l18" class='ln'>18</a></td><td>	<span class="ct">//****************************** asign to K1 and Init************************</span></td></tr>
+<tr name="19" id="19">
+<td><a id="l19" class='ln'>19</a></td><td>	<a id="19c2" class="tk">m_hwa_tar_obj_K1_st</a> = <a id="19c24" class="tk">m_hwa_tar_obj_st</a>;</td></tr>
+<tr name="20" id="20">
+<td><a id="l20" class='ln'>20</a></td><td>	<a id="20c2" class="tk">InitTarObj</a>();</td></tr>
+<tr name="21" id="21">
+<td><a id="l21" class='ln'>21</a></td><td>	<span class="ct">//****************************** update **************************************</span></td></tr>
+<tr name="22" id="22">
+<td><a id="l22" class='ln'>22</a></td><td>	<span class="ct">// case0: cut in</span></td></tr>
+<tr name="23" id="23">
+<td><a id="l23" class='ln'>23</a></td><td>	<span class="ct">// case1:cut out</span></td></tr>
+<tr name="24" id="24">
+<td><a id="l24" class='ln'>24</a></td><td>	<span class="ct">// case2:overlap</span></td></tr>
+<tr name="25" id="25">
+<td><a id="l25" class='ln'>25</a></td><td>	<span class="kw">for</span> (<a id="25c7" class="tk">uint8_t</a> <a id="25c15" class="tk">t_i</a> = 0; (<a id="25c25" class="tk">t_i</a> <a id="25c29" class="tk">&lt;</a> <a id="25c31" class="tk">FUS_MAX_OBJ_NUM</a>)<a id="25c47" class="tk">&amp;&amp;</a>(<a id="25c50" class="tk">t_noEnd_b</a>); <a id="25c62" class="tk">t_i</a><a id="25c65" class="tk">++</a>)</td></tr>
+<tr name="26" id="26">
+<td><a id="l26" class='ln'>26</a></td><td>	<span class="br">{</span></td></tr>
+<tr name="27" id="27">
+<td><a id="l27" class='ln'>27</a></td><td>		<span class="kw">if</span> (<a id="27c7" class="tk">t_tos_obj_within_lane_st</a>.<a id="27c32" class="tk">m_obj_list_index_un8</a>[<a id="27c53" class="tk">t_i</a>] <a id="27c58" class="tk">&lt;</a> <a id="27c60" class="tk">FUS_MAX_OBJ_NUM</a>)</td></tr>
+<tr name="28" id="28">
+<td><a id="l28" class='ln'>28</a></td><td>		<span class="br">{</span></td></tr>
+<tr name="29" id="29">
+<td><a id="l29" class='ln'>29</a></td><td>			<a id="29c4" class="tk">t_objIndex</a> = <a id="29c17" class="tk">t_tos_obj_within_lane_st</a>.<a id="29c42" class="tk">m_obj_list_index_un8</a>[<a id="29c63" class="tk">t_i</a>];<span class="ct">// get the nearest one for rest obj</span></td></tr>
+<tr name="30" id="30">
+<td><a id="l30" class='ln'>30</a></td><td>			<a id="30c4" class="tk">t_LaneId</a> = <a id="30c15" class="tk">t_tos_obj_within_lane_st</a>.<a id="30c40" class="tk">m_withinLaneId</a>[<a id="30c55" class="tk">t_objIndex</a>];</td></tr>
+<tr name="31" id="31">
+<td><a id="l31" class='ln'>31</a></td><td>			<span class="kw">switch</span> (<a id="31c12" class="tk">t_LaneId</a>)</td></tr>
+<tr name="32" id="32">
+<td><a id="l32" class='ln'>32</a></td><td>			<span class="br">{</span></td></tr>
+<tr name="33" id="33">
+<td><a id="l33" class='ln'>33</a></td><td>			<span class="kw">case</span> <a id="33c9" class="tk">LEFT_LANE</a><a id="33c18" class="tk">:</a></td></tr>
+<tr name="34" id="34">
+<td><a id="l34" class='ln'>34</a></td><td>			<span class="br">{</span></td></tr>
+<tr name="35" id="35">
+<td><a id="l35" class='ln'>35</a></td><td>				<span class="kw">if</span> ((<a id="35c10" class="tk">t_numNeighborL_R</a> <a id="35c27" class="tk">&lt;</a> <a id="35c29" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>)</td></tr>
+<tr name="36" id="36">
+<td><a id="l36" class='ln'>36</a></td><td>					<a id="36c6" class="tk">&amp;&amp;</a>(<a id="36c9" class="tk">t_tos_obj_within_lane_st</a>.<a id="36c34" class="tk">m_tarObj_arr_st</a>[<a id="36c50" class="tk">t_objIndex</a>].<a id="36c62" class="tk">dx</a> <a id="36c65" class="tk">&lt;</a> 0)</td></tr>
+<tr name="37" id="37">
+<td><a id="l37" class='ln'>37</a></td><td>					)</td></tr>
+<tr name="38" id="38">
+<td><a id="l38" class='ln'>38</a></td><td>				<span class="br">{</span></td></tr>
+<tr name="39" id="39">
+<td><a id="l39" class='ln'>39</a></td><td>					<a id="39c6" class="tk">m_hwa_tar_obj_st</a>.<a id="39c23" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="39c50" class="tk">t_numNeighborL_R</a>].<a id="39c68" class="tk">Index_un8</a> = <a id="39c80" class="tk">t_objIndex</a>;</td></tr>
+<tr name="40" id="40">
+<td><a id="l40" class='ln'>40</a></td><td>					<a id="40c6" class="tk">m_hwa_tar_obj_st</a>.<a id="40c23" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="40c50" class="tk">t_numNeighborL_R</a>].<a id="40c68" class="tk">ID_un8</a> = <a id="40c77" class="tk">t_tos_obj_within_lane_st</a>.<a id="40c102" class="tk">m_tarObj_arr_st</a>[<a id="40c118" class="tk">t_objIndex</a>].<a id="40c130" class="tk">ID_un8</a>;</td></tr>
+<tr name="41" id="41">
+<td><a id="l41" class='ln'>41</a></td><td>					<a id="41c6" class="tk">m_hwa_tar_obj_st</a>.<a id="41c23" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="41c50" class="tk">t_numNeighborL_R</a>].<a id="41c68" class="tk">dis2EgoLaneCenter</a> = <a id="41c88" class="tk">t_tos_obj_within_lane_st</a>.<a id="41c113" class="tk">m_tarObj_arr_st</a>[<a id="41c129" class="tk">t_objIndex</a>].<a id="41c141" class="tk">dis2EgoLaneCenter</a>;</td></tr>
+<tr name="42" id="42">
+<td><a id="l42" class='ln'>42</a></td><td>					<a id="42c6" class="tk">m_hwa_tar_obj_st</a>.<a id="42c23" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="42c50" class="tk">t_numNeighborL_R</a>].<a id="42c68" class="tk">probCutIn_f</a> = <a id="42c82" class="tk">t_tos_obj_within_lane_st</a>.<a id="42c107" class="tk">m_tarObj_arr_st</a>[<a id="42c123" class="tk">t_objIndex</a>].<a id="42c135" class="tk">probCutIn_f</a>;</td></tr>
+<tr name="43" id="43">
+<td><a id="l43" class='ln'>43</a></td><td>					<a id="43c6" class="tk">m_hwa_tar_obj_st</a>.<a id="43c23" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="43c50" class="tk">t_numNeighborL_R</a>].<a id="43c68" class="tk">probCutOut_f</a> = <a id="43c83" class="tk">t_tos_obj_within_lane_st</a>.<a id="43c108" class="tk">m_tarObj_arr_st</a>[<a id="43c124" class="tk">t_objIndex</a>].<a id="43c136" class="tk">probCutOut_f</a>;</td></tr>
+<tr name="44" id="44">
+<td><a id="l44" class='ln'>44</a></td><td>					<a id="44c6" class="tk">m_hwa_tar_obj_st</a>.<a id="44c23" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="44c50" class="tk">t_numNeighborL_R</a>].<a id="44c68" class="tk">trackingTimeWithinLane_f</a> = <a id="44c95" class="tk">t_tos_obj_within_lane_st</a>.<a id="44c120" class="tk">m_tarObj_arr_st</a>[<a id="44c136" class="tk">t_objIndex</a>].<a id="44c148" class="tk">trackingTimeWithinLane_f</a>;</td></tr>
+<tr name="45" id="45">
+<td><a id="l45" class='ln'>45</a></td><td>					<a id="45c6" class="tk">m_hwa_tar_obj_st</a>.<a id="45c23" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="45c50" class="tk">t_numNeighborL_R</a>].<a id="45c68" class="tk">overlap_f</a> = <a id="45c80" class="tk">t_tos_obj_within_lane_st</a>.<a id="45c105" class="tk">m_tarObj_arr_st</a>[<a id="45c121" class="tk">t_objIndex</a>].<a id="45c133" class="tk">overlap_f</a>;</td></tr>
+<tr name="46" id="46">
+<td><a id="l46" class='ln'>46</a></td><td>					<a id="46c6" class="tk">m_hwa_tar_obj_st</a>.<a id="46c23" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="46c50" class="tk">t_numNeighborL_R</a>].<a id="46c68" class="tk">TTC_f</a> = <a id="46c76" class="tk">t_tos_obj_within_lane_st</a>.<a id="46c101" class="tk">m_tarObj_arr_st</a>[<a id="46c117" class="tk">t_objIndex</a>].<a id="46c129" class="tk">TTC_f</a>;</td></tr>
+<tr name="47" id="47">
+<td><a id="l47" class='ln'>47</a></td><td>					<a id="47c6" class="tk">m_hwa_tar_obj_st</a>.<a id="47c23" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="47c50" class="tk">t_numNeighborL_R</a>].<a id="47c68" class="tk">probWithinLane_arr_f</a>[<a id="47c89" class="tk">LEFT_LEFT_LANE</a>] = <a id="47c107" class="tk">t_tos_obj_within_lane_st</a>.<a id="47c132" class="tk">m_tarObj_arr_st</a>[<a id="47c148" class="tk">t_objIndex</a>].<a id="47c160" class="tk">probWithinLane_arr_f</a>[<a id="47c181" class="tk">LEFT_LEFT_LANE</a>];</td></tr>
+<tr name="48" id="48">
+<td><a id="l48" class='ln'>48</a></td><td>					<a id="48c6" class="tk">m_hwa_tar_obj_st</a>.<a id="48c23" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="48c50" class="tk">t_numNeighborL_R</a>].<a id="48c68" class="tk">probWithinLane_arr_f</a>[<a id="48c89" class="tk">LEFT_LANE</a>] = <a id="48c102" class="tk">t_tos_obj_within_lane_st</a>.<a id="48c127" class="tk">m_tarObj_arr_st</a>[<a id="48c143" class="tk">t_objIndex</a>].<a id="48c155" class="tk">probWithinLane_arr_f</a>[<a id="48c176" class="tk">LEFT_LANE</a>];</td></tr>
+<tr name="49" id="49">
+<td><a id="l49" class='ln'>49</a></td><td>					<a id="49c6" class="tk">m_hwa_tar_obj_st</a>.<a id="49c23" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="49c50" class="tk">t_numNeighborL_R</a>].<a id="49c68" class="tk">probWithinLane_arr_f</a>[<a id="49c89" class="tk">MIDDLE_LANE</a>] = <a id="49c104" class="tk">t_tos_obj_within_lane_st</a>.<a id="49c129" class="tk">m_tarObj_arr_st</a>[<a id="49c145" class="tk">t_objIndex</a>].<a id="49c157" class="tk">probWithinLane_arr_f</a>[<a id="49c178" class="tk">MIDDLE_LANE</a>];</td></tr>
+<tr name="50" id="50">
+<td><a id="l50" class='ln'>50</a></td><td>					<a id="50c6" class="tk">m_hwa_tar_obj_st</a>.<a id="50c23" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="50c50" class="tk">t_numNeighborL_R</a>].<a id="50c68" class="tk">probWithinLane_arr_f</a>[<a id="50c89" class="tk">RIGHT_LANE</a>] = <a id="50c103" class="tk">t_tos_obj_within_lane_st</a>.<a id="50c128" class="tk">m_tarObj_arr_st</a>[<a id="50c144" class="tk">t_objIndex</a>].<a id="50c156" class="tk">probWithinLane_arr_f</a>[<a id="50c177" class="tk">RIGHT_LANE</a>];</td></tr>
+<tr name="51" id="51">
+<td><a id="l51" class='ln'>51</a></td><td>					<a id="51c6" class="tk">m_hwa_tar_obj_st</a>.<a id="51c23" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="51c50" class="tk">t_numNeighborL_R</a>].<a id="51c68" class="tk">probWithinLane_arr_f</a>[<a id="51c89" class="tk">RIGHT_RIGHT_LANE</a>] = <a id="51c109" class="tk">t_tos_obj_within_lane_st</a>.<a id="51c134" class="tk">m_tarObj_arr_st</a>[<a id="51c150" class="tk">t_objIndex</a>].<a id="51c162" class="tk">probWithinLane_arr_f</a>[<a id="51c183" class="tk">RIGHT_RIGHT_LANE</a>];</td></tr>
+<tr name="52" id="52">
+<td><a id="l52" class='ln'>52</a></td><td>					<a id="52c6" class="tk">m_hwa_tar_obj_st</a>.<a id="52c23" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="52c50" class="tk">t_numNeighborL_R</a>].<a id="52c68" class="tk">dx</a> = <a id="52c73" class="tk">t_tos_obj_within_lane_st</a>.<a id="52c98" class="tk">m_tarObj_arr_st</a>[<a id="52c114" class="tk">t_objIndex</a>].<a id="52c126" class="tk">dx</a>;</td></tr>
+<tr name="53" id="53">
+<td><a id="l53" class='ln'>53</a></td><td>					<a id="53c6" class="tk">m_hwa_tar_obj_st</a>.<a id="53c23" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="53c50" class="tk">t_numNeighborL_R</a>].<a id="53c68" class="tk">dy</a> = <a id="53c73" class="tk">t_tos_obj_within_lane_st</a>.<a id="53c98" class="tk">m_tarObj_arr_st</a>[<a id="53c114" class="tk">t_objIndex</a>].<a id="53c126" class="tk">dy</a>;</td></tr>
+<tr name="54" id="54">
+<td><a id="l54" class='ln'>54</a></td><td>					<a id="54c6" class="tk">++</a><a id="54c8" class="tk">t_numNeighborL_R</a>;</td></tr>
+<tr name="55" id="55">
+<td><a id="l55" class='ln'>55</a></td><td>				<span class="br">}</span></td></tr>
+<tr name="56" id="56">
+<td><a id="l56" class='ln'>56</a></td><td>				<span class="kw">else</span> <span class="kw">if</span> ((<a id="56c15" class="tk">t_numNeighborL_F</a> <a id="56c32" class="tk">&lt;</a> <a id="56c34" class="tk">MAX_TAR_OBJ_NUM_IN_FRONT_LANE</a>)</td></tr>
+<tr name="57" id="57">
+<td><a id="l57" class='ln'>57</a></td><td>					<a id="57c6" class="tk">&amp;&amp;</a> (<a id="57c10" class="tk">t_tos_obj_within_lane_st</a>.<a id="57c35" class="tk">m_tarObj_arr_st</a>[<a id="57c51" class="tk">t_objIndex</a>].<a id="57c63" class="tk">dx</a> <a id="57c66" class="tk">&gt;=</a> 0)</td></tr>
+<tr name="58" id="58">
+<td><a id="l58" class='ln'>58</a></td><td>					)</td></tr>
+<tr name="59" id="59">
+<td><a id="l59" class='ln'>59</a></td><td>				<span class="br">{</span></td></tr>
+<tr name="60" id="60">
+<td><a id="l60" class='ln'>60</a></td><td>					<a id="60c6" class="tk">m_hwa_tar_obj_st</a>.<a id="60c23" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="60c50" class="tk">t_numNeighborL_F</a> <a id="60c67" class="tk">+</a> <a id="60c69" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="60c99" class="tk">Index_un8</a> = <a id="60c111" class="tk">t_objIndex</a>;</td></tr>
+<tr name="61" id="61">
+<td><a id="l61" class='ln'>61</a></td><td>					<a id="61c6" class="tk">m_hwa_tar_obj_st</a>.<a id="61c23" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="61c50" class="tk">t_numNeighborL_F</a> <a id="61c67" class="tk">+</a> <a id="61c69" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="61c99" class="tk">ID_un8</a> = <a id="61c108" class="tk">t_tos_obj_within_lane_st</a>.<a id="61c133" class="tk">m_tarObj_arr_st</a>[<a id="61c149" class="tk">t_objIndex</a>].<a id="61c161" class="tk">ID_un8</a>;</td></tr>
+<tr name="62" id="62">
+<td><a id="l62" class='ln'>62</a></td><td>					<a id="62c6" class="tk">m_hwa_tar_obj_st</a>.<a id="62c23" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="62c50" class="tk">t_numNeighborL_F</a> <a id="62c67" class="tk">+</a> <a id="62c69" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="62c99" class="tk">dis2EgoLaneCenter</a> = <a id="62c119" class="tk">t_tos_obj_within_lane_st</a>.<a id="62c144" class="tk">m_tarObj_arr_st</a>[<a id="62c160" class="tk">t_objIndex</a>].<a id="62c172" class="tk">dis2EgoLaneCenter</a>;</td></tr>
+<tr name="63" id="63">
+<td><a id="l63" class='ln'>63</a></td><td>					<a id="63c6" class="tk">m_hwa_tar_obj_st</a>.<a id="63c23" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="63c50" class="tk">t_numNeighborL_F</a> <a id="63c67" class="tk">+</a> <a id="63c69" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="63c99" class="tk">probCutIn_f</a> = <a id="63c113" class="tk">t_tos_obj_within_lane_st</a>.<a id="63c138" class="tk">m_tarObj_arr_st</a>[<a id="63c154" class="tk">t_objIndex</a>].<a id="63c166" class="tk">probCutIn_f</a>;</td></tr>
+<tr name="64" id="64">
+<td><a id="l64" class='ln'>64</a></td><td>					<a id="64c6" class="tk">m_hwa_tar_obj_st</a>.<a id="64c23" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="64c50" class="tk">t_numNeighborL_F</a> <a id="64c67" class="tk">+</a> <a id="64c69" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="64c99" class="tk">probCutOut_f</a> = <a id="64c114" class="tk">t_tos_obj_within_lane_st</a>.<a id="64c139" class="tk">m_tarObj_arr_st</a>[<a id="64c155" class="tk">t_objIndex</a>].<a id="64c167" class="tk">probCutOut_f</a>;</td></tr>
+<tr name="65" id="65">
+<td><a id="l65" class='ln'>65</a></td><td>					<a id="65c6" class="tk">m_hwa_tar_obj_st</a>.<a id="65c23" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="65c50" class="tk">t_numNeighborL_F</a> <a id="65c67" class="tk">+</a> <a id="65c69" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="65c99" class="tk">trackingTimeWithinLane_f</a> = <a id="65c126" class="tk">t_tos_obj_within_lane_st</a>.<a id="65c151" class="tk">m_tarObj_arr_st</a>[<a id="65c167" class="tk">t_objIndex</a>].<a id="65c179" class="tk">trackingTimeWithinLane_f</a>;</td></tr>
+<tr name="66" id="66">
+<td><a id="l66" class='ln'>66</a></td><td>					<a id="66c6" class="tk">m_hwa_tar_obj_st</a>.<a id="66c23" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="66c50" class="tk">t_numNeighborL_F</a> <a id="66c67" class="tk">+</a> <a id="66c69" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="66c99" class="tk">overlap_f</a> = <a id="66c111" class="tk">t_tos_obj_within_lane_st</a>.<a id="66c136" class="tk">m_tarObj_arr_st</a>[<a id="66c152" class="tk">t_objIndex</a>].<a id="66c164" class="tk">overlap_f</a>;</td></tr>
+<tr name="67" id="67">
+<td><a id="l67" class='ln'>67</a></td><td>					<a id="67c6" class="tk">m_hwa_tar_obj_st</a>.<a id="67c23" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="67c50" class="tk">t_numNeighborL_F</a> <a id="67c67" class="tk">+</a> <a id="67c69" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="67c99" class="tk">TTC_f</a> = <a id="67c107" class="tk">t_tos_obj_within_lane_st</a>.<a id="67c132" class="tk">m_tarObj_arr_st</a>[<a id="67c148" class="tk">t_objIndex</a>].<a id="67c160" class="tk">TTC_f</a>;</td></tr>
+<tr name="68" id="68">
+<td><a id="l68" class='ln'>68</a></td><td>					<a id="68c6" class="tk">m_hwa_tar_obj_st</a>.<a id="68c23" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="68c50" class="tk">t_numNeighborL_F</a> <a id="68c67" class="tk">+</a> <a id="68c69" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="68c99" class="tk">probWithinLane_arr_f</a>[<a id="68c120" class="tk">LEFT_LEFT_LANE</a>] = <a id="68c138" class="tk">t_tos_obj_within_lane_st</a>.<a id="68c163" class="tk">m_tarObj_arr_st</a>[<a id="68c179" class="tk">t_objIndex</a>].<a id="68c191" class="tk">probWithinLane_arr_f</a>[<a id="68c212" class="tk">LEFT_LEFT_LANE</a>];</td></tr>
+<tr name="69" id="69">
+<td><a id="l69" class='ln'>69</a></td><td>					<a id="69c6" class="tk">m_hwa_tar_obj_st</a>.<a id="69c23" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="69c50" class="tk">t_numNeighborL_F</a> <a id="69c67" class="tk">+</a> <a id="69c69" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="69c99" class="tk">probWithinLane_arr_f</a>[<a id="69c120" class="tk">LEFT_LANE</a>] = <a id="69c133" class="tk">t_tos_obj_within_lane_st</a>.<a id="69c158" class="tk">m_tarObj_arr_st</a>[<a id="69c174" class="tk">t_objIndex</a>].<a id="69c186" class="tk">probWithinLane_arr_f</a>[<a id="69c207" class="tk">LEFT_LANE</a>];</td></tr>
+<tr name="70" id="70">
+<td><a id="l70" class='ln'>70</a></td><td>					<a id="70c6" class="tk">m_hwa_tar_obj_st</a>.<a id="70c23" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="70c50" class="tk">t_numNeighborL_F</a> <a id="70c67" class="tk">+</a> <a id="70c69" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="70c99" class="tk">probWithinLane_arr_f</a>[<a id="70c120" class="tk">MIDDLE_LANE</a>] = <a id="70c135" class="tk">t_tos_obj_within_lane_st</a>.<a id="70c160" class="tk">m_tarObj_arr_st</a>[<a id="70c176" class="tk">t_objIndex</a>].<a id="70c188" class="tk">probWithinLane_arr_f</a>[<a id="70c209" class="tk">MIDDLE_LANE</a>];</td></tr>
+<tr name="71" id="71">
+<td><a id="l71" class='ln'>71</a></td><td>					<a id="71c6" class="tk">m_hwa_tar_obj_st</a>.<a id="71c23" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="71c50" class="tk">t_numNeighborL_F</a> <a id="71c67" class="tk">+</a> <a id="71c69" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="71c99" class="tk">probWithinLane_arr_f</a>[<a id="71c120" class="tk">RIGHT_LANE</a>] = <a id="71c134" class="tk">t_tos_obj_within_lane_st</a>.<a id="71c159" class="tk">m_tarObj_arr_st</a>[<a id="71c175" class="tk">t_objIndex</a>].<a id="71c187" class="tk">probWithinLane_arr_f</a>[<a id="71c208" class="tk">RIGHT_LANE</a>];</td></tr>
+<tr name="72" id="72">
+<td><a id="l72" class='ln'>72</a></td><td>					<a id="72c6" class="tk">m_hwa_tar_obj_st</a>.<a id="72c23" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="72c50" class="tk">t_numNeighborL_F</a> <a id="72c67" class="tk">+</a> <a id="72c69" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="72c99" class="tk">probWithinLane_arr_f</a>[<a id="72c120" class="tk">RIGHT_RIGHT_LANE</a>] = <a id="72c140" class="tk">t_tos_obj_within_lane_st</a>.<a id="72c165" class="tk">m_tarObj_arr_st</a>[<a id="72c181" class="tk">t_objIndex</a>].<a id="72c193" class="tk">probWithinLane_arr_f</a>[<a id="72c214" class="tk">RIGHT_RIGHT_LANE</a>];</td></tr>
+<tr name="73" id="73">
+<td><a id="l73" class='ln'>73</a></td><td>					<a id="73c6" class="tk">m_hwa_tar_obj_st</a>.<a id="73c23" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="73c50" class="tk">t_numNeighborL_F</a> <a id="73c67" class="tk">+</a> <a id="73c69" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="73c99" class="tk">dx</a> = <a id="73c104" class="tk">t_tos_obj_within_lane_st</a>.<a id="73c129" class="tk">m_tarObj_arr_st</a>[<a id="73c145" class="tk">t_objIndex</a>].<a id="73c157" class="tk">dx</a>;</td></tr>
+<tr name="74" id="74">
+<td><a id="l74" class='ln'>74</a></td><td>					<a id="74c6" class="tk">m_hwa_tar_obj_st</a>.<a id="74c23" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="74c50" class="tk">t_numNeighborL_F</a> <a id="74c67" class="tk">+</a> <a id="74c69" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="74c99" class="tk">dy</a> = <a id="74c104" class="tk">t_tos_obj_within_lane_st</a>.<a id="74c129" class="tk">m_tarObj_arr_st</a>[<a id="74c145" class="tk">t_objIndex</a>].<a id="74c157" class="tk">dy</a>;</td></tr>
+<tr name="75" id="75">
+<td><a id="l75" class='ln'>75</a></td><td>					<a id="75c6" class="tk">++</a><a id="75c8" class="tk">t_numNeighborL_F</a>;</td></tr>
+<tr name="76" id="76">
+<td><a id="l76" class='ln'>76</a></td><td>				<span class="br">}</span></td></tr>
+<tr name="77" id="77">
+<td><a id="l77" class='ln'>77</a></td><td>				</td></tr>
+<tr name="78" id="78">
+<td><a id="l78" class='ln'>78</a></td><td>				<span class="kw">break</span>;</td></tr>
+<tr name="79" id="79">
+<td><a id="l79" class='ln'>79</a></td><td>			<span class="br">}</span></td></tr>
+<tr name="80" id="80">
+<td><a id="l80" class='ln'>80</a></td><td>			<span class="kw">case</span> <a id="80c9" class="tk">MIDDLE_LANE</a><a id="80c20" class="tk">:</a></td></tr>
+<tr name="81" id="81">
+<td><a id="l81" class='ln'>81</a></td><td>			<span class="br">{</span></td></tr>
+<tr name="82" id="82">
+<td><a id="l82" class='ln'>82</a></td><td>				<span class="kw">if</span> ((<a id="82c10" class="tk">t_numEgoLane_R</a> <a id="82c25" class="tk">&lt;</a> <a id="82c27" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>)</td></tr>
+<tr name="83" id="83">
+<td><a id="l83" class='ln'>83</a></td><td>						<a id="83c7" class="tk">&amp;&amp;</a> (<a id="83c11" class="tk">t_tos_obj_within_lane_st</a>.<a id="83c36" class="tk">m_tarObj_arr_st</a>[<a id="83c52" class="tk">t_objIndex</a>].<a id="83c64" class="tk">dx</a> <a id="83c67" class="tk">&lt;</a> 0)</td></tr>
+<tr name="84" id="84">
+<td><a id="l84" class='ln'>84</a></td><td>						)</td></tr>
+<tr name="85" id="85">
+<td><a id="l85" class='ln'>85</a></td><td>				<span class="br">{</span></td></tr>
+<tr name="86" id="86">
+<td><a id="l86" class='ln'>86</a></td><td>					<a id="86c6" class="tk">m_hwa_tar_obj_st</a>.<a id="86c23" class="tk">m_EgoLane_TarObj_st</a>[<a id="86c43" class="tk">t_numEgoLane_R</a>].<a id="86c59" class="tk">Index_un8</a> = <a id="86c71" class="tk">t_objIndex</a>;</td></tr>
+<tr name="87" id="87">
+<td><a id="l87" class='ln'>87</a></td><td>					<a id="87c6" class="tk">m_hwa_tar_obj_st</a>.<a id="87c23" class="tk">m_EgoLane_TarObj_st</a>[<a id="87c43" class="tk">t_numEgoLane_R</a>].<a id="87c59" class="tk">ID_un8</a> = <a id="87c68" class="tk">t_tos_obj_within_lane_st</a>.<a id="87c93" class="tk">m_tarObj_arr_st</a>[<a id="87c109" class="tk">t_objIndex</a>].<a id="87c121" class="tk">ID_un8</a>;</td></tr>
+<tr name="88" id="88">
+<td><a id="l88" class='ln'>88</a></td><td>					<a id="88c6" class="tk">m_hwa_tar_obj_st</a>.<a id="88c23" class="tk">m_EgoLane_TarObj_st</a>[<a id="88c43" class="tk">t_numEgoLane_R</a>].<a id="88c59" class="tk">dis2EgoLaneCenter</a> = <a id="88c79" class="tk">t_tos_obj_within_lane_st</a>.<a id="88c104" class="tk">m_tarObj_arr_st</a>[<a id="88c120" class="tk">t_objIndex</a>].<a id="88c132" class="tk">dis2EgoLaneCenter</a>;</td></tr>
+<tr name="89" id="89">
+<td><a id="l89" class='ln'>89</a></td><td>					<a id="89c6" class="tk">m_hwa_tar_obj_st</a>.<a id="89c23" class="tk">m_EgoLane_TarObj_st</a>[<a id="89c43" class="tk">t_numEgoLane_R</a>].<a id="89c59" class="tk">probCutIn_f</a> = <a id="89c73" class="tk">t_tos_obj_within_lane_st</a>.<a id="89c98" class="tk">m_tarObj_arr_st</a>[<a id="89c114" class="tk">t_objIndex</a>].<a id="89c126" class="tk">probCutIn_f</a>;</td></tr>
+<tr name="90" id="90">
+<td><a id="l90" class='ln'>90</a></td><td>					<a id="90c6" class="tk">m_hwa_tar_obj_st</a>.<a id="90c23" class="tk">m_EgoLane_TarObj_st</a>[<a id="90c43" class="tk">t_numEgoLane_R</a>].<a id="90c59" class="tk">probCutOut_f</a> = <a id="90c74" class="tk">t_tos_obj_within_lane_st</a>.<a id="90c99" class="tk">m_tarObj_arr_st</a>[<a id="90c115" class="tk">t_objIndex</a>].<a id="90c127" class="tk">probCutOut_f</a>;</td></tr>
+<tr name="91" id="91">
+<td><a id="l91" class='ln'>91</a></td><td>					<a id="91c6" class="tk">m_hwa_tar_obj_st</a>.<a id="91c23" class="tk">m_EgoLane_TarObj_st</a>[<a id="91c43" class="tk">t_numEgoLane_R</a>].<a id="91c59" class="tk">trackingTimeWithinLane_f</a> = <a id="91c86" class="tk">t_tos_obj_within_lane_st</a>.<a id="91c111" class="tk">m_tarObj_arr_st</a>[<a id="91c127" class="tk">t_objIndex</a>].<a id="91c139" class="tk">trackingTimeWithinLane_f</a>;</td></tr>
+<tr name="92" id="92">
+<td><a id="l92" class='ln'>92</a></td><td>					<a id="92c6" class="tk">m_hwa_tar_obj_st</a>.<a id="92c23" class="tk">m_EgoLane_TarObj_st</a>[<a id="92c43" class="tk">t_numEgoLane_R</a>].<a id="92c59" class="tk">overlap_f</a> = <a id="92c71" class="tk">t_tos_obj_within_lane_st</a>.<a id="92c96" class="tk">m_tarObj_arr_st</a>[<a id="92c112" class="tk">t_objIndex</a>].<a id="92c124" class="tk">overlap_f</a>;</td></tr>
+<tr name="93" id="93">
+<td><a id="l93" class='ln'>93</a></td><td>					<a id="93c6" class="tk">m_hwa_tar_obj_st</a>.<a id="93c23" class="tk">m_EgoLane_TarObj_st</a>[<a id="93c43" class="tk">t_numEgoLane_R</a>].<a id="93c59" class="tk">TTC_f</a> = <a id="93c67" class="tk">t_tos_obj_within_lane_st</a>.<a id="93c92" class="tk">m_tarObj_arr_st</a>[<a id="93c108" class="tk">t_objIndex</a>].<a id="93c120" class="tk">TTC_f</a>;</td></tr>
+<tr name="94" id="94">
+<td><a id="l94" class='ln'>94</a></td><td>					<a id="94c6" class="tk">m_hwa_tar_obj_st</a>.<a id="94c23" class="tk">m_EgoLane_TarObj_st</a>[<a id="94c43" class="tk">t_numEgoLane_R</a>].<a id="94c59" class="tk">probWithinLane_arr_f</a>[<a id="94c80" class="tk">LEFT_LEFT_LANE</a>] = <a id="94c98" class="tk">t_tos_obj_within_lane_st</a>.<a id="94c123" class="tk">m_tarObj_arr_st</a>[<a id="94c139" class="tk">t_objIndex</a>].<a id="94c151" class="tk">probWithinLane_arr_f</a>[<a id="94c172" class="tk">LEFT_LEFT_LANE</a>];</td></tr>
+<tr name="95" id="95">
+<td><a id="l95" class='ln'>95</a></td><td>					<a id="95c6" class="tk">m_hwa_tar_obj_st</a>.<a id="95c23" class="tk">m_EgoLane_TarObj_st</a>[<a id="95c43" class="tk">t_numEgoLane_R</a>].<a id="95c59" class="tk">probWithinLane_arr_f</a>[<a id="95c80" class="tk">LEFT_LANE</a>] = <a id="95c93" class="tk">t_tos_obj_within_lane_st</a>.<a id="95c118" class="tk">m_tarObj_arr_st</a>[<a id="95c134" class="tk">t_objIndex</a>].<a id="95c146" class="tk">probWithinLane_arr_f</a>[<a id="95c167" class="tk">LEFT_LANE</a>];</td></tr>
+<tr name="96" id="96">
+<td><a id="l96" class='ln'>96</a></td><td>					<a id="96c6" class="tk">m_hwa_tar_obj_st</a>.<a id="96c23" class="tk">m_EgoLane_TarObj_st</a>[<a id="96c43" class="tk">t_numEgoLane_R</a>].<a id="96c59" class="tk">probWithinLane_arr_f</a>[<a id="96c80" class="tk">MIDDLE_LANE</a>] = <a id="96c95" class="tk">t_tos_obj_within_lane_st</a>.<a id="96c120" class="tk">m_tarObj_arr_st</a>[<a id="96c136" class="tk">t_objIndex</a>].<a id="96c148" class="tk">probWithinLane_arr_f</a>[<a id="96c169" class="tk">MIDDLE_LANE</a>];</td></tr>
+<tr name="97" id="97">
+<td><a id="l97" class='ln'>97</a></td><td>					<a id="97c6" class="tk">m_hwa_tar_obj_st</a>.<a id="97c23" class="tk">m_EgoLane_TarObj_st</a>[<a id="97c43" class="tk">t_numEgoLane_R</a>].<a id="97c59" class="tk">probWithinLane_arr_f</a>[<a id="97c80" class="tk">RIGHT_LANE</a>] = <a id="97c94" class="tk">t_tos_obj_within_lane_st</a>.<a id="97c119" class="tk">m_tarObj_arr_st</a>[<a id="97c135" class="tk">t_objIndex</a>].<a id="97c147" class="tk">probWithinLane_arr_f</a>[<a id="97c168" class="tk">RIGHT_LANE</a>];</td></tr>
+<tr name="98" id="98">
+<td><a id="l98" class='ln'>98</a></td><td>					<a id="98c6" class="tk">m_hwa_tar_obj_st</a>.<a id="98c23" class="tk">m_EgoLane_TarObj_st</a>[<a id="98c43" class="tk">t_numEgoLane_R</a>].<a id="98c59" class="tk">probWithinLane_arr_f</a>[<a id="98c80" class="tk">RIGHT_RIGHT_LANE</a>] = <a id="98c100" class="tk">t_tos_obj_within_lane_st</a>.<a id="98c125" class="tk">m_tarObj_arr_st</a>[<a id="98c141" class="tk">t_objIndex</a>].<a id="98c153" class="tk">probWithinLane_arr_f</a>[<a id="98c174" class="tk">RIGHT_RIGHT_LANE</a>];</td></tr>
+<tr name="99" id="99">
+<td><a id="l99" class='ln'>99</a></td><td>					<a id="99c6" class="tk">m_hwa_tar_obj_st</a>.<a id="99c23" class="tk">m_EgoLane_TarObj_st</a>[<a id="99c43" class="tk">t_numEgoLane_R</a>].<a id="99c59" class="tk">dx</a> = <a id="99c64" class="tk">t_tos_obj_within_lane_st</a>.<a id="99c89" class="tk">m_tarObj_arr_st</a>[<a id="99c105" class="tk">t_objIndex</a>].<a id="99c117" class="tk">dx</a>;</td></tr>
+<tr name="100" id="100">
+<td><a id="l100" class='ln'>100</a></td><td>					<a id="100c6" class="tk">m_hwa_tar_obj_st</a>.<a id="100c23" class="tk">m_EgoLane_TarObj_st</a>[<a id="100c43" class="tk">t_numEgoLane_R</a>].<a id="100c59" class="tk">dy</a> = <a id="100c64" class="tk">t_tos_obj_within_lane_st</a>.<a id="100c89" class="tk">m_tarObj_arr_st</a>[<a id="100c105" class="tk">t_objIndex</a>].<a id="100c117" class="tk">dy</a>;</td></tr>
+<tr name="101" id="101">
+<td><a id="l101" class='ln'>101</a></td><td>					<a id="101c6" class="tk">t_numEgoLane_R</a><a id="101c20" class="tk">++</a>;</td></tr>
+<tr name="102" id="102">
+<td><a id="l102" class='ln'>102</a></td><td>				<span class="br">}</span></td></tr>
+<tr name="103" id="103">
+<td><a id="l103" class='ln'>103</a></td><td>				<span class="kw">else</span> <span class="kw">if</span> ((<a id="103c15" class="tk">t_numEgoLane_F</a> <a id="103c30" class="tk">&lt;</a> <a id="103c32" class="tk">MAX_TAR_OBJ_NUM_IN_FRONT_LANE</a>)</td></tr>
+<tr name="104" id="104">
+<td><a id="l104" class='ln'>104</a></td><td>					<a id="104c6" class="tk">&amp;&amp;</a> (<a id="104c10" class="tk">t_tos_obj_within_lane_st</a>.<a id="104c35" class="tk">m_tarObj_arr_st</a>[<a id="104c51" class="tk">t_objIndex</a>].<a id="104c63" class="tk">dx</a> <a id="104c66" class="tk">&gt;=</a> 0)</td></tr>
+<tr name="105" id="105">
+<td><a id="l105" class='ln'>105</a></td><td>					)</td></tr>
+<tr name="106" id="106">
+<td><a id="l106" class='ln'>106</a></td><td>				<span class="br">{</span></td></tr>
+<tr name="107" id="107">
+<td><a id="l107" class='ln'>107</a></td><td>					<a id="107c6" class="tk">m_hwa_tar_obj_st</a>.<a id="107c23" class="tk">m_EgoLane_TarObj_st</a>[<a id="107c43" class="tk">t_numEgoLane_F</a> <a id="107c58" class="tk">+</a> <a id="107c60" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="107c90" class="tk">Index_un8</a> = <a id="107c102" class="tk">t_objIndex</a>;</td></tr>
+<tr name="108" id="108">
+<td><a id="l108" class='ln'>108</a></td><td>					<a id="108c6" class="tk">m_hwa_tar_obj_st</a>.<a id="108c23" class="tk">m_EgoLane_TarObj_st</a>[<a id="108c43" class="tk">t_numEgoLane_F</a> <a id="108c58" class="tk">+</a> <a id="108c60" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="108c90" class="tk">ID_un8</a> = <a id="108c99" class="tk">t_tos_obj_within_lane_st</a>.<a id="108c124" class="tk">m_tarObj_arr_st</a>[<a id="108c140" class="tk">t_objIndex</a>].<a id="108c152" class="tk">ID_un8</a>;</td></tr>
+<tr name="109" id="109">
+<td><a id="l109" class='ln'>109</a></td><td>					<a id="109c6" class="tk">m_hwa_tar_obj_st</a>.<a id="109c23" class="tk">m_EgoLane_TarObj_st</a>[<a id="109c43" class="tk">t_numEgoLane_F</a> <a id="109c58" class="tk">+</a> <a id="109c60" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="109c90" class="tk">dis2EgoLaneCenter</a> = <a id="109c110" class="tk">t_tos_obj_within_lane_st</a>.<a id="109c135" class="tk">m_tarObj_arr_st</a>[<a id="109c151" class="tk">t_objIndex</a>].<a id="109c163" class="tk">dis2EgoLaneCenter</a>;</td></tr>
+<tr name="110" id="110">
+<td><a id="l110" class='ln'>110</a></td><td>					<a id="110c6" class="tk">m_hwa_tar_obj_st</a>.<a id="110c23" class="tk">m_EgoLane_TarObj_st</a>[<a id="110c43" class="tk">t_numEgoLane_F</a> <a id="110c58" class="tk">+</a> <a id="110c60" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="110c90" class="tk">probCutIn_f</a> = <a id="110c104" class="tk">t_tos_obj_within_lane_st</a>.<a id="110c129" class="tk">m_tarObj_arr_st</a>[<a id="110c145" class="tk">t_objIndex</a>].<a id="110c157" class="tk">probCutIn_f</a>;</td></tr>
+<tr name="111" id="111">
+<td><a id="l111" class='ln'>111</a></td><td>					<a id="111c6" class="tk">m_hwa_tar_obj_st</a>.<a id="111c23" class="tk">m_EgoLane_TarObj_st</a>[<a id="111c43" class="tk">t_numEgoLane_F</a> <a id="111c58" class="tk">+</a> <a id="111c60" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="111c90" class="tk">probCutOut_f</a> = <a id="111c105" class="tk">t_tos_obj_within_lane_st</a>.<a id="111c130" class="tk">m_tarObj_arr_st</a>[<a id="111c146" class="tk">t_objIndex</a>].<a id="111c158" class="tk">probCutOut_f</a>;</td></tr>
+<tr name="112" id="112">
+<td><a id="l112" class='ln'>112</a></td><td>					<a id="112c6" class="tk">m_hwa_tar_obj_st</a>.<a id="112c23" class="tk">m_EgoLane_TarObj_st</a>[<a id="112c43" class="tk">t_numEgoLane_F</a> <a id="112c58" class="tk">+</a> <a id="112c60" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="112c90" class="tk">trackingTimeWithinLane_f</a> = <a id="112c117" class="tk">t_tos_obj_within_lane_st</a>.<a id="112c142" class="tk">m_tarObj_arr_st</a>[<a id="112c158" class="tk">t_objIndex</a>].<a id="112c170" class="tk">trackingTimeWithinLane_f</a>;</td></tr>
+<tr name="113" id="113">
+<td><a id="l113" class='ln'>113</a></td><td>					<a id="113c6" class="tk">m_hwa_tar_obj_st</a>.<a id="113c23" class="tk">m_EgoLane_TarObj_st</a>[<a id="113c43" class="tk">t_numEgoLane_F</a> <a id="113c58" class="tk">+</a> <a id="113c60" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="113c90" class="tk">overlap_f</a> = <a id="113c102" class="tk">t_tos_obj_within_lane_st</a>.<a id="113c127" class="tk">m_tarObj_arr_st</a>[<a id="113c143" class="tk">t_objIndex</a>].<a id="113c155" class="tk">overlap_f</a>;</td></tr>
+<tr name="114" id="114">
+<td><a id="l114" class='ln'>114</a></td><td>					<a id="114c6" class="tk">m_hwa_tar_obj_st</a>.<a id="114c23" class="tk">m_EgoLane_TarObj_st</a>[<a id="114c43" class="tk">t_numEgoLane_F</a> <a id="114c58" class="tk">+</a> <a id="114c60" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="114c90" class="tk">TTC_f</a> = <a id="114c98" class="tk">t_tos_obj_within_lane_st</a>.<a id="114c123" class="tk">m_tarObj_arr_st</a>[<a id="114c139" class="tk">t_objIndex</a>].<a id="114c151" class="tk">TTC_f</a>;</td></tr>
+<tr name="115" id="115">
+<td><a id="l115" class='ln'>115</a></td><td>					<a id="115c6" class="tk">m_hwa_tar_obj_st</a>.<a id="115c23" class="tk">m_EgoLane_TarObj_st</a>[<a id="115c43" class="tk">t_numEgoLane_F</a> <a id="115c58" class="tk">+</a> <a id="115c60" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="115c90" class="tk">probWithinLane_arr_f</a>[<a id="115c111" class="tk">LEFT_LEFT_LANE</a>] = <a id="115c129" class="tk">t_tos_obj_within_lane_st</a>.<a id="115c154" class="tk">m_tarObj_arr_st</a>[<a id="115c170" class="tk">t_objIndex</a>].<a id="115c182" class="tk">probWithinLane_arr_f</a>[<a id="115c203" class="tk">LEFT_LEFT_LANE</a>];</td></tr>
+<tr name="116" id="116">
+<td><a id="l116" class='ln'>116</a></td><td>					<a id="116c6" class="tk">m_hwa_tar_obj_st</a>.<a id="116c23" class="tk">m_EgoLane_TarObj_st</a>[<a id="116c43" class="tk">t_numEgoLane_F</a> <a id="116c58" class="tk">+</a> <a id="116c60" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="116c90" class="tk">probWithinLane_arr_f</a>[<a id="116c111" class="tk">LEFT_LANE</a>] = <a id="116c124" class="tk">t_tos_obj_within_lane_st</a>.<a id="116c149" class="tk">m_tarObj_arr_st</a>[<a id="116c165" class="tk">t_objIndex</a>].<a id="116c177" class="tk">probWithinLane_arr_f</a>[<a id="116c198" class="tk">LEFT_LANE</a>];</td></tr>
+<tr name="117" id="117">
+<td><a id="l117" class='ln'>117</a></td><td>					<a id="117c6" class="tk">m_hwa_tar_obj_st</a>.<a id="117c23" class="tk">m_EgoLane_TarObj_st</a>[<a id="117c43" class="tk">t_numEgoLane_F</a> <a id="117c58" class="tk">+</a> <a id="117c60" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="117c90" class="tk">probWithinLane_arr_f</a>[<a id="117c111" class="tk">MIDDLE_LANE</a>] = <a id="117c126" class="tk">t_tos_obj_within_lane_st</a>.<a id="117c151" class="tk">m_tarObj_arr_st</a>[<a id="117c167" class="tk">t_objIndex</a>].<a id="117c179" class="tk">probWithinLane_arr_f</a>[<a id="117c200" class="tk">MIDDLE_LANE</a>];</td></tr>
+<tr name="118" id="118">
+<td><a id="l118" class='ln'>118</a></td><td>					<a id="118c6" class="tk">m_hwa_tar_obj_st</a>.<a id="118c23" class="tk">m_EgoLane_TarObj_st</a>[<a id="118c43" class="tk">t_numEgoLane_F</a> <a id="118c58" class="tk">+</a> <a id="118c60" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="118c90" class="tk">probWithinLane_arr_f</a>[<a id="118c111" class="tk">RIGHT_LANE</a>] = <a id="118c125" class="tk">t_tos_obj_within_lane_st</a>.<a id="118c150" class="tk">m_tarObj_arr_st</a>[<a id="118c166" class="tk">t_objIndex</a>].<a id="118c178" class="tk">probWithinLane_arr_f</a>[<a id="118c199" class="tk">RIGHT_LANE</a>];</td></tr>
+<tr name="119" id="119">
+<td><a id="l119" class='ln'>119</a></td><td>					<a id="119c6" class="tk">m_hwa_tar_obj_st</a>.<a id="119c23" class="tk">m_EgoLane_TarObj_st</a>[<a id="119c43" class="tk">t_numEgoLane_F</a> <a id="119c58" class="tk">+</a> <a id="119c60" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="119c90" class="tk">probWithinLane_arr_f</a>[<a id="119c111" class="tk">RIGHT_RIGHT_LANE</a>] = <a id="119c131" class="tk">t_tos_obj_within_lane_st</a>.<a id="119c156" class="tk">m_tarObj_arr_st</a>[<a id="119c172" class="tk">t_objIndex</a>].<a id="119c184" class="tk">probWithinLane_arr_f</a>[<a id="119c205" class="tk">RIGHT_RIGHT_LANE</a>];</td></tr>
+<tr name="120" id="120">
+<td><a id="l120" class='ln'>120</a></td><td>					<a id="120c6" class="tk">m_hwa_tar_obj_st</a>.<a id="120c23" class="tk">m_EgoLane_TarObj_st</a>[<a id="120c43" class="tk">t_numEgoLane_F</a> <a id="120c58" class="tk">+</a> <a id="120c60" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="120c90" class="tk">dx</a> = <a id="120c95" class="tk">t_tos_obj_within_lane_st</a>.<a id="120c120" class="tk">m_tarObj_arr_st</a>[<a id="120c136" class="tk">t_objIndex</a>].<a id="120c148" class="tk">dx</a>;</td></tr>
+<tr name="121" id="121">
+<td><a id="l121" class='ln'>121</a></td><td>					<a id="121c6" class="tk">m_hwa_tar_obj_st</a>.<a id="121c23" class="tk">m_EgoLane_TarObj_st</a>[<a id="121c43" class="tk">t_numEgoLane_F</a> <a id="121c58" class="tk">+</a> <a id="121c60" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="121c90" class="tk">dy</a> = <a id="121c95" class="tk">t_tos_obj_within_lane_st</a>.<a id="121c120" class="tk">m_tarObj_arr_st</a>[<a id="121c136" class="tk">t_objIndex</a>].<a id="121c148" class="tk">dy</a>;</td></tr>
+<tr name="122" id="122">
+<td><a id="l122" class='ln'>122</a></td><td>					<a id="122c6" class="tk">t_numEgoLane_F</a><a id="122c20" class="tk">++</a>;</td></tr>
+<tr name="123" id="123">
+<td><a id="l123" class='ln'>123</a></td><td>				<span class="br">}</span></td></tr>
+<tr name="124" id="124">
+<td><a id="l124" class='ln'>124</a></td><td>				<span class="kw">break</span>;</td></tr>
+<tr name="125" id="125">
+<td><a id="l125" class='ln'>125</a></td><td>			<span class="br">}</span></td></tr>
+<tr name="126" id="126">
+<td><a id="l126" class='ln'>126</a></td><td>			<span class="kw">case</span> <a id="126c9" class="tk">RIGHT_LANE</a><a id="126c19" class="tk">:</a></td></tr>
+<tr name="127" id="127">
+<td><a id="l127" class='ln'>127</a></td><td>			<span class="br">{</span></td></tr>
+<tr name="128" id="128">
+<td><a id="l128" class='ln'>128</a></td><td>				<span class="kw">if</span> ((<a id="128c10" class="tk">t_numNeighborR_R</a> <a id="128c27" class="tk">&lt;</a> <a id="128c29" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>)</td></tr>
+<tr name="129" id="129">
+<td><a id="l129" class='ln'>129</a></td><td>						<a id="129c7" class="tk">&amp;&amp;</a> (<a id="129c11" class="tk">t_tos_obj_within_lane_st</a>.<a id="129c36" class="tk">m_tarObj_arr_st</a>[<a id="129c52" class="tk">t_objIndex</a>].<a id="129c64" class="tk">dx</a> <a id="129c67" class="tk">&lt;</a> 0)</td></tr>
+<tr name="130" id="130">
+<td><a id="l130" class='ln'>130</a></td><td>						)</td></tr>
+<tr name="131" id="131">
+<td><a id="l131" class='ln'>131</a></td><td>				<span class="br">{</span></td></tr>
+<tr name="132" id="132">
+<td><a id="l132" class='ln'>132</a></td><td>					<a id="132c6" class="tk">m_hwa_tar_obj_st</a>.<a id="132c23" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="132c50" class="tk">t_numNeighborR_R</a>].<a id="132c68" class="tk">Index_un8</a> = <a id="132c80" class="tk">t_objIndex</a>;</td></tr>
+<tr name="133" id="133">
+<td><a id="l133" class='ln'>133</a></td><td>					<a id="133c6" class="tk">m_hwa_tar_obj_st</a>.<a id="133c23" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="133c50" class="tk">t_numNeighborR_R</a>].<a id="133c68" class="tk">ID_un8</a> = <a id="133c77" class="tk">t_tos_obj_within_lane_st</a>.<a id="133c102" class="tk">m_tarObj_arr_st</a>[<a id="133c118" class="tk">t_objIndex</a>].<a id="133c130" class="tk">ID_un8</a>;</td></tr>
+<tr name="134" id="134">
+<td><a id="l134" class='ln'>134</a></td><td>					<a id="134c6" class="tk">m_hwa_tar_obj_st</a>.<a id="134c23" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="134c50" class="tk">t_numNeighborR_R</a>].<a id="134c68" class="tk">dis2EgoLaneCenter</a> = <a id="134c88" class="tk">t_tos_obj_within_lane_st</a>.<a id="134c113" class="tk">m_tarObj_arr_st</a>[<a id="134c129" class="tk">t_objIndex</a>].<a id="134c141" class="tk">dis2EgoLaneCenter</a>;</td></tr>
+<tr name="135" id="135">
+<td><a id="l135" class='ln'>135</a></td><td>					<a id="135c6" class="tk">m_hwa_tar_obj_st</a>.<a id="135c23" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="135c50" class="tk">t_numNeighborR_R</a>].<a id="135c68" class="tk">probCutIn_f</a> = <a id="135c82" class="tk">t_tos_obj_within_lane_st</a>.<a id="135c107" class="tk">m_tarObj_arr_st</a>[<a id="135c123" class="tk">t_objIndex</a>].<a id="135c135" class="tk">probCutIn_f</a>;</td></tr>
+<tr name="136" id="136">
+<td><a id="l136" class='ln'>136</a></td><td>					<a id="136c6" class="tk">m_hwa_tar_obj_st</a>.<a id="136c23" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="136c50" class="tk">t_numNeighborR_R</a>].<a id="136c68" class="tk">probCutOut_f</a> = <a id="136c83" class="tk">t_tos_obj_within_lane_st</a>.<a id="136c108" class="tk">m_tarObj_arr_st</a>[<a id="136c124" class="tk">t_objIndex</a>].<a id="136c136" class="tk">probCutOut_f</a>;</td></tr>
+<tr name="137" id="137">
+<td><a id="l137" class='ln'>137</a></td><td>					<a id="137c6" class="tk">m_hwa_tar_obj_st</a>.<a id="137c23" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="137c50" class="tk">t_numNeighborR_R</a>].<a id="137c68" class="tk">trackingTimeWithinLane_f</a> = <a id="137c95" class="tk">t_tos_obj_within_lane_st</a>.<a id="137c120" class="tk">m_tarObj_arr_st</a>[<a id="137c136" class="tk">t_objIndex</a>].<a id="137c148" class="tk">trackingTimeWithinLane_f</a>;</td></tr>
+<tr name="138" id="138">
+<td><a id="l138" class='ln'>138</a></td><td>					<a id="138c6" class="tk">m_hwa_tar_obj_st</a>.<a id="138c23" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="138c50" class="tk">t_numNeighborR_R</a>].<a id="138c68" class="tk">overlap_f</a> = <a id="138c80" class="tk">t_tos_obj_within_lane_st</a>.<a id="138c105" class="tk">m_tarObj_arr_st</a>[<a id="138c121" class="tk">t_objIndex</a>].<a id="138c133" class="tk">overlap_f</a>;</td></tr>
+<tr name="139" id="139">
+<td><a id="l139" class='ln'>139</a></td><td>					<a id="139c6" class="tk">m_hwa_tar_obj_st</a>.<a id="139c23" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="139c50" class="tk">t_numNeighborR_R</a>].<a id="139c68" class="tk">TTC_f</a> = <a id="139c76" class="tk">t_tos_obj_within_lane_st</a>.<a id="139c101" class="tk">m_tarObj_arr_st</a>[<a id="139c117" class="tk">t_objIndex</a>].<a id="139c129" class="tk">TTC_f</a>;</td></tr>
+<tr name="140" id="140">
+<td><a id="l140" class='ln'>140</a></td><td>					<a id="140c6" class="tk">m_hwa_tar_obj_st</a>.<a id="140c23" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="140c50" class="tk">t_numNeighborR_R</a>].<a id="140c68" class="tk">probWithinLane_arr_f</a>[<a id="140c89" class="tk">LEFT_LEFT_LANE</a>] = <a id="140c107" class="tk">t_tos_obj_within_lane_st</a>.<a id="140c132" class="tk">m_tarObj_arr_st</a>[<a id="140c148" class="tk">t_objIndex</a>].<a id="140c160" class="tk">probWithinLane_arr_f</a>[<a id="140c181" class="tk">LEFT_LEFT_LANE</a>];</td></tr>
+<tr name="141" id="141">
+<td><a id="l141" class='ln'>141</a></td><td>					<a id="141c6" class="tk">m_hwa_tar_obj_st</a>.<a id="141c23" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="141c50" class="tk">t_numNeighborR_R</a>].<a id="141c68" class="tk">probWithinLane_arr_f</a>[<a id="141c89" class="tk">LEFT_LANE</a>] = <a id="141c102" class="tk">t_tos_obj_within_lane_st</a>.<a id="141c127" class="tk">m_tarObj_arr_st</a>[<a id="141c143" class="tk">t_objIndex</a>].<a id="141c155" class="tk">probWithinLane_arr_f</a>[<a id="141c176" class="tk">LEFT_LANE</a>];</td></tr>
+<tr name="142" id="142">
+<td><a id="l142" class='ln'>142</a></td><td>					<a id="142c6" class="tk">m_hwa_tar_obj_st</a>.<a id="142c23" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="142c50" class="tk">t_numNeighborR_R</a>].<a id="142c68" class="tk">probWithinLane_arr_f</a>[<a id="142c89" class="tk">MIDDLE_LANE</a>] = <a id="142c104" class="tk">t_tos_obj_within_lane_st</a>.<a id="142c129" class="tk">m_tarObj_arr_st</a>[<a id="142c145" class="tk">t_objIndex</a>].<a id="142c157" class="tk">probWithinLane_arr_f</a>[<a id="142c178" class="tk">MIDDLE_LANE</a>];</td></tr>
+<tr name="143" id="143">
+<td><a id="l143" class='ln'>143</a></td><td>					<a id="143c6" class="tk">m_hwa_tar_obj_st</a>.<a id="143c23" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="143c50" class="tk">t_numNeighborR_R</a>].<a id="143c68" class="tk">probWithinLane_arr_f</a>[<a id="143c89" class="tk">RIGHT_LANE</a>] = <a id="143c103" class="tk">t_tos_obj_within_lane_st</a>.<a id="143c128" class="tk">m_tarObj_arr_st</a>[<a id="143c144" class="tk">t_objIndex</a>].<a id="143c156" class="tk">probWithinLane_arr_f</a>[<a id="143c177" class="tk">RIGHT_LANE</a>];</td></tr>
+<tr name="144" id="144">
+<td><a id="l144" class='ln'>144</a></td><td>					<a id="144c6" class="tk">m_hwa_tar_obj_st</a>.<a id="144c23" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="144c50" class="tk">t_numNeighborR_R</a>].<a id="144c68" class="tk">probWithinLane_arr_f</a>[<a id="144c89" class="tk">RIGHT_RIGHT_LANE</a>] = <a id="144c109" class="tk">t_tos_obj_within_lane_st</a>.<a id="144c134" class="tk">m_tarObj_arr_st</a>[<a id="144c150" class="tk">t_objIndex</a>].<a id="144c162" class="tk">probWithinLane_arr_f</a>[<a id="144c183" class="tk">RIGHT_RIGHT_LANE</a>];</td></tr>
+<tr name="145" id="145">
+<td><a id="l145" class='ln'>145</a></td><td>					<a id="145c6" class="tk">m_hwa_tar_obj_st</a>.<a id="145c23" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="145c50" class="tk">t_numNeighborR_R</a>].<a id="145c68" class="tk">dx</a> = <a id="145c73" class="tk">t_tos_obj_within_lane_st</a>.<a id="145c98" class="tk">m_tarObj_arr_st</a>[<a id="145c114" class="tk">t_objIndex</a>].<a id="145c126" class="tk">dx</a>;</td></tr>
+<tr name="146" id="146">
+<td><a id="l146" class='ln'>146</a></td><td>					<a id="146c6" class="tk">m_hwa_tar_obj_st</a>.<a id="146c23" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="146c50" class="tk">t_numNeighborR_R</a>].<a id="146c68" class="tk">dy</a> = <a id="146c73" class="tk">t_tos_obj_within_lane_st</a>.<a id="146c98" class="tk">m_tarObj_arr_st</a>[<a id="146c114" class="tk">t_objIndex</a>].<a id="146c126" class="tk">dy</a>;</td></tr>
+<tr name="147" id="147">
+<td><a id="l147" class='ln'>147</a></td><td>					<a id="147c6" class="tk">t_numNeighborR_R</a><a id="147c22" class="tk">++</a>;</td></tr>
+<tr name="148" id="148">
+<td><a id="l148" class='ln'>148</a></td><td>				<span class="br">}</span></td></tr>
+<tr name="149" id="149">
+<td><a id="l149" class='ln'>149</a></td><td>				<span class="kw">else</span> <span class="kw">if</span> ((<a id="149c15" class="tk">t_numNeighborR_F</a> <a id="149c32" class="tk">&lt;</a> <a id="149c34" class="tk">MAX_TAR_OBJ_NUM_IN_FRONT_LANE</a>)</td></tr>
+<tr name="150" id="150">
+<td><a id="l150" class='ln'>150</a></td><td>					<a id="150c6" class="tk">&amp;&amp;</a> (<a id="150c10" class="tk">t_tos_obj_within_lane_st</a>.<a id="150c35" class="tk">m_tarObj_arr_st</a>[<a id="150c51" class="tk">t_objIndex</a>].<a id="150c63" class="tk">dx</a> <a id="150c66" class="tk">&gt;=</a> 0)</td></tr>
+<tr name="151" id="151">
+<td><a id="l151" class='ln'>151</a></td><td>					)</td></tr>
+<tr name="152" id="152">
+<td><a id="l152" class='ln'>152</a></td><td>				<span class="br">{</span></td></tr>
+<tr name="153" id="153">
+<td><a id="l153" class='ln'>153</a></td><td>					<a id="153c6" class="tk">m_hwa_tar_obj_st</a>.<a id="153c23" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="153c50" class="tk">t_numNeighborR_F</a> <a id="153c67" class="tk">+</a> <a id="153c69" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="153c99" class="tk">Index_un8</a> = <a id="153c111" class="tk">t_objIndex</a>;</td></tr>
+<tr name="154" id="154">
+<td><a id="l154" class='ln'>154</a></td><td>					<a id="154c6" class="tk">m_hwa_tar_obj_st</a>.<a id="154c23" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="154c50" class="tk">t_numNeighborR_F</a> <a id="154c67" class="tk">+</a> <a id="154c69" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="154c99" class="tk">ID_un8</a> = <a id="154c108" class="tk">t_tos_obj_within_lane_st</a>.<a id="154c133" class="tk">m_tarObj_arr_st</a>[<a id="154c149" class="tk">t_objIndex</a>].<a id="154c161" class="tk">ID_un8</a>;</td></tr>
+<tr name="155" id="155">
+<td><a id="l155" class='ln'>155</a></td><td>					<a id="155c6" class="tk">m_hwa_tar_obj_st</a>.<a id="155c23" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="155c50" class="tk">t_numNeighborR_F</a> <a id="155c67" class="tk">+</a> <a id="155c69" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="155c99" class="tk">dis2EgoLaneCenter</a> = <a id="155c119" class="tk">t_tos_obj_within_lane_st</a>.<a id="155c144" class="tk">m_tarObj_arr_st</a>[<a id="155c160" class="tk">t_objIndex</a>].<a id="155c172" class="tk">dis2EgoLaneCenter</a>;</td></tr>
+<tr name="156" id="156">
+<td><a id="l156" class='ln'>156</a></td><td>					<a id="156c6" class="tk">m_hwa_tar_obj_st</a>.<a id="156c23" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="156c50" class="tk">t_numNeighborR_F</a> <a id="156c67" class="tk">+</a> <a id="156c69" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="156c99" class="tk">probCutIn_f</a> = <a id="156c113" class="tk">t_tos_obj_within_lane_st</a>.<a id="156c138" class="tk">m_tarObj_arr_st</a>[<a id="156c154" class="tk">t_objIndex</a>].<a id="156c166" class="tk">probCutIn_f</a>;</td></tr>
+<tr name="157" id="157">
+<td><a id="l157" class='ln'>157</a></td><td>					<a id="157c6" class="tk">m_hwa_tar_obj_st</a>.<a id="157c23" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="157c50" class="tk">t_numNeighborR_F</a> <a id="157c67" class="tk">+</a> <a id="157c69" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="157c99" class="tk">probCutOut_f</a> = <a id="157c114" class="tk">t_tos_obj_within_lane_st</a>.<a id="157c139" class="tk">m_tarObj_arr_st</a>[<a id="157c155" class="tk">t_objIndex</a>].<a id="157c167" class="tk">probCutOut_f</a>;</td></tr>
+<tr name="158" id="158">
+<td><a id="l158" class='ln'>158</a></td><td>					<a id="158c6" class="tk">m_hwa_tar_obj_st</a>.<a id="158c23" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="158c50" class="tk">t_numNeighborR_F</a> <a id="158c67" class="tk">+</a> <a id="158c69" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="158c99" class="tk">trackingTimeWithinLane_f</a> = <a id="158c126" class="tk">t_tos_obj_within_lane_st</a>.<a id="158c151" class="tk">m_tarObj_arr_st</a>[<a id="158c167" class="tk">t_objIndex</a>].<a id="158c179" class="tk">trackingTimeWithinLane_f</a>;</td></tr>
+<tr name="159" id="159">
+<td><a id="l159" class='ln'>159</a></td><td>					<a id="159c6" class="tk">m_hwa_tar_obj_st</a>.<a id="159c23" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="159c50" class="tk">t_numNeighborR_F</a> <a id="159c67" class="tk">+</a> <a id="159c69" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="159c99" class="tk">overlap_f</a> = <a id="159c111" class="tk">t_tos_obj_within_lane_st</a>.<a id="159c136" class="tk">m_tarObj_arr_st</a>[<a id="159c152" class="tk">t_objIndex</a>].<a id="159c164" class="tk">overlap_f</a>;</td></tr>
+<tr name="160" id="160">
+<td><a id="l160" class='ln'>160</a></td><td>					<a id="160c6" class="tk">m_hwa_tar_obj_st</a>.<a id="160c23" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="160c50" class="tk">t_numNeighborR_F</a> <a id="160c67" class="tk">+</a> <a id="160c69" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="160c99" class="tk">TTC_f</a> = <a id="160c107" class="tk">t_tos_obj_within_lane_st</a>.<a id="160c132" class="tk">m_tarObj_arr_st</a>[<a id="160c148" class="tk">t_objIndex</a>].<a id="160c160" class="tk">TTC_f</a>;</td></tr>
+<tr name="161" id="161">
+<td><a id="l161" class='ln'>161</a></td><td>					<a id="161c6" class="tk">m_hwa_tar_obj_st</a>.<a id="161c23" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="161c50" class="tk">t_numNeighborR_F</a> <a id="161c67" class="tk">+</a> <a id="161c69" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="161c99" class="tk">probWithinLane_arr_f</a>[<a id="161c120" class="tk">LEFT_LEFT_LANE</a>] = <a id="161c138" class="tk">t_tos_obj_within_lane_st</a>.<a id="161c163" class="tk">m_tarObj_arr_st</a>[<a id="161c179" class="tk">t_objIndex</a>].<a id="161c191" class="tk">probWithinLane_arr_f</a>[<a id="161c212" class="tk">LEFT_LEFT_LANE</a>];</td></tr>
+<tr name="162" id="162">
+<td><a id="l162" class='ln'>162</a></td><td>					<a id="162c6" class="tk">m_hwa_tar_obj_st</a>.<a id="162c23" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="162c50" class="tk">t_numNeighborR_F</a> <a id="162c67" class="tk">+</a> <a id="162c69" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="162c99" class="tk">probWithinLane_arr_f</a>[<a id="162c120" class="tk">LEFT_LANE</a>] = <a id="162c133" class="tk">t_tos_obj_within_lane_st</a>.<a id="162c158" class="tk">m_tarObj_arr_st</a>[<a id="162c174" class="tk">t_objIndex</a>].<a id="162c186" class="tk">probWithinLane_arr_f</a>[<a id="162c207" class="tk">LEFT_LANE</a>];</td></tr>
+<tr name="163" id="163">
+<td><a id="l163" class='ln'>163</a></td><td>					<a id="163c6" class="tk">m_hwa_tar_obj_st</a>.<a id="163c23" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="163c50" class="tk">t_numNeighborR_F</a> <a id="163c67" class="tk">+</a> <a id="163c69" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="163c99" class="tk">probWithinLane_arr_f</a>[<a id="163c120" class="tk">MIDDLE_LANE</a>] = <a id="163c135" class="tk">t_tos_obj_within_lane_st</a>.<a id="163c160" class="tk">m_tarObj_arr_st</a>[<a id="163c176" class="tk">t_objIndex</a>].<a id="163c188" class="tk">probWithinLane_arr_f</a>[<a id="163c209" class="tk">MIDDLE_LANE</a>];</td></tr>
+<tr name="164" id="164">
+<td><a id="l164" class='ln'>164</a></td><td>					<a id="164c6" class="tk">m_hwa_tar_obj_st</a>.<a id="164c23" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="164c50" class="tk">t_numNeighborR_F</a> <a id="164c67" class="tk">+</a> <a id="164c69" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="164c99" class="tk">probWithinLane_arr_f</a>[<a id="164c120" class="tk">RIGHT_LANE</a>] = <a id="164c134" class="tk">t_tos_obj_within_lane_st</a>.<a id="164c159" class="tk">m_tarObj_arr_st</a>[<a id="164c175" class="tk">t_objIndex</a>].<a id="164c187" class="tk">probWithinLane_arr_f</a>[<a id="164c208" class="tk">RIGHT_LANE</a>];</td></tr>
+<tr name="165" id="165">
+<td><a id="l165" class='ln'>165</a></td><td>					<a id="165c6" class="tk">m_hwa_tar_obj_st</a>.<a id="165c23" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="165c50" class="tk">t_numNeighborR_F</a> <a id="165c67" class="tk">+</a> <a id="165c69" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="165c99" class="tk">probWithinLane_arr_f</a>[<a id="165c120" class="tk">RIGHT_RIGHT_LANE</a>] = <a id="165c140" class="tk">t_tos_obj_within_lane_st</a>.<a id="165c165" class="tk">m_tarObj_arr_st</a>[<a id="165c181" class="tk">t_objIndex</a>].<a id="165c193" class="tk">probWithinLane_arr_f</a>[<a id="165c214" class="tk">RIGHT_RIGHT_LANE</a>];</td></tr>
+<tr name="166" id="166">
+<td><a id="l166" class='ln'>166</a></td><td>					<a id="166c6" class="tk">m_hwa_tar_obj_st</a>.<a id="166c23" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="166c50" class="tk">t_numNeighborR_F</a> <a id="166c67" class="tk">+</a> <a id="166c69" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="166c99" class="tk">dx</a> = <a id="166c104" class="tk">t_tos_obj_within_lane_st</a>.<a id="166c129" class="tk">m_tarObj_arr_st</a>[<a id="166c145" class="tk">t_objIndex</a>].<a id="166c157" class="tk">dx</a>;</td></tr>
+<tr name="167" id="167">
+<td><a id="l167" class='ln'>167</a></td><td>					<a id="167c6" class="tk">m_hwa_tar_obj_st</a>.<a id="167c23" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="167c50" class="tk">t_numNeighborR_F</a> <a id="167c67" class="tk">+</a> <a id="167c69" class="tk">MAX_TAR_OBJ_NUM_IN_REAR_LANE</a>].<a id="167c99" class="tk">dy</a> = <a id="167c104" class="tk">t_tos_obj_within_lane_st</a>.<a id="167c129" class="tk">m_tarObj_arr_st</a>[<a id="167c145" class="tk">t_objIndex</a>].<a id="167c157" class="tk">dy</a>;</td></tr>
+<tr name="168" id="168">
+<td><a id="l168" class='ln'>168</a></td><td>					<a id="168c6" class="tk">t_numNeighborR_F</a><a id="168c22" class="tk">++</a>;</td></tr>
+<tr name="169" id="169">
+<td><a id="l169" class='ln'>169</a></td><td>				<span class="br">}</span></td></tr>
+<tr name="170" id="170">
+<td><a id="l170" class='ln'>170</a></td><td>				<span class="kw">break</span>;</td></tr>
+<tr name="171" id="171">
+<td><a id="l171" class='ln'>171</a></td><td>			<span class="br">}</span></td></tr>
+<tr name="172" id="172">
+<td><a id="l172" class='ln'>172</a></td><td>				</td></tr>
+<tr name="173" id="173">
+<td><a id="l173" class='ln'>173</a></td><td></td></tr>
+<tr name="174" id="174">
+<td><a id="l174" class='ln'>174</a></td><td>			<span class="br">}</span></td></tr>
+<tr name="175" id="175">
+<td><a id="l175" class='ln'>175</a></td><td>		<span class="br">}</span></td></tr>
+<tr name="176" id="176">
+<td><a id="l176" class='ln'>176</a></td><td>		<span class="kw">else</span></td></tr>
+<tr name="177" id="177">
+<td><a id="l177" class='ln'>177</a></td><td>		<span class="br">{</span></td></tr>
+<tr name="178" id="178">
+<td><a id="l178" class='ln'>178</a></td><td>			<a id="178c4" class="tk">t_noEnd_b</a> = false;</td></tr>
+<tr name="179" id="179">
+<td><a id="l179" class='ln'>179</a></td><td>		<span class="br">}</span></td></tr>
+<tr name="180" id="180">
+<td><a id="l180" class='ln'>180</a></td><td>		</td></tr>
+<tr name="181" id="181">
+<td><a id="l181" class='ln'>181</a></td><td>	<span class="br">}</span></td></tr>
+<tr name="182" id="182">
+<td><a id="l182" class='ln'>182</a></td><td><span class="br">}</span></td></tr>
+<tr name="183" id="183">
+<td><a id="l183" class='ln'>183</a></td><td></td></tr>
+<tr name="184" id="184">
+<td><a id="l184" class='ln'>184</a></td><td><span class="kw">void</span> <a id="184c6" class="tk">TOS_HWA</a>::<a id="184c15" class="tk">Init</a>()</td></tr>
+<tr name="185" id="185">
+<td><a id="l185" class='ln'>185</a></td><td><span class="br">{</span></td></tr>
+<tr name="186" id="186">
+<td><a id="l186" class='ln'>186</a></td><td>	<a id="186c2" class="tk">InitTarObjK1</a>();</td></tr>
+<tr name="187" id="187">
+<td><a id="l187" class='ln'>187</a></td><td>	<a id="187c2" class="tk">InitTarObj</a>();</td></tr>
+<tr name="188" id="188">
+<td><a id="l188" class='ln'>188</a></td><td><span class="br">}</span></td></tr>
+<tr name="189" id="189">
+<td><a id="l189" class='ln'>189</a></td><td><span class="kw">void</span> <a id="189c6" class="tk">TOS_HWA</a>::<a id="189c15" class="tk">InitTarObjK1</a>()</td></tr>
+<tr name="190" id="190">
+<td><a id="l190" class='ln'>190</a></td><td><span class="br">{</span></td></tr>
+<tr name="191" id="191">
+<td><a id="l191" class='ln'>191</a></td><td>	<span class="kw">for</span> (<a id="191c7" class="tk">uint8_t</a> <a id="191c15" class="tk">t_i</a> = 0; <a id="191c24" class="tk">t_i</a> <a id="191c28" class="tk">&lt;</a> <a id="191c30" class="tk">MAX_TAR_OBJ_NUM_IN_LANE</a>; <a id="191c55" class="tk">t_i</a><a id="191c58" class="tk">++</a>)</td></tr>
+<tr name="192" id="192">
+<td><a id="l192" class='ln'>192</a></td><td>	<span class="br">{</span></td></tr>
+<tr name="193" id="193">
+<td><a id="l193" class='ln'>193</a></td><td>		<a id="193c3" class="tk">m_hwa_tar_obj_K1_st</a>.<a id="193c23" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="193c50" class="tk">t_i</a>].<a id="193c55" class="tk">dis2EgoLaneCenter</a> = <a id="193c75" class="tk">MAX_F</a>;</td></tr>
+<tr name="194" id="194">
+<td><a id="l194" class='ln'>194</a></td><td>		<a id="194c3" class="tk">m_hwa_tar_obj_K1_st</a>.<a id="194c23" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="194c50" class="tk">t_i</a>].<a id="194c55" class="tk">Index_un8</a> = <a id="194c67" class="tk">MAX_UN8</a>;</td></tr>
+<tr name="195" id="195">
+<td><a id="l195" class='ln'>195</a></td><td>		<a id="195c3" class="tk">m_hwa_tar_obj_K1_st</a>.<a id="195c23" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="195c50" class="tk">t_i</a>].<a id="195c55" class="tk">ID_un8</a> = <a id="195c64" class="tk">MAX_UN8</a>;</td></tr>
+<tr name="196" id="196">
+<td><a id="l196" class='ln'>196</a></td><td>		<a id="196c3" class="tk">m_hwa_tar_obj_K1_st</a>.<a id="196c23" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="196c50" class="tk">t_i</a>].<a id="196c55" class="tk">probCutIn_f</a> = <a id="196c69" class="tk">NULL_F</a>;</td></tr>
+<tr name="197" id="197">
+<td><a id="l197" class='ln'>197</a></td><td>		<a id="197c3" class="tk">m_hwa_tar_obj_K1_st</a>.<a id="197c23" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="197c50" class="tk">t_i</a>].<a id="197c55" class="tk">probCutOut_f</a> = <a id="197c70" class="tk">NULL_F</a>;</td></tr>
+<tr name="198" id="198">
+<td><a id="l198" class='ln'>198</a></td><td>		<a id="198c3" class="tk">m_hwa_tar_obj_K1_st</a>.<a id="198c23" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="198c50" class="tk">t_i</a>].<a id="198c55" class="tk">trackingTimeWithinLane_f</a> = <a id="198c82" class="tk">NULL_UN16</a>;</td></tr>
+<tr name="199" id="199">
+<td><a id="l199" class='ln'>199</a></td><td>		<a id="199c3" class="tk">m_hwa_tar_obj_K1_st</a>.<a id="199c23" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="199c50" class="tk">t_i</a>].<a id="199c55" class="tk">overlap_f</a> = <a id="199c67" class="tk">NULL_F</a>;</td></tr>
+<tr name="200" id="200">
+<td><a id="l200" class='ln'>200</a></td><td>		<a id="200c3" class="tk">m_hwa_tar_obj_K1_st</a>.<a id="200c23" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="200c50" class="tk">t_i</a>].<a id="200c55" class="tk">TTC_f</a> = <a id="200c63" class="tk">MAX_F</a>;</td></tr>
+<tr name="201" id="201">
+<td><a id="l201" class='ln'>201</a></td><td>		<a id="201c3" class="tk">m_hwa_tar_obj_K1_st</a>.<a id="201c23" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="201c50" class="tk">t_i</a>].<a id="201c55" class="tk">dx</a> = <a id="201c60" class="tk">MAX_F</a>;</td></tr>
+<tr name="202" id="202">
+<td><a id="l202" class='ln'>202</a></td><td>		<a id="202c3" class="tk">m_hwa_tar_obj_K1_st</a>.<a id="202c23" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="202c50" class="tk">t_i</a>].<a id="202c55" class="tk">dy</a> = <a id="202c60" class="tk">MAX_F</a>;</td></tr>
+<tr name="203" id="203">
+<td><a id="l203" class='ln'>203</a></td><td></td></tr>
+<tr name="204" id="204">
+<td><a id="l204" class='ln'>204</a></td><td>		<a id="204c3" class="tk">m_hwa_tar_obj_K1_st</a>.<a id="204c23" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="204c50" class="tk">t_i</a>].<a id="204c55" class="tk">dis2EgoLaneCenter</a> = <a id="204c75" class="tk">MAX_F</a>;</td></tr>
+<tr name="205" id="205">
+<td><a id="l205" class='ln'>205</a></td><td>		<a id="205c3" class="tk">m_hwa_tar_obj_K1_st</a>.<a id="205c23" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="205c50" class="tk">t_i</a>].<a id="205c55" class="tk">Index_un8</a> = <a id="205c67" class="tk">MAX_UN8</a>;</td></tr>
+<tr name="206" id="206">
+<td><a id="l206" class='ln'>206</a></td><td>		<a id="206c3" class="tk">m_hwa_tar_obj_K1_st</a>.<a id="206c23" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="206c50" class="tk">t_i</a>].<a id="206c55" class="tk">ID_un8</a> = <a id="206c64" class="tk">MAX_UN8</a>;</td></tr>
+<tr name="207" id="207">
+<td><a id="l207" class='ln'>207</a></td><td>		<a id="207c3" class="tk">m_hwa_tar_obj_K1_st</a>.<a id="207c23" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="207c50" class="tk">t_i</a>].<a id="207c55" class="tk">probCutIn_f</a> = <a id="207c69" class="tk">NULL_F</a>;</td></tr>
+<tr name="208" id="208">
+<td><a id="l208" class='ln'>208</a></td><td>		<a id="208c3" class="tk">m_hwa_tar_obj_K1_st</a>.<a id="208c23" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="208c50" class="tk">t_i</a>].<a id="208c55" class="tk">probCutOut_f</a> = <a id="208c70" class="tk">NULL_F</a>;</td></tr>
+<tr name="209" id="209">
+<td><a id="l209" class='ln'>209</a></td><td>		<a id="209c3" class="tk">m_hwa_tar_obj_K1_st</a>.<a id="209c23" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="209c50" class="tk">t_i</a>].<a id="209c55" class="tk">trackingTimeWithinLane_f</a> = <a id="209c82" class="tk">NULL_UN16</a>;</td></tr>
+<tr name="210" id="210">
+<td><a id="l210" class='ln'>210</a></td><td>		<a id="210c3" class="tk">m_hwa_tar_obj_K1_st</a>.<a id="210c23" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="210c50" class="tk">t_i</a>].<a id="210c55" class="tk">overlap_f</a> = <a id="210c67" class="tk">NULL_F</a>;</td></tr>
+<tr name="211" id="211">
+<td><a id="l211" class='ln'>211</a></td><td>		<a id="211c3" class="tk">m_hwa_tar_obj_K1_st</a>.<a id="211c23" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="211c50" class="tk">t_i</a>].<a id="211c55" class="tk">TTC_f</a> = <a id="211c63" class="tk">MAX_F</a>;</td></tr>
+<tr name="212" id="212">
+<td><a id="l212" class='ln'>212</a></td><td>		<a id="212c3" class="tk">m_hwa_tar_obj_K1_st</a>.<a id="212c23" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="212c50" class="tk">t_i</a>].<a id="212c55" class="tk">dx</a> = <a id="212c60" class="tk">MAX_F</a>;</td></tr>
+<tr name="213" id="213">
+<td><a id="l213" class='ln'>213</a></td><td>		<a id="213c3" class="tk">m_hwa_tar_obj_K1_st</a>.<a id="213c23" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="213c50" class="tk">t_i</a>].<a id="213c55" class="tk">dy</a> = <a id="213c60" class="tk">MAX_F</a>;</td></tr>
+<tr name="214" id="214">
+<td><a id="l214" class='ln'>214</a></td><td></td></tr>
+<tr name="215" id="215">
+<td><a id="l215" class='ln'>215</a></td><td>		<a id="215c3" class="tk">m_hwa_tar_obj_K1_st</a>.<a id="215c23" class="tk">m_EgoLane_TarObj_st</a>[<a id="215c43" class="tk">t_i</a>].<a id="215c48" class="tk">dis2EgoLaneCenter</a> = <a id="215c68" class="tk">MAX_F</a>;</td></tr>
+<tr name="216" id="216">
+<td><a id="l216" class='ln'>216</a></td><td>		<a id="216c3" class="tk">m_hwa_tar_obj_K1_st</a>.<a id="216c23" class="tk">m_EgoLane_TarObj_st</a>[<a id="216c43" class="tk">t_i</a>].<a id="216c48" class="tk">Index_un8</a> = <a id="216c60" class="tk">MAX_UN8</a>;</td></tr>
+<tr name="217" id="217">
+<td><a id="l217" class='ln'>217</a></td><td>		<a id="217c3" class="tk">m_hwa_tar_obj_K1_st</a>.<a id="217c23" class="tk">m_EgoLane_TarObj_st</a>[<a id="217c43" class="tk">t_i</a>].<a id="217c48" class="tk">ID_un8</a> = <a id="217c57" class="tk">MAX_UN8</a>;</td></tr>
+<tr name="218" id="218">
+<td><a id="l218" class='ln'>218</a></td><td>		<a id="218c3" class="tk">m_hwa_tar_obj_K1_st</a>.<a id="218c23" class="tk">m_EgoLane_TarObj_st</a>[<a id="218c43" class="tk">t_i</a>].<a id="218c48" class="tk">probCutIn_f</a> = <a id="218c62" class="tk">NULL_F</a>;</td></tr>
+<tr name="219" id="219">
+<td><a id="l219" class='ln'>219</a></td><td>		<a id="219c3" class="tk">m_hwa_tar_obj_K1_st</a>.<a id="219c23" class="tk">m_EgoLane_TarObj_st</a>[<a id="219c43" class="tk">t_i</a>].<a id="219c48" class="tk">probCutOut_f</a> = <a id="219c63" class="tk">NULL_F</a>;</td></tr>
+<tr name="220" id="220">
+<td><a id="l220" class='ln'>220</a></td><td>		<a id="220c3" class="tk">m_hwa_tar_obj_K1_st</a>.<a id="220c23" class="tk">m_EgoLane_TarObj_st</a>[<a id="220c43" class="tk">t_i</a>].<a id="220c48" class="tk">trackingTimeWithinLane_f</a> = <a id="220c75" class="tk">NULL_UN16</a>;</td></tr>
+<tr name="221" id="221">
+<td><a id="l221" class='ln'>221</a></td><td>		<a id="221c3" class="tk">m_hwa_tar_obj_K1_st</a>.<a id="221c23" class="tk">m_EgoLane_TarObj_st</a>[<a id="221c43" class="tk">t_i</a>].<a id="221c48" class="tk">overlap_f</a> = <a id="221c60" class="tk">NULL_F</a>;</td></tr>
+<tr name="222" id="222">
+<td><a id="l222" class='ln'>222</a></td><td>		<a id="222c3" class="tk">m_hwa_tar_obj_K1_st</a>.<a id="222c23" class="tk">m_EgoLane_TarObj_st</a>[<a id="222c43" class="tk">t_i</a>].<a id="222c48" class="tk">TTC_f</a> = <a id="222c56" class="tk">MAX_F</a>;</td></tr>
+<tr name="223" id="223">
+<td><a id="l223" class='ln'>223</a></td><td>		<a id="223c3" class="tk">m_hwa_tar_obj_K1_st</a>.<a id="223c23" class="tk">m_EgoLane_TarObj_st</a>[<a id="223c43" class="tk">t_i</a>].<a id="223c48" class="tk">dx</a> = <a id="223c53" class="tk">MAX_F</a>;</td></tr>
+<tr name="224" id="224">
+<td><a id="l224" class='ln'>224</a></td><td>		<a id="224c3" class="tk">m_hwa_tar_obj_K1_st</a>.<a id="224c23" class="tk">m_EgoLane_TarObj_st</a>[<a id="224c43" class="tk">t_i</a>].<a id="224c48" class="tk">dy</a> = <a id="224c53" class="tk">MAX_F</a>;</td></tr>
+<tr name="225" id="225">
+<td><a id="l225" class='ln'>225</a></td><td></td></tr>
+<tr name="226" id="226">
+<td><a id="l226" class='ln'>226</a></td><td>		<span class="kw">for</span> (<a id="226c8" class="tk">uint8_t</a> <a id="226c16" class="tk">t_lanes</a> = 0; <a id="226c29" class="tk">t_lanes</a> <a id="226c37" class="tk">&lt;</a> <a id="226c39" class="tk">LM_MAX_NUMBER_OF_LANES</a>; <a id="226c63" class="tk">t_lanes</a><a id="226c70" class="tk">++</a>)</td></tr>
+<tr name="227" id="227">
+<td><a id="l227" class='ln'>227</a></td><td>		<span class="br">{</span></td></tr>
+<tr name="228" id="228">
+<td><a id="l228" class='ln'>228</a></td><td>			<a id="228c4" class="tk">m_hwa_tar_obj_K1_st</a>.<a id="228c24" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="228c51" class="tk">t_i</a>].<a id="228c56" class="tk">probWithinLane_arr_f</a>[<a id="228c77" class="tk">t_lanes</a>] = <a id="228c88" class="tk">NULL_F</a>;</td></tr>
+<tr name="229" id="229">
+<td><a id="l229" class='ln'>229</a></td><td>			<a id="229c4" class="tk">m_hwa_tar_obj_K1_st</a>.<a id="229c24" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="229c51" class="tk">t_i</a>].<a id="229c56" class="tk">probWithinLane_arr_f</a>[<a id="229c77" class="tk">t_lanes</a>] = <a id="229c88" class="tk">NULL_F</a>;</td></tr>
+<tr name="230" id="230">
+<td><a id="l230" class='ln'>230</a></td><td>			<a id="230c4" class="tk">m_hwa_tar_obj_K1_st</a>.<a id="230c24" class="tk">m_EgoLane_TarObj_st</a>[<a id="230c44" class="tk">t_i</a>].<a id="230c49" class="tk">probWithinLane_arr_f</a>[<a id="230c70" class="tk">t_lanes</a>] = <a id="230c81" class="tk">NULL_F</a>;</td></tr>
+<tr name="231" id="231">
+<td><a id="l231" class='ln'>231</a></td><td>		<span class="br">}</span></td></tr>
+<tr name="232" id="232">
+<td><a id="l232" class='ln'>232</a></td><td>		</td></tr>
+<tr name="233" id="233">
+<td><a id="l233" class='ln'>233</a></td><td>	<span class="br">}</span></td></tr>
+<tr name="234" id="234">
+<td><a id="l234" class='ln'>234</a></td><td><span class="br">}</span></td></tr>
+<tr name="235" id="235">
+<td><a id="l235" class='ln'>235</a></td><td></td></tr>
+<tr name="236" id="236">
+<td><a id="l236" class='ln'>236</a></td><td><span class="kw">void</span> <a id="236c6" class="tk">TOS_HWA</a>::<a id="236c15" class="tk">InitTarObj</a>()</td></tr>
+<tr name="237" id="237">
+<td><a id="l237" class='ln'>237</a></td><td><span class="br">{</span></td></tr>
+<tr name="238" id="238">
+<td><a id="l238" class='ln'>238</a></td><td>	<span class="kw">for</span> (<a id="238c7" class="tk">uint8_t</a> <a id="238c15" class="tk">t_i</a> = 0; <a id="238c24" class="tk">t_i</a> <a id="238c28" class="tk">&lt;</a> <a id="238c30" class="tk">MAX_TAR_OBJ_NUM_IN_LANE</a>; <a id="238c55" class="tk">t_i</a><a id="238c58" class="tk">++</a>)</td></tr>
+<tr name="239" id="239">
+<td><a id="l239" class='ln'>239</a></td><td>	<span class="br">{</span></td></tr>
+<tr name="240" id="240">
+<td><a id="l240" class='ln'>240</a></td><td>		<a id="240c3" class="tk">m_hwa_tar_obj_st</a>.<a id="240c20" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="240c47" class="tk">t_i</a>].<a id="240c52" class="tk">dis2EgoLaneCenter</a> = <a id="240c72" class="tk">MAX_F</a>;</td></tr>
+<tr name="241" id="241">
+<td><a id="l241" class='ln'>241</a></td><td>		<a id="241c3" class="tk">m_hwa_tar_obj_st</a>.<a id="241c20" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="241c47" class="tk">t_i</a>].<a id="241c52" class="tk">Index_un8</a> = <a id="241c64" class="tk">MAX_UN8</a>;</td></tr>
+<tr name="242" id="242">
+<td><a id="l242" class='ln'>242</a></td><td>		<a id="242c3" class="tk">m_hwa_tar_obj_st</a>.<a id="242c20" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="242c47" class="tk">t_i</a>].<a id="242c52" class="tk">ID_un8</a> = <a id="242c61" class="tk">MAX_UN8</a>;</td></tr>
+<tr name="243" id="243">
+<td><a id="l243" class='ln'>243</a></td><td>		<a id="243c3" class="tk">m_hwa_tar_obj_st</a>.<a id="243c20" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="243c47" class="tk">t_i</a>].<a id="243c52" class="tk">probCutIn_f</a> = <a id="243c66" class="tk">NULL_F</a>;</td></tr>
+<tr name="244" id="244">
+<td><a id="l244" class='ln'>244</a></td><td>		<a id="244c3" class="tk">m_hwa_tar_obj_st</a>.<a id="244c20" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="244c47" class="tk">t_i</a>].<a id="244c52" class="tk">probCutOut_f</a> = <a id="244c67" class="tk">NULL_F</a>;</td></tr>
+<tr name="245" id="245">
+<td><a id="l245" class='ln'>245</a></td><td>		<a id="245c3" class="tk">m_hwa_tar_obj_st</a>.<a id="245c20" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="245c47" class="tk">t_i</a>].<a id="245c52" class="tk">trackingTimeWithinLane_f</a> = <a id="245c79" class="tk">NULL_UN16</a>;</td></tr>
+<tr name="246" id="246">
+<td><a id="l246" class='ln'>246</a></td><td>		<a id="246c3" class="tk">m_hwa_tar_obj_st</a>.<a id="246c20" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="246c47" class="tk">t_i</a>].<a id="246c52" class="tk">overlap_f</a> = <a id="246c64" class="tk">NULL_F</a>;</td></tr>
+<tr name="247" id="247">
+<td><a id="l247" class='ln'>247</a></td><td>		<a id="247c3" class="tk">m_hwa_tar_obj_st</a>.<a id="247c20" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="247c47" class="tk">t_i</a>].<a id="247c52" class="tk">TTC_f</a> = <a id="247c60" class="tk">MAX_F</a>;</td></tr>
+<tr name="248" id="248">
+<td><a id="l248" class='ln'>248</a></td><td>		<a id="248c3" class="tk">m_hwa_tar_obj_st</a>.<a id="248c20" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="248c47" class="tk">t_i</a>].<a id="248c52" class="tk">dx</a> = <a id="248c57" class="tk">MAX_F</a>;</td></tr>
+<tr name="249" id="249">
+<td><a id="l249" class='ln'>249</a></td><td>		<a id="249c3" class="tk">m_hwa_tar_obj_st</a>.<a id="249c20" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="249c47" class="tk">t_i</a>].<a id="249c52" class="tk">dy</a> = <a id="249c57" class="tk">MAX_F</a>;</td></tr>
+<tr name="250" id="250">
+<td><a id="l250" class='ln'>250</a></td><td></td></tr>
+<tr name="251" id="251">
+<td><a id="l251" class='ln'>251</a></td><td>		<a id="251c3" class="tk">m_hwa_tar_obj_st</a>.<a id="251c20" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="251c47" class="tk">t_i</a>].<a id="251c52" class="tk">dis2EgoLaneCenter</a> = <a id="251c72" class="tk">MAX_F</a>;</td></tr>
+<tr name="252" id="252">
+<td><a id="l252" class='ln'>252</a></td><td>		<a id="252c3" class="tk">m_hwa_tar_obj_st</a>.<a id="252c20" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="252c47" class="tk">t_i</a>].<a id="252c52" class="tk">Index_un8</a> = <a id="252c64" class="tk">MAX_UN8</a>;</td></tr>
+<tr name="253" id="253">
+<td><a id="l253" class='ln'>253</a></td><td>		<a id="253c3" class="tk">m_hwa_tar_obj_st</a>.<a id="253c20" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="253c47" class="tk">t_i</a>].<a id="253c52" class="tk">ID_un8</a> = <a id="253c61" class="tk">MAX_UN8</a>;</td></tr>
+<tr name="254" id="254">
+<td><a id="l254" class='ln'>254</a></td><td>		<a id="254c3" class="tk">m_hwa_tar_obj_st</a>.<a id="254c20" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="254c47" class="tk">t_i</a>].<a id="254c52" class="tk">probCutIn_f</a> = <a id="254c66" class="tk">NULL_F</a>;</td></tr>
+<tr name="255" id="255">
+<td><a id="l255" class='ln'>255</a></td><td>		<a id="255c3" class="tk">m_hwa_tar_obj_st</a>.<a id="255c20" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="255c47" class="tk">t_i</a>].<a id="255c52" class="tk">probCutOut_f</a> = <a id="255c67" class="tk">NULL_F</a>;</td></tr>
+<tr name="256" id="256">
+<td><a id="l256" class='ln'>256</a></td><td>		<a id="256c3" class="tk">m_hwa_tar_obj_st</a>.<a id="256c20" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="256c47" class="tk">t_i</a>].<a id="256c52" class="tk">trackingTimeWithinLane_f</a> = <a id="256c79" class="tk">NULL_UN16</a>;</td></tr>
+<tr name="257" id="257">
+<td><a id="l257" class='ln'>257</a></td><td>		<a id="257c3" class="tk">m_hwa_tar_obj_st</a>.<a id="257c20" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="257c47" class="tk">t_i</a>].<a id="257c52" class="tk">overlap_f</a> = <a id="257c64" class="tk">NULL_F</a>;</td></tr>
+<tr name="258" id="258">
+<td><a id="l258" class='ln'>258</a></td><td>		<a id="258c3" class="tk">m_hwa_tar_obj_st</a>.<a id="258c20" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="258c47" class="tk">t_i</a>].<a id="258c52" class="tk">TTC_f</a> = <a id="258c60" class="tk">MAX_F</a>;</td></tr>
+<tr name="259" id="259">
+<td><a id="l259" class='ln'>259</a></td><td>		<a id="259c3" class="tk">m_hwa_tar_obj_st</a>.<a id="259c20" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="259c47" class="tk">t_i</a>].<a id="259c52" class="tk">dx</a> = <a id="259c57" class="tk">MAX_F</a>;</td></tr>
+<tr name="260" id="260">
+<td><a id="l260" class='ln'>260</a></td><td>		<a id="260c3" class="tk">m_hwa_tar_obj_st</a>.<a id="260c20" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="260c47" class="tk">t_i</a>].<a id="260c52" class="tk">dy</a> = <a id="260c57" class="tk">MAX_F</a>;</td></tr>
+<tr name="261" id="261">
+<td><a id="l261" class='ln'>261</a></td><td></td></tr>
+<tr name="262" id="262">
+<td><a id="l262" class='ln'>262</a></td><td>		<a id="262c3" class="tk">m_hwa_tar_obj_st</a>.<a id="262c20" class="tk">m_EgoLane_TarObj_st</a>[<a id="262c40" class="tk">t_i</a>].<a id="262c45" class="tk">dis2EgoLaneCenter</a> = <a id="262c65" class="tk">MAX_F</a>;</td></tr>
+<tr name="263" id="263">
+<td><a id="l263" class='ln'>263</a></td><td>		<a id="263c3" class="tk">m_hwa_tar_obj_st</a>.<a id="263c20" class="tk">m_EgoLane_TarObj_st</a>[<a id="263c40" class="tk">t_i</a>].<a id="263c45" class="tk">Index_un8</a> = <a id="263c57" class="tk">MAX_UN8</a>;</td></tr>
+<tr name="264" id="264">
+<td><a id="l264" class='ln'>264</a></td><td>		<a id="264c3" class="tk">m_hwa_tar_obj_st</a>.<a id="264c20" class="tk">m_EgoLane_TarObj_st</a>[<a id="264c40" class="tk">t_i</a>].<a id="264c45" class="tk">ID_un8</a> = <a id="264c54" class="tk">MAX_UN8</a>;</td></tr>
+<tr name="265" id="265">
+<td><a id="l265" class='ln'>265</a></td><td>		<a id="265c3" class="tk">m_hwa_tar_obj_st</a>.<a id="265c20" class="tk">m_EgoLane_TarObj_st</a>[<a id="265c40" class="tk">t_i</a>].<a id="265c45" class="tk">probCutIn_f</a> = <a id="265c59" class="tk">NULL_F</a>;</td></tr>
+<tr name="266" id="266">
+<td><a id="l266" class='ln'>266</a></td><td>		<a id="266c3" class="tk">m_hwa_tar_obj_st</a>.<a id="266c20" class="tk">m_EgoLane_TarObj_st</a>[<a id="266c40" class="tk">t_i</a>].<a id="266c45" class="tk">probCutOut_f</a> = <a id="266c60" class="tk">NULL_F</a>;</td></tr>
+<tr name="267" id="267">
+<td><a id="l267" class='ln'>267</a></td><td>		<a id="267c3" class="tk">m_hwa_tar_obj_st</a>.<a id="267c20" class="tk">m_EgoLane_TarObj_st</a>[<a id="267c40" class="tk">t_i</a>].<a id="267c45" class="tk">trackingTimeWithinLane_f</a> = <a id="267c72" class="tk">NULL_UN16</a>;</td></tr>
+<tr name="268" id="268">
+<td><a id="l268" class='ln'>268</a></td><td>		<a id="268c3" class="tk">m_hwa_tar_obj_st</a>.<a id="268c20" class="tk">m_EgoLane_TarObj_st</a>[<a id="268c40" class="tk">t_i</a>].<a id="268c45" class="tk">overlap_f</a> = <a id="268c57" class="tk">NULL_F</a>;</td></tr>
+<tr name="269" id="269">
+<td><a id="l269" class='ln'>269</a></td><td>		<a id="269c3" class="tk">m_hwa_tar_obj_st</a>.<a id="269c20" class="tk">m_EgoLane_TarObj_st</a>[<a id="269c40" class="tk">t_i</a>].<a id="269c45" class="tk">TTC_f</a> = <a id="269c53" class="tk">MAX_F</a>;</td></tr>
+<tr name="270" id="270">
+<td><a id="l270" class='ln'>270</a></td><td>		<a id="270c3" class="tk">m_hwa_tar_obj_st</a>.<a id="270c20" class="tk">m_EgoLane_TarObj_st</a>[<a id="270c40" class="tk">t_i</a>].<a id="270c45" class="tk">dx</a> = <a id="270c50" class="tk">MAX_F</a>;</td></tr>
+<tr name="271" id="271">
+<td><a id="l271" class='ln'>271</a></td><td>		<a id="271c3" class="tk">m_hwa_tar_obj_st</a>.<a id="271c20" class="tk">m_EgoLane_TarObj_st</a>[<a id="271c40" class="tk">t_i</a>].<a id="271c45" class="tk">dy</a> = <a id="271c50" class="tk">MAX_F</a>;</td></tr>
+<tr name="272" id="272">
+<td><a id="l272" class='ln'>272</a></td><td></td></tr>
+<tr name="273" id="273">
+<td><a id="l273" class='ln'>273</a></td><td>		<span class="kw">for</span> (<a id="273c8" class="tk">uint8_t</a> <a id="273c16" class="tk">t_lanes</a> = 0; <a id="273c29" class="tk">t_lanes</a> <a id="273c37" class="tk">&lt;</a> <a id="273c39" class="tk">LM_MAX_NUMBER_OF_LANES</a>; <a id="273c63" class="tk">t_lanes</a><a id="273c70" class="tk">++</a>)</td></tr>
+<tr name="274" id="274">
+<td><a id="l274" class='ln'>274</a></td><td>		<span class="br">{</span></td></tr>
+<tr name="275" id="275">
+<td><a id="l275" class='ln'>275</a></td><td>			<a id="275c4" class="tk">m_hwa_tar_obj_st</a>.<a id="275c21" class="tk">m_L_NeighborLane_TarObj_st</a>[<a id="275c48" class="tk">t_i</a>].<a id="275c53" class="tk">probWithinLane_arr_f</a>[<a id="275c74" class="tk">t_lanes</a>] = <a id="275c85" class="tk">NULL_F</a>;</td></tr>
+<tr name="276" id="276">
+<td><a id="l276" class='ln'>276</a></td><td>			<a id="276c4" class="tk">m_hwa_tar_obj_st</a>.<a id="276c21" class="tk">m_R_NeighborLane_TarObj_st</a>[<a id="276c48" class="tk">t_i</a>].<a id="276c53" class="tk">probWithinLane_arr_f</a>[<a id="276c74" class="tk">t_lanes</a>] = <a id="276c85" class="tk">NULL_F</a>;</td></tr>
+<tr name="277" id="277">
+<td><a id="l277" class='ln'>277</a></td><td>			<a id="277c4" class="tk">m_hwa_tar_obj_st</a>.<a id="277c21" class="tk">m_EgoLane_TarObj_st</a>[<a id="277c41" class="tk">t_i</a>].<a id="277c46" class="tk">probWithinLane_arr_f</a>[<a id="277c67" class="tk">t_lanes</a>] = <a id="277c78" class="tk">NULL_F</a>;</td></tr>
+<tr name="278" id="278">
+<td><a id="l278" class='ln'>278</a></td><td>		<span class="br">}</span></td></tr>
+<tr name="279" id="279">
+<td><a id="l279" class='ln'>279</a></td><td>	<span class="br">}</span></td></tr>
+<tr name="280" id="280">
+<td><a id="l280" class='ln'>280</a></td><td><span class="br">}</span></td></tr>
+<tr name="281" id="281">
+<td><a id="l281" class='ln'>281</a></td><td></td></tr>
+<tr name="282" id="282">
+<td><a id="l282" class='ln'>282</a></td><td><a id="282c1" class="tk">HWA_TAR_OBJ_ST</a><a id="282c15" class="tk">&amp;</a> <a id="282c17" class="tk">TOS_HWA</a>::<a id="282c26" class="tk">Get_tar_obj_ref</a>()</td></tr>
+<tr name="283" id="283">
+<td><a id="l283" class='ln'>283</a></td><td><span class="br">{</span></td></tr>
+<tr name="284" id="284">
+<td><a id="l284" class='ln'>284</a></td><td>	<span class="kw">return</span> <a id="284c9" class="tk">m_hwa_tar_obj_st</a>;</td></tr>
+<tr name="285" id="285">
+<td><a id="l285" class='ln'>285</a></td><td><span class="br">}</span></td></tr>
+<tr name="286" id="286">
+<td><a id="l286" class='ln'>286</a></td><td></td></tr>
+</table>
+</pre>
+</body>
+</html>

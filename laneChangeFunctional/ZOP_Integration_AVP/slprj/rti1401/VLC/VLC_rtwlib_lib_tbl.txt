@@ -1,0 +1,18 @@
+Microtec PowerPC Object Librarian    Fri Jan 22 10:54:19 2021
+
+	Version 3.8    
+OPEN VLC_rtwlib.lib
+DIRECTORY VLC_rtwlib.lib
+Microtec PowerPC Object Librarian       V 3.8      Fri Jan 22 10:54:19 2021
+
+
+IEEE-695 Library being built: VLC_rtwlib.lib 
+
+ Module                 Size
+
+VLC.o03 ...........    20728
+VLC_trc_ptr.o03 ...     2272
+
+Module Count = 2 
+
+END

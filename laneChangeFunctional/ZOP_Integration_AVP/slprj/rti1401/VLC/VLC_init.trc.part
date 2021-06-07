@@ -1,0 +1,1018 @@
+
+
+-- Type definitions for structures
+
+struct VLC_ACC_LGTCTRL_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "ACCCMDType"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "ACCVLCMainReq"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "ACCAxtar"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "ACCAxTarUpperComfBand"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "ACCAxTarLowerComfBand"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "ACCBrkPrfrd"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField6 
+    {
+      alias:   "ACCDriveoffReq"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField7 
+    {
+      alias:   "ACCStandstillReq"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField8 
+    {
+      alias:   "ACCdSet"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "ACCvSet"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField10 
+    {
+      alias:   "ACC_Disable_Msk"
+      type:    uint(16)
+      offs:    -1
+    }
+endstruct
+
+struct VLC_SYS_INFO_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "dT"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct VLC_VSI_VEHSTATE_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "YrsF"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "AxSensorF"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "StWheelAngleF"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "vRef"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "aRef"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "AxSlope"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "AxSlopeValid"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField7 
+    {
+      alias:   "Curvature"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct VLC_x194
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "TrShftLvrPos"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "TrShftLvrPosV"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField2 
+    {
+      alias:   "TrEstdGear"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "TrEstdGearV"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+endstruct
+
+struct VLC_xFB
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "AccelOvrd"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField1 
+    {
+      alias:   "PtACCToqReqResp"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct VLC_x1E1
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "CCSwStsDistDecSwA"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField1 
+    {
+      alias:   "CCSwStsDistIncSwA"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField2 
+    {
+      alias:   "CCSwStsSpdDecSwA"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField3 
+    {
+      alias:   "CCSwStsSpdIncSwA"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField4 
+    {
+      alias:   "CCSwStsSetSwA"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField5 
+    {
+      alias:   "CCSwStsRsmSwA"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField6 
+    {
+      alias:   "CCSwStsOnSwA"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField7 
+    {
+      alias:   "CCSwStsCanclSwA"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+endstruct
+
+struct VLC_x1E5
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "StrgWhlAngGrd"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "StrgWhlAng"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "StrgWhlAngSnsrFlt"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField3 
+    {
+      alias:   "StrgWhlAngSnsrMultCapb"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField4 
+    {
+      alias:   "StrgWhlAngSnsrInid"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField5 
+    {
+      alias:   "StrgWhlAngSnsrCalSts"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "StrgWhlAngV"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+endstruct
+
+struct VLC_x185
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "VSELatAcc"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "VSELongtAcc"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "VSELongtAccV"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField3 
+    {
+      alias:   "VSELatAccV"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+endstruct
+
+struct VLC_x1E9
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "VehDynYawRate"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "VehDynYawRateV"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField2 
+    {
+      alias:   "EnDragToqRducnA"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField3 
+    {
+      alias:   "ABSA"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+endstruct
+
+struct VLC_x23C
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "VehSpdAvg"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "VehSpdAvgV"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+endstruct
+
+struct VLC_x24C
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "WhlGndVelLDrvn_Radar"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "WhlGndVelRDrvn_Radar"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "BrkPdlDrvrAppdPrs_Radar"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "LDrvnWhlRotlDircn"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "RDrvnWhlRotlDircn"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "WhlGndVelLDrvnV_Radar"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField6 
+    {
+      alias:   "WhlGndVelRDrvnV_Radar"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField7 
+    {
+      alias:   "WhlBrkPrsSts"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField8 
+    {
+      alias:   "BrkDiscTemSts"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField9 
+    {
+      alias:   "BrkPdlDrvrAppdPrsV_Radar"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+endstruct
+
+struct VLC_x24E
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "WhlGndVelLNonDrvn_Radar"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "WhlGndVelRNonDrvn_Radar"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "WhlGndVelLNonDrvnV_Radar"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField3 
+    {
+      alias:   "WhlGndVelRNonDrvnV_Radar"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField4 
+    {
+      alias:   "LNonDrvnWhlRotlDircn_Radar"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "TCSOpngMd_Radar"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "TCSOpngSts_Radar"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "RNonDrvnWhlRotlDircn_Radar"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "VSEMd_Radar"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "VSESts_Radar"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct VLC_xAF
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "EPTAccelActuPosV"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField1 
+    {
+      alias:   "EPTBrkPdlDscrtInptSts"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField2 
+    {
+      alias:   "EPTBrkPdlDscrtInptStsV"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField3 
+    {
+      alias:   "EPTStCmdOn"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField4 
+    {
+      alias:   "EPTAccelActuPos"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct VLC_xAC
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "EPTTrInptShaftMaxAvlblToq"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "EPTTrInptShaftMinAvlblToq"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "EPTTrInptShaftMaxAvlblToqV"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField3 
+    {
+      alias:   "EPTTrInptShaftMinAvlblToqV"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+endstruct
+
+struct VLC_x1B6
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "BrkPdlAppdV"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "BrkPdlAppd"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+endstruct
+
+struct VLC_x46A
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "DircnIndLampSwSts"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct VLC_x376
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "LDWLKASwReq"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct VLC_x1EC
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "ChLKACtrlSts"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "DrvrStrgDlvrdToqV"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField2 
+    {
+      alias:   "DrvrStrgDlvrdToq"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "ChLKARespToq"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "ChLKARespToqV"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+endstruct
+
+struct VLC_x251
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "VehTrgtLongtAcc"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "ChAEBDclReqResp"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "ChACCAEBBrkJerkReqResp"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "ChAEBPrflReqResp"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "ChACCReqFlrSts"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "ChAEBHydBrkAstReqResp"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "ChACCAccReqResp"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "VehSdslSts"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct VLC_x19C
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "EPTTrInptShaftSpd"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "EPTTrInptShaftToq"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "EPTTrInptShaftSpdV"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField3 
+    {
+      alias:   "EPTTrInptShaftToqV"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+endstruct
+
+struct VLC_COM_VEHBUS_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "x194"
+      type:    struct VLC_x194
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "xFB"
+      type:    struct VLC_xFB
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "x1E1"
+      type:    struct VLC_x1E1
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "x1E5"
+      type:    struct VLC_x1E5
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "x185"
+      type:    struct VLC_x185
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "x1E9"
+      type:    struct VLC_x1E9
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "x23C"
+      type:    struct VLC_x23C
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "x24C"
+      type:    struct VLC_x24C
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "x24E"
+      type:    struct VLC_x24E
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "xAF"
+      type:    struct VLC_xAF
+      offs:    -1
+    }
+    structField10 
+    {
+      alias:   "xAC"
+      type:    struct VLC_xAC
+      offs:    -1
+    }
+    structField11 
+    {
+      alias:   "x1B6"
+      type:    struct VLC_x1B6
+      offs:    -1
+    }
+    structField12 
+    {
+      alias:   "x46A"
+      type:    struct VLC_x46A
+      offs:    -1
+    }
+    structField13 
+    {
+      alias:   "x376"
+      type:    struct VLC_x376
+      offs:    -1
+    }
+    structField14 
+    {
+      alias:   "x1EC"
+      type:    struct VLC_x1EC
+      offs:    -1
+    }
+    structField15 
+    {
+      alias:   "x251"
+      type:    struct VLC_x251
+      offs:    -1
+    }
+    structField16 
+    {
+      alias:   "x19C"
+      type:    struct VLC_x19C
+      offs:    -1
+    }
+endstruct
+
+struct VLC_COM_PROPACT_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "MMotAct"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "MMotMax"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "MMotMin"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "BrakeForce"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+endstruct
+
+struct VLC_VLC_LGTCMD_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "EngineTorqReq"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "EngineTorqReqSt"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField2 
+    {
+      alias:   "ACCState"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "CDDEnable"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField4 
+    {
+      alias:   "CDDAxtar"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "CDDDriveoffReq"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField6 
+    {
+      alias:   "CDDStandstillReq"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+endstruct
+
+
+-- Type definitions for arrays
+typedef VLC_ArrayDT8_2 uint(8)[2]
+typedef VLC_ArrayDT1_2 flt(32,IEEE)[2]
+
+

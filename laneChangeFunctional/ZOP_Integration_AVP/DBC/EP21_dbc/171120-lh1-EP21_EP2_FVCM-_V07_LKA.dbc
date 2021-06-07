@@ -1,0 +1,222 @@
+VERSION "HSCAN2"
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: FVCM GW Diagnostics EPS SCSABS Tester
+
+
+BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 Vector__XXX
+ SG_ DTCInfomationFVCMHSC2 : 0|56@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ DiagnosticRespFVCM : 0|64@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ DiagnosticFuncAddrReq_h2 : 0|64@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ DiagnosticReqFVCM_h2 : 0|64@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ DipdBeamLghtOnHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ DircnIndLampSwStsHSC2 : 0|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ DspMeasSysHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ FrtFogLghtOnHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ FrtWiperParkPosAHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ FrtWshrPumpAHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ LDircnIndLghtFHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ LDircnIOHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ MainBeamLghtOnHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ RDircnIndLghtFHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ RDircnIOHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ RrFogLghtOnHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ VehSideLghtStsHSC2 : 0|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ ClstrDspdVehSpdHSC2 : 0|8@0+ (1,0) [0|254] "km/h" Vector__XXX
+ SG_ FrtWiperSwStsHSC2 : 0|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ SysBPMHSC2 : 0|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ SysBPMEnbdHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ TrEstdGearHSC2 : 0|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ TrEstdGearVHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ TrShftLvrPosV_h1HSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ TrShftLvrPos_h1HSC2 : 0|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ SpdAstMdECMHSC2 : 0|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ SpdAstSysStsECMHSC2 : 0|3@0+ (1,0) [0|7] "" Vector__XXX
+ SG_ SpdAstSysTrgtSpdHSC2 : 0|15@0+ (0.015625,0) [0|511.984] "" Vector__XXX
+ SG_ TrgtSpdSrcStsHSC2 : 0|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ LDWLKASwReqHSC2 : 0|3@0+ (1,0) [0|7] "" Vector__XXX
+ SG_ RstrFctryDeftsReqHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ LDWAdoWrnngReqHSC2 : 0|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ LDWLKAHapticWrnngReqHSC2 : 0|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ LDWSnstvtLvlReqHSC2 : 0|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ TJAICASwReqHSC2 : 0|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ BCMAvlbly_h2HSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ ECMAvlbly_h2HSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ FICMAvlbly_h2HSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ HCUAvlbly_h2HSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ IPCAvlbly_h2HSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ SDMAvlbly_h2HSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ TBOXAvlbly_h2HSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ TCMAvlbly_h2HSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ BPMMstrAvlbly_h2HSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PwrMdMstrAccryA_h2HSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PwrMdMstrRunCrkA_h2HSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ SysOpnlMd_h2HSC2 : 0|3@0+ (1,0) [0|7] "" Vector__XXX
+ SG_ SysPwrMd_h2HSC2 : 0|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ SysVolMdV_h2HSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ SysVolMd_h2HSC2 : 0|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ SysVolV_h2HSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ SysVol_h2HSC2 : 0|8@0+ (0.1,3) [3|28.5] "V" Vector__XXX
+ SG_ VehOdoV_h2HSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ VehOdo_h2HSC2 : 0|24@0+ (1,0) [0|16777200] "" Vector__XXX
+ SG_ OtsdAirTemCrValV_h2HSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ OtsdAirTemCrVal_h2HSC2 : 0|8@0+ (0.5,-40) [-40|87.5] "degC" Vector__XXX
+ SG_ EPTAccelActuPosHSC2 : 0|8@0+ (0.392157,0) [0|100] "%" Vector__XXX
+ SG_ EPTAccelActuPosVHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ EPTBrkPdlDscrtInptStsHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ EPTBrkPdlDscrtInptStsVHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ EPTStCmdOn_h1HSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ EPTAccelEfctvPosHSC2 : 0|8@0+ (0.392157,0) [0|100] "%" Vector__XXX
+ SG_ EPTRdy_h1HSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ CalendarDayHSC2 : 0|5@0+ (1,0) [0|31] "days" Vector__XXX
+ SG_ CalendarMonthHSC2 : 0|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ CalendarYearHSC2 : 0|8@0+ (1,2000) [2000|2255] "year" Vector__XXX
+ SG_ HourOfDayHSC2 : 0|5@0+ (1,0) [0|23] "" Vector__XXX
+ SG_ MinuteOfHourHSC2 : 0|6@0+ (1,0) [0|59] "" Vector__XXX
+ SG_ SecsOfMinuteHSC2 : 0|6@0+ (1,0) [0|59] "" Vector__XXX
+ SG_ AirbagDplHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ AirbagDplInvsnHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ DrvrSbltAtcHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ DrvrSbltAtcVHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ SDMRCHSC2 : 0|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ StrgWhlAngHSC2 : 0|16@0+ (0.0625,-2048) [-2048|2047.88] "degree" Vector__XXX
+ SG_ StrgWhlAngAlvRCHSC2 : 0|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ StrgWhlAngExtdPVHSC2 : 0|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ StrgWhlAngGrdHSC2 : 0|12@0+ (1,-2048) [-2048|2046] "degree/s" Vector__XXX
+ SG_ StrgWhlAngSnsrCalStsHSC2 : 0|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ StrgWhlAngSnsrChksmHSC2 : 0|8@0+ (1,0) [0|255] "" Vector__XXX
+ SG_ StrgWhlAngSnsrFltHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ StrgWhlAngSnsrInidHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ StrgWhlAngSnsrMultCapbHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ StrgWhlAngVHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ VSELatAccHSC2 : 0|12@0- (0.015625,0) [-32|31.9844] "m/s^2" Vector__XXX
+ SG_ VSELatAccVHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ VSELongtAccHSC2 : 0|10@0- (0.03,0) [-15.36|15.33] "m/s^2" Vector__XXX
+ SG_ VSELongtAccVHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ LNonDrvnWhlRotlDircnHSC2 : 0|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ RNonDrvnWhlRotlDircnHSC2 : 0|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ ABSAHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ ABSFHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ TCSAHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ VehDynYawRateHSC2 : 0|12@0- (0.0625,0) [-128|127.938] "deg/s" Vector__XXX
+ SG_ VehDynYawRateVHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ VSESysAHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ BrkPdlDrvrAppdPrsHSC2 : 0|8@0+ (75,0) [0|19125] "kPa" Vector__XXX
+ SG_ BrkPdlDrvrAppdPrsAlvRCHSC2 : 0|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ BrkPdlDrvrAppdPrsVHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ WhlGndVelDrvnChksmHSC2 : 0|8@0+ (1,0) [0|255] "" Vector__XXX
+ SG_ WhlGndVelDrvnRCHSC2 : 0|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ WhlGndVelLDrvnHSC2 : 0|14@0+ (0.03125,0) [0|511.969] "km/h" Vector__XXX
+ SG_ WhlGndVelLDrvnVHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ WhlGndVelRDrvnHSC2 : 0|14@0+ (0.03125,0) [0|511.969] "km/h" Vector__XXX
+ SG_ WhlGndVelRDrvnVHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ WhlGndVelLNonDrvnHSC2 : 0|14@0+ (0.03125,0) [0|511.969] "km/h" Vector__XXX
+ SG_ WhlGndVelLNonDrvnVHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ WhlGndVelNonDrvnChksmHSC2 : 0|8@0+ (1,0) [0|255] "" Vector__XXX
+ SG_ WhlGndVelNonDrvnRCHSC2 : 0|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ WhlGndVelRNonDrvnHSC2 : 0|14@0+ (0.03125,0) [0|511.969] "km/h" Vector__XXX
+ SG_ WhlGndVelRNonDrvnVHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ TCSOpngMdHSC2 : 0|3@0+ (1,0) [0|7] "" Vector__XXX
+ SG_ TCSOpngStsHSC2 : 0|3@0+ (1,0) [0|7] "" Vector__XXX
+ SG_ VSEMdHSC2 : 0|3@0+ (1,0) [0|7] "" Vector__XXX
+ SG_ VSEStsHSC2 : 0|3@0+ (1,0) [0|7] "" Vector__XXX
+ SG_ VehSpdAvgDrvnHSC2 : 0|15@0+ (0.015625,0) [0|511.984] "km/h" Vector__XXX
+ SG_ VehSpdAvgDrvnVHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ VehSpdAvgNonDrvnHSC2 : 0|15@0+ (0.015625,0) [0|511.984] "km/h" Vector__XXX
+ SG_ VehSpdAvgNonDrvnVHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ VehSpdAvgHSC2 : 0|15@0+ (0.015625,0) [0|511.984] "km/h" Vector__XXX
+ SG_ VehSpdAvgAlvRCHSC2 : 0|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ VehSpdAvgPVHSC2 : 0|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ VehSpdAvgVHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ LDrvnWhlRotlDircnHSC2 : 0|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ RDrvnWhlRotlDircnHSC2 : 0|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ AccelActuPosHSC2 : 0|8@0+ (0.392157,0) [0|100] "%" Vector__XXX
+ SG_ AccelActuPosVHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ En12VoltStrMotCmddOnHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ EnRunAHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ EnSpdHSC2 : 0|16@0+ (0.25,0) [0|16383.8] "rpm" Vector__XXX
+ SG_ PtBrkPdlDscrtInptStsHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ PtBrkPdlDscrtInptStsVHSC2 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ AccelEfctvPosHSC2 : 0|8@0+ (0.392157,0) [0|100] "%" Vector__XXX
+ SG_ EnASSStaHSC2 : 0|2@0+ (1,0) [0|3] "" Vector__XXX
+
+BO_ 358 FVCM_HSC2_FrP01: 8 FVCM
+ SG_ FVCMBlkdHSC2 : 55|1@0+ (1,0) [0|1] ""  GW
+ SG_ FVCMFltStsHSC2 : 13|2@0+ (1,0) [0|3] ""  GW,EPS
+ SG_ LDWAdoWrnngDspCmdHSC2 : 39|2@0+ (1,0) [0|3] ""  GW
+ SG_ LDWSnstvtLvlHSC2 : 23|2@0+ (1,0) [0|3] ""  GW
+ SG_ LDWSysStsHSC2 : 10|3@0+ (1,0) [0|7] ""  GW
+
+BO_ 359 FVCM_HSC2_FrP02: 8 FVCM
+ SG_ AutoMainBeamLghtReqHSC2 : 15|2@0+ (1,0) [0|3] ""  GW
+ SG_ DistSinceTrgtCamrHSC2 : 7|8@0+ (8.235,-100) [-100|1999.92] "m"  GW
+ SG_ FVCMCalPrgsReqHSC2 : 36|3@0+ (1,0) [0|7] ""  GW
+ SG_ HandOffStrgWhlDetnStaHSC2 : 44|2@0+ (1,0) [0|3] ""  GW
+ SG_ HandOffStrgWhlDetnStaVHSC2 : 45|1@0+ (1,0) [0|1] ""  GW
+ SG_ LDWLKADspCmdHSC2 : 50|3@0+ (1,0) [0|7] ""  GW
+ SG_ LDWLKAHapticWrnngDspCmdHSC2 : 63|2@0+ (1,0) [0|3] ""  GW
+ SG_ LDWLKALVsulznReqHSC2 : 53|3@0+ (1,0) [0|7] ""  GW
+ SG_ LDWLKARVsulznReqHSC2 : 42|3@0+ (1,0) [0|7] ""  GW
+ SG_ LDWSysFltStsHSC2 : 39|3@0+ (1,0) [0|7] ""  GW
+ SG_ SpdAstReqStsCamrHSC2 : 13|2@0+ (1,0) [0|3] ""  GW
+ SG_ TJAICADspCmdHSC2 : 55|2@0+ (1,0) [0|3] ""  GW
+ SG_ TJAICASysFltStsHSC2 : 61|3@0+ (1,0) [0|7] ""  GW,EPS
+ SG_ TJAICASysStsHSC2 : 58|3@0+ (1,0) [0|7] ""  GW,EPS
+ SG_ TrgtSpdReqCamrHSC2 : 22|15@0+ (0.015625,0) [0|511.984] ""  GW
+
+BO_ 509 FVCM_HSC2_FrP03: 8 FVCM
+ SG_ LDWLKAVbnLvlReqHSC2 : 23|2@0+ (1,0) [0|3] ""  GW,EPS
+ SG_ LKAAlvRCHSC2 : 7|4@0+ (1,0) [0|15] ""  EPS
+ SG_ LKADrvrTkovReqHSC2 : 46|1@0+ (1,0) [0|1] ""  GW,EPS
+ SG_ LKAReqToqHSC2 : 2|11@0+ (0.01,-10.24) [-10.24|10.23] "Nm"  EPS
+ SG_ LKAReqToqPVHSC2 : 21|14@0+ (1,0) [0|16383] ""  EPS
+ SG_ LKAReqToqStsHSC2 : 36|2@0+ (1,0) [0|3] ""  EPS
+ SG_ LKAReqToqVHSC2 : 3|1@0+ (1,0) [0|1] ""  EPS
+ SG_ LKASysFltStsHSC2 : 39|3@0+ (1,0) [0|7] ""  GW,EPS
+ SG_ LKASysStsHSC2 : 34|3@0+ (1,0) [0|7] ""  GW,EPS
+
+BO_ 492 EPS_HSC2_FrP03: 8 EPS
+ SG_ ChLKAAlvRCHSC2 : 7|4@0+ (1,0) [0|15] ""  FVCM
+ SG_ ChLKACtrlStsHSC2 : 54|3@0+ (1,0) [0|7] ""  FVCM
+ SG_ ChLKARespToqHSC2 : 2|11@0+ (0.01,-10.24) [-10.24|10.23] "Nm"  FVCM
+ SG_ ChLKARespToqPVHSC2 : 22|15@0+ (1,0) [0|32767] ""  FVCM
+ SG_ ChLKARespToqVHSC2 : 3|1@0+ (1,0) [0|1] ""  FVCM
+ SG_ DrvrStrgDlvrdToqHSC2 : 34|11@0+ (0.01,-10.24) [-10.24|10.23] "Nm"  FVCM
+ SG_ DrvrStrgDlvrdToqVHSC2 : 55|1@0+ (1,0) [0|1] ""  FVCM
+
+
+
+CM_ BO_ 3221225472 "This is a message for not used signals, created by Vector CANdb++ DBC OLE DB Provider.";
+

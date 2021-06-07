@@ -1,0 +1,433 @@
+-- ******** Model variables ***************************************************
+
+group "Model Root"
+      
+	group "AVP_Info" -- block-group
+	{
+	 block: "Inport"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "AVP_Info"
+
+	group "AVPReq" -- block-group
+	{
+	 block: "Inport"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "AVPReq"
+
+	group "AVPSts" -- block-group
+	{
+	 block: "Inport"
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "AVPSts"
+
+  
+  
+	group "AVP_Module" -- subsystem-group
+
+		-- Skipping output AVPPark
+		-- Skipping output AVPRes
+		-- Skipping output AVPTrajectoryPoint_dx
+		-- Skipping output AVPTrajectoryPoint_dy
+		-- Skipping output AVPTrajectoryPoint_headingAngle
+		-- Skipping output AVPTrajectoryLine_lineValid
+		-- Skipping output AVPTrajectoryLine_C0
+		-- Skipping output AVPTrajectoryLine_C1
+		-- Skipping output AVPTrajectoryLine_C2
+		-- Skipping output AVPTrajectoryLine_C3
+
+
+		group "Constant2" -- block-group
+		{
+		 block: "Constant"
+		}
+			-- Skipping output Out1
+			p_2_AVP_Main_real_T_0[0]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Constant2"
+
+  
+  
+		group "Subsystem" -- subsystem-group
+
+			-- Skipping output AVPPark
+			-- Skipping output AVPRes
+			-- Skipping output AVPTrajectoryLine_lineValid
+
+
+			group "Constant" -- block-group
+			{
+			 block: "Constant"
+			}
+				-- Skipping output Out1
+				p_2_AVP_Main_uint8_T_1[0]
+				{
+				 type:    uint(8)*
+				 alias:   "Value"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Constant"
+
+			group "Constant1" -- block-group
+			{
+			 block: "Constant"
+			}
+				-- Skipping output Out1
+				p_2_AVP_Main_uint8_T_1[8]
+				{
+				 type:    uint(8)*
+				 alias:   "Value"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Constant1"
+
+			group "Constant10" -- block-group
+			{
+			 block: "Constant"
+			}
+				-- Skipping output Out1
+				p_2_AVP_Main_uint8_T_1[6]
+				{
+				 type:    uint(8)*
+				 alias:   "Value"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Constant10"
+
+			group "Constant2" -- block-group
+			{
+			 block: "Constant"
+			}
+				-- Skipping output Out1
+				p_2_AVP_Main_uint8_T_1[9]
+				{
+				 type:    uint(8)*
+				 alias:   "Value"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Constant2"
+
+			group "Constant3" -- block-group
+			{
+			 block: "Constant"
+			}
+				-- Skipping output Out1
+				p_2_AVP_Main_uint8_T_1[2]
+				{
+				 type:    uint(8)*
+				 alias:   "Value"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Constant3"
+
+			group "Constant4" -- block-group
+			{
+			 block: "Constant"
+			}
+				-- Skipping output Out1
+				p_2_AVP_Main_uint8_T_1[1]
+				{
+				 type:    uint(8)*
+				 alias:   "Value"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Constant4"
+
+			group "Constant5" -- block-group
+			{
+			 block: "Constant"
+			}
+				-- Skipping output Out1
+				p_2_AVP_Main_uint8_T_1[3]
+				{
+				 type:    uint(8)*
+				 alias:   "Value"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Constant5"
+
+			group "Constant6" -- block-group
+			{
+			 block: "Constant"
+			}
+				-- Skipping output Out1
+				p_2_AVP_Main_uint8_T_1[10]
+				{
+				 type:    uint(8)*
+				 alias:   "Value"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Constant6"
+
+			group "Constant7" -- block-group
+			{
+			 block: "Constant"
+			}
+				-- Skipping output Out1
+				p_2_AVP_Main_uint8_T_1[4]
+				{
+				 type:    uint(8)*
+				 alias:   "Value"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Constant7"
+
+			group "Constant8" -- block-group
+			{
+			 block: "Constant"
+			}
+				-- Skipping output Out1
+				p_2_AVP_Main_uint8_T_1[7]
+				{
+				 type:    uint(8)*
+				 alias:   "Value"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Constant8"
+
+			group "Constant9" -- block-group
+			{
+			 block: "Constant"
+			}
+				-- Skipping output Out1
+				p_2_AVP_Main_uint8_T_1[5]
+				{
+				 type:    uint(8)*
+				 alias:   "Value"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Constant9"
+
+			group "Data Type Conversion" -- block-group
+			{
+			 block: "DataTypeConversion"
+			}
+				-- Skipping output Out1
+
+
+			endgroup -- block-group "Data Type Conversion"
+
+			group "Data Type Conversion1" -- block-group
+			{
+			 block: "DataTypeConversion"
+			}
+				-- Skipping output Out1
+
+
+			endgroup -- block-group "Data Type Conversion1"
+
+			group "Logical\nOperator" -- block-group
+			{
+			 block: "Logic"
+			}
+				p_0_AVP_Main_boolean_T_1[4]
+				{
+				 type:    uint(8)*
+				 alias:   "Out1"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Logical\nOperator"
+
+			group "Logical\nOperator1" -- block-group
+			{
+			 block: "Logic"
+			}
+				p_0_AVP_Main_boolean_T_1[5]
+				{
+				 type:    uint(8)*
+				 alias:   "Out1"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Logical\nOperator1"
+
+			group "Relational\nOperator" -- block-group
+			{
+			 block: "RelationalOperator"
+			}
+				p_0_AVP_Main_boolean_T_1[0]
+				{
+				 type:    uint(8)*
+				 alias:   "Out1"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Relational\nOperator"
+
+			group "Relational\nOperator1" -- block-group
+			{
+			 block: "RelationalOperator"
+			}
+				p_0_AVP_Main_boolean_T_1[6]
+				{
+				 type:    uint(8)*
+				 alias:   "Out1"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Relational\nOperator1"
+
+			group "Relational\nOperator2" -- block-group
+			{
+			 block: "RelationalOperator"
+			}
+				p_0_AVP_Main_boolean_T_1[2]
+				{
+				 type:    uint(8)*
+				 alias:   "Out1"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Relational\nOperator2"
+
+			group "Relational\nOperator3" -- block-group
+			{
+			 block: "RelationalOperator"
+			}
+				p_0_AVP_Main_boolean_T_1[1]
+				{
+				 type:    uint(8)*
+				 alias:   "Out1"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Relational\nOperator3"
+
+			group "Relational\nOperator4" -- block-group
+			{
+			 block: "RelationalOperator"
+			}
+				p_0_AVP_Main_boolean_T_1[3]
+				{
+				 type:    uint(8)*
+				 alias:   "Out1"
+				 range:   < 0 ; 1 >
+				 bitmask: 0x01
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Relational\nOperator4"
+
+			group "Switch" -- block-group
+			{
+			 block: "Switch"
+			}
+				p_0_AVP_Main_uint8_T_0[2]
+				{
+				 type:    uint(8)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Switch"
+
+			group "Switch1" -- block-group
+			{
+			 block: "Switch"
+			}
+				-- Skipping output Out1
+
+
+			endgroup -- block-group "Switch1"
+
+			group "Switch2" -- block-group
+			{
+			 block: "Switch"
+			}
+				p_0_AVP_Main_uint8_T_0[1]
+				{
+				 type:    uint(8)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Switch2"
+
+			group "Switch3" -- block-group
+			{
+			 block: "Switch"
+			}
+				p_0_AVP_Main_uint8_T_0[0]
+				{
+				 type:    uint(8)*
+				 alias:   "Out1"
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Switch3"
+
+
+
+		endgroup -- subsystem-group "Subsystem"
+
+
+	endgroup -- subsystem-group "AVP_Module"
+  
+  
+	group "RTI Data" -- subsystem-group
+
+
+	endgroup -- subsystem-group "RTI Data"
+
+
+
+endgroup -- "Model Root"

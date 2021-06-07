@@ -1,0 +1,5 @@
+CREATE ZOP_Main_rtwlib.lib      
+ADDMOD ZOP_Main.o03       
+ADDMOD ZOP_Main_trc_ptr.o03       
+SAVE                     
+END                      

@@ -1,0 +1,16 @@
+Conversion Warnings Log
+
+
+MSG_ID: 1948 	MSG_TYPE: S 	MSG_NAME: DIAG_DTCInfo_Radar
+	SIG_NAME: DTCInfomationRadarHSC2, STATUS: Invalid Max or Min value., ACTION: Value Set to default
+
+MSG_ID: 1852 	MSG_TYPE: S 	MSG_NAME: DIAG_PhysResp_Radar
+	SIG_NAME: DiagnosticRespRadar, STATUS: Invalid Max or Min value., ACTION: Value Set to default
+
+MSG_ID: 2015 	MSG_TYPE: S 	MSG_NAME: DIAG_FuncReq_HSC2
+	SIG_NAME: DiagnosticFuncAddrReq_h2, STATUS: Invalid Max or Min value., ACTION: Value Set to default
+
+MSG_ID: 1844 	MSG_TYPE: S 	MSG_NAME: DIAG_PhysReq_Radar
+	SIG_NAME: DiagnosticReqRadar_h2, STATUS: Invalid Max or Min value., ACTION: Value Set to default
+OBJECT ID : BO_	PARAM_NAME :"GenMsgCycleTime"
+	Description: Invalid Data Ranges	 Action Taken : Reset to default value

@@ -1,0 +1,5 @@
+CREATE VSI_rtwlib.lib      
+ADDMOD VSI.o03       
+ADDMOD VSI_trc_ptr.o03       
+SAVE                     
+END                      

@@ -1,0 +1,60 @@
+%implements "chartSource" "C"
+%function ChartConfig(block, system) void
+  %createrecord chartConfiguration { ...
+          executeAtInitialization  0 ...
+  }
+  %return chartConfiguration
+%endfunction
+%function ChartDataMap(block, system) void
+  %createrecord ChartDataElements {\
+    NumChartData   6 \
+    ChartDataDefaults {\
+      RecordType   "ChartData"\
+      Dimensions   []\
+      IsTestPoint  0\
+    }\
+    ChartData {\
+      Name         "is_active_c2_ZOP_Main"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_c2_ZOP_Main"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_ENABLE"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "ENABLE"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "ZOP_Ready"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "ZOP_Ready"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "finishTimeCnt"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "finishTimeCnt"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "LaneChangeQuit"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "LaneChangeQuit"\
+      SrcLocation  ""\
+    }\
+  }
+  %return ChartDataElements
+%endfunction

@@ -1,0 +1,5 @@
+CREATE AVP_Main_rtwlib.lib      
+ADDMOD AVP_Main.o03       
+ADDMOD AVP_Main_trc_ptr.o03       
+SAVE                     
+END                      

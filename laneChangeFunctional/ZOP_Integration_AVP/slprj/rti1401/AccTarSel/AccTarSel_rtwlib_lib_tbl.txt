@@ -1,0 +1,18 @@
+Microtec PowerPC Object Librarian    Tue Mar 16 18:26:52 2021
+
+	Version 3.8    
+OPEN AccTarSel_rtwlib.lib
+DIRECTORY AccTarSel_rtwlib.lib
+Microtec PowerPC Object Librarian       V 3.8      Tue Mar 16 18:26:52 2021
+
+
+IEEE-695 Library being built: AccTarSel_rtwlib.lib 
+
+ Module                       Size
+
+AccTarSel.o03 ...........    96040
+AccTarSel_trc_ptr.o03 ...     9000
+
+Module Count = 2 
+
+END

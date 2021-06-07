@@ -1,0 +1,5 @@
+CREATE AccTarSel_rtwlib.lib      
+ADDMOD AccTarSel.o03       
+ADDMOD AccTarSel_trc_ptr.o03       
+SAVE                     
+END                      

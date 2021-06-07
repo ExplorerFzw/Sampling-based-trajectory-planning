@@ -1,0 +1,18 @@
+Microtec PowerPC Object Librarian    Thu Jan 07 20:45:56 2021
+
+	Version 3.8    
+OPEN VSI_rtwlib.lib
+DIRECTORY VSI_rtwlib.lib
+Microtec PowerPC Object Librarian       V 3.8      Thu Jan 07 20:45:56 2021
+
+
+IEEE-695 Library being built: VSI_rtwlib.lib 
+
+ Module                 Size
+
+VSI.o03 ...........     7276
+VSI_trc_ptr.o03 ...     1736
+
+Module Count = 2 
+
+END

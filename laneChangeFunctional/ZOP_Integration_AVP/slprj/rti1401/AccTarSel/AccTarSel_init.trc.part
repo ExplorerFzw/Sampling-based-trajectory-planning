@@ -1,0 +1,2679 @@
+
+
+-- Type definitions for structures
+
+struct AccTarSel_x194
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "TrShftLvrPos"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "TrShftLvrPosV"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField2 
+    {
+      alias:   "TrEstdGear"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "TrEstdGearV"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+endstruct
+
+struct AccTarSel_xFB
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "AccelOvrd"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField1 
+    {
+      alias:   "PtACCToqReqResp"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct AccTarSel_x1E1
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "CCSwStsDistDecSwA"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField1 
+    {
+      alias:   "CCSwStsDistIncSwA"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField2 
+    {
+      alias:   "CCSwStsSpdDecSwA"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField3 
+    {
+      alias:   "CCSwStsSpdIncSwA"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField4 
+    {
+      alias:   "CCSwStsSetSwA"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField5 
+    {
+      alias:   "CCSwStsRsmSwA"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField6 
+    {
+      alias:   "CCSwStsOnSwA"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField7 
+    {
+      alias:   "CCSwStsCanclSwA"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+endstruct
+
+struct AccTarSel_x1E5
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "StrgWhlAngGrd"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "StrgWhlAng"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "StrgWhlAngSnsrFlt"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField3 
+    {
+      alias:   "StrgWhlAngSnsrMultCapb"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField4 
+    {
+      alias:   "StrgWhlAngSnsrInid"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField5 
+    {
+      alias:   "StrgWhlAngSnsrCalSts"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "StrgWhlAngV"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+endstruct
+
+struct AccTarSel_x185
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "VSELatAcc"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "VSELongtAcc"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "VSELongtAccV"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField3 
+    {
+      alias:   "VSELatAccV"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+endstruct
+
+struct AccTarSel_x1E9
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "VehDynYawRate"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "VehDynYawRateV"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField2 
+    {
+      alias:   "EnDragToqRducnA"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField3 
+    {
+      alias:   "ABSA"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+endstruct
+
+struct AccTarSel_x23C
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "VehSpdAvg"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "VehSpdAvgV"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+endstruct
+
+struct AccTarSel_x24C
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "WhlGndVelLDrvn_Radar"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "WhlGndVelRDrvn_Radar"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "BrkPdlDrvrAppdPrs_Radar"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "LDrvnWhlRotlDircn"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "RDrvnWhlRotlDircn"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "WhlGndVelLDrvnV_Radar"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField6 
+    {
+      alias:   "WhlGndVelRDrvnV_Radar"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField7 
+    {
+      alias:   "WhlBrkPrsSts"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField8 
+    {
+      alias:   "BrkDiscTemSts"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField9 
+    {
+      alias:   "BrkPdlDrvrAppdPrsV_Radar"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+endstruct
+
+struct AccTarSel_x24E
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "WhlGndVelLNonDrvn_Radar"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "WhlGndVelRNonDrvn_Radar"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "WhlGndVelLNonDrvnV_Radar"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField3 
+    {
+      alias:   "WhlGndVelRNonDrvnV_Radar"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField4 
+    {
+      alias:   "LNonDrvnWhlRotlDircn_Radar"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "TCSOpngMd_Radar"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "TCSOpngSts_Radar"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "RNonDrvnWhlRotlDircn_Radar"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "VSEMd_Radar"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "VSESts_Radar"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct AccTarSel_xAF
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "EPTAccelActuPosV"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField1 
+    {
+      alias:   "EPTBrkPdlDscrtInptSts"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField2 
+    {
+      alias:   "EPTBrkPdlDscrtInptStsV"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField3 
+    {
+      alias:   "EPTStCmdOn"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField4 
+    {
+      alias:   "EPTAccelActuPos"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct AccTarSel_xAC
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "EPTTrInptShaftMaxAvlblToq"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "EPTTrInptShaftMinAvlblToq"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "EPTTrInptShaftMaxAvlblToqV"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField3 
+    {
+      alias:   "EPTTrInptShaftMinAvlblToqV"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+endstruct
+
+struct AccTarSel_x1B6
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "BrkPdlAppdV"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "BrkPdlAppd"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+endstruct
+
+struct AccTarSel_x46A
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "DircnIndLampSwSts"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct AccTarSel_x376
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "LDWLKASwReq"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct AccTarSel_x1EC
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "ChLKACtrlSts"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "DrvrStrgDlvrdToqV"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField2 
+    {
+      alias:   "DrvrStrgDlvrdToq"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "ChLKARespToq"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "ChLKARespToqV"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+endstruct
+
+struct AccTarSel_x251
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "VehTrgtLongtAcc"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "ChAEBDclReqResp"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "ChACCAEBBrkJerkReqResp"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "ChAEBPrflReqResp"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "ChACCReqFlrSts"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "ChAEBHydBrkAstReqResp"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "ChACCAccReqResp"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "VehSdslSts"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct AccTarSel_x19C
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "EPTTrInptShaftSpd"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "EPTTrInptShaftToq"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "EPTTrInptShaftSpdV"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField3 
+    {
+      alias:   "EPTTrInptShaftToqV"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+endstruct
+
+struct AccTarSel_COM_VEHBUS_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "x194"
+      type:    struct AccTarSel_x194
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "xFB"
+      type:    struct AccTarSel_xFB
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "x1E1"
+      type:    struct AccTarSel_x1E1
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "x1E5"
+      type:    struct AccTarSel_x1E5
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "x185"
+      type:    struct AccTarSel_x185
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "x1E9"
+      type:    struct AccTarSel_x1E9
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "x23C"
+      type:    struct AccTarSel_x23C
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "x24C"
+      type:    struct AccTarSel_x24C
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "x24E"
+      type:    struct AccTarSel_x24E
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "xAF"
+      type:    struct AccTarSel_xAF
+      offs:    -1
+    }
+    structField10 
+    {
+      alias:   "xAC"
+      type:    struct AccTarSel_xAC
+      offs:    -1
+    }
+    structField11 
+    {
+      alias:   "x1B6"
+      type:    struct AccTarSel_x1B6
+      offs:    -1
+    }
+    structField12 
+    {
+      alias:   "x46A"
+      type:    struct AccTarSel_x46A
+      offs:    -1
+    }
+    structField13 
+    {
+      alias:   "x376"
+      type:    struct AccTarSel_x376
+      offs:    -1
+    }
+    structField14 
+    {
+      alias:   "x1EC"
+      type:    struct AccTarSel_x1EC
+      offs:    -1
+    }
+    structField15 
+    {
+      alias:   "x251"
+      type:    struct AccTarSel_x251
+      offs:    -1
+    }
+    structField16 
+    {
+      alias:   "x19C"
+      type:    struct AccTarSel_x19C
+      offs:    -1
+    }
+endstruct
+
+struct AccTarSel_FUS_OBJ_TRACK_EST_ST
+{
+  array-incr: -1
+  desc:       "fusion object estimate"
+}
+    structField0 
+    {
+      alias:   "longPosition"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The longitudinal distance to the middle of nearest facing side of the object.Measured in the reference coordinate system"
+    }
+    structField1 
+    {
+      alias:   "latPosition"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The lateral distance to the middle of nearest facing side of the object.Measured in the reference coordinate system"
+    }
+    structField2 
+    {
+      alias:   "headingAngle"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The heading angle for a vechile.It is defined as the angle between the heading of the detected vehicle and the heading of the host vehicle."
+    }
+    structField3 
+    {
+      alias:   "speed"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The vehicle speed relative to the ground and in direction of the vehicle traveling"
+    }
+    structField4 
+    {
+      alias:   "yawRate"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The yawRate of the object in the reference coordinate system"
+    }
+    structField5 
+    {
+      alias:   "longRelativeVelocity"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The longitudinal relative velocity of the object in the reference coordinate system."
+    }
+    structField6 
+    {
+      alias:   "latRelativeVelocity"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The lateral relative velocity of the object in the reference coordinate system."
+    }
+    structField7 
+    {
+      alias:   "longAbsoluteVelocity"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The longitudinal absolute velocity of the object in the reference coordinate system."
+    }
+    structField8 
+    {
+      alias:   "latAbsoluteVelocity"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The lateral absolute velocity of the object in the reference coordinate system."
+    }
+    structField9 
+    {
+      alias:   "acceleration"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The vehicle acceleration relative to the ground and in direction of the vehicle traveling"
+    }
+    structField10 
+    {
+      alias:   "longRelativeAcceleration"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The longitudinal relative acceleration of the object in the reference coordinate system."
+    }
+    structField11 
+    {
+      alias:   "latRelativeAcceleration"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The lateral relative acceleration of the object in the reference coordinate system."
+    }
+    structField12 
+    {
+      alias:   "longAbsoluteAcceleration"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The longitudinal absolute acceleration of the object in the reference coordinate system."
+    }
+    structField13 
+    {
+      alias:   "latAbsoluteAcceleration"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The lateral absolute acceleration of the object in the reference coordinate system."
+    }
+    structField14 
+    {
+      alias:   "curvature"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "the curvature of the object trajectory"
+    }
+endstruct
+
+struct AccTarSel_FUS_OBJ_TRACK_PROP_ST
+{
+  array-incr: -1
+  desc:       "fusion object property"
+}
+    structField0 
+    {
+      alias:   "id"
+      type:    uint(8)
+      offs:    -1
+      desc:    "The obj id.The id number needs to be equal to the index in the object stucture"
+    }
+    structField1 
+    {
+      alias:   "fusionSource"
+      type:    uint(8)
+      offs:    -1
+      desc:    "fusionSource£º\n\n0: vision only\n1: radar only\n2: fused radar vision\n255: unkown"
+    }
+    structField2 
+    {
+      alias:   "motionModel"
+      type:    uint(8)
+      offs:    -1
+      desc:    "The motion model used for the object.\nFusion motion model£º\n0: CA\n1: CTRA\n255: unkown"
+    }
+    structField3 
+    {
+      alias:   "trackStatus"
+      type:    uint(8)
+      offs:    -1
+      desc:    "Fusion obj trace status:\n\n0: New(Initialized),\n1: Measured,\n2: Predicted,"
+    }
+    structField4 
+    {
+      alias:   "positionConfidence"
+      type:    uint(8)
+      offs:    -1
+      desc:    "Position confidence(Used in RoadGeometryFusion).\n0:Not Reliable \n1:Reliable"
+    }
+    structField5 
+    {
+      alias:   "fcwConfidence"
+      type:    uint(8)
+      offs:    -1
+      desc:    "The object confidence for function FCW.0:Not Reliable,1:Warning reliable"
+    }
+    structField6 
+    {
+      alias:   "tjaConfidence"
+      type:    uint(8)
+      offs:    -1
+      desc:    "The object confidence for function TJA.0:Not Reliable,1:Reliable 1:Reliable"
+    }
+    structField7 
+    {
+      alias:   "leftNearLaneMarkingConfidence"
+      type:    uint(8)
+      offs:    -1
+      desc:    "Left nearest lane marking confidence.Not Reliable"
+    }
+    structField8 
+    {
+      alias:   "rightNearLaneMarkingConfidence"
+      type:    uint(8)
+      offs:    -1
+      desc:    "Right nearest lane marking confidence.0:Not reliable,1:Reliable"
+    }
+    structField9 
+    {
+      alias:   "visionId"
+      type:    uint(8)
+      offs:    -1
+      desc:    "The vision id for the object.Note!The vision id number do not need to be equal to the index in the object structure"
+    }
+    structField10 
+    {
+      alias:   "accelerationStdDev"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Standard deviation for object acceleration"
+    }
+    structField11 
+    {
+      alias:   "headingAngleStdDev"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Standard deviation for the heading angle of the object"
+    }
+    structField12 
+    {
+      alias:   "latPositionStdDev"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Standard deviation for the lateral position of the object"
+    }
+    structField13 
+    {
+      alias:   "longPositionStdDev"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "standard deviation for longitudinal position of the object"
+    }
+    structField14 
+    {
+      alias:   "speedStdDev"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Standard deviation for object speed"
+    }
+endstruct
+
+struct AccTarSel_FUS_OBJ_TRACK_INFO_ST
+{
+  array-incr: -1
+  desc:       "fusion object information"
+}
+    structField0 
+    {
+      alias:   "valid"
+      type:    uint(8)
+      offs:    -1
+      desc:    "the valid of fusion obj.\n0: invalid; \n1: valid"
+    }
+    structField1 
+    {
+      alias:   "type"
+      type:    uint(8)
+      offs:    -1
+      desc:    "Fusion Object classification\n\n0: Unknown\n1: Pedestrian\n2: Cyclist\n3: Bus\n4: Small_Medium_Car\n5: Trucks\n6: Tri-Motor\n7: Special_vehicle\n8: Tiny_car\n9: Ambulance\n10: UncertainVehicle"
+    }
+    structField2 
+    {
+      alias:   "nearestSide"
+      type:    uint(8)
+      offs:    -1
+      desc:    "which object side that is nearest (facing) the host vehicle\n0: Rear\n1: Front\n2: Right\n3: Left\n4: Unknown"
+    }
+    structField3 
+    {
+      alias:   "motionPatternCurrent"
+      type:    uint(8)
+      offs:    -1
+      desc:    "0:unknown,\n1:stationary,\n2:driving,\n3:oncoming,\n4:driving stopped\n5:oncoming stopped"
+    }
+    structField4 
+    {
+      alias:   "motionPatternHistory"
+      type:    uint(8)
+      offs:    -1
+      desc:    "0:unknown,1:stopped,2:recedable,3:oncomeable"
+    }
+    structField5 
+    {
+      alias:   "width"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The object width\nThe width is the extent of the nearest facing side"
+    }
+    structField6 
+    {
+      alias:   "height"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The object height."
+    }
+    structField7 
+    {
+      alias:   "length"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The object length."
+    }
+    structField8 
+    {
+      alias:   "distanceToleftNearLaneMarking"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The lateral distance between the object and the closest lane marking to the left"
+    }
+    structField9 
+    {
+      alias:   "distanceToRightNearLaneMarking"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "The lateral distance between the object and the closest lane marking to the right"
+    }
+endstruct
+
+struct AccTarSel_FUS_OBJ_DATA_ST
+{
+  array-incr: -1
+  desc:       "fusion object data"
+}
+    structField0 
+    {
+      alias:   "obj_estimate"
+      type:    struct AccTarSel_FUS_OBJ_TRACK_EST_ST
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "obj_property"
+      type:    struct AccTarSel_FUS_OBJ_TRACK_PROP_ST
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "obj_information"
+      type:    struct AccTarSel_FUS_OBJ_TRACK_INFO_ST
+      offs:    -1
+    }
+endstruct
+
+typedef AccTarSel_FUS_OBJ_OUTPUT_ST_objects_1 struct AccTarSel_FUS_OBJ_DATA_ST[40]
+
+struct AccTarSel_FUS_OBJ_OUTPUT_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "timeStamp"
+      type:    flt(64,IEEE)
+      offs:    -1
+      desc:    "Common timestamp for all object and barrier signals"
+    }
+    structField1 
+    {
+      alias:   "objects"
+      type:    AccTarSel_FUS_OBJ_OUTPUT_ST_objects_1
+      offs:    -1
+      desc:    "fusion obj"
+    }
+    structField2 
+    {
+      alias:   "frameNum"
+      type:    uint(32)
+      offs:    -1
+      desc:    "frame nmber"
+    }
+endstruct
+
+struct AccTarSel_VSI_VEHSTATE_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "YrsF"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "AxSensorF"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "StWheelAngleF"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "vRef"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "aRef"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "AxSlope"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "AxSlopeValid"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField7 
+    {
+      alias:   "Curvature"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct AccTarSel_SYS_INFO_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "dT"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct AccTarSel_OBJDATA_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "Hist"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField1 
+    {
+      alias:   "Valid"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField2 
+    {
+      alias:   "dx"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "dvarX"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "dy"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "dvarY"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "vx"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "vy"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "ax"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "ay"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField10 
+    {
+      alias:   "MotionSts"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField11 
+    {
+      alias:   "Type"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField12 
+    {
+      alias:   "probExist"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField13 
+    {
+      alias:   "ID"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+typedef AccTarSel_FUS_OBJDATA_ST_objdata_st_1 struct AccTarSel_OBJDATA_ST[40]
+
+struct AccTarSel_FUS_OBJDATA_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "timeStamp"
+      type:    flt(64,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "objdata_st"
+      type:    AccTarSel_FUS_OBJDATA_ST_objdata_st_1
+      offs:    -1
+    }
+endstruct
+
+struct AccTarSel_NET_DRVACTION_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "BrakePedalApply"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField1 
+    {
+      alias:   "DrvOverride"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField2 
+    {
+      alias:   "ACC_MainSw"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField3 
+    {
+      alias:   "ACC_CancelSw"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField4 
+    {
+      alias:   "ACC_SetSw"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField5 
+    {
+      alias:   "ACC_SetSwK1"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField6 
+    {
+      alias:   "ACC_ResSw"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField7 
+    {
+      alias:   "ACC_SpdIncSw"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField8 
+    {
+      alias:   "ACC_SpdIncSwK1"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField9 
+    {
+      alias:   "ACC_SpdDecSw"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField10 
+    {
+      alias:   "ACC_SpdDecSwK1"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField11 
+    {
+      alias:   "ACC_DistIncSw"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField12 
+    {
+      alias:   "ACC_DistDecSw"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField13 
+    {
+      alias:   "GearLever"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct AccTarSel_Obj_Data
+{
+  array-incr: -1
+  desc:       "It includes all the infomation of the object from Radar."
+}
+    structField0 
+    {
+      alias:   "Msg_CheckSum1"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Check sum shall be generated out of each message content. check sum generation logic is TBC."
+    }
+    structField1 
+    {
+      alias:   "Msg_AliveCounter1"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Alive counter shall be incremented every radar sensor measurement cycle."
+    }
+    structField2 
+    {
+      alias:   "Obj_ExstProb"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Estimated existence probability of the object."
+    }
+    structField3 
+    {
+      alias:   "Obj_XVelRel_Stdev"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Estimated 3-sigma standard deviation value of the relative longitudinal velocity of the object."
+    }
+    structField4 
+    {
+      alias:   "Obj_XAccRel"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Relative longitudinal acceleration of the object"
+    }
+    structField5 
+    {
+      alias:   "Obj_ObstacleProb"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Estimated probability of the object being an obstacle."
+    }
+    structField6 
+    {
+      alias:   "Obj_MotionPattern"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Motion type of object.\n0x00: Unknown\n0x01: Stationary\n0x02: Stopped\n0x03: Moving\n0x04: Crossing\n0x05-07: reserved"
+    }
+    structField7 
+    {
+      alias:   "Obj_YPos_Stdev"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Estimated 3-sigma standard deviation value of lateral position of the object."
+    }
+    structField8 
+    {
+      alias:   "Obj_ValidFlag"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Validity indication flag. when this value shows invalid, all the signals in the corresponding CAN messages except FRS_Msg_AliveCounter and FRS_Msg_CheckSum shall take default values.\n0x0: Object invalid\n0x1: Object valid"
+    }
+    structField9 
+    {
+      alias:   "Obj_XPos_Stdev"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Estimated 3-sigma standard deviation value of longitudinal position of the object."
+    }
+    structField10 
+    {
+      alias:   "Obj_UpdateFlag"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Flag to indicate newly created object in CAN bus.\nObject history flag\n0x0: new object in the cycle;\n0x1: object existed in previous cycle"
+    }
+    structField11 
+    {
+      alias:   "Obj_ID"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "ID is defined as a unique identification number over the lifetime of the object.\n0xFF: Invalid\n0x00 - 0xFE: Valid"
+    }
+    structField12 
+    {
+      alias:   "Msg_CheckSum2"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Check sum shall be generated out of each message content. check sum generation logic is TBC."
+    }
+    structField13 
+    {
+      alias:   "Msg_AliveCounter2"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Alive counter shall be incremented every radar sensor measurement cycle."
+    }
+    structField14 
+    {
+      alias:   "Obj_MeasFlag"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "This signal indicates whether the latest sensor measurement observed the object or extrapolated.\n0x0: object measured in this cycle\n0x1: object extrapolated in this cycle"
+    }
+    structField15 
+    {
+      alias:   "Obj_YVelRel"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Relative lateral velocity of the object"
+    }
+    structField16 
+    {
+      alias:   "Obj_Type"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "To indicate the estimated type of Object\n0x00: Unknown\n0x01: 4 wheeler\n0x02: 2 wheeler\n0x03: Pedestrian"
+    }
+    structField17 
+    {
+      alias:   "Obj_XPos"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Position of target object in longitudinal direction\ncenter of vehicle rear axle shaft is reference point."
+    }
+    structField18 
+    {
+      alias:   "Obj_YPos"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Position of target object in lateral direction\ncenter of vehicle rear axle shaft is reference point."
+    }
+    structField19 
+    {
+      alias:   "Obj_XVelRel"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Relative longitudinal velocity of the object."
+    }
+endstruct
+
+struct AccTarSel_Radar_Status
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "Msg_CheckSum"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Check sum shall be generated out of each message content. check sum generation logic is TBC."
+    }
+    structField1 
+    {
+      alias:   "Msg_AliveCounter"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Alive counter shall be incremented every radar sensor measurement cycle."
+    }
+    structField2 
+    {
+      alias:   "Status_MisAlign"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "This signal indicates radar sensor mis-alignment status.\n0x00:unknown\n0x01:calibrated\n0x02:sensor mis-alignment detected\n0x03:calibration in progress\n0x04:uncalibratable\n0x05-07:  reserved"
+    }
+    structField3 
+    {
+      alias:   "Status_HWErr"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Flag to indicate if HW is failed or not.\n0x0:HW is NOT failed\n0x1:HW is failed"
+    }
+    structField4 
+    {
+      alias:   "Status_BlkProg"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Sensor blockage status indication.\n0x0: FRS is NOT blocked\n0x1: FRS is blocked"
+    }
+    structField5 
+    {
+      alias:   "Fail"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "This signal indicates if radar is working or not.\n0x0 = FRS radar is NOT working\n0x1 = FRS radar is working"
+    }
+    structField6 
+    {
+      alias:   "MeasEnabled"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "This signal indicates if the radar sensor is performing measurement or not. (radio-wave emission or not) Since Conti does not have this, it could be setup as the same as FRS_Fail."
+    }
+    structField7 
+    {
+      alias:   "Host_Yaw"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Host vehicle yaw rate in deg/s which is used for radar object tracking (calibrated host yaw rate if sensor has calibration capability).\nLeft turn is defined as FRS_Host_Yaw positive direction."
+    }
+    structField8 
+    {
+      alias:   "HostSpeed"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Host vehicle over-ground speed which is used for radar object tracking (calibrated host velocity if the sensor has calibaration capability).\nForward movement is defined as FRS_HostSpeed positive direction."
+    }
+    structField9 
+    {
+      alias:   "TimeStamp"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Sensor internal time stamp since the last sensor start up. the time stamp shall loop as it overflows."
+    }
+    structField10 
+    {
+      alias:   "Latency"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "Radar process latency in ms from radio-wave reflection observation to CAN message transmission for current cycle."
+    }
+endstruct
+
+struct AccTarSel_Radar410_Info_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "x50_20_Obj_00"
+      type:    struct AccTarSel_Obj_Data
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "x51_21_Obj_01"
+      type:    struct AccTarSel_Obj_Data
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "x52_22_Obj_02"
+      type:    struct AccTarSel_Obj_Data
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "x53_23_Obj_03"
+      type:    struct AccTarSel_Obj_Data
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "x54_24_Obj_04"
+      type:    struct AccTarSel_Obj_Data
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "x55_25_Obj_05"
+      type:    struct AccTarSel_Obj_Data
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "x56_26_Obj_06"
+      type:    struct AccTarSel_Obj_Data
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "x57_27_Obj_07"
+      type:    struct AccTarSel_Obj_Data
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "x58_28_Obj_08"
+      type:    struct AccTarSel_Obj_Data
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "x59_29_Obj_09"
+      type:    struct AccTarSel_Obj_Data
+      offs:    -1
+    }
+    structField10 
+    {
+      alias:   "x5A_2A_Obj_10"
+      type:    struct AccTarSel_Obj_Data
+      offs:    -1
+    }
+    structField11 
+    {
+      alias:   "x5B_2B_Obj_11"
+      type:    struct AccTarSel_Obj_Data
+      offs:    -1
+    }
+    structField12 
+    {
+      alias:   "x5C_2C_Obj_12"
+      type:    struct AccTarSel_Obj_Data
+      offs:    -1
+    }
+    structField13 
+    {
+      alias:   "x5D_2D_Obj_13"
+      type:    struct AccTarSel_Obj_Data
+      offs:    -1
+    }
+    structField14 
+    {
+      alias:   "x5E_2E_Obj_14"
+      type:    struct AccTarSel_Obj_Data
+      offs:    -1
+    }
+    structField15 
+    {
+      alias:   "x5F_2F_Obj_15"
+      type:    struct AccTarSel_Obj_Data
+      offs:    -1
+    }
+    structField16 
+    {
+      alias:   "x60_30_Obj_16"
+      type:    struct AccTarSel_Obj_Data
+      offs:    -1
+    }
+    structField17 
+    {
+      alias:   "x61_31_Obj_17"
+      type:    struct AccTarSel_Obj_Data
+      offs:    -1
+    }
+    structField18 
+    {
+      alias:   "x62_32_Obj_18"
+      type:    struct AccTarSel_Obj_Data
+      offs:    -1
+    }
+    structField19 
+    {
+      alias:   "x63_33_Obj_19"
+      type:    struct AccTarSel_Obj_Data
+      offs:    -1
+    }
+    structField20 
+    {
+      alias:   "x64_34_Obj_20"
+      type:    struct AccTarSel_Obj_Data
+      offs:    -1
+    }
+    structField21 
+    {
+      alias:   "x65_35_Obj_21"
+      type:    struct AccTarSel_Obj_Data
+      offs:    -1
+    }
+    structField22 
+    {
+      alias:   "x66_36_Obj_22"
+      type:    struct AccTarSel_Obj_Data
+      offs:    -1
+    }
+    structField23 
+    {
+      alias:   "x67_37_Obj_23"
+      type:    struct AccTarSel_Obj_Data
+      offs:    -1
+    }
+    structField24 
+    {
+      alias:   "x68_38_Obj_24"
+      type:    struct AccTarSel_Obj_Data
+      offs:    -1
+    }
+    structField25 
+    {
+      alias:   "x69_39_Obj_25"
+      type:    struct AccTarSel_Obj_Data
+      offs:    -1
+    }
+    structField26 
+    {
+      alias:   "x6A_3A_Obj_26"
+      type:    struct AccTarSel_Obj_Data
+      offs:    -1
+    }
+    structField27 
+    {
+      alias:   "x6B_3B_Obj_27"
+      type:    struct AccTarSel_Obj_Data
+      offs:    -1
+    }
+    structField28 
+    {
+      alias:   "x6C_3C_Obj_28"
+      type:    struct AccTarSel_Obj_Data
+      offs:    -1
+    }
+    structField29 
+    {
+      alias:   "x6D_3D_Obj_29"
+      type:    struct AccTarSel_Obj_Data
+      offs:    -1
+    }
+    structField30 
+    {
+      alias:   "x6E_3E_Obj_30"
+      type:    struct AccTarSel_Obj_Data
+      offs:    -1
+    }
+    structField31 
+    {
+      alias:   "x6F_3F_Obj_31"
+      type:    struct AccTarSel_Obj_Data
+      offs:    -1
+    }
+    structField32 
+    {
+      alias:   "x70_40_Obj_32"
+      type:    struct AccTarSel_Obj_Data
+      offs:    -1
+    }
+    structField33 
+    {
+      alias:   "x71_41_Obj_33"
+      type:    struct AccTarSel_Obj_Data
+      offs:    -1
+    }
+    structField34 
+    {
+      alias:   "x72_42_Obj_34"
+      type:    struct AccTarSel_Obj_Data
+      offs:    -1
+    }
+    structField35 
+    {
+      alias:   "x73_43_Obj_35"
+      type:    struct AccTarSel_Obj_Data
+      offs:    -1
+    }
+    structField36 
+    {
+      alias:   "x74_44_Obj_36"
+      type:    struct AccTarSel_Obj_Data
+      offs:    -1
+    }
+    structField37 
+    {
+      alias:   "x75_45_Obj_37"
+      type:    struct AccTarSel_Obj_Data
+      offs:    -1
+    }
+    structField38 
+    {
+      alias:   "x76_46_Obj_38"
+      type:    struct AccTarSel_Obj_Data
+      offs:    -1
+    }
+    structField39 
+    {
+      alias:   "x77_47_Obj_39"
+      type:    struct AccTarSel_Obj_Data
+      offs:    -1
+    }
+    structField40 
+    {
+      alias:   "x80_Status"
+      type:    struct AccTarSel_Radar_Status
+      offs:    -1
+    }
+endstruct
+
+struct AccTarSel_VLC_LGTCMD_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "EngineTorqReq"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "EngineTorqReqSt"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField2 
+    {
+      alias:   "ACCState"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "CDDEnable"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField4 
+    {
+      alias:   "CDDAxtar"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "CDDDriveoffReq"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField6 
+    {
+      alias:   "CDDStandstillReq"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+endstruct
+
+struct AccTarSel_ZOP2ACC
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "state"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "activate_acc"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "spd_lmt"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "light_des_spd"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "light_a_des"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "case_num"
+      type:    int(8)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "light_dist"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct AccTarSel_ACC_HMI_REQ
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "TimeGapSet"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "ACC_Enable"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "vSetAccSpd"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct AccTarSel_AVP_OUTPUT_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "Tractory_c0"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "Tractory_c1"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "Tractory_c2"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "Tractory_c3"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "EndPoint_x"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "EndPoint_y"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "AVP_STATE"
+      type:    uint(8)
+      offs:    -1
+      desc:    "The AVP_STATE indicaes the state of AVP and detail as below:\n00: Invalid\n01:Parking In\n02:Parking Out\n03:Stop"
+    }
+endstruct
+
+typedef AccTarSel_TARGETOBJECT_probWithinLane_arr_f_4 flt(32,IEEE)[5]
+
+struct AccTarSel_TARGETOBJECT
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "dis2EgoLaneCenter"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "TTC_f"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "ID_un8"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "Index_un8"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "probWithinLane_arr_f"
+      type:    AccTarSel_TARGETOBJECT_probWithinLane_arr_f_4
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "probCutIn_f"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "probCutOut_f"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "overlap_f"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "trackingTimeWithinLane_f"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct AccTarSel_HWA_TARGETOBJECT_OUTPUT_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "L_NEIGHBORLANE_TAROBJ_0_ST"
+      type:    struct AccTarSel_TARGETOBJECT
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "L_NEIGHBORLANE_TAROBJ_1_ST"
+      type:    struct AccTarSel_TARGETOBJECT
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "L_NEIGHBORLANE_TAROBJ_2_ST"
+      type:    struct AccTarSel_TARGETOBJECT
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "L_NEIGHBORLANE_TAROBJ_3_ST"
+      type:    struct AccTarSel_TARGETOBJECT
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "EGOLANE_TAROBJ_0_ST"
+      type:    struct AccTarSel_TARGETOBJECT
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "EGOLANE_TAROBJ_1_ST"
+      type:    struct AccTarSel_TARGETOBJECT
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "EGOLANE_TAROBJ_2_ST"
+      type:    struct AccTarSel_TARGETOBJECT
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "EGOLANE_TAROBJ_3_ST"
+      type:    struct AccTarSel_TARGETOBJECT
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "R_NEIGHBORLANE_TAROBJ_0_ST"
+      type:    struct AccTarSel_TARGETOBJECT
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "R_NEIGHBORLANE_TAROBJ_1_ST"
+      type:    struct AccTarSel_TARGETOBJECT
+      offs:    -1
+    }
+    structField10 
+    {
+      alias:   "R_NEIGHBORLANE_TAROBJ_2_ST"
+      type:    struct AccTarSel_TARGETOBJECT
+      offs:    -1
+    }
+    structField11 
+    {
+      alias:   "R_NEIGHBORLANE_TAROBJ_3_ST"
+      type:    struct AccTarSel_TARGETOBJECT
+      offs:    -1
+    }
+endstruct
+
+struct AccTarSel_ACC_FOC_INFO_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "Valid"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField1 
+    {
+      alias:   "aFOC"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "DecToStop"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField3 
+    {
+      alias:   "FirstCyc"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField4 
+    {
+      alias:   "dAim"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "aStat"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "aApproach"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "ApproachCase"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "tObjStop"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "dSlowDown"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField10 
+    {
+      alias:   "ObjLeaving"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField11 
+    {
+      alias:   "dImmerseAdj"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct AccTarSel_AST_INFO_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "MainState"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "vSet"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "tMinInDrv"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct AccTarSel_ATS_OBJINFO_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "dx"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "dy"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "vx"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "vy"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "dyToTraj"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "dyCutInPred"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "probCutInRaw"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "probCutInFilt"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "probEgoLane"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "plausEgoLane"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField10 
+    {
+      alias:   "ValidEgoLane"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField11 
+    {
+      alias:   "ID"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct AccTarSel_ATS_PO_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "Valid"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField1 
+    {
+      alias:   "Index"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "dx"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "dy"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "vx"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "vy"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "ax"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "vxAbs"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "axAbs"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "Type"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField10 
+    {
+      alias:   "MotionSts"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+typedef AccTarSel_ATS_INTERNAL_OBJINFO_ST_ats_obj_st_1 struct AccTarSel_ATS_OBJINFO_ST[40]
+
+struct AccTarSel_ATS_INTERNAL_OBJINFO_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "tmeStamp"
+      type:    flt(64,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "ats_obj_st"
+      type:    AccTarSel_ATS_INTERNAL_OBJINFO_ST_ats_obj_st_1
+      offs:    -1
+    }
+endstruct
+
+struct AccTarSel_ACC_LGTCTRL_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "ACCCMDType"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "ACCVLCMainReq"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "ACCAxtar"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "ACCAxTarUpperComfBand"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "ACCAxTarLowerComfBand"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "ACCBrkPrfrd"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField6 
+    {
+      alias:   "ACCDriveoffReq"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField7 
+    {
+      alias:   "ACCStandstillReq"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField8 
+    {
+      alias:   "ACCdSet"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "ACCvSet"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField10 
+    {
+      alias:   "ACC_Disable_Msk"
+      type:    uint(16)
+      offs:    -1
+    }
+endstruct
+
+struct AccTarSel_ACC_Status_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "state"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "ready"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "active"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "overide"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "cancle"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "error"
+      type:    uint(8)
+      offs:    -1
+    }
+endstruct
+
+struct AccTarSel_TRAJ_LANE_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "aParabola"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "dParabola"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "cParabola"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "bParabola"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+
+-- Type definitions for arrays
+typedef AccTarSel_ArrayDT42_40 struct AccTarSel_Obj_Data[40]
+typedef AccTarSel_ArrayDT54_6 struct AccTarSel_ATS_PO_ST[6]
+typedef AccTarSel_ArrayDT51_6 struct AccTarSel_ACC_FOC_INFO_ST[6]
+typedef AccTarSel_ArrayDT1_2 flt(32,IEEE)[2]
+typedef AccTarSel_ArrayDT1_3 flt(32,IEEE)[3]
+typedef AccTarSel_ArrayDT1_4 flt(32,IEEE)[4]
+typedef AccTarSel_ArrayDT1_6 flt(32,IEEE)[6]
+typedef AccTarSel_ArrayDT8_2 uint(8)[2]
+typedef AccTarSel_ArrayDT8_40 uint(8)[40]
+typedef AccTarSel_ArrayDT8_6 uint(8)[6]
+typedef AccTarSel_ArrayDT6_6 int(32)[6]
+
+

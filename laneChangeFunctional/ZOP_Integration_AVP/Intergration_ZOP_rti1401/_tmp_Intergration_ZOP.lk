@@ -1,0 +1,102 @@
+;*************************************************************************
+;               dSPACE MCCPPC Default Linker Command File
+;                          for DS1401 (MABX)
+;
+;  $RCSfile: Ds1401.lk $ $Revision: 1.10 $ $Date: 2017/03/30 15:17:36CEST $
+;  $ProjectName: e:/ARC/Products/ImplSW/RTLibSW/RTLib1401/Develop/DS1401/RTLib/DS1401.pj $
+;*************************************************************************
+
+LISTMAP PUBLICS,NOLOCALS,CROSSREFS
+PUBLIC DS_PPC_BOARD = 1401
+
+;*************************************************************************
+; Specify starting address
+;*************************************************************************
+
+EXTERN  _go_startup
+START   _go_startup
+
+
+PUBLIC STACK_SIZE = 0x10000
+PUBLIC DS_HEAP_SIZE = 0x10000   ; size of the part of heap reserved for
+                                ; dSPACE programs, do not change this
+
+
+;*************************************************************************
+; Select a more effient heap library (dlmalloc)
+;*************************************************************************
+PUBLIC  malloc = dlmalloc_fse
+PUBLIC  free = dlfree_fse
+PUBLIC  calloc = dlcalloc_fse
+PUBLIC  zalloc = dlzalloc_fse
+PUBLIC  realloc = dlrealloc_fse
+
+ALIGN = 4
+;*************************************************************************
+; local memory
+;*************************************************************************
+
+ORDER    start_sec = 0x0        ; exception table and startup code,
+                                ; do not change this
+ORDER   .text
+ORDER   .init
+ORDER   initdat
+ORDER   .rodata
+ORDER   .rodata1
+ORDER   .data
+ORDER   .bss
+ORDER   ioports
+ORDER   .PPC.EMB.procflags
+ORDER   SYSHOST
+
+;-------------------------------------------------------------------------
+; section for calibrated parameter set
+;-------------------------------------------------------------------------
+ORDER   calibrated_parameter_section
+
+
+RESADD  0x00F00000, 0x02FFFFFF    ;no memory, flash
+
+;*************************************************************************
+; global memory
+;*************************************************************************
+
+ORDER   config_sect  = 0x03000000
+ORDER   SlvFwSection = 0x03210000
+
+RESADD  0x03400000, 0xFFFFFFFF    ;register, IO range, no memory
+LOAD CheckSum_0x242_wrapper.o03
+LOAD CheckSum_Tx_Radar410_wrapper.o03
+LOAD LKAReqToqHSC2_PV.o03
+LOAD RTICANMM_MAIN_CAN.o03
+LOAD RTICANMM_SETUP_Controller1.o03
+LOAD Intergration_ZOP.o03
+LOAD rt_matrx.o03
+LOAD rt_printf.o03
+LOAD Intergration_ZOP_data.o03
+LOAD Intergration_ZOP_rticanmm.o03
+LOAD Intergration_ZOP_trc_ptr.o03
+LOAD RTICANMMGetSimTime.o03
+LOAD rti_sim_engine.o03
+LOAD rti_init_cpp.o03
+LOAD rt_sim.o03
+LOAD rti_assert.o03
+LOAD DsBusCustomCode.o03
+LOAD DsBusCustomCode_SecOC.o03
+LOAD rtican_err1.o03
+LOAD "D:\0000_SW_Install\DSPACE\dSPACE RCPHIL 2019-A\DS1401\RTPython\dsrtt1401.lib"
+LOAD "D:\0000_SW_Install\DSPACE\dSPACE RCPHIL 2019-A\DS1401\RTKernel\rtk1401.lib"
+LOAD "D:\0000_SW_Install\DSPACE\dSPACE RCPHIL 2019-A\DS1401\RTLib\ds1401.lib"
+LOAD ..\slprj\rti1401\_sharedutils\rtwshared.lib
+LOAD ..\slprj\rti1401\AVP_Main\AVP_Main_rtwlib.lib
+LOAD ..\slprj\rti1401\AccTarSel\AccTarSel_rtwlib.lib
+LOAD ..\slprj\rti1401\LCK\LCK_rtwlib.lib
+LOAD ..\slprj\rti1401\LM_TOS\LM_TOS_rtwlib.lib
+LOAD ..\slprj\rti1401\VLC\VLC_rtwlib.lib
+LOAD ..\slprj\rti1401\VSI\VSI_rtwlib.lib
+LOAD ..\slprj\rti1401\ZOP_Main\ZOP_Main_rtwlib.lib
+LOAD ..\slprj\rti1401\fusionAlg\fusionAlg_rtwlib.lib
+LOAD C:\ProgramData\dSPACE\E6B644B2-4CC2-4582-A2C6-DC770F1098E0\Compiler\PPCTools\LIB\cppcnhb.lib
+LOAD C:\ProgramData\dSPACE\E6B644B2-4CC2-4582-A2C6-DC770F1098E0\Compiler\PPCTools\LIB\mppc_b.lib
+LOAD C:\ProgramData\dSPACE\E6B644B2-4CC2-4582-A2C6-DC770F1098E0\Compiler\PPCTools\LIB\mppchb.lib
+ 

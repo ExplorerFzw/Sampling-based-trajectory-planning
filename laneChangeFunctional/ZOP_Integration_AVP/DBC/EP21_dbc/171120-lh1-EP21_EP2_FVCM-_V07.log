@@ -1,0 +1,14 @@
+Conversion Warnings Log
+
+
+MSG_ID: 1947 	MSG_TYPE: S 	MSG_NAME: DIAG_DTCInfo_FVCM
+	SIG_NAME: DTCInfomationFVCMHSC2, STATUS: Invalid Max or Min value., ACTION: Value Set to default
+
+MSG_ID: 1851 	MSG_TYPE: S 	MSG_NAME: DIAG_PhysResp_FVCM
+	SIG_NAME: DiagnosticRespFVCM, STATUS: Invalid Max or Min value., ACTION: Value Set to default
+
+MSG_ID: 2015 	MSG_TYPE: S 	MSG_NAME: DIAG_FuncReq_HSC2
+	SIG_NAME: DiagnosticFuncAddrReq_h2, STATUS: Invalid Max or Min value., ACTION: Value Set to default
+
+MSG_ID: 1843 	MSG_TYPE: S 	MSG_NAME: DIAG_PhysReq_FVCM
+	SIG_NAME: DiagnosticReqFVCM_h2, STATUS: Invalid Max or Min value., ACTION: Value Set to default

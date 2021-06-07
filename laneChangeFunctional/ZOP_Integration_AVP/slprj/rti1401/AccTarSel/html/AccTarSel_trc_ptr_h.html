@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="./js/coder_app.js"></script>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="./rtwreport_utils.js"></script>
+<script type="text/javascript" src="./rtwannotate.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/coder_app.css"/>
+</head>
+<body onload="srcFileOnload();">
+<pre id="code">
+<table class="code" id="codeTbl">
+<tr name="1" id="1">
+<td><a id="l1" class='ln'>1</a></td><td><span class="ct">/*********************** dSPACE target specific file *************************</span></td></tr>
+<tr name="2" id="2">
+<td><a id="l2" class='ln'>2</a></td><td><span class="ct"></span></td></tr>
+<tr name="3" id="3">
+<td><a id="l3" class='ln'>3</a></td><td><span class="ct">   Header file AccTarSel_trc_ptr.h:</span></td></tr>
+<tr name="4" id="4">
+<td><a id="l4" class='ln'>4</a></td><td><span class="ct"></span></td></tr>
+<tr name="5" id="5">
+<td><a id="l5" class='ln'>5</a></td><td><span class="ct">   Declaration of function that initializes the global TRC pointers</span></td></tr>
+<tr name="6" id="6">
+<td><a id="l6" class='ln'>6</a></td><td><span class="ct"></span></td></tr>
+<tr name="7" id="7">
+<td><a id="l7" class='ln'>7</a></td><td><span class="ct">   RTI1401 7.12 (02-May-2019)</span></td></tr>
+<tr name="8" id="8">
+<td><a id="l8" class='ln'>8</a></td><td><span class="ct">   Tue Mar 16 18:26:32 2021</span></td></tr>
+<tr name="9" id="9">
+<td><a id="l9" class='ln'>9</a></td><td><span class="ct"></span></td></tr>
+<tr name="10" id="10">
+<td><a id="l10" class='ln'>10</a></td><td><span class="ct">   Copyright 2021, dSPACE GmbH. All rights reserved.</span></td></tr>
+<tr name="11" id="11">
+<td><a id="l11" class='ln'>11</a></td><td><span class="ct"></span></td></tr>
+<tr name="12" id="12">
+<td><a id="l12" class='ln'>12</a></td><td><span class="ct"> *****************************************************************************/</span></td></tr>
+<tr name="13" id="13">
+<td><a id="l13" class='ln'>13</a></td><td><span class="pp">#ifndef</span> <a id="13c9" class="tk">RTI_HEADER_AccTarSel_trc_ptr_h_</a></td></tr>
+<tr name="14" id="14">
+<td><a id="l14" class='ln'>14</a></td><td><span class="pp">#define</span> <a id="14c9" class="tk">RTI_HEADER_AccTarSel_trc_ptr_h_</a></td></tr>
+<tr name="15" id="15">
+<td><a id="l15" class='ln'>15</a></td><td></td></tr>
+<tr name="16" id="16">
+<td><a id="l16" class='ln'>16</a></td><td><span class="ct">/* Include the model header file. */</span></td></tr>
+<tr name="17" id="17">
+<td><a id="l17" class='ln'>17</a></td><td><span class="pp">#include "AccTarSel.h"</span></td></tr>
+<tr name="18" id="18">
+<td><a id="l18" class='ln'>18</a></td><td><span class="pp">#include "AccTarSel_private.h"</span></td></tr>
+<tr name="19" id="19">
+<td><a id="l19" class='ln'>19</a></td><td><span class="pp">#ifdef</span> <a id="19c8" class="tk">EXTERN_C</a></td></tr>
+<tr name="20" id="20">
+<td><a id="l20" class='ln'>20</a></td><td><span class="pp">#undef</span> <a id="20c8" class="tk">EXTERN_C</a></td></tr>
+<tr name="21" id="21">
+<td><a id="l21" class='ln'>21</a></td><td><span class="pp">#endif</span></td></tr>
+<tr name="22" id="22">
+<td><a id="l22" class='ln'>22</a></td><td></td></tr>
+<tr name="23" id="23">
+<td><a id="l23" class='ln'>23</a></td><td><span class="pp">#ifdef</span> <a id="23c8" class="tk">__cplusplus</a></td></tr>
+<tr name="24" id="24">
+<td><a id="l24" class='ln'>24</a></td><td><span class="pp">#define</span> <a id="24c9" class="tk">EXTERN_C</a>                       <span class="kw">extern</span> "C"</td></tr>
+<tr name="25" id="25">
+<td><a id="l25" class='ln'>25</a></td><td><span class="pp">#else</span></td></tr>
+<tr name="26" id="26">
+<td><a id="l26" class='ln'>26</a></td><td><span class="pp">#define</span> <a id="26c9" class="tk">EXTERN_C</a>                       <span class="kw">extern</span></td></tr>
+<tr name="27" id="27">
+<td><a id="l27" class='ln'>27</a></td><td><span class="pp">#endif</span></td></tr>
+<tr name="28" id="28">
+<td><a id="l28" class='ln'>28</a></td><td></td></tr>
+<tr name="29" id="29">
+<td><a id="l29" class='ln'>29</a></td><td><span class="ct">/*</span></td></tr>
+<tr name="30" id="30">
+<td><a id="l30" class='ln'>30</a></td><td><span class="ct"> *  Declare the global TRC pointers</span></td></tr>
+<tr name="31" id="31">
+<td><a id="l31" class='ln'>31</a></td><td><span class="ct"> */</span></td></tr>
+<tr name="32" id="32">
+<td><a id="l32" class='ln'>32</a></td><td><a id="32c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="32c19" class="tk">FUS_OBJDATA_ST</a> <a id="32c34" class="tk">*</a><a id="32c35" class="tk">p_0_AccTarSel_FUS_OBJDATA_ST_0</a>;</td></tr>
+<tr name="33" id="33">
+<td><a id="l33" class='ln'>33</a></td><td><a id="33c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="33c19" class="tk">ATS_INTERNAL_OBJINFO_ST</a></td></tr>
+<tr name="34" id="34">
+<td><a id="l34" class='ln'>34</a></td><td>  <a id="34c3" class="tk">*</a><a id="34c4" class="tk">p_0_AccTarSel_ATS_INTERNAL_OBJINFO_ST_1</a>;</td></tr>
+<tr name="35" id="35">
+<td><a id="l35" class='ln'>35</a></td><td><a id="35c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="35c19" class="tk">Obj_Data</a> <a id="35c28" class="tk">*</a><a id="35c29" class="tk">p_0_AccTarSel_Obj_Data_2</a>;</td></tr>
+<tr name="36" id="36">
+<td><a id="l36" class='ln'>36</a></td><td><a id="36c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="36c19" class="tk">OBJDATA_ST</a> <a id="36c30" class="tk">*</a><a id="36c31" class="tk">p_0_AccTarSel_OBJDATA_ST_3</a>;</td></tr>
+<tr name="37" id="37">
+<td><a id="l37" class='ln'>37</a></td><td><a id="37c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="37c19" class="tk">ATS_PO_ST</a> <a id="37c29" class="tk">*</a><a id="37c30" class="tk">p_0_AccTarSel_ATS_PO_ST_4</a>;</td></tr>
+<tr name="38" id="38">
+<td><a id="l38" class='ln'>38</a></td><td><a id="38c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="38c19" class="tk">ATS_OBJINFO_ST</a> <a id="38c34" class="tk">*</a><a id="38c35" class="tk">p_0_AccTarSel_ATS_OBJINFO_ST_5</a>;</td></tr>
+<tr name="39" id="39">
+<td><a id="l39" class='ln'>39</a></td><td><a id="39c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="39c19" class="tk">ACC_FOC_INFO_ST</a> <a id="39c35" class="tk">*</a><a id="39c36" class="tk">p_0_AccTarSel_ACC_FOC_INFO_ST_6</a>;</td></tr>
+<tr name="40" id="40">
+<td><a id="l40" class='ln'>40</a></td><td><a id="40c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="40c19" class="tk">AVP_OUTPUT_ST</a> <a id="40c33" class="tk">*</a><a id="40c34" class="tk">p_0_AccTarSel_AVP_OUTPUT_ST_7</a>;</td></tr>
+<tr name="41" id="41">
+<td><a id="l41" class='ln'>41</a></td><td><a id="41c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="41c19" class="tk">NET_DRVACTION_ST</a> <a id="41c36" class="tk">*</a><a id="41c37" class="tk">p_0_AccTarSel_NET_DRVACTION_ST_8</a>;</td></tr>
+<tr name="42" id="42">
+<td><a id="l42" class='ln'>42</a></td><td><a id="42c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="42c19" class="tk">AST_INFO_ST</a> <a id="42c31" class="tk">*</a><a id="42c32" class="tk">p_0_AccTarSel_AST_INFO_ST_9</a>;</td></tr>
+<tr name="43" id="43">
+<td><a id="l43" class='ln'>43</a></td><td><a id="43c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="43c19" class="tk">ACC_HMI_REQ</a> <a id="43c31" class="tk">*</a><a id="43c32" class="tk">p_0_AccTarSel_ACC_HMI_REQ_10</a>;</td></tr>
+<tr name="44" id="44">
+<td><a id="l44" class='ln'>44</a></td><td><a id="44c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="44c19" class="tk">real32_T</a> <a id="44c28" class="tk">*</a><a id="44c29" class="tk">p_0_AccTarSel_real32_T_11</a>;</td></tr>
+<tr name="45" id="45">
+<td><a id="l45" class='ln'>45</a></td><td><a id="45c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="45c19" class="tk">int32_T</a> <a id="45c27" class="tk">*</a><a id="45c28" class="tk">p_0_AccTarSel_int32_T_12</a>;</td></tr>
+<tr name="46" id="46">
+<td><a id="l46" class='ln'>46</a></td><td><a id="46c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="46c19" class="tk">uint16_T</a> <a id="46c28" class="tk">*</a><a id="46c29" class="tk">p_0_AccTarSel_uint16_T_13</a>;</td></tr>
+<tr name="47" id="47">
+<td><a id="l47" class='ln'>47</a></td><td><a id="47c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="47c19" class="tk">uint8_T</a> <a id="47c27" class="tk">*</a><a id="47c28" class="tk">p_0_AccTarSel_uint8_T_14</a>;</td></tr>
+<tr name="48" id="48">
+<td><a id="l48" class='ln'>48</a></td><td><a id="48c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="48c19" class="tk">boolean_T</a> <a id="48c29" class="tk">*</a><a id="48c30" class="tk">p_0_AccTarSel_boolean_T_15</a>;</td></tr>
+<tr name="49" id="49">
+<td><a id="l49" class='ln'>49</a></td><td><a id="49c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="49c19" class="tk">OBJDATA_ST</a> <a id="49c30" class="tk">*</a><a id="49c31" class="tk">p_0_AccTarSel_OBJDATA_ST_16</a>;</td></tr>
+<tr name="50" id="50">
+<td><a id="l50" class='ln'>50</a></td><td><a id="50c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="50c19" class="tk">real32_T</a> <a id="50c28" class="tk">*</a><a id="50c29" class="tk">p_0_AccTarSel_real32_T_17</a>;</td></tr>
+<tr name="51" id="51">
+<td><a id="l51" class='ln'>51</a></td><td><a id="51c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="51c19" class="tk">boolean_T</a> <a id="51c29" class="tk">*</a><a id="51c30" class="tk">p_0_AccTarSel_boolean_T_18</a>;</td></tr>
+<tr name="52" id="52">
+<td><a id="l52" class='ln'>52</a></td><td><a id="52c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="52c19" class="tk">OBJDATA_ST</a> <a id="52c30" class="tk">*</a><a id="52c31" class="tk">p_0_AccTarSel_OBJDATA_ST_19</a>;</td></tr>
+<tr name="53" id="53">
+<td><a id="l53" class='ln'>53</a></td><td><a id="53c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="53c19" class="tk">real32_T</a> <a id="53c28" class="tk">*</a><a id="53c29" class="tk">p_0_AccTarSel_real32_T_20</a>;</td></tr>
+<tr name="54" id="54">
+<td><a id="l54" class='ln'>54</a></td><td><a id="54c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="54c19" class="tk">boolean_T</a> <a id="54c29" class="tk">*</a><a id="54c30" class="tk">p_0_AccTarSel_boolean_T_21</a>;</td></tr>
+<tr name="55" id="55">
+<td><a id="l55" class='ln'>55</a></td><td><a id="55c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="55c19" class="tk">OBJDATA_ST</a> <a id="55c30" class="tk">*</a><a id="55c31" class="tk">p_0_AccTarSel_OBJDATA_ST_22</a>;</td></tr>
+<tr name="56" id="56">
+<td><a id="l56" class='ln'>56</a></td><td><a id="56c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="56c19" class="tk">real32_T</a> <a id="56c28" class="tk">*</a><a id="56c29" class="tk">p_0_AccTarSel_real32_T_23</a>;</td></tr>
+<tr name="57" id="57">
+<td><a id="l57" class='ln'>57</a></td><td><a id="57c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="57c19" class="tk">boolean_T</a> <a id="57c29" class="tk">*</a><a id="57c30" class="tk">p_0_AccTarSel_boolean_T_24</a>;</td></tr>
+<tr name="58" id="58">
+<td><a id="l58" class='ln'>58</a></td><td><a id="58c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="58c19" class="tk">OBJDATA_ST</a> <a id="58c30" class="tk">*</a><a id="58c31" class="tk">p_0_AccTarSel_OBJDATA_ST_25</a>;</td></tr>
+<tr name="59" id="59">
+<td><a id="l59" class='ln'>59</a></td><td><a id="59c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="59c19" class="tk">real32_T</a> <a id="59c28" class="tk">*</a><a id="59c29" class="tk">p_0_AccTarSel_real32_T_26</a>;</td></tr>
+<tr name="60" id="60">
+<td><a id="l60" class='ln'>60</a></td><td><a id="60c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="60c19" class="tk">boolean_T</a> <a id="60c29" class="tk">*</a><a id="60c30" class="tk">p_0_AccTarSel_boolean_T_27</a>;</td></tr>
+<tr name="61" id="61">
+<td><a id="l61" class='ln'>61</a></td><td><a id="61c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="61c19" class="tk">ATS_INTERNAL_OBJINFO_ST</a></td></tr>
+<tr name="62" id="62">
+<td><a id="l62" class='ln'>62</a></td><td>  <a id="62c3" class="tk">*</a><a id="62c4" class="tk">p_2_AccTarSel_ATS_INTERNAL_OBJINFO_ST_0</a>;</td></tr>
+<tr name="63" id="63">
+<td><a id="l63" class='ln'>63</a></td><td><a id="63c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="63c19" class="tk">ACC_FOC_INFO_ST</a> <a id="63c35" class="tk">*</a><a id="63c36" class="tk">p_2_AccTarSel_ACC_FOC_INFO_ST_1</a>;</td></tr>
+<tr name="64" id="64">
+<td><a id="l64" class='ln'>64</a></td><td><a id="64c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="64c19" class="tk">ACC_FOC_INFO_ST</a> <a id="64c35" class="tk">*</a><a id="64c36" class="tk">p_2_AccTarSel_ACC_FOC_INFO_ST_2</a>;</td></tr>
+<tr name="65" id="65">
+<td><a id="l65" class='ln'>65</a></td><td><a id="65c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="65c19" class="tk">ACC_FOC_INFO_ST</a> <a id="65c35" class="tk">*</a><a id="65c36" class="tk">p_2_AccTarSel_ACC_FOC_INFO_ST_3</a>;</td></tr>
+<tr name="66" id="66">
+<td><a id="l66" class='ln'>66</a></td><td><a id="66c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="66c19" class="tk">ATS_OBJINFO_ST</a> <a id="66c34" class="tk">*</a><a id="66c35" class="tk">p_2_AccTarSel_ATS_OBJINFO_ST_4</a>;</td></tr>
+<tr name="67" id="67">
+<td><a id="l67" class='ln'>67</a></td><td><a id="67c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="67c19" class="tk">ATS_OBJINFO_ST</a> <a id="67c34" class="tk">*</a><a id="67c35" class="tk">p_2_AccTarSel_ATS_OBJINFO_ST_5</a>;</td></tr>
+<tr name="68" id="68">
+<td><a id="l68" class='ln'>68</a></td><td><a id="68c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="68c19" class="tk">ATS_PO_ST</a> <a id="68c29" class="tk">*</a><a id="68c30" class="tk">p_2_AccTarSel_ATS_PO_ST_6</a>;</td></tr>
+<tr name="69" id="69">
+<td><a id="l69" class='ln'>69</a></td><td><a id="69c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="69c19" class="tk">ATS_PO_ST</a> <a id="69c29" class="tk">*</a><a id="69c30" class="tk">p_2_AccTarSel_ATS_PO_ST_7</a>;</td></tr>
+<tr name="70" id="70">
+<td><a id="l70" class='ln'>70</a></td><td><a id="70c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="70c19" class="tk">ATS_PO_ST</a> <a id="70c29" class="tk">*</a><a id="70c30" class="tk">p_2_AccTarSel_ATS_PO_ST_8</a>;</td></tr>
+<tr name="71" id="71">
+<td><a id="l71" class='ln'>71</a></td><td><a id="71c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="71c19" class="tk">real_T</a> <a id="71c26" class="tk">*</a><a id="71c27" class="tk">p_2_AccTarSel_real_T_9</a>;</td></tr>
+<tr name="72" id="72">
+<td><a id="l72" class='ln'>72</a></td><td><a id="72c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="72c19" class="tk">int32_T</a> <a id="72c27" class="tk">*</a><a id="72c28" class="tk">p_2_AccTarSel_int32_T_10</a>;</td></tr>
+<tr name="73" id="73">
+<td><a id="l73" class='ln'>73</a></td><td><a id="73c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="73c19" class="tk">real32_T</a> <a id="73c28" class="tk">*</a><a id="73c29" class="tk">p_2_AccTarSel_real32_T_11</a>;</td></tr>
+<tr name="74" id="74">
+<td><a id="l74" class='ln'>74</a></td><td><a id="74c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="74c19" class="tk">uint32_T</a> <a id="74c28" class="tk">*</a><a id="74c29" class="tk">p_2_AccTarSel_uint32_T_12</a>;</td></tr>
+<tr name="75" id="75">
+<td><a id="l75" class='ln'>75</a></td><td><a id="75c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="75c19" class="tk">uint16_T</a> <a id="75c28" class="tk">*</a><a id="75c29" class="tk">p_2_AccTarSel_uint16_T_13</a>;</td></tr>
+<tr name="76" id="76">
+<td><a id="l76" class='ln'>76</a></td><td><a id="76c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="76c19" class="tk">boolean_T</a> <a id="76c29" class="tk">*</a><a id="76c30" class="tk">p_2_AccTarSel_boolean_T_14</a>;</td></tr>
+<tr name="77" id="77">
+<td><a id="l77" class='ln'>77</a></td><td><a id="77c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="77c19" class="tk">int8_T</a> <a id="77c26" class="tk">*</a><a id="77c27" class="tk">p_2_AccTarSel_int8_T_15</a>;</td></tr>
+<tr name="78" id="78">
+<td><a id="l78" class='ln'>78</a></td><td><a id="78c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="78c19" class="tk">uint8_T</a> <a id="78c27" class="tk">*</a><a id="78c28" class="tk">p_2_AccTarSel_uint8_T_16</a>;</td></tr>
+<tr name="79" id="79">
+<td><a id="l79" class='ln'>79</a></td><td><a id="79c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="79c19" class="tk">real32_T</a> <a id="79c28" class="tk">*</a><a id="79c29" class="tk">p_2_AccTarSel_real32_T_17</a>;</td></tr>
+<tr name="80" id="80">
+<td><a id="l80" class='ln'>80</a></td><td><a id="80c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="80c19" class="tk">boolean_T</a> <a id="80c29" class="tk">*</a><a id="80c30" class="tk">p_2_AccTarSel_boolean_T_18</a>;</td></tr>
+<tr name="81" id="81">
+<td><a id="l81" class='ln'>81</a></td><td><a id="81c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="81c19" class="tk">real32_T</a> <a id="81c28" class="tk">*</a><a id="81c29" class="tk">p_2_AccTarSel_real32_T_19</a>;</td></tr>
+<tr name="82" id="82">
+<td><a id="l82" class='ln'>82</a></td><td><a id="82c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="82c19" class="tk">boolean_T</a> <a id="82c29" class="tk">*</a><a id="82c30" class="tk">p_2_AccTarSel_boolean_T_20</a>;</td></tr>
+<tr name="83" id="83">
+<td><a id="l83" class='ln'>83</a></td><td><a id="83c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="83c19" class="tk">real32_T</a> <a id="83c28" class="tk">*</a><a id="83c29" class="tk">p_2_AccTarSel_real32_T_21</a>;</td></tr>
+<tr name="84" id="84">
+<td><a id="l84" class='ln'>84</a></td><td><a id="84c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="84c19" class="tk">real32_T</a> <a id="84c28" class="tk">*</a><a id="84c29" class="tk">p_2_AccTarSel_real32_T_22</a>;</td></tr>
+<tr name="85" id="85">
+<td><a id="l85" class='ln'>85</a></td><td><a id="85c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="85c19" class="tk">real32_T</a> <a id="85c28" class="tk">*</a><a id="85c29" class="tk">p_2_AccTarSel_real32_T_23</a>;</td></tr>
+<tr name="86" id="86">
+<td><a id="l86" class='ln'>86</a></td><td><a id="86c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="86c19" class="tk">real32_T</a> <a id="86c28" class="tk">*</a><a id="86c29" class="tk">p_2_AccTarSel_real32_T_24</a>;</td></tr>
+<tr name="87" id="87">
+<td><a id="l87" class='ln'>87</a></td><td><a id="87c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="87c19" class="tk">real32_T</a> <a id="87c28" class="tk">*</a><a id="87c29" class="tk">p_2_AccTarSel_real32_T_25</a>;</td></tr>
+<tr name="88" id="88">
+<td><a id="l88" class='ln'>88</a></td><td><a id="88c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="88c19" class="tk">real32_T</a> <a id="88c28" class="tk">*</a><a id="88c29" class="tk">p_2_AccTarSel_real32_T_26</a>;</td></tr>
+<tr name="89" id="89">
+<td><a id="l89" class='ln'>89</a></td><td><a id="89c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="89c19" class="tk">real32_T</a> <a id="89c28" class="tk">*</a><a id="89c29" class="tk">p_2_AccTarSel_real32_T_27</a>;</td></tr>
+<tr name="90" id="90">
+<td><a id="l90" class='ln'>90</a></td><td><a id="90c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="90c19" class="tk">real32_T</a> <a id="90c28" class="tk">*</a><a id="90c29" class="tk">p_2_AccTarSel_real32_T_28</a>;</td></tr>
+<tr name="91" id="91">
+<td><a id="l91" class='ln'>91</a></td><td><a id="91c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="91c19" class="tk">real32_T</a> <a id="91c28" class="tk">*</a><a id="91c29" class="tk">p_2_AccTarSel_real32_T_29</a>;</td></tr>
+<tr name="92" id="92">
+<td><a id="l92" class='ln'>92</a></td><td><a id="92c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="92c19" class="tk">boolean_T</a> <a id="92c29" class="tk">*</a><a id="92c30" class="tk">p_2_AccTarSel_boolean_T_30</a>;</td></tr>
+<tr name="93" id="93">
+<td><a id="l93" class='ln'>93</a></td><td><a id="93c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="93c19" class="tk">boolean_T</a> <a id="93c29" class="tk">*</a><a id="93c30" class="tk">p_2_AccTarSel_boolean_T_31</a>;</td></tr>
+<tr name="94" id="94">
+<td><a id="l94" class='ln'>94</a></td><td><a id="94c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="94c19" class="tk">real32_T</a> <a id="94c28" class="tk">*</a><a id="94c29" class="tk">p_2_AccTarSel_real32_T_32</a>;</td></tr>
+<tr name="95" id="95">
+<td><a id="l95" class='ln'>95</a></td><td><a id="95c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="95c19" class="tk">real32_T</a> <a id="95c28" class="tk">*</a><a id="95c29" class="tk">p_2_AccTarSel_real32_T_33</a>;</td></tr>
+<tr name="96" id="96">
+<td><a id="l96" class='ln'>96</a></td><td><a id="96c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="96c19" class="tk">ATS_INTERNAL_OBJINFO_ST</a></td></tr>
+<tr name="97" id="97">
+<td><a id="l97" class='ln'>97</a></td><td>  <a id="97c3" class="tk">*</a><a id="97c4" class="tk">p_3_AccTarSel_ATS_INTERNAL_OBJINFO_ST_0</a>;</td></tr>
+<tr name="98" id="98">
+<td><a id="l98" class='ln'>98</a></td><td><a id="98c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="98c19" class="tk">ACC_FOC_INFO_ST</a> <a id="98c35" class="tk">*</a><a id="98c36" class="tk">p_3_AccTarSel_ACC_FOC_INFO_ST_1</a>;</td></tr>
+<tr name="99" id="99">
+<td><a id="l99" class='ln'>99</a></td><td><a id="99c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="99c19" class="tk">ATS_PO_ST</a> <a id="99c29" class="tk">*</a><a id="99c30" class="tk">p_3_AccTarSel_ATS_PO_ST_2</a>;</td></tr>
+<tr name="100" id="100">
+<td><a id="l100" class='ln'>100</a></td><td><a id="100c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="100c19" class="tk">real32_T</a> <a id="100c28" class="tk">*</a><a id="100c29" class="tk">p_3_AccTarSel_real32_T_3</a>;</td></tr>
+<tr name="101" id="101">
+<td><a id="l101" class='ln'>101</a></td><td><a id="101c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="101c19" class="tk">int32_T</a> <a id="101c27" class="tk">*</a><a id="101c28" class="tk">p_3_AccTarSel_int32_T_4</a>;</td></tr>
+<tr name="102" id="102">
+<td><a id="l102" class='ln'>102</a></td><td><a id="102c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="102c19" class="tk">boolean_T</a> <a id="102c29" class="tk">*</a><a id="102c30" class="tk">p_3_AccTarSel_boolean_T_5</a>;</td></tr>
+<tr name="103" id="103">
+<td><a id="l103" class='ln'>103</a></td><td><a id="103c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="103c19" class="tk">uint8_T</a> <a id="103c27" class="tk">*</a><a id="103c28" class="tk">p_3_AccTarSel_uint8_T_6</a>;</td></tr>
+<tr name="104" id="104">
+<td><a id="l104" class='ln'>104</a></td><td><a id="104c1" class="tk">EXTERN_C</a> <span class="kw">volatile</span> <a id="104c19" class="tk">boolean_T</a> <a id="104c29" class="tk">*</a><a id="104c30" class="tk">p_3_AccTarSel_boolean_T_7</a>;</td></tr>
+<tr name="105" id="105">
+<td><a id="l105" class='ln'>105</a></td><td></td></tr>
+<tr name="106" id="106">
+<td><a id="l106" class='ln'>106</a></td><td><span class="ct">/*</span></td></tr>
+<tr name="107" id="107">
+<td><a id="l107" class='ln'>107</a></td><td><span class="ct"> *  Declare the general function for TRC pointer initialization</span></td></tr>
+<tr name="108" id="108">
+<td><a id="l108" class='ln'>108</a></td><td><span class="ct"> */</span></td></tr>
+<tr name="109" id="109">
+<td><a id="l109" class='ln'>109</a></td><td><a id="109c1" class="tk">EXTERN_C</a> <span class="kw">void</span> <a id="109c15" class="tk">AccTarSel_rti_init_trc_pointers</a>(<span class="kw">void</span>);</td></tr>
+<tr name="110" id="110">
+<td><a id="l110" class='ln'>110</a></td><td></td></tr>
+<tr name="111" id="111">
+<td><a id="l111" class='ln'>111</a></td><td><span class="pp">#endif</span>                                 <span class="ct">/* RTI_HEADER_AccTarSel_trc_ptr_h_ */</span></td></tr>
+<tr name="112" id="112">
+<td><a id="l112" class='ln'>112</a></td><td></td></tr>
+</table>
+</pre>
+</body>
+</html>

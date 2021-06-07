@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="./js/coder_app.js"></script>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="./rtwreport_utils.js"></script>
+<script type="text/javascript" src="./rtwannotate.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/coder_app.css"/>
+</head>
+<body onload="srcFileOnload();">
+<pre id="code">
+<table class="code" id="codeTbl">
+<tr name="1" id="1">
+<td><a id="l1" class='ln'>1</a></td><td><span class="pp">#include "TOSTruckEvasion.h"</span></td></tr>
+<tr name="2" id="2">
+<td><a id="l2" class='ln'>2</a></td><td></td></tr>
+<tr name="3" id="3">
+<td><a id="l3" class='ln'>3</a></td><td><a id="3c1" class="tk">TOS_TRUCK_EVASION</a>::<a id="3c20" class="tk">TOS_TRUCK_EVASION</a>()<a id="3c39" class="tk">:</a></td></tr>
+<tr name="4" id="4">
+<td><a id="l4" class='ln'>4</a></td><td>	<a id="4c2" class="tk">m_tar_obj_l_st</a>(),</td></tr>
+<tr name="5" id="5">
+<td><a id="l5" class='ln'>5</a></td><td>	<a id="5c2" class="tk">m_tar_obj_r_st</a>(),</td></tr>
+<tr name="6" id="6">
+<td><a id="l6" class='ln'>6</a></td><td>	<a id="6c2" class="tk">m_TE_Flag</a>(<a id="6c12" class="tk">NULL_UN8</a>)</td></tr>
+<tr name="7" id="7">
+<td><a id="l7" class='ln'>7</a></td><td><span class="br">{</span></td></tr>
+<tr name="8" id="8">
+<td><a id="l8" class='ln'>8</a></td><td></td></tr>
+<tr name="9" id="9">
+<td><a id="l9" class='ln'>9</a></td><td><span class="br">}</span></td></tr>
+<tr name="10" id="10">
+<td><a id="l10" class='ln'>10</a></td><td></td></tr>
+<tr name="11" id="11">
+<td><a id="l11" class='ln'>11</a></td><td><span class="kw">void</span> <a id="11c6" class="tk">TOS_TRUCK_EVASION</a>::<a id="11c25" class="tk">Init</a>()</td></tr>
+<tr name="12" id="12">
+<td><a id="l12" class='ln'>12</a></td><td><span class="br">{</span></td></tr>
+<tr name="13" id="13">
+<td><a id="l13" class='ln'>13</a></td><td>	<a id="13c2" class="tk">m_tar_obj_l_st</a>.<a id="13c17" class="tk">available_b</a> = false;</td></tr>
+<tr name="14" id="14">
+<td><a id="l14" class='ln'>14</a></td><td>	<a id="14c2" class="tk">m_tar_obj_l_st</a>.<a id="14c17" class="tk">dx</a> = <a id="14c22" class="tk">MAX_F</a>;</td></tr>
+<tr name="15" id="15">
+<td><a id="l15" class='ln'>15</a></td><td>	<a id="15c2" class="tk">m_tar_obj_l_st</a>.<a id="15c17" class="tk">dy</a> = <a id="15c22" class="tk">MAX_F</a>;</td></tr>
+<tr name="16" id="16">
+<td><a id="l16" class='ln'>16</a></td><td>	<a id="16c2" class="tk">m_tar_obj_l_st</a>.<a id="16c17" class="tk">id</a> = <a id="16c22" class="tk">MAX_UN8</a>;</td></tr>
+<tr name="17" id="17">
+<td><a id="l17" class='ln'>17</a></td><td>	<a id="17c2" class="tk">m_tar_obj_l_st</a>.<a id="17c17" class="tk">index</a> = <a id="17c25" class="tk">MAX_UN8</a>;</td></tr>
+<tr name="18" id="18">
+<td><a id="l18" class='ln'>18</a></td><td>	<a id="18c2" class="tk">m_tar_obj_l_st</a>.<a id="18c17" class="tk">vx</a> = <a id="18c22" class="tk">MAX_F</a>;</td></tr>
+<tr name="19" id="19">
+<td><a id="l19" class='ln'>19</a></td><td>	<a id="19c2" class="tk">m_tar_obj_l_st</a>.<a id="19c17" class="tk">vy</a> = <a id="19c22" class="tk">MAX_F</a>;</td></tr>
+<tr name="20" id="20">
+<td><a id="l20" class='ln'>20</a></td><td>	<a id="20c2" class="tk">m_tar_obj_r_st</a>.<a id="20c17" class="tk">available_b</a> = false;</td></tr>
+<tr name="21" id="21">
+<td><a id="l21" class='ln'>21</a></td><td>	<a id="21c2" class="tk">m_tar_obj_r_st</a>.<a id="21c17" class="tk">dx</a> = <a id="21c22" class="tk">MAX_F</a>;</td></tr>
+<tr name="22" id="22">
+<td><a id="l22" class='ln'>22</a></td><td>	<a id="22c2" class="tk">m_tar_obj_r_st</a>.<a id="22c17" class="tk">dy</a> = <a id="22c22" class="tk">MAX_F</a>;</td></tr>
+<tr name="23" id="23">
+<td><a id="l23" class='ln'>23</a></td><td>	<a id="23c2" class="tk">m_tar_obj_r_st</a>.<a id="23c17" class="tk">id</a> = <a id="23c22" class="tk">MAX_UN8</a>;</td></tr>
+<tr name="24" id="24">
+<td><a id="l24" class='ln'>24</a></td><td>	<a id="24c2" class="tk">m_tar_obj_r_st</a>.<a id="24c17" class="tk">index</a> = <a id="24c25" class="tk">MAX_UN8</a>;</td></tr>
+<tr name="25" id="25">
+<td><a id="l25" class='ln'>25</a></td><td>	<a id="25c2" class="tk">m_tar_obj_r_st</a>.<a id="25c17" class="tk">vx</a> = <a id="25c22" class="tk">MAX_F</a>;</td></tr>
+<tr name="26" id="26">
+<td><a id="l26" class='ln'>26</a></td><td>	<a id="26c2" class="tk">m_tar_obj_r_st</a>.<a id="26c17" class="tk">vy</a> = <a id="26c22" class="tk">MAX_F</a>;</td></tr>
+<tr name="27" id="27">
+<td><a id="l27" class='ln'>27</a></td><td>	<a id="27c2" class="tk">m_TE_Flag</a> = <a id="27c14" class="tk">NULL_UN8</a>;</td></tr>
+<tr name="28" id="28">
+<td><a id="l28" class='ln'>28</a></td><td></td></tr>
+<tr name="29" id="29">
+<td><a id="l29" class='ln'>29</a></td><td><span class="br">}</span></td></tr>
+<tr name="30" id="30">
+<td><a id="l30" class='ln'>30</a></td><td></td></tr>
+<tr name="31" id="31">
+<td><a id="l31" class='ln'>31</a></td><td><span class="kw">void</span> <a id="31c6" class="tk">TOS_TRUCK_EVASION</a>::<a id="31c25" class="tk">Calc</a>(<a id="31c30" class="tk">FUSION_OBJ_OUTPUT_ST</a><a id="31c50" class="tk">&amp;</a> <a id="31c52" class="tk">fus_obj_output_st</a>,<a id="31c70" class="tk">TOS_OBJ_PROB_WITHIN_LANE</a><a id="31c94" class="tk">&amp;</a> <a id="31c96" class="tk">t_tos_obj_within_lane_st</a>, <a id="31c122" class="tk">PROB_EGO_VEHICLE_WITHIN_LANE_ST</a><a id="31c153" class="tk">&amp;</a> <a id="31c155" class="tk">t_probEgoVehicleWithinLane_st</a>)</td></tr>
+<tr name="32" id="32">
+<td><a id="l32" class='ln'>32</a></td><td><span class="br">{</span></td></tr>
+<tr name="33" id="33">
+<td><a id="l33" class='ln'>33</a></td><td>	<a id="33c2" class="tk">LeftSide_Calc</a>(<a id="33c16" class="tk">fus_obj_output_st</a>, <a id="33c35" class="tk">t_tos_obj_within_lane_st</a>, <a id="33c61" class="tk">t_probEgoVehicleWithinLane_st</a>);</td></tr>
+<tr name="34" id="34">
+<td><a id="l34" class='ln'>34</a></td><td>	<a id="34c2" class="tk">RightSide_Calc</a>( <a id="34c18" class="tk">fus_obj_output_st</a>,<a id="34c36" class="tk">t_tos_obj_within_lane_st</a>, <a id="34c62" class="tk">t_probEgoVehicleWithinLane_st</a>);</td></tr>
+<tr name="35" id="35">
+<td><a id="l35" class='ln'>35</a></td><td>	<span class="kw">if</span> ((true <a id="35c12" class="tk">==</a> <a id="35c15" class="tk">m_tar_obj_l_st</a>.<a id="35c30" class="tk">available_b</a>) <a id="35c43" class="tk">&amp;&amp;</a></td></tr>
+<tr name="36" id="36">
+<td><a id="l36" class='ln'>36</a></td><td>		(true <a id="36c9" class="tk">==</a> <a id="36c12" class="tk">m_tar_obj_r_st</a>.<a id="36c27" class="tk">available_b</a>)</td></tr>
+<tr name="37" id="37">
+<td><a id="l37" class='ln'>37</a></td><td>		)</td></tr>
+<tr name="38" id="38">
+<td><a id="l38" class='ln'>38</a></td><td>	<span class="br">{</span></td></tr>
+<tr name="39" id="39">
+<td><a id="l39" class='ln'>39</a></td><td>		<a id="39c3" class="tk">m_TE_Flag</a> = <a id="39c15" class="tk">TE_LEFT_AND_RIGHT</a>;</td></tr>
+<tr name="40" id="40">
+<td><a id="l40" class='ln'>40</a></td><td>	<span class="br">}</span></td></tr>
+<tr name="41" id="41">
+<td><a id="l41" class='ln'>41</a></td><td>	<span class="kw">else</span> <span class="kw">if</span> (true <a id="41c16" class="tk">==</a> <a id="41c19" class="tk">m_tar_obj_l_st</a>.<a id="41c34" class="tk">available_b</a>)</td></tr>
+<tr name="42" id="42">
+<td><a id="l42" class='ln'>42</a></td><td>	<span class="br">{</span></td></tr>
+<tr name="43" id="43">
+<td><a id="l43" class='ln'>43</a></td><td>		<a id="43c3" class="tk">m_TE_Flag</a> = <a id="43c15" class="tk">TE_LEFT</a>;</td></tr>
+<tr name="44" id="44">
+<td><a id="l44" class='ln'>44</a></td><td>	<span class="br">}</span></td></tr>
+<tr name="45" id="45">
+<td><a id="l45" class='ln'>45</a></td><td>	<span class="kw">else</span> <span class="kw">if</span> (true <a id="45c16" class="tk">==</a> <a id="45c19" class="tk">m_tar_obj_r_st</a>.<a id="45c34" class="tk">available_b</a>)</td></tr>
+<tr name="46" id="46">
+<td><a id="l46" class='ln'>46</a></td><td>	<span class="br">{</span></td></tr>
+<tr name="47" id="47">
+<td><a id="l47" class='ln'>47</a></td><td>		<a id="47c3" class="tk">m_TE_Flag</a> = <a id="47c15" class="tk">TE_RIGHT</a>;</td></tr>
+<tr name="48" id="48">
+<td><a id="l48" class='ln'>48</a></td><td>	<span class="br">}</span></td></tr>
+<tr name="49" id="49">
+<td><a id="l49" class='ln'>49</a></td><td>	<span class="kw">else</span></td></tr>
+<tr name="50" id="50">
+<td><a id="l50" class='ln'>50</a></td><td>	<span class="br">{</span></td></tr>
+<tr name="51" id="51">
+<td><a id="l51" class='ln'>51</a></td><td>		<a id="51c3" class="tk">m_TE_Flag</a> = <a id="51c15" class="tk">TE_INVALID</a>;</td></tr>
+<tr name="52" id="52">
+<td><a id="l52" class='ln'>52</a></td><td>	<span class="br">}</span></td></tr>
+<tr name="53" id="53">
+<td><a id="l53" class='ln'>53</a></td><td><span class="br">}</span></td></tr>
+<tr name="54" id="54">
+<td><a id="l54" class='ln'>54</a></td><td><span class="kw">void</span> <a id="54c6" class="tk">TOS_TRUCK_EVASION</a>::<a id="54c25" class="tk">LeftSide_Calc</a>(<a id="54c39" class="tk">FUSION_OBJ_OUTPUT_ST</a><a id="54c59" class="tk">&amp;</a> <a id="54c61" class="tk">fus_obj_output_st</a>, <a id="54c80" class="tk">TOS_OBJ_PROB_WITHIN_LANE</a><a id="54c104" class="tk">&amp;</a> <a id="54c106" class="tk">t_tos_obj_within_lane_st</a>, <a id="54c132" class="tk">PROB_EGO_VEHICLE_WITHIN_LANE_ST</a><a id="54c163" class="tk">&amp;</a> <a id="54c165" class="tk">t_probEgoVehicleWithinLane_st</a>)</td></tr>
+<tr name="55" id="55">
+<td><a id="l55" class='ln'>55</a></td><td><span class="br">{</span></td></tr>
+<tr name="56" id="56">
+<td><a id="l56" class='ln'>56</a></td><td>	<span class="ct">//req:</span></td></tr>
+<tr name="57" id="57">
+<td><a id="l57" class='ln'>57</a></td><td>	<span class="ct">//0:truck</span></td></tr>
+<tr name="58" id="58">
+<td><a id="l58" class='ln'>58</a></td><td>	<span class="ct">//1:within left lane</span></td></tr>
+<tr name="59" id="59">
+<td><a id="l59" class='ln'>59</a></td><td>	<span class="ct">//2:-20 &lt;&lt; dx &lt; 100</span></td></tr>
+<tr name="60" id="60">
+<td><a id="l60" class='ln'>60</a></td><td>	<span class="ct">//2: TTC &lt; 10s</span></td></tr>
+<tr name="61" id="61">
+<td><a id="l61" class='ln'>61</a></td><td>	<a id="61c2" class="tk">uint8_t</a> <a id="61c10" class="tk">t_index</a> = 0;</td></tr>
+<tr name="62" id="62">
+<td><a id="l62" class='ln'>62</a></td><td>	<span class="kw">bool</span> <a id="62c7" class="tk">t_nofind</a> = true;</td></tr>
+<tr name="63" id="63">
+<td><a id="l63" class='ln'>63</a></td><td>	<span class="kw">for</span> (<a id="63c7" class="tk">uint8_t</a> <a id="63c15" class="tk">t_i</a> = 0; (<a id="63c25" class="tk">t_i</a> <a id="63c29" class="tk">&lt;</a> <a id="63c31" class="tk">FUS_MAX_OBJ_NUM</a>)<a id="63c47" class="tk">&amp;&amp;</a>(true <a id="63c55" class="tk">==</a> <a id="63c58" class="tk">t_nofind</a>); <a id="63c69" class="tk">t_i</a><a id="63c72" class="tk">++</a>)</td></tr>
+<tr name="64" id="64">
+<td><a id="l64" class='ln'>64</a></td><td>	<span class="br">{</span></td></tr>
+<tr name="65" id="65">
+<td><a id="l65" class='ln'>65</a></td><td>		<a id="65c3" class="tk">t_index</a> = <a id="65c13" class="tk">t_tos_obj_within_lane_st</a>.<a id="65c38" class="tk">m_obj_list_index_un8</a>[<a id="65c59" class="tk">t_i</a>];</td></tr>
+<tr name="66" id="66">
+<td><a id="l66" class='ln'>66</a></td><td>		<span class="kw">if</span> (true <a id="66c12" class="tk">==</a> <a id="66c15" class="tk">m_tar_obj_l_st</a>.<a id="66c30" class="tk">available_b</a>)</td></tr>
+<tr name="67" id="67">
+<td><a id="l67" class='ln'>67</a></td><td>		<span class="br">{</span></td></tr>
+<tr name="68" id="68">
+<td><a id="l68" class='ln'>68</a></td><td>			<span class="kw">if</span> ((<a id="68c9" class="tk">t_index</a> <a id="68c17" class="tk">&lt;</a> <a id="68c19" class="tk">FUS_MAX_OBJ_NUM</a>) <a id="68c36" class="tk">&amp;&amp;</a></td></tr>
+<tr name="69" id="69">
+<td><a id="l69" class='ln'>69</a></td><td>				(<a id="69c6" class="tk">LEFT_LANE</a> <a id="69c16" class="tk">==</a> <a id="69c19" class="tk">t_tos_obj_within_lane_st</a>.<a id="69c44" class="tk">m_withinLaneId</a>[<a id="69c59" class="tk">t_index</a>]) <a id="69c69" class="tk">&amp;&amp;</a></td></tr>
+<tr name="70" id="70">
+<td><a id="l70" class='ln'>70</a></td><td>				(<a id="70c6" class="tk">uint8_t</a>(<a id="70c14" class="tk">TRUCK</a>) <a id="70c21" class="tk">==</a> <a id="70c24" class="tk">fus_obj_output_st</a>.<a id="70c42" class="tk">objects</a>[<a id="70c50" class="tk">t_index</a>].<a id="70c59" class="tk">obj_information</a>.<a id="70c75" class="tk">type</a>) <a id="70c81" class="tk">&amp;&amp;</a></td></tr>
+<tr name="71" id="71">
+<td><a id="l71" class='ln'>71</a></td><td>				(<a id="71c6" class="tk">fus_obj_output_st</a>.<a id="71c24" class="tk">objects</a>[<a id="71c32" class="tk">t_index</a>].<a id="71c41" class="tk">obj_estimate</a>.<a id="71c54" class="tk">longPosition</a> <a id="71c67" class="tk">&lt;</a> 100 <a id="71c73" class="tk">+</a> 10) <a id="71c79" class="tk">&amp;&amp;</a></td></tr>
+<tr name="72" id="72">
+<td><a id="l72" class='ln'>72</a></td><td>				(<a id="72c6" class="tk">fus_obj_output_st</a>.<a id="72c24" class="tk">objects</a>[<a id="72c32" class="tk">t_index</a>].<a id="72c41" class="tk">obj_estimate</a>.<a id="72c54" class="tk">longPosition</a> <a id="72c67" class="tk">&gt;</a> <a id="72c69" class="tk">-</a>(20 <a id="72c74" class="tk">+</a> 5)) <a id="72c80" class="tk">&amp;&amp;</a></td></tr>
+<tr name="73" id="73">
+<td><a id="l73" class='ln'>73</a></td><td>				(<a id="73c6" class="tk">t_tos_obj_within_lane_st</a>.<a id="73c31" class="tk">m_tarObj_arr_st</a>[<a id="73c47" class="tk">t_index</a>].<a id="73c56" class="tk">TTC_f</a> <a id="73c62" class="tk">&lt;</a> 10)</td></tr>
+<tr name="74" id="74">
+<td><a id="l74" class='ln'>74</a></td><td>				)</td></tr>
+<tr name="75" id="75">
+<td><a id="l75" class='ln'>75</a></td><td>			<span class="br">{</span></td></tr>
+<tr name="76" id="76">
+<td><a id="l76" class='ln'>76</a></td><td>				<a id="76c5" class="tk">t_nofind</a> = false;</td></tr>
+<tr name="77" id="77">
+<td><a id="l77" class='ln'>77</a></td><td></td></tr>
+<tr name="78" id="78">
+<td><a id="l78" class='ln'>78</a></td><td>			<span class="br">}</span></td></tr>
+<tr name="79" id="79">
+<td><a id="l79" class='ln'>79</a></td><td>		<span class="br">}</span></td></tr>
+<tr name="80" id="80">
+<td><a id="l80" class='ln'>80</a></td><td>		<span class="kw">else</span></td></tr>
+<tr name="81" id="81">
+<td><a id="l81" class='ln'>81</a></td><td>		<span class="br">{</span></td></tr>
+<tr name="82" id="82">
+<td><a id="l82" class='ln'>82</a></td><td>			<span class="kw">if</span> ((<a id="82c9" class="tk">t_index</a> <a id="82c17" class="tk">&lt;</a> <a id="82c19" class="tk">FUS_MAX_OBJ_NUM</a>) <a id="82c36" class="tk">&amp;&amp;</a></td></tr>
+<tr name="83" id="83">
+<td><a id="l83" class='ln'>83</a></td><td>				(<a id="83c6" class="tk">LEFT_LANE</a> <a id="83c16" class="tk">==</a> <a id="83c19" class="tk">t_tos_obj_within_lane_st</a>.<a id="83c44" class="tk">m_withinLaneId</a>[<a id="83c59" class="tk">t_index</a>]) <a id="83c69" class="tk">&amp;&amp;</a></td></tr>
+<tr name="84" id="84">
+<td><a id="l84" class='ln'>84</a></td><td>				(<a id="84c6" class="tk">uint8_t</a>(<a id="84c14" class="tk">TRUCK</a>) <a id="84c21" class="tk">==</a> <a id="84c24" class="tk">fus_obj_output_st</a>.<a id="84c42" class="tk">objects</a>[<a id="84c50" class="tk">t_index</a>].<a id="84c59" class="tk">obj_information</a>.<a id="84c75" class="tk">type</a>) <a id="84c81" class="tk">&amp;&amp;</a></td></tr>
+<tr name="85" id="85">
+<td><a id="l85" class='ln'>85</a></td><td>				(<a id="85c6" class="tk">fus_obj_output_st</a>.<a id="85c24" class="tk">objects</a>[<a id="85c32" class="tk">t_index</a>].<a id="85c41" class="tk">obj_estimate</a>.<a id="85c54" class="tk">longPosition</a> <a id="85c67" class="tk">&lt;</a> 100) <a id="85c74" class="tk">&amp;&amp;</a></td></tr>
+<tr name="86" id="86">
+<td><a id="l86" class='ln'>86</a></td><td>				(<a id="86c6" class="tk">fus_obj_output_st</a>.<a id="86c24" class="tk">objects</a>[<a id="86c32" class="tk">t_index</a>].<a id="86c41" class="tk">obj_estimate</a>.<a id="86c54" class="tk">longPosition</a> <a id="86c67" class="tk">&gt;</a> <a id="86c69" class="tk">-</a>20) <a id="86c74" class="tk">&amp;&amp;</a></td></tr>
+<tr name="87" id="87">
+<td><a id="l87" class='ln'>87</a></td><td>				(<a id="87c6" class="tk">t_tos_obj_within_lane_st</a>.<a id="87c31" class="tk">m_tarObj_arr_st</a>[<a id="87c47" class="tk">t_index</a>].<a id="87c56" class="tk">TTC_f</a> <a id="87c62" class="tk">&lt;</a> 9)</td></tr>
+<tr name="88" id="88">
+<td><a id="l88" class='ln'>88</a></td><td>				)</td></tr>
+<tr name="89" id="89">
+<td><a id="l89" class='ln'>89</a></td><td>			<span class="br">{</span></td></tr>
+<tr name="90" id="90">
+<td><a id="l90" class='ln'>90</a></td><td>				<a id="90c5" class="tk">t_nofind</a> = false;</td></tr>
+<tr name="91" id="91">
+<td><a id="l91" class='ln'>91</a></td><td></td></tr>
+<tr name="92" id="92">
+<td><a id="l92" class='ln'>92</a></td><td>			<span class="br">}</span></td></tr>
+<tr name="93" id="93">
+<td><a id="l93" class='ln'>93</a></td><td>		<span class="br">}</span></td></tr>
+<tr name="94" id="94">
+<td><a id="l94" class='ln'>94</a></td><td>		</td></tr>
+<tr name="95" id="95">
+<td><a id="l95" class='ln'>95</a></td><td>	<span class="br">}</span></td></tr>
+<tr name="96" id="96">
+<td><a id="l96" class='ln'>96</a></td><td></td></tr>
+<tr name="97" id="97">
+<td><a id="l97" class='ln'>97</a></td><td>	<span class="kw">if</span> (false <a id="97c12" class="tk">==</a> <a id="97c15" class="tk">t_nofind</a>)</td></tr>
+<tr name="98" id="98">
+<td><a id="l98" class='ln'>98</a></td><td>	<span class="br">{</span></td></tr>
+<tr name="99" id="99">
+<td><a id="l99" class='ln'>99</a></td><td>		<a id="99c3" class="tk">m_tar_obj_l_st</a>.<a id="99c18" class="tk">available_b</a> = true;</td></tr>
+<tr name="100" id="100">
+<td><a id="l100" class='ln'>100</a></td><td>		<a id="100c3" class="tk">m_tar_obj_l_st</a>.<a id="100c18" class="tk">dx</a> = <a id="100c23" class="tk">fus_obj_output_st</a>.<a id="100c41" class="tk">objects</a>[<a id="100c49" class="tk">t_index</a>].<a id="100c58" class="tk">obj_estimate</a>.<a id="100c71" class="tk">longPosition</a>;</td></tr>
+<tr name="101" id="101">
+<td><a id="l101" class='ln'>101</a></td><td>		<a id="101c3" class="tk">m_tar_obj_l_st</a>.<a id="101c18" class="tk">dy</a> = <a id="101c23" class="tk">fus_obj_output_st</a>.<a id="101c41" class="tk">objects</a>[<a id="101c49" class="tk">t_index</a>].<a id="101c58" class="tk">obj_estimate</a>.<a id="101c71" class="tk">latPosition</a>;</td></tr>
+<tr name="102" id="102">
+<td><a id="l102" class='ln'>102</a></td><td>		<a id="102c3" class="tk">m_tar_obj_l_st</a>.<a id="102c18" class="tk">id</a> = <a id="102c23" class="tk">fus_obj_output_st</a>.<a id="102c41" class="tk">objects</a>[<a id="102c49" class="tk">t_index</a>].<a id="102c58" class="tk">obj_property</a>.<a id="102c71" class="tk">id</a>;</td></tr>
+<tr name="103" id="103">
+<td><a id="l103" class='ln'>103</a></td><td>		<a id="103c3" class="tk">m_tar_obj_l_st</a>.<a id="103c18" class="tk">index</a> = <a id="103c26" class="tk">t_index</a>;</td></tr>
+<tr name="104" id="104">
+<td><a id="l104" class='ln'>104</a></td><td>		<a id="104c3" class="tk">m_tar_obj_l_st</a>.<a id="104c18" class="tk">vx</a> = <a id="104c23" class="tk">fus_obj_output_st</a>.<a id="104c41" class="tk">objects</a>[<a id="104c49" class="tk">t_index</a>].<a id="104c58" class="tk">obj_estimate</a>.<a id="104c71" class="tk">longAbsoluteVelocity</a>;</td></tr>
+<tr name="105" id="105">
+<td><a id="l105" class='ln'>105</a></td><td>		<a id="105c3" class="tk">m_tar_obj_l_st</a>.<a id="105c18" class="tk">vy</a> = <a id="105c23" class="tk">fus_obj_output_st</a>.<a id="105c41" class="tk">objects</a>[<a id="105c49" class="tk">t_index</a>].<a id="105c58" class="tk">obj_estimate</a>.<a id="105c71" class="tk">latAbsoluteVelocity</a>;</td></tr>
+<tr name="106" id="106">
+<td><a id="l106" class='ln'>106</a></td><td>	<span class="br">}</span></td></tr>
+<tr name="107" id="107">
+<td><a id="l107" class='ln'>107</a></td><td>	<span class="kw">else</span></td></tr>
+<tr name="108" id="108">
+<td><a id="l108" class='ln'>108</a></td><td>	<span class="br">{</span></td></tr>
+<tr name="109" id="109">
+<td><a id="l109" class='ln'>109</a></td><td>		<a id="109c3" class="tk">m_tar_obj_l_st</a>.<a id="109c18" class="tk">available_b</a> = false;</td></tr>
+<tr name="110" id="110">
+<td><a id="l110" class='ln'>110</a></td><td>		<a id="110c3" class="tk">m_tar_obj_l_st</a>.<a id="110c18" class="tk">dx</a> = <a id="110c23" class="tk">MAX_F</a>;</td></tr>
+<tr name="111" id="111">
+<td><a id="l111" class='ln'>111</a></td><td>		<a id="111c3" class="tk">m_tar_obj_l_st</a>.<a id="111c18" class="tk">dy</a> = <a id="111c23" class="tk">MAX_F</a>;</td></tr>
+<tr name="112" id="112">
+<td><a id="l112" class='ln'>112</a></td><td>		<a id="112c3" class="tk">m_tar_obj_l_st</a>.<a id="112c18" class="tk">id</a> = <a id="112c23" class="tk">MAX_UN8</a>;</td></tr>
+<tr name="113" id="113">
+<td><a id="l113" class='ln'>113</a></td><td>		<a id="113c3" class="tk">m_tar_obj_l_st</a>.<a id="113c18" class="tk">index</a> = <a id="113c26" class="tk">MAX_UN8</a>;</td></tr>
+<tr name="114" id="114">
+<td><a id="l114" class='ln'>114</a></td><td>		<a id="114c3" class="tk">m_tar_obj_l_st</a>.<a id="114c18" class="tk">vx</a> = <a id="114c23" class="tk">MAX_F</a>;</td></tr>
+<tr name="115" id="115">
+<td><a id="l115" class='ln'>115</a></td><td>		<a id="115c3" class="tk">m_tar_obj_l_st</a>.<a id="115c18" class="tk">vy</a> = <a id="115c23" class="tk">MAX_F</a>;</td></tr>
+<tr name="116" id="116">
+<td><a id="l116" class='ln'>116</a></td><td>	<span class="br">}</span></td></tr>
+<tr name="117" id="117">
+<td><a id="l117" class='ln'>117</a></td><td></td></tr>
+<tr name="118" id="118">
+<td><a id="l118" class='ln'>118</a></td><td>	</td></tr>
+<tr name="119" id="119">
+<td><a id="l119" class='ln'>119</a></td><td></td></tr>
+<tr name="120" id="120">
+<td><a id="l120" class='ln'>120</a></td><td><span class="br">}</span></td></tr>
+<tr name="121" id="121">
+<td><a id="l121" class='ln'>121</a></td><td><span class="kw">void</span> <a id="121c6" class="tk">TOS_TRUCK_EVASION</a>::<a id="121c25" class="tk">RightSide_Calc</a>(<a id="121c40" class="tk">FUSION_OBJ_OUTPUT_ST</a><a id="121c60" class="tk">&amp;</a> <a id="121c62" class="tk">fus_obj_output_st</a>, <a id="121c81" class="tk">TOS_OBJ_PROB_WITHIN_LANE</a><a id="121c105" class="tk">&amp;</a> <a id="121c107" class="tk">t_tos_obj_within_lane_st</a>, <a id="121c133" class="tk">PROB_EGO_VEHICLE_WITHIN_LANE_ST</a><a id="121c164" class="tk">&amp;</a> <a id="121c166" class="tk">t_probEgoVehicleWithinLane_st</a>)</td></tr>
+<tr name="122" id="122">
+<td><a id="l122" class='ln'>122</a></td><td><span class="br">{</span></td></tr>
+<tr name="123" id="123">
+<td><a id="l123" class='ln'>123</a></td><td>	<a id="123c2" class="tk">uint8_t</a> <a id="123c10" class="tk">t_index</a> = 0;</td></tr>
+<tr name="124" id="124">
+<td><a id="l124" class='ln'>124</a></td><td>	<span class="kw">bool</span> <a id="124c7" class="tk">t_nofind</a> = true;</td></tr>
+<tr name="125" id="125">
+<td><a id="l125" class='ln'>125</a></td><td>	<span class="kw">for</span> (<a id="125c7" class="tk">uint8_t</a> <a id="125c15" class="tk">t_i</a> = 0; (<a id="125c25" class="tk">t_i</a> <a id="125c29" class="tk">&lt;</a> <a id="125c31" class="tk">FUS_MAX_OBJ_NUM</a>) <a id="125c48" class="tk">&amp;&amp;</a> (true <a id="125c57" class="tk">==</a> <a id="125c60" class="tk">t_nofind</a>); <a id="125c71" class="tk">t_i</a><a id="125c74" class="tk">++</a>)</td></tr>
+<tr name="126" id="126">
+<td><a id="l126" class='ln'>126</a></td><td>	<span class="br">{</span></td></tr>
+<tr name="127" id="127">
+<td><a id="l127" class='ln'>127</a></td><td>		<a id="127c3" class="tk">t_index</a> = <a id="127c13" class="tk">t_tos_obj_within_lane_st</a>.<a id="127c38" class="tk">m_obj_list_index_un8</a>[<a id="127c59" class="tk">t_i</a>];</td></tr>
+<tr name="128" id="128">
+<td><a id="l128" class='ln'>128</a></td><td>		<span class="kw">if</span> (true <a id="128c12" class="tk">==</a> <a id="128c15" class="tk">m_tar_obj_r_st</a>.<a id="128c30" class="tk">available_b</a>)</td></tr>
+<tr name="129" id="129">
+<td><a id="l129" class='ln'>129</a></td><td>		<span class="br">{</span></td></tr>
+<tr name="130" id="130">
+<td><a id="l130" class='ln'>130</a></td><td>			<span class="kw">if</span> ((<a id="130c9" class="tk">t_index</a> <a id="130c17" class="tk">&lt;</a> <a id="130c19" class="tk">FUS_MAX_OBJ_NUM</a>) <a id="130c36" class="tk">&amp;&amp;</a></td></tr>
+<tr name="131" id="131">
+<td><a id="l131" class='ln'>131</a></td><td>				(<a id="131c6" class="tk">RIGHT_LANE</a> <a id="131c17" class="tk">==</a> <a id="131c20" class="tk">t_tos_obj_within_lane_st</a>.<a id="131c45" class="tk">m_withinLaneId</a>[<a id="131c60" class="tk">t_index</a>]) <a id="131c70" class="tk">&amp;&amp;</a></td></tr>
+<tr name="132" id="132">
+<td><a id="l132" class='ln'>132</a></td><td>				(<a id="132c6" class="tk">uint8_t</a>(<a id="132c14" class="tk">TRUCK</a>) <a id="132c21" class="tk">==</a> <a id="132c24" class="tk">fus_obj_output_st</a>.<a id="132c42" class="tk">objects</a>[<a id="132c50" class="tk">t_index</a>].<a id="132c59" class="tk">obj_information</a>.<a id="132c75" class="tk">type</a>) <a id="132c81" class="tk">&amp;&amp;</a></td></tr>
+<tr name="133" id="133">
+<td><a id="l133" class='ln'>133</a></td><td>				(<a id="133c6" class="tk">fus_obj_output_st</a>.<a id="133c24" class="tk">objects</a>[<a id="133c32" class="tk">t_index</a>].<a id="133c41" class="tk">obj_estimate</a>.<a id="133c54" class="tk">longPosition</a> <a id="133c67" class="tk">&lt;</a> 100<a id="133c72" class="tk">+</a>10) <a id="133c77" class="tk">&amp;&amp;</a></td></tr>
+<tr name="134" id="134">
+<td><a id="l134" class='ln'>134</a></td><td>				(<a id="134c6" class="tk">fus_obj_output_st</a>.<a id="134c24" class="tk">objects</a>[<a id="134c32" class="tk">t_index</a>].<a id="134c41" class="tk">obj_estimate</a>.<a id="134c54" class="tk">longPosition</a> <a id="134c67" class="tk">&gt;</a> <a id="134c69" class="tk">-</a>(20<a id="134c73" class="tk">+</a>5)) <a id="134c78" class="tk">&amp;&amp;</a></td></tr>
+<tr name="135" id="135">
+<td><a id="l135" class='ln'>135</a></td><td>				(<a id="135c6" class="tk">t_tos_obj_within_lane_st</a>.<a id="135c31" class="tk">m_tarObj_arr_st</a>[<a id="135c47" class="tk">t_index</a>].<a id="135c56" class="tk">TTC_f</a> <a id="135c62" class="tk">&lt;</a> 10)</td></tr>
+<tr name="136" id="136">
+<td><a id="l136" class='ln'>136</a></td><td>				)</td></tr>
+<tr name="137" id="137">
+<td><a id="l137" class='ln'>137</a></td><td>			<span class="br">{</span></td></tr>
+<tr name="138" id="138">
+<td><a id="l138" class='ln'>138</a></td><td>				<a id="138c5" class="tk">t_nofind</a> = false;</td></tr>
+<tr name="139" id="139">
+<td><a id="l139" class='ln'>139</a></td><td></td></tr>
+<tr name="140" id="140">
+<td><a id="l140" class='ln'>140</a></td><td>			<span class="br">}</span></td></tr>
+<tr name="141" id="141">
+<td><a id="l141" class='ln'>141</a></td><td>		<span class="br">}</span></td></tr>
+<tr name="142" id="142">
+<td><a id="l142" class='ln'>142</a></td><td>		<span class="kw">else</span></td></tr>
+<tr name="143" id="143">
+<td><a id="l143" class='ln'>143</a></td><td>		<span class="br">{</span></td></tr>
+<tr name="144" id="144">
+<td><a id="l144" class='ln'>144</a></td><td>			<span class="kw">if</span> ((<a id="144c9" class="tk">t_index</a> <a id="144c17" class="tk">&lt;</a> <a id="144c19" class="tk">FUS_MAX_OBJ_NUM</a>) <a id="144c36" class="tk">&amp;&amp;</a></td></tr>
+<tr name="145" id="145">
+<td><a id="l145" class='ln'>145</a></td><td>				(<a id="145c6" class="tk">RIGHT_LANE</a> <a id="145c17" class="tk">==</a> <a id="145c20" class="tk">t_tos_obj_within_lane_st</a>.<a id="145c45" class="tk">m_withinLaneId</a>[<a id="145c60" class="tk">t_index</a>]) <a id="145c70" class="tk">&amp;&amp;</a></td></tr>
+<tr name="146" id="146">
+<td><a id="l146" class='ln'>146</a></td><td>				(<a id="146c6" class="tk">uint8_t</a>(<a id="146c14" class="tk">TRUCK</a>) <a id="146c21" class="tk">==</a> <a id="146c24" class="tk">fus_obj_output_st</a>.<a id="146c42" class="tk">objects</a>[<a id="146c50" class="tk">t_index</a>].<a id="146c59" class="tk">obj_information</a>.<a id="146c75" class="tk">type</a>) <a id="146c81" class="tk">&amp;&amp;</a></td></tr>
+<tr name="147" id="147">
+<td><a id="l147" class='ln'>147</a></td><td>				(<a id="147c6" class="tk">fus_obj_output_st</a>.<a id="147c24" class="tk">objects</a>[<a id="147c32" class="tk">t_index</a>].<a id="147c41" class="tk">obj_estimate</a>.<a id="147c54" class="tk">longPosition</a> <a id="147c67" class="tk">&lt;</a> 100) <a id="147c74" class="tk">&amp;&amp;</a></td></tr>
+<tr name="148" id="148">
+<td><a id="l148" class='ln'>148</a></td><td>				(<a id="148c6" class="tk">fus_obj_output_st</a>.<a id="148c24" class="tk">objects</a>[<a id="148c32" class="tk">t_index</a>].<a id="148c41" class="tk">obj_estimate</a>.<a id="148c54" class="tk">longPosition</a> <a id="148c67" class="tk">&gt;</a> <a id="148c69" class="tk">-</a>20) <a id="148c74" class="tk">&amp;&amp;</a></td></tr>
+<tr name="149" id="149">
+<td><a id="l149" class='ln'>149</a></td><td>				(<a id="149c6" class="tk">t_tos_obj_within_lane_st</a>.<a id="149c31" class="tk">m_tarObj_arr_st</a>[<a id="149c47" class="tk">t_index</a>].<a id="149c56" class="tk">TTC_f</a> <a id="149c62" class="tk">&lt;</a> 9)</td></tr>
+<tr name="150" id="150">
+<td><a id="l150" class='ln'>150</a></td><td>				)</td></tr>
+<tr name="151" id="151">
+<td><a id="l151" class='ln'>151</a></td><td>			<span class="br">{</span></td></tr>
+<tr name="152" id="152">
+<td><a id="l152" class='ln'>152</a></td><td>				<a id="152c5" class="tk">t_nofind</a> = false;</td></tr>
+<tr name="153" id="153">
+<td><a id="l153" class='ln'>153</a></td><td></td></tr>
+<tr name="154" id="154">
+<td><a id="l154" class='ln'>154</a></td><td>			<span class="br">}</span></td></tr>
+<tr name="155" id="155">
+<td><a id="l155" class='ln'>155</a></td><td>		<span class="br">}</span></td></tr>
+<tr name="156" id="156">
+<td><a id="l156" class='ln'>156</a></td><td></td></tr>
+<tr name="157" id="157">
+<td><a id="l157" class='ln'>157</a></td><td>	<span class="br">}</span></td></tr>
+<tr name="158" id="158">
+<td><a id="l158" class='ln'>158</a></td><td></td></tr>
+<tr name="159" id="159">
+<td><a id="l159" class='ln'>159</a></td><td>	<span class="kw">if</span> (false <a id="159c12" class="tk">==</a> <a id="159c15" class="tk">t_nofind</a>)</td></tr>
+<tr name="160" id="160">
+<td><a id="l160" class='ln'>160</a></td><td>	<span class="br">{</span></td></tr>
+<tr name="161" id="161">
+<td><a id="l161" class='ln'>161</a></td><td>		<a id="161c3" class="tk">m_tar_obj_r_st</a>.<a id="161c18" class="tk">available_b</a> = true;</td></tr>
+<tr name="162" id="162">
+<td><a id="l162" class='ln'>162</a></td><td>		<a id="162c3" class="tk">m_tar_obj_r_st</a>.<a id="162c18" class="tk">dx</a> = <a id="162c23" class="tk">fus_obj_output_st</a>.<a id="162c41" class="tk">objects</a>[<a id="162c49" class="tk">t_index</a>].<a id="162c58" class="tk">obj_estimate</a>.<a id="162c71" class="tk">longPosition</a>;</td></tr>
+<tr name="163" id="163">
+<td><a id="l163" class='ln'>163</a></td><td>		<a id="163c3" class="tk">m_tar_obj_r_st</a>.<a id="163c18" class="tk">dy</a> = <a id="163c23" class="tk">fus_obj_output_st</a>.<a id="163c41" class="tk">objects</a>[<a id="163c49" class="tk">t_index</a>].<a id="163c58" class="tk">obj_estimate</a>.<a id="163c71" class="tk">latPosition</a>;</td></tr>
+<tr name="164" id="164">
+<td><a id="l164" class='ln'>164</a></td><td>		<a id="164c3" class="tk">m_tar_obj_r_st</a>.<a id="164c18" class="tk">id</a> = <a id="164c23" class="tk">fus_obj_output_st</a>.<a id="164c41" class="tk">objects</a>[<a id="164c49" class="tk">t_index</a>].<a id="164c58" class="tk">obj_property</a>.<a id="164c71" class="tk">id</a>;</td></tr>
+<tr name="165" id="165">
+<td><a id="l165" class='ln'>165</a></td><td>		<a id="165c3" class="tk">m_tar_obj_r_st</a>.<a id="165c18" class="tk">index</a> = <a id="165c26" class="tk">t_index</a>;</td></tr>
+<tr name="166" id="166">
+<td><a id="l166" class='ln'>166</a></td><td>		<a id="166c3" class="tk">m_tar_obj_r_st</a>.<a id="166c18" class="tk">vx</a> = <a id="166c23" class="tk">fus_obj_output_st</a>.<a id="166c41" class="tk">objects</a>[<a id="166c49" class="tk">t_index</a>].<a id="166c58" class="tk">obj_estimate</a>.<a id="166c71" class="tk">longAbsoluteVelocity</a>;</td></tr>
+<tr name="167" id="167">
+<td><a id="l167" class='ln'>167</a></td><td>		<a id="167c3" class="tk">m_tar_obj_r_st</a>.<a id="167c18" class="tk">vy</a> = <a id="167c23" class="tk">fus_obj_output_st</a>.<a id="167c41" class="tk">objects</a>[<a id="167c49" class="tk">t_index</a>].<a id="167c58" class="tk">obj_estimate</a>.<a id="167c71" class="tk">latAbsoluteVelocity</a>;</td></tr>
+<tr name="168" id="168">
+<td><a id="l168" class='ln'>168</a></td><td>	<span class="br">}</span></td></tr>
+<tr name="169" id="169">
+<td><a id="l169" class='ln'>169</a></td><td>	<span class="kw">else</span></td></tr>
+<tr name="170" id="170">
+<td><a id="l170" class='ln'>170</a></td><td>	<span class="br">{</span></td></tr>
+<tr name="171" id="171">
+<td><a id="l171" class='ln'>171</a></td><td>		<a id="171c3" class="tk">m_tar_obj_r_st</a>.<a id="171c18" class="tk">available_b</a> = false;</td></tr>
+<tr name="172" id="172">
+<td><a id="l172" class='ln'>172</a></td><td>		<a id="172c3" class="tk">m_tar_obj_r_st</a>.<a id="172c18" class="tk">dx</a> = <a id="172c23" class="tk">MAX_F</a>;</td></tr>
+<tr name="173" id="173">
+<td><a id="l173" class='ln'>173</a></td><td>		<a id="173c3" class="tk">m_tar_obj_r_st</a>.<a id="173c18" class="tk">dy</a> = <a id="173c23" class="tk">MAX_F</a>;</td></tr>
+<tr name="174" id="174">
+<td><a id="l174" class='ln'>174</a></td><td>		<a id="174c3" class="tk">m_tar_obj_r_st</a>.<a id="174c18" class="tk">id</a> = <a id="174c23" class="tk">MAX_UN8</a>;</td></tr>
+<tr name="175" id="175">
+<td><a id="l175" class='ln'>175</a></td><td>		<a id="175c3" class="tk">m_tar_obj_r_st</a>.<a id="175c18" class="tk">index</a> = <a id="175c26" class="tk">MAX_UN8</a>;</td></tr>
+<tr name="176" id="176">
+<td><a id="l176" class='ln'>176</a></td><td>		<a id="176c3" class="tk">m_tar_obj_r_st</a>.<a id="176c18" class="tk">vx</a> = <a id="176c23" class="tk">MAX_F</a>;</td></tr>
+<tr name="177" id="177">
+<td><a id="l177" class='ln'>177</a></td><td>		<a id="177c3" class="tk">m_tar_obj_r_st</a>.<a id="177c18" class="tk">vy</a> = <a id="177c23" class="tk">MAX_F</a>;</td></tr>
+<tr name="178" id="178">
+<td><a id="l178" class='ln'>178</a></td><td>	<span class="br">}</span></td></tr>
+<tr name="179" id="179">
+<td><a id="l179" class='ln'>179</a></td><td></td></tr>
+<tr name="180" id="180">
+<td><a id="l180" class='ln'>180</a></td><td><span class="br">}</span></td></tr>
+<tr name="181" id="181">
+<td><a id="l181" class='ln'>181</a></td><td></td></tr>
+<tr name="182" id="182">
+<td><a id="l182" class='ln'>182</a></td><td><a id="182c1" class="tk">TRUCK_EVASION_TAR_OBJ</a><a id="182c22" class="tk">&amp;</a> <a id="182c24" class="tk">TOS_TRUCK_EVASION</a>::<a id="182c43" class="tk">GetLSideTarObj</a>()</td></tr>
+<tr name="183" id="183">
+<td><a id="l183" class='ln'>183</a></td><td><span class="br">{</span></td></tr>
+<tr name="184" id="184">
+<td><a id="l184" class='ln'>184</a></td><td>	<span class="kw">return</span> <a id="184c9" class="tk">m_tar_obj_l_st</a>;</td></tr>
+<tr name="185" id="185">
+<td><a id="l185" class='ln'>185</a></td><td><span class="br">}</span></td></tr>
+<tr name="186" id="186">
+<td><a id="l186" class='ln'>186</a></td><td><a id="186c1" class="tk">TRUCK_EVASION_TAR_OBJ</a><a id="186c22" class="tk">&amp;</a> <a id="186c24" class="tk">TOS_TRUCK_EVASION</a>::<a id="186c43" class="tk">GetRSideTarObj</a>()</td></tr>
+<tr name="187" id="187">
+<td><a id="l187" class='ln'>187</a></td><td><span class="br">{</span></td></tr>
+<tr name="188" id="188">
+<td><a id="l188" class='ln'>188</a></td><td>	<span class="kw">return</span> <a id="188c9" class="tk">m_tar_obj_r_st</a>;</td></tr>
+<tr name="189" id="189">
+<td><a id="l189" class='ln'>189</a></td><td><span class="br">}</span></td></tr>
+<tr name="190" id="190">
+<td><a id="l190" class='ln'>190</a></td><td></td></tr>
+</table>
+</pre>
+</body>
+</html>

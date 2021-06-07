@@ -1,0 +1,29 @@
+C:\ProgramData\dSPACE\E6B644B2-4CC2-4582-A2C6-DC770F1098E0\Compiler\PPCTools\BIN\libppc.exe -QmsA0107 -QmsA0201 -QmsA0211 < fusionAlg_rtwlib_cmd.lst  
+Microtec PowerPC Object Librarian    Fri Jan 29 10:19:04 2021
+
+	Version 3.8    
+CREATE fusionAlg_rtwlib.lib      
+ADDMOD funsionAlg_sfun_wrapper.o03       
+ADDMOD sensor_adapter.cppo03       
+ADDMOD fusion_process.cppo03       
+ADDMOD radar_track_predict.cppo03       
+ADDMOD datastruct_fusion_internal_state.cppo03       
+ADDMOD coordinate_align.cppo03       
+ADDMOD double_bounce_remover.cppo03       
+ADDMOD signal_preprocess.cppo03       
+ADDMOD cluster_update.cppo03       
+ADDMOD fusion_predict.cppo03       
+ADDMOD predict.cppo03       
+ADDMOD association.cppo03       
+ADDMOD group.cppo03       
+ADDMOD splitter.cppo03       
+ADDMOD fusion_track_manager.cppo03       
+ADDMOD fusion_update.cppo03       
+ADDMOD track_manager.cppo03       
+ADDMOD post_fusion_process.cppo03       
+ADDMOD output_adapter.cppo03       
+ADDMOD combine_all_radar.cppo03       
+ADDMOD fusionAlg.o03       
+ADDMOD fusionAlg_trc_ptr.o03       
+SAVE                     
+END                      

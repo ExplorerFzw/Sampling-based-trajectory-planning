@@ -1,0 +1,380 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: GW ESC SAS ACU FRS Vectorxxx
+
+
+BO_ 2015 Func_DiagReq: 8 GW
+ SG_ Func_DiagReq : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 1945 FRS_DiagResp: 8 FRS
+ SG_ FRS_DiagResp : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 1937 FRS_DiagReq: 8 GW
+ SG_ FRS_DiagReq : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 305 YRS1: 8 ACU
+ SG_ YRS1_Checksum : 7|8@0+ (1,0) [0|255] ""  FRS
+ SG_ YRS_YawRateSensorState : 10|2@0+ (1,0) [0|3] ""  FRS
+ SG_ YRS_LateralSensorState : 12|2@0+ (1,0) [0|3] ""  FRS
+ SG_ YRS_LateralAcce : 23|16@0+ (0.001,-2) [-2|2] ""  FRS
+ SG_ YRS_YawRate : 39|16@0+ (0.01,-180) [-180|180] ""  FRS
+ SG_ YRS1_AliveCounter : 59|4@0+ (1,0) [0|15] ""  FRS
+
+BO_ 306 YRS2: 8 ACU
+ SG_ YRS2_Checksum : 7|8@0+ (1,0) [0|255] ""  FRS
+ SG_ YRS_LongitSensorState : 15|2@0+ (1,0) [0|3] ""  FRS
+ SG_ YRS_LongitAcce : 23|16@0+ (0.001,-2) [-2|2] ""  FRS
+ SG_ YRS_AliveCounter : 59|4@0+ (1,0) [0|15] ""  FRS
+
+BO_ 225 SAS_Status: 8 SAS
+ SG_ SAS_SteerWheelAngle : 7|16@0+ (0.1,-780) [-780|779.9] ""  FRS
+ SG_ SAS_SteerWheelRotSpd : 23|8@0+ (4,0) [0|1016] ""  FRS
+ SG_ SAS_CalibrationSts : 30|1@0+ (1,0) [0|1] ""  FRS
+ SG_ SAS_FailureSts : 31|1@0+ (1,0) [0|1] ""  FRS
+ SG_ SAS_Status_AliveCounter : 39|4@0+ (1,0) [0|15] ""  FRS
+ SG_ SAS_Status_Checksum : 47|8@0+ (1,0) [0|255] ""  FRS
+
+BO_ 294 ESC_Status: 8 ESC
+ SG_ ESC_ABSActive : 0|1@0+ (1,0) [0|1] ""  FRS
+ SG_ ESC_BrakePedalSwitchStatus : 1|1@0+ (1,0) [0|1] ""  FRS
+ SG_ ESC_TCSActive : 4|1@0+ (1,0) [0|1] ""  FRS
+ SG_ ESC_ESPActive : 5|1@0+ (1,0) [0|1] ""  FRS
+ SG_ ESC_ESPFailed : 7|1@0+ (1,0) [0|1] ""  FRS
+ SG_ ESC_VehicleSpeed : 15|13@0+ (0.05625,0) [0|460.6875] ""  FRS
+ SG_ ESC_PATAResponse : 16|1@0+ (1,0) [0|1] ""  FRS
+ SG_ ESC_VehicleSpeedInvalid : 18|1@0+ (1,0) [0|1] ""  FRS
+ SG_ ESC_AVHStatus : 26|2@0+ (1,0) [0|3] ""  FRS
+ SG_ ESC_EPBStatus : 28|2@0+ (1,0) [0|3] ""  FRS
+ SG_ ESC_BrakePedalSwitchInvalid : 30|1@0+ (1,0) [0|1] ""  FRS
+ SG_ ESC_HHCActive : 40|1@0+ (1,0) [0|1] ""  FRS
+ SG_ ESC_Status_AliveCounter : 51|4@0+ (1,0) [0|15] ""  FRS
+ SG_ ESC_Status_Checksum : 63|8@0+ (1,0) [0|255] ""  FRS
+
+BO_ 295 ESC_DA_MESSAGE: 8 ESC
+ SG_ ESC_NoBrakeForce : 2|1@0+ (1,0) [0|1] ""  Vectorxxx
+ SG_ ESC_DiagExtModSts : 3|1@0+ (1,0) [0|1] ""  Vectorxxx
+ SG_ ESC_ABP_available : 4|1@0+ (1,0) [0|1] ""  Vectorxxx
+ SG_ ESC_ABP_active : 5|1@0+ (1,0) [0|1] ""  Vectorxxx
+ SG_ ESC_AEB_active : 6|1@0+ (1,0) [0|1] ""  Vectorxxx
+ SG_ ESC_AEB_available : 7|1@0+ (1,0) [0|1] ""  Vectorxxx
+ SG_ ESC_ABA_active : 8|1@0+ (1,0) [0|1] ""  Vectorxxx
+ SG_ ESC_ABA_available : 9|1@0+ (1,0) [0|1] ""  Vectorxxx
+ SG_ ESC_AWB_active : 10|1@0+ (1,0) [0|1] ""  Vectorxxx
+ SG_ ESC_AWB_available : 11|1@0+ (1,0) [0|1] ""  Vectorxxx
+ SG_ ESC_Vehiclestandstill : 15|2@0+ (1,0) [0|3] ""  FRS
+ SG_ ESC_DTC_Active : 16|1@0+ (1,0) [0|1] ""  Vectorxxx
+ SG_ ESC_BrakeTempTooHigh : 17|1@0+ (1,0) [0|1] ""  Vectorxxx
+ SG_ ESC_QDCFRS : 23|1@0+ (1,0) [0|1] ""  Vectorxxx
+ SG_ ESC_DA_MESSAGE_AliveCounter : 51|4@0+ (1,0) [0|15] ""  FRS
+ SG_ ESC_DA_MESSAGE_Checksum : 63|8@0+ (1,0) [0|255] ""  FRS
+
+BO_ 291 ESC_FrontWheelSpeedKPH: 8 ESC
+ SG_ ESC_FLWheelSpeedKPH : 7|13@0+ (0.05625,0) [0|460.6875] ""  FRS
+ SG_ ESC_FLWheelSpeedInvalid : 8|1@0+ (1,0) [0|1] ""  FRS
+ SG_ ESC_FLWheelDirection : 10|2@0+ (1,0) [0|3] ""  FRS
+ SG_ ESC_FRWheelSpeedKPH : 23|13@0+ (0.05625,0) [0|460.6875] ""  FRS
+ SG_ ESC_FRWheelSpeedInvalid : 24|1@0+ (1,0) [0|1] ""  FRS
+ SG_ ESC_FRWheelDirection : 26|2@0+ (1,0) [0|3] ""  FRS
+ SG_ ESC_Mcylinder_Pressure : 39|8@0+ (1,0) [0|254] ""  Vectorxxx
+ SG_ ESC_FrontWheelSpeedsKPH_AliveCou : 51|4@0+ (1,0) [0|15] ""  FRS
+ SG_ ESC_Mcylinder_PressureInvalid : 52|1@0+ (1,0) [0|1] ""  Vectorxxx
+ SG_ ESC_FrontWheelSpeedsKPH_Checksum : 63|8@0+ (1,0) [0|255] ""  FRS
+
+BO_ 292 ESC_RearWheelSpeedKPH: 8 ESC
+ SG_ ESC_RLWheelSpeedKPH : 7|13@0+ (0.05625,0) [0|460.6875] ""  FRS
+ SG_ ESC_RLWheelSpeedInvalid : 8|1@0+ (1,0) [0|1] ""  FRS
+ SG_ ESC_RLWheelDirection : 10|2@0+ (1,0) [0|1] ""  FRS
+ SG_ ESC_RRWheelSpeedKPH : 23|13@0+ (0.05625,0) [0|460.6875] ""  FRS
+ SG_ ESC_RRWheelSpeedInvalid : 24|1@0+ (1,0) [0|1] ""  FRS
+ SG_ ESC_RRWheelDirection : 26|2@0+ (1,0) [0|3] ""  FRS
+ SG_ ESC_RearWheelSpeedsKPH_AliveCoun : 51|4@0+ (1,0) [0|15] ""  FRS
+ SG_ ESC_RearWheelSpeedsKPH_Checksum : 63|8@0+ (1,0) [0|255] ""  FRS
+
+
+
+CM_ SG_ 305 YRS1_Checksum "YRS1_Checksum";
+CM_ SG_ 305 YRS_YawRateSensorState "YRS_YawRateSensorState";
+CM_ SG_ 305 YRS_LateralSensorState "YRS_LateralSensorState";
+CM_ SG_ 305 YRS_LateralAcce "YRS_LateralAcce";
+CM_ SG_ 305 YRS_YawRate "YRS_YawRate";
+CM_ SG_ 305 YRS1_AliveCounter "YRS1_AliveCounter";
+CM_ SG_ 306 YRS2_Checksum "YRS2_Checksum";
+CM_ SG_ 306 YRS_LongitSensorState "YRS_LongitSensorState";
+CM_ SG_ 306 YRS_LongitAcce "YRS_LongitAcce";
+CM_ SG_ 306 YRS_AliveCounter "YRS_AliveCounter";
+CM_ SG_ 225 SAS_SteerWheelAngle "SAS_SteerWheelAngle";
+CM_ SG_ 225 SAS_SteerWheelRotSpd "SAS_SteerWheelRotSpd";
+CM_ SG_ 225 SAS_CalibrationSts "SAS_CalibrationSts";
+CM_ SG_ 225 SAS_FailureSts "SAS_FailureSts";
+CM_ SG_ 225 SAS_Status_AliveCounter "SAS_Status_AliveCounter";
+CM_ SG_ 225 SAS_Status_Checksum "SAS_Status_Checksum";
+CM_ SG_ 294 ESC_ABSActive "ESC_ABSActive";
+CM_ SG_ 294 ESC_BrakePedalSwitchStatus "ESC_BrakePedalSwitchStatus";
+CM_ SG_ 294 ESC_TCSActive "ESC_TCSActive";
+CM_ SG_ 294 ESC_ESPActive "ESC_ESPActive";
+CM_ SG_ 294 ESC_ESPFailed "ESC_ESPFailed";
+CM_ SG_ 294 ESC_VehicleSpeed "ESC_VehicleSpeed";
+CM_ SG_ 294 ESC_PATAResponse "ESC_PATAResponse";
+CM_ SG_ 294 ESC_VehicleSpeedInvalid "ESC_VehicleSpeedInvalid";
+CM_ SG_ 294 ESC_AVHStatus "ESC_AVHStatus";
+CM_ SG_ 294 ESC_EPBStatus "ESC_EPBStatus";
+CM_ SG_ 294 ESC_BrakePedalSwitchInvalid "ESC_BrakePedalSwitchInvalid";
+CM_ SG_ 294 ESC_HHCActive "ESC_HHCActive";
+CM_ SG_ 294 ESC_Status_AliveCounter "ESC_Status_AliveCounter";
+CM_ SG_ 294 ESC_Status_Checksum "ESC_Status_Checksum";
+CM_ SG_ 295 ESC_NoBrakeForce "ESC_NoBrakeForce";
+CM_ SG_ 295 ESC_DiagExtModSts "ESC_DiagExtModSts";
+CM_ SG_ 295 ESC_ABP_available "ESC_ABP_available";
+CM_ SG_ 295 ESC_ABP_active "ESC_ABP_active";
+CM_ SG_ 295 ESC_AEB_active "ESC_AEB_active";
+CM_ SG_ 295 ESC_AEB_available "ESC_AEB_available";
+CM_ SG_ 295 ESC_ABA_active "ESC_ABA_active";
+CM_ SG_ 295 ESC_ABA_available "ESC_ABA_available";
+CM_ SG_ 295 ESC_AWB_active "ESC_AWB_active";
+CM_ SG_ 295 ESC_AWB_available "ESC_AWB_available";
+CM_ SG_ 295 ESC_Vehiclestandstill "ESC_Vehiclestandstill";
+CM_ SG_ 295 ESC_DTC_Active "ESC_DTC_Active";
+CM_ SG_ 295 ESC_BrakeTempTooHigh "ESC_BrakeTempTooHigh";
+CM_ SG_ 295 ESC_QDCFRS "ESC_QDCFRS";
+CM_ SG_ 295 ESC_DA_MESSAGE_AliveCounter "ESC_DA_MESSAGE_AliveCounter";
+CM_ SG_ 295 ESC_DA_MESSAGE_Checksum "ESC_DA_MESSAGE_Checksum";
+CM_ SG_ 291 ESC_FLWheelSpeedKPH "ESC_FLWheelSpeedKPH";
+CM_ SG_ 291 ESC_FLWheelSpeedInvalid "ESC_FLWheelSpeedInvalid";
+CM_ SG_ 291 ESC_FLWheelDirection "ESC_FLWheelDirection";
+CM_ SG_ 291 ESC_FRWheelSpeedKPH "ESC_FRWheelSpeedKPH";
+CM_ SG_ 291 ESC_FRWheelSpeedInvalid "ESC_FRWheelSpeedInvalid";
+CM_ SG_ 291 ESC_FRWheelDirection "ESC_FRWheelDirection";
+CM_ SG_ 291 ESC_Mcylinder_Pressure "ESC_Mcylinder_Pressure";
+CM_ SG_ 291 ESC_FrontWheelSpeedsKPH_AliveCou "ESC_FrontWheelSpeedsKPH_AliveCou";
+CM_ SG_ 291 ESC_Mcylinder_PressureInvalid "ESC_Mcylinder_PressureInvalid";
+CM_ SG_ 291 ESC_FrontWheelSpeedsKPH_Checksum "ESC_FrontWheelSpeedsKPH_Checksum";
+CM_ SG_ 292 ESC_RLWheelSpeedKPH "ESC_RLWheelSpeedKPH";
+CM_ SG_ 292 ESC_RLWheelSpeedInvalid "ESC_RLWheelSpeedInvalid";
+CM_ SG_ 292 ESC_RLWheelDirection "ESC_RLWheelDirection";
+CM_ SG_ 292 ESC_RRWheelSpeedKPH "ESC_RRWheelSpeedKPH";
+CM_ SG_ 292 ESC_RRWheelSpeedInvalid "ESC_RRWheelSpeedInvalid";
+CM_ SG_ 292 ESC_RRWheelDirection "ESC_RRWheelDirection";
+CM_ SG_ 292 ESC_RearWheelSpeedsKPH_AliveCoun "ESC_RearWheelSpeedsKPH_AliveCoun";
+CM_ SG_ 292 ESC_RearWheelSpeedsKPH_Checksum "ESC_RearWheelSpeedsKPH_Checksum";
+BA_DEF_ BO_  "GenMsgStartDelayTime" INT 0 0;
+BA_DEF_ BO_  "GenMsgDelayTime" INT 0 0;
+BA_DEF_ BO_  "GenMsgNrOfRepetition" INT 0 0;
+BA_DEF_ BO_  "GenMsgCycleTimeFast" INT 0 0;
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 0;
+BA_DEF_ BO_  "GenMsgSendType" ENUM  "Cyclic","NotUsed","NotUsed","NotUsed","NotUsed","NotUsed","NotUsed","IfActive","NoMsgSendType","NotUsed";
+BA_DEF_ SG_  "GenSigStartValue" INT 0 0;
+BA_DEF_ SG_  "GenSigInactiveValue" INT 0 0;
+BA_DEF_ SG_  "GenSigCycleTimeActive" INT 0 0;
+BA_DEF_ SG_  "GenSigCycleTime" INT 0 0;
+BA_DEF_ SG_  "GenSigSendType" ENUM  "Cyclic","OnWrite","OnWriteWithRepetition","OnChange","OnChangeWithRepetition","IfActive","IfActiveWithRepetition","NoSigSendType","NotUsed","NotUsed","NotUsed","NotUsed","NotUsed";
+BA_DEF_  "Baudrate" INT 0 1000000;
+BA_DEF_  "BusType" STRING ;
+BA_DEF_  "NmType" STRING ;
+BA_DEF_  "Manufacturer" STRING ;
+BA_DEF_ BO_  "TpTxIndex" INT 0 255;
+BA_DEF_ BU_  "NodeLayerModules" STRING ;
+BA_DEF_ BU_  "NmStationAddress" HEX 0 255;
+BA_DEF_ BU_  "NmNode" ENUM  "no","yes";
+BA_DEF_ BO_  "NmMessage" ENUM  "no","yes";
+BA_DEF_  "NmAsrWaitBusSleepTime" INT 0 65535;
+BA_DEF_  "NmAsrTimeoutTime" INT 1 65535;
+BA_DEF_  "NmAsrRepeatMessageTime" INT 0 65535;
+BA_DEF_ BU_  "NmAsrNodeIdentifier" HEX 0 255;
+BA_DEF_ BU_  "NmAsrNode" ENUM  "no","yes";
+BA_DEF_  "NmAsrMessageCount" INT 1 256;
+BA_DEF_ BO_  "NmAsrMessage" ENUM  "no","yes";
+BA_DEF_ BU_  "NmAsrCanMsgReducedTime" INT 1 65535;
+BA_DEF_  "NmAsrCanMsgCycleTime" INT 1 65535;
+BA_DEF_ BU_  "NmAsrCanMsgCycleOffset" INT 0 65535;
+BA_DEF_  "NmAsrBaseAddress" HEX 0 2047;
+BA_DEF_ BU_  "ILUsed" ENUM  "no","yes";
+BA_DEF_  "ILTxTimeout" INT 0 65535;
+BA_DEF_ SG_  "GenSigTimeoutValue" INT 0 65535;
+BA_DEF_ SG_  "GenSigTimeoutTime" INT 0 65535;
+BA_DEF_ BO_  "GenMsgILSupport" ENUM  "no","yes";
+BA_DEF_ BO_  "GenMsgFastOnStart" INT 0 65535;
+BA_DEF_ BO_  "DiagUudtResponse" ENUM  "false","true";
+BA_DEF_ BO_  "DiagUudResponse" ENUM  "False","True";
+BA_DEF_ BO_  "DiagState" ENUM  "no","yes";
+BA_DEF_ BO_  "DiagResponse" ENUM  "no","yes";
+BA_DEF_ BO_  "DiagRequest" ENUM  "no","yes";
+BA_DEF_  "DBName" STRING ;
+BA_DEF_DEF_  "GenMsgStartDelayTime" 0;
+BA_DEF_DEF_  "GenMsgDelayTime" 0;
+BA_DEF_DEF_  "GenMsgNrOfRepetition" 0;
+BA_DEF_DEF_  "GenMsgCycleTimeFast" 0;
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "GenMsgSendType" "Cyclic";
+BA_DEF_DEF_  "GenSigStartValue" 0;
+BA_DEF_DEF_  "GenSigInactiveValue" 0;
+BA_DEF_DEF_  "GenSigCycleTimeActive" 0;
+BA_DEF_DEF_  "GenSigCycleTime" 0;
+BA_DEF_DEF_  "GenSigSendType" "Cyclic";
+BA_DEF_DEF_  "Baudrate" 500000;
+BA_DEF_DEF_  "BusType" "";
+BA_DEF_DEF_  "NmType" "";
+BA_DEF_DEF_  "Manufacturer" "Vector";
+BA_DEF_DEF_  "TpTxIndex" 0;
+BA_DEF_DEF_  "NodeLayerModules" " ";
+BA_DEF_DEF_  "NmStationAddress" 0;
+BA_DEF_DEF_  "NmNode" "no";
+BA_DEF_DEF_  "NmMessage" "no";
+BA_DEF_DEF_  "NmAsrWaitBusSleepTime" 1500;
+BA_DEF_DEF_  "NmAsrTimeoutTime" 2000;
+BA_DEF_DEF_  "NmAsrRepeatMessageTime" 3200;
+BA_DEF_DEF_  "NmAsrNodeIdentifier" 50;
+BA_DEF_DEF_  "NmAsrNode" "no";
+BA_DEF_DEF_  "NmAsrMessageCount" 128;
+BA_DEF_DEF_  "NmAsrMessage" "no";
+BA_DEF_DEF_  "NmAsrCanMsgReducedTime" 320;
+BA_DEF_DEF_  "NmAsrCanMsgCycleTime" 640;
+BA_DEF_DEF_  "NmAsrCanMsgCycleOffset" 0;
+BA_DEF_DEF_  "NmAsrBaseAddress" 1280;
+BA_DEF_DEF_  "ILUsed" "no";
+BA_DEF_DEF_  "ILTxTimeout" 0;
+BA_DEF_DEF_  "GenSigTimeoutValue" 0;
+BA_DEF_DEF_  "GenSigTimeoutTime" 0;
+BA_DEF_DEF_  "GenMsgILSupport" "no";
+BA_DEF_DEF_  "GenMsgFastOnStart" 0;
+BA_DEF_DEF_  "DiagUudtResponse" "false";
+BA_DEF_DEF_  "DiagUudResponse" "False";
+BA_DEF_DEF_  "DiagState" "no";
+BA_DEF_DEF_  "DiagResponse" "no";
+BA_DEF_DEF_  "DiagRequest" "no";
+BA_DEF_DEF_  "DBName" "";
+BA_ "Manufacturer" "Vector";
+BA_ "NmType" "NmAsr";
+BA_ "BusType" "CAN";
+BA_ "Baudrate" 500000;
+BA_ "NmAsrWaitBusSleepTime" 2000;
+BA_ "DBName" "ASR410OD_Public_CAN";
+BA_ "GenMsgSendType" BO_ 2015 0;
+BA_ "GenMsgCycleTime" BO_ 2015 100;
+BA_ "GenMsgSendType" BO_ 1945 0;
+BA_ "GenMsgCycleTime" BO_ 1945 100;
+BA_ "GenMsgSendType" BO_ 1937 0;
+BA_ "GenMsgCycleTime" BO_ 1937 100;
+BA_ "GenMsgSendType" BO_ 305 0;
+BA_ "GenMsgCycleTime" BO_ 305 20;
+BA_ "GenMsgSendType" BO_ 306 0;
+BA_ "GenMsgCycleTime" BO_ 306 20;
+BA_ "GenMsgSendType" BO_ 225 0;
+BA_ "GenMsgCycleTime" BO_ 225 10;
+BA_ "GenMsgSendType" BO_ 294 0;
+BA_ "GenMsgCycleTime" BO_ 294 20;
+BA_ "GenMsgSendType" BO_ 295 0;
+BA_ "GenMsgCycleTime" BO_ 295 20;
+BA_ "GenMsgSendType" BO_ 291 0;
+BA_ "GenMsgCycleTime" BO_ 291 20;
+BA_ "GenMsgSendType" BO_ 292 0;
+BA_ "GenMsgCycleTime" BO_ 292 20;
+BA_ "GenSigStartValue" SG_ 2015 Func_DiagReq 0;
+BA_ "GenSigStartValue" SG_ 1945 FRS_DiagResp 0;
+BA_ "GenSigStartValue" SG_ 1937 FRS_DiagReq 0;
+BA_ "GenSigStartValue" SG_ 305 YRS1_Checksum 0;
+BA_ "GenSigStartValue" SG_ 305 YRS_YawRateSensorState 3;
+BA_ "GenSigStartValue" SG_ 305 YRS_LateralSensorState 3;
+BA_ "GenSigStartValue" SG_ 305 YRS_LateralAcce 2002000;
+BA_ "GenSigStartValue" SG_ 305 YRS_YawRate 1818000;
+BA_ "GenSigStartValue" SG_ 306 YRS2_Checksum 0;
+BA_ "GenSigStartValue" SG_ 306 YRS_LongitSensorState 3;
+BA_ "GenSigStartValue" SG_ 306 YRS_LongitAcce 2002000;
+BA_ "GenSigStartValue" SG_ 225 SAS_SteerWheelAngle 7800;
+BA_ "GenSigStartValue" SG_ 294 ESC_ABSActive 0;
+BA_ "GenSigStartValue" SG_ 294 ESC_ESPFailed 1;
+BA_ "GenSigStartValue" SG_ 294 ESC_EPBStatus 3;
+BA_ "GenSigStartValue" SG_ 294 ESC_BrakePedalSwitchInvalid 1;
+BA_ "GenSigStartValue" SG_ 295 ESC_NoBrakeForce 0;
+BA_ "GenSigStartValue" SG_ 295 ESC_Vehiclestandstill 2;
+BA_ "GenSigStartValue" SG_ 291 ESC_FLWheelSpeedKPH 0;
+BA_ "GenSigStartValue" SG_ 291 ESC_FLWheelSpeedInvalid 1;
+BA_ "GenSigStartValue" SG_ 291 ESC_FLWheelDirection 3;
+BA_ "GenSigStartValue" SG_ 291 ESC_FRWheelSpeedInvalid 1;
+BA_ "GenSigStartValue" SG_ 291 ESC_FRWheelDirection 3;
+BA_ "GenSigStartValue" SG_ 291 ESC_Mcylinder_PressureInvalid 1;
+BA_ "GenSigStartValue" SG_ 292 ESC_RLWheelSpeedKPH 0;
+BA_ "GenSigStartValue" SG_ 292 ESC_RLWheelSpeedInvalid 1;
+BA_ "GenSigStartValue" SG_ 292 ESC_RLWheelDirection 3;
+BA_ "GenSigStartValue" SG_ 292 ESC_RRWheelSpeedInvalid 1;
+BA_ "GenSigStartValue" SG_ 292 ESC_RRWheelDirection 3;
+VAL_ 305 YRS_YawRateSensorState 0 "VALID" 1 "INVALID" 2 "RESERVED" 3 "INITIALIZING" ;
+VAL_ 305 YRS_LateralSensorState 0 "VALID" 1 "INVALID;" 2 "RESERVED;" 3 "INITIALIZING" ;
+VAL_ 306 YRS_LongitSensorState 0 "VALID" 1 "INVALID" 2 "RESERVED;" 3 "INITIALIZING;" ;
+VAL_ 225 SAS_SteerWheelAngle 32767 "INVALID" ;
+VAL_ 225 SAS_SteerWheelRotSpd 255 "INVALID" ;
+VAL_ 225 SAS_CalibrationSts 0 "SENSOR_NOT_CALIBRATED" 1 "SENSOR_CALIBRATED" ;
+VAL_ 225 SAS_FailureSts 0 "INVALID" 1 "VALID" ;
+VAL_ 294 ESC_ABSActive 0 "INACTIVE" 1 "ACTIVE;" ;
+VAL_ 294 ESC_BrakePedalSwitchStatus 0 "BRAKE_PEDAL_ISNOT_ACTIVE" 1 "BRAKE_PEDAL_IS_ACTIVE" ;
+VAL_ 294 ESC_TCSActive 0 "TCS_INACTIVE" 1 "TCS_ACTIVE;" ;
+VAL_ 294 ESC_ESPActive 0 "ESP_INACTIVE" 1 "ESP_ACTIVE;" ;
+VAL_ 294 ESC_ESPFailed 0 "ESP_NORMAL" 1 "ESP_FAILED;" ;
+VAL_ 294 ESC_VehicleSpeed 8191 "INVALID_VALUE" ;
+VAL_ 294 ESC_PATAResponse 0 "PATA_REQUESTED_EXECUTED_ESP_OFF" 1 "PATA_REQUESTED_IGNORED_ESP_ON;" ;
+VAL_ 294 ESC_VehicleSpeedInvalid 0 "VALID" 1 "INVALID;" ;
+VAL_ 294 ESC_AVHStatus 0 "OFF" 1 "INTERVENTION" 2 "STAND_BY;" 3 "ERROR;" ;
+VAL_ 294 ESC_EPBStatus 0 "RELEASED" 1 "CLOSED;" 2 "IN_PROGRESS;" 3 "RESERVED;" ;
+VAL_ 294 ESC_BrakePedalSwitchInvalid 0 "VALID" 1 "INVALID;" ;
+VAL_ 294 ESC_HHCActive 0 "INACTIVE" 1 "ACTIVE;" ;
+VAL_ 295 ESC_NoBrakeForce 0 "EXIST_BRAKE_FORCE" 1 "NO_BRAKE_FORCE;" ;
+VAL_ 295 ESC_DiagExtModSts 0 "NOT_INTHE_EXTENSION_MODE" 1 "INTHE_EXTENSION_MODE;" ;
+VAL_ 295 ESC_ABP_available 0 "NOT_AVAILABLE" 1 "AVAILABLE;" ;
+VAL_ 295 ESC_ABP_active 0 "INACTIVE" 1 "ACTIVE;" ;
+VAL_ 295 ESC_AEB_active 0 "INACTIVE" 1 "ACTIVE;" ;
+VAL_ 295 ESC_AEB_available 0 "NOT_AVAILABLE" 1 "AVAILABLE;" ;
+VAL_ 295 ESC_ABA_active 0 "INACTIVE" 1 "ACTIVE;" ;
+VAL_ 295 ESC_ABA_available 0 "NOT_AVAILABLE" 1 "AVAILABLE;" ;
+VAL_ 295 ESC_AWB_active 0 "INACTIVE" 1 "ACTIVE;" ;
+VAL_ 295 ESC_AWB_available 0 "NOT_AVAILABLE" 1 "AVAILABLE;" ;
+VAL_ 295 ESC_Vehiclestandstill 0 "NOT_STANDSTILL" 1 "STANDSTILL;" 2 "INVALID;" 3 "RESERVED" ;
+VAL_ 295 ESC_DTC_Active 0 "INACTIVE" 1 "ACTIVE;" ;
+VAL_ 295 ESC_BrakeTempTooHigh 0 "NORMAL" 1 "ABNORMAL" ;
+VAL_ 295 ESC_QDCFRS 0 "NO_ERROR" 1 "ERROR;" ;
+VAL_ 291 ESC_FLWheelSpeedKPH 8191 "INVALID_VALUE" ;
+VAL_ 291 ESC_FLWheelSpeedInvalid 0 "VALID" 1 "INVALID" ;
+VAL_ 291 ESC_FLWheelDirection 0 "STANDSTILL" 1 "FORWARD;" 2 "BACKWARD;" 3 "INVALID;" ;
+VAL_ 291 ESC_FRWheelSpeedKPH 8191 "INVALID_VALUE" ;
+VAL_ 291 ESC_FRWheelSpeedInvalid 0 "VALID" 1 "INVALID;" ;
+VAL_ 291 ESC_FRWheelDirection 0 "STANDSTILL" 1 "FORWARD;" 2 "BACKWARD;" 3 "INVALID" ;
+VAL_ 291 ESC_Mcylinder_Pressure 255 "INVALID_PRESSURE" ;
+VAL_ 291 ESC_Mcylinder_PressureInvalid 0 "VALID" 1 "INVALID;" ;
+VAL_ 292 ESC_RLWheelSpeedKPH 8191 "INVALID_VALUE" ;
+VAL_ 292 ESC_RLWheelSpeedInvalid 0 "VALID" 1 "INVALID" ;
+VAL_ 292 ESC_RLWheelDirection 0 "STANDSTILL" 1 "FORWARD;" 2 "BACKWARD;" 3 "INVALID;" ;
+VAL_ 292 ESC_RRWheelSpeedKPH 8191 "INVALID_VALUE" ;
+VAL_ 292 ESC_RRWheelSpeedInvalid 1 "INVALID; 0x0=VALID" ;
+VAL_ 292 ESC_RRWheelDirection 0 "STANDSTILL" 1 "FORWARD;" 2 "BACKWARD" 3 "INVALID;" ;
+

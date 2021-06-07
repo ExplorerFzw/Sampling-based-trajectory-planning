@@ -1,0 +1,358 @@
+
+
+
+
+
+
+group "RTTRTICANMMInterfaceVersion" -- subsystem-group
+{
+     flags: COLLAPSED | HIDDEN
+}
+
+                        VersionNumber
+            {
+             type:    UINT(32)
+             alias:   "VersionNumber"
+              flags:   OUTPUT|READONLY
+             desc:  "VersionNumber"
+             unit:  ""
+             value:  1
+            }
+
+
+
+
+endgroup -- block-group "RTTRTICANMMInterfaceVersion"
+
+                        RTICANMM_MonitorData[0]
+            {
+             type:    UINT(32)
+             alias:   "ID"
+              flags:   OUTPUT|READONLY
+             desc:  "ID"
+             unit:  ""
+             value:  0
+            }
+
+
+
+                        RTICANMM_MonitorData[1]
+            {
+             type:    UINT(32)
+             alias:   "Service"
+              flags:   OUTPUT|READONLY
+             desc:  "Service"
+             unit:  ""
+             value:  0
+            }
+
+
+
+                        RTICANMM_MonitorData[2]
+            {
+             type:    UINT(32)
+             alias:   "Data1"
+              flags:   OUTPUT|READONLY
+             desc:  "Data1"
+             unit:  ""
+             value:  0
+            }
+
+
+
+                        RTICANMM_MonitorData[3]
+            {
+             type:    UINT(32)
+             alias:   "Data2"
+              flags:   OUTPUT|READONLY
+             desc:  "Data2"
+             unit:  ""
+             value:  0
+            }
+
+
+
+                        RTICANMM_MonitorData[4]
+            {
+             type:    UINT(32)
+             alias:   "Data3"
+              flags:   OUTPUT|READONLY
+             desc:  "Data3"
+             unit:  ""
+             value:  0
+            }
+
+
+
+                        RTICANMM_MonitorData[5]
+            {
+             type:    UINT(32)
+             alias:   "Data4"
+              flags:   OUTPUT|READONLY
+             desc:  "Data4"
+             unit:  ""
+             value:  0
+            }
+
+
+
+                        RTICANMM_MonitorData[6]
+            {
+             type:    UINT(32)
+             alias:   "Data5"
+              flags:   OUTPUT|READONLY
+             desc:  "Data5"
+             unit:  ""
+             value:  0
+            }
+
+
+
+                        RTICANMM_MonitorData[7]
+            {
+             type:    UINT(32)
+             alias:   "Data6"
+              flags:   OUTPUT|READONLY
+             desc:  "Data6"
+             unit:  ""
+             value:  0
+            }
+
+
+
+                        RTICANMM_MonitorData[8]
+            {
+             type:    UINT(32)
+             alias:   "Data7"
+              flags:   OUTPUT|READONLY
+             desc:  "Data7"
+             unit:  ""
+             value:  0
+            }
+
+
+
+                        RTICANMM_MonitorData[9]
+            {
+             type:    UINT(32)
+             alias:   "Data8"
+              flags:   OUTPUT|READONLY
+             desc:  "Data8"
+             unit:  ""
+             value:  0
+            }
+
+
+
+                        RTICANMM_MonitorData[10]
+            {
+             type:    UINT(32)
+             alias:   "Data9"
+              flags:   OUTPUT|READONLY
+             desc:  "Data9"
+             unit:  ""
+             value:  0
+            }
+
+
+
+                        RTICANMM_MonitorData[11]
+            {
+             type:    UINT(32)
+             alias:   "Data10"
+              flags:   OUTPUT|READONLY
+             desc:  "Data10"
+             unit:  ""
+             value:  0
+            }
+
+
+
+                        RTICANMM_MonitorData[12]
+            {
+             type:    UINT(32)
+             alias:   "Data11"
+              flags:   OUTPUT|READONLY
+             desc:  "Data11"
+             unit:  ""
+             value:  0
+            }
+
+
+
+                        RTICANMM_MonitorData[13]
+            {
+             type:    UINT(32)
+             alias:   "Data12"
+              flags:   OUTPUT|READONLY
+             desc:  "Data12"
+             unit:  ""
+             value:  0
+            }
+
+
+
+                        RTICANMM_MonitorData[14]
+            {
+             type:    UINT(32)
+             alias:   "Data13"
+              flags:   OUTPUT|READONLY
+             desc:  "Data13"
+             unit:  ""
+             value:  0
+            }
+
+
+
+                        RTICANMM_MonitorData[15]
+            {
+             type:    UINT(32)
+             alias:   "Data14"
+              flags:   OUTPUT|READONLY
+             desc:  "Data14"
+             unit:  ""
+             value:  0
+            }
+
+
+
+                        RTICANMM_MonitorData[16]
+            {
+             type:    UINT(32)
+             alias:   "Data15"
+              flags:   OUTPUT|READONLY
+             desc:  "Data15"
+             unit:  ""
+             value:  0
+            }
+
+
+
+                        RTICANMM_MonitorData[17]
+            {
+             type:    UINT(32)
+             alias:   "Data16"
+              flags:   OUTPUT|READONLY
+             desc:  "Data16"
+             unit:  ""
+             value:  0
+            }
+
+
+
+
+
+
+group "TimeStampEnableGroup" -- subsystem-group
+{
+     flags: COLLAPSED | HIDDEN
+}
+
+                        RTICANMM_MonitoringTimeStampEnable
+            {
+             type:    UINT(8)
+             alias:   "TimeStamp_Enable"
+              flags:   PARAM
+             desc:  "TimeStamp_Enable"
+             unit:  ""
+             value:  0
+            }
+
+
+
+
+
+endgroup -- block-group "TimeStampEnableGroup"
+
+                        RTICANMM_MonitoringTimeStamp
+            {
+             type:    flt(64,IEEE)
+             alias:   "TimeStamp"
+              flags:   OUTPUT|READONLY
+             desc:  "TimeStamp"
+             unit:  "s"
+             value:  0
+            }
+
+
+
+
+
+
+group "ControllerSetup_Blocks" -- subsystem-group
+{
+     flags: COLLAPSED
+}
+
+
+
+
+group "Controller1" -- subsystem-group
+{
+     flags: COLLAPSED
+}
+
+                        CANMMMonitor_Controller1
+            {
+             type:    UINT(8)
+             alias:   "Monitoring_Enable"
+              flags:   PARAM
+             desc:  "Monitoring Enable"
+             unit:  ""
+             value:  0
+            }
+
+
+
+
+                        MonitoringTimeStamp_Controller1
+            {
+             type:    flt(64,IEEE)
+             alias:   "Monitoring_TimeStamp"
+              flags:   OUTPUT|READONLY
+             desc:  "Monitoring TimeStamp"
+             unit:  "s"
+             value:  0
+            }
+
+
+
+                        CANMM_CTL_SETUP_Controller1_Variation
+            {
+             type:    UINT(8)
+             alias:   "Variation"
+              flags:   PARAM
+             desc:  "Variation used if Variation_Switch == 1"
+             unit:  ""
+             value:  1
+            }
+
+
+
+
+                        CANMM_CTL_SETUP_Controller1_VariationSwitch
+            {
+             type:    UINT(8)
+             alias:   "Variation_Switch"
+              flags:   PARAM
+             desc:  "Variation Switch: Variation changed by MODEL=0 (default) | EXPERIMENT SOFTWARE=1"
+             unit:  ""
+             value:  0
+            }
+
+
+
+
+
+
+
+endgroup -- block-group "Controller1"
+
+
+
+
+endgroup -- block-group "ControllerSetup_Blocks"
+
+
+
+

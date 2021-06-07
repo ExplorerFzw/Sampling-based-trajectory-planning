@@ -1,0 +1,42 @@
+		endgroup -- referenced model group "LCK"
+	endgroup -- referenced-block-group "Model"
+	group "RoadModel" -- referenced block group
+		p_0_Intergration_ZOP_LANEMODEL_OUTPUT_ST_3[0]
+		{
+		 type:    struct Intergration_ZOP_LANEMODEL_OUTPUT_ST*
+		 alias:   "Out1"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_HWA_TARGETOBJECT_OUTPUT_ST_6[0]
+		{
+		 type:    struct Intergration_ZOP_HWA_TARGETOBJECT_OUTPUT_ST*
+		 alias:   "Out2"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_HMI_OUTPUT_ST_7[0]
+		{
+		 type:    struct Intergration_ZOP_HMI_OUTPUT_ST*
+		 alias:   "Out3"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_NARROW_LANE_SUPPORT_OUTPUT_ST_18[0]
+		{
+		 type:    struct Intergration_ZOP_NARROW_LANE_SUPPORT_OUTPUT_ST*
+		 alias:   "Out4"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_uint16_T_65[222]
+		{
+		 type:    uint(16)*
+		 alias:   "Out5"
+		 flags:   OUTPUT|READONLY
+		}
+		p_0_Intergration_ZOP_uint8_T_67[569]
+		{
+		 type:    uint(8)*
+		 alias:   "Out6"
+		 flags:   OUTPUT|READONLY
+		}
+
+		group "LM_TOS"  -- referenced model group
+    

@@ -1,0 +1,9 @@
+C:\ProgramData\dSPACE\E6B644B2-4CC2-4582-A2C6-DC770F1098E0\Compiler\PPCTools\BIN\libppc.exe -QmsA0107 -QmsA0201 -QmsA0211 < AccTarSel_rtwlib_cmd.lst  
+Microtec PowerPC Object Librarian    Tue Mar 16 18:26:51 2021
+
+	Version 3.8    
+CREATE AccTarSel_rtwlib.lib      
+ADDMOD AccTarSel.o03       
+ADDMOD AccTarSel_trc_ptr.o03       
+SAVE                     
+END                      

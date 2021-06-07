@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="./js/coder_app.js"></script>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="./rtwreport_utils.js"></script>
+<script type="text/javascript" src="./rtwannotate.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/coder_app.css"/>
+</head>
+<body onload="srcFileOnload();">
+<pre id="code">
+<table class="code" id="codeTbl">
+<tr name="1" id="1">
+<td><a id="l1" class='ln'>1</a></td><td><span class="pp">#include &lt;Dstypes.h&gt;</span></td></tr>
+<tr name="2" id="2">
+<td><a id="l2" class='ln'>2</a></td><td></td></tr>
+<tr name="3" id="3">
+<td><a id="l3" class='ln'>3</a></td><td><span class="ct">/* Variables for CAN monitoring with RTI CAN MultiMessage block set */</span></td></tr>
+<tr name="4" id="4">
+<td><a id="l4" class='ln'>4</a></td><td><span class="kw">volatile</span> <a id="4c10" class="tk">UInt32</a> <a id="4c17" class="tk">RTICANMM_MonitorData</a>[18];</td></tr>
+<tr name="5" id="5">
+<td><a id="l5" class='ln'>5</a></td><td><a id="5c1" class="tk">dsfloat</a> <a id="5c9" class="tk">RTICANMM_DataFetchTime</a>[16]= <span class="br">{</span> <a id="5c39" class="tk">-</a>1.0, <a id="5c45" class="tk">-</a>1.0, <a id="5c51" class="tk">-</a>1.0, <a id="5c57" class="tk">-</a>1.0, <a id="5c63" class="tk">-</a>1.0, <a id="5c69" class="tk">-</a>1.0, <a id="5c75" class="tk">-</a>1.0,</td></tr>
+<tr name="6" id="6">
+<td><a id="l6" class='ln'>6</a></td><td>  <a id="6c3" class="tk">-</a>1.0, <a id="6c9" class="tk">-</a>1.0, <a id="6c15" class="tk">-</a>1.0, <a id="6c21" class="tk">-</a>1.0, <a id="6c27" class="tk">-</a>1.0, <a id="6c33" class="tk">-</a>1.0, <a id="6c39" class="tk">-</a>1.0, <a id="6c45" class="tk">-</a>1.0, <a id="6c51" class="tk">-</a>1.0 <span class="br">}</span>;</td></tr>
+<tr name="7" id="7">
+<td><a id="l7" class='ln'>7</a></td><td></td></tr>
+<tr name="8" id="8">
+<td><a id="l8" class='ln'>8</a></td><td><span class="kw">volatile</span> <a id="8c10" class="tk">UInt8</a> <a id="8c16" class="tk">RTICANMM_MonitoringTimeStampEnable</a>;</td></tr>
+<tr name="9" id="9">
+<td><a id="l9" class='ln'>9</a></td><td><span class="kw">volatile</span> <a id="9c10" class="tk">dsfloat</a> <a id="9c18" class="tk">RTICANMM_MonitoringTimeStamp</a>;</td></tr>
+<tr name="10" id="10">
+<td><a id="l10" class='ln'>10</a></td><td></td></tr>
+<tr name="11" id="11">
+<td><a id="l11" class='ln'>11</a></td><td><span class="ct">/* RTT RTICANMM Interface Version */</span></td></tr>
+<tr name="12" id="12">
+<td><a id="l12" class='ln'>12</a></td><td><span class="kw">volatile</span> <a id="12c10" class="tk">UInt32</a> <a id="12c17" class="tk">VersionNumber</a> = 1;</td></tr>
+<tr name="13" id="13">
+<td><a id="l13" class='ln'>13</a></td><td></td></tr>
+</table>
+</pre>
+</body>
+</html>

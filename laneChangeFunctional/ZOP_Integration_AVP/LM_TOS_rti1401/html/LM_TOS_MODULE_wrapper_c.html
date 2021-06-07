@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="./js/coder_app.js"></script>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="./rtwreport_utils.js"></script>
+<script type="text/javascript" src="./rtwannotate.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/coder_app.css"/>
+</head>
+<body onload="srcFileOnload();">
+<pre id="code">
+<table class="code" id="codeTbl">
+<tr name="1" id="1">
+<td><a id="l1" class='ln'>1</a></td><td></td></tr>
+<tr name="2" id="2">
+<td><a id="l2" class='ln'>2</a></td><td><span class="ct">/*</span></td></tr>
+<tr name="3" id="3">
+<td><a id="l3" class='ln'>3</a></td><td><span class="ct"> * Include Files</span></td></tr>
+<tr name="4" id="4">
+<td><a id="l4" class='ln'>4</a></td><td><span class="ct"> *</span></td></tr>
+<tr name="5" id="5">
+<td><a id="l5" class='ln'>5</a></td><td><span class="ct"> */</span></td></tr>
+<tr name="6" id="6">
+<td><a id="l6" class='ln'>6</a></td><td><span class="pp">#if</span> <a id="6c5" class="tk">defined</a>(<a id="6c13" class="tk">MATLAB_MEX_FILE</a>)</td></tr>
+<tr name="7" id="7">
+<td><a id="l7" class='ln'>7</a></td><td><span class="pp">#include "tmwtypes.h"</span></td></tr>
+<tr name="8" id="8">
+<td><a id="l8" class='ln'>8</a></td><td><span class="pp">#include "simstruc_types.h"</span></td></tr>
+<tr name="9" id="9">
+<td><a id="l9" class='ln'>9</a></td><td><span class="pp">#else</span></td></tr>
+<tr name="10" id="10">
+<td><a id="l10" class='ln'>10</a></td><td><span class="pp">#include "rtwtypes.h"</span></td></tr>
+<tr name="11" id="11">
+<td><a id="l11" class='ln'>11</a></td><td><span class="pp">#endif</span></td></tr>
+<tr name="12" id="12">
+<td><a id="l12" class='ln'>12</a></td><td></td></tr>
+<tr name="13" id="13">
+<td><a id="l13" class='ln'>13</a></td><td><span class="pp">#include "LM_TOS_MODULE_bus.h"</span></td></tr>
+<tr name="14" id="14">
+<td><a id="l14" class='ln'>14</a></td><td></td></tr>
+<tr name="15" id="15">
+<td><a id="l15" class='ln'>15</a></td><td><span class="ct">/* %%%-SFUNWIZ_wrapper_includes_Changes_BEGIN --- EDIT HERE TO _END */</span></td></tr>
+<tr name="16" id="16">
+<td><a id="l16" class='ln'>16</a></td><td><span class="pp">#include&lt;string.h&gt;</span></td></tr>
+<tr name="17" id="17">
+<td><a id="l17" class='ln'>17</a></td><td><span class="pp">#include"Defines.h"</span></td></tr>
+<tr name="18" id="18">
+<td><a id="l18" class='ln'>18</a></td><td><span class="pp">#include"Inputs.h"</span></td></tr>
+<tr name="19" id="19">
+<td><a id="l19" class='ln'>19</a></td><td><span class="pp">#include"LMCommonDefines.h"</span></td></tr>
+<tr name="20" id="20">
+<td><a id="l20" class='ln'>20</a></td><td><span class="pp">#include"AdapterSimOutput.h"</span></td></tr>
+<tr name="21" id="21">
+<td><a id="l21" class='ln'>21</a></td><td><span class="pp">#include"Outputs.h"</span></td></tr>
+<tr name="22" id="22">
+<td><a id="l22" class='ln'>22</a></td><td><span class="pp">#include"Parameters.h"</span></td></tr>
+<tr name="23" id="23">
+<td><a id="l23" class='ln'>23</a></td><td><span class="pp">#include"LMTOSRunAlgo.h"</span></td></tr>
+<tr name="24" id="24">
+<td><a id="l24" class='ln'>24</a></td><td><span class="ct">/* %%%-SFUNWIZ_wrapper_includes_Changes_END --- EDIT HERE TO _BEGIN */</span></td></tr>
+<tr name="25" id="25">
+<td><a id="l25" class='ln'>25</a></td><td><span class="pp">#define</span> <a id="25c9" class="tk">u_width</a> 1</td></tr>
+<tr name="26" id="26">
+<td><a id="l26" class='ln'>26</a></td><td><span class="pp">#define</span> <a id="26c9" class="tk">y_width</a> 1</td></tr>
+<tr name="27" id="27">
+<td><a id="l27" class='ln'>27</a></td><td></td></tr>
+<tr name="28" id="28">
+<td><a id="l28" class='ln'>28</a></td><td><span class="ct">/*</span></td></tr>
+<tr name="29" id="29">
+<td><a id="l29" class='ln'>29</a></td><td><span class="ct"> * Create external references here.  </span></td></tr>
+<tr name="30" id="30">
+<td><a id="l30" class='ln'>30</a></td><td><span class="ct"> *</span></td></tr>
+<tr name="31" id="31">
+<td><a id="l31" class='ln'>31</a></td><td><span class="ct"> */</span></td></tr>
+<tr name="32" id="32">
+<td><a id="l32" class='ln'>32</a></td><td><span class="ct">/* %%%-SFUNWIZ_wrapper_externs_Changes_BEGIN --- EDIT HERE TO _END */</span></td></tr>
+<tr name="33" id="33">
+<td><a id="l33" class='ln'>33</a></td><td><span class="kw">extern</span> <span class="kw">struct</span> <a id="33c15" class="tk">FUSION_LANE_OUTPUT_ST</a> <a id="33c37" class="tk">fus_lane_out_put_st</a>;</td></tr>
+<tr name="34" id="34">
+<td><a id="l34" class='ln'>34</a></td><td><span class="kw">extern</span> <span class="kw">struct</span> <a id="34c15" class="tk">FUSION_ROADEDGE_OUTPUT_ST</a>  <a id="34c42" class="tk">fus_roadEdge_output_st</a>;</td></tr>
+<tr name="35" id="35">
+<td><a id="l35" class='ln'>35</a></td><td><span class="kw">extern</span> <span class="kw">struct</span> <a id="35c15" class="tk">FUSION_OBJ_OUTPUT_ST</a> <a id="35c36" class="tk">fus_obj_output_st</a>;</td></tr>
+<tr name="36" id="36">
+<td><a id="l36" class='ln'>36</a></td><td><span class="kw">extern</span> <span class="kw">struct</span> <a id="36c15" class="tk">VEHSTATE_ST</a> <a id="36c27" class="tk">vsi_vehState_st</a>;</td></tr>
+<tr name="37" id="37">
+<td><a id="l37" class='ln'>37</a></td><td><span class="kw">extern</span> <span class="kw">struct</span> <a id="37c15" class="tk">LANE_MODEL_OUTPUT_ST</a>  <a id="37c37" class="tk">lane_model_output_st</a>;</td></tr>
+<tr name="38" id="38">
+<td><a id="l38" class='ln'>38</a></td><td><span class="kw">extern</span> <span class="kw">struct</span> <a id="38c15" class="tk">LM_GENERAL_LIMIT_ST</a> <a id="38c35" class="tk">lm_general_limit_st</a>;</td></tr>
+<tr name="39" id="39">
+<td><a id="l39" class='ln'>39</a></td><td><span class="kw">extern</span> <span class="kw">struct</span> <a id="39c15" class="tk">VISION_LANE_INFO_ST</a> <a id="39c35" class="tk">vision_lane_info_st</a>;</td></tr>
+<tr name="40" id="40">
+<td><a id="l40" class='ln'>40</a></td><td><span class="kw">extern</span> <span class="kw">struct</span> <a id="40c15" class="tk">LANES_GENERAL_INFO_ST</a> <a id="40c37" class="tk">lanes_general_info_st</a>;</td></tr>
+<tr name="41" id="41">
+<td><a id="l41" class='ln'>41</a></td><td><span class="kw">extern</span> <span class="kw">struct</span> <a id="41c15" class="tk">OBJECT_LIST_BY_BC_CHECK</a> <a id="41c39" class="tk">object_list_by_bc_check_st</a>;</td></tr>
+<tr name="42" id="42">
+<td><a id="l42" class='ln'>42</a></td><td><span class="kw">extern</span> <span class="kw">struct</span> <a id="42c15" class="tk">TOS_OBJ_PROB_WITHIN_LANE</a> <a id="42c40" class="tk">tos_obj_within_lane_st</a>;</td></tr>
+<tr name="43" id="43">
+<td><a id="l43" class='ln'>43</a></td><td><span class="kw">extern</span> <span class="kw">struct</span> <a id="43c15" class="tk">PROB_EGO_VEHICLE_WITHIN_LANE_ST</a> <a id="43c47" class="tk">probEgoVehicleWithinLane_st</a>;</td></tr>
+<tr name="44" id="44">
+<td><a id="l44" class='ln'>44</a></td><td><span class="kw">extern</span> <span class="kw">struct</span> <a id="44c15" class="tk">HWA_TAR_OBJ_ST</a> <a id="44c30" class="tk">hwa_tar_obj_st</a>;</td></tr>
+<tr name="45" id="45">
+<td><a id="l45" class='ln'>45</a></td><td><span class="kw">extern</span> <span class="kw">struct</span> <a id="45c15" class="tk">HWA_TAR_OBJ_OUTPUT_ADAPTER_ST</a> <a id="45c45" class="tk">hwa_tar_obj_output_adapter_st</a>;</td></tr>
+<tr name="46" id="46">
+<td><a id="l46" class='ln'>46</a></td><td><span class="kw">extern</span> <span class="kw">struct</span> <a id="46c15" class="tk">LANES_BAS_INFO_ST_adapter</a> <a id="46c41" class="tk">lanes_bas_info_st_adapter</a>;</td></tr>
+<tr name="47" id="47">
+<td><a id="l47" class='ln'>47</a></td><td><span class="kw">extern</span> <span class="kw">struct</span> <a id="47c15" class="tk">SEGMENTS_ST_adapter</a> <a id="47c35" class="tk">segments_st_adapter</a>;</td></tr>
+<tr name="48" id="48">
+<td><a id="l48" class='ln'>48</a></td><td><span class="kw">extern</span> <span class="kw">struct</span> <a id="48c15" class="tk">TAR_OBJS_ST_adapter</a> <a id="48c35" class="tk">tar_objs_st_adapter</a>;</td></tr>
+<tr name="49" id="49">
+<td><a id="l49" class='ln'>49</a></td><td><span class="kw">extern</span> <span class="kw">struct</span> <a id="49c15" class="tk">TRUCK_EVASION_TAR_OBJ</a> <a id="49c37" class="tk">tar_obj_l_st</a>;</td></tr>
+<tr name="50" id="50">
+<td><a id="l50" class='ln'>50</a></td><td><span class="kw">extern</span> <span class="kw">struct</span> <a id="50c15" class="tk">TRUCK_EVASION_TAR_OBJ</a> <a id="50c37" class="tk">tar_obj_r_st</a>;</td></tr>
+<tr name="51" id="51">
+<td><a id="l51" class='ln'>51</a></td><td><span class="kw">extern</span> <span class="kw">struct</span> <a id="51c15" class="tk">NRA_INFO_ST</a> <a id="51c27" class="tk">nra_info_st</a>;</td></tr>
+<tr name="52" id="52">
+<td><a id="l52" class='ln'>52</a></td><td><span class="kw">extern</span> <span class="kw">struct</span> <a id="52c15" class="tk">HMI_DISPLAY_OBJ</a> <a id="52c31" class="tk">hmi_display_obj</a>;</td></tr>
+<tr name="53" id="53">
+<td><a id="l53" class='ln'>53</a></td><td><span class="kw">extern</span> <span class="kw">struct</span> <a id="53c15" class="tk">HMI_DISPLAY_OBJ_adapter</a> <a id="53c39" class="tk">hmi_display_obj_adp</a>;</td></tr>
+<tr name="54" id="54">
+<td><a id="l54" class='ln'>54</a></td><td><span class="kw">extern</span> <span class="kw">struct</span> <a id="54c15" class="tk">ATS_TO_ST</a> <a id="54c25" class="tk">ats_to_st</a>;</td></tr>
+<tr name="55" id="55">
+<td><a id="l55" class='ln'>55</a></td><td><span class="kw">extern</span> <span class="kw">float</span> <a id="55c14" class="tk">g_cycleTime_s_f</a>;</td></tr>
+<tr name="56" id="56">
+<td><a id="l56" class='ln'>56</a></td><td><span class="kw">extern</span> <a id="56c8" class="tk">uint8_t</a> <a id="56c16" class="tk">teFlag_un8</a>;</td></tr>
+<tr name="57" id="57">
+<td><a id="l57" class='ln'>57</a></td><td><span class="kw">extern</span> <span class="kw">void</span> <a id="57c13" class="tk">LM_TOS_INIT</a>();</td></tr>
+<tr name="58" id="58">
+<td><a id="l58" class='ln'>58</a></td><td><span class="kw">extern</span> <span class="kw">void</span> <a id="58c13" class="tk">LM_TOS_RUN</a>();</td></tr>
+<tr name="59" id="59">
+<td><a id="l59" class='ln'>59</a></td><td><span class="ct">/* %%%-SFUNWIZ_wrapper_externs_Changes_END --- EDIT HERE TO _BEGIN */</span></td></tr>
+<tr name="60" id="60">
+<td><a id="l60" class='ln'>60</a></td><td></td></tr>
+<tr name="61" id="61">
+<td><a id="l61" class='ln'>61</a></td><td><span class="ct">/*</span></td></tr>
+<tr name="62" id="62">
+<td><a id="l62" class='ln'>62</a></td><td><span class="ct"> * Start function</span></td></tr>
+<tr name="63" id="63">
+<td><a id="l63" class='ln'>63</a></td><td><span class="ct"> *</span></td></tr>
+<tr name="64" id="64">
+<td><a id="l64" class='ln'>64</a></td><td><span class="ct"> */</span></td></tr>
+<tr name="65" id="65">
+<td><a id="l65" class='ln'>65</a></td><td><span class="kw">void</span> <a id="65c6" class="tk">LM_TOS_MODULE_Start_wrapper</a>(<span class="kw">void</span>)</td></tr>
+<tr name="66" id="66">
+<td><a id="l66" class='ln'>66</a></td><td><span class="br">{</span></td></tr>
+<tr name="67" id="67">
+<td><a id="l67" class='ln'>67</a></td><td><span class="ct">/* %%%-SFUNWIZ_wrapper_Start_Changes_BEGIN --- EDIT HERE TO _END */</span></td></tr>
+<tr name="68" id="68">
+<td><a id="l68" class='ln'>68</a></td><td><span class="ct">/*</span></td></tr>
+<tr name="69" id="69">
+<td><a id="l69" class='ln'>69</a></td><td><span class="ct"> * Custom Start code goes here.</span></td></tr>
+<tr name="70" id="70">
+<td><a id="l70" class='ln'>70</a></td><td><span class="ct"> */</span></td></tr>
+<tr name="71" id="71">
+<td><a id="l71" class='ln'>71</a></td><td><a id="71c1" class="tk">SetCycleTime_s</a>(0.01);</td></tr>
+<tr name="72" id="72">
+<td><a id="l72" class='ln'>72</a></td><td><a id="72c1" class="tk">LM_TOS_INIT</a>();</td></tr>
+<tr name="73" id="73">
+<td><a id="l73" class='ln'>73</a></td><td><span class="ct">/* %%%-SFUNWIZ_wrapper_Start_Changes_END --- EDIT HERE TO _BEGIN */</span></td></tr>
+<tr name="74" id="74">
+<td><a id="l74" class='ln'>74</a></td><td><span class="br">}</span></td></tr>
+<tr name="75" id="75">
+<td><a id="l75" class='ln'>75</a></td><td><span class="ct">/*</span></td></tr>
+<tr name="76" id="76">
+<td><a id="l76" class='ln'>76</a></td><td><span class="ct"> * Output function</span></td></tr>
+<tr name="77" id="77">
+<td><a id="l77" class='ln'>77</a></td><td><span class="ct"> *</span></td></tr>
+<tr name="78" id="78">
+<td><a id="l78" class='ln'>78</a></td><td><span class="ct"> */</span></td></tr>
+<tr name="79" id="79">
+<td><a id="l79" class='ln'>79</a></td><td><span class="kw">void</span> <a id="79c6" class="tk">LM_TOS_MODULE_Outputs_wrapper</a>(<span class="kw">const</span> <a id="79c42" class="tk">real_T</a> <a id="79c49" class="tk">*</a><a id="79c50" class="tk">timeStamp_In</a>,</td></tr>
+<tr name="80" id="80">
+<td><a id="l80" class='ln'>80</a></td><td>			<span class="kw">const</span> <a id="80c10" class="tk">uint32_T</a> <a id="80c19" class="tk">*</a><a id="80c20" class="tk">frameNum_In</a>,</td></tr>
+<tr name="81" id="81">
+<td><a id="l81" class='ln'>81</a></td><td>			<span class="kw">const</span> <a id="81c10" class="tk">FUS_OUTOBJ_LIST_ST</a> <a id="81c29" class="tk">*</a><a id="81c30" class="tk">objects_In</a>,</td></tr>
+<tr name="82" id="82">
+<td><a id="l82" class='ln'>82</a></td><td>			<span class="kw">const</span> <a id="82c10" class="tk">VSI_VEHSTATE_ST</a> <a id="82c26" class="tk">*</a><a id="82c27" class="tk">vehState_In</a>,</td></tr>
+<tr name="83" id="83">
+<td><a id="l83" class='ln'>83</a></td><td>			<span class="kw">const</span> <a id="83c10" class="tk">FUS_LANE_OUTPUT_ST</a> <a id="83c29" class="tk">*</a><a id="83c30" class="tk">fus_Lane_In</a>,</td></tr>
+<tr name="84" id="84">
+<td><a id="l84" class='ln'>84</a></td><td>			<span class="kw">const</span> <a id="84c10" class="tk">FUS_ROAD_EDGE_OUTPUT_ST</a> <a id="84c34" class="tk">*</a><a id="84c35" class="tk">fus_roadEdge_In</a>,</td></tr>
+<tr name="85" id="85">
+<td><a id="l85" class='ln'>85</a></td><td>			<span class="kw">const</span> <a id="85c10" class="tk">ATS_PO_ST</a> <a id="85c20" class="tk">*</a><a id="85c21" class="tk">acc_to_In</a>,</td></tr>
+<tr name="86" id="86">
+<td><a id="l86" class='ln'>86</a></td><td>			<a id="86c4" class="tk">uint8_T</a> <a id="86c12" class="tk">*</a><a id="86c13" class="tk">egoLaneId_output</a>,</td></tr>
+<tr name="87" id="87">
+<td><a id="l87" class='ln'>87</a></td><td>			<a id="87c4" class="tk">LANES_BAS_INFO_ST_adt</a> <a id="87c26" class="tk">*</a><a id="87c27" class="tk">lanes_bas_info_st_output</a>,</td></tr>
+<tr name="88" id="88">
+<td><a id="l88" class='ln'>88</a></td><td>			<a id="88c4" class="tk">TARGETOBJECTS_ST_adp</a> <a id="88c25" class="tk">*</a><a id="88c26" class="tk">tar_obj_st_output</a>,</td></tr>
+<tr name="89" id="89">
+<td><a id="l89" class='ln'>89</a></td><td>			<a id="89c4" class="tk">SEGMENTS_ST_adp</a> <a id="89c20" class="tk">*</a><a id="89c21" class="tk">segments_st_output</a>,</td></tr>
+<tr name="90" id="90">
+<td><a id="l90" class='ln'>90</a></td><td>			<a id="90c4" class="tk">HWA_TARGETOBJECT_OUTPUT_ADAPTER_ST</a> <a id="90c39" class="tk">*</a><a id="90c40" class="tk">hwa_tar_obj_st_output</a>,</td></tr>
+<tr name="91" id="91">
+<td><a id="l91" class='ln'>91</a></td><td>			<a id="91c4" class="tk">uint8_T</a> <a id="91c12" class="tk">*</a><a id="91c13" class="tk">hmi_obj_count_output</a>,</td></tr>
+<tr name="92" id="92">
+<td><a id="l92" class='ln'>92</a></td><td>			<a id="92c4" class="tk">HMI_OUTPUT_ST_APT</a> <a id="92c22" class="tk">*</a><a id="92c23" class="tk">hmi_info_st_output</a>,</td></tr>
+<tr name="93" id="93">
+<td><a id="l93" class='ln'>93</a></td><td>			<a id="93c4" class="tk">NARROW_LANE_SUPPORT_OUTPUT_ST</a> <a id="93c34" class="tk">*</a><a id="93c35" class="tk">nls_info_st_output</a>,</td></tr>
+<tr name="94" id="94">
+<td><a id="l94" class='ln'>94</a></td><td>			<a id="94c4" class="tk">uint16_T</a> <a id="94c13" class="tk">*</a><a id="94c14" class="tk">rolling_count_output</a>,</td></tr>
+<tr name="95" id="95">
+<td><a id="l95" class='ln'>95</a></td><td>			<a id="95c4" class="tk">uint8_T</a> <a id="95c12" class="tk">*</a><a id="95c13" class="tk">te_Flag_output</a>)</td></tr>
+<tr name="96" id="96">
+<td><a id="l96" class='ln'>96</a></td><td><span class="br">{</span></td></tr>
+<tr name="97" id="97">
+<td><a id="l97" class='ln'>97</a></td><td><span class="ct">/* %%%-SFUNWIZ_wrapper_Outputs_Changes_BEGIN --- EDIT HERE TO _END */</span></td></tr>
+<tr name="98" id="98">
+<td><a id="l98" class='ln'>98</a></td><td><a id="98c1" class="tk">fus_obj_output_st</a>.<a id="98c19" class="tk">timeStamp</a> = <a id="98c31" class="tk">timeStamp_In</a>[0];</td></tr>
+<tr name="99" id="99">
+<td><a id="l99" class='ln'>99</a></td><td><a id="99c1" class="tk">fus_obj_output_st</a>.<a id="99c19" class="tk">frameNum</a> = <a id="99c30" class="tk">frameNum_In</a>[0];</td></tr>
+<tr name="100" id="100">
+<td><a id="l100" class='ln'>100</a></td><td><a id="100c1" class="tk">memcpy</a>(<a id="100c8" class="tk">&amp;</a>(<a id="100c10" class="tk">fus_obj_output_st</a>.<a id="100c28" class="tk">objects</a>),(<a id="100c38" class="tk">objects_In</a>),<span class="kw">sizeof</span>(<a id="100c57" class="tk">FUS_OBJ_DATA_ST</a>)<a id="100c73" class="tk">*</a>40);</td></tr>
+<tr name="101" id="101">
+<td><a id="l101" class='ln'>101</a></td><td><a id="101c1" class="tk">memcpy</a>(<a id="101c8" class="tk">&amp;</a><a id="101c9" class="tk">vsi_vehState_st</a>,(<a id="101c26" class="tk">vehState_In</a>),<span class="kw">sizeof</span>(<a id="101c46" class="tk">VSI_VEHSTATE_ST</a>));</td></tr>
+<tr name="102" id="102">
+<td><a id="l102" class='ln'>102</a></td><td><a id="102c1" class="tk">memcpy</a>(<a id="102c8" class="tk">&amp;</a><a id="102c9" class="tk">fus_lane_out_put_st</a>,(<a id="102c30" class="tk">fus_Lane_In</a>),<span class="kw">sizeof</span>(<a id="102c50" class="tk">FUS_LANE_OUTPUT_ST</a>));</td></tr>
+<tr name="103" id="103">
+<td><a id="l103" class='ln'>103</a></td><td><a id="103c1" class="tk">memcpy</a>(<a id="103c8" class="tk">&amp;</a><a id="103c9" class="tk">fus_roadEdge_output_st</a>,(<a id="103c33" class="tk">fus_roadEdge_In</a>),<span class="kw">sizeof</span>(<a id="103c57" class="tk">FUS_ROAD_EDGE_OUTPUT_ST</a>));</td></tr>
+<tr name="104" id="104">
+<td><a id="l104" class='ln'>104</a></td><td><a id="104c1" class="tk">ats_to_st</a>.<a id="104c11" class="tk">valid</a> = (<a id="104c20" class="tk">boolean_T</a>)(<a id="104c31" class="tk">acc_to_In</a>-&gt;<a id="104c42" class="tk">Valid</a>);</td></tr>
+<tr name="105" id="105">
+<td><a id="l105" class='ln'>105</a></td><td><a id="105c1" class="tk">ats_to_st</a>.<a id="105c11" class="tk">index</a> = (<a id="105c20" class="tk">uint8_T</a>)<a id="105c28" class="tk">acc_to_In</a>-&gt;<a id="105c39" class="tk">Index</a>;</td></tr>
+<tr name="106" id="106">
+<td><a id="l106" class='ln'>106</a></td><td><a id="106c1" class="tk">ats_to_st</a>.<a id="106c11" class="tk">dx</a> = <a id="106c16" class="tk">acc_to_In</a>-&gt;<a id="106c27" class="tk">dx</a>;</td></tr>
+<tr name="107" id="107">
+<td><a id="l107" class='ln'>107</a></td><td><a id="107c1" class="tk">ats_to_st</a>.<a id="107c11" class="tk">dy</a> = <a id="107c16" class="tk">acc_to_In</a>-&gt;<a id="107c27" class="tk">dy</a>;</td></tr>
+<tr name="108" id="108">
+<td><a id="l108" class='ln'>108</a></td><td><a id="108c1" class="tk">ats_to_st</a>.<a id="108c11" class="tk">vx</a> = <a id="108c16" class="tk">acc_to_In</a>-&gt;<a id="108c27" class="tk">vx</a>;</td></tr>
+<tr name="109" id="109">
+<td><a id="l109" class='ln'>109</a></td><td><a id="109c1" class="tk">ats_to_st</a>.<a id="109c11" class="tk">vy</a> = <a id="109c16" class="tk">acc_to_In</a>-&gt;<a id="109c27" class="tk">vy</a>;</td></tr>
+<tr name="110" id="110">
+<td><a id="l110" class='ln'>110</a></td><td><a id="110c1" class="tk">ats_to_st</a>.<a id="110c11" class="tk">ax</a> = <a id="110c16" class="tk">acc_to_In</a>-&gt;<a id="110c27" class="tk">ax</a>;</td></tr>
+<tr name="111" id="111">
+<td><a id="l111" class='ln'>111</a></td><td><a id="111c1" class="tk">ats_to_st</a>.<a id="111c11" class="tk">vxAbs</a> = <a id="111c19" class="tk">acc_to_In</a>-&gt;<a id="111c30" class="tk">vxAbs</a>;</td></tr>
+<tr name="112" id="112">
+<td><a id="l112" class='ln'>112</a></td><td><a id="112c1" class="tk">ats_to_st</a>.<a id="112c11" class="tk">axAbs</a> = <a id="112c19" class="tk">acc_to_In</a>-&gt;<a id="112c30" class="tk">axAbs</a>;</td></tr>
+<tr name="113" id="113">
+<td><a id="l113" class='ln'>113</a></td><td><a id="113c1" class="tk">ats_to_st</a>.<a id="113c11" class="tk">vxAbs</a> = <a id="113c19" class="tk">acc_to_In</a>-&gt;<a id="113c30" class="tk">vxAbs</a>;</td></tr>
+<tr name="114" id="114">
+<td><a id="l114" class='ln'>114</a></td><td><a id="114c1" class="tk">ats_to_st</a>.<a id="114c11" class="tk">type</a> = (<a id="114c19" class="tk">uint8_T</a>)(<a id="114c28" class="tk">acc_to_In</a>-&gt;<a id="114c39" class="tk">Type</a>);</td></tr>
+<tr name="115" id="115">
+<td><a id="l115" class='ln'>115</a></td><td><a id="115c1" class="tk">ats_to_st</a>.<a id="115c11" class="tk">motionSts</a> = (<a id="115c24" class="tk">uint8_T</a>)(<a id="115c33" class="tk">acc_to_In</a>-&gt;<a id="115c44" class="tk">MotionSts</a>);</td></tr>
+<tr name="116" id="116">
+<td><a id="l116" class='ln'>116</a></td><td><span class="ct">// calc</span></td></tr>
+<tr name="117" id="117">
+<td><a id="l117" class='ln'>117</a></td><td><a id="117c1" class="tk">LM_TOS_RUN</a>();</td></tr>
+<tr name="118" id="118">
+<td><a id="l118" class='ln'>118</a></td><td><span class="ct">//output</span></td></tr>
+<tr name="119" id="119">
+<td><a id="l119" class='ln'>119</a></td><td><a id="119c1" class="tk">egoLaneId_output</a>[0] = <a id="119c23" class="tk">lane_model_output_st</a>.<a id="119c44" class="tk">egoLaneID_un8</a>;</td></tr>
+<tr name="120" id="120">
+<td><a id="l120" class='ln'>120</a></td><td><a id="120c1" class="tk">memcpy</a>(<a id="120c8" class="tk">lanes_bas_info_st_output</a>,<a id="120c33" class="tk">&amp;</a>(<a id="120c35" class="tk">lanes_bas_info_st_adapter</a>),<span class="kw">sizeof</span>(<a id="120c69" class="tk">LANES_BAS_INFO_ST_adt</a>));</td></tr>
+<tr name="121" id="121">
+<td><a id="l121" class='ln'>121</a></td><td><a id="121c1" class="tk">memcpy</a>(<a id="121c8" class="tk">tar_obj_st_output</a>,<a id="121c26" class="tk">&amp;</a>(<a id="121c28" class="tk">tar_objs_st_adapter</a>),<span class="kw">sizeof</span>(<a id="121c56" class="tk">TARGETOBJECTS_ST_adp</a>));</td></tr>
+<tr name="122" id="122">
+<td><a id="l122" class='ln'>122</a></td><td><a id="122c1" class="tk">memcpy</a>(<a id="122c8" class="tk">segments_st_output</a>,<a id="122c27" class="tk">&amp;</a>(<a id="122c29" class="tk">segments_st_adapter</a>),<span class="kw">sizeof</span>(<a id="122c57" class="tk">SEGMENTS_ST_adp</a>));</td></tr>
+<tr name="123" id="123">
+<td><a id="l123" class='ln'>123</a></td><td><a id="123c1" class="tk">memcpy</a>(<a id="123c8" class="tk">hwa_tar_obj_st_output</a>,<a id="123c30" class="tk">&amp;</a>(<a id="123c32" class="tk">hwa_tar_obj_output_adapter_st</a>),<span class="kw">sizeof</span>(<a id="123c70" class="tk">HWA_TARGETOBJECT_OUTPUT_ADAPTER_ST</a>));</td></tr>
+<tr name="124" id="124">
+<td><a id="l124" class='ln'>124</a></td><td><a id="124c1" class="tk">hmi_obj_count_output</a>[0] = 0;<span class="ct">//t_hmi_display_obj.object_count;//TODO NO USE</span></td></tr>
+<tr name="125" id="125">
+<td><a id="l125" class='ln'>125</a></td><td><a id="125c1" class="tk">memcpy</a>(<a id="125c8" class="tk">hmi_info_st_output</a>,<a id="125c27" class="tk">&amp;</a>(<a id="125c29" class="tk">hmi_display_obj_adp</a>),<span class="kw">sizeof</span>(<a id="125c57" class="tk">HMI_OUTPUT_ST_APT</a>));</td></tr>
+<tr name="126" id="126">
+<td><a id="l126" class='ln'>126</a></td><td><a id="126c1" class="tk">memcpy</a>(<a id="126c8" class="tk">nls_info_st_output</a>,<a id="126c27" class="tk">&amp;</a>(<a id="126c29" class="tk">nra_info_st</a>),<span class="kw">sizeof</span>(<a id="126c49" class="tk">NARROW_LANE_SUPPORT_OUTPUT_ST</a>));</td></tr>
+<tr name="127" id="127">
+<td><a id="l127" class='ln'>127</a></td><td><a id="127c1" class="tk">te_Flag_output</a>[0] = <a id="127c21" class="tk">teFlag_un8</a>;</td></tr>
+<tr name="128" id="128">
+<td><a id="l128" class='ln'>128</a></td><td><span class="kw">if</span>(<a id="128c4" class="tk">rolling_count_output</a>[0]<a id="128c27" class="tk">&gt;=</a>0xFFFF<a id="128c35" class="tk">-</a>1)</td></tr>
+<tr name="129" id="129">
+<td><a id="l129" class='ln'>129</a></td><td><span class="br">{</span></td></tr>
+<tr name="130" id="130">
+<td><a id="l130" class='ln'>130</a></td><td>    <a id="130c5" class="tk">rolling_count_output</a>[0] = 0;</td></tr>
+<tr name="131" id="131">
+<td><a id="l131" class='ln'>131</a></td><td><span class="br">}</span></td></tr>
+<tr name="132" id="132">
+<td><a id="l132" class='ln'>132</a></td><td><span class="kw">else</span></td></tr>
+<tr name="133" id="133">
+<td><a id="l133" class='ln'>133</a></td><td><span class="br">{</span></td></tr>
+<tr name="134" id="134">
+<td><a id="l134" class='ln'>134</a></td><td>    <a id="134c5" class="tk">rolling_count_output</a>[0] = <a id="134c31" class="tk">rolling_count_output</a>[0]<a id="134c54" class="tk">+</a>1;</td></tr>
+<tr name="135" id="135">
+<td><a id="l135" class='ln'>135</a></td><td><span class="br">}</span></td></tr>
+<tr name="136" id="136">
+<td><a id="l136" class='ln'>136</a></td><td><span class="ct">/* %%%-SFUNWIZ_wrapper_Outputs_Changes_END --- EDIT HERE TO _BEGIN */</span></td></tr>
+<tr name="137" id="137">
+<td><a id="l137" class='ln'>137</a></td><td><span class="br">}</span></td></tr>
+<tr name="138" id="138">
+<td><a id="l138" class='ln'>138</a></td><td></td></tr>
+<tr name="139" id="139">
+<td><a id="l139" class='ln'>139</a></td><td></td></tr>
+<tr name="140" id="140">
+<td><a id="l140" class='ln'>140</a></td><td></td></tr>
+</table>
+</pre>
+</body>
+</html>

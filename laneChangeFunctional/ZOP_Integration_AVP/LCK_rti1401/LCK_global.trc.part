@@ -1,0 +1,1763 @@
+-- ******** Tunable Parameters ************************************************
+
+group "Tunable Parameters"
+
+	C_DEG2RAD
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "C_DEG2RAD"
+	 flags:   PARAM
+	}
+	C_KPH2MPS
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "C_KPH2MPS"
+	 flags:   PARAM
+	}
+	C_NEARZERO
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "C_NEARZERO"
+	 flags:   PARAM
+	}
+	C_ONE
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "C_ONE"
+	 flags:   PARAM
+	}
+	C_RAD2DEG
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "C_RAD2DEG"
+	 flags:   PARAM
+	}
+	C_ZERO
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "C_ZERO"
+	 flags:   PARAM
+	}
+	LCK_MODE_ACTIVE
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "LCK_MODE_ACTIVE"
+	 flags:   PARAM
+	}
+	LCK_MODE_ERROR
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "LCK_MODE_ERROR"
+	 flags:   PARAM
+	}
+	LCK_MODE_IDLE
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "LCK_MODE_IDLE"
+	 flags:   PARAM
+	}
+	LCK_MODE_LEFT_LANE_CHANGE
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "LCK_MODE_LEFT_LANE_CHANGE"
+	 flags:   PARAM
+	}
+	LCK_MODE_OFF
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "LCK_MODE_OFF"
+	 flags:   PARAM
+	}
+	LCK_MODE_READY
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "LCK_MODE_READY"
+	 flags:   PARAM
+	}
+	LCK_MODE_RIGHT_LANE_CHANGE
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "LCK_MODE_RIGHT_LANE_CHANGE"
+	 flags:   PARAM
+	}
+	LEFT_TURN_SIGNAL
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "LEFT_TURN_SIGNAL"
+	 flags:   PARAM
+	}
+	ML_TIME_MSEC
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "ML_TIME_MSEC"
+	 flags:   PARAM
+	}
+	ML_TIME_SEC
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "ML_TIME_SEC"
+	 flags:   PARAM
+	}
+	RIGHT_TURN_SIGNAL
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "RIGHT_TURN_SIGNAL"
+	 flags:   PARAM
+	}
+	TJA_SP_CONF_MEDIUM
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "TJA_SP_CONF_MEDIUM"
+	 flags:   PARAM
+	}
+	TJA_SP_TYPE_BLMONLY
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "TJA_SP_TYPE_BLMONLY"
+	 flags:   PARAM
+	}
+	TJA_SP_TYPE_POBLM
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "TJA_SP_TYPE_POBLM"
+	 flags:   PARAM
+	}
+	TJA_SP_TYPE_POONLY
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "TJA_SP_TYPE_POONLY"
+	 flags:   PARAM
+	}
+	k_HLR_suprress_hold
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_HLR_suprress_hold"
+	 flags:   PARAM
+	}
+	k_HighAccel_suppress_hold
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_HighAccel_suppress_hold"
+	 flags:   PARAM
+	}
+	k_LCG_Configured
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCG_Configured"
+	 flags:   PARAM
+	}
+	k_LCK_A0Fac_ActSta
+	{
+	 type:    LCK_ArrayDT1_7
+	 alias:   "k_LCK_A0Fac_ActSta"
+	 flags:   PARAM
+	}
+	k_LCK_A0Fac_DrvStm
+	{
+	 type:    LCK_ArrayDT1_7
+	 alias:   "k_LCK_A0Fac_DrvStm"
+	 flags:   PARAM
+	}
+	k_LCK_A0ShiftFac_Dy_LftCurv
+	{
+	 type:    LCK_ArrayDT1_19
+	 alias:   "k_LCK_A0ShiftFac_Dy_LftCurv"
+	 flags:   PARAM
+	}
+	k_LCK_A0ShiftFac_Dy_RgtCurv
+	{
+	 type:    LCK_ArrayDT1_19
+	 alias:   "k_LCK_A0ShiftFac_Dy_RgtCurv"
+	 flags:   PARAM
+	}
+	k_LCK_A0ShiftFac_Vspd
+	{
+	 type:    LCK_ArrayDT1_16
+	 alias:   "k_LCK_A0ShiftFac_Vspd"
+	 flags:   PARAM
+	}
+	k_LCK_A0Shift_LftCurv
+	{
+	 type:    LCK_ArrayDT1_14
+	 alias:   "k_LCK_A0Shift_LftCurv"
+	 flags:   PARAM
+	}
+	k_LCK_A0Shift_RgtCurv
+	{
+	 type:    LCK_ArrayDT1_14
+	 alias:   "k_LCK_A0Shift_RgtCurv"
+	 flags:   PARAM
+	}
+	k_LCK_A0Shift_StraLan
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_A0Shift_StraLan"
+	 flags:   PARAM
+	}
+	k_LCK_A0_Rdy2Act_UseConst
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_A0_Rdy2Act_UseConst"
+	 flags:   PARAM
+	}
+	k_LCK_Active2Ready_Mask
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_Active2Ready_Mask"
+	 flags:   PARAM
+	}
+	k_LCK_CvatRateBks
+	{
+	 type:    LCK_ArrayDT1_15
+	 alias:   "k_LCK_CvatRateBks"
+	 flags:   PARAM
+	}
+	k_LCK_CvatrBks
+	{
+	 type:    LCK_ArrayDT1_16
+	 alias:   "k_LCK_CvatrBks"
+	 flags:   PARAM
+	}
+	k_LCK_DFac_Dy
+	{
+	 type:    LCK_ArrayDT1_10
+	 alias:   "k_LCK_DFac_Dy"
+	 flags:   PARAM
+	}
+	k_LCK_DFac_Dy_Curv
+	{
+	 type:    LCK_ArrayDT1_10
+	 alias:   "k_LCK_DFac_Dy_Curv"
+	 flags:   PARAM
+	}
+	k_LCK_DFac_HaCurCen
+	{
+	 type:    LCK_ArrayDT1_10
+	 alias:   "k_LCK_DFac_HaCurCen"
+	 flags:   PARAM
+	}
+	k_LCK_DFac_HaCurSid
+	{
+	 type:    LCK_ArrayDT1_10
+	 alias:   "k_LCK_DFac_HaCurSid"
+	 flags:   PARAM
+	}
+	k_LCK_DFac_HaStrCen
+	{
+	 type:    LCK_ArrayDT1_10
+	 alias:   "k_LCK_DFac_HaStrCen"
+	 flags:   PARAM
+	}
+	k_LCK_DFac_HaStrSid
+	{
+	 type:    LCK_ArrayDT1_10
+	 alias:   "k_LCK_DFac_HaStrSid"
+	 flags:   PARAM
+	}
+	k_LCK_DFac_HadCurCen
+	{
+	 type:    LCK_ArrayDT1_10
+	 alias:   "k_LCK_DFac_HadCurCen"
+	 flags:   PARAM
+	}
+	k_LCK_DFac_HadCurSid
+	{
+	 type:    LCK_ArrayDT1_10
+	 alias:   "k_LCK_DFac_HadCurSid"
+	 flags:   PARAM
+	}
+	k_LCK_DFac_HadStrCen
+	{
+	 type:    LCK_ArrayDT1_10
+	 alias:   "k_LCK_DFac_HadStrCen"
+	 flags:   PARAM
+	}
+	k_LCK_DFac_HadStrSid
+	{
+	 type:    LCK_ArrayDT1_10
+	 alias:   "k_LCK_DFac_HadStrSid"
+	 flags:   PARAM
+	}
+	k_LCK_DFac_Rad
+	{
+	 type:    LCK_ArrayDT1_14
+	 alias:   "k_LCK_DFac_Rad"
+	 flags:   PARAM
+	}
+	k_LCK_DFac_SA_CurCen
+	{
+	 type:    LCK_ArrayDT1_8
+	 alias:   "k_LCK_DFac_SA_CurCen"
+	 flags:   PARAM
+	}
+	k_LCK_DFac_SA_CurSid
+	{
+	 type:    LCK_ArrayDT1_8
+	 alias:   "k_LCK_DFac_SA_CurSid"
+	 flags:   PARAM
+	}
+	k_LCK_DFac_SA_StrCen
+	{
+	 type:    LCK_ArrayDT1_8
+	 alias:   "k_LCK_DFac_SA_StrCen"
+	 flags:   PARAM
+	}
+	k_LCK_DFac_SA_StrSid
+	{
+	 type:    LCK_ArrayDT1_8
+	 alias:   "k_LCK_DFac_SA_StrSid"
+	 flags:   PARAM
+	}
+	k_LCK_DFac_SS_CurCen
+	{
+	 type:    LCK_ArrayDT1_8
+	 alias:   "k_LCK_DFac_SS_CurCen"
+	 flags:   PARAM
+	}
+	k_LCK_DFac_SS_CurSid
+	{
+	 type:    LCK_ArrayDT1_8
+	 alias:   "k_LCK_DFac_SS_CurSid"
+	 flags:   PARAM
+	}
+	k_LCK_DFac_SS_StrCen
+	{
+	 type:    LCK_ArrayDT1_8
+	 alias:   "k_LCK_DFac_SS_StrCen"
+	 flags:   PARAM
+	}
+	k_LCK_DFac_SS_StrSid
+	{
+	 type:    LCK_ArrayDT1_8
+	 alias:   "k_LCK_DFac_SS_StrSid"
+	 flags:   PARAM
+	}
+	k_LCK_DFac_Vspd
+	{
+	 type:    LCK_ArrayDT1_16
+	 alias:   "k_LCK_DFac_Vspd"
+	 flags:   PARAM
+	}
+	k_LCK_DTermMax
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_DTermMax"
+	 flags:   PARAM
+	}
+	k_LCK_DlyTm_DrvStim
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_DlyTm_DrvStim"
+	 flags:   PARAM
+	}
+	k_LCK_DyBks_Curv
+	{
+	 type:    LCK_ArrayDT1_19
+	 alias:   "k_LCK_DyBks_Curv"
+	 flags:   PARAM
+	}
+	k_LCK_Enable_POOnly
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_Enable_POOnly"
+	 flags:   PARAM
+	}
+	k_LCK_Entry_DistBuffer
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_Entry_DistBuffer"
+	 flags:   PARAM
+	}
+	k_LCK_Fac_Vspd2RngThr_FalRec
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_Fac_Vspd2RngThr_FalRec"
+	 flags:   PARAM
+	}
+	k_LCK_FfwDeltaFac_Rad_Lft
+	{
+	 type:    LCK_ArrayDT1_14
+	 alias:   "k_LCK_FfwDeltaFac_Rad_Lft"
+	 flags:   PARAM
+	}
+	k_LCK_FfwDeltaFac_Rad_Rgt
+	{
+	 type:    LCK_ArrayDT1_14
+	 alias:   "k_LCK_FfwDeltaFac_Rad_Rgt"
+	 flags:   PARAM
+	}
+	k_LCK_FfwDeltaFac_Vspd
+	{
+	 type:    LCK_ArrayDT1_16
+	 alias:   "k_LCK_FfwDeltaFac_Vspd"
+	 flags:   PARAM
+	}
+	k_LCK_FfwFac_CvatRate_Lft
+	{
+	 type:    LCK_ArrayDT1_15
+	 alias:   "k_LCK_FfwFac_CvatRate_Lft"
+	 flags:   PARAM
+	}
+	k_LCK_FfwFac_CvatRate_Rgt
+	{
+	 type:    LCK_ArrayDT1_15
+	 alias:   "k_LCK_FfwFac_CvatRate_Rgt"
+	 flags:   PARAM
+	}
+	k_LCK_FfwFac_Dy
+	{
+	 type:    LCK_ArrayDT1_8
+	 alias:   "k_LCK_FfwFac_Dy"
+	 flags:   PARAM
+	}
+	k_LCK_FfwFac_Rad_Lft
+	{
+	 type:    LCK_ArrayDT1_14
+	 alias:   "k_LCK_FfwFac_Rad_Lft"
+	 flags:   PARAM
+	}
+	k_LCK_FfwFac_Rad_Rgt
+	{
+	 type:    LCK_ArrayDT1_14
+	 alias:   "k_LCK_FfwFac_Rad_Rgt"
+	 flags:   PARAM
+	}
+	k_LCK_FfwFac_Vspd
+	{
+	 type:    LCK_ArrayDT1_16
+	 alias:   "k_LCK_FfwFac_Vspd"
+	 flags:   PARAM
+	}
+	k_LCK_FfwTorq_Cvat
+	{
+	 type:    LCK_ArrayDT1_16
+	 alias:   "k_LCK_FfwTorq_Cvat"
+	 flags:   PARAM
+	}
+	k_LCK_Ffw_CvatSwh
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_Ffw_CvatSwh"
+	 flags:   PARAM
+	}
+	k_LCK_Ffw_DyBks
+	{
+	 type:    LCK_ArrayDT1_8
+	 alias:   "k_LCK_Ffw_DyBks"
+	 flags:   PARAM
+	}
+	k_LCK_Ffw_TimCon_CmdFlt
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_Ffw_TimCon_CmdFlt"
+	 flags:   PARAM
+	}
+	k_LCK_HAFac_ActSta
+	{
+	 type:    LCK_ArrayDT1_7
+	 alias:   "k_LCK_HAFac_ActSta"
+	 flags:   PARAM
+	}
+	k_LCK_HAFac_DrvStm
+	{
+	 type:    LCK_ArrayDT1_7
+	 alias:   "k_LCK_HAFac_DrvStm"
+	 flags:   PARAM
+	}
+	k_LCK_HARFac_ActSta
+	{
+	 type:    LCK_ArrayDT1_7
+	 alias:   "k_LCK_HARFac_ActSta"
+	 flags:   PARAM
+	}
+	k_LCK_HARFac_DrvStm
+	{
+	 type:    LCK_ArrayDT1_7
+	 alias:   "k_LCK_HARFac_DrvStm"
+	 flags:   PARAM
+	}
+	k_LCK_HaloTime
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_HaloTime"
+	 flags:   PARAM
+	}
+	k_LCK_HaloTime_Switch
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_HaloTime_Switch"
+	 flags:   PARAM
+	}
+	k_LCK_HedAngDiffX
+	{
+	 type:    LCK_ArrayDT1_10
+	 alias:   "k_LCK_HedAngDiffX"
+	 flags:   PARAM
+	}
+	k_LCK_HedAngRateDiffX
+	{
+	 type:    LCK_ArrayDT1_10
+	 alias:   "k_LCK_HedAngRateDiffX"
+	 flags:   PARAM
+	}
+	k_LCK_Hed_DyBks
+	{
+	 type:    LCK_ArrayDT1_10
+	 alias:   "k_LCK_Hed_DyBks"
+	 flags:   PARAM
+	}
+	k_LCK_HndsOnWhel_DlyTm_Idl2Rdy
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_HndsOnWhel_DlyTm_Idl2Rdy"
+	 flags:   PARAM
+	}
+	k_LCK_Idle2Ready_Mask
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_Idle2Ready_Mask"
+	 flags:   PARAM
+	}
+	k_LCK_Junc_SusTime
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_Junc_SusTime"
+	 flags:   PARAM
+	}
+	k_LCK_KpKdDecSlopeLmt
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_KpKdDecSlopeLmt"
+	 flags:   PARAM
+	}
+	k_LCK_KpKdIncSlopeLmt
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_KpKdIncSlopeLmt"
+	 flags:   PARAM
+	}
+	k_LCK_LM_ROC_DlyTm_Idl2Rdy
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_LM_ROC_DlyTm_Idl2Rdy"
+	 flags:   PARAM
+	}
+	k_LCK_LM_ROC_DlyTm_Rdy2Idl
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_LM_ROC_DlyTm_Rdy2Idl"
+	 flags:   PARAM
+	}
+	k_LCK_LM_ROC_Idl2Rdy
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_LM_ROC_Idl2Rdy"
+	 flags:   PARAM
+	}
+	k_LCK_LM_ROC_Rdy2Idl
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_LM_ROC_Rdy2Idl"
+	 flags:   PARAM
+	}
+	k_LCK_LatCtrl_DFac_Lft
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_LatCtrl_DFac_Lft"
+	 flags:   PARAM
+	}
+	k_LCK_LatCtrl_DFac_Rgt
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_LatCtrl_DFac_Rgt"
+	 flags:   PARAM
+	}
+	k_LCK_LatCtrl_Kd
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_LatCtrl_Kd"
+	 flags:   PARAM
+	}
+	k_LCK_LatCtrl_Kp
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_LatCtrl_Kp"
+	 flags:   PARAM
+	}
+	k_LCK_LatCtrl_PFac_Lft
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_LatCtrl_PFac_Lft"
+	 flags:   PARAM
+	}
+	k_LCK_LatCtrl_PFac_Rgt
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_LatCtrl_PFac_Rgt"
+	 flags:   PARAM
+	}
+	k_LCK_LatCtrl_TimCon_CmdFlt
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_LatCtrl_TimCon_CmdFlt"
+	 flags:   PARAM
+	}
+	k_LCK_Lat_Ctrl_DFac_Lft
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_Lat_Ctrl_DFac_Lft"
+	 flags:   PARAM
+	}
+	k_LCK_Lat_Ctrl_DFac_Rgt
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_Lat_Ctrl_DFac_Rgt"
+	 flags:   PARAM
+	}
+	k_LCK_Lat_Ctrl_Kd
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_Lat_Ctrl_Kd"
+	 flags:   PARAM
+	}
+	k_LCK_Lat_Ctrl_Ki
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_Lat_Ctrl_Ki"
+	 flags:   PARAM
+	}
+	k_LCK_Lat_Ctrl_Kp
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_Lat_Ctrl_Kp"
+	 flags:   PARAM
+	}
+	k_LCK_Lat_Ctrl_Kp_NearGain
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_Lat_Ctrl_Kp_NearGain"
+	 flags:   PARAM
+	}
+	k_LCK_Lat_Ctrl_PFac_Lft
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_Lat_Ctrl_PFac_Lft"
+	 flags:   PARAM
+	}
+	k_LCK_Lat_Ctrl_PFac_Rgt
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_Lat_Ctrl_PFac_Rgt"
+	 flags:   PARAM
+	}
+	k_LCK_Lat_Ctrl_TimCon_CmdFlt
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_Lat_Ctrl_TimCon_CmdFlt"
+	 flags:   PARAM
+	}
+	k_LCK_Lat_DFac_Rad
+	{
+	 type:    LCK_ArrayDT1_14
+	 alias:   "k_LCK_Lat_DFac_Rad"
+	 flags:   PARAM
+	}
+	k_LCK_Lat_DFac_SS_Cur
+	{
+	 type:    LCK_ArrayDT1_8
+	 alias:   "k_LCK_Lat_DFac_SS_Cur"
+	 flags:   PARAM
+	}
+	k_LCK_Lat_DFac_SS_Str
+	{
+	 type:    LCK_ArrayDT1_8
+	 alias:   "k_LCK_Lat_DFac_SS_Str"
+	 flags:   PARAM
+	}
+	k_LCK_Lat_DFac_Vspd
+	{
+	 type:    LCK_ArrayDT1_16
+	 alias:   "k_LCK_Lat_DFac_Vspd"
+	 flags:   PARAM
+	}
+	k_LCK_Lat_DyBks
+	{
+	 type:    LCK_ArrayDT1_10
+	 alias:   "k_LCK_Lat_DyBks"
+	 flags:   PARAM
+	}
+	k_LCK_Lat_IFac_Rad
+	{
+	 type:    LCK_ArrayDT1_14
+	 alias:   "k_LCK_Lat_IFac_Rad"
+	 flags:   PARAM
+	}
+	k_LCK_Lat_IFac_Vspd
+	{
+	 type:    LCK_ArrayDT1_16
+	 alias:   "k_LCK_Lat_IFac_Vspd"
+	 flags:   PARAM
+	}
+	k_LCK_Lat_ILmtFac_Dy_CurvLan
+	{
+	 type:    LCK_ArrayDT1_10
+	 alias:   "k_LCK_Lat_ILmtFac_Dy_CurvLan"
+	 flags:   PARAM
+	}
+	k_LCK_Lat_ILmtFac_Dy_StraLan
+	{
+	 type:    LCK_ArrayDT1_10
+	 alias:   "k_LCK_Lat_ILmtFac_Dy_StraLan"
+	 flags:   PARAM
+	}
+	k_LCK_Lat_ILmtFac_Rad
+	{
+	 type:    LCK_ArrayDT1_14
+	 alias:   "k_LCK_Lat_ILmtFac_Rad"
+	 flags:   PARAM
+	}
+	k_LCK_Lat_ILmtFac_Rad_NearGain
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_Lat_ILmtFac_Rad_NearGain"
+	 flags:   PARAM
+	}
+	k_LCK_Lat_ILmtFac_Vspd_CurvLan
+	{
+	 type:    LCK_ArrayDT1_16
+	 alias:   "k_LCK_Lat_ILmtFac_Vspd_CurvLan"
+	 flags:   PARAM
+	}
+	k_LCK_Lat_ILmtFac_Vspd_StraLan
+	{
+	 type:    LCK_ArrayDT1_16
+	 alias:   "k_LCK_Lat_ILmtFac_Vspd_StraLan"
+	 flags:   PARAM
+	}
+	k_LCK_Lat_ITermLmt_Dy
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_Lat_ITermLmt_Dy"
+	 flags:   PARAM
+	}
+	k_LCK_Lat_KpKdDecSlopeLmt
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_Lat_KpKdDecSlopeLmt"
+	 flags:   PARAM
+	}
+	k_LCK_Lat_KpKdIncSlopeLmt
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_Lat_KpKdIncSlopeLmt"
+	 flags:   PARAM
+	}
+	k_LCK_Lat_PFac_Dy_InnLftCur
+	{
+	 type:    LCK_ArrayDT1_10
+	 alias:   "k_LCK_Lat_PFac_Dy_InnLftCur"
+	 flags:   PARAM
+	}
+	k_LCK_Lat_PFac_Dy_InnRgtCur
+	{
+	 type:    LCK_ArrayDT1_10
+	 alias:   "k_LCK_Lat_PFac_Dy_InnRgtCur"
+	 flags:   PARAM
+	}
+	k_LCK_Lat_PFac_Dy_OutLftCur
+	{
+	 type:    LCK_ArrayDT1_10
+	 alias:   "k_LCK_Lat_PFac_Dy_OutLftCur"
+	 flags:   PARAM
+	}
+	k_LCK_Lat_PFac_Dy_OutRgtCur
+	{
+	 type:    LCK_ArrayDT1_10
+	 alias:   "k_LCK_Lat_PFac_Dy_OutRgtCur"
+	 flags:   PARAM
+	}
+	k_LCK_Lat_PFac_Dy_Str
+	{
+	 type:    LCK_ArrayDT1_10
+	 alias:   "k_LCK_Lat_PFac_Dy_Str"
+	 flags:   PARAM
+	}
+	k_LCK_Lat_PFac_Rad
+	{
+	 type:    LCK_ArrayDT1_14
+	 alias:   "k_LCK_Lat_PFac_Rad"
+	 flags:   PARAM
+	}
+	k_LCK_Lat_PFac_SS_Cur
+	{
+	 type:    LCK_ArrayDT1_8
+	 alias:   "k_LCK_Lat_PFac_SS_Cur"
+	 flags:   PARAM
+	}
+	k_LCK_Lat_PFac_SS_Str
+	{
+	 type:    LCK_ArrayDT1_8
+	 alias:   "k_LCK_Lat_PFac_SS_Str"
+	 flags:   PARAM
+	}
+	k_LCK_Lat_PFac_Vspd
+	{
+	 type:    LCK_ArrayDT1_16
+	 alias:   "k_LCK_Lat_PFac_Vspd"
+	 flags:   PARAM
+	}
+	k_LCK_Lat_PTermMax
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_Lat_PTermMax"
+	 flags:   PARAM
+	}
+	k_LCK_LnCetr_DlyTm_Rdy2Act
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_LnCetr_DlyTm_Rdy2Act"
+	 flags:   PARAM
+	}
+	k_LCK_LnWidth_DlyTm_Idl2Rdy
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_LnWidth_DlyTm_Idl2Rdy"
+	 flags:   PARAM
+	}
+	k_LCK_LnWidth_DlyTm_Rdy2Idl
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_LnWidth_DlyTm_Rdy2Idl"
+	 flags:   PARAM
+	}
+	k_LCK_LnWidth_LowLmt_Idl2Rdy
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_LnWidth_LowLmt_Idl2Rdy"
+	 flags:   PARAM
+	}
+	k_LCK_LnWidth_LowLmt_Rdy2Idl
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_LnWidth_LowLmt_Rdy2Idl"
+	 flags:   PARAM
+	}
+	k_LCK_LnWidth_UpLmt_Idl2Rdy
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_LnWidth_UpLmt_Idl2Rdy"
+	 flags:   PARAM
+	}
+	k_LCK_LnWidth_UpLmt_Rdy2Idl
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_LnWidth_UpLmt_Rdy2Idl"
+	 flags:   PARAM
+	}
+	k_LCK_LowRng_Spd_Thr
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_LowRng_Spd_Thr"
+	 flags:   PARAM
+	}
+	k_LCK_MinJunction_Range
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_MinJunction_Range"
+	 flags:   PARAM
+	}
+	k_LCK_NonLinCompFac_Vspd
+	{
+	 type:    LCK_ArrayDT1_16
+	 alias:   "k_LCK_NonLinCompFac_Vspd"
+	 flags:   PARAM
+	}
+	k_LCK_NonLinCompTab
+	{
+	 type:    LCK_ArrayDT1_20
+	 alias:   "k_LCK_NonLinCompTab"
+	 flags:   PARAM
+	}
+	k_LCK_NonLinearComp_En
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_NonLinearComp_En"
+	 flags:   PARAM
+	}
+	k_LCK_Ovrd_DlyTm_Rdy2Idl
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_Ovrd_DlyTm_Rdy2Idl"
+	 flags:   PARAM
+	}
+	k_LCK_Ovrd_Torq_Hys
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_Ovrd_Torq_Hys"
+	 flags:   PARAM
+	}
+	k_LCK_PFac_Dy
+	{
+	 type:    LCK_ArrayDT1_10
+	 alias:   "k_LCK_PFac_Dy"
+	 flags:   PARAM
+	}
+	k_LCK_PFac_Dy_Curv
+	{
+	 type:    LCK_ArrayDT1_10
+	 alias:   "k_LCK_PFac_Dy_Curv"
+	 flags:   PARAM
+	}
+	k_LCK_PFac_HaCurCen
+	{
+	 type:    LCK_ArrayDT1_10
+	 alias:   "k_LCK_PFac_HaCurCen"
+	 flags:   PARAM
+	}
+	k_LCK_PFac_HaCurSid
+	{
+	 type:    LCK_ArrayDT1_10
+	 alias:   "k_LCK_PFac_HaCurSid"
+	 flags:   PARAM
+	}
+	k_LCK_PFac_HaStrCen
+	{
+	 type:    LCK_ArrayDT1_10
+	 alias:   "k_LCK_PFac_HaStrCen"
+	 flags:   PARAM
+	}
+	k_LCK_PFac_HaStrSid
+	{
+	 type:    LCK_ArrayDT1_10
+	 alias:   "k_LCK_PFac_HaStrSid"
+	 flags:   PARAM
+	}
+	k_LCK_PFac_HadCurCen
+	{
+	 type:    LCK_ArrayDT1_10
+	 alias:   "k_LCK_PFac_HadCurCen"
+	 flags:   PARAM
+	}
+	k_LCK_PFac_HadCurSid
+	{
+	 type:    LCK_ArrayDT1_10
+	 alias:   "k_LCK_PFac_HadCurSid"
+	 flags:   PARAM
+	}
+	k_LCK_PFac_HadStrCen
+	{
+	 type:    LCK_ArrayDT1_10
+	 alias:   "k_LCK_PFac_HadStrCen"
+	 flags:   PARAM
+	}
+	k_LCK_PFac_HadStrSid
+	{
+	 type:    LCK_ArrayDT1_10
+	 alias:   "k_LCK_PFac_HadStrSid"
+	 flags:   PARAM
+	}
+	k_LCK_PFac_Rad
+	{
+	 type:    LCK_ArrayDT1_14
+	 alias:   "k_LCK_PFac_Rad"
+	 flags:   PARAM
+	}
+	k_LCK_PFac_SA_CurCen
+	{
+	 type:    LCK_ArrayDT1_8
+	 alias:   "k_LCK_PFac_SA_CurCen"
+	 flags:   PARAM
+	}
+	k_LCK_PFac_SA_CurSid
+	{
+	 type:    LCK_ArrayDT1_8
+	 alias:   "k_LCK_PFac_SA_CurSid"
+	 flags:   PARAM
+	}
+	k_LCK_PFac_SA_StrCen
+	{
+	 type:    LCK_ArrayDT1_8
+	 alias:   "k_LCK_PFac_SA_StrCen"
+	 flags:   PARAM
+	}
+	k_LCK_PFac_SA_StrSid
+	{
+	 type:    LCK_ArrayDT1_8
+	 alias:   "k_LCK_PFac_SA_StrSid"
+	 flags:   PARAM
+	}
+	k_LCK_PFac_SS_CurCen
+	{
+	 type:    LCK_ArrayDT1_8
+	 alias:   "k_LCK_PFac_SS_CurCen"
+	 flags:   PARAM
+	}
+	k_LCK_PFac_SS_CurSid
+	{
+	 type:    LCK_ArrayDT1_8
+	 alias:   "k_LCK_PFac_SS_CurSid"
+	 flags:   PARAM
+	}
+	k_LCK_PFac_SS_StrCen
+	{
+	 type:    LCK_ArrayDT1_8
+	 alias:   "k_LCK_PFac_SS_StrCen"
+	 flags:   PARAM
+	}
+	k_LCK_PFac_SS_StrSid
+	{
+	 type:    LCK_ArrayDT1_8
+	 alias:   "k_LCK_PFac_SS_StrSid"
+	 flags:   PARAM
+	}
+	k_LCK_PFac_Vspd
+	{
+	 type:    LCK_ArrayDT1_16
+	 alias:   "k_LCK_PFac_Vspd"
+	 flags:   PARAM
+	}
+	k_LCK_PTermMax
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_PTermMax"
+	 flags:   PARAM
+	}
+	k_LCK_ROC_filt_tau
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_ROC_filt_tau"
+	 flags:   PARAM
+	}
+	k_LCK_RadBks
+	{
+	 type:    LCK_ArrayDT1_14
+	 alias:   "k_LCK_RadBks"
+	 flags:   PARAM
+	}
+	k_LCK_Range_Drop_MinDur
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_Range_Drop_MinDur"
+	 flags:   PARAM
+	}
+	k_LCK_RatLmtFac_TorqCmd_Vspd
+	{
+	 type:    LCK_ArrayDT1_16
+	 alias:   "k_LCK_RatLmtFac_TorqCmd_Vspd"
+	 flags:   PARAM
+	}
+	k_LCK_RatLmt_TorqCmd
+	{
+	 type:    LCK_ArrayDT1_20
+	 alias:   "k_LCK_RatLmt_TorqCmd"
+	 flags:   PARAM
+	}
+	k_LCK_Ready2Active_Mask
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_Ready2Active_Mask"
+	 flags:   PARAM
+	}
+	k_LCK_Ready2Idle_Mask
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_Ready2Idle_Mask"
+	 flags:   PARAM
+	}
+	k_LCK_Rng2VehSpd_Ratio_DlyTime
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_Rng2VehSpd_Ratio_DlyTime"
+	 flags:   PARAM
+	}
+	k_LCK_Rng2VehSpd_Ratio_Thr
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_Rng2VehSpd_Ratio_Thr"
+	 flags:   PARAM
+	}
+	k_LCK_RngThr_FalRec
+	{
+	 type:    LCK_ArrayDT1_16
+	 alias:   "k_LCK_RngThr_FalRec"
+	 flags:   PARAM
+	}
+	k_LCK_SPHighSpd_DlyTm_Idl2Rdy
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_SPHighSpd_DlyTm_Idl2Rdy"
+	 flags:   PARAM
+	}
+	k_LCK_SPLowSpd_DlyTm_Idl2Rdy
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_SPLowSpd_DlyTm_Idl2Rdy"
+	 flags:   PARAM
+	}
+	k_LCK_SPPConfHigh_ProbThre
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_SPPConfHigh_ProbThre"
+	 flags:   PARAM
+	}
+	k_LCK_SPPConfMedHigh_ProbThre
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_SPPConfMedHigh_ProbThre"
+	 flags:   PARAM
+	}
+	k_LCK_SPPConfMed_ProbThre
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_SPPConfMed_ProbThre"
+	 flags:   PARAM
+	}
+	k_LCK_SPTyp_LowLmt_Idl2Rdy
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_SPTyp_LowLmt_Idl2Rdy"
+	 flags:   PARAM
+	}
+	k_LCK_SPTyp_UpLmt_Idl2Rdy
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_SPTyp_UpLmt_Idl2Rdy"
+	 flags:   PARAM
+	}
+	k_LCK_SP_A0_Rdy2Act
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_SP_A0_Rdy2Act"
+	 flags:   PARAM
+	}
+	k_LCK_SP_A0_Rdy2Act_Max
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_SP_A0_Rdy2Act_Max"
+	 flags:   PARAM
+	}
+	k_LCK_SP_A0_Rdy2Act_Min
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_SP_A0_Rdy2Act_Min"
+	 flags:   PARAM
+	}
+	k_LCK_SP_A1_Rdy2Act
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_SP_A1_Rdy2Act"
+	 flags:   PARAM
+	}
+	k_LCK_SP_Conf_Low_JuncTm
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_SP_Conf_Low_JuncTm"
+	 flags:   PARAM
+	}
+	k_LCK_SP_Conf_Med_JuncTm
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_SP_Conf_Med_JuncTm"
+	 flags:   PARAM
+	}
+	k_LCK_SPconfInvld_DlyTm_Rdy2Idl
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_SPconfInvld_DlyTm_Rdy2Idl"
+	 flags:   PARAM
+	}
+	k_LCK_SPconfLow_DlyTm_Rdy2Idl
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_SPconfLow_DlyTm_Rdy2Idl"
+	 flags:   PARAM
+	}
+	k_LCK_SPconfLow_DlyTm_Rdy2Idl_x
+	{
+	 type:    LCK_ArrayDT1_16
+	 alias:   "k_LCK_SPconfLow_DlyTm_Rdy2Idl_x"
+	 flags:   PARAM
+	}
+	k_LCK_SPconfLow_DlyTm_Rdy2Idl_z
+	{
+	 type:    LCK_ArrayDT1_16
+	 alias:   "k_LCK_SPconfLow_DlyTm_Rdy2Idl_z"
+	 flags:   PARAM
+	}
+	k_LCK_SPconfMed_DlyTm_Rdy2Idl
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_SPconfMed_DlyTm_Rdy2Idl"
+	 flags:   PARAM
+	}
+	k_LCK_SPconfMed_DlyTm_Rdy2Idl_x
+	{
+	 type:    LCK_ArrayDT1_16
+	 alias:   "k_LCK_SPconfMed_DlyTm_Rdy2Idl_x"
+	 flags:   PARAM
+	}
+	k_LCK_SPconfMed_DlyTm_Rdy2Idl_z
+	{
+	 type:    LCK_ArrayDT1_16
+	 alias:   "k_LCK_SPconfMed_DlyTm_Rdy2Idl_z"
+	 flags:   PARAM
+	}
+	k_LCK_SigFacHldTim_ActSta
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_SigFacHldTim_ActSta"
+	 flags:   PARAM
+	}
+	k_LCK_SigFacHldTim_DrvStim
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_SigFacHldTim_DrvStim"
+	 flags:   PARAM
+	}
+	k_LCK_StrAngBks
+	{
+	 type:    LCK_ArrayDT1_8
+	 alias:   "k_LCK_StrAngBks"
+	 flags:   PARAM
+	}
+	k_LCK_StrAng_CR_threshold_z
+	{
+	 type:    LCK_ArrayDT1_7
+	 alias:   "k_LCK_StrAng_CR_threshold_z"
+	 flags:   PARAM
+	}
+	k_LCK_StrSpdBks
+	{
+	 type:    LCK_ArrayDT1_8
+	 alias:   "k_LCK_StrSpdBks"
+	 flags:   PARAM
+	}
+	k_LCK_TJALCK_SWSpeed
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_TJALCK_SWSpeed"
+	 flags:   PARAM
+	}
+	k_LCK_TimBks_ActSta
+	{
+	 type:    LCK_ArrayDT1_7
+	 alias:   "k_LCK_TimBks_ActSta"
+	 flags:   PARAM
+	}
+	k_LCK_TimBks_DrvStm
+	{
+	 type:    LCK_ArrayDT1_7
+	 alias:   "k_LCK_TimBks_DrvStm"
+	 flags:   PARAM
+	}
+	k_LCK_TimCon_A0Flt_Normal
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_TimCon_A0Flt_Normal"
+	 flags:   PARAM
+	}
+	k_LCK_TimCon_A0Flt_Strong
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_TimCon_A0Flt_Strong"
+	 flags:   PARAM
+	}
+	k_LCK_TimCon_A1Flt_Normal
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_TimCon_A1Flt_Normal"
+	 flags:   PARAM
+	}
+	k_LCK_TimCon_A1Flt_Strong
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_TimCon_A1Flt_Strong"
+	 flags:   PARAM
+	}
+	k_LCK_TimCon_A2Flt_Normal
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_TimCon_A2Flt_Normal"
+	 flags:   PARAM
+	}
+	k_LCK_TimCon_A2Flt_Strong
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_TimCon_A2Flt_Strong"
+	 flags:   PARAM
+	}
+	k_LCK_TimCon_A3Flt_Normal
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_TimCon_A3Flt_Normal"
+	 flags:   PARAM
+	}
+	k_LCK_TimCon_A3Flt_Strong
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_TimCon_A3Flt_Strong"
+	 flags:   PARAM
+	}
+	k_LCK_TimCon_RadFlt
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_TimCon_RadFlt"
+	 flags:   PARAM
+	}
+	k_LCK_TimCon_YawRtFlt
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_TimCon_YawRtFlt"
+	 flags:   PARAM
+	}
+	k_LCK_TinCon_LaneProbFlt
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_TinCon_LaneProbFlt"
+	 flags:   PARAM
+	}
+	k_LCK_TorqCmdBks
+	{
+	 type:    LCK_ArrayDT1_20
+	 alias:   "k_LCK_TorqCmdBks"
+	 flags:   PARAM
+	}
+	k_LCK_TorqThrBig_DrvStim
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_TorqThrBig_DrvStim"
+	 flags:   PARAM
+	}
+	k_LCK_TorqThr_DrvStim
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_TorqThr_DrvStim"
+	 flags:   PARAM
+	}
+	k_LCK_UseSP_MaxRange
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_UseSP_MaxRange"
+	 flags:   PARAM
+	}
+	k_LCK_VehSpd_LowLmtFus_Idl2Rdy
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_VehSpd_LowLmtFus_Idl2Rdy"
+	 flags:   PARAM
+	}
+	k_LCK_VehSpd_LowlmtVis_Idl2Rdy
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_VehSpd_LowlmtVis_Idl2Rdy"
+	 flags:   PARAM
+	}
+	k_LCK_VehSpd_LowlmtVis_Rdy2Idl
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_VehSpd_LowlmtVis_Rdy2Idl"
+	 flags:   PARAM
+	}
+	k_LCK_VehSpd_TJA_ICA_Bound
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_VehSpd_TJA_ICA_Bound"
+	 flags:   PARAM
+	}
+	k_LCK_VehSpd_Uplmt_Idl2Rdy
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_VehSpd_Uplmt_Idl2Rdy"
+	 flags:   PARAM
+	}
+	k_LCK_VehSpd_Uplmt_Rdy2Idl
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_VehSpd_Uplmt_Rdy2Idl"
+	 flags:   PARAM
+	}
+	k_LCK_VisionOnly
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_VisionOnly"
+	 flags:   PARAM
+	}
+	k_LCK_VspdBks
+	{
+	 type:    LCK_ArrayDT1_16
+	 alias:   "k_LCK_VspdBks"
+	 flags:   PARAM
+	}
+	k_LCK_YR_OffstFac_Dy_LftCurv
+	{
+	 type:    LCK_ArrayDT1_19
+	 alias:   "k_LCK_YR_OffstFac_Dy_LftCurv"
+	 flags:   PARAM
+	}
+	k_LCK_YR_OffstFac_Dy_RgtCurv
+	{
+	 type:    LCK_ArrayDT1_19
+	 alias:   "k_LCK_YR_OffstFac_Dy_RgtCurv"
+	 flags:   PARAM
+	}
+	k_LCK_YawRateSign
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_YawRateSign"
+	 flags:   PARAM
+	}
+	k_LCK_YawRateThr_Act2Rdy_ROC_x
+	{
+	 type:    LCK_ArrayDT1_6
+	 alias:   "k_LCK_YawRateThr_Act2Rdy_ROC_x"
+	 flags:   PARAM
+	}
+	k_LCK_YawRateThr_Act2Rdy_z
+	{
+	 type:    LCK_ArrayDT1_6
+	 alias:   "k_LCK_YawRateThr_Act2Rdy_z"
+	 flags:   PARAM
+	}
+	k_LCK_YawRateThr_DlyTm_Act2Rdy
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_YawRateThr_DlyTm_Act2Rdy"
+	 flags:   PARAM
+	}
+	k_LCK_YawRateThr_Idl2Rdy
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_YawRateThr_Idl2Rdy"
+	 flags:   PARAM
+	}
+	k_LCK_YawRate_DlyTm_Idl2Rdy
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_YawRate_DlyTm_Idl2Rdy"
+	 flags:   PARAM
+	}
+	k_LCK_YawRate_OffsetFac_Vspd
+	{
+	 type:    LCK_ArrayDT1_16
+	 alias:   "k_LCK_YawRate_OffsetFac_Vspd"
+	 flags:   PARAM
+	}
+	k_LCK_YawRate_Offset_LftCurv
+	{
+	 type:    LCK_ArrayDT1_14
+	 alias:   "k_LCK_YawRate_Offset_LftCurv"
+	 flags:   PARAM
+	}
+	k_LCK_YawRate_Offset_RgtCurv
+	{
+	 type:    LCK_ArrayDT1_14
+	 alias:   "k_LCK_YawRate_Offset_RgtCurv"
+	 flags:   PARAM
+	}
+	k_LCK_accel_inhibit_thold
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_accel_inhibit_thold"
+	 flags:   PARAM
+	}
+	k_LCK_host_veh_width
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LCK_host_veh_width"
+	 flags:   PARAM
+	}
+	k_LCK_ovrd_torq_thold_per_spd_x
+	{
+	 type:    LCK_ArrayDT1_6
+	 alias:   "k_LCK_ovrd_torq_thold_per_spd_x"
+	 flags:   PARAM
+	}
+	k_LCK_ovrd_torq_thold_per_spd_z
+	{
+	 type:    LCK_ArrayDT1_6
+	 alias:   "k_LCK_ovrd_torq_thold_per_spd_z"
+	 flags:   PARAM
+	}
+	k_LC_Exit_Switch
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_LC_Exit_Switch"
+	 flags:   PARAM
+	}
+	k_Ovrd_torq_thold_per_spd_sw
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_Ovrd_torq_thold_per_spd_sw"
+	 flags:   PARAM
+	}
+	k_StrAng_CR_hold_msec
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_StrAng_CR_hold_msec"
+	 flags:   PARAM
+	}
+	k_StrAng_CR_suppress_hold
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_StrAng_CR_suppress_hold"
+	 flags:   PARAM
+	}
+	k_StrAng_CR_threshold_x
+	{
+	 type:    LCK_ArrayDT1_7
+	 alias:   "k_StrAng_CR_threshold_x"
+	 flags:   PARAM
+	}
+	k_StrAng_CR_threshold_z
+	{
+	 type:    LCK_ArrayDT1_7
+	 alias:   "k_StrAng_CR_threshold_z"
+	 flags:   PARAM
+	}
+	k_StrAng_filter_tau
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_StrAng_filter_tau"
+	 flags:   PARAM
+	}
+	k_Use_Constant_SPP_Timer
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_Use_Constant_SPP_Timer"
+	 flags:   PARAM
+	}
+	k_accel_pedal_pos_per_speed_x
+	{
+	 type:    LCK_ArrayDT1_13
+	 alias:   "k_accel_pedal_pos_per_speed_x"
+	 flags:   PARAM
+	}
+	k_accel_pedal_pos_per_speed_z
+	{
+	 type:    LCK_ArrayDT1_13
+	 alias:   "k_accel_pedal_pos_per_speed_z"
+	 flags:   PARAM
+	}
+	k_brake_suprress_hold
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_brake_suprress_hold"
+	 flags:   PARAM
+	}
+	k_driver_appl_torque_filt
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_driver_appl_torque_filt"
+	 flags:   PARAM
+	}
+	k_driver_suppression_hold_time
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_driver_suppression_hold_time"
+	 flags:   PARAM
+	}
+	k_hands_on_wheel_hold_msec
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_hands_on_wheel_hold_msec"
+	 flags:   PARAM
+	}
+	k_hands_on_wheel_torque_hi
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_hands_on_wheel_torque_hi"
+	 flags:   PARAM
+	}
+	k_hands_on_wheel_torque_lo
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_hands_on_wheel_torque_lo"
+	 flags:   PARAM
+	}
+	k_handsoff_delay_cycles
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_handsoff_delay_cycles"
+	 flags:   PARAM
+	}
+	k_handsoff_torq_Lo_CR
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_handsoff_torq_Lo_CR"
+	 flags:   PARAM
+	}
+	k_handson_delay_cycles
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_handson_delay_cycles"
+	 flags:   PARAM
+	}
+	k_hs_StrAng_CR_threshold_z
+	{
+	 type:    LCK_ArrayDT1_7
+	 alias:   "k_hs_StrAng_CR_threshold_z"
+	 flags:   PARAM
+	}
+	k_ls_StrAng_CR_threshold_z
+	{
+	 type:    LCK_ArrayDT1_7
+	 alias:   "k_ls_StrAng_CR_threshold_z"
+	 flags:   PARAM
+	}
+	k_override_left_torq_thold
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_override_left_torq_thold"
+	 flags:   PARAM
+	}
+	k_override_right_torq_thold
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_override_right_torq_thold"
+	 flags:   PARAM
+	}
+	k_override_torq_sustain_period
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_override_torq_sustain_period"
+	 flags:   PARAM
+	}
+	k_turn_suprress_hold
+	{
+	 type:    flt(32,IEEE)
+	 alias:   "k_turn_suprress_hold"
+	 flags:   PARAM
+	}
+	c_BIT0
+	{
+	 type:    uint(16)
+	 alias:   "c_BIT0"
+	 flags:   PARAM
+	}
+	c_BIT1
+	{
+	 type:    uint(16)
+	 alias:   "c_BIT1"
+	 flags:   PARAM
+	}
+	c_BIT10
+	{
+	 type:    uint(16)
+	 alias:   "c_BIT10"
+	 flags:   PARAM
+	}
+	c_BIT11
+	{
+	 type:    uint(16)
+	 alias:   "c_BIT11"
+	 flags:   PARAM
+	}
+	c_BIT12
+	{
+	 type:    uint(16)
+	 alias:   "c_BIT12"
+	 flags:   PARAM
+	}
+	c_BIT13
+	{
+	 type:    uint(16)
+	 alias:   "c_BIT13"
+	 flags:   PARAM
+	}
+	c_BIT14
+	{
+	 type:    uint(16)
+	 alias:   "c_BIT14"
+	 flags:   PARAM
+	}
+	c_BIT15
+	{
+	 type:    uint(16)
+	 alias:   "c_BIT15"
+	 flags:   PARAM
+	}
+	c_BIT2
+	{
+	 type:    uint(16)
+	 alias:   "c_BIT2"
+	 flags:   PARAM
+	}
+	c_BIT3
+	{
+	 type:    uint(16)
+	 alias:   "c_BIT3"
+	 flags:   PARAM
+	}
+	c_BIT4
+	{
+	 type:    uint(16)
+	 alias:   "c_BIT4"
+	 flags:   PARAM
+	}
+	c_BIT5
+	{
+	 type:    uint(16)
+	 alias:   "c_BIT5"
+	 flags:   PARAM
+	}
+	c_BIT6
+	{
+	 type:    uint(16)
+	 alias:   "c_BIT6"
+	 flags:   PARAM
+	}
+	c_BIT7
+	{
+	 type:    uint(16)
+	 alias:   "c_BIT7"
+	 flags:   PARAM
+	}
+	c_BIT8
+	{
+	 type:    uint(16)
+	 alias:   "c_BIT8"
+	 flags:   PARAM
+	}
+	c_BIT9
+	{
+	 type:    uint(16)
+	 alias:   "c_BIT9"
+	 flags:   PARAM
+	}
+	LCK_BOOLEAN_FALSE
+	{
+	 type:    uint(8)
+	 alias:   "LCK_BOOLEAN_FALSE"
+	 bitmask: 0x01
+	 range:   < 0 ; 1 >
+	 flags:   PARAM
+	}
+	LCK_BOOLEAN_TURE
+	{
+	 type:    uint(8)
+	 alias:   "LCK_BOOLEAN_TURE"
+	 bitmask: 0x01
+	 range:   < 0 ; 1 >
+	 flags:   PARAM
+	}
+
+endgroup
+
+-- ******** State Machine Data ************************************************
+
+group "State Machine Data"
+
+
+endgroup
+
+
+-- ******** Labels ************************************************************
+
+-- Generation of labels turned off with TRCGenerateLabels option.
+
+-- ******** RTT Dynamic Variables *********************************************
+
+group "RTT Dynamic Variables"
+
+endgroup
+

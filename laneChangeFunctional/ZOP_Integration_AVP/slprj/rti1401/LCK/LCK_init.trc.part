@@ -1,0 +1,1036 @@
+
+
+-- Type definitions for structures
+
+struct LCK_LatCtrl_LCK_LanSigInputs_t
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "VID_Lin_01_ProbExists"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "VID_Lin_01_Type"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "VID_Lin_01_A0"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "VID_Lin_01_A1"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "VID_Lin_01_A2"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "VID_Lin_01_A3"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "VID_Lin_01_Range"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "VID_Lin_02_ProbExists"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "VID_Lin_02_Type"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "VID_Lin_02_A0"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField10 
+    {
+      alias:   "VID_Lin_02_A1"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField11 
+    {
+      alias:   "VID_Lin_02_A2"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField12 
+    {
+      alias:   "VID_Lin_02_A3"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField13 
+    {
+      alias:   "VID_Lin_02_Range"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField14 
+    {
+      alias:   "VID_Lane_Width"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct LCK_LatCtrl_LCK_TrackSigInputs_t
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "CIPV1ObjTrackID"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "CIPV1ObjRange"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct LCK_LatCtrl_LCK_VehSigInputs_t
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "Vehicle_Speed"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "Steer_Ang"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "Steer_Spd"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "Steer_Torq"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "Veh_Yaw_Rate"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "LDWLKASwReq"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "LKATrqOvrlTrqDStat"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "DirectionIndSwitchPos"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "BrkPedalApplied"
+      type:    uint(8)
+      offs:    -1
+      range:   < 0 ; 1 >
+      bitmask: 0x01
+    }
+    structField9 
+    {
+      alias:   "AccPedalPosition"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField10 
+    {
+      alias:   "Gear_Pos"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct LCK_FUS_LANE_START_POINT
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "x0"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "y0"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct LCK_FUS_LANE_TRACK_EST_ST
+{
+  array-incr: -1
+  desc:       "descripton of a curve as function f(x)= a + bx + cx^2 +dx^3 this structure defines the coefficient of the curve function"
+}
+    structField0 
+    {
+      alias:   "latDistanceZeroOrderCoeff"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "coefficient a"
+    }
+    structField1 
+    {
+      alias:   "latDistanceFirstOrderCoeff"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "coefficient b"
+    }
+    structField2 
+    {
+      alias:   "latDistanceSecondOrderCoeff"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "coefficient c"
+    }
+    structField3 
+    {
+      alias:   "latDistanceThirdOrderCoeff"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "coefficient d"
+    }
+    structField4 
+    {
+      alias:   "longDistanceToend"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "end of the curve"
+    }
+    structField5 
+    {
+      alias:   "startPoint"
+      type:    struct LCK_FUS_LANE_START_POINT
+      offs:    -1
+    }
+endstruct
+
+struct LCK_FUS_LANE_DATA_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "id"
+      type:    uint(8)
+      offs:    -1
+      desc:    "The obj id.The id number needs to be equal to the index in the object stucture"
+    }
+    structField1 
+    {
+      alias:   "traceStatus"
+      type:    uint(8)
+      offs:    -1
+      desc:    "0:invalid,\n1:init,\n2:measurement,\n3:predicted"
+    }
+    structField2 
+    {
+      alias:   "quality"
+      type:    uint(8)
+      offs:    -1
+      desc:    "0:Low,\n1:Mid,\n2:Mid high\n3:High"
+    }
+    structField3 
+    {
+      alias:   "color"
+      type:    uint(8)
+      offs:    -1
+      desc:    "0:unknown,\n1:white,\n2:yellow,\n3:blue"
+    }
+    structField4 
+    {
+      alias:   "type"
+      type:    uint(32)
+      offs:    -1
+      desc:    "0: None,\n1: Solid,\n2: Dashed,\n3: Solid Dashed\n4: Dashed Solid\n5: Double(Left Dased, Right Solid)\n6: Double(Left Solid, Right Dased)\n7: Double(Double Dashed)\n8: Double(Double Solid)\n9: Botts Dots\n10: Invalid\n11: Undecided"
+    }
+    structField5 
+    {
+      alias:   "width"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "total width of lane marker, from inner edge to outer edge"
+    }
+    structField6 
+    {
+      alias:   "curFunction"
+      type:    struct LCK_FUS_LANE_TRACK_EST_ST
+      offs:    -1
+      desc:    "fusion lane marker curve function"
+    }
+endstruct
+
+struct LCK_FUS_LANE_PRIMARY_TRA
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "id"
+      type:    uint(8)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "traceStatus"
+      type:    uint(8)
+      offs:    -1
+      desc:    "0 invalid \n1 init\n2 measurement \n3 predicted"
+    }
+    structField2 
+    {
+      alias:   "quality"
+      type:    uint(8)
+      offs:    -1
+      desc:    "0 invalid\n1 low\n2 mid\n3 mid high\n4 high"
+    }
+    structField3 
+    {
+      alias:   "curveFunc"
+      type:    struct LCK_FUS_LANE_TRACK_EST_ST
+      offs:    -1
+    }
+endstruct
+
+struct LCK_FUS_LANE_OUTPUT_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "timestamp"
+      type:    flt(64,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "frameNum"
+      type:    uint(32)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "hostLaneWidth"
+      type:    flt(32,IEEE)
+      offs:    -1
+      desc:    "host lane width"
+    }
+    structField3 
+    {
+      alias:   "leftLaneWidth"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "rightLaneWidth"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "leftHostLane"
+      type:    struct LCK_FUS_LANE_DATA_ST
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "rightHostLane"
+      type:    struct LCK_FUS_LANE_DATA_ST
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "leftNeighborLane"
+      type:    struct LCK_FUS_LANE_DATA_ST
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "rightNeighborLane"
+      type:    struct LCK_FUS_LANE_DATA_ST
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "primaryObjTrajectory"
+      type:    struct LCK_FUS_LANE_PRIMARY_TRA
+      offs:    -1
+    }
+    structField10 
+    {
+      alias:   "laneChangeStatus"
+      type:    uint(32)
+      offs:    -1
+      desc:    "0:No lane change,\n1:Lane change to the left,\n2:Lane change to the right"
+    }
+endstruct
+
+struct LCK_AVP_OUTPUT_ST
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "Tractory_c0"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "Tractory_c1"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "Tractory_c2"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "Tractory_c3"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "EndPoint_x"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "EndPoint_y"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "AVP_STATE"
+      type:    uint(8)
+      offs:    -1
+      desc:    "The AVP_STATE indicaes the state of AVP and detail as below:\n00: Invalid\n01:Parking In\n02:Parking Out\n03:Stop"
+    }
+endstruct
+
+struct LCK_LatCtrl_LCK_SPPInfo_t
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "SPP_Conf"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "SPP_Type"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "SPP_A0"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "SPP_A1"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "SPP_A2"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "SPP_A3"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct LCK_HMI_Lateral_t
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "LKS_Error"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "LKS_Passive_Rea"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "LKS_Status"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "LC_pro_reason"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "LC_Proposal"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "LC_Reason"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "LC_Request"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "LC_Tip"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "LC_Fail_Tip"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "LC_Dis_dy"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField10 
+    {
+      alias:   "LC_Dis_dx"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField11 
+    {
+      alias:   "LC_Direction"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField12 
+    {
+      alias:   "Handsoff_Warning"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct LCK_struct_hUaVbDrvPV0RjyB2R0SfSB
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "SPP_A0_Fltd"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "SPP_A1_Fltd"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "SPP_A2_Fltd"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "SPP_A3_Fltd"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct LCK_struct_n8Z6qSd2wPBIhVCBA14BpE
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "Dy_1"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "Dy_0"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "Lat_Rate"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "Hed_Ang"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "Hed_Ang_Rat"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct LCK_struct_3Mqe233S7SDSx9uldklNkF
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "Road_Radius"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "Curvature_0"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "Curvature_1"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "Curvature_Rate"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct LCK_struct_0QmJkrpya5SkeiuWB5SSxF
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "Lat_Ctr_Cmd"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "Lat_Ctrl_PTerm"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "Lat_Ctrl_ITerm"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "Lat_Ctrl_DTerm"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "Lat_Ctrl_PTerm_0"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "Lat_Ctrl_PTerm_1"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "Lat_Ctrl_ITerm_0"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "Lat_Ctrl_ITerm_1"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct LCK_struct_pdYFnXh3ozcAAtgxS34mJ
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "LatCtrl_Cmd"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "LatCtrl_PTerm"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "LatCtrl_DTerm"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "LatCtrl_P"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "LatCtrl_D"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct LCK_struct_B6sIYkfGJU0JV8DvSTBye
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "SPP_Coeff"
+      type:    struct LCK_struct_hUaVbDrvPV0RjyB2R0SfSB
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "PID_Control_Signals"
+      type:    struct LCK_struct_n8Z6qSd2wPBIhVCBA14BpE
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "Curve_Parameters"
+      type:    struct LCK_struct_3Mqe233S7SDSx9uldklNkF
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "Lat_Ctrl_Info"
+      type:    struct LCK_struct_0QmJkrpya5SkeiuWB5SSxF
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "LatCtrl_Info"
+      type:    struct LCK_struct_pdYFnXh3ozcAAtgxS34mJ
+      offs:    -1
+    }
+endstruct
+
+struct LCK_struct_6yGOi0Eh0gPggK0IVo0FdB
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "signal1"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "signal2"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "signal3"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "signal4"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "signal5"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct LCK_struct_NjYvygQNC0GIsxMiWU9s6E
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "SPP_Conf"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "SPP_Type"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "SPP_A0"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "SPP_A1"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "SPP_A2"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "SPP_A3"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct LCK_struct_FIcryxmgVL22aI7I6bhv4C
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "VID_Lin_01_ProbExists"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "VID_Lin_01_Type"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "VID_Lin_01_A0"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "VID_Lin_01_A1"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField4 
+    {
+      alias:   "VID_Lin_01_A2"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField5 
+    {
+      alias:   "VID_Lin_01_A3"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField6 
+    {
+      alias:   "VID_Lin_01_Range"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField7 
+    {
+      alias:   "VID_Lin_02_ProbExists"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField8 
+    {
+      alias:   "VID_Lin_02_Type"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField9 
+    {
+      alias:   "VID_Lin_02_A0"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField10 
+    {
+      alias:   "VID_Lin_02_A1"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField11 
+    {
+      alias:   "VID_Lin_02_A2"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField12 
+    {
+      alias:   "VID_Lin_02_A3"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField13 
+    {
+      alias:   "VID_Lin_02_Range"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+    structField14 
+    {
+      alias:   "VID_Lane_Width"
+      type:    flt(32,IEEE)
+      offs:    -1
+    }
+endstruct
+
+struct LCK_struct_mangFo2BVnlYQ9swmRAj7G
+{
+  array-incr: -1
+}
+    structField0 
+    {
+      alias:   "LCK_Ctrl_Info"
+      type:    struct LCK_struct_B6sIYkfGJU0JV8DvSTBye
+      offs:    -1
+    }
+    structField1 
+    {
+      alias:   "LCK_State_Info"
+      type:    struct LCK_struct_6yGOi0Eh0gPggK0IVo0FdB
+      offs:    -1
+    }
+    structField2 
+    {
+      alias:   "SPP_Info"
+      type:    struct LCK_LatCtrl_LCK_SPPInfo_t
+      offs:    -1
+    }
+    structField3 
+    {
+      alias:   "LanSigInputs"
+      type:    struct LCK_LatCtrl_LCK_LanSigInputs_t
+      offs:    -1
+    }
+endstruct
+
+
+-- Type definitions for arrays
+typedef LCK_ArrayDT0_400_8_Col col flt(64,IEEE)[400][8]
+typedef LCK_ArrayDT1_16 flt(32,IEEE)[16]
+typedef LCK_ArrayDT1_14 flt(32,IEEE)[14]
+typedef LCK_ArrayDT0_3200 flt(64,IEEE)[3200]
+typedef LCK_ArrayDT1_7 flt(32,IEEE)[7]
+typedef LCK_ArrayDT1_19 flt(32,IEEE)[19]
+typedef LCK_ArrayDT1_15 flt(32,IEEE)[15]
+typedef LCK_ArrayDT1_10 flt(32,IEEE)[10]
+typedef LCK_ArrayDT1_8 flt(32,IEEE)[8]
+typedef LCK_ArrayDT1_20 flt(32,IEEE)[20]
+typedef LCK_ArrayDT1_6 flt(32,IEEE)[6]
+typedef LCK_ArrayDT1_13 flt(32,IEEE)[13]
+
+
