@@ -24,17 +24,21 @@ yy=hist(Y,X);%
 %hist(y,20); %
 yy=yy/length(X);%£¬
 figure
+xlim([0 6])
 bar(X,yy);%
 hold on
-
 
 
 N = length(Y);
 ybar =mean(Y); 
 b = randperm(20,1);
 mu1 = Y(b);
-b = randperm(20,1);
-mu2 = Y(b);
+
+b2 = randperm(20,1);
+if b2 == b
+    b2 = randperm(20,1);
+end
+mu2 = Y(b2);
 var1=sum(((Y-ybar).^2)/N);
 var2=sum(((Y-ybar).^2)/N);
 PI = 0.5;
@@ -58,12 +62,15 @@ function parameter = makeEM(Y,N,parameter,iter)
     PI=sum(R)/N;
     parameter=[PI,mu1,mu2,var1,var2];
     runEM =parameter;
+
     drawnow 
     pause(0.1)
     plotGaussian(runEM(2),runEM(4));
+    xlim([-4 10])
     hold on
     plotGaussian(runEM(3),runEM(5));
-    hold on
+    xlim([-4 10])
+    
   end
 end
 
