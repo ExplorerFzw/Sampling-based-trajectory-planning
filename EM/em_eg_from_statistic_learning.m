@@ -19,8 +19,15 @@ close all
 
 Y = [-0.39 0.12 0.94 1.67 1.76 2.44 3.72...
     4.28 4.92 5.53 0.06 0.48 1.01 1.68 1.80 3.25 4.12 4.60 5.28 6.22];
-for(i = 1:length(Y))
-    switch Y 
+X = linspace(min(Y),max(Y),14);
+yy=hist(Y,X);%
+%hist(y,20); %
+yy=yy/length(X);%£¬
+figure
+bar(X,yy);%
+hold on
+
+
 
 N = length(Y);
 ybar =mean(Y); 
@@ -32,11 +39,9 @@ var1=sum(((Y-ybar).^2)/N);
 var2=sum(((Y-ybar).^2)/N);
 PI = 0.5;
 init_guess=[PI,mu1,mu2,var1,var2];
-runEM = makeEM(Y,N,init_guess,20)
-figure
-plotGaussian(runEM(2),runEM(4));
-hold on
-plotGaussian(runEM(3),runEM(5));
+runEM = makeEM(Y,N,init_guess,50)
+
+
 
 function parameter = makeEM(Y,N,parameter,iter)
   for j = 1:iter
@@ -52,6 +57,13 @@ function parameter = makeEM(Y,N,parameter,iter)
     var2=sum(R.*(Y-mu2).^2)/sum(R);
     PI=sum(R)/N;
     parameter=[PI,mu1,mu2,var1,var2];
+    runEM =parameter;
+    drawnow 
+    pause(0.1)
+    plotGaussian(runEM(2),runEM(4));
+    hold on
+    plotGaussian(runEM(3),runEM(5));
+    hold on
   end
 end
 
@@ -63,7 +75,7 @@ end
   function plotGaussian(mu,sigma)
   prob = [];
   x = [];
-      for i = (mu -4*sigma):0.1:(mu + 4*sigma)
+      for i = (mu -3*sigma):0.1:(mu + 3*sigma)
             
           prob=[prob, 1/sqrt(2*pi*sigma)*exp(-((i-mu)^2/(2*sigma)))];
           x = [x,i];
