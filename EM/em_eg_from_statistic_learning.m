@@ -89,7 +89,7 @@ end
       end
       plot(x,prob);
   end
-  
+
 
 
 
