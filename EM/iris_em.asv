@@ -4,8 +4,6 @@ close all
 
 load fisheriris;
 X = meas(:,1:2);
-X(1:75,:) = X(1:75,:);
-X(76:150,:) = X(76:150,:) ;
 [n,p] = size(X);
 
 figure
@@ -14,7 +12,7 @@ title('Fisher''s Iris Data Set');
 xlabel('Sepal length (cm)');
 ylabel('Sepal width (cm)');
 %%
-[omega, alpha, mu, cov] = gmm_em(X,3,100)
+[omega, alpha, mu, cov] = gmm_em(X,3,10)
 cov{1}
 for i = 1:3
     plotGaussian2(mu(i,:),cov{i})
@@ -35,8 +33,7 @@ function [omega, alpha, mu, cov] = gmm_em(Y,K,iters)
         b = randperm(N,1);
         mu1 = Y(b,:);
         mu  = [mu;mu1];
-%         mu = [4,2; 8,4];
-        
+        mu = [5.4,3.9;5.1,2.5;7.2,3.2];
     end
     sigma = eye(D);%inital guess for sigma
     cov = cell(1,K);% initial guess for covariance matrix
@@ -77,7 +74,7 @@ function [omega, alpha, mu, cov] = gmm_em(Y,K,iters)
             for j = 1:N
                 Omega(j,j) = omega(j,k);
             end
-            cov{k} = X_mu_k' * Omega * X_mu_k / sumOmega(k); % 2 * 2
+            cov{k} = X_mu_k' * Omega * X_mu_k; % 2 * 2
         end
     end
 end
@@ -95,9 +92,9 @@ function plotGaussian2(mu,sigma)
     Y = [];
     i = 1;
     
-    for row = mu(1)-4*sigma(1,1): 8*sigma(1,1)/50 : mu(1)+4*sigma(1,1)
+    for row = mu(1)-3*sigma(1,1): 6*sigma(1,1)/50 : mu(1)+3*sigma(1,1)
          j = 1;
-        for col = mu(2)-4*sigma(2,2): 8*sigma(2,2)/50  : mu(2)+4*sigma(2,2)
+        for col = mu(2)-3*sigma(2,2): 6*sigma(2,2)/50  : mu(2)+3*sigma(2,2)
             y = [row,col];
            
             Z(i,j) = 1/(2*pi*sqrt(det(sigma)))*exp(-1/2*(y-mu)*inv(sigma)*(y-mu)');
@@ -105,8 +102,8 @@ function plotGaussian2(mu,sigma)
         end
         i = i+1;
     end
-    X = mu(1)-4*sigma(1,1): 8*sigma(1,1)/50  : mu(1)+4*sigma(1,1);
-    Y = mu(2)-4*sigma(2,2): 8*sigma(2,2)/50  : mu(2)+4*sigma(2,2);
+    X = mu(1)-3*sigma(1,1): 6*sigma(1,1)/50  : mu(1)+3*sigma(1,1);
+    Y = mu(2)-3*sigma(2,2): 6*sigma(2,2)/50  : mu(2)+3*sigma(2,2);
     surf(X,Y,Z,'FaceAlpha',0.5,'EdgeColor','none')
    
     
